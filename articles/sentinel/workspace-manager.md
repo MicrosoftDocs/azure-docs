@@ -6,6 +6,10 @@ ms.author: austinmc
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.custom: template-how-to
+
+
+#Customer intent: As a Managed Security Services Provider (MSSP) or global enterprise, I want to centrally manage multiple security workspaces so that I can efficiently operate at scale across one or more Azure tenants.
+
 ---
 
 # Centrally manage multiple Microsoft Sentinel workspaces with workspace manager (Preview)

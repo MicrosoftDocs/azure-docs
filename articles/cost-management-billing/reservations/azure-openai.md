@@ -51,6 +51,8 @@ For example, assume that your total consumption of provisioned throughput units 
 
 ## Buy a Microsoft Azure OpenAI reservation
 
+When you buy a reservation, the current UTC date and time are used to record the transaction.
+
 To buy an Azure OpenAI reservation, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

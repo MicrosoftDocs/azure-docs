@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to take advantage of Microsoft Teams' integration with Microsoft Sentinel to collaborate efficiently on incident investigations with my team.
+
 ---
 
 # Collaborate in Microsoft Teams (Public preview)

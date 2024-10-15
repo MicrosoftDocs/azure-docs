@@ -20,6 +20,9 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
+> [!IMPORTANT]
+> If you're upgrading your public preview from version 0.6.0 to version 0.7.0, you must uninstall the previous version before deploying the new version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-manage-update-uninstall.md#update).
+
 ## Before you begin
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
@@ -88,6 +91,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
    ```
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -105,7 +109,7 @@ To connect your cluster to Azure Arc:
    >[!TIP]
    >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)

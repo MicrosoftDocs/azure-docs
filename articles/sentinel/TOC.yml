@@ -1039,6 +1039,12 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
+  - name: Build and publish Microsoft Sentinel solutions
+    items:
+    - name: Publish solutions
+      href: publish-sentinel-solutions.md
+    - name: Solution lifecycle post publish
+      href: sentinel-solutions-post-publish-tracking.md
   - name: Management references
     items:
     - name: Microsoft Sentinel Logic Apps connector

@@ -3,7 +3,7 @@ title: How to manage legal tags in Microsoft Azure Data Manager for Energy
 description: This article describes how to manage legal tags in Azure Data Manager for Energy
 author: Lakshmisha-KS
 ms.author: lakshmishaks
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 02/20/2023
 ms.custom: template-how-to

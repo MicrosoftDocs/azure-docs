@@ -4,8 +4,7 @@ description: Learn about the system requirements for your Microsoft Azure Stack 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: alkohli
