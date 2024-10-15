@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 10/15/2024
 ms.custom: linux-related-content
 ---
 
@@ -200,9 +200,7 @@ After allowing some time for your Graylog server to collect messages, you are ab
 
 ![Screenshot shows the Graylog server that displays Search result, Histogram, and Messages.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
-Clicking on the blue "%{Message}" link expands each message to show the parameters of each flow tuple, as shown in the following picture:
-
-![Screenshot shows message detail from the Graylog server.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+Select the blue **%{Message}** link to expand the message to show the parameters of the flow tuple.
 
 By default, all message fields are included in the search if you don't select a specific message field to search for. If you want to search for specific messages (i.e - flow tuples from a specific source IP) you can use the Graylog search query language as [documented](https://archivedocs.graylog.org/en/3.2/pages/queries.html)
 
@@ -246,7 +244,7 @@ the dashboard are **Quick Values** charts, which display a list of values of the
 By integrating Network Watcher with Graylog, you now have a convenient and centralized way to manage and visualize network security group flow logs. Graylog has a number of other powerful features such as streams and alerts that can also be used to further manage flow logs and better understand your network traffic. Now that
 you have Graylog set up and connected to Azure, feel free to continue to explore the other functionality that it offers.
 
-## Next steps
+## Next step
 
-Learn how to visualize your network security group flow logs with Power BI by visiting [Visualize network security group flows logs with Power
-BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+> [!div class="nextstepaction"]
+> [Visualize network security group flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
