@@ -7,6 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 appliesto: 
   - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to leverage advanced multistage attack detection using machine learning so that I can identify and respond to sophisticated threats with high accuracy and minimal false positives.
 ---
 
 # Advanced multistage attack detection in Microsoft Sentinel

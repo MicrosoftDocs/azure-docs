@@ -98,9 +98,9 @@ To configure the session lock experience using Intune:
 
       1. Expand the **Administrative templates** category, then toggle the switch for **Disconnect remote session on lock for Microsoft identity platform authentication** to **Enabled** or **Disabled**:
 
-         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**, then select **OK**.
+         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**.
 
-         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**, then select **OK**.
+         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**.
 
    - For legacy authentication protocols:
 
@@ -108,9 +108,9 @@ To configure the session lock experience using Intune:
 
       1. Expand the **Administrative templates** category, then toggle the switch for **Disconnect remote session on lock for legacy authentication** to **Enabled** or **Disabled**:
 
-         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**, then select **OK**.
+         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**.
 
-         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**, then select **OK**.
+         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**.
 
 1. Select **Next**.
 

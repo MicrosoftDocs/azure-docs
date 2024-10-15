@@ -4,8 +4,7 @@ description: Describes Kubernetes failover scenarios and the device responses on
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 02/15/2022
 ms.author: alkohli

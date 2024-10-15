@@ -33,7 +33,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -51,7 +51,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -153,7 +153,7 @@ To configure the audio output location using host pool RDP properties:
 
 1. Select **Save**.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
@@ -182,9 +182,9 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Allow audio and video playback redirection**, depending on your requirements:
 
-   - To allow audio and video playback redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To allow audio and video playback redirection, toggle the switch to **Enabled**.
 
-   - To disable audio and video playback redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To disable audio and video playback redirection, toggle the switch to **Disabled**.
 
 1. If you selected **Limit audio playback quality**, select the audio quality from the drop-down list.
 
@@ -198,7 +198,7 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Once the policy applies to the computers providing a remote session, restart them for the settings to take effect.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 
 # [Group Policy](#tab/group-policy)
 
@@ -224,7 +224,7 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 
 ---
 

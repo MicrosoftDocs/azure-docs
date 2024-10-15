@@ -192,7 +192,7 @@ In July 2023, we made the following changes to the documentation:
 
 - Updated autoscale articles for the preview of autoscale for personal host pools. Learn more at [Autoscale scaling plans and example scenarios](autoscale-scenarios.md) and [Create an autoscale scaling plan](autoscale-scaling-plan.md).
 
-- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Understanding multimedia redirection](multimedia-redirection-intro.md).
+- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
 
 - Updated [Watermarking](watermarking.md) for general availability.
 
