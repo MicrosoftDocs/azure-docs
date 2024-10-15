@@ -72,4 +72,4 @@ To enable the availability zone on a specific instance, customers need to submit
 
 More information can be found at [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-[!INCLUDE [FHIR trademark statement](/includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR trademark statement](includes/healthcare-apis-fhir-trademark.md)]
