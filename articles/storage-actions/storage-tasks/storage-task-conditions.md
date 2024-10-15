@@ -20,72 +20,74 @@ This article describes the format of a storage task condition and the properties
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-A storage task is stored as a resource in JSON format. 
-
-A storage task contains a set of conditions and operations in a JSON document. A _condition_ a collection of one or more _clauses_. An _operation_ is an action taken on each object that meets the conditions defined in the task. This article describes the format of conditions. To learn more about operations, see [Storage task operations](storage-task-operations.md).
-
-Show an example here of the entire JSON of a storage task with the highlighted part of the code snippet, the condition area.
-
-```json
-JSON goes here.
-```
-
 ## Condition format
 
-Each clause clause in a condition contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value. 
-
-The following image shows the parts of a conditional clause
-
-Put image here that highlights each section property, value, and operator.
-
-The clause defined in the following JSON allows operations only on Microsoft Word documents. The clause identifies all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
+A storage task contains a set of conditions and operations in a JSON document. A _condition_ a collection of one or more _clauses_. The following example shows the segment of the storage task JSON file where conditions appear. To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
 ```json
 "action": {
     "if": {
-        "condition": "[[[endsWith(Name, '.docx')]]",
-        "operations": [..]
+        "condition": "<clause>",
+        "operations": [
+            {
+                "name": "<operation name>",
+                "onSuccess": "continue",
+                "onFailure": "break"
+            }
+        ]
     }
 }
 ```
 
-You will use this format to structure conditions when you define a storage task by using tools other than the Azure portal (Such as Azure PowerShell or the Azure CLI). The following example shows this format being used as input to the PowerShell command for creating a task.
+Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value as follows: 
 
 
-```powershell
-$conditions = "[[endsWith(Name, '.docx')]]"
-$tagoperation = <operation-definition-goes-here>
-    
-$task = New-AzStorageActionTask `
-    -Name mystoragetask `
-    -ResourceGroupName mystoragetaskresourcegroup `
-    -Location westus `
-    -Enabled `
-    -Description 'my powershell storage task' `
-    -IfCondition $conditions `
-    -IfOperation $operation `
-    -EnableSystemAssignedIdentity:$true
+> [!div class="mx-imgBorder"]
+> ![Format of a simple condition with an operator, property, and value.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-basic.png)
+
+The clause defined in the following JSON allows operations only on Microsoft Word documents. The clause identifies all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
+
+```json
+{
+   "condition": "[[[endsWith(Name, '.docx')]]"
+}
 ```
-
-Azure CLI is very similar but includes escape sequences as required by the shell.
-
-```azurecli
-conditionclause="[[endsWith(Name,'/.docx'/)]]"
-operation="{<operation-definition-goes-here>}"
-
-az storage-actions task create \
-    -g mystoragetaskresourcegroup \
-    -n mystoragetask \
-    --identity "{type:SystemAssigned}" \ 
-    --action "{if:{condition:'"${conditionclause}"',operations:["${operation}"]}}" \
-    --description "My storage task" --enabled true
-```
-
 If you define conditions by using the Azure portal, you can see this JSON structure by opening the **Code** tab of the visual designer.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
 
+### Multiple clauses in a condition
+
+A condition can contain multiple clauses separated by a comma along with either the string `and` or `or`. The string `and` targets objects that meet the criteria in all clauses in the condition while `or` targets objects that meet the criterion in any of the clauses in the condition. The following image shows the format of two clauses in a condition:
+
+> [!div class="mx-imgBorder"]
+> ![Format of a condition that contains two clauses.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-multiple.png)
+
+The following JSON shows an example of two clauses along with the `and` string. 
+
+```json
+{
+"condition": "[[and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes'))]]"
+}
+```
+
+### Groups of conditions
+
+Grouped clauses operate as a single unit separate from the rest of the clauses. Grouping clauses is similar to putting parentheses around a mathematical equation or logic expression. The And or Or operator for the first clause in the group applies to the whole group.
+
+The following image shows the format of three clauses in a condition. Two of those clauses are grouped:
+
+> [!div class="mx-imgBorder"]
+> ![Format of a condition that contains two clauses grouped together.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-groups.png)
+
+The following JSON shows an example of grouping two clauses together.
+
+```json
+{
+"condition": "[[[and(and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '0'))]]"
+}
+```
 
 ## Supported properties
 
@@ -123,31 +125,6 @@ The following table shows the operators that you can use in a clause to evaluate
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
 | Matches |  | ||
-
-
-### Multiple clauses in a condition
-
-A condition can contain multiple clauses separated by a comma along with either the string `and` or `or`. The string `and` targets objects that meet the criteria in all clauses in the condition while `or` targets objects that meet the criterion in any of the clauses in the condition. 
-
-The following image shows the location of the and / or operator in the condition
-
-Put image here.
-
-The following JSON include two clauses along with the `and` string.
-
-```json
-"action": {
-    "if": {
-        "condition": "[[[and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes'))]]",
-        "operations": [..]
-    }
-}
-```
-
-### Groups of clauses
-
-Something here about how groups look
-
 
 ## See also
 
