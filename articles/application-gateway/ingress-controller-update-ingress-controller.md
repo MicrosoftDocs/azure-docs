@@ -14,6 +14,9 @@ ms.author: greglin
 
 You can upgrade the Azure Application Gateway Ingress Controller (AGIC) for Kubernetes by using a Helm repository hosted on Azure Storage.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+
 ## Add the repository
 
 Before you begin the upgrade procedure, ensure that you've added the required repository:
@@ -105,7 +108,3 @@ If the Helm deployment fails, you can roll back to a previous release:
     ```bash
     helm rollback odd-billygoat 1
     ```
-
-## Related content
-
-- [What is Application Gateway for Containers?](for-containers/overview.md)

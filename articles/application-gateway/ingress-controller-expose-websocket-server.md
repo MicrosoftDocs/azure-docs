@@ -13,6 +13,9 @@ ms.author: greglin
 
 Azure Application Gateway v2 [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+
 ## YAML for WebSocket server deployment
 
 The following Kubernetes deployment YAML shows the minimum configuration for deploying a WebSocket server, which is the same as deploying a regular web server:
@@ -73,7 +76,7 @@ spec:
               servicePort: 80
 ```
 
-Assuming that all the prerequisites are fulfilled, and you have an Application Gateway instance controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway instance's public IP address and the `ws.contoso.com` domain.
+Assuming that all the prerequisites are fulfilled, and you have an Application Gateway deployment controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway deployment's public IP address and the `ws.contoso.com` domain.
 
 The following cURL command would test the WebSocket server deployment:
 
@@ -95,7 +98,3 @@ Depending on the server implementation (such as [this example](https://github.co
 Because Application Gateway doesn't add WebSocket headers, the Application Gateway health probe response from your WebSocket server is most likely `400 Bad Request`. Application Gateway then marks your pods as unhealthy. This status eventually results in a `502 Bad Gateway` error for the consumers of the WebSocket server.
 
 To avoid the `502 Bad Gateway` error, you might need to add an HTTP `GET` handler for a health check to your server. For example, `/health` returns `200 OK`.
-
-## Related content
-
-- [What is Application Gateway for Containers?](for-containers/overview.md)
