@@ -411,8 +411,8 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
