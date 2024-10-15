@@ -14,7 +14,7 @@ ms.author: greglin
 Azure Application Gateway v2 [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## YAML for WebSocket server deployment
 

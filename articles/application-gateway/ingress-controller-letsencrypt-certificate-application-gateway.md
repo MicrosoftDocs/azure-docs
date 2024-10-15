@@ -17,7 +17,7 @@ You can configure your Azure Kubernetes Service (AKS) instance to use [Let's Enc
 The setup that this article describes uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Install the add-on
 

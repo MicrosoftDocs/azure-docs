@@ -17,7 +17,7 @@ You can use a private IP address for internal routing to expose an ingress endpo
 There are two ways to configure a controller to use a private IP for ingress: assigning the private IP to a particular ingress or assigning it globally.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Prerequisites
 

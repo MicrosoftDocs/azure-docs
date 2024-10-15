@@ -15,7 +15,7 @@ ms.author: greglin
 This article illustrates the usage of [Kubernetes ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Azure Kubernetes Service (AKS) service through [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Prerequisites
 

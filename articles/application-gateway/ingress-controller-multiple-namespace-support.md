@@ -18,7 +18,7 @@ As of version 0.7, the [Application Gateway Kubernetes Ingress Controller](https
 Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless you explicitly change it to one or more different namespaces in the Helm configuration.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Enable multiple-namespace support
 

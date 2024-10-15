@@ -14,7 +14,7 @@ ms.author: greglin
 As outlined in the [Azure Application Gateway documentation](./application-gateway-components.md#http-settings), Application Gateway supports cookie-based affinity. This support means that the service can direct subsequent traffic from a user session to the same server for processing.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Application Gateway for Containers session affinity overview](for-containers/session-affinity.md).
 
 ## Example
 

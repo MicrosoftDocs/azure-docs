@@ -25,7 +25,7 @@ Use the following two components:
 > The Azure Kubernetes Metrics Adapter is no longer maintained. Kubernetes Event-driven Autoscaling (KEDA) is an alternative.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Scaling and availability for Application Gateway for Containers](for-containers/scaling-zone-resiliency.md).
 
 ## Set up the Azure Kubernetes Metrics Adapter
 
