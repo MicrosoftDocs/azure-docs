@@ -3,7 +3,7 @@ title: Troubleshoot Azure Container Storage
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/24/2024
+ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: how-to
 ---
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 ## Troubleshoot installation issues
 
-### Azure Container Storage fails to install
+### Azure Container Storage fails to install due to missing configuration
 
 After running `az aks create`, you might see the message *Azure Container Storage failed to install. AKS cluster is created. Please run `az aks update` along with `--enable-azure-container-storage` to enable Azure Container Storage*.
 
@@ -25,6 +25,22 @@ To install Azure Container Storage on the cluster and create a storage pool, run
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type>
 ```
+
+### Azure Container Storage fails to install due to Azure Policy restrictions
+
+Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers, which can be blocked by Azure Policy. When this happens, the installation of Azure Container Storage might timeout or fail, and you might see errors in the `gatekeeper-controller` logs.
+
+To resolve this, you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources within Azure, including AKS clusters. In some cases, policies might block the creation of Azure Container Storage pods and components. You can find more details on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+
+To add the `acstor` namespace to the exclusion list, follow these steps:
+
+1. [Create your Azure Kubernetes cluster](install-container-storage-aks.md).
+1. Enable Azure Policy for AKS.
+1. Create a policy that you suspect is blocking the installation of Azure Container Storage.
+1. Attempt to install Azure Container Storage in the AKS cluster.
+1. Check the logs for the gatekeeper-controller pod to confirm any policy violations.
+1. Add the `acstor` namespace to the exclusion list of the policy.
+1. Attempt to install Azure Container Storage in the AKS cluster again.
 
 ### Can't set storage pool type to NVMe
 
