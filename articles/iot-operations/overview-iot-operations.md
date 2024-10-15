@@ -85,9 +85,6 @@ To connect to the cloud from Azure IoT Operations, you can use the following dat
 
 [Dataflows](connect-to-cloud/overview-dataflow.md) provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Dataflows can use schemas stored in the schema registry to deserialize and serialize messages.
 
-> [!NOTE]
-> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0 or newer. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure/iot-operations/process-data/overview-data-processor).
-
 ## Visualize and analyze telemetry
 
 To visualize and analyze telemetry from your devices and assets, you can use cloud services such as:

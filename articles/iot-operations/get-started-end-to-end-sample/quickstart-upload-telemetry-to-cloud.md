@@ -4,7 +4,6 @@ description: "Quickstart: Use a dataflow to send asset telemetry from the MQTT b
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
-ms.subservice: azure-data-processor
 ms.custom:
   - ignite-2023
 ms.date: 04/19/2024
