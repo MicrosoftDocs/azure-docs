@@ -354,12 +354,12 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 **Component** | **Support** | **Details**
 --- | --- | ---
 Disk renaming | Supported | 
-OS disk maximum size | 4096 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+OS disk maximum size | [4095 GiB](/azure/virtual-machines/managed-disks-overview#os-disk) | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
 Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview).
-Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
-Data disk minimum size | No restriction for unmanaged disks. 1 GB for managed disks |
+Data disk maximum size | 32 TiB for managed disks<br></br>4     TiB for unmanaged disks|
+Data disk minimum size | No restriction for unmanaged disks. 1 GiB for managed disks |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
-Data disk maximum size per storage account (for unmanaged disks) | 35 TB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
+Data disk maximum size per storage account (for unmanaged disks) | 35 TiB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
 Data disk change rate | Maximum of 20 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
