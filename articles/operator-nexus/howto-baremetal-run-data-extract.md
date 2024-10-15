@@ -30,7 +30,7 @@ The command produces an output file containing the results of the data extract. 
 
 When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
 
-## Configuring the cluster to use a user-assigned managed identity for storage access
+## Configure the cluster to use a user-assigned managed identity for storage access
 
 Use this command to configure the cluster for a user-assigned identity:
 
@@ -46,7 +46,7 @@ az networkcloud cluster update --name "<cluster-name>" \
 
 The identity resource ID can be found by clicking "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
 
-## Configuring the cluster to use a system-assigned managed identity for storage access
+## Configure the cluster to use a system-assigned managed identity for storage access
 
 Use this command to configure the cluster to use its own system-assigned identity:
 
@@ -61,7 +61,7 @@ az networkcloud cluster update --name "<cluster-name>" \
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
-## Clearing the cluster's CommandOutputSettings
+## Clear the cluster's CommandOutputSettings
 
 The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
@@ -85,7 +85,7 @@ If using the deprecated Cluster Manager storage method, verify you have access t
 1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
 1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
-## Executing a run command
+## Execute a run command
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
@@ -598,4 +598,5 @@ The command provides another command (if using customer provided storage) or a l
 > [!WARNING]
 > Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
 
-Note: Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
+> [!NOTE]
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
