@@ -57,7 +57,7 @@ Open Visual Studio and create a new project. Add a reference to the [Azure Table
 An easy and secure way to authorize access and connect to Azure Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a `TableServiceClient` object, as shown in the following code example:
 
 ```csharp
-var credentialOptions = new DefaultAzureCredentialOptions
+var credentialOptions = new DefaultAzureCredentialOptions()
 {
     AuthorityHost = AzureAuthorityHosts.AzureGovernment,
 };
