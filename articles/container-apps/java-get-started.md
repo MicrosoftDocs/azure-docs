@@ -28,7 +28,7 @@ The diagram illustrates the architectural flows and relationships of the PetClin
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app.":::
 
-By the end of this tutorial, you will deploy one web application and three backend applications, and configure three Java components. These components can be managed through the Azure portal.
+By the end of this tutorial, you deploy one web application and three backend applications, and configure three Java components. These components can be managed through the Azure portal.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Create a bash script with environment variables by making a copy of the supplied
 cp .scripts/setup-env-variables-azure-template.sh .scripts/setup-env-variables-azure.sh
 ```
 
-Open `.scripts/setup-env-variables-azure.sh` and customize the following 3 variables as you need:
+Open `.scripts/setup-env-variables-azure.sh` and customize the following three variables as you need:
 
 ```bash
 # ==== Resource Group ====
