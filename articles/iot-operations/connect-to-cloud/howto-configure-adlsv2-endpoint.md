@@ -114,45 +114,45 @@ Follow the steps in the [access token](#access-token) section to get a SAS token
 
 Create the *DataflowEndpoint* resource and specify the access token authentication method.
 
-  ```yaml
-    apiVersion: connectivity.iotoperations.azure.com/v1beta1
-    kind: DataflowEndpoint
-    metadata:
-      name: adls
-    spec:
-      endpointType: DataLakeStorage
-      dataLakeStorageSettings:
-        host: https://<account>.blob.core.windows.net
-        authentication:
-          method: AccessToken
-          accessTokenSettings:
-            secretRef: my-sas
-  ```
+```yaml
+  apiVersion: connectivity.iotoperations.azure.com/v1beta1
+  kind: DataflowEndpoint
+  metadata:
+    name: adls
+  spec:
+    endpointType: DataLakeStorage
+    dataLakeStorageSettings:
+      host: https://<account>.blob.core.windows.net
+      authentication:
+        method: AccessToken
+        accessTokenSettings:
+          secretRef: my-sas
+```
 
 # [Bicep](#tab/bicep)
 
-  ```bicep
-    resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-      parent: aioInstance
-      name: '<ENDPOINT NAME>'
-      extendedLocation: {
-        name: '<CUSTOM LOCATION NAME>'
-        type: 'CustomLocation'
-      }
-      properties: {
-        endpointType: 'DataLakeStorage'
-        dataLakeStorageSettings: {
-          authentication: {
-            method: 'AccessToken'
-            accessTokenSettings: {
-                secretRef: 'my-sas'
-            }
-          }
-          host: 'https://<account>.blob.core.windows.net'
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: '<ENDPOINT NAME>'
+  extendedLocation: {
+    name: '<CUSTOM LOCATION NAME>'
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'AccessToken'
+        accessTokenSettings: {
+          secretRef: 'my-sas'
         }
       }
+      host: 'https://<account>.blob.core.windows.net'
     }
-  ```
+  }
+}
+```
 
 ---
 
