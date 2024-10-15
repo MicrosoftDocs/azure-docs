@@ -35,7 +35,7 @@ DevTest Labs is targeted at enterprise customers. The primary scenario for which
 There are no costs for using the DevTest Labs service; it's free to use. Customers are charged for resources used by the DevTest Labs service. This cost includes, but isn't limited to, the cost of storage, networking, and running time for any VMs in a lab.
 
 **Does DevTest Labs provide cost reporting?**
-DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) for cost budgeting and analysis. To track per-lab costs, [allow tag inheritance and add tags to lab resource](/azure/devtest-labs/devtest-lab-configure-cost-management).
+DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) for cost budgeting and analysis. To track per-lab costs, [allow tag inheritance and add tags to lab resources](/azure/devtest-labs/devtest-lab-configure-cost-management).
 
 **Does DevTest Labs provide quota management?**
 DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management). Cost Management can [monitor costs for virtual machines](/azure/virtual-machines/cost-optimization-monitor-costs) and [automatically execute actions based on a budget](/azure/cost-management-billing/manage/cost-management-budget-scenario). There's no management of VM usage quota within the DevTest Labs service.
