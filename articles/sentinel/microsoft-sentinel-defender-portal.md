@@ -65,8 +65,8 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 |Capability |Service required  |
 |---------|---------|
 |Exposure management      |   [Microsoft Security Exposure Management](/security-exposure-management/)      |
-|Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)       |
-|Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)           |
+|Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)       |
+|Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
 
 Microsoft Sentinel customers that create a workspace in the Israel region aren't currently eligible to onboard that workspace to Microsoft's unified security operations platform. 
 
