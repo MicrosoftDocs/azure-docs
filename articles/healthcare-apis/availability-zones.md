@@ -18,7 +18,7 @@ The goal of the high availability in Azure Health Data Services is to minimize i
 Zone redundant availability provides resiliency by protecting against outages within a region. This is achieved using zone-redundant storage (ZRS), which replicates your data across three availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. Zone-redundant availability minimizes the risk of data loss, if there are zone failures within the primary region. For more information on the Azure Health Data Services SLAs, visit [Service Level Agreements](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwwlpdocumentsearch.blob.core.windows.net%2Fprodv2%2FOnlineSvcsConsolidatedSLA(WW)(English)(February2024)(CR).docx&wdOrigin=BROWSELINK).
 
 > [!NOTE]
-> Currently the availability zone feature is being provided to customers at no additional charge. In the future, charges will be incurred with the Availability zone feature.
+> Currently the availability zone feature is being provided to customers at no additional charge. In the future, charges will be incurred with the availability zone feature.
 
 ## Region availability
 
