@@ -29,6 +29,13 @@ After configuring endpoints, you can configure network rules to further control 
 
 You can enable or disable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
 
+## Data Integrity
+
+Ensuring data integrity is crucial for preventing data corruption in cloud storage. While TCP provides a foundational level of data integrity through its checksum mechanism, iSCSI enhances it with more robust error detection via CRC32C (32-bit Cyclic Redundancy Check) checksum verification for iSCSI headers and data payloads. From the target perspective, Elastic SAN supports CRC32C checksum verification if it is enabled on the client side for its connections to Elastic SAN volumes. Elastic SAN also offers the ability to enforce this error detection through a property that can be set at the volume group level. All the volumes within that volume group will inherit that setting. When this property is enabled, Elastic SAN will reject all client connections to any volume within that volume group if CRC32C is not set for header or data digests for those connections. When this property is disabled, checksum verification by Elastic SAN will depend on whether CRC32C is set for header and/or data digests on the client, but Elastic SAN will not reject any connections. To learn how to enable and/or enforce CRC protection, see [Configure networking](elastic-san-networking.md)
+
+> [!NOTE]
+> Certain operating systems may not support iSCSI header and/or data digests. For example, Fedora and its downstream Linux distributions such as Red Hat Enterprise Linux, CentOS, Rocky Linux etc. do not support data digests. Therefore, do not enable CRC protection on the volume group if the client uses one of these operating systems, as connectivity to the volumes within that volume group will fail.
+
 ## Storage service endpoints
 
 [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources so only specific virtual networks can access them.
