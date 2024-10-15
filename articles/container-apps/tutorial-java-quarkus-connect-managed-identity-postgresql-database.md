@@ -187,7 +187,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
        --location $LOCATION
    ```
 
-1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find the container registry admin account details, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md)
+1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find the container registry admin account details, see [Authenticate with an Azure container registry](/azure/container-registry/container-registry-authentication)
 
    ```azurecli-interactive
    CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1

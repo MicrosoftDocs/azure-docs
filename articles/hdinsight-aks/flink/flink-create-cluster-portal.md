@@ -3,7 +3,8 @@ title: Create an Apache Flink® cluster in HDInsight on AKS using Azure portal
 description: Creating an Apache Flink cluster in HDInsight on AKS with Azure portal.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create an Apache Flink® cluster in HDInsight on AKS with Azure portal

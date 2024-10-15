@@ -3,7 +3,8 @@ title: Manage script actions on Azure HDInsight on AKS clusters
 description: An introduction on how to manage script actions in Azure HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Script actions during cluster creation
 

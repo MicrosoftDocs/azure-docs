@@ -4,7 +4,8 @@ description: Learn how to easily dedupe rows and find nulls by using code snippe
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Dedupe rows and find nulls by using data flow snippets

@@ -39,15 +39,15 @@ Each number in the version indicates general compatibility with the previous ver
 
 
 ## Release process
-1.	**End of support:** 
+1.	**End of support:**
     - Nexus will announce end of support for the oldest supported LTS version via release notes once the timeline for the new LTS version is available.
-    - Nexus will stop supporting the oldest supported LTS version shortly before adding support for new LTS version (that is before the next LTS version is ready for testing in labs).  
+    - Nexus will stop supporting the oldest supported LTS version shortly before adding support for new LTS version (that is before the next LTS version is ready for testing in labs).
 3.	**Introduction:** Nexus typically declares support for a new LTS release once the first patch release is available. This is to benefit from any critical fixes. Release cadence:
     - By default, the introduction of any new release support (LTS/patch) will be combined with Nexus runtime release.
-    - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline. 
-    - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release. 
+    - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline.
+    - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release.
 
-## Supported Storage Software Versions (Purity)
+## Supported Purity Software Versions
 
 |  PurityOS version | Support added in | End of support | Remarks |
 |-------------------|------------------|----------------|---------|
@@ -55,6 +55,7 @@ Each number in the version indicates general compatibility with the previous ver
 | 6.5.1             | Nexus 2403.x     | Dec 2025*     | |
 | 6.5.4             | Nexus 2404.x     | Dec 2025*     | |
 | 6.5.6             | Nexus 2406.2     | Dec 2025*     | Aligned with Nexus runtime release |
+| 6.5.8             | Nexus 2408.2     | Dec 2025*     | |
 
 > [!IMPORTANT]
 > \* At max 2 LTS versions will be supported. The dates are tentative assuming that by this timeframe we will have another set of LTS versions released, making this version deprecate per our support guidelines.
@@ -63,8 +64,31 @@ Each number in the version indicates general compatibility with the previous ver
 
 | Pure HW Controller version | Support added in |
 |----------|-------------|
-| R3	| Year 2021 |
-| R4	| Nexus 2404.x |
+| R3  | Year 2021 |
+| R4  | Nexus 2404.x |
+
+## Upgrade process
+
+> [!NOTE]
+> Make sure you are upgrading to one of the Purity versions listed in [Supported Purity Software Versions](#supported-purity-software-versions).
+
+Azure Operator Nexus software does not trigger or manage Purity upgrades. Purity upgrades are supported by Pure Storage and can be triggered either through a Pure engineer assisted process or through a self-service process in the Pure1 management portal.
+
+Full details of both upgrade processes, including the procedures for enabling and using self-service upgrade, are available in [Pure's documentation](https://support.purestorage.com/) (login required). Please contact your Pure support representative for further questions about Purity upgrades.
+
+## Upgrade requirements
+
+The following Purity configuration settings must be set over upgrade.
+
+* Safe Mode: Disabled
+
+## Supported Pure FlashArray Expansion Shelf firmware versions
+
+Azure Operator Nexus supports and tests the latest combination of a Purity version and FlashArray expansion shelf version (DFS) at the time of a Nexus release.
+
+| PurityOS Version | DFS Version|
+|------------------|------------|
+| 6.5.8            | 2.2.1      |
 
 ## FAQ
 

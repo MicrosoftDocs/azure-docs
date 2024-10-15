@@ -6,11 +6,11 @@ description: Learn how to log Azure AD B2C events with Azure Monitor by using de
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.date: 09/11/2024
 ms.custom: "b2c-support"
 
@@ -43,7 +43,7 @@ Watch this video to learn how to configure monitoring for Azure AD B2C using Azu
 ## Deployment overview
 
 Azure AD B2C uses [Microsoft Entra monitoring](../active-directory/reports-monitoring/overview-monitoring-health.md). Unlike Microsoft Entra tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we send the logs.
-To enable _Diagnostic settings_ in Microsoft Entra ID within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage a Microsoft Entra ID (the **Customer**) resource.
+To enable _Diagnostic settings_ in Microsoft Entra ID within your Azure AD B2C tenant, you use [Azure Lighthouse](/azure/lighthouse/overview) to [delegate a resource](/azure/lighthouse/concepts/architecture), which allows your Azure AD B2C (the **Service Provider**) to manage a Microsoft Entra ID (the **Customer**) resource.
 
 > [!TIP]
 > Azure Lighthouse is typically used to manage resources for multiple customers. However, it can also be used to manage resources **within an enterprise that has multiple Microsoft Entra tenants of its own**, which is what we are doing here, except that we are only delegating the management of single resource group.
@@ -113,7 +113,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
-1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
+1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template).
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
@@ -141,7 +141,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
    ]
    ```
 
-After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Microsoft Entra tenant and get the details of the resource projection. For more information, see [View and manage service providers](../lighthouse/how-to/view-manage-service-providers.md).
+After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Microsoft Entra tenant and get the details of the resource projection. For more information, see [View and manage service providers](/azure/lighthouse/how-to/view-manage-service-providers).
 
 ## 4. Select your subscription
 

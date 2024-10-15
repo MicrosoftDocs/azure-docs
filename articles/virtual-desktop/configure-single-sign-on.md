@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on for an Azure Virtual Desktop 
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/02/2024
+ms.date: 09/17/2024
 ---
 
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID
@@ -17,7 +17,7 @@ To enable single sign-on using Microsoft Entra ID authentication, there are five
 
 1. Enable Microsoft Entra authentication for Remote Desktop Protocol (RDP).
 
-1. Configure the target device groups.
+1. Hide the consent prompt dialog.
 
 1. Create a *Kerberos Server object*, if Active Directory Domain Services is part of your environment. More information on the criteria is included in its section.
 
@@ -31,9 +31,9 @@ Before you enable single sign-on, review the following information for using it 
 
 ### Session lock behavior
 
-When single sign-on using Microsoft Entra ID is enabled and the remote session is locked, either by the user or by policy, you can choose whether the session is disconnected or the remote lock screen shown. The default behavior is to disconnect the session when it locks.
+When single sign-on using Microsoft Entra ID is enabled and the remote session is locked, either by the user or by policy, you can choose whether the session is disconnected or the remote lock screen is shown. The default behavior is to disconnect the session when it locks.
 
-When the session lock behavior is set to disconnect, and a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again. This behavior is done for security reasons and to ensure full support of passwordless authentication. Disconnecting the session provides the following benefits:
+When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again. This behavior is done for security reasons and to ensure full support of passwordless authentication. Disconnecting the session provides the following benefits:
 
 - Consistent sign-in experience through Microsoft Entra ID when needed.
 
@@ -88,8 +88,6 @@ Before you can enable single sign-on, you must meet the following prerequisites:
    - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
 
    - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
-
-- To configure allowing Active Directory domain administrator account to connect when single sign-on is enabled, you need an account that is a member of the **Domain Admins** security group.
 
 ## Enable Microsoft Entra authentication for RDP
 
@@ -197,21 +195,21 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    Remove-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -TargetDeviceGroupId "<Group object ID>"
    ```
 
-## Create a Kerberos Server object
+## Create a Kerberos server object
 
-If your session hosts meet the following criteria, you must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
+If your session hosts meet the following criteria, you must create a Kerberos server object. For more information, see [Enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises), specifically the section to [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
 
-- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to a domain controller.
+- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos server object to complete authentication to a domain controller.
 
-- Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
+- Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos server object for users to access on-premises resources, such as SMB shares and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
-> If you enable single sign-on on Microsoft Entra hybrid joined session hosts before you create a Kerberos server object, one of the following things can happen: 
+> If you enable single sign-on on Microsoft Entra hybrid joined session hosts without creating a Kerberos server object, one of the following things can happen when you try to connect to a remote session: 
 >
 > - You receive an error message saying the specific session doesn't exist.
 > - Single sign-on will be skipped and you see a standard authentication dialog for the session host. 
 >
-> To resolve these issues, create the Kerberos Server object, then connect again.
+> To resolve these issues, create the Kerberos server object, then connect again.
 
 ## Review your conditional access policies
 

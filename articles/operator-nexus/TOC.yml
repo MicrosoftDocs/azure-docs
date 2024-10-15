@@ -146,6 +146,8 @@
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
+                - name: Cluster Upgrades With PauseRack Startegy
+                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md  
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
@@ -181,6 +183,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: Cross-subscription deployments and required RBAC for Network Fabric
+              href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
             - name: How to replace network devices in Azure Operator Nexus Network Fabric
               href: howto-replace-network-devices.md
             - name: How to put a device into maintenance mode

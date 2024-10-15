@@ -5,7 +5,10 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 04/25/2024
 ms.author: austinmc
-#customerintent: As a SOC administrator or a billing specialist, I want to know how to switch to simplified pricing and whether it will benefit us financially or simplify our administration of Microsoft Sentinel and log analytics workspaces.
+
+
+#Customer intent: As a billing administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
+
 ---
 
 # Switch to the simplified pricing tiers for Microsoft Sentinel
@@ -154,8 +157,9 @@ Keep in mind, the simplified effective per GB price for a Microsoft Sentinel ena
 A Log Analytics workspace automatically configures its pricing tier to match the simplified pricing tier if Microsoft Sentinel is removed from a workspace while simplified pricing is enabled. For example, if the simplified pricing was configured for 100 GB/day Commitment tier in Microsoft Sentinel, the pricing tier of the Log Analytics workspace changes to 100 GB/day Commitment tier once Microsoft Sentinel is removed from the workspace.
 
 ### Will switching reduce my costs?
-Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, two primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
+Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, three primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
 
+- Reduce Microsoft Sentinel costs with a [pre-purchase plan](billing-pre-purchase-plan.md). Commit units of a pre-purchase plan don't apply to Log Analytics costs in the classic pricing tier. Since the entire simplified pricing tier is categorized as a Microsoft Sentinel cost, your effective spend with the simplified pricing tier is reduced with a pre-purchase plan that approaches your commitment tier. 
 - The combined [Defender for Servers](/azure/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit results in a total cost savings if utilized by the workspace. 
 - If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 

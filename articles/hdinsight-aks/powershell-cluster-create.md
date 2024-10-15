@@ -3,7 +3,8 @@ title: Manage HDInsight on AKS clusters using PowerShell (Preview)
 description: Manage HDInsight on AKS clusters using PowerShell.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Manage HDInsight on AKS clusters using PowerShell
 

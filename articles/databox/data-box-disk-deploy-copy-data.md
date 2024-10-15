@@ -4,8 +4,7 @@ description: In this tutorial, learn how to copy data from your host computer to
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 03/26/2024
 ms.author: shaas
@@ -111,6 +110,8 @@ Review the following considerations before you copy the data to the disks:
 - Always copy the VHDs to one of the precreated folders. VHDs placed outside of these folders or in a folder that you created are uploaded to Azure Storage accounts as page blobs instead of managed disks.
 - Only fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs, and VHDX files aren't supported.
 - The Data Box Disk Split Copy and Validation tools, `DataBoxDiskSplitCopy.exe` and `DataBoxDiskValidation.cmd`, report failures when long paths are processed. These failures are common when long paths aren't enabled on the client, and your data copy's paths and file names exceed 256 characters. To avoid these failures, follow the guidance within the [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later) article.
+ > [!IMPORTANT]
+ > Powershell ISE is not supported for the Data Box Disk Tools
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 

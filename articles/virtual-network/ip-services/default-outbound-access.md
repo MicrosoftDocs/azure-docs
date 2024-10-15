@@ -34,7 +34,7 @@ The public IPv4 address used for the access is called the default outbound acces
 
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
 
-:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.svg"  alt-text="Diagram of decision tree for default outbound access.":::
+:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.png"  alt-text="Diagram of decision tree for default outbound access.":::
 
 >[!Important]
 >On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  We recommend that you use one of the explicit forms of connectivity discussed in the following section.
@@ -62,7 +62,12 @@ Some examples of configurations that won't work when using default outbound acce
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
  
-### Utilize the Private Subnet parameter
+### Utilize the Private Subnet parameter (public preview)
+
+> [!IMPORTANT]
+> Private Subnets are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
  

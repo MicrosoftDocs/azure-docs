@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/21/2024
+ms.date: 10/09/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -325,9 +325,9 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Salesforce Service Cloud linked service 
+## <a name="upgrade-the-salesforce-service-cloud-linked-service"></a> Upgrade the Salesforce Service Cloud connector
 
-Here are steps that help you upgrade your linked service and related queries:
+Here are steps that help you upgrade your Salesforce Service Cloud connector:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce-service-cloud.md#prerequisites).
 

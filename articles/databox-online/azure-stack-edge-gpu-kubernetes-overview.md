@@ -4,8 +4,7 @@ description: Describes how Kubernetes is implemented on your Azure Stack Edge Pr
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/01/2024
 ms.author: alkohli
@@ -112,7 +111,7 @@ For more information on deploying Kubernetes cluster, go to [Deploy a Kubernetes
 
 ### Kubernetes and Azure Arc
 
-Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 <!-- confirm with Anoob/Rohan if this needs to be updated as Azure Arc is now GA-->
 

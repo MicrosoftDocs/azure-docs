@@ -3,7 +3,8 @@ title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana

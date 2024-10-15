@@ -39,43 +39,38 @@ To complete this tutorial, make sure you have:
 
 - A Log Analytics workspace with the Microsoft Sentinel solution deployed on it and data being ingested into it.
 
-- An Azure user with the following roles assigned on the following resources: 
+- An Azure user with the following roles assigned on the following resources:
+
     - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
     - [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor), and **Owner** or equivalent, on whichever resource group will contain the playbook created in this tutorial.
 
+- Installed [VirusTotal Solution from the Content Hub](https://azuremarketplace.microsoft.com/en-gb/marketplace/apps/azuresentinel.azure-sentinel-solution-virustotal?tab=Overview)
+
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
+
+- An Azure Monitor Agent installed on at least one machine in your environment, so that incidents are generated and sent to Microsoft Sentinel.
 
 ## Create a playbook from a template
 
 Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that you can customize and use to automate a large number of basic SecOps objectives and scenarios. Let's find one to enrich the IP address information in our incidents.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+1. In Microsoft Sentinel, select **Configuration** > **Automation**.
 
 1. From the **Automation** page, select the **Playbook templates (Preview)** tab.
 
-1. Filter the list of templates by tag:
-    1. Select the **Tags** filter toggle at the top of the list (to the right of the **Search** field).
+1. Locate and select one of the **IP Enrichment - Virus Total report** templates, for either entity, incident, or alert triggers. If needed, filter the list by the **Enrichment** tag to find your templates.
+    
+1. Select **Create playbook** from the details pane. For example:
 
-    1. Clear the **Select all** checkbox, then mark the **Enrichment** checkbox. Select **OK**.
-
-    For example:
-
-    :::image type="content" source="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png" alt-text="Screenshot of list of playbook templates to be filtered by tags." lightbox="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png":::
-
-1. Select the **IP Enrichment - Virus Total report** template, and select **Create playbook** from the details pane.
-
-    :::image type="content" source="media/tutorial-enrich-ip-information/2-select-playbook-template.png" alt-text="Screenshot of selecting a playbook template from which to create a playbook." lightbox="media/tutorial-enrich-ip-information/2-select-playbook-template.png":::
+    :::image type="content" source="media/restore/select-virus-total.png" alt-text="Screenshot of the IP Enrichment - Virus Total Report - Entity Trigger template selected.":::
 
 1. The **Create playbook** wizard will open. In the **Basics** tab:
+
     1. Select your **Subscription**, **Resource group**, and **Region** from their respective drop-down lists.
 
-    1. Edit the **Playbook name** by adding to the end of the suggested name "*Get-VirusTotalIPReport*". (This way you'll be able to tell which original template this playbook came from, while still ensuring that it has a unique name in case you want to create another playbook from this same template.) Let's call it "*Get-VirusTotalIPReport-Tutorial-1*".
+    1. Edit the **Playbook name** by adding to the end of the suggested name "*Get-VirusTotalIPReport*". This way you'll be able to tell which original template this playbook came from, while still ensuring that it has a unique name in case you want to create another playbook from this same template. Let's call it "*Get-VirusTotalIPReport-Tutorial-1*".
 
-    1. Let's leave the last two checkboxes unmarked as they are, as we don't need these services in this case:
-        - Enable diagnostics logs in Log Analytics
-        - Associate with integration service environment
-
-        :::image type="content" source="media/tutorial-enrich-ip-information/3-playbook-basics-tab.png" alt-text="Screenshot of the Basics tab from the playbook creation wizard.":::
+    1. Leave the **Enable diagnostics logs in Log Analytics** option unchecked.
 
     1. Select **Next : Connections >**.
 
@@ -83,13 +78,13 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     1. Leave the **Microsoft Sentinel** connection as is (it should say "*Connect with managed identity*").
 
-    2. If any connections say "*New connection will be configured*," you will be prompted to do so at the next stage of the tutorial. Or, if you already have connections to these resources, select the expander arrow to the left of the connection and choose an existing connection from the expanded list. For this exercise, we'll leave it as is.
+    2. If any connections say "*New connection will be configured*," you're prompted to do so at the next stage of the tutorial. Or, if you already have connections to these resources, select the expander arrow to the left of the connection and choose an existing connection from the expanded list. For this exercise, we'll leave it as is.
 
         :::image type="content" source="media/tutorial-enrich-ip-information/4-playbook-connections-tab.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
 
     1. Select **Next : Review and create >**.
 
-1. In the **Review and create** tab, review all the information you've entered as it's displayed here, and select **Create and continue to designer**.
+1. In the **Review and create** tab, review all the information you've entered as it's displayed here, and select **Create playbook**.
 
     :::image type="content" source="media/tutorial-enrich-ip-information/5-playbook-review-tab.png" alt-text="Screenshot of the Review and create tab from the playbook creation wizard.":::
 
@@ -99,7 +94,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
 ## Authorize logic app connections
 
-Recall that when we created the playbook from the template, we were told that the Azure Log Analytics Data Collector and Virus Total connections would be configured later. 
+Recall that when we created the playbook from the template, we were told that the Azure Log Analytics Data Collector and Virus Total connections would be configured later.
 
 :::image type="content" source="media/tutorial-enrich-ip-information/7-authorize-connectors.png" alt-text="Screenshot of review information from playbook creation wizard.":::
 
@@ -107,15 +102,15 @@ Here's where we do that.
 
 ### Authorize Virus Total connection
 
-1. Select the **For each** action to expand it and review its contents (the actions that will be performed for each IP address).
+1. Select the **For each** action to expand it and review its contents, which include the actions that will be performed for each IP address. For example:
 
     :::image type="content" source="media/tutorial-enrich-ip-information/8-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
 
-1. The first action item you see is labeled **Connections** and has an orange warning triangle. 
+1. The first action item you see is labeled **Connections** and has an orange warning triangle.
 
-    (If instead, that first action is labeled **Get an IP report (Preview)**, that means you already have an existing connection to Virus Total and you can go to the [next step](#next-step-condition).)
+    If instead, that first action is labeled **Get an IP report (Preview)**, that means you already have an existing connection to Virus Total and you can go to the [next step](#next-step-condition).
 
-    1. Select the **Connections** action to open it. 
+    1. Select the **Connections** action to open it.
     1. Select the icon in the **Invalid** column for the displayed connection.
 
         :::image type="content" source="media/tutorial-enrich-ip-information/9-virus-total-invalid.png" alt-text="Screenshot of invalid Virus Total connection configuration.":::
@@ -156,9 +151,9 @@ But as you'll see, we have more invalid connections we need to authorize.
 
     :::image type="content" source="media/tutorial-enrich-ip-information/15-log-analytics-connection.png" alt-text="Screenshot shows how to enter Workspace ID and key and other connection details for Log Analytics.":::
 
-1. Enter "*Log Analytics*" as the **Connection name**. 
+1. Enter "*Log Analytics*" as the **Connection name**.
 
-1. For **Workspace Key** and **Workspace ID**, copy and paste the key and ID from your Log Analytics workspace settings. They can be found in the **Agents management** page, inside the **Log Analytics agent instructions** expander.
+1. For **Workspace ID**, copy and paste the ID from the **Overview** page of the Log Analytics workspace settings.
 
 1. Select **Update**.
 
@@ -248,7 +243,7 @@ If you're not going to continue to use this automation scenario, delete the play
 1. Mark the check box next to your automation rule in the list, and select **Delete** from the top banner.  
     (If you don't want to delete it, you can select **Disable** instead.)
 
-## Next steps
+## Related content
 
 Now that you've learned how to automate a basic incident enrichment scenario, learn more about automation and other scenarios you can use it in.
 

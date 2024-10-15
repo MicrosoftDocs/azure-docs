@@ -3,10 +3,9 @@ title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 07/17/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -87,6 +86,8 @@ Each access log entry in Application Gateway for Containers contains the followi
 | clientIp | IP address of the client initiating the request to the frontend of Application Gateway for Containers |
 | frontendName | Name of the Application Gateway for Containers frontend that received the request from the client |
 | frontendPort | Port number the request was listened on by Application Gateway for Containers |
+| frontendTLSFailureReason | Contains information on why TLS negotiation failed. Commonly used for understanding failed authentication requests for client mutual authentication |
+| frontendTLSPeerFingerprint | The fingerprint (thumbprint) of the certificate presented by a client to the frontend of Application Gateway for Containers |
 | hostName | Host header value received from the client by Application Gateway for Containers |
 | httpMethod | HTTP Method of the request received from the client by Application Gateway for Containers as per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3). |
 | httpStatusCode | HTTP Status code returned from Application Gateway for Containers to the client |
@@ -120,7 +121,9 @@ Here an example of the access log emitted in JSON format to a storage account.
         "backendTimeTaken": "-",
         "clientIp": "xxx.xxx.xxx.xxx:52526",
         "frontendName": "frontend-primary",
-        "frontendPort": "80",
+        "frontendPort": "443",
+        "frontendTLSFailureReason": "-",
+        "frontendTLSPeerFingerprint": "2c01bbc93009ad1fc977fe9115fae7ad298b665f",
         "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
         "httpMethod": "GET",
         "httpStatusCode": "200",
@@ -132,7 +135,7 @@ Here an example of the access log emitted in JSON format to a storage account.
         "responseBodyBytes": "91",
         "responseHeaderBytes": "190",
         "timeTaken": "2",
-        "tlsCipher": "-",
+        "tlsCipher": "TLS_AES_256_GCM_SHA384",
         "tlsProtocol": "-",
         "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
         "userAgent": "curl\/7.81.0"

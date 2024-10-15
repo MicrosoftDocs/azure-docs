@@ -57,7 +57,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -68,7 +67,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:58.927Z",
       "type": "Text",
       "version": 1613694358927,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
         "communicationUser": {
@@ -101,7 +99,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -112,7 +109,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:57.917Z",
       "type": "Text",
       "version": 1613694500784,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -138,7 +134,6 @@ This section contains an example of what that data would look like for each even
     "data": {
       "deleteTime": "2021-02-19T00:43:10.14Z",
       "messageId": "1613695388152",
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -149,7 +144,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:43:08.152Z",
       "type": "Text",
       "version": 1613695390361,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -174,7 +168,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/createdBy/rawId/recipient/rawId",
     "data": {
-      "createdBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
       "createdByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
         "communicationUser": {
@@ -184,16 +177,6 @@ This section contains an example of what that data would look like for each even
       "properties": {
         "topic": "Chat about new communication services"
       },
-      "members": [
-        {
-          "displayName": "Bob",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9"
-        },
-        {
-          "displayName": "John",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-289b-07fd-0848220015ea"
-        }
-      ],
       "participants": [
         {
           "displayName": "Bob",
@@ -216,7 +199,6 @@ This section contains an example of what that data would look like for each even
       ],
       "createTime": "2021-02-18T23:47:26.91Z",
       "version": 1613692046910,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
         "communicationUser": {
@@ -241,7 +223,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/deletedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "deletedBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
       "deletedByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
         "communicationUser": {
@@ -251,7 +232,6 @@ This section contains an example of what that data would look like for each even
       "deleteTime": "2021-02-18T23:57:51.5987591Z",
       "createTime": "2021-02-18T23:54:15.683Z",
       "version": 1613692578672,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
         "communicationUser": {
@@ -358,7 +338,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/editedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "editedBy": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "editedByCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -371,7 +350,6 @@ This section contains an example of what that data would look like for each even
       },
       "createTime": "2021-02-19T00:28:25.864Z",
       "version": 1613694508719,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {

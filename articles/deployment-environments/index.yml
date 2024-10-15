@@ -64,13 +64,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure container image to execute deployments
-            url: how-to-configure-extensibility-generic-container-image.md
-          - text: Configure an ARM/Bicep custom container image
-            url: how-to-configure-extensibility-bicep-container-image.md
-          - text: Configure a Terraform custom container image
-            url: how-to-configure-extensibility-terraform-container-image.md
-          - text: Configure a Pulumi custom container image
-            url: how-to-configure-extensibility-pulumi-container-image.md  
+            url: how-to-configure-extensibility-model-custom-image.md
+          - text: Troubleshoot custom image errors and warnings
+            url: troubleshoot-custom-image-logs-errors.md  
 
   # Card
   - title: Configure environment types
@@ -99,3 +95,15 @@ landingContent:
             url: how-to-configure-project-admin.md
           - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md
+
+  # Card
+  - title: Use Azure Developer CLI with ADE
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Azure Developer CLI (azd) with ADE
+            url: concept-azure-developer-cli-with-deployment-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create environments with Azure Developer CLI (azd)
+            url: how-to-create-environment-with-azure-developer.md

@@ -6,13 +6,13 @@ author: v-jaswel
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 3/24/2023
+ms.date: 9/24/2024
 ms.author: v-wellsjason
 ---
 ---
 # Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)
 
-With [Azure Arc-enabled Kubernetes clusters](../azure-arc/kubernetes/overview.md), you can create a [Container Apps enabled custom location](azure-arc-create-container-app.md) in your on-premises or cloud Kubernetes cluster to deploy your Azure Container Apps applications as you would any other region.
+With [Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/kubernetes/overview), you can create a [Container Apps enabled custom location](azure-arc-create-container-app.md) in your on-premises or cloud Kubernetes cluster to deploy your Azure Container Apps applications as you would any other region.
 
 This tutorial will show you how to enable Azure Container Apps on your Arc-enabled Kubernetes cluster.  In this tutorial you will:
 
@@ -35,7 +35,8 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Access to a public or private container registry, such as the [Azure Container Registry](../container-registry/index.yml).
+- Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+- Review the [requirements and limitations](azure-arc-overview.md) of the public preview. Of particular importance are the cluster requirements.
 
 ## Setup
 
@@ -107,7 +108,7 @@ $LOCATION="eastus"
 
 ## Create a connected cluster
 
-The following steps help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+The following steps help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service.
 
@@ -253,6 +254,9 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
 
 ## Install the Container Apps extension
 
+> [!IMPORTANT]
+> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy or a custom load balancer](/azure/aks/hybrid/configure-load-balancer) before attempting to install the extension.
+
 1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
     # [Azure CLI](#tab/azure-cli)
@@ -381,7 +385,7 @@ To learn more about these pods and their role in the system, see [Azure Arc over
 
 ## Create a custom location
 
-The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure location that you assign to the Azure Container Apps connected environment.
+The [custom location](/azure/azure-arc/kubernetes/custom-locations) is an Azure location that you assign to the Azure Container Apps connected environment.
 
 1. Set the following environment variables to the desired name of the custom location and for the ID of the Azure Arc-connected cluster.
 
@@ -428,7 +432,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
     ---
 
     > [!NOTE]
-    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
     >
 
 1. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, rerun the command after a minute.

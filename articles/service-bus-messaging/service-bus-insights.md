@@ -155,7 +155,7 @@ By default, the **Time Range** field displays data from the **Last 4 hours**. Yo
 
 ## Pin and export
 
-You can pin any one of the metric sections to an [Azure Dashboard](../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
+You can pin any one of the metric sections to an [Azure Dashboard](/azure/azure-portal/azure-portal-dashboards) by selecting the pushpin icon at the top right of the section.
 
 :::image type="content" source="./media/service-bus-insights/pin.png" alt-text="Screenshot that shows the Pin button at the top of the section.":::
 

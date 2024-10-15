@@ -26,7 +26,7 @@ Regardless of the edition of Event Grid you use, there's an **event publisher** 
 
 
 ## Event Grid on Kubernetes with Azure Arc
-Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc-enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you're able to [install Event Grid](install-k8s-extension.md) on it. 
+Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). Through Azure Arc-enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you're able to [install Event Grid](install-k8s-extension.md) on it. 
 
 ### Use case
 Event Grid on Kubernetes supports various event-driven integration scenarios. However, the main encompassing scenario supported and expressed as a user story is:
@@ -83,9 +83,9 @@ Event Grid on Kubernetes with Azure Arc is offered without charge during its pre
 ## Next steps
 Follow these steps in the order to start routing events using Event Grid on Kubernetes.
 
-1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Connect your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 1. [Install an Event Grid extension](install-k8s-extension.md), which is the actual resource that deploys Event Grid to a Kubernetes cluster. To learn more about the extension, see [Event Grid Extension](install-k8s-extension.md#event-grid-extension) section to learn more. 
-1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
+1. [Create a custom location](/azure/azure-arc/kubernetes/custom-locations). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
 1. [Create a topic and one or more event subscriptions](create-topic-subscription.md).
 1. [Publish events](create-topic-subscription.md).
 

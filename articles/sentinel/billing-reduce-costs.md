@@ -1,15 +1,19 @@
 ---
 title: Reduce costs for Microsoft Sentinel
 description: Learn how to reduce costs for Microsoft Sentinel by using different methods in the Azure portal.
-author: cwatson-cat
-ms.author: cwatson
+author: austinmccollum
+ms.author: austinmc
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 07/09/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a cloud security administrator, I want to optimize the cost of using Microsoft Sentinel so that I can manage my organization's security operations within budget constraints.
+
 ---
 
 # Reduce costs for Microsoft Sentinel
@@ -32,6 +36,14 @@ To change your pricing tier commitment, select one of the other tiers on the pri
 To learn more about how to monitor your costs, see [Manage and monitor costs for Microsoft Sentinel](billing-monitor-costs.md).
 
 For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing tiers don't include Log Analytics charges. For more information, see [Simplified pricing tiers](billing.md#simplified-pricing-tiers).
+
+## Buy a pre-purchase plan
+
+Save on your Microsoft Sentinel costs when you pre-purchase Microsoft Sentinel commit units (CUs). Use the pre-purchased CUs at any time during the one year purchase term.
+
+Any eligible Microsoft Sentinel costs deduct first from the pre-purchased CUs automatically. You don't need to redeploy or assign a pre-purchased plan to your Microsoft Sentinel workspaces for the CU usage to get the pre-purchase discounts.
+
+For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase plan](billing-pre-purchase-plan.md).
 
 ## Separate non-security data in a different workspace
 
@@ -80,9 +92,9 @@ You can reduce costs even further by enrolling tables that contain secondary sec
 
 ## Use data collection rules for your Windows Security Events
 
-The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent.
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor Agent, which uses data collection rules to define the data to collect from each agent.
 
-Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 

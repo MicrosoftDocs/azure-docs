@@ -24,8 +24,6 @@ An **[internal (or private) load balancer](./components.md#frontend-ip-configura
 
 :::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
-*Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
-
 For more information on the individual load balancer components, see [Azure Load Balancer components](./components.md).
 
 ## Why use Azure Load Balancer?

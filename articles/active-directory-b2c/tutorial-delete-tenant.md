@@ -5,12 +5,12 @@ description: Steps describing how to delete an Azure AD B2C tenant. Learn how to
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to delete the tenant and all associated resources, so that I can clean up after completing tutorials or testing.

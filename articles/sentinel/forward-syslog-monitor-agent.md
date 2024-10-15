@@ -7,7 +7,10 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial
 ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
-#Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
+
+
+#Customer intent: As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
+
 ---
 
 # Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent
@@ -42,7 +45,7 @@ To complete the steps in this tutorial, you must have the following resources an
 - A Log Analytics workspace.
 - A Linux server that's running an operating system that supports Azure Monitor Agent.
    - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
-   - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+   - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - A Linux-based device that generates event log data like a firewall network device.
 
 ## Configure Azure Monitor Agent to collect Syslog data

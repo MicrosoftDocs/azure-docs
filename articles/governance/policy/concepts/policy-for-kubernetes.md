@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 06/20/2024
+ms.date: 09/30/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -16,7 +16,7 @@ Azure Policy makes it possible to manage and report on the compliance state of y
 Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
-- [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md), through **Azure Policy's **Extension** for Arc**
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
@@ -153,7 +153,7 @@ And the following output for clusters using managed identity:
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
-For an overview of the extensions platform, see [Azure Arc cluster extensions](../../../azure-arc/kubernetes/conceptual-extensions.md).
+For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
 
 ### Prerequisites
 
@@ -162,9 +162,9 @@ If you already deployed Azure Policy for Kubernetes on an Azure Arc cluster usin
 1. Ensure your Kubernetes cluster is a supported distribution.
 
    > [!NOTE]
-   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure-arc/kubernetes/validation-program.md).
+   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure/azure-arc/kubernetes/validation-program).
 
-1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](../../../azure-arc/kubernetes/extensions.md) including [connecting your cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
+1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
    > [!NOTE]
    > Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -306,7 +306,7 @@ Azure Policy for Kubernetes also support custom definition creation at the compo
 With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
 `Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutate-preview) are used to manage your Kubernetes clusters.
 
-_Audit_ and _deny_ must provide **details** properties
+_Audit_ and _deny_ must provide `details` properties
 specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
 and Gatekeeper v3.
@@ -410,13 +410,13 @@ Some other considerations:
 
 - If the cluster subscription is registered with Microsoft Defender for Cloud, then Microsoft Defender for Cloud Kubernetes policies are applied on the cluster automatically.
 
-- When a deny policy is applied on cluster with existing Kubernetes resources, any pre-existing
+- When a deny policy is applied on cluster with existing Kubernetes resources, any preexisting
   resource that isn't compliant with the new policy continues to run. When the non-compliant
   resource gets rescheduled on a different node the Gatekeeper blocks the resource creation.
 
 - When a cluster has a deny policy that validates resources, the user doesn't get a rejection
   message when creating a deployment. For example, consider a Kubernetes deployment that contains
-  replicasets and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it doesn't return a rejection message as part of events. However,
+  `replicasets` and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it doesn't return a rejection message as part of events. However,
   `kubectl describe replicasets.apps $MY_DEPLOYMENT` returns the events associated with rejection.
 
 > [!NOTE]
@@ -582,7 +582,7 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 of the Azure Policy troubleshooting article.
 
 For Azure Policy extension for Arc extension related issues, go to:
-- [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md)
+- [Azure Arc enabled Kubernetes troubleshooting](/azure/azure-arc/kubernetes/troubleshooting)
 
 For Azure Policy related issues, go to:
 - [Inspect Azure Policy logs](#logging)
@@ -606,8 +606,27 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.8.0
+Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
+
+Security improvements.
+- Released November 2024
+- Kubernetes 1.27+
+- Gatekeeper 3.17.1
+
+#### 1.7.1
+Introducing CEL and VAP. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users won't need to convert their Rego to CEL as they will both be supported and be used to enforce policies. To use CEL and VAP, users need to enroll in the feature flag `AKS-AzurePolicyK8sNativeValidation` in the `Microsoft.ContainerService` namespace. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
+
+Security improvements.
+- Released September 2024 
+- Kubernetes 1.27+ (VAP generation is only supported on 1.30+)
+- Gatekeeper 3.17.1 
+
 #### 1.7.0
-Introducing expansion, a shift left feature that lets you know up front whether your workload resources (Deployments, ReplicaSets, Jobs, etc.) will produce admissible pods. Expansion shouldn't change the behavior of your policies; rather, it just shifts Gatekeeper's evaluation of pod-scoped policies to occur at workload admission time rather than pod admission time. However, to perform this evaluation it must generate and evaluate a what-if pod that is based on the pod spec defined in the workload, which may have incomplete metadata. For instance, the what-if pod will not contain the proper owner references. Because of this small risk of policy behavior changing, we're introducing expansion as disabled by default. To enable expansion for a given policy definition, set `.policyRule.then.details.source` to `All`. Built-ins will be updated soon to enable parameterization of this field. If you test your policy definition and find that the what-if pod being generated for evaluation purposes is incomplete, you can also use a mutation with source `Generated` to mutate the what-if pods. For more information on this option, view the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/expansion#mutating-example).
+
+Introducing expansion, a shift left feature that lets you know up front whether your workload resources (Deployments, ReplicaSets, Jobs, etc.) will produce admissible pods. Expansion shouldn't change the behavior of your policies; rather, it just shifts Gatekeeper's evaluation of pod-scoped policies to occur at workload admission time rather than pod admission time. However, to perform this evaluation it must generate and evaluate a what-if pod that is based on the pod spec defined in the workload, which might have incomplete metadata. For instance, the what-if pod won't contain the proper owner references. Because of this small risk of policy behavior changing, we're introducing expansion as disabled by default. To enable expansion for a given policy definition, set `.policyRule.then.details.source` to `All`. Built-ins will be updated soon to enable parameterization of this field. If you test your policy definition and find that the what-if pod being generated for evaluation purposes is incomplete, you can also use a mutation with source `Generated` to mutate the what-if pods. For more information on this option, view the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/expansion#mutating-example).
+
+Expansion is currently only available on AKS clusters, not Arc clusters.
 
 Security improvements.
 - Released July 2024
@@ -615,11 +634,13 @@ Security improvements.
 - Gatekeeper 3.16.3
 
 #### 1.6.1
+
 Security improvements.
 - Released May 2024
 - Gatekeeper 3.14.2
 
 #### 1.5.0
+
 Security improvements.
 - Released May 2024
 - Kubernetes 1.27+
@@ -714,10 +735,12 @@ aligns with how the add-on was installed:
   _azure-policy_ to false:
 
   ```json
-  "addons": [{
+  "addons": [
+    {
       "name": "azure-policy",
       "enabled": false
-  }]
+    }
+  ]
   ```
 
   For more information, see
@@ -741,13 +764,16 @@ aligns with how the add-on was installed:
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
 
 ### Configuring the Gatekeeper Config
-Changing the Gatekeeper config is unsupported, as it contains critical security settings. Edits to the config will be reconciled.
+
+Changing the Gatekeeper config is unsupported, as it contains critical security settings. Edits to the config are reconciled.
 
 ### Using data.inventory in constraint templates
-Currently, several built-in policies make use of [data replication](https://open-policy-agent.github.io/gatekeeper/website/docs/sync), which enables users to sync existing on-cluster resources to the OPA cache and reference them during evaluation of an AdmissionReview request. Data replication policies can be differentiated by the presence of `data.inventory` in the Rego, as well as the presence of the `metadata.gatekeeper.sh/requires-sync-data` annotation, which informs the Azure Policy addon what resources need to be cached for policy evaluation to work properly. (Note that this differs from standalone Gatekeeper, where this annotation is descriptive, not prescriptive.) 
 
-Data replication is currently blocked for use in custom policy definitions, because replicating resources with high instance counts can dramatically increase the Gatekeeper pods\' resource usage if not used carefully. You will see a `ConstraintTemplateInstallFailed` error when attempting to create a custom policy definition containing a constraint template with this annotation.
-> Removing the annotation may appear to mitigate the error you see, but then the policy addon will not sync any required resources for that constraint template into the cache. Thus, your policies will be evaluated against an empty `data.inventory` (assuming that no built-in is assigned that replicates the requisite resources). This will lead to misleading compliance results. As noted [previously](#configuring-the-gatekeeper-config), manually editing the config to cache the required resources is also not permitted.
+Currently, several built-in policies make use of [data replication](https://open-policy-agent.github.io/gatekeeper/website/docs/sync), which enables users to sync existing on-cluster resources to the OPA cache and reference them during evaluation of an `AdmissionReview` request. Data replication policies can be differentiated by the presence of `data.inventory` in the Rego, and the presence of the `metadata.gatekeeper.sh/requires-sync-data` annotation, which informs the Azure Policy addon which resources need to be cached for policy evaluation to work properly. This process differs from standalone Gatekeeper, where this annotation is descriptive, not prescriptive.
+
+Data replication is currently blocked for use in custom policy definitions, because replicating resources with high instance counts can dramatically increase the Gatekeeper pods\' resource usage if not used carefully. You'll see a `ConstraintTemplateInstallFailed` error when attempting to create a custom policy definition containing a constraint template with this annotation.
+
+Removing the annotation may appear to mitigate the error you see, but then the policy addon will not sync any required resources for that constraint template into the cache. Thus, your policies will be evaluated against an empty `data.inventory` (assuming that no built-in is assigned that replicates the requisite resources). This will lead to misleading compliance results. As noted [previously](#configuring-the-gatekeeper-config), manually editing the config to cache the required resources is also not permitted.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 -  [AKS Pod security policy](/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](/azure/aks/use-azure-policy).
@@ -762,9 +788,11 @@ The Azure Policy Add-on requires three Gatekeeper components to run: One audit p
 ### How much resource consumption should I expect the Azure Policy Add-on / Extension to use on each cluster?
 
 The Azure Policy for Kubernetes components that run on your cluster consume more resources as the count of Kubernetes resources and policy assignments increases in the cluster, which requires audit and enforcement operations.
+
 The following are estimates to help you plan:
-  - For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB of memory per component.
-  - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB of memory per component.
+
+- For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB of memory per component.
+- For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB of memory per component.
 
 ### Can Azure Policy for Kubernetes definitions be applied on Windows pods?
 
@@ -800,14 +828,14 @@ collected:
 
   - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more information, see [Using system node pools](/azure/aks/use-system-pools#system-and-user-node-pools).
   - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](/azure/aks/limit-egress-traffic) for cluster nodes.
-  - If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes' iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use `aad-pod-identity`.
-  - AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` that any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with kubernetes.azure.com/managedby: aks label in kube-system namespace should be excluded in `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception). To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+  - If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes `iptables` to intercept calls to the Azure Instance Metadata endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use `aad-pod-identity`.
+  - `AzurePodIdentityException` CRD can be configured to inform `aad-pod-identity` that any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in kube-system namespace should be excluded in `aad-pod-identity` by configuring the `AzurePodIdentityException` CRD. For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception). To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Policy definition structure](definition-structure.md).
-- Review [Understanding policy effects](effects.md).
+- Review the [Policy definition structure](definition-structure-basics.md).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

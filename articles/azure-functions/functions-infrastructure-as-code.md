@@ -10,7 +10,7 @@ zone_pivot_groups: functions-hosting-plan
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation help's you with these scenarios:
+You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation helps you with these scenarios:
 
 + Integrating your resource deployments with your source code in Azure Pipelines and GitHub Actions-based deployments.
 + Restoring a function app and related resources from a backup.
@@ -99,7 +99,7 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 ::: zone-end  
 ::: zone pivot="azure-arc" 
-+ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
++ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 ::: zone-end  
 <a name="storage"></a>
 ## Create storage account
@@ -131,7 +131,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) file in the templates repository.
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"
-For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/starters/http/dotnet/infra/core/storage/storage-account.bicep#L11) file in the sample repository.
+For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd/blob/main/infra/core/storage/storage-account.bicep) file in the sample repository.
 ::: zone-end  
 
 ### [ARM template](#tab/json)
