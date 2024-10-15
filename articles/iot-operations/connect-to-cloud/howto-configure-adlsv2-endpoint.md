@@ -131,7 +131,28 @@ If you need to override the system-assigned managed identity audience, see the [
 
 # [Bicep](#tab/bicep)
 
-Todo
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: '<ENDPOINT NAME>'
+  extendedLocation: {
+    name: '<CUSTOM LOCATION NAME>'
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'AccessToken'
+        accessTokenSettings: {
+            secretRef: 'my-sas'
+        }
+      }
+      host: 'https://<account>.blob.core.windows.net'
+    }
+  }
+}
+```
 ---
 
 ### Available authentication methods
