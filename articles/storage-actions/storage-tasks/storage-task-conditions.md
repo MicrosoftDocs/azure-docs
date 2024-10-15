@@ -22,22 +22,10 @@ This article describes the format of a storage task condition and the properties
 
 ## Condition format
 
-A storage task contains a set of conditions and operations in a JSON document. The following snippet shows how conditions and operations appear in that document. 
+A storage task contains a set of conditions and operations in a JSON document. The following image shows how a single condition and operation appear in a the document.  
 
-```json
-"action": {
-    "if": {
-        "condition": "<clause>",
-        "operations": [
-            {
-                "name": "<operation name>",
-                "onSuccess": "continue",
-                "onFailure": "break"
-            }
-        ]
-    }
-}
-```
+> [!div class="mx-imgBorder"]
+> ![Location of conditions and operations in a JSON snippet.](../media/storage-tasks/storage-task-operations/storage-task-operations-location-of-conditions-and-operations.png)
 
 A condition a collection of one or more _clauses_. Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the **operator** always appears first followed by the **property**, and then the **value**. The following image shows how each element is positioned in the expression.
 
@@ -127,4 +115,5 @@ The following table shows the operators that you can use in a clause to evaluate
 
 ## See also
 
+- [Storage task operations](storage-task-operations.md)
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)
