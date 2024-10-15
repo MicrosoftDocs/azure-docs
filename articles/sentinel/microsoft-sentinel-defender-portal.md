@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is generally available within the Microsoft unified security operations platform in the Microsoft Defender portal with Microsoft Defender XDR. For more information, see:
+This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal with Microsoft Defender XDR. For more information, see:
 
 - Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
 - Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
@@ -26,7 +26,7 @@ For preview, Microsoft Sentinel is available in the Defender portal without Micr
 
 ## New and improved capabilities
 
-The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel.
+The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
@@ -34,12 +34,12 @@ The following table describes the new or improved capabilities available in the 
 | Attack disrupt    |  Deploy automatic attack disruption for SAP with both the Defender portal and the Microsoft Sentinel solution for SAP applications. For example, contain compromised assets by locking suspicious SAP users in case of a financial process manipulation attack.  <br><br>Attack disruption capabilities for SAP are available in the Defender portal only. To use attack disruption for SAP, update your data connector agent version and ensure that the relevant Azure role is assigned to your agent's identity. <br><br>  For more information, see [Automatic attack disruption for SAP](sap/deployment-attack-disrupt.md).  |
 |SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
 
-The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of the Microsoft unified security operations platform.
+The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of Microsoft's unified security operations platform.
 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
 | Unified entities  | Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages). |
-| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Copilot for Security to summarize, respond and report. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see the following articles:<br>- [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br>- [Investigate Microsoft Sentinel incidents in Copilot for Security](sentinel-security-copilot.md) |
+| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Copilot for Security to summarize, respond, and report. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see the following articles:<br>- [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br>- [Investigate Microsoft Sentinel incidents in Copilot for Security](sentinel-security-copilot.md) |
 
 ## Capability differences between portals
 
@@ -61,6 +61,18 @@ This section covers the Microsoft Sentinel capabilities or integrations that are
 | Incidents: Reopening closed incidents |Azure portal only  |In the Defender portal, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
 | Incidents: Tasks |Azure portal only | Tasks are unavailable in the Defender portal. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
 |Multiple workspace management for Microsoft Sentinel|Defender portal: Limited to one Microsoft Sentinel workspace per tenant <br><br>Azure portal: Centrally manage multiple Microsoft Sentinel workspaces for tenants  |Only one Microsoft Sentinel workspace per tenant is currently supported in the Defender portal. So, Microsoft Defender multitenant management supports one Microsoft Sentinel workspace per tenant.<br><br> For more information, see the following articles:<br>- Defender portal: [Microsoft Defender multitenant management](/defender-xdr/mto-overview) <br>- Azure portal: [Manage multiple Microsoft Sentinel workspaces with workspace manager](/azure/sentinel/workspace-manager)|
+
+## Limited or unavailable capabilities 
+
+When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following features that show in the Defender portal are currently limited or unavailable.
+
+|Capability |Service required  |
+|---------|---------|
+|Exposure management      |   [Microsoft Security Exposure Management](/security-exposure-management/)      |
+|Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)       |
+|Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
+
+Microsoft Sentinel customers that create a workspace in the Israel region aren't currently eligible to onboard that workspace to Microsoft's unified security operations platform. 
 
 ## Quick reference
 
