@@ -3111,16 +3111,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
-      "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
-      "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/terraform/terrafom-quickstart.md",
       "redirect_url": "/azure/terraform/terraform-create-configuration",
       "redirect_document_id": true
