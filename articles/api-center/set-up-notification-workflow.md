@@ -1,5 +1,5 @@
 ---
-title: Set up notification after API registration - Azure API Center
+title: Workflow automation after API registration - Azure API Center
 description: Learn how to set up a notification workflow to set API status in your organization's API center using Azure Logic Apps and Microsoft Teams.
 ms.service: azure-api-center
 ms.topic: how-to
@@ -12,14 +12,14 @@ ms.custom:
 
 # Set up a notification workflow after an API is registered in Azure API Center
 
-This article shows how to set up an automated notification workflow for updating the status of an API after it's registered in your organization's [API center](overview.md). This example can be adapted to set up a similar notification workflow for other types of events in your API center.
+This article shows how to set up an automated notification workflow for updating the status of an API after it's registered in your organization's [API center](overview.md). Adapt this example to automate workflows for other types of events in your API center.
 
 Setting up a notification workflow can be useful for several reasons:
 
 * **Real-time updates** - Receive alerts immediately when certain events occur, such as API registration or API definition updates. Quickly address issues or take further actions based on these events.
 * **Automation** - Save time and reduce manual monitoring. For example, set up alerts for when a new API is registered, an API definition changes, or API analysis reports are generated.
-* **Improved user experience** - By integrating notifications, you can keep users informed about the status of their requests or actions. This can include approval processes for your APIs, changing custom metadata based on criteria.
-* **Collaboration** - Notifications can be sent to different team members based on their roles (for example, API administrator, API developer), ensuring that the right people are informed and can take appropriate actions.
+* **Improved user experience** - By integrating notifications, keep users informed about the status of their requests or actions. This can include approval processes for your APIs, changing custom metadata based on criteria.
+* **Collaboration** - Send notifications to different team members based on their roles (for example, API administrator, API developer), ensuring that the right people are informed and can take appropriate actions.
 
 In this simplified example:
 
@@ -52,7 +52,7 @@ To create a custom *api-status* property in your API center:
 1. In the **Assignments** tab, next to **APIs**, select **Optional**. 
 1. Optionally make assignments to **Deployments** and **Environments**. Select **Next**.
 1. Review the configuration and select **Create**.
-git
+
 ## Enable a managed identity in your logic app
 
 For this scenario, the logic app uses a managed identity to access the Azure API center. Depending on your needs, enable either a system-assigned or user-assigned managed identity. For configuration steps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../logic-apps/authenticate-with-managed-identity.md).
@@ -90,7 +90,7 @@ Configure a step to trigger the logic app workflow when an event occurs in the A
 
 ### Workflow step 2. Initialize variable - subjectvar 
 
-Add a step to initialize a variable that stores the name of the API added. 
+Add a step to initialize a variable that stores the ID of the API that's registered. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Variables*. 
@@ -103,10 +103,10 @@ In the **Initialize variable** pane:
         
 ### Workflow step 3. Initialize variable - versionvar 
 
-Add a step to initialize a variable to store the version of the API Center management API. This version is needed for the HTTP request in workflow step 4. 
+Add a step to initialize a variable to store the version of the API Center management API. This version is needed for the HTTP requests in the workflow. 
 
 > [!TIP]
-> Initializing a variable for the version makes it easy to change the value later as the management API gets updated.
+> Initializing a variable for the version makes it easy to change the value later, as the management API gets updated.
 
 1. Select **Add an action**.
 1. In the search box, enter *Variables*. 
@@ -118,7 +118,7 @@ Add a step to initialize a variable to store the version of the API Center manag
     
 ### Workflow step 4. HTTP action to get API details
  
-Add a step to make an HTTP request to get API details from the API center. 
+Add a step to make an HTTP GET request to get API details from the API center. 
 
 1. Select **Add an action**.
 1. In the search box, enter *HTTP*. 
@@ -126,6 +126,8 @@ Add a step to make an HTTP request to get API details from the API center.
 1. In the **HTTP** pane:
     1. In **URI**, enter `https://management.azure.com/` (including the trailing forward slash). After the forward slash, enter `/`, select **Insert dynamic content**, and then select the variables *subjectvar* and *versionvar*, in that order.
     1. In **Method**, select **GET**.
+        :::image type="content" source="media/set-up-notification-workflow/http-request-get.png" alt-text="Screenshot of HTTP request action in the portal.":::
+
     1. Under **Advanced parameters**, select **Authentication**.
         1. In **Authentication type**, select **Managed Identity**. 
         1. In **Managed identity**, select **System-assigned managed identity**.
@@ -285,7 +287,7 @@ Add a step to initialize the value of a variable that stores the API status valu
 
 ### Workflow step 8. HTTP action - update API properties in Azure API Center
 
-Add a step to make an HTTP request to update the API properties in your API center. In the search box, enter *HTTP*. 
+Add a step to make an HTTP PUT request to update the API properties in your API center. In the search box, enter *HTTP*. 
 
 1. Select **Add an action**.
 1. In the search box, enter *HTTP*.
@@ -321,7 +323,7 @@ Add a step to make an HTTP request to update the API properties in your API cent
 Confirm that the event subscription is provisioned successfully in your API center. It might take a few minutes for the event subscription to be provisioned.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left menu, select **Events**.
+1. In the left menu, select **Events** > **Event Subscriptions**.
 1. Check that the logic app is listed under **Name**, and the **Endpoint** is **Webhook**.
 
 :::image type="content" source="media/set-up-notification-workflow/logic-app-event-subscription.png" alt-text="Screenshot of a logic app event subscription in the portal.":::
@@ -347,7 +349,7 @@ Test the event subscription by registering an API in your API center:
 To get details about the logic app run and troubleshoot any issues:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your logic app.
-1. In the left menu, under **Developer Tools**, select **Run History**.
+1. In the left menu, under **Development Tools**, select **Run History**.
 1. Select the run to see the details of each step.
 
 ## Related content
