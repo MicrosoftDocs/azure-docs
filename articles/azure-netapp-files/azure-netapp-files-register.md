@@ -5,12 +5,12 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 10/15/2024
 ms.author: anfdocs
 ---
 # Register for NetApp Resource Provider
 
-To use the Azure NetApp Files service, you need to register the NetApp Resource Provider.
+To use Azure NetApp Files, you need to register the NetApp Resource Provider.
 
 1. From the Azure portal, se;ect the Azure Cloud Shell icon on the upper right-hand corner:
 
@@ -48,9 +48,9 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
-5. From the Azure portal, click the **Subscriptions** blade.
-6. In the Subscriptions blade, click your subscription ID. 
-7. In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status: 
+5. From the Azure portal, select **Subscriptions**.
+6. From Subscriptions, select your subscription ID. 
+7. In the settings of the subscription, select **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status: 
 
       ![Registered Microsoft.NetApp](./media/azure-netapp-files-register/azure-netapp-files-registered-resource-providers.png)
 
