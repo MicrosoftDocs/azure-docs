@@ -412,8 +412,8 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
@@ -431,8 +431,8 @@ In this release, we've made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Various bug fixes for multimedia redirection (MMR) video playback redirection.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Various bug fixes for multimedia redirection video playback redirection.
    - [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
@@ -495,9 +495,9 @@ In this release, we've made the following changes:
 - Added banner warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](../multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md).
+- Updates to [Multimedia redirection for video playback and calls in a remote session](../multimedia-redirection-video-playback-calls.md) including the following:
+   - Multimedia redirection now works on a browser published as a RemoteApp and supports up to 30 sites.
+   - Multimedia redirection introduces better diagnostic tools with the new status icon and one-click Tracelog.
 
 ## Updates for version 1.2.3497
 
