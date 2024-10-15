@@ -54,44 +54,38 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Bicep](#tab/bicep)
 
-1. This [single Bicep template file](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/adls-df.bicep) from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources for Azure Data Lake Storage Gen2. Download the template file and customize it according to your environment.
-
-
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```console
-    az stack group create --name MyDeploymentStack \
-    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
-
-This endpoint is the destination for the dataflow that receives messages to Azure Data Lake Storage Gen2.
-
+1.  Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+    
 ```bicep
+    param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+    param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+    param endpointName string = '<ENDPOINT_NAME>'
+    param host string = 'https://<ACCOUNT>.blob.core.windows.net'
 
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param host string = 'https://<ACCOUNT>.blob.core.windows.net'
-
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      host: host
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+    resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+      name: aioInstanceName
+    }
+    resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+      name: customLocationName
+    }
+    resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+      parent: aioInstance
+      name: endpointName
+      extendedLocation: {
+        name: customLocation.id
+        type: 'CustomLocation'
+      }
+      properties: {
+        endpointType: 'DataLakeStorage'
+        dataLakeStorageSettings: {
+          host: host
+          authentication: {
+            method: 'SystemAssignedManagedIdentity'
+            systemAssignedManagedIdentitySettings: {}
+          }
+        }
       }
     }
-  }
-}
 ```
 
 ---

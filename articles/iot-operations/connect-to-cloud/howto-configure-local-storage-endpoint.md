@@ -49,7 +49,7 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 
 2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
-    ```console
+    ```azurecli
     az stack group create --name MyDeploymentStack \
     --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
     --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
