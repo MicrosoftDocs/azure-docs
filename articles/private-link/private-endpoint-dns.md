@@ -211,7 +211,7 @@ For Azure services, use the recommended zone names as described in the following
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
-<sup>2</sup>For the Kudu console, or Kudu REST API (deployment with Azure DevOps Services self-hosted agents for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
+<sup>2</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
 
 >[!Note]
 >In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -354,7 +354,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
 
-<sup>2</sup>For the Kudu console, or Kudu REST API (deployment with Azure DevOps Services self-hosted agents for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
+<sup>2</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
 
 >[!Note]
 >In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
