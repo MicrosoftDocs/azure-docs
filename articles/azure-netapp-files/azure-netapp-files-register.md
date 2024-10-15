@@ -12,7 +12,7 @@ ms.author: anfdocs
 
 To use Azure NetApp Files, you need to register the NetApp Resource Provider.
 
-1. From the Azure portal, se;ect the Azure Cloud Shell icon on the upper right-hand corner:
+1. From the Azure portal, select the Azure Cloud Shell icon on the upper right-hand corner:
 
       ![Azure Cloud Shell icon](./media/azure-netapp-files-register/azure-netapp-files-azure-cloud-shell.png)
 
@@ -30,7 +30,7 @@ To use Azure NetApp Files, you need to register the NetApp Resource Provider.
 
    The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
 
-4. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered: 
+4. Verify that the Azure Resource Provider has been registered. To verify, enter the following command in the Azure Cloud Shell console:
     
     ```azurecli
     az provider show --namespace Microsoft.NetApp
@@ -46,7 +46,7 @@ To use Azure NetApp Files, you need to register the NetApp Resource Provider.
      "resourceTypes": […. 
     ```
 
-   `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
+   `<SubID>` is your subscription ID. The `state` parameter value indicates `Registered`.
 
 5. From the Azure portal, select **Subscriptions**.
 6. From Subscriptions, select your subscription ID. 
