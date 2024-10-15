@@ -88,6 +88,11 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
     }
 ```
 
+1. Deploy via Azure CLI
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
+```
 ---
 
 If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.

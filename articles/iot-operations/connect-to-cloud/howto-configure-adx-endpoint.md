@@ -78,17 +78,7 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-1. This [single Bicep template file](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/adx-df.bicep) from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources for Azure Data Explorer. Download the template file and customize it according to your environment.
-
-2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```azurecli
-    az stack group create --name MyDeploymentStack \
-    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
-
-This endpoint is the destination for the dataflow that receives messages to Azure Data Explorer.
+1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 // ADX Endpoint
@@ -117,7 +107,13 @@ resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-0
     }
   }
 }
+
+1. Deploy via Azure CLI
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
 ```
+
 
 <!-- Add a cmd line to edit values in Bicep file !-->
 

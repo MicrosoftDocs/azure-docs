@@ -96,17 +96,7 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-1. This [single Bicep template file](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/kafka-df.bicep) from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources for Azure Event Hub. Download the template file and customize it according to your environment.
-
-2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```azurecli
-    az stack group create --name MyDeploymentStack \
-    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
- 
- The overall structure of a Kafka *DataflowEndpoint* resource with managed identity authentication method for Bicep is as follows:
+1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -133,6 +123,12 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
     }
   }
 }
+```
+
+1. Deploy via Azure CLI
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
 ```
 
 The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
