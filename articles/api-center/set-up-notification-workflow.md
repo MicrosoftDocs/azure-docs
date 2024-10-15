@@ -10,7 +10,7 @@ ms.custom:
 # Customer intent: As an API program manager, I want to automate a workflow for an individual to receive a Microsoft Teams notification to set status for an API that is registered in my organization's API center.
 ---
 
-# Set up a notification workflow after API is registered in your Azure API center
+# Set up a notification workflow after an API is registered in Azure API Center
 
 This article shows how to set up an automated notification workflow for updating the status of an API after it's registered in your organization's [API center](overview.md). This example can be adapted to set up a similar notification workflow for other types of events in your API center.
 
@@ -53,7 +53,7 @@ To create a custom *api-status* property in your API center:
 1. Optionally make assignments to **Deployments** and **Environments**. Select **Next**.
 1. Review the configuration and select **Create**.
 
-# Enable a managed identity in your logic app
+## Enable a managed identity in your logic app
 
 For this scenario, the logic app uses a managed identity to access the Azure API center. Depending on your needs, enable either a system-assigned or user-assigned managed identity. For configuration steps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../logic-apps/authenticate-with-managed-identity.md).
 
@@ -200,7 +200,7 @@ Add a step to parse the JSON output of the preceding HTTP request.
 
 ### Workflow step 6. Post adaptive card to Teams
 
-Add a step to post the notification as an adaptive card to Microsoft Teams. 
+Add a step to post the notification as an adaptive card in Microsoft Teams. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Teams*. 
@@ -343,9 +343,10 @@ Test the event subscription by registering an API in your API center:
     :::image type="content" source="media/set-up-notification-workflow/view-api-custom-property.png" alt-text="Screenshot of updated API registration in the portal.":::
 
 ## View the logic app run history
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your logic app.
 1. In the left menu, under **Developer Tools**, select **Run History**.
-1. Select the run to see the details and to troubleshoot any errors, if necessary.
+1. Select the run to see the details of each step and to troubleshoot any errors.
 
 ## Related content
 
