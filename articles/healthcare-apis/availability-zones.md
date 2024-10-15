@@ -40,7 +40,7 @@ Here's a list of availability regions for Azure Health Data Services.
 - (North America) West US 3*
 - (North America) Canada Central
 
-In the preceding list, a "starred" (*) region has quota issues due to high demand. Enabling AZ features in this region may take longer.
+In the preceding list, a starred ("*") region has quota issues due to high demand. Enabling AZ features in this region may take longer.
 
 ### Limitations
 
