@@ -130,6 +130,110 @@ az elastic-san update \
 
 ---
 
+## Configure iSCSI error detection
+
+### Enable iSCSI error detection
+
+To enable error detection via CRC32C checksum verification for iSCSI headers and/or data payloads, set CRC32C for header and/or data digests respectively on all connections on the client side. You can do this by connecting to the volumes from the client using multi-session scripts generated in portal connect flow or using the scripts from documentation, which already contain steps to do this. If you choose to do it without using the connect scripts, on Windows, this can be done by setting header and/or data digests to 1 during target login (LoginTarget and PersistentLoginTarget). On Linux, this can be done by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example on Ubuntu, it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected one or more volumes to the client before updating global configuration file, update the node specific configuration file for each volume directly or using the following command:
+
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value
+
+Where
+- $volume_iqn: Elastic SAN volume IQN
+- $portal_hostname: Elastic SAN volume portal hostname
+- $port: 3260
+- $iscsi_setting_name: node.conn[0].iscsi.HeaderDigest (or) node.conn[0].iscsi.DataDigest 
+- $setting_value: CRC32C
+
+### Enforce iSCSI error detection
+
+To enforce iSCSI error detection, you need to set CRC32C for both header and data digests on the client side and enable the CRC protection property on the volume group that contains volumes that are already connected to or are yet to be connected to the client. If the volumes are already connected and don’t have CRC32C set for both digests, it is recommended to disconnect the volumes and reconnect them using multi-session scripts generated in portal disconnect/connect flow or from documentation, which contain steps to set CRC32C on both header and data digests.
+
+> [!NOTE]
+> CRC protection feature is not currently available in North Europe and South Central US.
+
+To enable CRC protection on the volume group:
+
+# [Portal](#tab/azure-portal)
+
+Enable CRC protection on a new volume group:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-vg.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-vg.png":::
+
+Enable CRC protection on an existing volume group:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-update-vg.png" alt-text="Screenshot of CRC protection enablement on an existing volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-update-vg.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+Use this sample code to enable CRC protection on a new volume group using PowerShell. Replace the variable values before running the sample.
+
+```powershell
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+$RgName = "<ResourceGroupName>"
+# The name of the Elastic SAN.
+$EsanName = "<ElasticSanName>"
+# The name of volume group within the Elastic SAN.
+$EsanVgName = "<VolumeGroupName>"
+
+# Create a volume group by enabling CRC protection
+New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
+
+```
+
+Use this sample code to enable CRC protection on an existing volume group using PowerShell. Replace the variable values before running the sample.
+
+```powershell
+# Set the variable values.
+$RgName = "<ResourceGroupName>"
+$EsanName = "<ElasticSanName>"
+$EsanVgName = "<VolumeGroupName>"
+
+# Edit a volume group to enable CRC protection
+Update-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use this sample code to enable CRC protection on a new volume group using Azure CLI. Replace the variable values before running the sample.
+
+```azurecli
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+$RgName="<ResourceGroupName>"
+# The name of the Elastic SAN.
+$EsanName="<ElasticSanName>"
+# The name of volume group within the Elastic SAN.
+$EsanVgName= "<VolumeGroupName>"
+
+# Create the Elastic San.
+az elastic-san volume-group create \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --volume-group-name $EsanVgName \
+    --data-integrity-check true
+```
+
+Use this sample code to enable CRC protection on an existing volume group using Azure CLI. Replace the variable values before running the sample.
+
+```azurecli
+# Set the variable values.
+$RgName="<ResourceGroupName>"
+$EsanName="<ElasticSanName>"
+$EsanVgName= "<VolumeGroupName>"
+
+# Create the Elastic San.
+az elastic-san volume-group update \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --volume-group-name $EsanVgName \
+    --data-integrity-check true
+```
+
+---
+
+
 ## Configure a virtual network endpoint
 
 You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets can belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Microsoft Entra tenant.
