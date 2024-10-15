@@ -159,5 +159,32 @@ tdnf install -y msopenjdk-17
 
 ---
 
+## Scenarios to use Debug Console
+
+- Accessing container's file system
+
+You can access /proc/1 to access container's file system if you use **root** user to run your container.
+
+If you use a non-root user, please run below command before accessing /proc/1 directory, or you will get permission denied error.
+
+```bash
+app_gid=$(ps -ax --sort pid -o 'group' --no-headers | head -1)
+
+if [ "$app_uid" != "$(whoami)" ]; then
+  if [ -z "$(getent passwd $app_uid)" ]; then
+    echo "User $app_uid does not exist. Creating..."
+    groupadd -g $app_gid appgroup
+    useradd -u $app_uid -g $app_gid appuser
+  fi
+
+  echo "Switching to user $app_uid..."
+  su appuser
+else
+  echo "No need to switch user"
+fi
+```
+
+---
+
 > [!div class="nextstepaction"]
 > [View log streams from the Azure portal](log-streaming.md)
