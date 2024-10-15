@@ -75,7 +75,7 @@ ACSCallSummary
 | where ParticipantEndSubCode == 3112
 | project TimeGenerated, CorrelationId, ParticipantId, Identifier, CallType
 ```
-:::image type="content" source="./media/log-query-result-for-calls-with-subcode-3112.png" alt-text="Screenshot of log query result for calls with subcode 3112" lightbox="./media/log-query-result-for-calls-with-subcode-3112.png":::
+:::image type="content" source="./media/log-query-result-for-calls-with-subcode-3112.png" alt-text="Screenshot of log query result for calls with subcode 3112." lightbox="./media/log-query-result-for-calls-with-subcode-3112.png":::
 
 You can also render a timechart to understand the daily number of calls ending with subcode 3112
 ```kusto
@@ -85,7 +85,7 @@ ACSCallSummary
 | render timechart
 ```
 
-:::image type="content" source="./media/timechart-displaying-the-calls-ending-with-subcode-3112.png" alt-text="Screenshot of a timechart displaying the daily number of calls ending with subcode 3112" lightbox="./media/timechart-displaying-the-calls-ending-with-subcode-3112.png":::
+:::image type="content" source="./media/timechart-displaying-the-calls-ending-with-subcode-3112.png" alt-text="Screenshot of a timechart displaying the daily number of calls ending with subcode 3112." lightbox="./media/timechart-displaying-the-calls-ending-with-subcode-3112.png":::
 
 The time chart only provides an overview of the users under the same ACS resource ID.
 By running more specific queries, you can identify patterns or anomalies that aren't immediately apparent from the time chart alone, helping you pinpoint the root cause of any issues more accurately.
@@ -100,7 +100,7 @@ ACSCallSummary
 | order by SubCode3112Count desc
 ```
 
-:::image type="content" source="./media/log-query-results-3112-for-each-user-identifer.png" alt-text="Screenshot of log query results showing the number of calls ending with subcode 3112 for each user identifier" lightbox="./media/log-query-results-3112-for-each-user-identifer.png":::
+:::image type="content" source="./media/log-query-results-3112-for-each-user-identifer.png" alt-text="Screenshot of log query results showing the number of calls ending with subcode 3112 for each user identifier." lightbox="./media/log-query-results-3112-for-each-user-identifer.png":::
 
 In this example, one user had a total of 180 calls, of which 160 calls were successful and only two calls failed with subcode 3112.
 This pattern suggests a transient network issue, which may be resolved by retrying.
