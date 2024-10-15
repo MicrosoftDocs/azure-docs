@@ -6,7 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 07/17/2024
-# customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
+
+
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for SAP BTP so that I can detect and respond to threats and suspicious activities in my SAP environment.
+
 ---
 
 # Deploy the Microsoft Sentinel solution for SAP BTP

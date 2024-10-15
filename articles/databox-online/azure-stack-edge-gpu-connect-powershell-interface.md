@@ -4,8 +4,7 @@ description: Describes how to connect to and then manage Azure Stack Edge Pro GP
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/21/2024
 ms.author: alkohli

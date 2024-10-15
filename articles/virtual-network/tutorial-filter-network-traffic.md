@@ -857,7 +857,7 @@ az network nic ip-config update \
 
 1. Search for **vm-web** in the portal search box.
 
-1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178. Your address is different:
+1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 203.0.113.103. Your address is different:
 
    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true" lightbox="./media/tutorial-filter-network-traffic/public-ip-address.png":::
 

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 09/10/2024
 ms.author: banders
 ---
 
@@ -71,12 +71,13 @@ You can't split or merge a Synapse Pre-Purchase Plan. For more information about
 
 Cancel and exchange isn't supported for Synapse Pre-Purchase Plans. All purchases are final.
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand Azure Reservations discount](understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+- [Buy a reservation](prepare-buy-reservation.md)

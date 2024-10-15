@@ -4,7 +4,7 @@ description: Azure Application Gateway monitors the health of all resources in i
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 09/14/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell

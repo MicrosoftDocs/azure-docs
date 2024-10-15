@@ -2,8 +2,8 @@
 title: Updates and maintenance in Azure Update Manager
 description: This article describes the updates and maintenance options available in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 06/19/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: overview
 author: snehasudhirG
 ms.author: sudhirsneha
 ---

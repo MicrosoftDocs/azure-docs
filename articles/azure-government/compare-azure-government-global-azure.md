@@ -97,7 +97,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
 ||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
+|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
@@ -126,7 +126,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure AI Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.azure.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -284,11 +284,11 @@ The following Automation **features aren't currently available** in Azure Govern
 
 - Automation analytics solution
 
-### [Azure Advisor](../advisor/index.yml)
+### [Azure Advisor](/azure/advisor/)
 
-For feature variations and limitations, see [Azure Advisor in sovereign clouds](../advisor/advisor-sovereign-clouds.md).
+For feature variations and limitations, see [Azure Advisor in sovereign clouds](/azure/advisor/advisor-sovereign-clouds).
 
-### [Azure Lighthouse](../lighthouse/index.yml)
+### [Azure Lighthouse](/azure/lighthouse/)
 
 The following Azure Lighthouse **features aren't currently available** in Azure Government:
 
@@ -300,7 +300,7 @@ The following Azure Lighthouse **features aren't currently available** in Azure 
 
 The following document contains information about Azure Managed Grafana feature availability in Azure Government: [Azure Managed Grafana: Feature availability in sovereign clouds](../managed-grafana/known-limitations.md?#feature-availability-in-sovereign-clouds).
 
-### [Azure Monitor](../azure-monitor/index.yml)
+### [Azure Monitor](/azure/azure-monitor/)
 
 Azure Monitor enables the same features in both Azure and Azure Government.
 
@@ -311,7 +311,7 @@ The following options are available for previous versions of System Center Opera
 - Integrating System Center Operations Manager 2016 with Azure Government requires an updated Advisor management pack that is included with Update Rollup 2 or later.
 - System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 
-For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+For more information, see [Connect Operations Manager to Azure Monitor](/azure/azure-monitor/agents/om-agents).
 
 **Frequently asked questions**
 
@@ -320,15 +320,15 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
   - No. The portals for Azure and Azure Government are separate and don't share information.
 
-#### [Application Insights](../azure-monitor/app/app-insights-overview.md)
+#### [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
 Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
+**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
 **SDK endpoint modifications** – In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
-**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) from where you can download Azure Government IP addresses.
+**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.

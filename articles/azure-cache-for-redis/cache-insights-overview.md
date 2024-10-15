@@ -141,7 +141,7 @@ Selecting any of the other tabs for **Performance** or **Operations** opens that
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards), select the pushpin symbol in the section's upper right.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/pin.png" alt-text="Screenshot of metrics with the pushpin symbol highlighted.":::
 

@@ -1,8 +1,8 @@
 ---
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
-ms.topic: conceptual
-ms.date: 01/25/2024
+ms.topic: how-to
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -23,7 +23,7 @@ The backup preference used by Azure Backup SQL AG supports full and differential
 | Prefer Secondary | Primary replica | Secondary replicas are preferred, but backups can run on primary replica also. |
 | None/Any | Primary replica | Any replica |
 
-The workload backup extension gets installed on the node when it's registered with the Azure Backup service. When an AG database is configured for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes and the workload backup extensions on these nodes synchronize between themselves to decide which node will perform the backup. The node selection depends on the backup type and the backup preference as explained in section 1. 
+The workload backup extension is installed on the node when you register it with the Azure Backup service. When an AG database is configured for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes and the workload backup extensions on these nodes synchronize between themselves to decide which node can perform the backup. The node selection depends on the backup type and the backup preference as explained in section 1. 
 
 The selected node proceeds with the backup job, whereas the job triggered on the other nodes bails out, that is, it skips the job.
 
@@ -32,22 +32,22 @@ The selected node proceeds with the backup job, whereas the job triggered on the
 
 ## Register AG nodes to the Recovery Services vault
 
-A Recovery Services vault supports backup of databases only from VMs in the same region and subscription as that of the vault.
+A Recovery Services vault supports backup of databases only from VMs in the same region and subscription as of the vault.
 
-- You must register the primary node to the vault (otherwise, full backups can't happen).
-- If the backup preference is _secondary only_, then you need to register at least one secondary node to the vault (otherwise, log/copy-only full backups can't happen).
+- Register the primary node to the vault (otherwise, full backups can't happen).
+- Register at least one secondary node to the vault (otherwise, log/copy-only full backups can't happen) if the backup preference is _secondary only_.
 
-Configuring backups for AG databases will fail with the error code _FabricSvcBackupPreferenceCheckFailedUserError_ if the above conditions aren't met.
+Configuring backups for AG databases fail with the error code _FabricSvcBackupPreferenceCheckFailedUserError_ if the above conditions aren't met.
 
 Let’s consider the following AG deployment as a reference.
 
 :::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
-Based on the above sample AG deployment, following are various considerations:
+Based on the given sample AG deployment, following are various considerations:
 
 - As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
-- VM3 can't be registered to Vault 1 as it's in a different subscription.
-- VM4 can't be registered to Vault 1 as it's in a different region.
+- `VM3` can't be registered to Vault 1 as it's in a different subscription.
+- `VM4` can't be registered to Vault 1 as it's in a different region.
 - If the backup preference is _secondary only_, VM1 (Primary) and VM2 (Secondary) must be registered to the Vault 1 (because full backups require the primary node and logs require a secondary node). For other backup preferences, VM1 (Primary) must be registered to Vault 1, VM2 is optional (because all backups can run on primary node).
 - While VM3 could be registered to vault 2 in subscription 2 and the AG databases would then show up for protection in vault 2 but due to absence of the primary node in vault 2, configuring backups would fail.
 - Similarly, while VM4 could be registered to vault 4 in region 2, configuring backups would fail since the primary node isn't registered in vault 4.
@@ -84,7 +84,7 @@ Recovery services vault doesn’t support cross-subscription or cross-region bac
 
 - Full/differential backups will happen successfully only in the vault that has the primary node. These backups in other vaults will keep failing.
 
-- Log backups will keep working in the previous vault till a log backup runs in the new vault (that's, in the vault where the new primary node is present) and _breaks_ the log chain for old vault.
+- Log backups will keep working in the previous vault until a log backup runs in the new vault (that's, in the vault where the new primary node is present) and _breaks_ the log chain for old vault.
   >[!Note]
   >There's a hard limit of 15 days beyond which log backups will start failing.
 
@@ -106,7 +106,7 @@ As the primary node is in region and subscription, the usual steps to enable bac
 1. Configure backups for the AG databases in Vault 2.
 1. At this point:
    1. The full/differential backups will fail in Vault 1 as     none of the registered nodes can take this backup.
-   1. The log backups will succeed in Vault 1 till a log backup runs in Vault 2 and _breaks_ the log chain for Vault 1.
+   1. The log backups will succeed in Vault 1 until a log backup runs in Vault 2 and _breaks_ the log chain for Vault 1.
 1. Failback the AG to VM1.
 
 ### Step 3: Enable backups in Region 2, Subscription 1 (Vault 4)
@@ -116,7 +116,7 @@ Same as Step 2.
 ## Backup an AG that spans Azure and on-premises
 
 Azure Backup for SQL Server can’t be run on-premises. If the primary node is in Azure and the backup preference is satisfied by the nodes in Azure, you can follow the above guidance for multi-region AG to enable backups for the replicas in Azure. 
-If a failover to on-premises node happens, the full and differential backups in Azure will start failing. Log backups may continue till the log chain break happens/15 days pass.
+If a failover to on-premises node happens, the full and differential backups in Azure will start failing. Log backups may continue until the log chain break happens/15 days pass.
 
 ## Throttling for backup jobs in an AG database
 

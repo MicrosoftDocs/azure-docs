@@ -3,7 +3,7 @@ title: "Microsoft Azure Data Manager for Energy - How to enable External Data So
 description: "This article describes how to enable external data sources in Azure Data Manager for Energy."
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to #Don't change
 ms.date: 03/14/2024
 
@@ -18,7 +18,7 @@ External Data Sources (EDS) is a capability in [OSDU&reg;](https://osduforum.org
 For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf).  
 
 > [!NOTE]
-> OSDU community shipped EDS as a preview feature in M18 Release, and it is available as a preview feature on Azure Data Manager for Energy in Developer tier only.
+> EDS M23 preview is now available on Azure Data Manager for Energy in Developer tier only.
 
 > [!IMPORTANT]
 > Limit your Identity Provider (IdP) token to read operations only.
@@ -49,16 +49,16 @@ For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2
 To enable External Data Sources Preview on your Azure Data Manager for Energy, create an Azure support ticket with the following information: 
 - Subscription ID 
 - Azure Data Manager for Energy developer tier resource name
-- Data partition name (the data partition in which EDS needs to be enabled)
+- Data partition name (the data partition in which EDS needs to be enabled for automated triggering of EDS-Scheduler)
 - Key Vault name (created in [Prerequisites](#prerequisites)) 
 
 > [!NOTE]
-> EDS does not have [multi data partition support](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51)
+> Support for [multiple data partitions](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51) is currently enabled for manual triggering of the EDS Ingest DAG, but this feature has not yet been implemented for the EDS Scheduler.
 
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
 ## Known issues
-- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M18 release: 
+- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M23 release: 
     - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
     - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
     - Secret service responds with 5xx HTTP response code instead of 4xx in some cases. For example, 
@@ -66,8 +66,8 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) milestone release.
-
+The Naturalization DAG workflow won't be included in the M23 release.
+ 
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
 

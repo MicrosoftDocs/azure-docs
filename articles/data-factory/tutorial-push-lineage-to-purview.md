@@ -5,7 +5,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: monitoring
 ---
 
 # Push Data Factory lineage data to Microsoft Purview

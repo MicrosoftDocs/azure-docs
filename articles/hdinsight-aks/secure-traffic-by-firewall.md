@@ -4,12 +4,16 @@ description: Learn how to secure traffic using firewall on HDInsight on AKS usin
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/19/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use firewall to restrict outbound traffic using Azure CLI
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 
 When an enterprise wants to use their own virtual network for the cluster deployments, securing the traffic of the virtual network becomes important.
