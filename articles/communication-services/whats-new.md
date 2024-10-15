@@ -17,7 +17,7 @@ Use this article to learn about new features and other updates related to Azure 
 
 ## August 2024
 
-### Enhancing Custom App Experiences with Microsoft Teams
+### Enhance custom app experiences with Microsoft Teams
 
 We’re announcing a set of enhancements for developers building custom app and website experiences that connect to users on Microsoft Teams. Azure Communication Services and these new capabilities are especially tailored for business-to-customer (B2C) interactions where an external user (the customer) talks to an employee that is using Teams (the business).
 
@@ -32,7 +32,7 @@ Joining Teams Made Easier
 - Short URL
 - Join by Meeting ID
 
-#### Together mode: Bringing Everyone into the Same Room 
+#### Together mode: Bring everyone into the same room 
 
 We now support Microsoft Teams' Together Mode in public preview, enhancing the virtual meeting experience for participants joining through Azure Communication Services. This integration enables Azure Communication Services participants to render the Together Mode stream, creating a shared background that makes it feel like everyone is in the same room. It’s a great way to reduce meeting fatigue and help participants feel more engaged and attentive.
 
@@ -42,7 +42,7 @@ Together Mode is useful for making virtual gatherings more immersive and interac
 
 For more information, see [Together Mode](./how-tos/calling-sdk/together-mode.md).
 
-#### Breakout rooms: enhancing virtual collaboration
+#### Breakout rooms: Enhance virtual collaboration
 
 Continuing our efforts to make virtual meetings a more dynamic and interactive experience, Microsoft Teams has introduced breakout rooms integrated with Azure Communication Services for an optimized experience. Currently in public preview, this function enables you to divide your meetings into smaller, more focused groups, enhancing the dynamism and engagement of discussions.
 
@@ -54,7 +54,7 @@ Teams administrators can easily manage the availability of breakout rooms throug
 
 For more information, see [Tutorial - Integrate Microsoft Teams breakout rooms](./how-tos/calling-sdk/breakoutrooms.md).
 
-#### Enhanced support for audio conferencing: ensuring reliable connections 
+#### Enhanced support for audio conferencing: Ensuring reliable connections 
 
 Microsoft Teams revolutionized seamless communication during virtual appointments by enabling a single Teams meeting to have multiple audio-conferencing setups. This means that participants can join through the most optimal phone line, ensuring they stay connected even if they face internet issues.
 
@@ -87,7 +87,7 @@ For more information, see [Manage calls for Teams users > Join a Teams meeting](
 - Server programmability for Rooms
 - Rich text support
 
-#### Real-time transcription: instant insights from your calls 
+#### Real-time transcription: Instant insights from your calls 
 
 Azure Communication Services now offers real-time transcription in public preview, providing developers with immediate text output from call audio. This feature is incredibly useful for analyzing conversations and gaining insights that can inform business decisions or assist agents in real-time. 
 
@@ -102,7 +102,7 @@ For more information, see:
 - [Generate real-time transcripts](./concepts/call-automation/real-time-transcription.md)
 - [Add real-time transcription into your applications](./how-tos/call-automation/real-time-transcription-tutorial.md)
 
-#### Real-time Audio Streaming: Capture and Analyze Conversations  
+#### Real-time audio streaming: Capture and analyze conversations  
 
 Building on the power of real-time capabilities, developers now have access to real-time audio streams. This enables developers to create server applications that capture and analyze audio for each participant on a call as it happens. 
 
@@ -115,7 +115,7 @@ For more information, see:
 - [Audio streaming overview](./concepts/call-automation/audio-streaming-concept.md)
 - [Audio streaming quickstart](./how-tos/call-automation/audio-streaming-quickstart.md)
 
-#### Server Programmability for Rooms: Enhancing Virtual appointments 
+#### Server programmability for Rooms: Enhance virtual appointments 
 
 Real-time programming support for Rooms calls through Azure Communication Services is now in public preview, enabled through the Call Automation API. The first feature in preview enables PSTN dial out from Rooms. PSTN dial out enables independent software vendors (ISVs) to integrate multiple third-party professional services over PSTN into virtual appointments.
 
@@ -167,7 +167,7 @@ For more information, see:
 - [Enable Closed captions using the UI Library](./how-tos/ui-library-sdk/closed-captions.md)
 - [Azure Communication Services Closed Captions overview](./concepts/voice-video-calling/closed-captions.md)
 
-### Rooms Roles and Capabilities - Native UI Library
+### Rooms roles and capabilities - Native UI Library
 
 The Native UI Library for Android and iOS now includes Rooms Integration in general availability, offering enhanced roles and capabilities for call participants. This integration offers customers greater flexibility and control over their calls, keeping the management on the customer side.
 
@@ -203,7 +203,7 @@ The JavaScript Calling SDK now supports Microsoft Teams Breakout rooms in public
 
 :::image type="content" source="media/whats-new-images/breakout-rooms.png" alt-text="Screenshot of Azure Communication Services native participants and Microsoft 365 participants using the Calling SDK to join Teams meetings breakout rooms." lightbox="media/whats-new-images/breakout-rooms.png":::
 
-#### What Are Breakout Rooms
+#### What are Breakout Rooms
 
 Teams Breakout rooms enable meeting facilitators to create separate, smaller sessions within a larger Teams meeting. This feature is useful for various scenarios, such as:
 
@@ -213,15 +213,15 @@ Teams Breakout rooms enable meeting facilitators to create separate, smaller ses
 
 - **Conferences:** During a virtual industry conference, the meeting organizer can place attendees into separate discussion groups with focused subjects, before coming back to the larger meeting to share insights with the broader audience.
 
-#### How Does It Work
+#### How does it work
 
 Microsoft Teams users can create breakout rooms for scheduled meetings. Meeting organizers can assign Calling SDK participants to individual breakout rooms. Participants can seamlessly join and move between breakout rooms and the main meeting, just like any other Teams user.
 
-#### Why Is This Important
+#### Why is this important
 
 The ability to include ACS users in Teams breakout rooms enhances the collaborative experience, making it more inclusive and versatile. Whether you're conducting a training session, hosting a workshop, or facilitating a brainstorming session, breakout rooms provide the structure needed to foster meaningful interactions and productive discussions.
 
-#### Get Started Today
+#### Get started today
 To start using this feature, ensure that you have the latest version of the Calling SDK. For more  information about implementing and using Teams Breakout rooms, see [Tutorial - Integrate Microsoft Teams breakout rooms](./how-tos/calling-sdk/breakoutrooms.md).
 
 ### End of call survey - native
