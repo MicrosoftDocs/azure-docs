@@ -354,7 +354,7 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 **Component** | **Support** | **Details**
 --- | --- | ---
 Disk renaming | Supported | 
-OS disk maximum size | [4095 GiB](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#os-disk) | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+OS disk maximum size | [4095 GiB](/azure/virtual-machines/managed-disks-overview#os-disk) | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
 Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview).
 Data disk maximum size | 32 TiB for managed disks<br></br>4     TiB for unmanaged disks|
 Data disk minimum size | No restriction for unmanaged disks. 1 GiB for managed disks |
