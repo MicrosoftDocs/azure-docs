@@ -61,8 +61,6 @@ https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-:::image type="content" source="media/login.png" alt-text="Azure Red Hat OpenShift login screen":::
-
 Switch to the *Developer* perspective instead of the *Administrator* perspective in the left-hand side menu and select `demoproject` in the list of projects. You should then be at the *Topology* page for the project.
 
 :::image type="content" source="media/s2i/project-topology.png" alt-text="Azure Red Hat OpenShift project topology":::
