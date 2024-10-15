@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is generally available within the Microsoft unified security operations platform in the Microsoft Defender portal with Microsoft Defender XDR. For more information, see:
+This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal with Microsoft Defender XDR. For more information, see:
 
 - Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
 - Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
@@ -22,7 +22,7 @@ For preview, Microsoft Sentinel is available in the Defender portal without Micr
 
 ## New and improved capabilities
 
-The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel.
+The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience, with features that might be exclusive to the Defender portal.
 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
@@ -35,7 +35,7 @@ The following table describes the additional capabilities available in the Defen
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
 | Unified entities  | Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages). |
-| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Copilot for Security to summarize, respond and report. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see the following articles:<br>- [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br>- [Investigate Microsoft Sentinel incidents in Copilot for Security](sentinel-security-copilot.md) |
+| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Copilot for Security to summarize, respond, and report. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see the following articles:<br>- [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br>- [Investigate Microsoft Sentinel incidents in Copilot for Security](sentinel-security-copilot.md) |
 
 ## Capability differences between portals
 
@@ -60,14 +60,15 @@ This section covers the Microsoft Sentinel capabilities or integrations that are
 
 ## Limited or unavailable capabilities 
 
-When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following features that show in the Defender portal are limited or unavailable.
-
+When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following features that show in the Defender portal are currently limited or unavailable.
 
 |Capability |Service required  |
 |---------|---------|
 |Exposure management      |   [Microsoft Security Exposure Management](/security-exposure-management/)      |
 |Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)       |
 |Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)           |
+
+Microsoft Sentinel customers that create a workspace in the Israel region aren't currently eligible to onboard that workspace to Microsoft's unified security operations platform. 
 
 ## Quick reference
 
