@@ -60,19 +60,65 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 
 # [Bicep](#tab/bicep)
 
-The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
-
-1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
-   
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```azurecli
-    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
-
- The overall structure of a dataflow configuration for Bicep is as follows:
+1. Create a dataflow bicep file `dataflow.bicep`. Replace the placeholder values like `<SCHEMA_REGISTRY_NAME>` with your own.
 
 ```bicep
+var opcuaSchemaContent = '''
+{
+  "$schema": "Delta/1.0",
+  "type": "object",
+  "properties": {
+    "type": "struct",
+    "fields": [
+      { "name": "AssetId", "type": "string", "nullable": true, "metadata": {} },
+      { "name": "Temperature", "type": "double", "nullable": true, "metadata": {} },
+      { "name": "Timestamp", "type": "string", "nullable": true, "metadata": {} }
+    ]
+  }
+}
+'''
+
+param defaultDataflowEndpointName string = 'default'
+param defaultDataflowProfileName string = 'default'
+param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
+
+param opcuaSchemaName string = 'opcua-output-delta'
+param opcuaSchemaVer string = '1'
+
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' existing = {
+  parent: aioInstance
+  name: defaultDataflowEndpointName
+}
+
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
+  parent: aioInstance
+  name: defaultDataflowProfileName
+}
+
+resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
+  name: schemaRegistryName
+}
+
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+  parent: schemaRegistry
+  name: opcuaSchemaName
+  properties: {
+    displayName: 'OPC UA Delta Schema'
+    description: 'This is a OPC UA delta Schema'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+
+resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+  parent: opcSchema
+  name: opcuaSchemaVer
+  properties: {
+    description: 'Schema version'
+    schemaContent: opcuaSchemaContent
+  }
+}
+
 resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
   name: 'my-dataflow'
@@ -104,6 +150,12 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
     ]
   }
 }
+```
+
+1. Deploy via Azure CLI
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file dataflow.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
