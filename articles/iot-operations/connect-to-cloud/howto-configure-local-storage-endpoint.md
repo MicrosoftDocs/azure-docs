@@ -88,48 +88,6 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
   }
 }
 ```
----
-
-## Configure dataflow destination
-
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: my-dataflow
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        endpointRef: mq
-        dataSources:
-          *
-    - operationType: Destination
-      destinationSettings:
-        endpointRef: esa
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  operationType: 'Destination'
-  destinationSettings: {
-    endpointRef: '<DESTINATION ENDPOINT NAME>'
-    dataDestination: '<DESTINATION TOPIC>'
-  }
-}
-```
----
-
-For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
 > Using the local storage endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.

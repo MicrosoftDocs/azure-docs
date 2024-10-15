@@ -66,7 +66,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
-    ```azurecli
+    ```console
     az stack group create --name MyDeploymentStack \
     --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
     --parameters customLocationName=$CUSTOM_LOCATION_NAME \
@@ -150,88 +150,6 @@ resource adls 'connectivity.iotoperations.azure.com/v1beta1@2024-08-15-preview' 
   }
 }
 ```
-
----
-
-## Configure dataflow destination
-
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. The following example is a dataflow configuration that uses the MQTT endpoint for the source and Azure Data Lake Storage Gen2 as the destination. The source data is from the MQTT topics `thermostats/+/telemetry/temperature/#` and `humidifiers/+/telemetry/humidity/#`. The destination sends the data to Azure Data Lake Storage table `telemetryTable`.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: my-dataflow
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        endpointRef: mq
-        dataSources:
-          - thermostats/+/telemetry/temperature/#
-          - humidifiers/+/telemetry/humidity/#
-    - operationType: Destination
-      destinationSettings:
-        endpointRef: adls
-        dataDestination: telemetryTable
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource dataflow_adls 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
-  parent: defaultDataflowProfile
-  name: '<DATAFLOW NAME>'
-  extendedLocation: {
-    name: '<CUSTOM LOCATION ID>'
-    type: CustomLocation
-  }
-  properties: {
-    mode: 'Enabled'
-    operations: [
-      {
-        operationType: 'Source'
-        sourceSettings: {
-          sourceSettings: {
-          endpointRef: '<SOURCE ENDPOINT NAME>'
-          dataSources: [
-            'thermostats/+/telemetry/temperature/#', 
-            'humidifiers/+/telemetry/humidity/#'
-          ]
-        }
-        }
-      }
-      {
-        operationType: 'BuiltInTransformation'
-        builtInTransformationSettings: {
-          // Transformation configuration
-        }
-      }
-      {
-        operationType: 'Destination'
-        destinationSettings: {
-          endpointRef: '<DESTINATION ENDPOINT NAME>'
-          dataDestination: '<destinationTopic>'
-        }
-      }
-    ]
-  }
-}
-```
-
----
-
-For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
-
-> [!NOTE]
-> Using the ADLSv2 endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
-
-To customize the endpoint settings, see the following sections for more information.
 
 ---
 

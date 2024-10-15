@@ -29,8 +29,6 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 
 To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
-# [Kubernetes](#tab/kubernetes)
-
 1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
 
 1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**.
@@ -38,6 +36,8 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 1. Search for the Azure IoT Operations Preview Arc extension by its name, and select the app ID GUID value that you found in the previous step.
 
 1. Select **Contributor** as the role, then select **Add**.
+
+# [Kubernetes](#tab/kubernetes)
 
 1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method.
 
@@ -61,14 +61,6 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
     ```
 
 # [Bicep](#tab/bicep)
-
-1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
-
-1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**.
-
-1. Search for the Azure IoT Operations Preview Arc extension by its name, and select the app ID GUID value that you found in the previous step.
-
-1. Select **Contributor** as the role, then select **Add**.
    
 1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file
 
@@ -119,148 +111,6 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
       ...
     }
   }
-}
-```
----
-
-## Configure dataflow destination
-
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. 
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: my-dataflow
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        endpointRef: mq
-        dataSources:
-          *
-    - operationType: Destination
-      destinationSettings:
-        endpointRef: fabric
-```
-
-To customize the endpoint settings, see the following sections for more information.
-
-### Fabric OneLake host URL
-
-Use the `host` setting to specify the Fabric OneLake host URL. Usually, it's `https://onelake.dfs.fabric.microsoft.com`.
-
-```yaml
-fabricOneLakeSettings:
-  host: https://onelake.dfs.fabric.microsoft.com
-```
-
-However, if this host value doesn't work and you're not getting data, try checking for the URL from the Properties of one of the precreated lakehouse folders.
-
-![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-configure-fabric-endpoint/lakehouse-name.png)
-
-The host value should look like `https://xyz.dfs.fabric.microsoft.com`.
-
-To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
-
-### OneLake path type
-
-Use the `oneLakePathType` setting to specify the type of path in the Fabric OneLake. The default value is `Tables`, which is used for the Tables folder in the lakehouse typically in Delta Parquet format.
-
-```yaml
-fabricOneLakeSettings:
-  oneLakePathType: Tables
-```
-
-Another possible value is `Files`. Use this value for the Files folder in the lakehouse, which is unstructured and can be in any format.
-
-```yaml
-fabricOneLakeSettings:
-  oneLakePathType: Files
-```
-
-# [Bicep](#tab/bicep)
-
- The overall structure of a Fabric OneLake destination configuration for Bicep is as follows:
-
-```bicep
-resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
-  parent: defaultDataflowProfile
-  name: '<DATAFLOW NAME>'
-  extendedLocation: {
-    name: '<CUSTOM_LOCATION_NAME>'
-    type: 'CustomLocation'
-  }
-  properties: {
-    mode: 'Enabled'
-    operations: [
-      {
-        operationType: 'Source'
-        sourceSettings: {
-          // Source configuration section
-        }
-      }
-      {
-        operationType: 'BuiltInTransformation'
-        builtInTransformationSettings: {
-          // Transformation configuration section
-        }
-      }
-      {
-        operationType: 'Destination'
-        destinationSettings: {
-          endpointRef: '<DESTINATION ENDPOINT NAME>'
-          dataDestination: '<DESTINATION TOPIC>' 
-        }
-      }
-    ]
-  }
-}
-```
-
-To customize the endpoint settings, see the following sections for more information.
-
-### Fabric OneLake host URL
-
-Use the `host` setting to specify the Fabric OneLake host URL. Usually, it's `https://onelake.dfs.fabric.microsoft.com`.
-
-```bicep
-fabricOneLakeSettings: {
-  ... 
-  host: 'https://onelake.dfs.fabric.microsoft.com'
-}
-```
-
-However, if this host value doesn't work and you're not getting data, try checking for the URL from the Properties of one of the precreated lakehouse folders.
-
-![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-configure-fabric-endpoint/lakehouse-name.png)
-
-The host value should look like `https://xyz.dfs.fabric.microsoft.com`.
-
-To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
-
-### OneLake path type
-
-Use the `oneLakePathType` setting to specify the type of path in the Fabric OneLake. The default value is `Tables`, which is used for the Tables folder in the lakehouse typically in Delta Parquet format.
-
-```bicep
-fabricOneLakeSettings: {
-  ... 
-  oneLakePathType: 'Tables'
-}
-```
-
-Another possible value is `Files`. Use this value for the Files folder in the lakehouse, which is unstructured and can be in any format.
-
-```bicep
-fabricOneLakeSettings: {
-  ...
-  oneLakePathType: 'Files'
 }
 ```
 

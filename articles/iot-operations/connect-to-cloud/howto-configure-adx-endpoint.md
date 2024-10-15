@@ -78,7 +78,7 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file
+1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and customize it according to your environment.
 
 1. Set environment variables for the resources you create in this section.
 
@@ -127,85 +127,6 @@ resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-0
 ```
 
 <!-- Add a cmd line to edit values in Bicep file !-->
----
-
-## Configure dataflow destination
-
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: my-dataflow
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        endpointRef: mq
-        dataSources:
-          - thermostats/+/telemetry/temperature/#
-          - humidifiers/+/telemetry/humidity/#
-    - operationType: Destination
-      destinationSettings:
-        endpointRef: adx
-        dataDestination: database-name
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource dataflow_adx 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
-  parent: defaultDataflowProfile
-  name: '<ENDPOIDADNT NAME>'
-  extendedLocation: {
-    name: '<CUSTOM LOCATION NAME>'
-    type: 'CustomLocation'
-  }
-  properties: {
-    mode: 'Enabled'
-    operations: [
-      {
-        operationType: 'Source'
-        sourceSettings: {
-          endpointRef: '<SOURCE ENDPOINT REF>'
-          dataSources: [
-            'thermostats/+/telemetry/temperature/#', 
-            'humidifiers/+/telemetry/humidity/#'
-          ]
-        }
-      }
-      {
-        operationType: 'BuiltInTransformation'
-        builtInTransformationSettings: {
-          // Transformation configuration
-        }
-      }
-      {
-        operationType: 'Destination'
-        destinationSettings: {
-          endpointRef: '<DESTINATION ENDPOINT REF>'
-          dataDestination: 'SensorData'
-        }
-      }
-    ]
-  }
-}
-```
-
----
-
-For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
-
-> [!NOTE]
-> Using the Azure Data Explorer endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
-
-To customize the endpoint settings, see the following sections for more information.
 
 ---
 
