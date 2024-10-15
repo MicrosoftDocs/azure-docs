@@ -3,7 +3,7 @@ ms.service: azure-logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 19/14/2024
+ms.date: 10/14/2024
 ---
 
    | Plan | Description |
