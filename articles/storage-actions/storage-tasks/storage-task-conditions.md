@@ -20,12 +20,12 @@ This article describes the format of a storage task condition and the properties
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Condition format
-
 A storage task contains a set of conditions and operations in a JSON document. The following image shows how a single condition and operation appear in a the document.  
 
 > [!div class="mx-imgBorder"]
 > ![Location of conditions and operations in a JSON snippet.](../media/storage-tasks/storage-task-operations/storage-task-operations-location-of-conditions-and-operations.png)
+
+## Condition format
 
 A condition a collection of one or more _clauses_. Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the **operator** always appears first followed by the **property**, and then the **value**. The following image shows how each element is positioned in the expression.
 

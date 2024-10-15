@@ -19,19 +19,19 @@ An operation is an action that a storage task performs on each object that meets
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Operation format
-
 A storage task contains a set of conditions and operations in a JSON document. The following image shows how a single condition and operation appear in a the document.  
 
 > [!div class="mx-imgBorder"]
 > ![Location of conditions and operations in a JSON snippet.](../media/storage-tasks/storage-task-operations/storage-task-operations-location-of-conditions-and-operations.png)
- 
-An operation is defined by the following JSON elements:
+
+## Operation format 
+
+An operation has a name along with zero, one, or multiple parameters. The following table describes each element that makes up the operation definition.
 
 | Element | Description |
 |---|--|
 | `name` | The name of the operation. For a full list of names, see the [Supported operations](#supported-operations) section of this article. |
-| `parameters` | The names and values of each parameter separated by a comma. To see which parameters are available with each operation, see the [Supported operations](#supported-operations) section of this article. |
+| `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value. For a list of parameters and parameter values, see the [Supported operations](#supported-operations) section of this article. |
 | `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the preview. |
 | `onFailure` | The action to take when the operation fails for a object. `break` is the only allowable value during the preview. |
 
@@ -73,7 +73,7 @@ The following JSON shows two operations separate by a comma.
         "name": "SetBlobImmutabilityPolicy",
         "parameters": {
             "untilDate": "2024-11-15T21:54:22",
-            "mode": "unlocked"
+            "mode": "locked"
         },
         "onSuccess": "continue",
         "onFailure": "break"
