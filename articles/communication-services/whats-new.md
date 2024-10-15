@@ -148,11 +148,11 @@ To get started:
 
 - [Rich Text Send Box](https://azure.github.io/communication-ui-library/?path=/story/components-sendbox-rich-text-send-box--rich-text-send-box).
 - Rich Text Editor Support for [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chatcomposite-rich-text-editor-example--rich-text-editor-example).
-- Or check our storybook on [http://aka.ms/acsstorybook/](aka.ms/acsstorybook).
+- Or check our storybook on [aka.ms/acsstorybook](https://aka.ms/acsstorybook).
 
 ## July 2024
 
-### Closed Captions (Native UI Library)
+### Closed Captions - Native UI Library
 
 Closed Captions are now generally available in the Native UI Library for Android and iOS. This feature applies to a range of scenarios in which closed captions are essential, enhancing the experience for users with hearing impairments and ensuring inclusivity.
 
@@ -167,7 +167,7 @@ For more information, see:
 - [Enable Closed captions using the UI Library](./how-tos/ui-library-sdk/closed-captions.md)
 - [Azure Communication Services Closed Captions overview](./concepts/voice-video-calling/closed-captions.md)
 
-### Rooms Roles and Capabilities (Native UI Library)
+### Rooms Roles and Capabilities - Native UI Library
 
 The Native UI Library for Android and iOS now includes Rooms Integration in general availability, offering enhanced roles and capabilities for call participants. This integration offers customers greater flexibility and control over their calls, keeping the management on the customer side.
 
@@ -224,7 +224,7 @@ The ability to include ACS users in Teams breakout rooms enhances the collaborat
 #### Get Started Today
 To start using this feature, ensure that you have the latest version of the Calling SDK. For more  information about implementing and using Teams Breakout rooms, see [Tutorial - Integrate Microsoft Teams breakout rooms](./how-tos/calling-sdk/breakoutrooms.md).
 
-### End of call survey (Native)
+### End of call survey - native
 
 The End of Call Survey enables developers to customize questions to collect feedback at the end of a call. This feature is in general availability. By gathering valuable insights directly from users, developers can make informed decisions to enhance their services effectively. This feature is now generally available for Android, iOS, and Windows platforms.
 
