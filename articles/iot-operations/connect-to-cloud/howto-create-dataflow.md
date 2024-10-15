@@ -62,95 +62,95 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 
 1. Create a dataflow bicep file `dataflow.bicep`. Replace the placeholder values like `<SCHEMA_REGISTRY_NAME>` with your own.
 
-```bicep
-var opcuaSchemaContent = '''
-{
-  "$schema": "Delta/1.0",
-  "type": "object",
-  "properties": {
-    "type": "struct",
-    "fields": [
-      { "name": "AssetId", "type": "string", "nullable": true, "metadata": {} },
-      { "name": "Temperature", "type": "double", "nullable": true, "metadata": {} },
-      { "name": "Timestamp", "type": "string", "nullable": true, "metadata": {} }
-    ]
-  }
-}
-'''
-
-param defaultDataflowEndpointName string = 'default'
-param defaultDataflowProfileName string = 'default'
-param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
-
-param opcuaSchemaName string = 'opcua-output-delta'
-param opcuaSchemaVer string = '1'
-
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' existing = {
-  parent: aioInstance
-  name: defaultDataflowEndpointName
-}
-
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
-  parent: aioInstance
-  name: defaultDataflowProfileName
-}
-
-resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
-  name: schemaRegistryName
-}
-
-resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
-  parent: schemaRegistry
-  name: opcuaSchemaName
-  properties: {
-    displayName: 'OPC UA Delta Schema'
-    description: 'This is a OPC UA delta Schema'
-    format: 'Delta/1.0'
-    schemaType: 'MessageSchema'
-  }
-}
-
-resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
-  parent: opcSchema
-  name: opcuaSchemaVer
-  properties: {
-    description: 'Schema version'
-    schemaContent: opcuaSchemaContent
-  }
-}
-
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
-  parent: defaultDataflowProfile
-  name: 'my-dataflow'
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    mode: 'Enabled'
-    operations: [
-      {
-        operationType: 'Source'
-        sourceSettings: {
-          // See source configuration section
+        ```bicep
+        var opcuaSchemaContent = '''
+        {
+          "$schema": "Delta/1.0",
+          "type": "object",
+          "properties": {
+            "type": "struct",
+            "fields": [
+              { "name": "AssetId", "type": "string", "nullable": true, "metadata": {} },
+              { "name": "Temperature", "type": "double", "nullable": true, "metadata": {} },
+              { "name": "Timestamp", "type": "string", "nullable": true, "metadata": {} }
+            ]
+          }
         }
-      }
-      {
-        operationType: 'BuiltInTransformation'
-        builtInTransformationSettings: {
-          // See transformation configuration section
+        '''
+        
+        param defaultDataflowEndpointName string = 'default'
+        param defaultDataflowProfileName string = 'default'
+        param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
+        
+        param opcuaSchemaName string = 'opcua-output-delta'
+        param opcuaSchemaVer string = '1'
+        
+        resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' existing = {
+          parent: aioInstance
+          name: defaultDataflowEndpointName
         }
-      }
-      {
-        operationType: 'Destination'
-        destinationSettings: {
-          // See destination configuration section
+        
+        resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
+          parent: aioInstance
+          name: defaultDataflowProfileName
         }
-      }
-    ]
-  }
-}
-```
+        
+        resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
+          name: schemaRegistryName
+        }
+        
+        resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+          parent: schemaRegistry
+          name: opcuaSchemaName
+          properties: {
+            displayName: 'OPC UA Delta Schema'
+            description: 'This is a OPC UA delta Schema'
+            format: 'Delta/1.0'
+            schemaType: 'MessageSchema'
+          }
+        }
+        
+        resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+          parent: opcSchema
+          name: opcuaSchemaVer
+          properties: {
+            description: 'Schema version'
+            schemaContent: opcuaSchemaContent
+          }
+        }
+        
+        resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+          parent: defaultDataflowProfile
+          name: 'my-dataflow'
+          extendedLocation: {
+            name: customLocation.id
+            type: 'CustomLocation'
+          }
+          properties: {
+            mode: 'Enabled'
+            operations: [
+              {
+                operationType: 'Source'
+                sourceSettings: {
+                  // See source configuration section
+                }
+              }
+              {
+                operationType: 'BuiltInTransformation'
+                builtInTransformationSettings: {
+                  // See transformation configuration section
+                }
+              }
+              {
+                operationType: 'Destination'
+                destinationSettings: {
+                  // See destination configuration section
+                }
+              }
+            ]
+          }
+        }
+        ```
 
 1. Deploy via Azure CLI
 
