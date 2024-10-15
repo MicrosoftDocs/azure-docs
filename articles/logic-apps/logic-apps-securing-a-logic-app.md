@@ -930,7 +930,7 @@ The SAS in the URL has query parameters, which the following table describes:
 > for revoking a compromised access key. Use discretion when you distribute URIs that use access keys, and only
 > distribute such URIs over a secure connection such as HTTPS. Make sure to only perform operations that use an access 
 > key over an HTTPS connection. Anyone that has a URI with valid key can access the associated resource. To maintain
-> security and protect access to your logic app workflow, [regenerate access keys](#regenerate-access-key) on a regular
+> security and protect access to your logic app workflow, [regenerate access keys](#regenerate-access-keys) on a regular
 > schedule as they might need to comply with security policies or become compromised. This way, you can make sure that
 > only authorized requests can trigger your workflow, which protects your data and processes from unauthorized access.
 >
