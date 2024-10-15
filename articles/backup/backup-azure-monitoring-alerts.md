@@ -146,7 +146,8 @@ By default, the suppression alert processing rule takes priority over the other 
 
 To create a suppression alert processing rule, follow these steps:
 
-1. Go to **Backup center** > **Alerts**, and select **Alert processing rules**.
+1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
+1. Select **Manage alerts** > **Manage alert processing rules**.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-inline.png" alt-text="Screenshot showing alert processing rules blade in portal." lightbox="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-expanded.png":::
 
