@@ -17,6 +17,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- October 2024
+    - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
 - July 2024
   - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
   - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
@@ -90,6 +92,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## Back up Azure VMs with Extended Zones (preview)
+
+Azure Backup now enables you to back up your Azure virtual machines in [Azure Extended Zones](../extended-zones/overview.md). Azure Extended Zones offer enhanced resiliency by distributing resources across multiple physical locations within an Azure region. You can back up multiple Azure virtual machines in Azure Extended Zones.
+
+For more information, see [Back up an Azure Virtual Machine in Azure Extended Zones](./backup-azure-vms-enhanced-policy.md).
 
 ## Azure Blob vaulted backup is now generally available
 
