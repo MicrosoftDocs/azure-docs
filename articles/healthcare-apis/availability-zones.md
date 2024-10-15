@@ -13,16 +13,16 @@ ms.author: jasteppe
 
 # Availability Zones for Azure Health Data Services
 
-The goal of the high availability in Azure Health Data Services is to minimize impact on customer workloads from service maintenance operations and outages. Azure Health Data Services provides Availability zones (Zone Redundant Availability) for high availability and business continuity. To understand more about availability zones (AZs), visit [What are Azure availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli).
+The goal of high availability in Azure Health Data Services is to minimize impact on customer workloads from service maintenance operations and outages. Azure Health Data Services provides zone redundant availability using availability zones (AZs) for high availability and business continuity. To understand more about availability zones, visit [What are Azure availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli).
 
-Zone redundant availability provides resiliency by protecting against outages within a region. This is achieved using zone-redundant storage (ZRS), which replicates your data across three availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. Zone-redundant availability minimizes the risk of data loss if there are zone failures within the primary region.
+Zone redundant availability provides resiliency by protecting against outages within a region. This is achieved using zone-redundant storage (ZRS), which replicates your data across three availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. Zone redundant availability minimizes the risk of data loss if there are zone failures within the primary region.
 
 > [!NOTE]
 > Currently the availability zone feature is being provided to customers at no additional charge. In the future, charges will be incurred with the availability zone feature.
 
 ## Region availability
 
-Here's a list of the availability regions for Azure Health Data Services.
+Here's a list of the availability zones for Azure Health Data Services, grouped by region (in parenthesis).
 
 - (Asia Pacific) Australia East
 - (Asia Pacific) Cental India
@@ -43,14 +43,14 @@ Here's a list of the availability regions for Azure Health Data Services.
 - (North America) West US 3*
 - (North America) Canada Central
 
-Regions marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.
+Zones marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.
 
 ### Limitations
 
-Consider the following limitations when configuring an AZ.
+Consider the following limitations when configuring an availability zone.
 
-- Azure Health Data Service, FHIR&reg; service instances allow customers to set availability zone settings only once and can't be modified.
-- FHIR service with data volume support beyond 4 TB, needs to specify the AZ configuration during the service instance creation.
+- Azure Health Data Service, FHIR&reg; service instances allow customers to set AZ settings only once and can't be modified.
+- FHIR service with data volume support beyond 4 TB needs to specify the AZ configuration during the service instance creation.
 - When this feature is available as self-serve, any FHIR service instance created in Azure Health Data Services needs to specify the AZ configuration during the service instance creation.
 
 ## Recovery Time Objective and Recovery Point Objective
