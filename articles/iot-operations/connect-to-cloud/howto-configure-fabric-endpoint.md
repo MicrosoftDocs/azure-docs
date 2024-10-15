@@ -24,6 +24,8 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 - **Microsoft Fabric OneLake**. See the following steps to create a workspace and lakehouse.
   - [Create a workspace](/fabric/get-started/create-workspaces). The default *my workspace* isn't supported.
   - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
+  - If shown, ensure *Lakehouse schemas (Public Preview)* is **unchecked**.
+  - Make note of the workspace and lakehouse names.
 
 ## Create a Microsoft Fabric OneLake dataflow endpoint
 
@@ -120,11 +122,16 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
 
 The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
+Before you create the dataflow endpoint, assign workspace *Contributor* role to the IoT Operations extension that grants permission to write to the Fabric lakehouse. 
+
+![Screenshot of IoT Operations extension name to grant workspace access to.](media/howto-configure-fabric-endpoint/extension-name.png)
+
+To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
+
 #### System-assigned managed identity
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
 
-Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Fabric lakehouse. To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
 
 # [Kubernetes](#tab/kubernetes)
 

@@ -1,10 +1,14 @@
 ---
 title: Migrate ArcSight SOAR automation to Microsoft Sentinel | Microsoft Docs
 description: Learn how to identify SOAR use cases, and how to migrate your ArcSight SOAR automation to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to migrate my ArcSight SOAR automation to Microsoft Sentinel so that analysts can leverage advanced incident handling and response capabilities.
+
 ---
 
 # Migrate ArcSight SOAR automation to Microsoft Sentinel

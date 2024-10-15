@@ -46,7 +46,7 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
     | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *SASL*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
@@ -204,7 +204,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
     | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, *SASL*, or *X509 certificate*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |

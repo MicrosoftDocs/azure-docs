@@ -6,63 +6,81 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 10/11/2024
 ---
 
 # Convert a legacy Direct peering to an Azure resource using the Azure portal
 
-> [!div class="op_single_selector"]
-> - [Azure portal](howto-legacy-direct-portal.md)
-> - [PowerShell](howto-legacy-direct-powershell.md)
+In this article, you learn how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
 
-This article describes how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
+If you prefer, you can complete this guide using [PowerShell](howto-legacy-direct-powershell.md).
 
-If you prefer, you can complete this guide by using [PowerShell](howto-legacy-direct-powershell.md).
+## Prerequisites
 
-## Before you begin
+- Complete the [Prerequisites to set up peering with Microsoft](prerequisites.md) before you begin configuration.
 
-* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
+- A legacy Direct peering in your subscription.
 
-## Convert a legacy Direct peering to an Azure resource
+## Sign in to Azure
 
-### Sign in to the portal and select your subscription
-[!INCLUDE [Account](./includes/account-portal.md)]
+Sign in to the [Azure portal](https://portal.azure.com).
 
-### <a name=create></a>Convert a legacy Direct peering
+## Convert a legacy Direct peering
 
-As an Internet Service Provider, you can convert legacy direct peering connections by using [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+As an Internet Service Provider, you can convert a legacy direct peering connection to an Azure resource using the Azure portal: 
 
-1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
+1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
-    > [!div class="mx-imgBorder"] 
-    > ![Register Peering Service](./media/setup-basics-tab.png)
+1. On the **Peerings** page, select **+ Create**.
 
-*    Select your Azure Subscription.
+1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
 
-* For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
+    | Setting | Value |
+    | --- | --- |
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select a resource group or create a new one. |
+    | **Instance details** |  |
+    | Name | Enter a name for the peering you're creating. |
+    | Peer ASN | Select your ASN. |
 
-* Name corresponds to the resource name and can be anything you choose.
+    :::image type="content" source="./media/howto-legacy-direct-portal/peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-basics.png":::
 
-* Region is auto-selected if you chose an existing resource group. If you chose to create a new resource group, you also need to choose the Azure region where you want the resource to reside.
+    >[!IMPORTANT] 
+    >You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your Peer ASN request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created Peer ASN by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
->[!NOTE]
->The region where a resource group resides is independent of the location where you want to create peering with Microsoft. But it's a best practice to organize your peering resources within resource groups that reside in the closest Azure regions. For example, for peerings in Ashburn, you can create a resource group in East US or East US2.
+1.  Select **Next : Configuration >**.
 
-* Select your ASN in the **Peer ASN** box.
+1. On the **Configuration** tab, enter or select the following values:
 
->[!IMPORTANT] 
->You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your Peer ASN request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created Peer ASN by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+    | Setting | Value |
+    | --- | --- |
+    | Peering type | Select **Direct**. |
+    | Microsoft network | Select **AS8075**. |
+    | SKU | Select **Basic Free**. Don't select **Premium Free** as it's reserved for special applications. |
+    | Metro | Select the metro location where you want to convert a peering to an Azure resource. If you have peering connections with Microsoft in the selected location that aren't converted, you can see them listed in the **Peering connections**. |
 
-#### Launch the resource and configure basic settings
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
+    :::image type="content" source="./media/howto-legacy-direct-portal/peering-configuration.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-configuration.png":::
 
-#### Configure connections and submit
-[!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration-legacy.md)]
+    > [!NOTE]
+    > If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
 
-### <a name=get></a>Verify Direct peering
-[!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
+1. Select **Review + create**. 
+
+1. Review the settings, and then select **Create**.
+
+## Verify Direct peering
+
+1. Go to the **Peering** resource you created in the previous section.
+
+1. Under **Settings**, select **Connections** to see a summary of peering connections between your ASN and Microsoft.
+
+    :::image type="content" source="./media/howto-legacy-direct-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-connections.png":::
+
+    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Direct peering walkthrough](walkthrough-direct-all.md).
+    - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
 
 ## Related content
 
-- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
-- [Internet peering frequently asked questions (FAQ)](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
+- [Internet peering frequently asked questions (FAQ)](faqs.md)
