@@ -942,10 +942,7 @@
         "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop"
       },
       "ms.reviewer": {
-        "articles/advisor/*.md": "ikhapova",
-        "articles/partner-solutions/**/*.md": "ProfessorKendrick",
-        "articles/partner-solutions/**/*.yml": "ProfessorKendrick"
-
+        "articles/advisor/*.md": "ikhapova"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
