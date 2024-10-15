@@ -307,7 +307,7 @@ To complete the setup, you need access to both the new billing account and the E
 4. You can monitor the status of the transition on the **Transition status** page. Canceled savings plans are shown in the Transition details.
     - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png" alt-text="Screenshot that shows the transition status." lightbox="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png:::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png" alt-text="Screenshot that shows the transition status." lightbox="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png":::
 
 ## Validate billing account setup
 
