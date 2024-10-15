@@ -108,8 +108,8 @@ Visibility controls the exposure settings whereas auto-approval controls the app
 
 ## Getting connection Information using TCP Proxy v2
 
-    > [!NOTE]
-    > Only one connection between a PLS and Internal Load Balancer is supported when using TCP Proxy v2 
+> [!NOTE]
+> Only one connection between a PLS and Internal Load Balancer is supported when using TCP Proxy v2 
     
 In the private link service, the source IP address of the packets coming from private endpoint is network address translated (NAT) on the service provider side using the NAT IP allocated from the provider's virtual network. The applications receive the allocated NAT IP address instead of actual source IP address of the service consumers. If your application needs an actual source IP address from the consumer side, you can enable proxy protocol on your service and retrieve the information from the proxy protocol header. In addition to source IP address, proxy protocol header also carries the LinkID of the private endpoint. Combination of source IP address and LinkID can help service providers uniquely identify their consumers. 
 
