@@ -168,6 +168,14 @@ The Web PubSub service can return system-related responses to the client.
 
 The Web PubSub service sends a `pong` message to the client when it receives a `ping` message from the client.
 
+Format:
+
+```json
+{
+    "type": "pong",
+}
+```
+
 #### Connected
 
 The response to the client connect request:
