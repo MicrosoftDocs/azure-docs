@@ -14,20 +14,15 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Spotlight states
 
-This article describes how to implement spotlight capability with Azure Communication Services Calling SDKs. This capability enables users in the call or meeting to signal to other participants that selected user should be "in the spotlight" - it's a feature that enables users to tag other users in the call and notify all the participants about it.
+This article describes how to implement spotlight capability with Azure Communication Services Calling SDKs. This capability enables users in the call or meeting to signal to other participants that selected user should be "in the spotlight". This feature enables users to tag other users in the call and notify all the participants that someone has been spotlighted and other clients will need to change the layout for that user.
 
 ## Overview
 
-Spotlight is a signaling feature rather than a media capability, application must decide how to handle spotligted participant, usually it means it will highligt spotligted user, put them in the center of UI layout, make their video renderer bigger, while keeping other participants and their video's smaller.
-The maximum limit of spotlited participants in a call is seven, meaning in a single call a total number of distinct users that are spotlighted is 7.
+Spotlight serves as a signaling feature instead of a media capability. Once someone is spotlighted applications can determine how to manage or adjust the spotlighted participant User Interface, typically by highlighting them, placing them at the center of the UI layout, and enlarging their video renderer size while keeping other participants' videos smaller. The maximum limit of spotlighted participants in a call is seven, meaning in a single call a total number of distinct users that are spotlighted is 7.
 
-Spotlighting a participant is possible in both ACS calls and in Teams meetings. In Teams meetings The organizer, co-organizer, or presenter can choose up to seven user's (including themselfs) to highlight for everyone else.
-In Teams meeting scenario - remind participants that they can't spotlight a video if their view is set to Large gallery or Together mode.
+Spotlighting a participant is possible in both ACS calls and in Teams meetings. In Teams meetings the organizer, co-organizer, or presenter can choose up to seven user's (including themselves) to be in the spotlight. In Teams meeting scenario when a call is set to set to Large gallery or Together mode participants can't change the UI layout of a user..
 
-To enable higher resolution of the video for spotligted user, an application must ensure that a video (renderer) of a spotligted user is bigger than the video (renderer's) of all other users.
-Only by doing that, application can inform ACS SDK to request and subscribe to higher resolution stream, ACS SDK will try to request resolution that is close to the size of the renderer itself, assuming hardware and network capabilities of local endpoint allow for it, if they are not optimal, ACS SDK will degrade resolution to best possible to enable smooth video playback.
-
-Video stream resolution of a participant can be also controlled via [Video Constraints](../../concepts/voice-video-calling/video-constraints.md), and it will override default behavior of ACS SDK that is mentioned above.
+To enable higher resolution for a spotlighted user's video, the application must ensure that their video renderer is larger than those of other users. This allows the ACS SDK to request and subscribe to a higher resolution stream, which will match the renderer's size, provided hardware and network conditions permit. If not optimal, the SDK will adjust the resolution for smooth playback. Resolution can also be controlled using via [Video Constraints](../../concepts/voice-video-calling/video-constraints.md), overriding the default ACS SDK behavior.
 
 
 ## Prerequisites
