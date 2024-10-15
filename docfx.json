@@ -943,8 +943,8 @@
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/partner-solutions/**/*.md": "professorkendrick",
-        "articles/partner-solutions/**/*.yml": "professorkendrick"
+        "articles/partner-solutions/**/*.md": "ProfessorKendrick",
+        "articles/partner-solutions/**/*.yml": "ProfessorKendrick"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
