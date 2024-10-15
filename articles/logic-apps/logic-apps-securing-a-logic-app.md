@@ -1786,7 +1786,7 @@ For more information about isolation, see the following documentation:
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
-## Related contet
+## Related content
 
 * [Azure security baseline for Azure Logic Apps](security-baseline.md)
 * [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)
