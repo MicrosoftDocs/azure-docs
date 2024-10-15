@@ -3,7 +3,7 @@ title: Introduction to Azure IoT device development
 description: Learn how to use Azure IoT services, SDKs, and tools to do device development with general devices and embedded devices.  
 author: timlt
 ms.author: timlt
-ms.service: iot
+ms.service: azure-iot
 ms.topic: concept-article
 ms.date: 04/09/2024
 

@@ -9,7 +9,7 @@ ms.author: jowang
 
 ### Create the Visual Studio project
 
-For a UWP app, in Visual Studio 2022, create a new **Blank App (Universal Windows)** project. After you enter the project name, feel free to choose any Windows SDK later than 10.0.17763.0.
+For a Universal Windows Platform (UWP) app, in Visual Studio 2022, create a new **Blank App (Universal Windows)** project. After you enter the project name, feel free to choose any Windows SDK later than 10.0.17763.0.
 
 For a WinUI 3 app, create a new project with the **Blank App, Packaged (WinUI 3 in Desktop)** template to set up a single-page WinUI 3 app. [Windows App SDK version 1.3](/windows/apps/windows-app-sdk/stable-channel#version-13) or later is required.
 

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 08/17/2022
 appliesto: 
   - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 ---
 
 # Create your own incidents manually in Microsoft Sentinel
