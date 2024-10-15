@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 01/11/2022
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
+
 ---
 
 # Work with incidents in many workspaces at once

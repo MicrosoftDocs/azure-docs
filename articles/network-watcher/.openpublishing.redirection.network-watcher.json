@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/network-watcher/data-residency.md",
-            "redirect_url": "/azure/network-watcher/faq",
+            "redirect_url": "/azure/network-watcher/frequently-asked-questions",
             "redirect_document_id": false
         },
         {

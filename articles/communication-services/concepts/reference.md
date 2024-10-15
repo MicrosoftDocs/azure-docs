@@ -15,7 +15,8 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
-[!INCLUDE [Survey Request](../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+
 ## External links and docs
 
 For each area, we have external pages to track and review our SDKs. You can consult the table below to find the matching page for your SDK of interest.
