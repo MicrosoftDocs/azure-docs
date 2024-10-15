@@ -45,9 +45,9 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 
 # [Bicep](#tab/bicep)
 
-1. This single Bicep template file from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/localStorage-df.bicep) for data to Local Storage. Download the template file and customize it according to your environment.
+1. This [single Bicep template file](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/localStorage-df.bicep) from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources for data to Local Storage. Download the template file and customize it according to your environment.
 
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```console
     az stack group create --name MyDeploymentStack \

@@ -62,7 +62,7 @@ spec:
     host: "aio-broker:18883"
     tls:
       mode: Enabled
-      trustedCaCertificateConfigMapRef: azure-iot-operations-aio-ca-trust-bundle
+      trustedCaCertificateConfigMapRef: aio-ca-key-pair-test-only
     authentication:
       method: ServiceAccountToken
       serviceAccountTokenSettings:
@@ -76,7 +76,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param aioBrokerHostName string = 'aio-broker:18883'
-param trustedCA string = 'azure-iot-operations-aio-ca-trust-bundle'
+param trustedCA string = 'aio-ca-key-pair-test-only'
 
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstanceName
@@ -184,9 +184,9 @@ spec:
 
 1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
 
-1. This single Bicep template file from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/mqtt-bridge.bicep) to Azure Event Grid. Download the template file and customize it according to your environment.
+2. This [single Bicep template file](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/mqtt-bridge.bicep) from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources to Azure Event Grid. Download the template file and customize it according to your environment.
 
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+3. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```console
     az stack group create --name MyDeploymentStack \
