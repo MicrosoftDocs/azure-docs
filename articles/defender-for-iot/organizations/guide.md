@@ -1,11 +1,11 @@
 ---
 title: Trouble shooting guide for OT sensor deployment - Microsoft Defender for IoT
-description: A quick guide for the correct placement and mirrorring of the OT sensor in your network for Microsoft Defender for IoT.
+description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT.
 ms.topic: install-set-up-deploy
 ms.date: 10/15/2024
 ---
 
-# Trouble shooting guide for OT sensor deployment - Successful senor deployment
+# Trouble shooting guide for OT sensor deployment - Successful sensor deployment
 
 Deploying sensors effectively is crucial for ensuring comprehensive network monitoring and security. This guide provides a step-by-step approach to successful sensor deployment, covering essential aspects such as:
 
@@ -21,11 +21,11 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
 ## Deployment Steps
 
-These are the following 5 deployment steps
+These are the following five deployment steps
 
 1. Network architecture review
 
-    Before the sensor can be applied to the network, it is crucial to review the network architecture. These steps include:
+    Before the sensor can be applied to the network, it's crucial to review the network architecture. These steps include:
 
     - Reviewing the network diagram.
 
@@ -37,7 +37,7 @@ These are the following 5 deployment steps
 
 1. Sensor location
 
-    The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following 3 important types of network traffic:
+    The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following three important types of network traffic:
 
     | Type | Description|
     |---|---|
@@ -59,7 +59,7 @@ These are the following 5 deployment steps
 
 1. Traffic Mirroring Methods
 
-    There are 3 types of traffic mirroring methods, that are designed for specific usage scenarios. Choose the best method based on your the usage and size of your network.
+    There are three types of traffic mirroring methods, that are designed for specific usage scenarios. Choose the best method based on the usage and size of your network.
 
     1. Switched Port Analyzer (SPAN)
 
@@ -70,7 +70,7 @@ These are the following 5 deployment steps
 
         Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.
 
-        :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the set up of the local SPAN traffic mirroring between the OT network and the sensor.":::
+        :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the setup of the local SPAN traffic mirroring between the OT network and the sensor.":::
 
         |**Usage Scenario:** |Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|
         |---|---|
@@ -79,7 +79,7 @@ These are the following 5 deployment steps
 
     1. Remote SPAN (RSPAN)
 
-        RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It is designed for environments where monitoring needs to occur over different switches or switch stacks.
+        RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks.
 
         How It Works:
 
@@ -130,9 +130,9 @@ These are the following 5 deployment steps
 
     After choosing the sensor location and the mirroring method the user can move forward and install the sensors.
 
-1. Post depolyment validation
+1. Post deployment validation
 
-    It is essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the current networks being sent to the sensor.  
+    It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the current networks being sent to the sensor.  
 
     :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
@@ -156,12 +156,12 @@ This needs an introduction or further descriptions.<!--Theo-->
 
 **L2 traffic**
 
-:::image type="content" source="media/guide/deployment-guide-network-diagram-l2-traffic.png" alt-text="Diagram to demostrate the components set up of the L2 traffic monitoring set up.":::
+:::image type="content" source="media/guide/deployment-guide-network-diagram-l2-traffic.png" alt-text="Diagram to demonstrate the components set up of the L2 traffic monitoring setup.":::
 
 **Cross L2 traffic**
 
-:::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l2-traffic.png" alt-text="Diagram to demostrate the components set up of the cross L2 traffic monitoring set up.":::
+:::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l2-traffic.png" alt-text="Diagram to demonstrate the components set up of the cross L2 traffic monitoring setup.":::
 
 **Cross L3 traffic**
 
-:::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l3-traffic.png" alt-text="Diagram to demostrate the components set up of the cross L3 traffic monitoring set up.":::
+:::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l3-traffic.png" alt-text="Diagram to demonstrate the components set up of the cross L3 traffic monitoring setup.":::
