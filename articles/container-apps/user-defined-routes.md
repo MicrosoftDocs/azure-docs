@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 08/29/2023
 ---
 
-# Control outbound traffic with user defined routes
+# Control outbound traffic in Azure Container Apps with user defined routes
 
 > [!NOTE]
 > This feature is only supported for the workload profiles environment type.
