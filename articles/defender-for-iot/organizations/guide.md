@@ -39,17 +39,11 @@ These are the following 5 deployment steps
 
     The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following 3 important types of network traffic:
 
-    1. Layer 2 (L2) Traffic
-
-        L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? -->
-
-    1. OT Protocols
-
-        OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security.
-
-    1. Inner Subnet Communication
-
-        In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.
+    | Type | Description|
+    |---|---|
+    |Layer 2 (L2) Traffic | L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? --> |
+    | OT Protocols | OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security. |
+    | Inner Subnet Communication | In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.|
 
     **Validation of the sensor location**
 
