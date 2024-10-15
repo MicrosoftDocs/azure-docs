@@ -85,6 +85,7 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 22](https://endoflife.date/nodejs) | Preview | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 
