@@ -35,6 +35,12 @@ items:
   expanded: true
 - name: Reference
   items:
+  - name: Azure Storage Actions REST API
+    href: /rest/api/storageactions/operation-groups
+  - name: Azure Storage Actions cmdlets (PowerShell)
+    href: /powershell/module/az.storageaction
+  - name: Azure Storage Actions extension (Azure CLI)
+    href: /cli/azure/storage-actions
   - name: Monitoring data Reference
     href: storage-tasks/storage-tasks-monitor-data-reference.md
   - name: Storage Tasks events
