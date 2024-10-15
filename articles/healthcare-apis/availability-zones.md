@@ -49,7 +49,7 @@ Zones marked with a star ("*") have quota issues due to high demand. Enabling AZ
 
 Consider the following limitations when configuring an availability zone.
 
-- Azure Health Data Service, FHIR&reg; service instances allow customers to set AZ settings only once and can't be modified.
+- Azure Health Data Service FHIR&reg; service instances allow customers to set AZ settings only once and can't be modified.
 - FHIR service with data volume support beyond 4 TB needs to specify the AZ configuration during the service instance creation.
 - When this feature is available as self-serve, any FHIR service instance created in Azure Health Data Services needs to specify the AZ configuration during the service instance creation.
 
