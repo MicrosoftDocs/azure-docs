@@ -35,7 +35,7 @@ First, create an OpenAI instance.
 
    :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::
 
-1. Validate Azure OpenAI call using your favorite API test method, such as [Visual Studio](https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0) or [Insomnia](https://insomnia.rest/).
+1. Validate Azure OpenAI call using your favorite API test method, such as [Visual Studio](/aspnet/core/test/http-files) or [Insomnia](https://insomnia.rest/).
    Use the Azure OpenAPI endpoint and api-key values found in the earlier steps.
    Use these lines of code in the POST body:
 
@@ -82,7 +82,7 @@ Now verify your Azure Front Door endpoint.
 1. Retrieve the Azure Front Door endpoint from the Front Door Manager.
 
    :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot showing the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
-2. Use your favorite API test method, such as [Visual Studio](https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0) or [Insomnia](https://insomnia.rest/) to send a POST request to the Azure Front Door endpoint.
+2. Use your favorite API test method, such as [Visual Studio](/aspnet/core/test/http-files) or [Insomnia](https://insomnia.rest/) to send a POST request to the Azure Front Door endpoint.
    1. Replace the Azure OpenAI endpoint with the AFD endpoint in the POST request.
    :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
 
