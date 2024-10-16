@@ -191,7 +191,7 @@ var registry = Registry.fromConnectionString(serviceConnectionString);
 
 ### Invoke a method on a device
 
-Use [invokeDeviceMethod](/javascript/api/azure-iothub/client?view=azure-node-latest#azure-iothub-client-invokedevicemethod) to invoke a direct method by name on a device. The method name parameter identifies the direct method. The method name is "reboot" in the examples within this article.
+Use [invokeDeviceMethod](/javascript/api/azure-iothub/client?#azure-iothub-client-invokedevicemethod) to invoke a direct method by name on a device. The method name parameter identifies the direct method. The method name is "reboot" in the examples within this article.
 
 ```javascript
 var startRebootDevice = function(twin) {
@@ -214,7 +214,7 @@ var startRebootDevice = function(twin) {
 };
 ```
 
-This example fuction uses device twin queries to discover the last reboot time for the device that was updated as described in the **Create a direct method callback** section of this article.
+This example function uses device twin queries to discover the last reboot time for the device that was updated as described in the **Create a direct method callback** section of this article.
 
 ```javascript
 var queryTwinLastReboot = function() {
