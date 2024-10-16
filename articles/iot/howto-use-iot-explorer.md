@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-develop
+ms.service: azure-iot
 services: iot-develop
 
 #Customer intent: As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
