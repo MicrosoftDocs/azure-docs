@@ -118,7 +118,7 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | openSUSE | 42.2 and above |
 
 >[!Caution]
->CentOS is End-Of-Life [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+>CentOS is end-of-life [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 ### Additional components
 
