@@ -347,39 +347,6 @@ Send the audio message:
 var audioResponse = await notificationMessagesClient.SendAsync(audioNotificationContent);
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```csharp
-var uri = new Uri("https://aka.ms/acsicon1");
-```
-
-Assemble then send the media message:
-```csharp
-// Assemble media message
-var mediaContent = 
-    new ImageNotificationContent(channelRegistrationId, recipientList, uri);
-
-// Send media message
-Response<SendMessageResult> sendImageMessageResult = 
-    await notificationMessagesClient.SendAsync(mediaContent);
-```
-
 ## Run the code
 
 Build and run your program.  
