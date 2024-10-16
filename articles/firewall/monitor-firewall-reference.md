@@ -77,10 +77,11 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
-
+Azure Firewall has two new diagnostic logs that can help monitor your firewall, but these logs currently do not show application rule details.
 - Top flows
 - Flow trace
+
+
 
 ## Top flows
 

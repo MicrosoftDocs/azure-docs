@@ -1159,6 +1159,8 @@ items:
             href: resources/troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
           - name: The call setup takes too long
             href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
+          - name: The call ends with 410/3112
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-ends-with-410-3112.md
         - name: Device and permission issues
           items:
           - name: Overview
