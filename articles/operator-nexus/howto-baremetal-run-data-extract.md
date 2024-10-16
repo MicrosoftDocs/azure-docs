@@ -22,7 +22,7 @@ The command produces an output file containing the results of the data extract. 
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
-## Verify Storage Account access (Cluster Manager storage account)
+## Verify access to the Cluster Manager storage account
 
 > [!NOTE]
 > The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and user managed storage option is fully supported.
@@ -670,4 +670,4 @@ The command provides a link (if using cluster manager storage) or another comman
 > Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
 
 > [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.

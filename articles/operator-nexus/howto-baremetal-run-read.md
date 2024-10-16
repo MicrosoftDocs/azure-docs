@@ -22,7 +22,7 @@ The command produces an output file containing the results of the run-read comma
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
-## Verify Storage Account access to the Cluster Manager storage account
+## Verify access to the Cluster Manager storage account
 
 > [!NOTE]
 > The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and user managed storage option is fully supported.
@@ -397,7 +397,7 @@ This guide walks you through accessing the output file that is created in the Cl
 
 1. Select the baremetal-run-command-output blob container.
 
-1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
 
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 
