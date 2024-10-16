@@ -302,29 +302,81 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ### Send a media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the Image
+- URL of the Image, Video, Document or Audio media
 
 > [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send a media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-As an example, create a URI:
+> [!IMPORTANT]
+> As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
+
+#### Sending an Image Message
+
+Assemble then send the image message:
 ```java
-String mediaUrl = "https://aka.ms/acsicon1";
-```
+// Assemble image message
+String imageUrl = "https://example.com/image.jpg";
+ImageNotificationContent imageContent = new ImageNotificationContent(channelRegistrationId, recipientList, imageUrl);
 
-Assemble then send the media message:
-```java
-// Assemble media message
-MediaNotificationContent mediaContent = new MediaNotificationContent(channelRegistrationId, recipientList, mediaUrl);
-
-// Send media message
-SendMessageResult mediaMessageResult = notificationClient.send(mediaContent);
+// Send image message
+SendMessageResult imageMessageResult = notificationClient.send(imageContent);
 
 // Process result
-for (MessageReceipt messageReceipt : mediaMessageResult.getReceipts()) {
+for (MessageReceipt messageReceipt : imageMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
+```
+
+#### Sending a Video Message
+
+Assemble then send the video message:
+```java
+// Assemble video message
+String videoUrl = "https://example.com/video.mp4";
+VideoNotificationContent videoContent = new VideoNotificationContent(channelRegistrationId, recipientList, videoUrl);
+
+// Send video message
+SendMessageResult videoMessageResult = notificationClient.send(videoContent);
+
+// Process result
+for (MessageReceipt messageReceipt : videoMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
+```
+
+#### Sending an Audio Message
+
+Assemble then send the audio message:
+```java
+// Assemble audio message
+String audioUrl = "https://example.com/audio.mp3";
+AudioNotificationContent audioContent = new AudioNotificationContent(channelRegistrationId, recipientList, audioUrl);
+
+// Send audio message
+SendMessageResult audioMessageResult = notificationClient.send(audioContent);
+
+// Process result
+for (MessageReceipt messageReceipt : audioMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
+```
+
+#### Sending a Document Message
+
+Assemble then send the document message:
+```java
+// Assemble document message
+String docUrl = "https://example.com/document.pdf";
+DocumentNotificationContent docContent = new DocumentNotificationContent(channelRegistrationId, recipientList, docUrl);
+
+// Send document message
+SendMessageResult docMessageResult = notificationClient.send(docContent);
+
+// Process result
+for (MessageReceipt messageReceipt : docMessageResult.getReceipts()) {
     System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
 }
 ```
