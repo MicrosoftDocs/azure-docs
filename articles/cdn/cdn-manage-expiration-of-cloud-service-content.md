@@ -129,7 +129,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 ## Testing the Cache-Control header
 
-You can easily verify the TTL settings of your web content. With your browser's developer tools, test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your web content. With your browser's developer tools, test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget** or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 
