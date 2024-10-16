@@ -94,5 +94,7 @@
   items:
       - name: Samples and labs
         href: resources.md
+      - name: Building an API security strategy
+        href: https://aka.ms/API-Security-EBook
       - name: Azure updates
         href: https://aka.ms/apic/updates

@@ -5,7 +5,8 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Import an update to Device Update for IoT Hub

@@ -8,6 +8,10 @@ ms.date: 06/12/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to convert my SIEM dashboards to Azure Workbooks so that I can use advanced visualization and interactivity features in Microsoft Sentinel.
+
 ---
 
 # Convert dashboards to Azure Workbooks 

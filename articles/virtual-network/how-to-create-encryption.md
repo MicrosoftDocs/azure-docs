@@ -12,7 +12,7 @@ ms.author: allensu
 
 # Create a virtual network with encryption by using the Azure portal
 
-Azure Virtual Network encryption is a feature of Azure Virtual Network. With Virtual Network encryption, you can seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Virtual Network encryption protects data that traverses your virtual network from virtual machine to virtual machine and from virtual machine to on-premises.
+Azure Virtual Network encryption is a feature of Azure Virtual Network. With Virtual Network encryption, you can seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Virtual Network encryption protects data that traverses your virtual network from virtual machine to virtual machine.
 
 ## Prerequisites
 

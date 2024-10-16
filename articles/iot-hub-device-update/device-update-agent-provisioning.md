@@ -5,7 +5,8 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 8/26/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update Agent Provisioning
