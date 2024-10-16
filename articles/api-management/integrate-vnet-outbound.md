@@ -1,29 +1,28 @@
 ---
-title: Integrate API Management in private network - public IP
+title: Integrate API Management in private network
 description: Learn how to integrate an Azure API Management instance in the Standard v2 or Premium v2 tier with a virtual network to access backend APIs in the network.
 author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/02/2024
+ms.date: 10/16/2024
 ---
 
-# Integrate an Azure API Management instance with a private virtual network for outbound connections - public IP address
+# Integrate an Azure API Management instance with a private virtual network for outbound connections 
 
 [!INCLUDE [api-management-availability-standardv2-premiumv2](../../includes/api-management-availability-standardv2-premiumv2.md)] 
 
-This article guides you through the process of configuring *outbound virtual network integration* for your Azure API Management instance so that your API Management instance can make outbound requests to API backends that are isolated in the network.
+This article guides you through the process of configuring *virtual network integration* for your Standard v2 or Premium v2 (preview) Azure API Management instance so that your instance can make outbound requests to API backends that are isolated in the network.
 
 When an API Management instance is integrated with a virtual network for outbound requests, the gateway and developer portal endpoints remain publicly accessible. In this configuration, the API Management instance can reach both public and network-isolated backend services.
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a virtual network for outbound traffic."  :::
 
-If you want to configure *internal* virtual network integration for your API Management instance (inbound traffic to a private IP address, outbound traffic to network-isolated backends), see [Integrate API Management in private network - private IP address](integrate-vnet-internal.md).
+If you want to inject a Premium v2 API Management instance into a virtual network to isolate both inbound and outbound traffic, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
 
 > [!IMPORTANT]
-> * External virtual network integration described in this article is available only for API Management instances in the Standard v2 and Premium v2 tiers. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
-> * You can enable external virtual network integration when you create an API Management instance in the Standard v2 or Premium v2 tier, or on an existing instance.
-> * You can't change the virtual network integration type from internal to external or vice versa after the API Management instance is created. 
+> * Outbound virtual network integration described in this article is available only for API Management instances in the Standard v2 and Premium v2 tiers. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * You can enable virtual network integration when you create an API Management instance in the Standard v2 or Premium v2 tier, or after the instance is created.
 
 
 ## Prerequisites
@@ -47,7 +46,7 @@ If you want to configure *internal* virtual network integration for your API Man
 
 ### Subnet delegation
 
-For access to the API Management instance only within the virtual network using a private IP address, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
@@ -69,10 +68,9 @@ You must have at least the following role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
 
-## Enable virtual network integration
+## Configure virtual network integration
 
-This section guides you through the process of enabling external virtual network integration for an existing Azure API Management instance.
-
+This section guides you through the process of configure external virtual network integration for an existing Azure API Management instance.
 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
