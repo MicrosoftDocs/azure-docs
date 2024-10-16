@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 02/27/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # Solution developer

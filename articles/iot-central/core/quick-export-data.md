@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/01/2024
 ms.topic: quickstart
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mvc, mode-other, devx-track-azurecli
 ms.devlang: azurecli

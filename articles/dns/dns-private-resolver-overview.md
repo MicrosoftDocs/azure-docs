@@ -121,6 +121,7 @@ Outbound endpoints have the following limitations:
 ### Ruleset restrictions
 
 - Rulesets can have up to 1000 rules.
+- Cross-tenant linking of Rulesets is not supported.
 
 ### Other restrictions
 
