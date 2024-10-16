@@ -274,7 +274,7 @@ A raw HTTP GET request looks like the following example:
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 Host: localhost:4141
-X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+X-IDENTITY-HEADER: 00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 And a sample response might look like the following:
