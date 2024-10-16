@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ms.custom: enterprise-iot
 ---
 
@@ -1263,8 +1263,6 @@ These features are now Generally Available (GA). Updates include the general loo
 **Simplified workflows include**:
 
 - The **Device inventory** page now includes detailed device pages. Select a device in the table and then select **View full details** on the right.
-
-    :::image type="content" source="media/release-notes/device-inventory-details.png" alt-text="Screenshot of the View full details button." lightbox="media/release-notes/device-inventory-details.png":::
 
 - Properties updated from the sensor's inventory are now automatically updated in the cloud device inventory.
 

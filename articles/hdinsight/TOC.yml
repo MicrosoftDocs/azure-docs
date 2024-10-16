@@ -289,6 +289,12 @@ items:
       items:
       - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md  
       - name: Use Azure Monitor logs  
         items:
         - name: New Azure Monitor experience Migration
@@ -297,12 +303,6 @@ items:
           href: ./selective-logging-analysis-azure-logs.md
         - name: Enable new Azure Monitor integration
           href: ./log-analytics-migration.md  
-      - name: Use Azure Monitor Agent  
-        items:    
-        - name: Azure Monitor Agent Migration
-          href: ./azure-monitor-agent.md
-        - name: Selective Logging
-          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
