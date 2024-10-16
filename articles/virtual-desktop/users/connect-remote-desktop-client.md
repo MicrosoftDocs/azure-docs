@@ -1,5 +1,5 @@
 ---
-title: Get started with the Remote Desktop app
+title: Get started with the Remote Desktop app for Azure Virtual Desktop
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client.
 author: sipastak
 ms.topic: how-to
@@ -215,7 +215,7 @@ To connect to your desktops and applications:
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
-### Beta Client
+### Beta client
 
 If you want to help us test new builds before they're released, you should download our beta client. Organizations can use the beta client to validate new versions for their users before they're generally available. For more information, see [Test the beta client](client-features-macos.md#test-the-beta-client).
 
@@ -257,7 +257,7 @@ To connect to your desktops and applications:
 
 1. Tap one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
-### Beta Client
+### Beta client
 
 If you want to help us test new builds before they're released, you should download our beta client. Organizations can use the beta client to validate new versions for their users before they're generally available. For more information, see [Test the beta client](client-features-ios-ipados.md#test-the-beta-client).
 
@@ -299,7 +299,7 @@ To connect to your desktops and applications:
 
 1. Tap one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, and to make sure you trust the remote PC before you connect, depending on how your admin has configured Azure Virtual Desktop.
 
-### Beta Client
+### Beta client
 
 If you want to help us test new builds before they're released, you should download our beta client. Organizations can use the beta client to validate new versions for their users before they're generally available. For more information, see [Test the beta client](client-features-android-chrome-os.md#test-the-beta-client).
 
