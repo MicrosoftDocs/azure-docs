@@ -5,7 +5,7 @@ author: PatAltimore
 
 # this is the PM responsible
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual

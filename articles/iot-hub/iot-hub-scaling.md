@@ -4,7 +4,7 @@ description: How to choose the correct IoT hub tier and size to support your ant
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']

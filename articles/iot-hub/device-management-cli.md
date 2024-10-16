@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Azure CLI for devi
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 01/30/2023
