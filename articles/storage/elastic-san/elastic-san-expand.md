@@ -43,7 +43,8 @@ You can set up a policy to automatically scale up your SAN by specific increment
   
 **If spare capacity is less than X TiB of space, increase capacity by Y TiB, up-to a maximum of Z Tib.** 
   
-Here X is the used size beyond which the scale up policy will kick in, Y is the increment by which you are increasing the capacity of the SAN, and Z is the maximum capacity of the SAN.
+Here X is the used size beyond which the scale up policy will kick in, Y is the increment by which you are increasing the capacity of the SAN, and Z is the maximum capacity of the SAN.  
+If you want to scale your SAN down, you will need to do it manually by following the process outlined earlier.
 
 # [PowerShell](#tab/azure-powershell)
 
