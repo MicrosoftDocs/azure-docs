@@ -33,7 +33,7 @@ Minor versions introduce small improvements, performance enhancements, or minor 
 
 ### Improvements and issues that are fixed 
 - **Bug fixes and performance improvements**: We've improved the overall system stability by fixing general bugs and optimizing performance.
-- **Security Enhacements**: This release improves security by updating package dependencies and Microsoft container images as well as improving container image builds to reduce dependencies.
+- **Security Enhancements**: This release improves security by updating package dependencies and Microsoft container images and improving container image builds to reduce dependencies.
 - **Volume attachement fixes**: We've also resolved an issue where volumes remained in a published state on nodes that were no longer present in the cluster, causing volume mounts to fail. This fix ensures that volumes are properly detached and reattached, allowing workloads to continue without interruptions. 
 
 
