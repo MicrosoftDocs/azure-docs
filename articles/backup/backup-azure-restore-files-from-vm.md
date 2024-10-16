@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 10/16/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -116,6 +116,9 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | Oracle Linux | 6.4 and above |
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
+
+>[!Caution]
+>CentOS is End-Of-Life [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 ### Additional components
 
