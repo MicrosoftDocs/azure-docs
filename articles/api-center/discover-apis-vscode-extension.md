@@ -1,10 +1,10 @@
 ---
-title: Discover APIs - Azure API Center - VS Code extension
+title: Discover APIs - VS Code extension
 description: API developers can use the Azure API Center extension for Visual Studio Code to discover APIs in their organization's API center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 10/16/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to discover and consume APIs in my organizations API center.
