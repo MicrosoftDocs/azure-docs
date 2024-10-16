@@ -27,21 +27,25 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight applian
 
 The Arc-enable Migrate Inventory helps you view the Arc status of inventory discovered in Azure Migrate and navigate you to Arc center, if you want to Arc-enable your servers. This integration provides unified management experience, enabling better control and visibility over the migration process along with managing the remaining on-premises inventory. It includes these features:  
 
-- Allows you to view the Arc status of a server, if Arc is enabled or not. 
+- Allows you to view the Arc status of a server, if it is Arc-enabled or not. 
 - Directs you to download the Arc onboarding script from the Migrate inventory screen and run it on individual machines using your preferred automation method. 
 
 ### Arc status in Azure Migrate
  
 To view the Arc Status in Azure Migrate, follow these steps: 
 
-1. On the Get started page > Servers, databases and web apps, select Discovered items.
-Discovered items lists all the machines discovered. You can see the Sync Arc status option here. 
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered items**.
+The **Discovered items** page lists all the machines discovered. You can see the Sync Arc status option here. 
+
+:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/discovered-servers.png":::
  
-2. Run Sync Arc Status, Azure Migrate refreshes your discovered inventory. It compares this data with the data available in Azure Resource Graph via the Azure Hybrid Connected Resource Provider. Here, the machine’s BIOS ID is used to map machines in Migrate inventory against Azure Arc inventory. Once a unique match is found, this machine ID is saved in the Migrate inventory, providing seamless tracking and further status updates. 
+2. Select **Sync Arc Status**. Azure Migrate refreshes your discovered inventory. It compares this data with the data available in Azure Resource Graph via the Azure Hybrid Connected Resource Provider. Here, the machine’s BIOS ID is used to map machines in Migrate inventory against Azure Arc inventory. Once a unique match is found, this machine ID is saved in the Migrate inventory, providing seamless tracking and further status updates. 
 
-3. In discovered items, you can see a column named **Arc Status**. You can add this column to the view, if the column isn't selected. 
+:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-items-arc.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/discovered-items-arc.png":::
 
-4. To sync the Arc Status of a particular machine, select the Arc Status of that machine and you'll be directed to the details of Arc Status. You can review and sync the Arc status from here.
+3. To sync the Arc Status of a particular machine, select the **Arc Status** of that machine and you'll be directed to the details of Arc Status. You can review and sync the Arc status from here. You can add this column to the view, if the column isn't visible. 
+
+:::image type="content" source="./media/how-to-arc-enable-inventory/arc-status.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/arc-status.png":::
 
 > [!Note] 
 > Once the refresh job is completed, the Arc discovery status is updated. 
@@ -59,6 +63,8 @@ To enable Arc for Azure Migrate discovered inventory, follow these steps:
 2. Navigate to **Enable Arc** and select **Generate onboarding script**. 
 
    You'll be directed to add the project and server details. Once you enter all the required details, you'll be able to download and run the script. 
+
+:::image type="content" source="./media/how-to-arc-enable-inventory/download-script.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/download-script.png":::
  
 For more information on how to Arc enable your inventory,  
 

@@ -34,7 +34,7 @@ There are four major reports that you need to review:
 - **Current on-premises vs Future**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **On-premises with Azure Arc**: This report covers the breakdown of the total cost of ownership for your on-premises estate with and without Arc.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
-- **On-premises vs AVS (Azure VMware Solution)**: In case you build a business case to “Migrate to AVS”, you’ll see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.
+- **On-premises vs AVS (Azure VMware Solution)**: If you build a business case to *Migrate to AVS*, you’ll see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
 
 ## View a business case
@@ -181,7 +181,7 @@ This section contains the cost and savings estimate by Arc-enabling your on-prem
    - **IT Productivity Savings**: Azure Arc improves IT productivity by reducing the time they spend on routine activities. This report includes that as well as management savings.
    - **Threat protection and Savings by using MDC**: The report also includes  the savings by using Microsoft Defender for Cloud to secure your on-premises server. You can mitigate threats 50% faster and improve your security posture with Microsoft Defender for cloud.
 
-:::image type="content" source="./media/how-to-view-a-business-case/azure-arc-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/azure-arc-expanded.png":::
+:::image type="content" source="./media/how-to-view-a-business-case/azure-arc-inline.png" alt-text="Screenshot of comparison of on-premises servers with Arc and without Arc." lightbox="./media/how-to-view-a-business-case/azure-arc-expanded.png":::
 
 
 ## Next steps
