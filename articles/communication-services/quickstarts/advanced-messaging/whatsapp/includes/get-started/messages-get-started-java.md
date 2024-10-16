@@ -313,7 +313,7 @@ Messages SDK allows Contoso to send media (Image, Video, Audio or Document) mess
 > [!IMPORTANT]
 > As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
 
-#### Sending an Image Messages
+#### Sending an Image Message
 
 Assemble then send the image message:
 ```java
@@ -330,7 +330,7 @@ for (MessageReceipt messageReceipt : imageMessageResult.getReceipts()) {
 }
 ```
 
-#### Sending an Video Message
+#### Sending a Video Message
 
 Assemble then send the video message:
 ```java
@@ -364,7 +364,7 @@ for (MessageReceipt messageReceipt : audioMessageResult.getReceipts()) {
 }
 ```
 
-#### Sending an Document message
+#### Sending a Document Message
 
 Assemble then send the document message:
 ```java
