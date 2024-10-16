@@ -1005,8 +1005,6 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
-  - name: Attack disruption in the Defender portal
-    href: /defender-xdr/automatic-attack-disruption?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json 
 - name: SOC optimizations
   items:
   - name: Optimize your security operations
