@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 
