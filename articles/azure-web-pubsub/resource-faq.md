@@ -10,7 +10,7 @@ ms.date: 09/18/2024
 
 # Azure Web PubSub service FAQ
 
-Here are some Frequently Asked Questions (FAQs) for the Azure Web PubSub service. 
+Here are some frequently asked questions (FAQs) for the Azure Web PubSub service. 
 
 ## Is Azure Web PubSub service ready for production use?
 Yes, Azure Web PubSub service is generally available.
