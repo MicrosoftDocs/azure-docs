@@ -1,13 +1,13 @@
 ---
 title: Webhook event handler for namespace topics' push delivery
-description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.
+description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics' push delivery.
 ms.topic: concept-article
 ms.date: 11/14/2024
 ms.author: robece
 # Customer intent: As a developer, I want to whether I can push events from a namespace topic to a Webhook.
 ---
 
-# Webhook event handler for namespace topic's push delivery
+# Webhook event handler for namespace topics' push delivery
 
 You can set up a webhook endpoint to handle events on a specific namespace topic by subscribing to it. Any public endpoint can be used as an event handler if it uses encryption in transit (`HTTPS`), can read events that use a supported [CloudEvents metadata format](namespaces-cloud-events.md), and handle the webhook validation. 
 
