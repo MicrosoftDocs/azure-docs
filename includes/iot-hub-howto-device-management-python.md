@@ -27,7 +27,7 @@ This section describes how to use device application code to:
 
 ### Device import statements
 
-Add import statements for `IoTHubDeviceClient`.
+Add import statements to access `IoTHubDeviceClient` and `MethodResponse`.
 
 ```python
 # import the device client library
@@ -53,7 +53,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
 Call [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
-This example sets up a desired properties patch handler named `method_request_handler`.
+This example sets up a direct method handler named `method_request_handler`.
 
 For example:
 
@@ -66,9 +66,7 @@ except:
     client.shutdown()
 ```
 
-In this example, the `method_request_handler` callback method implements the direct method on the device. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
-
-This example sets up a callback listener named `method_request_handler` that triggers when the "rebootDevice" direct method is called from a service application.
+In this example, the `method_request_handler` callback method implements the direct method on the device. The code is executed when the "rebootDevice" direct method is called from a service application. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
 
 ```python
 # Define the handler for method requests
