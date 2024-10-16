@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 07/28/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.devlang: csharp
 # ms.devlang: csharp, java, nodejs
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
+ms.subservice: azure-iot-hub-dps
 ---
  
 # Programmatically create a Device Provisioning Service individual enrollment for TPM attestation
