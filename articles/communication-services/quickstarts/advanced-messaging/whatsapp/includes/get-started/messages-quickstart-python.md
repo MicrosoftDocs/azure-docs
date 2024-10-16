@@ -120,9 +120,9 @@ For more information on how to set an environment variable for your system, foll
 
 NotificationMessagesClient is also authenticated using Microsoft Entra ID/TokenCredentials. For more information, see [access-Azure-Communication-Resources-using-TokenCredentials](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
 
-The [`azure.identity`](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0/sdk/identity/azure-identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/python/api/overview/azure/identity-readme?view=azure-python#credential-classes) and [Azure Identity - Authenticate the client](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential). This option walks through one way of using the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential).
+The [`azure.identity`](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0/sdk/identity/azure-identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/python/api/overview/azure/identity-readme?view=azure-python#credential-classes&preserve-view=true) and [Azure Identity - Authenticate the client](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential&preserve-view=true). This option walks through one way of using the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true).
  
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
 
 To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
@@ -137,7 +137,7 @@ To create a `DefaultAzureCredential` object:
     ```
     After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-1. To use the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
+1. To use the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
     
 ```python
     # Get a connection string to our Azure Communication Services resource.
