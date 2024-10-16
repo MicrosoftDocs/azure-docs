@@ -14,16 +14,11 @@ ms.author: normesta
 
 # Storage task conditions
 
-This article describes the format of a storage task condition and the properties and operators that you can use to compose the clauses of a condition. 
+A storage task contains a set of conditions and operations. This article describes the JSON format of a storage task condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition.  
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-A storage task contains a set of conditions and operations in a JSON document. The following image shows how a single condition and operation appear in a the document.  
-
-> [!div class="mx-imgBorder"]
-> ![Location of conditions and operations in a JSON snippet.](../media/storage-tasks/storage-task-operations/storage-task-operations-location-of-conditions-and-operations.png)
 
 ## Condition format
 
@@ -39,10 +34,6 @@ The following clause allows operations only on Microsoft Word documents. This cl
    "condition": "[[[endsWith(Name, '.docx')]]"
 }
 ```
-If you define conditions by using the Azure portal, you can see this JSON structure by opening the **Code** tab of the visual designer.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
 
 ### Multiple clauses in a condition
 
@@ -75,6 +66,15 @@ The following condition allows operations only on Microsoft Word documents where
 "condition": "[[[or(and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '100'))]]"
 }
 ```
+
+## Code view in the Azure portal
+
+The visual editor available in the Azure portal, can generate the JSON of a condition for you. You can define your conditions by using the editor, and then obtain the JSON expression by opening **Code** tab. The following image shows the **Code** tab in the visual editor.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
+
+To learn more about the visual editor, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 ## Supported properties
 

@@ -13,32 +13,31 @@ ms.author: normesta
 
 # Storage task operations
 
-An operation is an action that a storage task performs on each object that meets the defined set of conditions. This article describes the format of a storage task operation and the list of operations, operation parameters, and allowable values. To learn more about conditions, see [Storage task conditions](storage-task-conditions.md).
+A storage task contains a set of conditions and operations. An operation is an action that a storage task performs on each object that meets the requirements of each condition. This article describes the JSON format of a storage task operation. Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the operations, operation parameters, and the allowable values of each parameter. 
+
+To learn more about conditions, see [Storage task conditions](storage-task-conditions.md). 
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-A storage task contains a set of conditions and operations in a JSON document. The following image shows how a single condition and operation appear in a the document.  
-
-> [!div class="mx-imgBorder"]
-> ![Location of conditions and operations in a JSON snippet.](../media/storage-tasks/storage-task-operations/storage-task-operations-location-of-conditions-and-operations.png)
-
 ## Operation format 
 
-An operation has a name along with zero, one, or multiple parameters. The following table describes each element that makes up the operation definition.
-
-| Element | Description |
-|---|--|
-| `name` | The name of the operation. For a full list of names, see the [Supported operations](#supported-operations) section of this article. |
-| `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value. For a list of parameters and parameter values, see the [Supported operations](#supported-operations) section of this article. |
-| `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the preview. |
-| `onFailure` | The action to take when the operation fails for a object. `break` is the only allowable value during the preview. |
-
-The following image shows where each element appears in the definition.
+An operation has a name along with zero, one, or multiple parameters. The following image shows how these elements appear for an operation in the JSON template of a storage task.
 
 > [!div class="mx-imgBorder"]
 > ![Format of an operation.](../media/storage-tasks/storage-task-operations/storage-task-operations-basic-structure.png)
+
+The following table describes each element.
+
+| Element | Description |
+|---|--|
+| `name` | The name of the operation.<sup>1</sup> |
+| `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value.<sup>1</sup> |
+| `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the preview. |
+| `onFailure` | The action to take when the operation fails for a object. `break` is the only allowable value during the preview. |
+
+<sup>1</sup>    For a complete list of operation names, operation parameters and parameter values, see the [Supported operations](#supported-operations) section of this article.
  
 The following operations applies applies a time-based immutability policy to the object. 
 
@@ -95,13 +94,13 @@ The following table shows the supported operations, parameters, and parameter va
 
 | Operation                    | Parameters           | Values                                         |
 |------------------------------|----------------------|------------------------------------------------|
-| Set blob tier                | Tier                 | Hot \| Cold \| Archive |
-| Set blob expiry              | None                 | Absolute \| Never expire \| Relative to creation time \| Relative to current time |
-| Delete blob                  | None                 | None                                           |
-| Undelete blob                | None                 | None                                           |
-| Set blob tags                | TagSet               | A fixed collection of up to 10 key-value pairs |
-| Set blob immutability policy | DateTime, string | DateTime of when policy ends, Locked \| Unlocked                                |
-| Set blob legal hold          | Bool | True \| False                           |
+| SetBlobTier                | Tier                 | Hot \| Cold \| Archive |
+| SSetBlobExpiry              | None                 | Absolute \| Never expire \| Relative to creation time \| Relative to current time |
+| DeleteBlob                  | None                 | None                                           |
+| UndeleteBlob                | None                 | None                                           |
+| SetBlobTags                | TagSet               | A fixed collection of up to 10 key-value pairs |
+| SetBlobImmutabilityPolicy | DateTime, string | DateTime of when policy ends, Locked \| Unlocked                                |
+| SetBlobLegalHold          | Bool | True \| False                           |
 
 ## See also
 
