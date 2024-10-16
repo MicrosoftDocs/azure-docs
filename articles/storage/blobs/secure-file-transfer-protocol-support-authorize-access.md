@@ -67,7 +67,7 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    > [!IMPORTANT]
    > Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
-5. Select **Next** to open the **Permissions** tab of the configuration pane.
+4. Select **Next** to open the **Permissions** tab of the configuration pane.
 
 #### [PowerShell](#tab/powershell)
 
