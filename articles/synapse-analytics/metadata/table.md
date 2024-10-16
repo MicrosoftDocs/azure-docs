@@ -140,7 +140,7 @@ df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 Now you can read the data from your serverless SQL pool as follows:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
+SELECT * FROM mytestdb.myparquettable WHERE name = 'Alice';
 ```
 
 You should get the following row as result:
