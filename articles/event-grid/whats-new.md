@@ -9,6 +9,11 @@ ms.date: 05/21/2024
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
+## November 2024
+The following features of Event Grid Namespaces moved from public preview to general availability (GA).
+
+- [Push delivery to Webhooks](namespace-handler-webhook.md)
+
 ## May 2024 
 
 The following features of Event Grid Namespaces moved from public preview to general availability (GA):
