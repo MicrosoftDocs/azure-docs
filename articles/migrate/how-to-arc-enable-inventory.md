@@ -26,7 +26,7 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight applian
 
 The Arc-enable Migrate Inventory helps you view the Arc status of inventory discovered in Azure Migrate and navigate you to Arc center, if you want to Arc-enable your servers. This integration provides unified management experience, enabling better control and visibility over the migration process along with managing the remaining on-premises inventory. It includes these features:  
 
-- Allows you to view the Arc status of a server, if it is Arc-enabled or not. 
+- Allows you to view the Arc status of a server, if it's Arc-enabled or not. 
 - Directs you to download the Arc onboarding script from the Migrate inventory screen and run it on individual machines using your preferred automation method. 
 
 ### Arc status in Azure Migrate

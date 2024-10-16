@@ -15,11 +15,11 @@ ms.custom: engagement-fy24
 
 This article describes how to review the business case reports for on-premises servers and workloads in your datacenter with Azure Migrate: Discovery and assessment tool.
 
-[Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party Independent Software Vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, and partner Independent Software Vendor (ISV) offerings.
 
 ## Prerequisites
 
-- [Build](how-to-build-a-business-case.md) a business case if you have not built one already.
+- [Build](how-to-build-a-business-case.md) a business case if you did not build one earlier.
 
 ## Review the business case
 
@@ -53,7 +53,7 @@ This card covers your potential total cost of ownership savings based on the cho
 It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It doesn't cover Facilities (lease/colocation/power) cost by default, but you can edit it in the on-premises cost assumptions section. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
-It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
+It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target, and most suitable pricing offers for your workloads. You can override the migration strategy, target location, or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### YoY estimated current vs future state cost
 As you plan to migrate to Azure in phases, this line chart shows your cashflow per year based on the estimated migration completed that year. By default, it's assumed that you'll migrate 0% in the current year, 20% in Year 1, 50% in Year 2, and 100% in Year 3.
@@ -64,11 +64,11 @@ As you plan to migrate to Azure in phases, this line chart shows your cashflow p
 This card shows a static percentage of maximum savings you could get with Azure hybrid Benefits. 
 
 ### Savings with Extended security updates
-It shows the potential savings with respect to extended security update license. It's the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
+It shows the potential savings with respect to extended security update license. It's the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no extra cost on Azure.
 
 ### Savings with security and management
 
-It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup and Azure Update Manager for streamlining your operations.
+It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup, and Azure Update Manager for streamlining your operations.
 
 ### Discovery insights
 It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
@@ -79,7 +79,7 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - Active servers: These servers delivered business value by being on and had their CPU and memory utilization above 5% and network utilization above 2%.
     - Idle servers: These servers were on but didn't deliver business value by having their CPU and memory utilization below 5% and network utilization below 2%.
 - Decommission: These servers were expected to deliver business value, but didn't and can be decommissioned on-premises and recommended to not migrate to Azure:
-    - Zombie: The CPU, memory and network utilization were 0% with no performance data collection issues.
+    - Zombie: The CPU, memory, and network utilization were 0% with no performance data collection issues.
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
     
@@ -103,7 +103,7 @@ This section contains the cost estimate by recommended target (Annual cost and a
     - **Recommended storage type**: This card covers the storage cost distribution across different recommended storage types.
 - SQL Server on Azure VM:
 This section assumes instance to SQL Server on Azure VM migration recommendation, and the number of VMs here are the number of instances recommended to be migrated as SQL Server on Azure VM:
-    - **Estimated cost by savings options**: This card includes compute cost for SQL Server on Azure VMs. It is recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
+    - **Estimated cost by savings options**: This card includes compute cost for SQL Server on Azure VMs. It's recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
     - **Recommended VM family**: This card covers the VM sizes recommended. The ones marked Unknown are the VMs that have some readiness issues and no SKUs could be found for them.
     - **Recommended storage type**: This card covers the storage cost distribution across different recommended storage types.
 
@@ -154,7 +154,7 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
-    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
+    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
 - Savings and optimization:
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
@@ -173,12 +173,12 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 This section contains the cost and savings estimate by Arc-enabling your on-premises estate: 
 
 - Arc cost estimate
-   - **Compute and license cost**: Estimated as a sum of total server hardware acquisition cost on-premises, software cost (Windows license ,SQL license , Virtualization software cost) and maintenance cost, SQL license cost is assumed to be using PAY-GO model via Arc enabled SQL Server. ESU licenses for Windows Server and SQL Server are also assumed to paid via Azure through ESUs enabled by Azure Arc
-   - **Security and Management Cost**: Security cost is estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc and management cost is estimated as sum of total management cost  for general servers .
-   - **Storage, Network and facilities cost** : Storage cost is Cost per GB,  defaulted to $2 per GB per month and can be customized in the assumptions. Network and facilties cost is taken same as current on-premises costs.
+   - **Compute and license cost**: Estimated as a sum of total server hardware acquisition cost on-premises, software cost (Windows license, SQL license, Virtualization software cost) and maintenance cost, SQL license cost is assumed to be using pay-as-you-go model via Arc enabled SQL Server. ESU licenses for Windows Server and SQL Server are also assumed to be paid via Azure through ESUs enabled by Azure Arc
+   - **Security and Management Cost**: Security cost is estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc and management cost is estimated as sum of total management cost  for general servers.
+   - **Storage, Network and facilities cost** : Storage cost is Cost per GB,  defaulted to $2 per GB per month and can be customized in the assumptions. Network and facilties cost is considered same as that of current on-premises costs.
 - Arc savings
-   - **Estimated ESU savings**: This report includes the savings by paying ESUs monthly instead of annual licensing and deploy them seamlessly to your on-premises servers.
-   - **IT Productivity Savings**: Azure Arc improves IT productivity by reducing the time they spend on routine activities. This report includes that as well as management savings.
+   - **Estimated ESU savings**: This report includes the savings by paying ESUs monthly instead of annual licensing and deploying them seamlessly to your on-premises servers.
+   - **IT Productivity Savings**: Azure Arc improves IT productivity by reducing the time they spend on routine activities. This report includes that and management savings.
    - **Threat protection and Savings by using MDC**: The report also includes  the savings by using Microsoft Defender for Cloud to secure your on-premises server. You can mitigate threats 50% faster and improve your security posture with Microsoft Defender for cloud.
 
 :::image type="content" source="./media/how-to-view-a-business-case/azure-arc-inline.png" alt-text="Screenshot of comparison of on-premises servers with Arc and without Arc." lightbox="./media/how-to-view-a-business-case/azure-arc-expanded.png":::
