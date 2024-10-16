@@ -13,7 +13,7 @@ ms.topic: conceptual
 appliesto:
     - Microsoft Sentinel
     - Copilot for Security
-ms.date: 07/04/2024
+ms.date: 10/16/2024
 
 
 #Customer intent: As a security analyst, I want to integrate Copilot for Security with Microsoft Sentinel data so that I can investigate incidents and generate advanced hunting queries at machine speed and scale.
@@ -66,13 +66,13 @@ Increase your prompt accuracy by configuring a Microsoft Sentinel workspace as t
 
 ### Integrate Microsoft Sentinel with Copilot in Defender
 
-Use the unified security operations platform with your Microsoft Sentinel data for an embedded Copilot for Security experience. Microsoft Sentinel's unified incidents in the Defender portal allow Copilot in Defender to use its capabilities with Microsoft Sentinel data.
+Use the Microsoft Defender portal with your Microsoft Sentinel data for an embedded Copilot for Security experience. Microsoft Sentinel's unified incidents in the Defender portal allow Copilot in Defender to use its capabilities with Microsoft Sentinel data.
 
 For example:
 
-- The [SAP (Preview) solution]() is installed in your workspace for Microsoft Sentinel.
+- The SAP (Preview) solution is installed in your workspace for Microsoft Sentinel.
 - The near real-time rule [**SAP - (Preview) File Downloaded From a Malicious IP Address**](sap/sap-solution-security-content.md#data-exfiltration) triggers an alert, creating a Microsoft Sentinel incident.
-- [Microsoft Sentinel was added to the unified security operations platform](/defender-xdr/microsoft-sentinel-onboard).
+- [Microsoft Sentinel was onboarded to the Defender portal](/defender-xdr/microsoft-sentinel-onboard).
 - Microsoft Sentinel incidents are now unified with Defender XDR incidents.
 - Use Copilot in Microsoft Defender for incident summary, guided responses and incident reports.
 
