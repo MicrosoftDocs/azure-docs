@@ -3,7 +3,7 @@
  description: include file
  services: iot-edge
  author: PatAltimore
- ms.service: iot-edge
+ ms.service: azure-iot-edge
  ms.topic: include
  ms.date: 03/21/2024
  ms.author: patricka

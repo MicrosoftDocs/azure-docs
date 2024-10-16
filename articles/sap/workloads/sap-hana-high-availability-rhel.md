@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/18/2024
+ms.date: 10/16/2024
 ms.author: radeltch
 ---
 
@@ -442,6 +442,9 @@ This important step optimizes the integration with the cluster and improves the 
    
    sudo yum install -y resource-agents-sap-hana
    ```
+
+   > [!NOTE]
+   > For RHEL 8.x and RHEL 9.x, verify that the installed resource-agents-sap-hana package is version 0.162.3-5 or later.
 
 1. **[A]** Install the HANA `system replication hook`. The hook needs to be installed on both HANA DB nodes.
 

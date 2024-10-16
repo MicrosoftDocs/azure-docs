@@ -7,7 +7,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: anaharris
-ms.custom: fasttrack-edit, mvc
+ms.custom: fasttrack-edit, mvc, subject-reliability
 ---
 
 # Reliability terminology

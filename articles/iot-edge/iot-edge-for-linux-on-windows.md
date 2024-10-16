@@ -4,7 +4,7 @@ description: Overview of running Linux IoT Edge modules with Azure IoT Edge for 
 author: PatAltimore
 
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual

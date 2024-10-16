@@ -1,6 +1,6 @@
 ---
-title: Create an ingress controller by using a new Application Gateway instance
-description: This article provides information on how to deploy the Application Gateway Ingress Controller by using a new Application Gateway instance.
+title: Create an ingress controller by using a new Application Gateway deployment
+description: This article provides information on how to deploy the Application Gateway Ingress Controller by using a new Application Gateway deployment.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -10,9 +10,12 @@ ms.date: 10/15/2024
 ms.author: greglin
 ---
 
-# Install AGIC by using a new Application Gateway instance
+# Install AGIC by using a new Application Gateway deployment
 
 The instructions in this article assume that you want to install the Application Gateway Ingress Controller (AGIC) in an environment that has no preexisting components.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Install required command-line tools
 
@@ -112,7 +115,7 @@ To deploy the components:
 
 ## Set up AGIC
 
-With the instructions in the previous section, you created and configured a new AKS cluster and an Application Gateway instance. You're now ready to deploy a sample app and an ingress controller to your new Kubernetes infrastructure.
+With the instructions in the previous section, you created and configured a new AKS cluster and an Application Gateway deployment. You're now ready to deploy a sample app and an ingress controller to your new Kubernetes infrastructure.
 
 ### Set up Kubernetes credentials
 
@@ -265,9 +268,9 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. For possible values, see [Logging levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels).
    - `appgw.environment`: Sets the cloud environment. Possible values: `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREPUBLICCLOUD`, `AZUREUSGOVERNMENTCLOUD`.
    - `appgw.subscriptionId`: The Azure subscription ID in which Application Gateway resides. Example: `aaaa0000-bb11-2222-33cc-444444dddddd`.
-   - `appgw.resourceGroup`: Name of the Azure resource group in which you created the Application Gateway instance. Example: `app-gw-resource-group`.
-   - `appgw.name`: Name of the Application Gateway instance. Example: `applicationgatewayd0f0`.
-   - `appgw.shared`: Boolean flag that defaults to `false`. Set it to `true` if you need a [shared Application Gateway instance](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+   - `appgw.resourceGroup`: Name of the Azure resource group in which you created the Application Gateway deployment. Example: `app-gw-resource-group`.
+   - `appgw.name`: Name of the Application Gateway deployment. Example: `applicationgatewayd0f0`.
+   - `appgw.shared`: Boolean flag that defaults to `false`. Set it to `true` if you need a [shared Application Gateway deployment](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
    - `kubernetes.watchNamespace`: Specifies the namespace that AGIC should watch. The namespace value can be a single string value or a comma-separated list of namespaces.
    - `armAuth.type`: Could be `aadPodIdentity` or `servicePrincipal`.
    - `armAuth.identityResourceID`: Resource ID of the Azure managed identity.
@@ -281,7 +284,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
    > az identity show -g <resource-group> -n <identity-name>
    > ```
    >
-   > In the command, `<resource-group>` is the resource group of your Application Gateway instance. The `<identity-name>` placeholder is the name of the created identity. You can list all identities for a particular subscription by using `az identity list`.
+   > In the command, `<resource-group>` is the resource group of your Application Gateway deployment. The `<identity-name>` placeholder is the name of the created identity. You can list all identities for a particular subscription by using `az identity list`.
 
 1. Install the AGIC package:
 
