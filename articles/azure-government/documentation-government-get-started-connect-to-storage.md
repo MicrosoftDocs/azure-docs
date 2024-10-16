@@ -126,7 +126,7 @@ public class test {
 
         // Create the table service client.
         TableServiceClient tableServiceClient = new TableServiceClientBuilder()
-            .endpoint("https://<storage-account-name>.table.core.windows.net/")
+            .endpoint("https://<storage-account-name>.table.core.usgovcloudapi.net/")
             .credential(credential)
             .buildClient();
 
@@ -221,7 +221,7 @@ const credentialOptions = new DefaultAzureCredentialOptions(
 );
 
 const blobServiceClient = new BlobServiceClient(
-  `https://<storage-account-name>.blob.core.windows.net`,
+  `https://<storage-account-name>.blob.core.usgovcloudapi.net`,
   new DefaultAzureCredential(credentialOptions)
 );
 
@@ -263,7 +263,7 @@ from azure.storage.blob import BlobServiceClient
 
 credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT)
 
-blob_service_client = BlobServiceClient("https://<storage-account-name>.blob.core.windows.net", credential=credential)
+blob_service_client = BlobServiceClient("https://<storage-account-name>.blob.core.usgovcloudapi.net", credential=credential)
 
 container_name ="<container-name>"
 container = blob_service_client.get_container_client(container=container_name)
