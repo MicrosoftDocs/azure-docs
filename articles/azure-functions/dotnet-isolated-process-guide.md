@@ -131,7 +131,7 @@ builder.Services
     .Configure<LoggerFilterOptions>(options =>
         {
             // The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.
-            // Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/en-us/azure/azure-monitor/app/worker-service#ilogger-logs
+            // Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/azure/azure-monitor/app/worker-service#ilogger-logs
             LoggerFilterRule toRemove = options.Rules.FirstOrDefault(rule => rule.ProviderName
                 == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
     
@@ -1243,7 +1243,7 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 1. Installing the relevant .NET SDK version in your development
 1. Changing the `TargetFramework` setting in your `.csproj` file
 
-When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure Portal, for example, you can use the REST API, Bicep templates, or the Azure CLI to configure the version manually.
+When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep templates, or the Azure CLI to configure the version manually.
 
 ### [Windows](#tab/windows)
 
