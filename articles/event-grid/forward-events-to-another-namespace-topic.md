@@ -19,7 +19,7 @@ You can also forward events from a namespace to another topic in a different nam
 
 :::image type="content" source="./media/forward-events-to-another-namespace-topic/forward-events-to-topic-in-different-namespace.png" alt-text="Diagram that illustrates forwarding of events from one namespace topic to another topic in a different namespace." lightbox="./media/forward-events-to-another-namespace-topic/forward-events-to-topic-in-different-namespace.png":::
 
-## Step to forward events
+## Steps to forward events
 
 1. Identify the namespace topic origin and the namespace topic destination. You can use the same Azure Event Grid namespace or any other Azure Event Grid namespace under your tenant that you have access to. 
 1. Set up an event subscription in the namespace topic origin. In the origin namespace topic, create an event subscription, select **Event Grid Namespace Topic** as an endpoint destination, and select **Configure an endpoint**.
@@ -64,4 +64,4 @@ You can also forward events from a namespace to another topic in a different nam
 1. Select the system assigned managed identity for your source topic, and then select **Create**. 
 
 ## Related content
-    
+For a list of supported event handlers, see [Namespace topic push delivery event handlers](namespace-topics-event-handlers.md).
