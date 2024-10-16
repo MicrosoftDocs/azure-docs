@@ -389,7 +389,7 @@ Here's an example format of a version 2 NSG flow log:
 
 ### Log tuple and bandwidth calculation
 
-:::image type="content" source="./media/nsg-flow-logs-overview/tuple.png" alt-text="Screenshot that shows an example of a flow log tuple.":::
+:::image type="content" source="./media/nsg-flow-logs-overview/tuple.png" alt-text="Screenshot that shows an example of a flow log tuple." lightbox="./media/nsg-flow-logs-overview/tuple.png":::
 
 Here's an example of bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:443`:
 
