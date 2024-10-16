@@ -286,6 +286,7 @@ Thu Nov  9 21:51:42 UTC 2023 -- test-deploy-rwx-fdb8f49c-86pv4
 PVCs created using the nexus-volume and nexus-shared have minimum and maximum claim sizes.
 
 | Storage Class | Minimum PVC Size | Maximum PVC Size |
+|---------------|------------------|------------------|
 | nexus-volume  | 1 MiB | 12 TiB |
 | nexus-shared  | None | 1 TiB |
 
