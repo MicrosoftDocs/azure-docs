@@ -5,7 +5,7 @@ description: Learn how to configure BGP for Azure VPN Gateway using the Azure po
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 10/16/2024
 ms.author: cherylmc 
 
 ---
