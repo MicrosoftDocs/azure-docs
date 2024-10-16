@@ -114,7 +114,7 @@ When you swap two slots (usually from a staging slot *as the source* into the pr
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
-1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
+1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger the custom [Application Initiation](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) on each instance of the source slot.
 
     If `applicationInitialization` isn't specified, trigger an HTTP request to the application root of the source slot on each instance. 
     
