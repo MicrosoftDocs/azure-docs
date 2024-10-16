@@ -14,19 +14,17 @@ ms.date: 10/15/2024
 
 The Modeling and Simulation Workbench has various quotas and limitations on deploying resources or configurations. Workbenches and chambers have overhead which might affect some of the available resource quotas. Those cases are called out in this article.
 
-## About limits and quotas
-
-The Modeling and Simulation Workbench resources appear in your user subscription, but are deployed into a Microsoft managed environment and subscription. Quotas applied to your own subscription don't apply to Modeling and Simulation Workbench.
+Resources, such as chambers and virtual machines, appear in your user subscription, but are deployed into a Microsoft managed environment and subscription. Quotas applied to your own subscription don't apply to Modeling and Simulation Workbench.
 
 ## Chambers
 
-| Item                                 | Quota or limit | Notes                                                                                         |
-|--------------------------------------|----------------|-----------------------------------------------------------------------------------------------|
-| Maximum chambers per workbench       | 3              |                                                                                               |
-| Users per chamber                    | no limit       |                                                                                               |
-| Supports parallel deployment?        | No             | Only one chamber can be deployed at any given time.                                           |
-| Identity and Access Management (IAM) | User only      | Chambers don't support Azure Groups. Only individual user assignments are supported.  |
-| Deployment location | Same as workbench | All chambers and dependent resources (VMs, connectors) are deployed to the workbench's location, regardless of requested location. |
+| Item                                 | Quota or limit    | Notes                                                                                                        |
+|--------------------------------------|-------------------|--------------------------------------------------------------------------------------------------------------|
+| Chambers per workbench               | Limit 3           |                                                                                                              |
+| Users per chamber                    | No limit          |                                                                                                              |
+| Supports parallel deployment?        | No                | Only one chamber can be deployed at any given time.                                                          |
+| Identity and Access Management (IAM) | Users only        | Chambers don't support Azure Groups. Individual user role assignments only.                                  |
+| Deployment location                  | Same as workbench | Chambers and dependent resources are deployed to the workbench's location, regardless of requested location. |
 
 ## Virtual machines
 
@@ -34,38 +32,39 @@ Virtual machines (VM) are limited by a different subscription quota than your cu
 
 The table lists quota by virtual CPUs (vCPU), where each physical CPU is equivalent to two vCPUs. Consult the VM guide to determine how many vCPUs each VM has.
 
-| Item                          | Quota or limit     | Notes                                                                                |
-|-------------------------------|--------------------|--------------------------------------------------------------------------------------|
-| D-series                      | 156 vCPUs          | D-series support workbench infrastructure. Deploying more chambers reduces this limit. |
-| E-series                      | 256 vCPUs          |                                                                                      |
-| F-series                      | 100 vCPUs          |                                                                                      |
-| M-series                      | 128 vCPUs          |                                                                                      |
-| Supports parallel deployment? | Yes                |                                                                                      |
-| Deployment location           | Same as workbench. |                                                                                      |
+vCPU quotas listed are initial default. More capacity can be requested.
+
+| Item                          | Quota or limit     | Notes                                                                                            |
+|-------------------------------|--------------------|--------------------------------------------------------------------------------------------------|
+| D-series                      | 156 vCPUs          | D-series are used in workbench infrastructure. Creating more chambers reduces D-series quantity. |
+| E-series                      | 256 vCPUs          | Initial quota, more can be requested.                                                            |
+| F-series                      | 100 vCPUs          | Initial quota, more can be requested.                                                            |
+| M-series                      | 128 vCPUs          | Initial quota, more can be requested.                                                            |
+| Supports parallel deployment? | Yes                | Multiple VMs can be deployed simultaneously.                                                     |
+| Deployment location           | Same as workbench. |                                                                                                  |
 
 ## Storage
 
-| Item                             | Quota or limit                                       | Notes                                                                       |
-|----------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------|
-| Home volume quota                | 200 GB                                               | For entire volume, shared across all users.                                 |
-| `datain` volume                  | 1 TB                                                 |                                                                             |
-| `dataout` volume                 | 1 TB                                                 |                                                                             |
-| File size limit on data pipeline | 100 GB per file                                      |                                                                             |
-| File name character set          | alphanumeric, period (.), hyphen (-)                 | Any other character causes a pipeline failures and file are dropped. |
-| Chamber storage volumes          | 4 TB minimum, increments by 4 TB up to 20 TB maximum |                                                                             |
-| Shared storage volumes           | 4 TB minimum, increments by 4 TB up to 20 TB maximum |                                                                             |
+| Item                             | Quota or limit                             | Notes                                       |
+|----------------------------------|--------------------------------------------|---------------------------------------------|
+| Home volume quota                | 200-GB limit                               | For entire volume, shared across all users. |
+| `datain` volume                  | 1-TB limit                                 |                                             |
+| `dataout` volume                 | 1-TB limit                                 |                                             |
+| File size limit on data pipeline | 100-GB limit per file                      |                                             |
+| Chamber storage volumes          | 4 TB initial, 4-TB increments, 20-TB quota | More quota can be requested.                |
+| Shared storage volumes           | 4 TB initial, 4-TB increments, 20-TB quota | More quota can be requested.                |
 
 ## Networking
 
-| Item                                                       | Quota or limit | Notes                                                                                                                                                |
-|------------------------------------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Connectors per chamber                                     | 1              | Only one connector per chamber, if multiple access methods are needed, the private network connector is recommended.                                 |
-| Maximum number of allowlist entries in public IP connector | 200            | Upper limit on entries in the table. Subnets up to /24 are permitted and consecutive addresses should be combined to improve manageability. |
-| Maximum subnet mask for public connector                   | /24            |                                                                                                                                                      |
+| Item                                               | Quota or limit | Notes                                                                |
+|----------------------------------------------------|----------------|----------------------------------------------------------------------|
+| Connectors per chamber                             | 1              | Limit one connector per chamber.                                     |
+| Number of allowlist entries (public IP connector)  | 200            | Max. limit on entries in the table. Subnets ranges can be specified. |
+| Maximum subnet mask (public IP connector)          | /24            |                                                                      |
 
 ## License service
 
-* Only one license file can be uploaded to each license server at a time. Subsequent uploads overwrite the previously uploaded file.
+* Limit of one license file can be uploaded to each license server at a time. Subsequent uploads overwrite the current file.
 
 ## Related content
 
