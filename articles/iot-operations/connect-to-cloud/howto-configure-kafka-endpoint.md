@@ -671,7 +671,7 @@ The consumer group ID is used to identify the consumer group that the dataflow u
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Consumer group ID** field to specify the consumer group ID.
 
-# Kubernetes(#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -679,7 +679,7 @@ spec:
     consumerGroupId: <ID>
 ```
 
-# Bicep(#tab/bicep)
+# [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
@@ -882,6 +882,8 @@ kafkaSettings: {
   copyMqttProperties: 'Enabled' // Or Disabled
 }
 ```
+
+---
 
 The following sections describe how MQTT properties are translated to Kafka user headers and vice versa when the setting is enabled.
 

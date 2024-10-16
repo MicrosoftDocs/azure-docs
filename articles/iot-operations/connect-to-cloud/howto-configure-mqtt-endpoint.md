@@ -770,7 +770,7 @@ You can set the Quality of Service (QoS) level for the MQTT messages to either 1
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Quality of service (QoS)** field to specify the QoS level.
 
-# Kubernetes(#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 mqttSettings:
