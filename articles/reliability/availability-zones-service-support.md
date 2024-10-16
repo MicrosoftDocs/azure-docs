@@ -8,7 +8,7 @@ ms.date: 04/15/2024
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Availability zone service and regional support
