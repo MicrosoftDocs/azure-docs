@@ -5,7 +5,7 @@ description: Learn how to configure NAT for Azure VPN Gateway.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 10/16/2024
 ms.author: cherylmc 
 
 ---
@@ -71,9 +71,9 @@ Before you create connections, you must create and save NAT rules on the VPN gat
 
 | Name     | Type   | Mode        | Internal    | External     | Connection          |
 | ---      | ---    | ---         | ---         | ---          | ---                 |
-| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 100.0.1.0/24 | Both connections    |
-| Branch1 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.2.0/24 | Branch1 connection |
-| Branch2 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.3.0/24 | Branch2 connection |
+| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 192.168.1.0/24 | Both connections    |
+| Branch1 | Static | IngressSNAT | 10.0.1.0/24 | 192.168.2.0/24| Branch1 connection |
+| Branch2 | Static | IngressSNAT | 10.0.1.0/24 | 192.168.3.0/24 | Branch2 connection |
 
 Use the following steps to create all the NAT rules on the VPN gateway. If you're using BGP, select **Enable** for the Enable Bgp Route Translation setting.
 
