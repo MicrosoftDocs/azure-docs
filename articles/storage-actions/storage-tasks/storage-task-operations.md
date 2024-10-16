@@ -94,13 +94,15 @@ The following table shows the supported operations, parameters, and parameter va
 
 | Operation                    | Parameters           | Values                                         |
 |------------------------------|----------------------|------------------------------------------------|
-| SetBlobTier                | Tier                 | Hot \| Cold \| Archive |
-| SSetBlobExpiry              | None                 | Absolute \| Never expire \| Relative to creation time \| Relative to current time |
+| SetBlobTier                | tier                 | Hot \| Cold \| Archive |
+| SetBlobExpiry              | expiryTime, expiryOption                 |(expiryTime): Number of milliseconds<br><br>(expiryOption): Absolute \| NeverExpire \| RelativeToCreation \| RelativeToNow |
 | DeleteBlob                  | None                 | None                                           |
 | UndeleteBlob                | None                 | None                                           |
-| SetBlobTags                | TagSet               | A fixed collection of up to 10 key-value pairs |
-| SetBlobImmutabilityPolicy | DateTime, string | DateTime of when policy ends, Locked \| Unlocked                                |
-| SetBlobLegalHold          | Bool | True \| False                           |
+| SetBlobTags                | Tag name<sup>1</sup>               | Tag value |
+| SetBlobImmutabilityPolicy | untilDate, mode | (untilDate): DateTime of when policy ends<br<br>(mode): locked \| unlocked                                |
+| SetBlobLegalHold          | legalHold | true \| false                           |
+
+<sup>1</sup>    The name of this parameter is the name of the tag. 
 
 ## See also
 
