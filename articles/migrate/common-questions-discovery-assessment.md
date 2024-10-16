@@ -72,7 +72,7 @@ Performance data isn't captured for Azure App Service assessment and hence you d
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./assessment-report.md#confidence-ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and **Recalculate** the assessment.
 - Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
@@ -84,8 +84,8 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings).
 
 ## Why is my RAM utilization greater than 100%?
 
@@ -139,7 +139,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 ## I want to understand how was the readiness for my instance computed?
 
-The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-readiness). 
+The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-assessment-calculation.md#azure-readiness-for-servers). 
 
 ## I want to understand how was the readiness for my web apps is computed?
 
@@ -193,7 +193,7 @@ If there are changes to on-premises SQL instances and databases that are in a gr
 
 ## Why was I recommended a particular target deployment type?
 
-Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-sizing).
+Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-assessment-calculation.md#target-vm-right-sizing).
 
 ## What deployment target should I choose if my SQL instance is ready for Azure SQL DB and Azure SQL MI?
 

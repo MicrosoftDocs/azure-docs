@@ -43,7 +43,7 @@ Once you're done with discovery and the inventory of servers shows up in the por
  
 **Setting Category** | **Setting** | **Details** 
 --- | --- | ---  
-|**Target settings**| **Target VM series** | The Azure VM series that you want to consider for rightsizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series. The availability of VM series depends on the target location selected. For more information, see [VM families](../virtual-machines/sizes.md)  
+|**Target settings**| **Target VM series** | The Azure VM series that you want to consider for rightsizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series. The availability of VM series depends on the target location selected. For more information, see [VM families](/azure/virtual-machines/sizes/overview)  
 |**Target settings**| **Target storage disk** | specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk. </br> **Premium or Standard or Ultra disk**: The assessment recommends a disk SKU within the storage type selected. </br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This would ensure that all disks are recommended as Premium-managed disks. </br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks. </br> Azure Migrate supports only managed disks for migration assessment.  
 **Right-Sizing** | **Sizing criteria** | This attribute is used for right-sizing the target recommendations.  Use **as-is on-premises** sizing if you don't want to right-size the targets and identify the targets according to your configuration for on-premises workloads. Use **performance-based** sizing to calculate compute recommendation based on CPU and memory utilization data and storage recommendation based on the input/output operations per second (IOPS) and throughput of the on-premises disks. 
 | | **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.  
@@ -78,7 +78,7 @@ For an Azure VM assessment, the assessment reviews the following properties of a
 |**Networking** | A server must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit. | 
 |**Guest Operating System** | Identify the OS supported by Azure and linked readiness support </br> </br> Windows Server 2022 and all SPs,</br> Windows Server 2019 and all SPs, </br> Windows Server 2016 and all SPs, </br> Windows Server 2012/2012 R2 and all SPs, </br> Windows Server 2008 R2 with all SPs, </br> Windows Server 2008 (64-bit) | Ready for Azure | 
 | |Windows Server 2003 and Windows Server 2003 R2, </br> Windows 2000,</br> Windows 98, </br> Windows 95, </br> Windows NT, </br> Windows 3.1, and MS-DOS, </br> Windows 7, </br> Windows 8, and </br> Windows 10, </br> Windows 10 Pro, </br> Windows Vista, and </br> Windows XP Professional | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure. |  
-| | Linux </br> See the [Linux operating system](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version. | Ready for Azure if the version is endorsed. </br> Conditionally ready if the version isn't endorsed. |  
+| | Linux </br> See the [Linux operating system](/azure/virtual-machines/linux/endorsed-distros) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version. | Ready for Azure if the version is endorsed. </br> Conditionally ready if the version isn't endorsed. |  
 | |Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Conditionally ready for Azure. Azure doesn't endorse these operating systems. The server might start in Azure, but Azure doesn't provides OS support. |  
 | | OS specified as Other in vCenter Server | Unknown readiness. Ensure that Azure supports the OS running inside the VM. | 
 | | 32-bit operating systems | Not Ready | 
@@ -153,7 +153,7 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
     - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
  
-    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](../virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size. 
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size.
  
     Provisioned IOPS are calculated using the following logic:  
  
@@ -213,7 +213,7 @@ The cost for Standard or Premium disks is calculated based on the selected/recom
  
 #### Ultra disk 
  
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS and provisioned throughout. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
  
 Cost is calculated using the following logic: 
  
@@ -235,7 +235,7 @@ Costs are displayed in the currency specified in the assessment settings.
   
 ## Next steps 
  
-- [Review](best-practices-assessment.md) best practices for creating assessments.  
+- Review [best practices for creating assessments](best-practices-assessment.md).  
 - Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
 - Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
 - Learn about setting up [dependency visualization](concepts-dependency-visualization.md). 

@@ -108,11 +108,11 @@ Your assessment was created with an offer that is no longer valid and hence, the
 
 ## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
 
-Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
-When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
+When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why are some of my assessments marked as "to be upgraded to latest assessment version"? 
 
