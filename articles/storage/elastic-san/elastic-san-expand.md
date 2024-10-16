@@ -37,6 +37,26 @@ Update-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName -BaseSi
 az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBaseSizeTib
 ```
 
+## Autoscale
+
+You can set up a policy to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. This means that your performance will not scale up with your storage. A sample autoscale policy would look like this:  
+  
+**If spare capacity is less than X TiB of space, increase capacity by Y TiB, up-to a maximum of Z Tib.** 
+  
+Here X is the used size beyond which the scale up policy will kick in, Y is the increment by which you are increasing the capacity of the SAN, and Z is the maximum capacity of the SAN.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Filler
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+Filler
+```
+
 ---
 
 ## Resize a volume
