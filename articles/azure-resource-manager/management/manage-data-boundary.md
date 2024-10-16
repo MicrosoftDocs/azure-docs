@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure EUDB.
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 10/16/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -23,6 +23,7 @@ To opt your tenant into an Azure EU Data Boundary:
 - Before creating any new subscriptions or resources, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
 - Create a subscription and deploy Azure resources.  
 
+(The CLI PR: https://github.com/Azure/azure-cli/pull/29961/file)
 (The PowerShell PR: https://github.com/Azure/azure-powershell/pull/26158)
 (The RESTAPI PR: https://github.com/Azure/azure-rest-api-specs/pull/29950)
 
@@ -40,7 +41,7 @@ To opt-in a tenant to data boundary.
 az data-boundary create --data-boundary EU
 ```
 
-For more information, see [Azure CLI Reference]().
+For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -48,7 +49,7 @@ For more information, see [Azure CLI Reference]().
 Set-AzDataBoundary -DataBoundary DataBoundaryName
 ```
 
-For more information, see [Azure PowerShell Reference]().
+For more information, see [Azure PowerShell Reference](/powershell/module/az.resources).
 
 # [REST API](#tab/rest-api)
 
@@ -79,7 +80,7 @@ Request body:
 } 
 ```
 
-For more information, see [Azure RestAPI Reference]().
+For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ---
 
@@ -105,7 +106,7 @@ Get data boundary of tenant:
 az data-boundary show-tenant 
 ```
 
-For more information, see [Azure CLI Reference]().
+For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -121,7 +122,7 @@ Get data boundary of tenant:
 Get-AzDataBoundaryTenant
 ```
 
-For more information, see [Azure PowerShell Reference]().
+For more information, see [Azure PowerShell Reference](/powershell/module/az.resources).
 
 # [REST API](#tab/rest-api)
 
@@ -142,7 +143,7 @@ Response body:
 } 
 ```
 
-For more information, see [Azure RestAPI Reference]().
+For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ---
 
