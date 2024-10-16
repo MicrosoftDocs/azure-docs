@@ -17,8 +17,8 @@ ms.custom:
 | [Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)    | Memory Optimized | Preview   |
 | [Easv6](/azure/virtual-machines/sizes/memory-optimized/easv6-series)            | Memory Optimized | Preview   |
 | [Eadsv6](/azure/virtual-machines/sizes/memory-optimized/eadsv6-series)          | Memory Optimized | Preview   |
-| [Epdsv6](/azure/virtual-machines/sizes/memory-optimized/epdsv6-series)          | Memory Optimized | Preview   |
-| [Epsv6](/azure/virtual-machines/sizes/memory-optimized/epsv6-series)      | Memory Optimized | Preview   |
+| [Epdsv6](/azure/virtual-machines/sizes/memory-optimized/epdsv6-series)          | Memory Optimized | Production    |
+| [Epsv6](/azure/virtual-machines/sizes/memory-optimized/epsv6-series)      | Memory Optimized | Production    |
 | [ECesv5/ECedsv5](/azure/virtual-machines/ecesv5-ecedsv5-series)                 | Memory Optimized | Preview   |
 | [Dsv6](/azure/virtual-machines/sizes/general-purpose/dsv6-series)               | General Purpose  | Preview   |
 | [Dldsv6](/azure/virtual-machines/sizes/general-purpose/dldsv6-series)           | General Purpose  | Preview   |
@@ -29,12 +29,12 @@ ms.custom:
 | [Dalsv6](/azure/virtual-machines/sizes/general-purpose/dalsv6-series)          | General Purpose  | Preview   |
 | [Daldsv6](/azure/virtual-machines/sizes/general-purpose/daldsv6-series)         | General Purpose  | Preview   |
 | [Dadsv6](/azure/virtual-machines/sizes/general-purpose/dadsv6-series)           | General Purpose  | Preview   |
-| [Dpsv6](/azure/virtual-machines/sizes/general-purpose/dpsv6-series)             | General Purpose  | Preview   |
-| [Dplsv6](/azure/virtual-machines/sizes/general-purpose/dplsv6-series)           | General Purpose  | Preview   |
+| [Dpsv6](/azure/virtual-machines/sizes/general-purpose/dpsv6-series)             | General Purpose  | Production    |
+| [Dplsv6](/azure/virtual-machines/sizes/general-purpose/dplsv6-series)           | General Purpose  | Production    |
 | [Ddsv6](/azure/virtual-machines/sizes/general-purpose/ddsv6-series) | General Purpose | Preview |
 | [Dlsv6](/azure/virtual-machines/sizes/general-purpose/dlsv6-series) | General Purpose | Preview |
-| [Dpdsv6](/azure/virtual-machines/sizes/general-purpose/dpdsv6-series) | General Purpose | Preview |
-| [Dpldsv6](/azure/virtual-machines/sizes/general-purpose/dpldsv6-series) | General Purpose | Preview |
+| [Dpdsv6](/azure/virtual-machines/sizes/general-purpose/dpdsv6-series) | General Purpose | Production  |
+| [Dpldsv6](/azure/virtual-machines/sizes/general-purpose/dpldsv6-series) | General Purpose | Production  |
 | [Nvadsv5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series)      | GPU/AI workload optimized | Production |
 | [Msv3](/azure/virtual-machines/msv3-mdsv3-medium-series)                        | Memory Optimized | Production  |
 | [Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)                       | Memory Optimized | Production  |
