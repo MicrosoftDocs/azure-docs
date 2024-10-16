@@ -3,12 +3,15 @@ title: Use Apache NiFi with HDInsight on AKS clusters running Apache Flink® to 
 description: Learn how to use Apache NiFi to consume processed Apache Kafka® topic from Apache Flink® on HDInsight on AKS clusters and publish into ADLS Gen2.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/25/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Apache NiFi to consume processed Apache Kafka® topics from Apache Flink® and publish into ADLS Gen2
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 

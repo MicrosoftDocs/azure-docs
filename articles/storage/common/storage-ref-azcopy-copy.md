@@ -14,6 +14,7 @@ ms.reviewer: zezha-msft
 
 Copies source data to a destination location.  
 
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Synopsis
 
@@ -224,11 +225,11 @@ To copy files changed before or after the AzCopy job has started, AzCopy provide
 
 Copy a subset of files modified on or after the given date and time (in ISO8601 format) in a container by using the `include-after` flag.
 
-`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-after='2020-08-19T15:04:00Z''"`
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-after="2020-08-19T15:04:00Z"`
 
 Copy a subset of files modified on or before the given date and time (in ISO8601 format) in a container by using the `include-before` flag.
 
-`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-before='2020-08-19T15:04:00Z'"`
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-before="2020-08-19T15:04:00Z"`
 
 ## Options
 

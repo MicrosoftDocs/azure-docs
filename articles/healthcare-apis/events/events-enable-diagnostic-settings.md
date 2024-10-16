@@ -22,9 +22,9 @@ In this article, learn how to enable the events diagnostic settings for Azure Ev
 |Description|Resource|
 |-----------|--------|
 |Learn how to enable the Event Grid system topics diagnostic logging and metrics export feature.|[Enable diagnostic logs for Event Grid system topics](../../event-grid/enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)|
-|View a list of currently captured Event Grid system topics diagnostic logs.|[Event Grid system topic diagnostic logs](../../azure-monitor/essentials/resource-logs-categories.md#microsofteventgridsystemtopics)|
-|View a list of currently captured Event Grid system topics metrics.|[Event Grid system topic metrics](../../azure-monitor/essentials/metrics-supported.md#microsofteventgridsystemtopics)| 
-|More information about how to work with diagnostics logs.|[Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)|
+|View a list of currently captured Event Grid system topics diagnostic logs.|[Event Grid system topic diagnostic logs](/azure/azure-monitor/essentials/resource-logs-categories#microsofteventgridsystemtopics)|
+|View a list of currently captured Event Grid system topics metrics.|[Event Grid system topic metrics](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridsystemtopics)| 
+|More information about how to work with diagnostics logs.|[Azure Resource Log documentation](/azure/azure-monitor/essentials/platform-logs-overview)|
 
 > [!NOTE] 
 > It might take up to 15 minutes for the first events diagnostic logs and metrics to display in the destination of your choice.  

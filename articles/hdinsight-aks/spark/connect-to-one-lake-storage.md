@@ -3,12 +3,15 @@ title: Connect to OneLake Storage
 description: Learn how to connect to OneLake storage
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Connect to OneLake Storage
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This tutorial shows how to connect to OneLake with a Jupyter notebook from an Azure HDInsight on AKS cluster.
 

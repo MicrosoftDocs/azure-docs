@@ -8,7 +8,7 @@ ms.author: glenga
 
 #### [Portal](#tab/portal)
 
-Use [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) to view cost-related data for your Consumption plan function apps in a graphical format. 
+Use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) to view cost-related data for your Consumption plan function apps in a graphical format. 
 
 1. In the [Azure portal], navigate to your function app.
 

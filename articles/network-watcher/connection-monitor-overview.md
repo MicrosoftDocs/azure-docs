@@ -73,7 +73,7 @@ If you wish to escape the installation process for enabling the Network Watcher 
 
 To make Connection monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then, enable the [Network Performance Monitor solution](../network-watcher/connection-monitor-overview.md#enable-the-network-performance-monitor-solution-for-on-premises-machines). These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
-To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](../azure-monitor/agents/agent-windows.md).
+To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](/azure/azure-monitor/agents/agent-windows).
 
 If the path includes firewalls or network virtual appliances (NVAs), make sure that the destination is reachable.
 
@@ -91,7 +91,7 @@ To open the port:
 
 The script creates the registry keys that are required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys that are created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port that's used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. By default, the port that's opened is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
-For more information, see the "Network requirements" section of [Log Analytics agent overview](../azure-monitor/agents/log-analytics-agent.md#network-requirements).
+For more information, see the "Network requirements" section of [Log Analytics agent overview](/azure/azure-monitor/agents/log-analytics-agent#network-requirements).
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port that's used by Network Performance Monitor.
 

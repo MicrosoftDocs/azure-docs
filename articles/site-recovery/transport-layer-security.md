@@ -1,7 +1,7 @@
 ---
 title: Transport Layer Security in Azure Site Recovery
 description: Learn how to enable Azure Site Recovery to use the encryption protocol Transport Layer Security (TLS) to keep data secure when being transferred over a network.
-ms.topic: conceptual
+ms.topic: faq
 ms.service: azure-site-recovery
 ms.date: 12/15/2023
 ms.author: ankitadutta

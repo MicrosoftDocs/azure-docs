@@ -9,7 +9,7 @@ ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
-# Configure the Spring Boot Admin component in Azure Container Apps
+# Configure the Admin for Spring component in Azure Container Apps
 
 The Admin for Spring managed component offers an administrative interface for Spring Boot web applications that expose actuator endpoints. This article shows you how to configure and manage your Spring component.
 

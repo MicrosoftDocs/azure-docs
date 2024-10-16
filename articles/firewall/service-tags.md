@@ -4,7 +4,7 @@ description: A service tag represents a group of IP address prefixes to help min
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/31/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

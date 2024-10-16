@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | **Region**          | Select a geographic region near you from the available API Management service locations. | 
    | **Resource name**                | A unique name for your API Management instance. The name can't be changed later. The service name refers to both the service and the corresponding Azure resource. <br/><br/> The service name is used to generate a default domain name: *\<name\>.azure-api.net.* If you would like to configure a custom domain name later, see [Configure a custom domain](configure-custom-domain.md). |
    | **Organization name**   | The name of your organization. This name is used in many places, including the title of the developer portal and sender of notification emails. |                                                         
-   | **Administrator email** | The email address to which all the notifications from **API Management** will be sent.   |  
+   | **Administrator email** | The email address to which all system notifications from **API Management** will be sent.   |  
    | **Pricing tier**        | Select **Developer** tier to evaluate the service. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). |
 
 1. Select **Review + create**.

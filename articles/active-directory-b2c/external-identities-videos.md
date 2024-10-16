@@ -5,11 +5,11 @@ description: Learn about external identities in Azure AD B2C in the Microsoft id
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developers working with Azure Active Directory B2C. I need videos that provide a deep-dive into the architecture and features of the service. My goal is to gain a better understanding of how to implement and utilize Azure AD B2C in my applications.
 ---

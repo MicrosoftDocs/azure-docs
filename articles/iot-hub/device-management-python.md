@@ -53,6 +53,8 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 In Azure Cloud Shell you used previously, or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
@@ -160,6 +162,8 @@ In Azure Cloud Shell you used previously, or any other environment with Python, 
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 In Azure Cloud Shell or any other environment with Python, create the console code.
 
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
@@ -266,10 +270,10 @@ You're now ready to run the device code and the service code that initiates a re
 
    The following shows the device response to the reboot direct method:
 
-   ![Simulated device app output](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Screenshot that shows the output of the simulated device app after receiving reboot direct method.](./media/device-management-python/device.png)
 
    The following shows the service calling the reboot direct method and polling the device twin for status:
 
-   ![Trigger reboot service output](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Screenshot that shows the output of the service app after sending reboot direct method.](./media/device-management-python/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

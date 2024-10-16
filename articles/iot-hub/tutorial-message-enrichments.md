@@ -102,6 +102,9 @@ The values for these variables should be for the same resources you used in the 
 
 Create a second endpoint and route for the enriched messages.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
+
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.

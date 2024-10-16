@@ -81,7 +81,12 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 
-Note that the above limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+> [!NOTE]
+> The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+>
+> When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
+
+
 
 ## Replicated machine operating systems
 
@@ -349,12 +354,12 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 **Component** | **Support** | **Details**
 --- | --- | ---
 Disk renaming | Supported | 
-OS disk maximum size | 4096 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+OS disk maximum size | [4095 GiB](/azure/virtual-machines/managed-disks-overview#os-disk) | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
 Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview).
-Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
-Data disk minimum size | No restriction for unmanaged disks. 1 GB for managed disks |
+Data disk maximum size | 32 TiB for managed disks<br></br>4     TiB for unmanaged disks|
+Data disk minimum size | No restriction for unmanaged disks. 1 GiB for managed disks |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
-Data disk maximum size per storage account (for unmanaged disks) | 35 TB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
+Data disk maximum size per storage account (for unmanaged disks) | 35 TiB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
 Data disk change rate | Maximum of 20 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.

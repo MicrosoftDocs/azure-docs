@@ -1,11 +1,15 @@
 ---
 title: Prioritize data connectors for Microsoft Sentinel
 description: Learn how to plan and prioritize which data sources to use for your Microsoft Sentinel deployment.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
 ms.date: 06/29/2023
-ms.author: lwainstein
+ms.author: cwatson
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security operations manager, I want to identify which data connectors to configure for my Microsoft Sentinel deployment so that I can ensure efficient and cost-effective data ingestion.
+
 ---
 
 # Prioritize your data connectors for Microsoft Sentinel
@@ -22,7 +26,7 @@ Check which data connectors are relevant to your environment, in the following o
 
 For the custom and partner connectors, we recommend that you start by setting up [CEF/Syslog](connect-cef-syslog-options.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
-If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
+If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
 
 > [!TIP]
 > Custom data connectors enable you to ingest data into Microsoft Sentinel from data sources not currently supported by built-in functionality, such as via agent, Logstash, or API. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).

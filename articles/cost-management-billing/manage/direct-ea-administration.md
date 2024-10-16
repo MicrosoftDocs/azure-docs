@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2024
+ms.date: 09/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -128,7 +128,7 @@ If you're not an EA admin, contact your EA admin to request that they add you to
 
 ### If your enterprise administrator can't help you
 
-If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
+If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
 
 - Enrollment number
 - Account details and authentication type (work, school, or Microsoft account)
@@ -265,12 +265,9 @@ Transferring one or more subscriptions from one EA enrollment to another EA enro
 
 Before starting the ownership transfer, get familiar with the following Azure role-based access control (RBAC) policies:
 
-- When doing a subscription or account ownership transfers between two organizational IDs within the same tenant, the following items are preserved:
-    - Azure RBAC policies
-    - Existing service administrator
-    - Coadministrator roles
+- When doing a subscription or account ownership transfers between two organizational IDs within the same tenant Azure RBAC policies and role assignments are preserved.
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
-- Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
+- Policies and administrator roles don't transfer across different directories. The destination enrollment account owner is assigned as the Subscription Owner role on the subscription.
 - To avoid losing Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient's Microsoft Entra tenant** selection remains cleared. This selection keeps the services, Azure roles, and policies on the current Microsoft Entra tenant and only transfers the billing ownership for the account.
 
 Before changing an account owner:
@@ -412,18 +409,14 @@ When a user is added as an account owner, any Azure subscriptions associated wit
 
 ## Create a subscription
 
-You can use subscriptions to give teams in your organization access to development environments and projects. For example: 
+You can use subscriptions to give teams in your organization access to development environments and projects. For example:
 
 - Test
 - Production
 - Development
 - Staging
 
-When you create different subscriptions for each application environment, you help secure each environment.
-
-- You can also assign a different service administrator account for each subscription.
-- You can associate subscriptions with any number of services.
-- The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
+When you create different subscriptions for each application environment, you help secure each environment. As an account owner, you can create multiple subscriptions and assign different Subscription Owners for each subscription.
 
 Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
@@ -431,6 +424,8 @@ Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KF
 
 Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
+> [!WARNING]
+> You will not be able to create new subscriptions or transfer existing subscriptions from an enrollment account if the UPN is deleted from Entra ID. 
 ## Add a subscription
 
 A user must have at least one of the following roles to create a new subscription:
@@ -602,7 +597,7 @@ For either option, you must submit a [support request](https://support.microsoft
 An organizational unit used to administer subscriptions and for reporting.
 
 **Account owner**<br>
-The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
+The person who manages subscriptions and developoment projects.
 
 **Amendment subscription**<br>
 A one-year, or coterminous subscription under the enrollment amendment.
@@ -634,11 +629,12 @@ An amendment signed by an enterprise, which provides them with access to Azure a
 **Resource quantity consumed**<br>
 The quantity of an individual Azure service that was used in a month.
 
-**Service administrator**<br>
+**Subscription**<br>
+Represents an Azure EA subscription and is a container of Azure services.
+
+**Subscription owner**<br>
 The person who accesses and manages subscriptions and development projects.
 
-**Subscription**<br>
-Represents an Azure EA subscription and is a container of Azure services managed by the same service administrator.
 
 **Work or school account**<br>
 For organizations that set up Microsoft Entra ID with federation to the cloud and all accounts are on a single tenant.

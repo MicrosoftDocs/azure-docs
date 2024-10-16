@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 08/01/2024
+
+
+#Customer intent: As a security engineer, I want to configure auditing and health monitoring for my Microsoft Sentinel resources so that I can ensure the integrity and health of our security infrastructure.
+
 ---
 
 # Turn on auditing and health monitoring for Microsoft Sentinel (preview)
@@ -13,7 +17,7 @@ Monitor the health and audit the integrity of supported Microsoft Sentinel resou
 
 To get health data from the [*SentinelHealth*](health-table-reference.md) data table, or to get auditing information from the [*SentinelAudit*](audit-table-reference.md) data table, you must first turn on the Microsoft Sentinel auditing and health monitoring feature for your workspace. This article instructs you how to turn on these features.
 
-To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGER (ARM)/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
+To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGER (ARM)/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
 
 > [!IMPORTANT]
 >

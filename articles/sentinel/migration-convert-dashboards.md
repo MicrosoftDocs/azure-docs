@@ -8,6 +8,10 @@ ms.date: 06/12/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to convert my SIEM dashboards to Azure Workbooks so that I can use advanced visualization and interactivity features in Microsoft Sentinel.
+
 ---
 
 # Convert dashboards to Azure Workbooks 
@@ -43,7 +47,7 @@ To convert your dashboard, complete the following tasks in Azure Workbooks and M
 
 ### 1. Identify data sources
 
-Azure Workbooks are compatible with a large number of data sources. For more information, see [Azure Workbooks data sources](../azure-monitor/visualize/workbooks-data-sources.md). In most cases, use the Azure Monitor logs data source and Kusto Query Language (KQL) queries to visualize the underlying logs in your Microsoft Sentinel workspace.
+Azure Workbooks are compatible with a large number of data sources. For more information, see [Azure Workbooks data sources](/azure/azure-monitor/visualize/workbooks-data-sources). In most cases, use the Azure Monitor logs data source and Kusto Query Language (KQL) queries to visualize the underlying logs in your Microsoft Sentinel workspace.
 
 ### 2. Construct or review KQL queries
 
@@ -57,7 +61,7 @@ Before finalizing your KQL queries, always review and tune the queries to improv
 For more information, see the following resources:
 
 - [KQL query best practices](/azure/data-explorer/kusto/query/best-practices)
-- [Optimize queries in Azure Monitor Logs](../azure-monitor/logs/query-optimization.md)
+- [Optimize queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-optimization)
 - [Optimizing KQL performance (webinar)](https://youtu.be/jN1Cz0JcLYU)
 
 ### 3. Create or update the workbook
@@ -70,7 +74,7 @@ Create a workbook, update the workbook, or clone an existing workbook so that yo
 For more information, see the following articles:
 
 - [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md)
-- [Add groups in Azure Workbooks](../azure-monitor/visualize/workbooks-create-workbook.md#add-groups)
+- [Add groups in Azure Workbooks](/azure/azure-monitor/visualize/workbooks-create-workbook#add-groups)
 
 ### 4. Create or update workbook parameters or user inputs
 
@@ -78,21 +82,21 @@ By the time you arrive at this stage, you identified the required parameters for
 
 Workbooks allow you to control how your parameter controls are presented to consumers. For example, you select whether the controls are presented as a text box vs. drop down, or single- vs. multi-select. You can also select which values to use, from text, JSON, KQL, or Azure Resource Graph, and more.
 
-Review the [supported workbook parameters](../azure-monitor/visualize/workbooks-parameters.md). You can reference these parameter values in other parts of workbooks either via bindings or value expansions.
+Review the [supported workbook parameters](/azure/azure-monitor/visualize/workbooks-parameters). You can reference these parameter values in other parts of workbooks either via bindings or value expansions.
 
 ### 5. Create or update visualizations
 
 Workbooks provide a rich set of capabilities for visualizing your data. Review these detailed examples of each visualization type.
 
-- [Text](../azure-monitor/visualize/workbooks-text-visualizations.md)
-- [Charts](../azure-monitor/visualize/workbooks-chart-visualizations.md)
-- [Grids](../azure-monitor/visualize/workbooks-grid-visualizations.md)
-- [Tiles](../azure-monitor/visualize/workbooks-tile-visualizations.md)
-- [Trees](../azure-monitor/visualize/workbooks-tree-visualizations.md)
-- [Graphs](../azure-monitor/visualize/workbooks-graph-visualizations.md)
-- [Map](../azure-monitor/visualize/workbooks-map-visualizations.md)
-- [Honey comb](../azure-monitor/visualize/workbooks-honey-comb.md)
-- [Composite bar](../azure-monitor/visualize/workbooks-composite-bar.md)
+- [Text](/azure/azure-monitor/visualize/workbooks-text-visualizations)
+- [Charts](/azure/azure-monitor/visualize/workbooks-chart-visualizations)
+- [Grids](/azure/azure-monitor/visualize/workbooks-grid-visualizations)
+- [Tiles](/azure/azure-monitor/visualize/workbooks-tile-visualizations)
+- [Trees](/azure/azure-monitor/visualize/workbooks-tree-visualizations)
+- [Graphs](/azure/azure-monitor/visualize/workbooks-graph-visualizations)
+- [Map](/azure/azure-monitor/visualize/workbooks-map-visualizations)
+- [Honey comb](/azure/azure-monitor/visualize/workbooks-honey-comb)
+- [Composite bar](/azure/azure-monitor/visualize/workbooks-composite-bar)
 
 ### 6. Preview and save the workbook
 

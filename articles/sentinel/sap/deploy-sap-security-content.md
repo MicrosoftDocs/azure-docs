@@ -6,7 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 03/23/2023
 
-# customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP applications from the content hub so that I can plan a deployment.
+
+
+#Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using a cloud-based SIEM solution so that I can enhance the security posture and threat detection capabilities of my SAP environment.
+
 ---
 
 # Deploy the Microsoft Sentinel solution for SAP applications from the content hub

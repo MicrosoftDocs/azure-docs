@@ -22,9 +22,9 @@ Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentin
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
 - **Security and data privacy**, by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
 
-Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer in historical investigations, hunting, and compliance activities.
+Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer periods in historical investigations, hunting, and compliance activities.
 
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -135,7 +135,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     ```kusto
     let csl_columnmatch=(column_name: string) {
     CommonSecurityLog
-    | where TimeGenerated > startofday(ago(1d))
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
@@ -155,59 +154,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     ```
 
 1. **Run a subsequent search or correlation with other data** to complete the attack story.
-
-### Detect potential SPN scanning in your network
-
-Detect potential Service Principal Name (SPN) scanning in your network traffic.
-
-**Scenario**: You're a SOC engineer who needs to create a highly accurate detection for any SPN scanning performed by a user account. The detection currently does the following:
-
-1. Looks for Security events with EventID 4796 (A Kerberos service ticket was requested).
-1. Creates a baseline with the number of unique tickets typically requested by a user account per day.
-1. Generates an alert when there's a major deviation from that baseline.
-
-**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. On your team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, you'll need more than 14 days of baseline data.
-
-The current detection also runs a summary query on a separate logic app for each alert. This involves extra work for the setup and maintenance of those logic apps, and incurs extra costs.
-
-**Solution**: We recommend using summary rules to do the following:
-
-1. Generate a daily summary of the count of unique tickets per user. This summarizes the `SecurityEvents` table data for EventID 4769, with extra filtering for specific user accounts.
-
-1. In the summary rule, to generate potential SPN scanning alerts:
-
-    - Reference at least 30 days worth of summary data to create a strong baseline.
-    - Apply `percentile()` in your query to calculate the deviation from the baseline
-
-    For example:
-
-    ```kusto
-    let starttime = 14d;  
-    let endtime = 1d;  
-    let timeframe = 1h;  
-    let threshold=10;  
-    let Kerbevent = SecurityEvent  
-    | where TimeGenerated between(ago(starttime) .. now())  
-    | where EventID == 4769  
-    | parse EventData with * 'TicketEncryptionType">' TicketEncryptionType "<" *  
-    | parse EventData with * 'ServiceName">' ServiceName "<" *  
-    | where ServiceName !contains "$" and ServiceName !contains "krbtgt"  
-    | parse EventData with * 'TargetUserName">' TargetUserName "<" *  
-    | where TargetUserName !contains "$@" and TargetUserName !contains ServiceName  
-    | parse EventData with * 'IpAddress">::ffff:' ClientIPAddress "<" *;  let baseline = Kerbevent  
-    | where TimeGenerated >= ago(starttime) and TimeGenerated < ago(endtime)  
-    | make-series baselineDay=dcount(ServiceName) default=1 on TimeGenerated in range(ago(starttime), ago(endtime), 1d) by TargetUserName  | mvexpand TimeGenerated , baselineDay  
-    | extend baselineDay = toint(baselineDay)  
-    | summarize p95CountDay = percentile(baselineDay, 95) by TargetUserName;  let current = Kerbevent  
-    | where TimeGenerated between(ago(timeframe) .. now())  
-    | extend encryptionType = case(TicketEncryptionType in ("0x1","0x3"), "DES", TicketEncryptionType in ("0x11","0x12"), "AES", TicketEncryptionType in ("0x17","0x18"), "RC4", "Failure")  
-    | where encryptionType in ("AES","DES","RC4")  
-    | summarize currentCount = dcount(ServiceName), ticketsRequested=make_set(ServiceName), encryptionTypes=make_set(encryptionType), ClientIPAddress=any(ClientIPAddress), Computer=any(Computer) by TargetUserName; current  
-    | join kind=leftouter baseline on TargetUserName  
-    | where currentCount > p95CountDay*2 and currentCount > threshold  
-    | project-away TargetUserName1  
-    | extend context_message = strcat("Potential SPN scan performed by user ", TargetUserName, "\nUser generally requests ", p95CountDay, " unique service tickets in a day.", "\nUnique service tickets requested by user in the last hour: ", currentCount)
-    ```
 
 ### Generate alerts on threat intelligence matches against network data
 
@@ -253,7 +199,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 ## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an AMR template to ingest CEF data from Logstash.
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
@@ -287,7 +233,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
-          | where TimeGenerated > ago(1d) 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 

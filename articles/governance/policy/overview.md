@@ -27,7 +27,7 @@ Specifically, some useful governance actions you can enforce with Azure Policy i
 - Enforcing the consistent application of taxonomic tags
 - Requiring resources to send diagnostic logs to a Log Analytics workspace
 
-It's important to recognize that with the introduction of [Azure Arc](../../azure-arc/overview.md), you can extend your
+It's important to recognize that with the introduction of [Azure Arc](/azure/azure-arc/overview), you can extend your
 policy-based governance across different cloud providers and even to your local datacenters.
 
 All Azure Policy data and objects are encrypted at rest. For more information, see

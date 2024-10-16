@@ -15,7 +15,7 @@ Azure Resource Manager is the deployment and management service for Azure. To pr
 
 A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration cannot be removed or modified, and existing subscriptions and resources cannot be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it is established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary.
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml).
 
 To opt your tenant into an Azure EU Data Boundary:
 
@@ -23,27 +23,34 @@ To opt your tenant into an Azure EU Data Boundary:
 - Before creating any new subscriptions or resources, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
 - Create a subscription and deploy Azure resources.  
 
-## Use the portal
+(The PowerShell PR: https://github.com/Azure/azure-powershell/pull/26158)
+(The RESTAPI PR: https://github.com/Azure/azure-rest-api-specs/pull/29950)
+
+## Create data boundary
+
+To opt-in a tenant to data boundary.
+
+# [Portal](#tab/azure-portal)
 
 (Pending Joy Shah)
 
-## Use Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
-(Pending Joy Shah)
+```azurecli
+az data-boundary create --data-boundary EU
+```
 
-## Use Azure PowerShell
+For more information, see [Azure CLI Reference]().
 
-(Pending Joy Shah)
+# [PowerShell](#tab/azure-powershell)
 
-## Use ARM template/Bicep
+```azurepowershell
+Set-AzDataBoundary -DataBoundary DataBoundaryName
+```
 
-(Pending Joy Shah)
+For more information, see [Azure PowerShell Reference]().
 
-## Use REST API
-
-### Create data boundary
-
-(The PR: https://github.com/Azure/azure-rest-api-specs/pull/29950)
+# [REST API](#tab/rest-api)
 
 ```http
 PUT https://management.azure.com/providers/ Microsoft.Resources/dataBoundaries/default?api-version=2024-08-01 
@@ -72,10 +79,54 @@ Request body:
 } 
 ```
 
-### Read data boundary
+For more information, see [Azure RestAPI Reference]().
+
+---
+
+## Read data boundary
+
+To get data boundary.
+
+# [Portal](#tab/azure-portal)
+
+(Pending Joy Shah)
+
+# [Azure CLI](#tab/azure-cli)
+
+To get data boundary at specified scope:
+
+```azurecli
+az data-boundary show --scope scopePath
+```
+
+Get data boundary of tenant:
+
+```azurecli
+az data-boundary show-tenant 
+```
+
+For more information, see [Azure CLI Reference]().
+
+# [PowerShell](#tab/azure-powershell)
+
+To get data boundary at specified scope:
+
+```azurepowershell
+Get-AzDataBoundaryScope -Scope ScopePath
+```
+
+Get data boundary of tenant:
+
+```azurepowershell
+Get-AzDataBoundaryTenant
+```
+
+For more information, see [Azure PowerShell Reference]().
+
+# [REST API](#tab/rest-api)
 
 ```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Resources/dataBoundaries/default 
+GET https://management.azure.com/{scope}/providers/Microsoft.Resources/dataBoundaries/default?api-version=2024-08-01 
 ```
 
 Response body:
@@ -90,6 +141,10 @@ Response body:
   } 
 } 
 ```
+
+For more information, see [Azure RestAPI Reference]().
+
+---
 
 ## Next steps
 
