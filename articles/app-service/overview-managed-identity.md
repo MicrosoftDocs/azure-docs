@@ -259,7 +259,7 @@ The principalId is a unique identifier for the identity that's used for Microsof
 You may need to configure the target resource to allow access from your app or function. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 ## Connect to Azure services in app code
 
@@ -269,12 +269,12 @@ App Service and Azure Functions provide an internally accessible [REST endpoint]
 
 # [HTTP GET](#tab/http)
 
-A raw HTTP GET request looks like the following example:
+A raw HTTP GET request uses the [two supplied environment variables](#rest-endpoint-reference) and looks like the following example:
 
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
-Host: localhost:4141
-X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+Host: <ip-address-:-port-in-IDENTITY_ENDPOINT>
+X-IDENTITY-HEADER: <value-of-IDENTITY_HEADER>
 ```
 
 And a sample response might look like the following:
