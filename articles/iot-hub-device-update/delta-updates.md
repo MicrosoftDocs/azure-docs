@@ -5,7 +5,8 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 08/24/2022
 ms.topic: conceptual
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # How to understand and use delta updates in Device Update for IoT Hub (Preview)
