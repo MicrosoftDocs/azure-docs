@@ -1,10 +1,14 @@
 ---
 title: Microsoft Sentinel solution for Dynamics 365 Finance and Operations overview
 description: This article introduces the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
 ms.date: 05/14/2023
+
+
+#Customer intent: As a security engineer, I want to monitor and protect Dynamics 365 Finance and Operations so that analysts can detect and respond to threats and suspicious activities effectively.
+
 ---
 
 # Microsoft Sentinel solution for Dynamics 365 Finance and Operations overview

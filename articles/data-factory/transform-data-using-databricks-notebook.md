@@ -4,7 +4,8 @@ description: "Learn how you can use the Databricks Notebook Activity in an Azure
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.date: 08/14/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory

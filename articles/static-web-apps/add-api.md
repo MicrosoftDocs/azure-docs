@@ -336,11 +336,12 @@ Before you can deploy your app to Azure, update your repository's GitHub Actions
    ```yaml
    ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
    # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-   app_location: "/" # App source code path
+   app_location: "src" # App source code path
    api_location: "api" # Api source code path - optional
-   output_location: "build" # Built app content directory - optional
+   output_location: "" # Built app content directory - optional
    ###### End of Repository/Build Configurations ######
    ```
+   **Note**: The above values of `api_location` ,`app_location`,`output_location`  are for no framework and these value changes based on framework.
 
 1. Save the file.
 

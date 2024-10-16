@@ -479,6 +479,16 @@
             "source_path_from_root": "/articles/virtual-desktop/users/connect-ios-ipados.md",
             "redirect_url": "/azure/virtual-desktop/users/connect-remote-desktop-client",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/multimedia-redirection-intro.md",
+            "redirect_url": "/azure/virtual-desktop/multimedia-redirection-video-playback-calls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/multimedia-redirection.md",
+            "redirect_url": "/azure/virtual-desktop/multimedia-redirection-video-playback-calls",
+            "redirect_document_id": true
         }
     ]
 }

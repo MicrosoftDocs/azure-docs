@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/security/journey/index.yml",
+            "redirect_url": "/previous-versions/azure/security/fundamentals",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/develop/security-code-analysis-customize.md",
             "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
             "redirect_document_id": false

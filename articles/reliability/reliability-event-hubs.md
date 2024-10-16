@@ -22,7 +22,7 @@ This article describes reliability support in [Azure Event Hubs](../event-hubs/e
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 
-Event Hubs implements transparent failure detection and failover mechanisms so that, when failure occurs, the service continues to operate within the assured service-levels and without noticeable interruptions. If you create an Event Hubs namespace in a region that supports availability zones, [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services) is automatically enabled. With zone-redundancy, fault tolerance is increased and the service has enough capacity reserves to cope with the outage of an entire facility.  Both metadata and data (events) are replicated across data centers in each zone. 
+Event Hubs implements transparent failure detection and failover mechanisms so that, when failure occurs, the service continues to operate within the assured service-levels and without noticeable interruptions. If you create an Event Hubs namespace in a region that supports availability zones, [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services) is automatically enabled. With zone-redundancy, fault tolerance is increased and the service has enough capacity reserves to cope with the outage of an entire facility. Both metadata and data (events) are replicated across data centers in each zone. 
 
 
 ### Prerequisites
@@ -47,12 +47,8 @@ The Azure portal doesn't support disabling availability zones. To disable availa
 
 ### Availability zone migration
 
-When you create availability zones in a region that supports them, availability zones are automatically enabled. If you wish to learn how to move your Event Hub to a new region that supports availability zones, see
+When you create availability zones in a region that supports them, availability zones are automatically enabled. If you wish to learn how to move your Event Hubs namespace to a new region that supports availability zones, see
 [Relocate Event Hubs to another region](../operational-excellence/relocation-event-hub.md).
-
-
-### Pricing
-Need Info. Any pricing considerations when using availability zones?
 
 
 ## Cross-region disaster recovery and business continuity
@@ -68,15 +64,15 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
     
     Geo-Disaster recovery ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups, and settings) is continuously replicated from a primary namespace to a secondary namespace when paired. 
     
-    The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to temporary outages.  For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+    The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to temporary outages. For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
     
     With Geo-Disaster recovery, you can initiate a once-only failover move from the primary to the secondary at any time. The failover move points the chosen alias name for the namespace to the secondary namespace. After the move, the pairing is then removed. The failover is nearly instantaneous once initiated. 
 
-    For detailed information, as well as samples and further documentation, on Geo-Disaster recovery in Event Hubs, see [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+    For detailed information, samples, and further documentation, on Geo-Disaster recovery in Event Hubs, see [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
 - **Geo-replication (public preview)**, which provides replication of both metadata and data, replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
 
-    For detailed information, as well as samples and further documentation, on Geo-replication in Event Hubs, see [Geo-replication ](../event-hubs/geo-replication.md).
+    For detailed information, samples, and further documentation, on Geo-replication in Event Hubs, see [Geo-replication ](../event-hubs/geo-replication.md).
 
 
 

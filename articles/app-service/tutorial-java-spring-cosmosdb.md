@@ -21,13 +21,17 @@ In this tutorial, you learn how to build, configure, and deploy a secure Spring 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Cosmos DB database.
-> * Connect a sample app to the database and test it locally
-> * Deploy the sample app to Azure
-> * Stream diagnostic logs from App Service
-> * Add additional instances to scale out the sample app
+> * Create a secure-by-default architecture for Azure App Service and Azure Cosmos DB with MongoDB API.
+> * Secure connection secrets using a managed identity and Key Vault references.
+> * Deploy a Spring Boot sample app to App Service from a GitHub repository.
+> * Acces App Service app settings in the application code.
+> * Make updates and redeploy the application code.
+> * Stream diagnostic logs from App Service.
+> * Manage the app in the Azure portal.
+> * Provision the same architecture and deploy by using Azure Developer CLI.
+> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
 
-**To complete this tutorial, you'll need:**
+## Prerequisites
 
 ::: zone pivot="azure-portal"  
 
@@ -141,7 +145,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack*: **Java 21**.
         1. *Java web server stack*: **Java SE (Embedded Web Server)**.
         1. *Engine*: **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -169,7 +173,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -212,7 +216,7 @@ The creation wizard generated the connectivity string for you already as an [app
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -247,7 +251,7 @@ The creation wizard generated the connectivity string for you already as an [app
         **Step 6:** You're back in the edit dialog for **defaultConnector**.
         1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the SQL database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the Cosmos DB database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -259,7 +263,7 @@ The creation wizard generated the connectivity string for you already as an [app
         **Step 7:** To verify your changes: 
         1. From the left menu, select **Environment variables** again.
         1. Make sure that the app setting **spring.data.mongodb.uri** exists. The default connector generated it for you, and your Spring Boot application already uses the variable.
-        1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the Spring Boot environment variable in Azure." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-7.png":::
@@ -271,8 +275,6 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
-
-Like the Tomcat convention, if you want to deploy to the root context of Tomcat, name your built artifact *ROOT.war*.
 
 :::row:::
     :::column span="2":::
@@ -542,7 +544,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. For your convenience, the AZD template output shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
-    If you look at the value of `spring.data.mongodb.uri`, it should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is managed in the key vault.
+    If you look at the value of `spring.data.mongodb.uri`, it should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is managed in the key vault.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 

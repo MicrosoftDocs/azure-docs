@@ -7,6 +7,10 @@ ms.date: 06/08/2023
 ms.author: yelevin
 appliesto: 
     - Microsoft Sentinel
+
+
+#Customer intent: As a security administrator, I want to configure a customer-managed key for Microsoft Sentinel so that I can enhance data protection with my own encryption key.
+
 ---
 
 # Set up Microsoft Sentinel customer-managed key

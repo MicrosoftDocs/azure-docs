@@ -97,7 +97,8 @@ Workspace gateways are currently available in the following regions:
 * North Central US
 * East US 2
 * UK South
-* France Central 
+* France Central
+* Germany West Central
 * North Europe
 * East Asia
 * Southeast Asia
@@ -116,7 +117,7 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support synthetic GraphQL APIs and WebSocket APIs
-* Workspace gateways don't support APIs created from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
+* Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Azure Monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates
