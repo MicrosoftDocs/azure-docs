@@ -207,7 +207,9 @@ items:
             displayName: samples, policies, definitions
             href: ./policy-reference.md
           - name: Network security
-            href: network-security-namespaces.md            
+            href: network-security-namespaces.md
+          - name: Transport Layer Security
+            href: transport-layer-security.md
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -520,6 +522,8 @@ items:
           href: network-security.md
         - name: Enforce minimum required TLS version
           href: transport-layer-security-enforce-minimum-version.md
+        - name: Transport Layer Security
+          href: transport-layer-security.md
       - name: Use cases
         items:
         - name: Use cases for domains
