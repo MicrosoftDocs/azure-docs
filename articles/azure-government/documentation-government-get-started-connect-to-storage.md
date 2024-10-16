@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: yujhongmicrosoft
 ms.author: eliotgra
-ms.date: 10/01/2021
+ms.date: 10/16/2024
 ---
 
 # Develop with Storage API on Azure Government
