@@ -12,9 +12,6 @@ ms.custom: engagement-fy24
  
 # Azure VM assessment (Lift and Shift) 
  
-> [!CAUTION] 
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). 
- 
 In this article, you'll learn more about the Azure VM assessments. To get familiar with the general Azure Migrate assessment concepts, see the [Assessment overview](concepts-assessment-overview.md). If you want to migrate your on-premises servers to Azure quickly using the lift and shift method, you should create an Azure VM assessment to find out readiness, cost, and migration advise for your server workloads. 
  
 > [!NOTE] 
@@ -73,7 +70,7 @@ For an Azure VM assessment, the assessment reviews the following properties of a
 --- | --- | --- | 
 |**Boot type** | Azure supports UEFI boot type for OS. [Learn more](common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure) | **Not ready** if the boot type is UEFI and Operating system running on the VM is: Windows Server 2003/Windows Server 2003 R2/ Windows Server 2008/ Windows Server 2008 R2 | 
 |**Cores** | Azure VM supports <= 128 cores </br> If performance history is available, Azure Migrate considers the utilized cores for comparison. | Ready if the number of cores is within the limit. | 
-|**Memory** |Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m <sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md)| Ready if the amount of memory is within the limit. | 
+|**Memory** |Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m <sup>2</sup> VM supports. [Learn more](/azure/virtual-machines/sizes/overview)| Ready if the amount of memory is within the limit. | 
 |**Storage disk** | The allocated size of a disk must be <= 64 TB. </br> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits. |  
 |**Networking** | A server must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit. | 
 |**Guest Operating System** | Identify the OS supported by Azure and linked readiness support </br> </br> Windows Server 2022 and all SPs,</br> Windows Server 2019 and all SPs, </br> Windows Server 2016 and all SPs, </br> Windows Server 2012/2012 R2 and all SPs, </br> Windows Server 2008 R2 with all SPs, </br> Windows Server 2008 (64-bit) | Ready for Azure | 
@@ -99,8 +96,7 @@ Assessments also determine readiness of the recommended target for Microsoft Def
   - Ubuntu 16.04, 18.04, 20.04, 22.04  
   - SUSE Linux Enterprise Server 12, 15+  
   - Debian 9, 10, 11  
-  - Oracle Linux 7.2+, 8  
-  - CentOS Linux 7.2+  
+  - Oracle Linux 7.2+, 8 
   - Amazon Linux 2  
 - For other Operating Systems, the server is marked as **Ready with Conditions**. If a server isn't ready to be migrated to Azure, it's marked as **Not Ready** for Microsoft Defender for Servers. 
  
@@ -153,7 +149,7 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
     - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
  
-    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size.
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
  
     Provisioned IOPS are calculated using the following logic:  
  
