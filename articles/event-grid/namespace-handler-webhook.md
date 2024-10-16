@@ -1,9 +1,10 @@
 ---
-title: Webhooks as event handler for namespace topics' push delivery
+title: Webhook event handler for namespace topics' push delivery
 description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/14/2024
 ms.author: robece
+# Customer intent: As a developer, I want to whether I can push events from a namespace topic to a Webhook.
 ---
 
 # Webhook event handler for namespace topic's push delivery
@@ -25,7 +26,7 @@ If your webhook endpoint is known by malicious actors, they could exploit attack
 See [Deliver events to webhooks using namespace topics - Azure CLI](publish-deliver-events-with-namespace-topics-webhook.md), which provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 
 
-## Next steps
+## Related content
 
 - See Event Grid's [push delivery and retry](namespace-delivery-retry.md) to understand the event retry schedule in case your webhook isn't available.
 - [Deliver events to webhooks using namespace topics](publish-deliver-events-with-namespace-topics-webhook.md)
