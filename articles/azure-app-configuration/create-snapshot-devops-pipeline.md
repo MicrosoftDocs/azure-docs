@@ -103,4 +103,7 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 ## Next step
 
 > [!div class="nextstepaction"]
+> [Use Azure App Configuration Snapshot Task in YAML Pipelines](https://learn.microsoft.com/azure/devops/pipelines/tasks/reference/azure-app-configuration-snapshot-v1?view=azure-pipelines)
+
+> [!div class="nextstepaction"]
 > [Pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
