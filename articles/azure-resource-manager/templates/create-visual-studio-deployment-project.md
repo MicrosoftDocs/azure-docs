@@ -73,14 +73,15 @@ You can customize a deployment project by modifying the Resource Manager templat
 1. The parameter for the type of storage account is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you don't want anyone to deploy a **Premium_LRS** storage account through this template, remove it from the allowed types.
 
    ```json
-   "demoaccountType": {
+   "demoAccountType": {
      "type": "string",
      "defaultValue": "Standard_LRS",
      "allowedValues": [
        "Standard_LRS",
        "Standard_ZRS",
        "Standard_GRS",
-       "Standard_RAGRS"
+       "Standard_RAGRS",
+       "Premium_LRS"
      ]
    }
    ```
