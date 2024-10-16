@@ -1,7 +1,7 @@
 ---
 title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
 description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize.
-author: vijain
+author: pingvishal-msft
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
