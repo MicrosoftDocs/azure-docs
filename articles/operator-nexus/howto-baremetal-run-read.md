@@ -66,7 +66,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   --subscription "<subscription>"
 ```
 
-Use this command to configure an existing cluster for a user-assigned identity:
+Use this command to configure an existing cluster for a user provided storage account and user-assigned identity. The update command can also be used to change the storage account location and identity if needed.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
@@ -93,7 +93,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   --subscription "<subscription>"
 ```
 
-Use this command to configure the cluster to use its own system-assigned identity:
+Use this command to configure an existing cluster for a user provided storage account and to use its own system-assigned identity. The update command can also be used to change the storage account location.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \

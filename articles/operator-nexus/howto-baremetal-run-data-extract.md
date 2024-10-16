@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot bare metal machine issues using the `az network cloud baremetalmachine run-data-extract` command for Azure Operator Nexus
+title: Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-data-extract` command for Azure Operator Nexus
 description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting and diagnostic purposes.
 author: eak13
 ms.author: ekarandjeff
@@ -66,7 +66,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   --subscription "<subscription>"
 ```
 
-Use this command to configure an existing cluster for a user-assigned identity:
+Use this command to configure an existing cluster for a user provided storage account and user-assigned identity. The update command can also be used to change the storage account location and identity if needed.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
@@ -93,7 +93,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   --subscription "<subscription>"
 ```
 
-Use this command to configure the cluster to use its own system-assigned identity:
+Use this command to configure an existing cluster for a user provided storage account and to use its own system-assigned identity. The update command can also be used to change the storage account location.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
