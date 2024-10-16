@@ -4,7 +4,7 @@ description: Tutorial - Learn how to use device twins to configure your devices 
 services: iot-hub
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 12/15/2022

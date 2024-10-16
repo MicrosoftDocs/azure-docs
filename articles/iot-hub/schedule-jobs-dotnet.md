@@ -5,7 +5,7 @@ description: Use the device SDK for .NET to schedule a job that invokes a direct
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019

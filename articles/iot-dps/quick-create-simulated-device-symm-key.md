@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 04/06/2023
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT hub using the SDK, to learn how secure provisioning works with symmetric keys.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Provision a simulated symmetric key device

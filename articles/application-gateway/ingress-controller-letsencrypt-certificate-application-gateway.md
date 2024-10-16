@@ -1,6 +1,6 @@
 ---
 title: Use Let's Encrypt certificates with Application Gateway
-description: This article provides information on how to obtain a certificate from Let's Encrypt and use it on your Application Gateway instance for AKS clusters.
+description: This article provides information on how to obtain a certificate from Let's Encrypt and use it on your Application Gateway deployment for AKS clusters.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -15,6 +15,9 @@ ms.author: greglin
 You can configure your Azure Kubernetes Service (AKS) instance to use [Let's Encrypt](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Azure Application Gateway, which performs TLS/SSL termination for your AKS cluster.
 
 The setup that this article describes uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Install the add-on
 
@@ -97,9 +100,9 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     EOF
     ```
 
-3. Create an ingress resource to expose the `guestbook` application by using the Application Gateway instance with the Let's Encrypt certificate.
+3. Create an ingress resource to expose the `guestbook` application by using the Application Gateway deployment with the Let's Encrypt certificate.
 
-    Ensure that your Application Gateway instance has a public front-end IP configuration with a DNS name. Use the default `azure.com` domain, or provision an Azure DNS zone and then assign your own custom domain. The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` tells cert-manager to process the tagged ingress resource.
+    Ensure that your Application Gateway deployment has a public frontend IP configuration with a DNS name. Use the default `azure.com` domain, or provision an Azure DNS zone and then assign your own custom domain. The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` tells cert-manager to process the tagged ingress resource.
 
     In the following YAML, be sure to replace `<PLACEHOLDERS.COM>` with your own domain or with the Application Gateway domain (for example, `kh-aks-ingress.westeurope.cloudapp.azure.com`).
 
@@ -140,4 +143,4 @@ Before the Let's Encrypt certificate expires, `cert-manager` automatically updat
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

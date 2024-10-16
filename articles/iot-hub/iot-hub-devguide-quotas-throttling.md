@@ -5,7 +5,7 @@ description: This article provides a description of the quotas that apply to IoT
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/17/2024
 ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Support"]

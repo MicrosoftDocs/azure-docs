@@ -80,6 +80,8 @@ landingContent:
             url: ./resources-troubleshoot.md
           - text: Known issues
             url: ./troubleshoot-known-issues.md
+          - text: Limits and quotas
+            url: ./limits-quotas.md
           - text: Business continuity
             url: ./disaster-recovery.md
           - text: Get support
