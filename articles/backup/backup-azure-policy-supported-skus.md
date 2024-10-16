@@ -107,4 +107,4 @@ OpenLogic | CentOS–SRIOV | 6.X, 7.X
 cloudera | cloudera-centos-os | 7.X
 
 >[!Caution]
->CentOS is end-of-life [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+>CentOS is end-of-life. [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
