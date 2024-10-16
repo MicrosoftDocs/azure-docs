@@ -7,7 +7,7 @@ ms.author: patricka
 ms.reviewer: fcabrera
 ms.date: 07/08/2024
 ms.topic: quickstart
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
 ---

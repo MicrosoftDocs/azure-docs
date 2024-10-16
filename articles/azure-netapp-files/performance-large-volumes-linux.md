@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 10/16/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
@@ -30,7 +30,8 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
     The Ultra service level was used in these tests. 
 
-* Sequential I/O: 100% sequential writes max out at 8,500 MiB/second, while a single large volume is capable of 10 GiB/second (12,800 MiB/second) throughput. 
+* Sequential writes: 100% sequential writes maxed out at 8,500 MiB/second in these benchmarks. (A single large volume’s maximum throughput is capped at 12,800 MiB/second by the service.)
+* Sequential reads: 100% sequential reads maxed out at 10,000 MiB/second in these benchmarks. (At the time of these benchmarks, this limit was the maximum allowed throughput. The limit has increased to 12,800 MiB/second.)
 
 * Random I/O: The same single large volume delivers over 700,000 operations per second. 
 

@@ -3,7 +3,7 @@ title: Overview of Azure IoT device types
 description: Learn the different device types supported by Azure IoT and the tools available.
 author: ryanwinter
 ms.author: rywinter
-ms.service: iot
+ms.service: azure-iot
 ms.topic: conceptual
 ms.date: 04/04/2024
 ---
