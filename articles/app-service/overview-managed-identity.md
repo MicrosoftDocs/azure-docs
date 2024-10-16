@@ -269,12 +269,12 @@ App Service and Azure Functions provide an internally accessible [REST endpoint]
 
 # [HTTP GET](#tab/http)
 
-A raw HTTP GET request looks like the following example:
+A raw HTTP GET request uses the [two supplied environment variables](#rest-endpoint-reference) and looks like the following example:
 
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
-Host: localhost:4141
-X-IDENTITY-HEADER: 00001111-aaaa-2222-bbbb-3333cccc4444
+Host: <ip-address-:-port-in-IDENTITY_ENDPOINT>
+X-IDENTITY-HEADER: <value-of-IDENTITY_HEADER>
 ```
 
 And a sample response might look like the following:
