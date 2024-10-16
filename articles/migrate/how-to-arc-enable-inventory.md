@@ -1,9 +1,8 @@
 ---
 title: Arc enable discovered inventory in Azure Migrate
-description: Describes how to build a Business case with Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
+description: Describes how to enable arc in Azure Migrate
+author: v-sreedevank
+ms.author: anjalimishra
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/14/2024
@@ -37,15 +36,15 @@ To view the Arc Status in Azure Migrate, follow these steps:
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered items**.
 The **Discovered items** page lists all the machines discovered. You can see the Sync Arc status option here. 
 
-:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/discovered-servers.png":::
+:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers.png" alt-text="Screenshot of the discovered servers." lightbox="./media/how-to-arc-enable-inventory/discovered-servers.png":::
  
 2. Select **Sync Arc Status**. Azure Migrate refreshes your discovered inventory. It compares this data with the data available in Azure Resource Graph via the Azure Hybrid Connected Resource Provider. Here, the machine’s BIOS ID is used to map machines in Migrate inventory against Azure Arc inventory. Once a unique match is found, this machine ID is saved in the Migrate inventory, providing seamless tracking and further status updates. 
 
-:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-items-arc.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/discovered-items-arc.png":::
+:::image type="content" source="./media/how-to-arc-enable-inventory/discovered-items-arc.png" alt-text="Screenshot of the discovered items with Arc button." lightbox="./media/how-to-arc-enable-inventory/discovered-items-arc.png":::
 
 3. To sync the Arc Status of a particular machine, select the **Arc Status** of that machine and you'll be directed to the details of Arc Status. You can review and sync the Arc status from here. You can add this column to the view, if the column isn't visible. 
 
-:::image type="content" source="./media/how-to-arc-enable-inventory/arc-status.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/arc-status.png":::
+:::image type="content" source="./media/how-to-arc-enable-inventory/arc-status.png" alt-text="Screenshot of the Arc status panel." lightbox="./media/how-to-arc-enable-inventory/arc-status.png":::
 
 > [!Note] 
 > Once the refresh job is completed, the Arc discovery status is updated. 
@@ -64,7 +63,7 @@ To enable Arc for Azure Migrate discovered inventory, follow these steps:
 
    You'll be directed to add the project and server details. Once you enter all the required details, you'll be able to download and run the script. 
 
-:::image type="content" source="./media/how-to-arc-enable-inventory/download-script.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-arc-enable-inventory/download-script.png":::
+:::image type="content" source="./media/how-to-arc-enable-inventory/download-script.png" alt-text="Screenshot of the download script button." lightbox="./media/how-to-arc-enable-inventory/download-script.png":::
  
 For more information on how to Arc enable your inventory,  
 

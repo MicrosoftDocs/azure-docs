@@ -224,13 +224,13 @@ When you create a business case, by default, servers remaining on-premises are a
  
 *Servers remaining on-premises are assumed to be Azure Arc-enabled. When you create a business case, by default, servers remaining on-premises are assumed to be Arc-enabled. You can disable Arc calculation by editing Azure cost assumptions. 
 
-	| Methodology
----|----
-CAPEX | Year n CAPEX = (100- estimated migration % that year)* Year n CAPEX in current state
-OPEX | Year n OPEX = (estimated migration % that year) * Total Azure TCO * (1+ infrastructure growth rate%) + (100- estimated migration % that year)* Year n OPEX in current state
-Future state Cash Flow	| Sum of CAPEX and OPEX per year
-Annual NPV	| NPV per year = (Year n Cashflow)/ (1+WACC)^n <br> WACC is defaulted to 7% and can be customized in the assumptions.
-Future State NPV | Sum of annual NPV
+|	| Methodology|
+|---|----|
+|CAPEX | Year n CAPEX = (100- estimated migration % that year)* Year n CAPEX in current state|
+|OPEX | Year n OPEX = (estimated migration % that year) * Total Azure TCO * (1+ infrastructure growth rate%) + (100- estimated migration % that year)* Year n OPEX in current state|
+|Future state Cash Flow	| Sum of CAPEX and OPEX per year|
+|Annual NPV	| NPV per year = (Year n Cashflow)/ (1+WACC)^n <br> WACC is defaulted to 7% and can be customized in the assumptions.|
+|Future State NPV | Sum of annual NPV|
 
 ## Glossary
 
