@@ -133,7 +133,7 @@ This setting allows you to customize otherwise-standard alert properties accordi
 To learn more about customizing alert details, and to get complete instructions, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 > [!NOTE]
-> In the Micrsoft Defender portal, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
+> In the Microsoft Defender portal, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
 
 ### Query scheduling
 
