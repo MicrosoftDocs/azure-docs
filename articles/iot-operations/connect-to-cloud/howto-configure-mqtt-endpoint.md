@@ -703,7 +703,7 @@ The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabl
 
 Configure the trusted CA certificate for the MQTT endpoint to establish a secure connection to the MQTT broker. This setting is important if the MQTT broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
 
@@ -824,7 +824,7 @@ The *retain* setting only takes effect if the dataflow uses MQTT endpoint as bot
 
 You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 3600 seconds. To configure the session expiry interval:
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Session expiry** field to specify the session expiry interval.
 

@@ -667,7 +667,7 @@ kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-io
 
 The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker.
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Consumer group ID** field to specify the consumer group ID.
 
@@ -864,7 +864,7 @@ kafkaSettings: {
 
 By default, the copy MQTT properties setting is enabled. These user properties include values such as `subject` that stores the name of the asset sending the message. 
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use checkbox next to **Copy MQTT properties** field to enable or disable copying MQTT properties.
 
