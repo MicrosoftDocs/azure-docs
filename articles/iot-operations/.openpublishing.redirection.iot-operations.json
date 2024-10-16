@@ -182,8 +182,18 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-manage-secrets.md",
-            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-manage-secrets",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-secrets",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-manage-secrets.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-secrets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-enable-secure-settings.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-enable-secure-settings",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-manual.md",
@@ -479,12 +489,16 @@
             "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md",
             "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
-        }
-        ,
+        },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/concept-default-root-ca.md",
-            "redirect_url": "/azure/iot-operations/deploy-iot-ops/concept-default-root-ca",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/concept-default-root-ca.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
+            "redirect_document_id": true
         }
     ]
 }
