@@ -48,7 +48,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** supports **VNet integration** to allow your API Management instance to reach API backends that are isolated in a single connected VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-* **Premium v2** supports VNet injection for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](virtual-network-concepts.md)
+* **Premium v2** supports VNet injection for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](virtual-network-concepts.md).
 
 
 ### Supported regions
