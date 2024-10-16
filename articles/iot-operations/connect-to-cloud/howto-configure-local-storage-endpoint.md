@@ -29,51 +29,68 @@ Use the local storage option to send data to a locally available persistent volu
 
 # [Kubernetes](#tab/kubernetes)
 
+Create a Kubernetes manifest `.yaml` file with the following content.
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
-  name: esa
+  name: <ENDPOINT_NAME>
   namespace: azure-iot-operations
 spec:
   endpointType: localStorage
   localStorageSettings:
-    persistentVolumeClaimRef: <PVC-NAME>
+    persistentVolumeClaimRef: <PVC_NAME>
 ```
 
-The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
 
 # [Bicep](#tab/bicep)
 
-1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+Create a Bicep `.bicep` file with the following content.
 
-    ```bicep
-        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-        param endpointName string = '<ENDPOINT_NAME>'
-        param persistentVCName string = '<PERSISTENT_VC_NAME>'
-        
-        resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-          parent: aioInstance
-          name: endpointName
-          extendedLocation: {
-            name: customLocationName
-            type: 'CustomLocation'
-          }
-          properties: {
-            endpointType: 'LocalStorage'
-            localStorageSettings: {
-              persistentVolumeClaimRef: persistentVCName
-            }
-          }
-        }
-    ```
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param persistentVCName string = '<PERSISTENT_VC_NAME>'
 
-1. Deploy via Azure CLI
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'LocalStorage'
+    localStorageSettings: {
+      persistentVolumeClaimRef: persistentVCName
+    }
+  }
+}
+```
+
+Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
+
+---
+
+The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
+
 
 ## Supported serialization formats
 

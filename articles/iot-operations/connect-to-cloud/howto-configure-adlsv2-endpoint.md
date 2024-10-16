@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/16/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -30,121 +30,156 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 ### Use managed identity authentication
 
-1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
+First, in Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
 
-1. Assign a role to the managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+Then, assign a role to the managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
-# [Kubernetes](#tab/kubernetes)
-
-1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method.
-
-    ```yaml
-    apiVersion: connectivity.iotoperations.azure.com/v1beta1
-    kind: DataflowEndpoint
-    metadata:
-      name: adls
-    spec:
-      endpointType: DataLakeStorage
-      dataLakeStorageSettings:
-        host: https://<account>.blob.core.windows.net
-        authentication:
-          method: SystemAssignedManagedIdentity
-          systemAssignedManagedIdentitySettings: {}
-    ```
-
-# [Bicep](#tab/bicep)
-
-1.  Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
-    
-    ```bicep
-        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-        param endpointName string = '<ENDPOINT_NAME>'
-        param host string = 'https://<ACCOUNT>.blob.core.windows.net'
-    
-        resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
-          name: aioInstanceName
-        }
-        resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-          name: customLocationName
-        }
-        resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-          parent: aioInstance
-          name: endpointName
-          extendedLocation: {
-            name: customLocation.id
-            type: 'CustomLocation'
-          }
-          properties: {
-            endpointType: 'DataLakeStorage'
-            dataLakeStorageSettings: {
-              host: host
-              authentication: {
-                method: 'SystemAssignedManagedIdentity'
-                systemAssignedManagedIdentitySettings: {}
-              }
-            }
-          }
-        }
-    ```
-
-1. Deploy via Azure CLI
-
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
-```
----
-
-If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
-
----
-
-### Use access token authentication
-
-Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret.
+Finally, create the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
 
 # [Kubernetes](#tab/kubernetes)
 
-Create the *DataflowEndpoint* resource and specify the access token authentication method.
+Create a Kubernetes manifest `.yaml` file with the following content.
 
 ```yaml
-  apiVersion: connectivity.iotoperations.azure.com/v1beta1
-  kind: DataflowEndpoint
-  metadata:
-    name: adls
-  spec:
-    endpointType: DataLakeStorage
-    dataLakeStorageSettings:
-      host: https://<account>.blob.core.windows.net
-      authentication:
-        method: AccessToken
-        accessTokenSettings:
-          secretRef: my-sas
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataLakeStorage
+  dataLakeStorageSettings:
+    host: https://<ACCOUNT>.blob.core.windows.net
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
 ```
 
 # [Bicep](#tab/bicep)
 
+Create a Bicep `.bicep` file with the following content.
+    
 ```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param host string = 'https://<ACCOUNT>.blob.core.windows.net'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
 resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: '<ENDPOINT NAME>'
+  name: endpointName
   extendedLocation: {
-    name: '<CUSTOM LOCATION NAME>'
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
     endpointType: 'DataLakeStorage'
     dataLakeStorageSettings: {
+      host: host
       authentication: {
-        method: 'AccessToken'
-        accessTokenSettings: {
-          secretRef: 'my-sas'
-        }
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
       }
-      host: 'https://<account>.blob.core.windows.net'
     }
   }
 }
+```
+
+Then, deploy via Azure CLI.
+
+```azurecli
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+---
+
+If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
+
+### Use access token authentication
+
+Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret. 
+
+Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token as well as other placeholder values.
+
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataLakeStorage
+  dataLakeStorageSettings:
+    host: https://<ACCOUNT>.blob.core.windows.net
+    authentication:
+      method: AccessToken
+      accessTokenSettings:
+        secretRef: <SAS_SECRET_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
+
+# [Bicep](#tab/bicep)
+
+Create a Bicep `.bicep` file with the following content.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param host string = 'https://<ACCOUNT>.blob.core.windows.net'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      host: host
+      authentication: {
+        method: 'AccessToken'
+        accessTokenSettings: {
+          secretRef: '<SAS_SECRET_NAME>'
+      }
+    }
+  }
+}
+```
+
+Then, deploy via Azure CLI.
+
+```azurecli
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 ---
@@ -161,9 +196,9 @@ Using the system-assigned managed identity is the recommended authentication met
 
 Before creating the dataflow endpoint, assign a role to the managed identity that has write permission to the storage account. For example, you can assign the *Storage Blob Data Contributor* role. To learn more about assigning roles to blobs, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
-# [Kubernetes](#tab/kubernetes)
+To use system-assigned managed identity, specify the managed identity authentication method in the *DataflowEndpoint* resource. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
@@ -172,48 +207,42 @@ dataLakeStorageSettings:
     systemAssignedManagedIdentitySettings: {}
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+dataLakeStorageSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
+
+---
+
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://<account>.blob.core.windows.net
+      audience: https://<ACCOUNT>.blob.core.windows.net
 ```
 
 # [Bicep](#tab/bicep)
 
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
-
 ```bicep
-properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-      ...
+dataLakeStorageSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {
+        audience: 'https://<ACCOUNT>.blob.core.windows.net'
     }
   }
-```
-
-If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
-```bicep
-properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {
-            audience: 'https://<account>.blob.core.windows.net'
-        }
-      }
-      ...
-    }
-  }
+}
 ```
 
 ---
@@ -235,38 +264,33 @@ To enhance security and follow the principle of least privilege, you can generat
 Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
 
 ```bash
-kubectl create secret generic my-sas \
+kubectl create secret generic <SAS_SECRET_NAME> \
 --from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
 -n azure-iot-operations
 ```
 
-# [Kubernetes](#tab/kubernetes)
+You can also use the IoT Operations portal to create and manage the secret. To learn more, see [Create and manage secrets in Azure IoT Operations Preview](../deploy-iot-ops/howto-manage-secrets.md).
 
-Create the *DataflowEndpoint* resource with the secret reference.
+Finally, create the *DataflowEndpoint* resource with the secret reference.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
   authentication:
     method: AccessToken
     accessTokenSettings:
-      secretRef: my-sas
+      secretRef: <SAS_SECRET_NAME>
 ```
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  ...
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      authentication: {
-        method: 'AccessToken'
-        accessTokenSettings: {
-            secretRef: 'my-sas'
-        }
-      }
-      ...
+dataLakeStorageSettings: {
+  authentication: {
+    method: 'AccessToken'
+    accessTokenSettings: {
+        secretRef: '<SAS_SECRET_NAME>'
     }
   }
 }
@@ -292,19 +316,12 @@ dataLakeStorageSettings:
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  ...
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      authentication: {
-        method: 'UserAssignedManagedIdentity'
-        userAssignedManagedIdentitySettings: {
-            cliendId: '<ID>'
-            tenantId: '<ID>'
-        }
-      }
-      ...
+dataLakeStorageSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      cliendId: '<ID>'
+      tenantId: '<ID>'
     }
   }
 }
@@ -327,8 +344,6 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 
 # [Kubernetes](#tab/kubernetes)
 
-Set the values in the dataflow endpoint custom resource.
-
 ```yaml
 dataLakeStorageSettings:
   batching:
@@ -338,23 +353,12 @@ dataLakeStorageSettings:
 
 # [Bicep](#tab/bicep)
 
-Set the values in the dataflow endpoint bicep file.
-
 ```bicep
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: '<ENDPOINT NAME>'
+dataLakeStorageSettings: {
   ...
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      ...
-      batching: {
-        latencySeconds: 100
-        maxMessages: 1000
-      }
-      ...
-    }
+  batching: {
+    latencySeconds: 100
+    maxMessages: 1000
   }
 }
 ```

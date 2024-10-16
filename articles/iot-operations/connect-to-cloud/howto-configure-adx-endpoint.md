@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/20/2024
+ms.date: 10/16/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
@@ -47,76 +47,86 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
     .alter database ['<DATABASE_NAME>'] policy streamingingestion enable
     ```
 
-  Alternatively, you can enable streaming ingestion on the entire cluster. See [Enable streaming ingestion on an existing cluster](/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-an-existing-cluster).
+   Alternatively, enable streaming ingestion on the entire cluster. See [Enable streaming ingestion on an existing cluster](/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-an-existing-cluster).
 
 1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
 
-1. In your Azure Data Explorer database, under **Security + networking** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
+1. In your Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
 
 
 ## Create an Azure Data Explorer dataflow endpoint
 
+Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
+
 # [Kubernetes](#tab/kubernetes)
 
-Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+Create a Kubernetes manifest `.yaml` file with the following content.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
-  name: adx
+  name: <ENDPOINT_NAME>
   namespace: azure-iot-operations
 spec:
   endpointType: DataExplorer
   dataExplorerSettings:
-    host: 'https://<cluster>.<region>.kusto.windows.net'
-    database: <database-name>
+    host: 'https://<CLUSTER>.<region>.kusto.windows.net'
+    database: <DATABASE_NAME>
     authentication:
       method: SystemAssignedManagedIdentity
       systemAssignedManagedIdentitySettings: {}
 ```
 
-# [Bicep](#tab/bicep)
+Then apply the manifest file to the Kubernetes cluster.
 
-1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
-
-    ```bicep
-        // ADX Endpoint
-        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-        param endpointName string = '<ENDPOINT_NAME>'
-        param hostName string = 'https://<cluster>.<region>.kusto.windows.net'
-        param databaseName string = '<DATABASE_NAME>'
-        
-        resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-          parent: aioInstance
-          name: endpointName
-          extendedLocation: {
-            name: customLocationName
-            type: 'CustomLocation'
-          }
-          properties: {
-            endpointType: 'DataExplorer'
-            dataExplorerSettings: {
-              authentication: {
-                method: 'SystemAssignedManagedIdentity'
-                systemAssignedManagedIdentitySettings: {}
-              }
-              host: hostName
-              database: databaseName
-            }
-          }
-        }
-    ```
-
-1. Deploy via Azure CLI
-
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
+```bash
+kubectl apply -f <FILE>.yaml
 ```
 
+# [Bicep](#tab/bicep)
 
-<!-- Add a cmd line to edit values in Bicep file !-->
+Create a Bicep `.bicep` file with the following content.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param hostName string = 'https://<CLUSTER>.<region>.kusto.windows.net'
+param databaseName string = '<DATABASE_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataExplorer'
+    dataExplorerSettings: {
+      host: hostName
+      database: databaseName
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+    }
+  }
+}
+```
+
+Then, deploy via Azure CLI.
+
+```azurecli
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
 
 ---
 
@@ -130,9 +140,9 @@ Using the system-assigned managed identity is the recommended authentication met
 
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
 
-# [Kubernetes](#tab/kubernetes)
-
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
@@ -141,51 +151,44 @@ dataExplorerSettings:
     systemAssignedManagedIdentitySettings: {}
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+dataExplorerSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
+
+---
+
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://<audience URL>
+      audience: https://<AUDIENCE_URL>
 ```
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-    ...
-   properties: {
-     endpointType: 'DataExplorer'
-     dataExplorerSettings: {
-       authentication: {
-         method: 'SystemAssignedManagedIdentity'
-         systemAssignedManagedIdentitySettings: {}
-       }
-     }
-   }
+dataExplorerSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {
+      audience: 'https://<AUDIENCE_URL>'    
+    }
+  }
 }
 ```
 
-If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
-```bicep
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-    ...
-   properties: {
-     endpointType: 'DataExplorer'
-     dataExplorerSettings: {
-       authentication: {
-         method: 'SystemAssignedManagedIdentity'
-         systemAssignedManagedIdentitySettings: {
-            audience: 'https://<AUDIENCE URL>'    
-        }
-       }
-     }
-   }
-}
-```
 ---
 
 #### User-assigned managed identity
@@ -206,20 +209,14 @@ dataExplorerSettings:
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-    ...
-   properties: {
-     endpointType: 'DataExplorer'
-     dataExplorerSettings: {
-       authentication: {
-         method: 'UserAssignedManagedIdentity'
-         userAssignedManagedIdentitySettings: {
-            clientId: '<ID>'
-            tenantId: '<ID>'
-        }
-       }
-     }
-   }
+dataExplorerSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      clientId: '<ID>'
+      tenantId: '<ID>'
+    }
+  }
 }
 ```
 
@@ -240,8 +237,6 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 
 # [Kubernetes](#tab/kubernetes)
 
-Set the values in the dataflow endpoint custom resource.
-
 ```yaml
 dataExplorerSettings:
   batching:
@@ -251,20 +246,11 @@ dataExplorerSettings:
 
 # [Bicep](#tab/bicep)
 
-Set the values in the dataflow endpoint bicep file.
-
 ```bicep
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-    ...
-  properties: {
-    endpointType: 'DataExplorer'
-    dataExplorerSettings: {
-      ...
-      batching: {
-        latencySeconds: 5
-        maxMessages: 10000
-      }
-    }
+dataExplorerSettings: {
+  batching: {
+    latencySeconds: 100
+    maxMessages: 1000
   }
 }
 ```

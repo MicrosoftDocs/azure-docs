@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/16/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -31,78 +31,89 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 
 To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
-1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
+First, in Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
 
-1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**.
+Then, in the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Preview Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
 
-1. Search for the Azure IoT Operations Preview Arc extension by its name, and select the app ID GUID value that you found in the previous step.
-
-1. Select **Contributor** as the role, then select **Add**.
+Finally, create the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
 
 # [Kubernetes](#tab/kubernetes)
 
-1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method.
+Create a Kubernetes manifest `.yaml` file with the following content.
 
-    ```yaml
-    apiVersion: connectivity.iotoperations.azure.com/v1beta1
-    kind: DataflowEndpoint
-    metadata:
-      name: fabric
-    spec:
-      endpointType: FabricOneLake
-      fabricOneLakeSettings:
-        # The default Fabric OneLake host URL in most cases
-        host: https://onelake.dfs.fabric.microsoft.com
-        oneLakePathType: Tables
-        authentication:
-          method: SystemAssignedManagedIdentity
-          systemAssignedManagedIdentitySettings: {}
-        names:
-          workspaceName: <EXAMPLE-WORKSPACE-NAME>
-          lakehouseName: <EXAMPLE-LAKEHOUSE-NAME>
-    ```
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iotoperations
+spec:
+  endpointType: FabricOneLake
+  fabricOneLakeSettings:
+    # The default Fabric OneLake host URL in most cases
+    host: https://onelake.dfs.fabric.microsoft.com
+    oneLakePathType: Tables
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+    names:
+      workspaceName: <WORKSPACE_NAME>
+      lakehouseName: <LAKEHOUSE_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
 
 # [Bicep](#tab/bicep)
    
-1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+Create a Bicep `.bicep` file with the following content.
 
-    ```bicep
-        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-        param endpointName string = '<ENDPOINT_NAME>'
-        param lakehouseName string = '<EXAMPLE-LAKEHOUSE-NAME>'
-        param workspaceName string = '<EXAMPLE-WORKSPACE-NAME>'
-        
-        resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-          parent: aioInstance
-          name: endpointName
-          extendedLocation: {
-            name: customLocationName
-            type: 'CustomLocation'
-          }
-          properties: {
-            endpointType: 'FabricOneLake'
-            fabricOneLakeSettings: {
-              authentication: {
-                method: 'SystemAssignedManagedIdentity'
-                systemAssignedManagedIdentitySettings: {}
-              }
-              oneLakePathType: 'Tables'
-              host: 'https://onelake.dfs.fabric.microsoft.com'
-              names: {
-                lakehouseName: lakehouseName
-                workspaceName: workspaceName
-              }
-              ...
-            }
-          }
-        }
-    ```
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param lakehouseName string = '<LAKEHOUSE_NAME>'
+param workspaceName string = '<WORKSPACE_NAME>'
 
-1. Deploy via Azure CLI
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'FabricOneLake'
+    fabricOneLakeSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      oneLakePathType: 'Tables'
+      host: 'https://onelake.dfs.fabric.microsoft.com'
+      names: {
+        lakehouseName: lakehouseName
+        workspaceName: workspaceName
+      }
+      ...
+    }
+  }
+}
+```
+
+Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file deployment.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 ---
@@ -121,10 +132,9 @@ To learn more, see [Give access to a workspace](/fabric/get-started/give-access-
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
 
+In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
 
 # [Kubernetes](#tab/kubernetes)
-
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
 
 ```yaml
 fabricOneLakeSettings:
@@ -134,14 +144,29 @@ fabricOneLakeSettings:
       {}
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
+
+---
+
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 fabricOneLakeSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://contoso.onelake.dfs.fabric.microsoft.com
+      audience: https://<ACCOUNT>.onelake.dfs.fabric.microsoft.com
 ```
 
 # [Bicep](#tab/bicep)
@@ -151,10 +176,9 @@ fabricOneLakeSettings: {
   authentication: {
     method: 'SystemAssignedManagedIdentity'
     systemAssignedManagedIdentitySettings: {
-      audience: 'https://contoso.onelake.dfs.fabric.microsoft.com'
+      audience: 'https://<ACCOUNT>.onelake.dfs.fabric.microsoft.com'
     }
   }
-  ...
 }
 ```
 
@@ -186,7 +210,6 @@ fabricOneLakeSettings: {
       tenantId: '<tenantId>'
     }
   }
-  ...
 }
 ```
 
@@ -207,8 +230,6 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 
 # [Kubernetes](#tab/kubernetes)
 
-Set the values in the dataflow endpoint custom resource.
-
 ```yaml
 fabricOneLakeSettings:
   batching:
@@ -218,15 +239,13 @@ fabricOneLakeSettings:
 
 # [Bicep](#tab/bicep)
 
-The bicep file has the values in the dataflow endpoint resource.
-
-<!-- TODO  Add a way for users to override the file with values using the az stack group command >
-
 ```bicep
-batching: {
-  latencySeconds: 5
-  maxMessages: 10000
+fabricOneLakeSettings: {
+  batching: {
+    latencySeconds: 100
+    maxMessages: 1000
+  }
 }
 ```
--->
+
 ---
