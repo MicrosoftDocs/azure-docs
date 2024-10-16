@@ -69,15 +69,16 @@ To onboard through Azure portal, follow these steps:
 ### [Single Azure Arc VM - Azure portal](#tab/ct-single-arcvm)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
-1. Under **Operations** ,  select **Change tracking**.
-1. Select **Configure with AMA** and in the **Configure with Azure monitor agent**,  provide the **Log analytics workspace** and select **Migrate** to initiate the deployment.
 
-   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-inline.png" alt-text="Screenshot of onboarding a single VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-arc-machines-portal.png":::
 
-1. Select **Switch to CT&I with AMA** to evaluate the incoming events and logs across LA agent and AMA version.
+1. Select the specific Arc machine with Change Tracking V1 enabled that needs to be migrated to Change Tracking V2.
 
-   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
+1. Select **Migrate to Change Tracking with AMA** and in the **Configure with Azure monitor agent**,  provide the resource id in the **Log analytics workspace** and select **Migrate** to initiate the deployment.
 
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm.png" alt-text="Screenshot of onboarding a single Arc VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm-expanded.png":::
+
+1. Select **Manage Activity log connection** to evaluate the incoming events and logs across LA agent and AMA version.
 
 ### [Arc-enabled VMs - PowerShell script](#tab/ps-policy)
 
