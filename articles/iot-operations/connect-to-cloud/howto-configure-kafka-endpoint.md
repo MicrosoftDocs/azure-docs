@@ -517,7 +517,7 @@ kafkaSettings: {
 
 To use anonymous authentication, update the authentication section of the Kafka settings to use the Anonymous method.
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
 

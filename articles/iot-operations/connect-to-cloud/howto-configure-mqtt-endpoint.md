@@ -591,7 +591,7 @@ If the audience isn't specified, the default audience for the Azure IoT Operatio
 
 To use anonymous authentication, set the authentication method to `Anonymous`.
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
 
