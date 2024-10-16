@@ -13,7 +13,7 @@ ms.author: ruxu
 
 # Transform data by running a Synapse notebook
 
-[!INCLUDEappliesto-adf-asa-md]
+[!INCLUDE [appliesto-adf-asa-md](../data-factory/includes/appliesto-adf-asa-md.md)]
 
 The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
