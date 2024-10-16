@@ -51,7 +51,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Connect from Remote Desktop Client
+          - text: Connect from the Remote Desktop client
             url: connect-remote-desktop-client.md
       - linkListType: how-to-guide
         links:
