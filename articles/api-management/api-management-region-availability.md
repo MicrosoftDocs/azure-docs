@@ -31,25 +31,26 @@ Information in the following table is updated regularly.
 | Brazil South | ✅ | ✅ | ✅ |  |
 | Central India  | ✅ | ✅ | |  |
 | Central US  | |  | ✅ |  |
-| East US 2 | ✅ | ✅ | ✅ | ✅ |
 | East Asia | ✅ | ✅ | ✅ | ✅ |
+| East US  |  |  | ✅ |  |
+| East US 2 | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | ✅ | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
-| Korea Central | ✅ | ✅ | ✅ | | 
 | Japan East | ✅ | ✅ | ✅ | ✅ |
+| Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
-| North Europe | ✅ | ✅ | | ✅ |
+| North Europe | ✅ | ✅ | ✅ | ✅ |
 | Norway East | ✅ | ✅ | ✅ | |
-| South Africa North | ✅ | ✅ | |  |
-| South Central US | ✅ | ✅ |  |  |
+| South Africa North | ✅ | ✅ | ✅ |  |
+| South Central US | ✅ | ✅ | ✅ |  |
 | South India | ✅ | ✅ |  |  |
 | Southeast Asia | ✅ | ✅ | ✅ | ✅ |
-| Switzerland North | ✅ |✅ | | |
-| UK South | ✅  | ✅ | | ✅ |
+| Switzerland North | ✅ |✅ | ✅ | |
+| UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ |  |  |
-| West US | ✅ | ✅ | | ✅ |
-| West US 2 | ✅ | ✅ | | |
+| West Europe  | ✅ | ✅ | ✅ |  |
+| West US | ✅ | ✅ | ✅ | ✅ |
+| West US 2 | ✅ | ✅ | ✅ | |
 
 
 ## Related content
