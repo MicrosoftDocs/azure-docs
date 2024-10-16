@@ -15,22 +15,18 @@ ms.author: fangjimmy
 
 Azure Container Apps platform offers debug console to help you troubleshoot your application under the following circumstances:
 
-- You can not connect to the target container when you use distroless image.
-- If you only install JRE in the runtime image, there are no JDK troubleshooting tools like jcmd, jstack pre-installed in the image.
-- When encounter networking issues, your image do not have debugging utilities to investigate them.
+- You cannot connect to the target container when you use distroless image.
+- If you only install JRE in the runtime image, there are no JDK troubleshooting tools like jcmd, jstack preinstalled in the image.
+- When encounter networking issues, your images do not have debugging utilities to investigate them.
 
 You can connect to debug console using the Azure CLI.
-
 
 > [!NOTE]
 > Debug Console will create a separate container, which will share underlying resources with the container your app is running on. If a debug container already exists, Debug Console will reuse the existing one instead of creating a new one. There will be at most 1 running debug container per Container App replica. If you do not need to keep a debug container running any more, please type **exit** or press **Ctrl + D** in Debug Console session.
 
-> [!NOTE]
-> If you encounter input missing in debug console, you can try to use **Ctrl-D** to exit and re-connect to debug console again.
-
 ## Azure CLI
 
-To connect to a container debug console, Use the `az containerapp debug` command. To exit the console, enter **exit** or use **Ctrl-D**.
+To connect to a container debug console, Use the `az containerapp debug` command. To exit the console, enter **exit** or press **Ctrl + D**.
 
 For example, connect to a container debug console in a container app with a single container using the following command. Replace the \<PLACEHOLDERS\> with your container app's values.
 
@@ -134,7 +130,7 @@ az containerapp debug `
 
 ## Built-in tools in Debug Console
 
-We pre-installed below diagnostic tools to help you troubleshoot issues more easily in debug console.
+We preinstalled below diagnostic tools to help you troubleshoot issues more easily in debug console.
 
 - [ip-utils](https://github.com/iputils/iputils)
 - [net-tools](https://github.com/ecki/net-tools)
@@ -159,15 +155,14 @@ tdnf install -y msopenjdk-17
 
 ---
 
-## Scenarios to use Debug Console
+## Scenario - Accessing container's file system via Debug Console
 
-- Accessing container's file system
+By default, you will use **root** user when you connect to debug console. 
 
-You can access /proc/1 to access container's file system if you use **root** user to run your container.
-
-If you use a non-root user, please run below command before accessing /proc/1 directory, or you will get permission denied error.
+You can access /proc/1 to access container's file system if you use **root** user to run your application. If you use a nonroot user to run your application, run below command to switch user before accessing /proc/1 directory, or you'll get permission denied error.
 
 ```bash
+tdnf install -y shadow-utils
 app_gid=$(ps -ax --sort pid -o 'group' --no-headers | head -1)
 
 if [ "$app_uid" != "$(whoami)" ]; then
