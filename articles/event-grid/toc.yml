@@ -224,6 +224,8 @@ items:
           href: create-view-manage-event-subscriptions.md
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
+        - name: Forward events to another namespace topic
+          href: forward-events-to-another-namespace-topic.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
