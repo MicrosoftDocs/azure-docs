@@ -5,7 +5,8 @@ description: Overview of the ADF SAP Knowledge Center and ADF SAP IP
 author: ukchrist
 ms.author: ulrichchrist
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # SAP knowledge center overview

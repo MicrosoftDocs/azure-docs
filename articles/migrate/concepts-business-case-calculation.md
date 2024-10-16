@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Business case (preview) overview
 
-This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
+This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 
 ## What's a business case?
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+description: Comprehensive list of all the authorized Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
 author: todorgb
-ms.author: todorb
+ms.author: eliotgra
 ms.date: 10/31/2023
 ---
 
 # Azure Government authorized reseller list
 
-Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we've worked with the partner community to bring them the benefits of this channel. Our goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
+From the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), Microsoft worked with the partner community to bring them the benefits of this channel. The goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
 
-Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
+The following tables contain lists of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. We update this list as new partners are onboarded. 
 
 ## Approved direct CSPs
 
@@ -51,7 +51,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|Applied Information Sciences, Inc.|
+|[Applied Information Sciences, Inc.](https://www.ais.com)|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
@@ -160,6 +160,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
+|[Enavate](https://www.enavate.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
 |[Enterprise Computing Services](https://thinkecs.com/)|

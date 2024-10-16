@@ -74,6 +74,10 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Promotional offers
+    items:
+    - name: Linux VMs
+      href: limited-time-linux.md
   - name: Limited-time offers
     items:
     - name: US West Dv3 VMs

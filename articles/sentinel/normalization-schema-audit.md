@@ -6,6 +6,10 @@ ms.topic: reference
 ms.date: 12/12/2022
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the ASIM Audit Events normalization schema so that I can effectively monitor and analyze audit trails across various information systems.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Audit Events normalization schema reference (Public preview)

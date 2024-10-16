@@ -3,9 +3,9 @@ title: Frequently asked questions for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/24/2024
+ms.date: 10/15/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: references_regions
 ---
 
@@ -58,7 +58,7 @@ ms.custom: references_regions
 * <a id="azure-container-storage-ephemeralosdisk"></a>
   **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
   No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
-
+  
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)

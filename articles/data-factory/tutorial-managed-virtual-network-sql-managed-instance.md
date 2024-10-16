@@ -4,7 +4,8 @@ description: This tutorial provides steps for using the Azure portal to setup Pr
 author: lrtoyou1223
 ms.author: lle
 ms.topic: tutorial
-ms.date: 08/11/2023
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint

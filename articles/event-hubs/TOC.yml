@@ -55,8 +55,6 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Send events using Data Generator
-          href: send-and-receive-events-using-data-generator.md
           displayName: No Code, Sample data
         - name: Stream large messages
           href: event-hubs-quickstart-stream-large-messages.md
@@ -114,7 +112,11 @@
     - name: Application groups
       href: resource-governance-overview.md  
     - name: Local emulator
-      href: overview-emulator.md
+      items:
+      - name: Overview of Event Hubs emulator
+        href: overview-emulator.md
+      - name: What's new with Event Hubs emulator
+        href: event-hubs-emulator-whats-new.md
     - name: Tiers 
       items: 
       - name: Premium tier
