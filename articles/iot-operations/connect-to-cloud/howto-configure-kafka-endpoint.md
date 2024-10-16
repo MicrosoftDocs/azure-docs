@@ -630,7 +630,7 @@ The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabl
 
 Configure the trusted CA certificate for the Kafka endpoint to establish a secure connection to the Kafka broker. This setting is important if the Kafka broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
 
-# Portal(#tab/portal)
+# [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
 
