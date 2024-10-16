@@ -6,9 +6,10 @@ ms.author: kgremban
 manager: lizross
 ms.date: 12/19/2022
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Automate Azure Device Provisioning Service with GitHub Actions
