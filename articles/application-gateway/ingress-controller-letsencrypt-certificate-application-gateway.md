@@ -140,3 +140,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     1. Delete the existing staging `ClusterIssuer` resource that you created earlier. Create a new staging resource by replacing the ACME server from the previous `ClusterIssuer` YAML with `https://acme-v02.api.letsencrypt.org/directory`.
 
 Before the Let's Encrypt certificate expires, `cert-manager` automatically updates the certificate in the Kubernetes secret store. At that point, the Application Gateway Ingress Controller applies the updated secret referenced in the ingress resources that it's using to configure Application Gateway.
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

@@ -34,3 +34,7 @@ spec:
           serviceName: frontend
           servicePort: 80
 ```
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

@@ -68,3 +68,7 @@ Any property that the readiness or liveness probe can't infer uses the following
 | `Timeout` | `30` |
 | `Interval` | `30` |
 | `UnhealthyThreshold` | `3` |
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

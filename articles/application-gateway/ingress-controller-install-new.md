@@ -366,3 +366,4 @@ Alternatively, you can:
 ## Related content
 
 - For more examples on how to expose an AKS service to the internet via HTTP or HTTPS by using Application Gateway, see [this how-to guide](ingress-controller-expose-service-over-http-https.md).
+- For information about Application Gateway for Containers, see [this overview article](for-containers/overview.md).

@@ -50,3 +50,4 @@ az aks enable-addons -n <AKS-cluster-name> -g <AKS-cluster-resource-group> -a in
 ## Related content
 
 - For more information on how to enable the AGIC add-on by using an existing Application Gateway deployment and AKS cluster, see [this tutorial](tutorial-ingress-controller-add-on-existing.md).
+- For information about Application Gateway for Containers, see [this overview article](for-containers/overview.md).

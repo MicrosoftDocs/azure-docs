@@ -158,3 +158,7 @@ By default, AGIC configures Application Gateway based on annotated ingress withi
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

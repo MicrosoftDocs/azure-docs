@@ -65,3 +65,7 @@ This code makes the ingress controller filter the IP address configurations for 
 
 > [!NOTE]
 > Application Gateway v2 requires a public IP. If you require Application Gateway to be private, attach a [network security group](../virtual-network/network-security-groups-overview.md) to the Application Gateway deployment's subnet to restrict traffic.
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

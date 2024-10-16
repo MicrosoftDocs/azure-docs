@@ -98,3 +98,7 @@ Depending on the server implementation (such as [this example](https://github.co
 Because Application Gateway doesn't add WebSocket headers, the Application Gateway health probe response from your WebSocket server is most likely `400 Bad Request`. Application Gateway then marks your pods as unhealthy. This status eventually results in a `502 Bad Gateway` error for the consumers of the WebSocket server.
 
 To avoid the `502 Bad Gateway` error, you might need to add an HTTP `GET` handler for a health check to your server. For example, `/health` returns `200 OK`.
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

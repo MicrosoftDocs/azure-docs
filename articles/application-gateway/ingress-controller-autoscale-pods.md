@@ -129,3 +129,4 @@ ab -n10000 http://<applicaiton-gateway-ip-address>/
 ## Related content
 
 - [Troubleshoot Application Gateway Ingress Controller issues](ingress-controller-troubleshoot.md)
+- [Application Gateway for Containers](for-containers/overview.md)

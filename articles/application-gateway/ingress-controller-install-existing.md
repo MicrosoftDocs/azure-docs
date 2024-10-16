@@ -414,3 +414,7 @@ You can prohibit AGIC from making changes to a subset of the configuration:
 
 3. Modify the Application Gateway configuration from the Azure portal. For example, add listeners, routing rules, and backends. The new object that you created (`manually-configured-staging-environment`) prohibits AGIC from overwriting the Application Gateway configuration related to
 `staging.contoso.com`.
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)
