@@ -108,13 +108,13 @@ When you swap two slots (usually from a staging slot *as the source* into the pr
     - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
     - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
     
-    Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
+    When any of the settings is applied to the source slot, the change triggers all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
 
 1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
-1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
+1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger the custom [Application Initiation](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) on each instance of the source slot.
 
     If `applicationInitialization` isn't specified, trigger an HTTP request to the application root of the source slot on each instance. 
     
