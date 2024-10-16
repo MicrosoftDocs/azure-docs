@@ -16,7 +16,6 @@ ms.author: fangjimmy
 Azure Container Apps platform offers debug console to help you troubleshoot your application under the following circumstances:
 
 - You cannot connect to the target container when you use distroless image.
-- If you only install JRE in the runtime image, there are no JDK troubleshooting tools like jcmd, jstack preinstalled in the image.
 - When encounter networking issues, your images do not have debugging utilities to investigate them.
 
 You can connect to debug console using the Azure CLI.
@@ -157,9 +156,9 @@ tdnf install -y msopenjdk-17
 
 ## Scenario - Accessing container's file system via Debug Console
 
-By default, you will use **root** user when you connect to debug console. 
+By default, debug console runs as root user.
 
-You can access /proc/1 to access container's file system if you use **root** user to run your application. If you use a nonroot user to run your application, run below command to switch user before accessing /proc/1 directory, or you'll get permission denied error.
+You can access /proc/1 to access container's file system if your container runs as root user. If your container does not run as root user, run below command to switch user before accessing /proc/1 directory, or you'll get permission denied error.
 
 ```bash
 tdnf install -y shadow-utils
