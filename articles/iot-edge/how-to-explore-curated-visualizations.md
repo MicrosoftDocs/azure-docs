@@ -7,7 +7,7 @@ ms.author: patricka
 ms.date: 04/08/2024
 ms.topic: conceptual
 ms.reviewer: veyalla
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
