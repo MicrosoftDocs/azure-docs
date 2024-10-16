@@ -76,7 +76,7 @@ To onboard through Azure portal, follow these steps:
 
 1. Select **Migrate to Change Tracking with AMA** and in the **Configure with Azure monitor agent**,  provide the resource id in the **Log analytics workspace** and select **Migrate** to initiate the deployment.
 
-   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm.png" alt-text="Screenshot of onboarding a single Arc VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm-expanded.png":::
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm.png" alt-text="Screenshot of onboarding a single Arc VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-arc-vm.png":::
 
 1. Select **Manage Activity log connection** to evaluate the incoming events and logs across LA agent and AMA version.
 
