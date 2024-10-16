@@ -29,9 +29,9 @@ Many industry regulations and standards, such as PCI-DSS and HIPAA, now mandate 
 
 ## Benefits of upgrading to TLS 1.3 
 
-TLS 1.3 introduces several improvements over its predecessors, offering enhanced security and performance: 
+TLS 1.3 introduces several improvements over its predecessors, offering enhanced security and performance. 
 
-### Enhanced Security 
+### Enhanced security 
 
 TLS 1.3 eliminates outdated cryptographic algorithms and simplifies the handshake process, reducing the attack surface. It also provides forward secrecy, ensuring that session keys can't be compromised even if the server's long-term key is compromised in the future. 
 
