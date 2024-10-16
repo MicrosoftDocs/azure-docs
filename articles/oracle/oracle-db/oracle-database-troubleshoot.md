@@ -4,7 +4,7 @@ description: Learn about how to troubleshoot Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---
@@ -53,7 +53,7 @@ We recommend the removal of all Microsoft  locks to Oracle Database@Azure resour
 In this section, you'll find information about networking and how it can affect Oracle Database@Azure.
 ### IP address requirement differences between Oracle Database@Azure and Exadata in  OCI
 
-IP address requirements are different between Oracle Database@Azure and  in OCI. In the [Requirements for IP Address Space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA) documentation for Exadata in , the following differences with the requirements of Oracle Database@Azure must be considered:
+IP address requirements are different between Oracle Database@Azure and Exadata in OCI. In the [Requirements for IP Address Space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA) documentation for Exadata in OCI, the following differences with the requirements of Oracle Database@Azure must be considered:
 
 -   Oracle Database@Azure only supports Exadata X9M. All other shapes are unsupported.
 

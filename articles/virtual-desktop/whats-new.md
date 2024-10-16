@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 09/19/2024
+ms.date: 10/03/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,9 +22,25 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## October 2024
+
+Here's what changed in October 2024:
+
+### Windows 11, version 24H2 images are now available in Azure Marketplace
+
+Windows 11 Enterprise and Windows 11 Enterprise multi-session are now available in the Azure Marketplace.  The following updated images are available Windows 11 + Windows 365 apps and Windows 11. The portal will be updated later this month to allow the convenient selection of 24H2 images.  
+
+For additional information to configure languages other than English, see [Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop](windows-11-language-packs.md). 
+
 ## September 2024
 
 Here's what changed in September 2024:
+
+### Relayed RDP Shortpath (TURN) for public networks is now available 
+
+This enhancement allows UDP connections via relays using the Traversal Using Relays around NAT (TURN) protocol, extending the functionality of RDP Shortpath on public networks for everyone. 
+
+For detailed configuration guidance, including prerequisites and default configurations, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md).
 
 ### Windows App is now available
 
@@ -366,7 +382,7 @@ Here's what changed in July 2023:
 
 Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
-For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
+For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-video-playback-calls.md#call-redirection).
 
 ### Autoscale for personal host pools is currently in preview
 
@@ -468,7 +484,7 @@ This feature is an extension of the generally available Remote Desktop Protocol 
 
 ### Multimedia redirection enhancements now generally available
 
-Multimedia Redirection (MMR) is now generally available. MMR enables smooth video playback while viewing videos in a browser running on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-multimedia-redirection-mmr-on/ba-p/3736489) or [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
+Multimedia redirection is now generally available. Multimedia redirection enables smooth video playback while viewing videos in a browser running on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-multimedia-redirection-mmr-on/ba-p/3736489) or [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
 
 ### New User Interface for Azure Virtual Desktop web client now in preview
 
@@ -574,7 +590,7 @@ The ability to collect graphics data for your Azure Virtual Desktop connections 
 
 ### Multimedia redirection enhancements now in preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+An upgraded version of multimedia redirection for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
 
 ### Grouping costs by Azure Virtual Desktop host pool now in preview
 
@@ -718,7 +734,7 @@ Accessibility has always been important to us, so we're pleased to announce that
 
 ### Multimedia redirection enhancements now in preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+An upgraded version of multimedia redirection for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
 
 ### FSLogix version 2201 is now generally available
 
