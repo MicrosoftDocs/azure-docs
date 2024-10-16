@@ -5,7 +5,7 @@ description: This tutorial uses Power BI to visualize temperature and humidity d
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: arduino
 ms.date: 04/14/2023
