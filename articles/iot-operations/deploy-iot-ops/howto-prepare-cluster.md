@@ -59,10 +59,11 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the following extensions for Azure CLI:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:

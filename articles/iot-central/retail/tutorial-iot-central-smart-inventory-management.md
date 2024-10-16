@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT smart inventory management
 description: This tutorial shows you how to deploy and use a smart inventory-management application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
 ms.date: 10/14/2024
 ---

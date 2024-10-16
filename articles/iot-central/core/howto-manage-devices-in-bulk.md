@@ -1,7 +1,7 @@
 ---
 title: Create and run jobs in your Azure IoT Central application
 description: Azure IoT Central jobs allow for bulk device management capabilities, such as updating properties or running a command.
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett

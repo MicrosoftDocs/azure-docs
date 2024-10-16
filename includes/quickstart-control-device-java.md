@@ -1,7 +1,7 @@
 ---
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: include
