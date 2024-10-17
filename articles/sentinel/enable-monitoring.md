@@ -46,7 +46,9 @@ To get started, enable auditing and health monitoring from the Microsoft Sentine
    #### [Defender portal](#tab/defender-portal)
    :::image type="content" source="media/enable-monitoring/enable-health-monitoring-defender.png" alt-text="Screenshot shows how to get to the health monitoring settings in the Defender portal.":::
 
-    If you selected **Enable**, then the button will gray out and change to read **Enabling...** and then **Enabled**. At that point, auditing and health monitoring is enabled, and you're done! The appropriate diagnostic settings were added behind the scenes, and you can view and edit them by selecting the **Configure diagnostic settings** link.
+   ---
+
+   If you selected **Enable**, then the button will gray out and change to read **Enabling...** and then **Enabled**. At that point, auditing and health monitoring is enabled, and you're done! The appropriate diagnostic settings were added behind the scenes, and you can view and edit them by selecting the **Configure diagnostic settings** link.
 
 1. If you selected **Configure diagnostic settings**, then in the **Diagnostic settings** screen, select **+ Add diagnostic setting**.
 
