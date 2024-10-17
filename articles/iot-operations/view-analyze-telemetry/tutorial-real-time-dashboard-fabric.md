@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker
