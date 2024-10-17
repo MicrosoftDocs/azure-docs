@@ -52,8 +52,8 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
 1. Validate the deployment. Fetch the capability statement from your new FHIR service. Fetch a capability statement by browsing to `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
-
-## Below are the error messages along with recommended actions to resolve the problems during deployment
+## Troubleshoot FHIR service deployment
+ Below are the error messages along with recommended actions to resolve the problems during deployment.
 
 **What should I do if I accidentally deployed the Azure API for FHIR into the wrong subscription, deleted it, and am now facing a deployment failure in the correct subscription with a message stating that the resource name is not available?**
 
