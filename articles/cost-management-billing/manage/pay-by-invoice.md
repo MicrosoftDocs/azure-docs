@@ -37,7 +37,7 @@ Currently, customers who have a Microsoft Online Subscription Program (pay-as-yo
 To qualify for wire transfer payments, you must:
 
 - Be an established customer for at least six months and have no outstanding balances.
-- Have a subscription cost that exceeds a certain amount. This amount varies by service location.
+- Have a subscription cost that exceeds minimum of $6000 USD each month for at least 3 months in last 12 months window, or should be a key customer(S500/Unified). This amount varies by service location.
 
 > [!IMPORTANT]
 > - You must pay all outstanding charges before switching to payment by wire transfer.
