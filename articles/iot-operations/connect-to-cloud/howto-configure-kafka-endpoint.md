@@ -821,24 +821,24 @@ kafkaSettings: {
 
 ---
 
-### Kafka acknowledgements
+### Kafka acknowledgments
 
-Kafka acknowledgements (acks) are used to control the durability and consistency of messages sent to Kafka topics. When a producer sends a message to a Kafka topic, it can request different levels of acknowledgements from the Kafka broker to ensure that the message is successfully written to the topic and replicated across the Kafka cluster.
+Kafka acknowledgments (acks) are used to control the durability and consistency of messages sent to Kafka topics. When a producer sends a message to a Kafka topic, it can request different levels of acknowledgments from the Kafka broker to ensure that the message is successfully written to the topic and replicated across the Kafka cluster.
 
 This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The dataflow doesn't wait for any acknowledgements from the Kafka broker. This is the fastest but least durable option. |
+| `None` | The dataflow doesn't wait for any acknowledgments from the Kafka broker. This is the fastest but least durable option. |
 | `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This is the slowest but most durable option. This is also the default option|
 | `One` | The dataflow waits for the message to be written to the leader partition and at least one follower partition. |
-| `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgements from the followers. This is faster than `One` but less durable. |
+| `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
 
 <!-- TODO: double check for accuracy -->
 
 For example, if you set the Kafka acknowledgement to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
 
-To configure the Kafka acknowledgements:
+To configure the Kafka acknowledgments:
 
 # [Portal](#tab/portal)
 
