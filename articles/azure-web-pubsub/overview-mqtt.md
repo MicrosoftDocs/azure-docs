@@ -18,6 +18,19 @@ You can use MQTT protocols in Web PubSub service for the following scenarios:
 * Broadcast messages to MQTT clients.
 * Get notifications for MQTT client lifetime events.
 
+This new capability addresses two key use cases: 
+
+1. Real-time applications with mixed protocols: You can allow clients using different real-time protocols to exchange data through the Azure Web PubSub service. 
+
+2. Support for additional programming languages: You can use any MQTT library to connect with the service, making it possible to integrate with applications written in languages like C++, beyond the existing SDKs in C#, JavaScript, Python, and Java. 
+
+It’s important to note that this MQTT integration is a lightweight adaptation of the MQTT protocol and extends only to the features already supported by Azure Web PubSub. Some MQTT features that are not supported include: 
+
+- Wildcard subscriptions 
+- Retained messages 
+- Shared subscriptions 
+For a more comprehensive MQTT broker solution on Azure, we recommend exploring [Azure Event Grid](../event-grid/overview.md). 
+
 > [!NOTE]
 > MQTT support in Azure Web PubSub is in preview stage.
 
@@ -29,9 +42,9 @@ Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that 
 
 ### Cross-protocol communication
 
-MQTT clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
+MQTT web clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
 
-### Easy MQTT adoption for current Web PubSub users
+### Easy MQTT adoption for current Azure Web PubSub users
 
 Current users of Azure Web PubSub can use MQTT protocol with minimal modifications to their existing upstream servers. The Web PubSub REST API is already equipped to handle MQTT connections, simplifying the transition process.
 

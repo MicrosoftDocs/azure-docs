@@ -11,8 +11,6 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: MQTT in Web PubSub
-      href: overview-mqtt.md
     - name: What's new
       href: whats-new.md
 - name: Quickstarts
