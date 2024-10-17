@@ -182,7 +182,7 @@ New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName
 
 ```
 
-Use this sample code to enable CRC protection on an existing volume group using PowerShell. Replace the variable values before running the sample.
+Use this script to enable CRC protection on an existing volume group using the Azure PowerShell module. Replace the values of `$RgName`, `$EsanName`, `$EsanVgName` before running the script.
 
 ```powershell
 # Set the variable values.
