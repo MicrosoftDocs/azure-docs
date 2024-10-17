@@ -22,28 +22,28 @@ Zone redundant availability provides resiliency by protecting against outages wi
 
 ## Region availability
 
-Here's a list of the availability zones for Azure Health Data Services, grouped by region (in parenthesis).
+Here's a list of the availability zones for Azure Health Data Services.
 
-- (Asia Pacific) Australia East
-- (Asia Pacific) Cental India
-- (Asia Pacific) Japan East
-- (Asia Pacific) Korea Central
-- (Asia Pacific) Southeast Asia
-- (Europe) France Central
-- (Europe) North Europe
-- (Europe) West Europe
-- (Europe) UK South
-- (Europe) Sweden Central
-- (Europe) Germany West Central*
-- (Middle East) Qatar Central*
-- (North America) East US*
-- (North America) East US 2
-- (North America) South Central US*
-- (North America) West US 2*
-- (North America) West US 3*
-- (North America) Canada Central
+- Australia East
+- Cental India
+- Japan East
+- Korea Central
+- Southeast Asia
+- France Central
+- North Europe
+- West Europe
+- UK South
+- Sweden Central
+- Germany West Central*
+- Qatar Central*
+- East US*
+- East US 2
+- South Central US*
+- West US 2*
+- West US 3*
+- Canada Central
 
-Zones marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.
+Zones marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these zones may take longer.
 
 ### Limitations
 
