@@ -1,7 +1,7 @@
 ---
-title: Layers in an Azure Maps Power BI visual
+title: Path Layer in an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps Power BI visual
-description: This article describes the different layers available in an Azure Maps Power BI visual.
+description: This article describes the path layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
 ms.date: 11/11/2024
