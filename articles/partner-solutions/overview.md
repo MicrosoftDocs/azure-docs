@@ -1,11 +1,11 @@
 ---
 title: Overview of Azure Native ISV Services
 description: Introduction to the Azure Native ISV Services.
-author: flang-msft
+
 
 ms.topic: conceptual
 ms.date: 04/08/2024
-ms.author: franlanglois
+
 ---
 
 # Azure Native ISV Services overview
