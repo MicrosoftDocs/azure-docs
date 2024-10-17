@@ -2,7 +2,7 @@
 title: Encrypt backup data in a Backup vault by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs) in a Backup vault.
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 10/18/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -19,11 +19,15 @@ To allow encryption, you must grant the Backup vault the permissions to access t
 
 ## Support matrix
 
+This section provides the supported scenarios for data encryption in a Backup vault.
+
 ### Supported regions
 
 CMKs for Backup vaults are currently available in all Azure public regions.
 
 ### Key Vault and managed HSM key requirements
+
+Before you enable encryption on a Backup vault, review the following requirements:
 
 - Encryption settings use Azure Key Vault or a managed hardware security module (HSM) key, along with the details of the Backup vault's managed identity.
 
@@ -39,7 +43,17 @@ CMKs for Backup vaults are currently available in all Azure public regions.
 
 - Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
 
+### Known limitation
+
+If you delete the key vault/MHSM key used for encryption settings, the delete Backup Vault operation will fail. 
+
+>[!Note]
+>- Before performing the delete vault operation on a vault with encryption settings enabled, ensure that the encryption settings details, such as the managed identity, are attached to the vault and have the necessary permissions to access the key vault/MHSM key.
+>- Also, ensure that the key vault/MHSM key (if used) exists. If the key is deleted, you can recover it from the soft deleted state. Learn about the [troubleshooting steps](#troubleshoot-operation-errors-for-encryption-settings).
+
 ## Considerations
+
+Before you enable encryption on a Backup vault, review the following considerations:
 
 - After you enable encryption by using CMKs for a Backup vault, you can't revert to using PMKs (the default). You can change the encryption keys or the managed identity to meet requirements.
 
@@ -57,6 +71,10 @@ CMKs for Backup vaults are currently available in all Azure public regions.
 
   If the key or key vault that you're using is deleted or access is revoked and can't be restored, you'll lose access to the data stored in the Backup vault. Also, ensure that you have appropriate permissions to provide and update managed identity, Backup vault, and key vault details.
 
+- Vaults that use user-assigned managed identities for CMK encryption don't support the use of private endpoints for Azure Backup.
+
+- Key vaults that limit access to specific networks are currently not supported with User-assigned managed identities for CMK encryption.
+
 ## Enable encryption by using customer-managed keys at vault creation
 
 When you create a Backup vault, you can enable encryption on backups by using CMKs. [Learn how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
@@ -66,6 +84,8 @@ When you create a Backup vault, you can enable encryption on backups by using CM
 # [Azure portal](#tab/azure-portal)
 
 To enable the encryption, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**.
 
 1. On the **Vault Properties** tab, select **Add Identity**.
 
@@ -453,6 +473,12 @@ Before you configure backup protection, confirm that you successfully:
 
 The process to configure and perform backups to a Backup vault that's encrypted via CMKs is the same as the process to configure and perform backups to a vault that uses PMKs. There are no changes to the experience.
 
+## Private Endpoint support
+
+You can use Azure Key Vault with Private Endpoint using System-Assigned Managed Identity of the vault. 
+
+If the public network access of the Azure Key Vault is disabled, the access restrictions will prevent you to use Azure portal from outside the private endpoint enabled network machine to Select Key Vault and Key on the **Encryption Settings** blade. However, you can use the **Key Vault key URI** to provide Key Vault key details in **Encryption Settings**.
+
 ## Troubleshoot operation errors for encryption settings
 
 This section lists the various troubleshooting scenarios that you might encounter for Backup vault encryption.
@@ -497,7 +523,17 @@ This section lists the various troubleshooting scenarios that you might encounte
 
 **Recommended action**: Check the Key Vault access policies and grant permissions accordingly.
 
+### Vault deletion failure
 
+**Error code**: `CloudServiceRetryableError`
+
+**Cause**: If there is an issue with your Backup Vault Encryption Settings (such as you have removed Key Vault/MHSM permissions from the managed identity of the Encryption Settings, disabled system-assigned identity, detached/deleted the managed identity from the Backup vault used for encryption settings, or the key vault/MHSM key is deleted), then vault deletion would fail.
+
+**Recommended action**: To address this issue:
+
+- Ensure that the managed identity being used for Encryption Settings still has the permissions to access the key vault/MHSM. Restore them before you proceed for deletion of the vault.
+- [Reattach/enable the managed identity and assign the required Key Vault/MHSM permissions](#enable-a-managed-identity-for-your-backup-vault).
+- If the key vault key is deleted, then the vault deletion is not currently supported. However, to recover the delete key from the **Soft Deleted** state, ensure that you have the required permissions to the managed identity on the key vault/MHSM, and then retry the **Delete Backup vault** operation.
 
 ## Validate error codes
 
