@@ -49,4 +49,3 @@ For those who have used the metrics previously and have built monitoring in down
 | Average Memory Usage   | UsageAverage    | MemUsageAverage  |
 | Percentage CPU   | EffectiveCpuAverage  | CpuUsageAverage   |
 | Percentage Datastore Disk Used    | DiskUsedPercentage   | DiskUsedPercentage   |
-
