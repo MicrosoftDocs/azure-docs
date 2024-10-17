@@ -70,6 +70,8 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 * Revert to the Azure DNS default by removing the custom DNS within the VNet settings (recommended configuration).
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
 
+Additionally, if you configure the Azure DNS Private Resolver’s forwarding rule on your gateway VNet, ensure that no wildcard domain rules are applied. Such configurations may result in unintended lookup errors for control plane traffic.
+
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
 No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
