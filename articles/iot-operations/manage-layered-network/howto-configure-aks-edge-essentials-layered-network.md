@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Configure Layered Network Management Preview to use Azure IoT Operations Preview in an isolated network

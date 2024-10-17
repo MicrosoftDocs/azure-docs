@@ -117,9 +117,6 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
 
->[!Caution]
->CentOS is end-of-life. [Learn more](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 ### Additional components
 
 The script also requires Python and bash components to execute and connect securely to the recovery point.
