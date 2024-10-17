@@ -62,10 +62,10 @@ To configure network security perimeter for a topic or a domain, use the **Netwo
     :::image type="content" source="./media/configure-network-security-perimeter/select-perimeter-link.png" alt-text="Screenshot that shows the Associate a network security perimeter page with the Select network security perimeter link selected.":::                   
 1. Search for the network security perimeter resource, and select the resource. 
 
-    :::image type="content" source="./media/configure-network-security-perimeter/select-perimeter.png" alt-text="Screenshot that shows the Select network security perimeter page."":::                       
+    :::image type="content" source="./media/configure-network-security-perimeter/select-perimeter.png" alt-text="Screenshot that shows the Select network security perimeter page.":::                       
 1. Now, on the **Associate a network security perimeter** page, select the **profile**, and then select **Associate**.
 
-    :::image type="content" source="./media/configure-network-security-perimeter/select-profile.png" alt-text="Screenshot that shows the Select network security perimeter page with a profile selected."":::                            
+    :::image type="content" source="./media/configure-network-security-perimeter/select-profile.png" alt-text="Screenshot that shows the Select network security perimeter page with a profile selected.":::                            
 1. Now you see the network security perimeter associated with your Azure Event Grid domain or topic resource. 
 
     :::image type="content" source="./media/configure-network-security-perimeter/network-security-perimeter-filled.png" alt-text="Screenshot that shows the Select network security perimeter page with a profile selected." lightbox="./media/configure-network-security-perimeter/network-security-perimeter-filled.png":::
