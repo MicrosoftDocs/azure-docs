@@ -1,6 +1,7 @@
 ---
 title: Create a Neon deployment
 description: This article describes how to use the Azure portal to create an instance of Neon Serverless Postgres - An Azure Native ISV Service.
+author: ProfessorKendrick
 ms.topic: quickstart
 ms.date: 10/01/2024
 ms.custom:
