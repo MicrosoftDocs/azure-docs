@@ -62,10 +62,8 @@ The following table lists the dimensions that Backup Health Events and Restore H
 
 To view metrics in the Azure portal, follow the below steps:
 
-1. Go to **Backup center** in the Azure portal and click **Metrics** from the menu.
-
-   :::image type="content" source="./media/metrics-overview/backup-center-metrics-selection-inline.png" alt-text="Screenshot showing to select Metrics in Backup center." lightbox="./media/metrics-overview/backup-center-metrics-selection-expanded.png":::
-
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Business Continuity Center** > **Monitoring + Reporting** > **Metrics**.
+   
 1. Select a vault or a group of vaults for which you want to view metrics.
 
    Currently, the maximum scope for which you can view metrics is: All Recovery Services vaults in a particular subscription and region. For example, All Recovery Services vaults in East US in _TestSubscription1_.
@@ -130,11 +128,9 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 To view your fired metric alerts, follow these steps:
 
-1. Go to **Backup center** > **Alerts**.
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
 1. Filtering for **Signal Type** = **Metric** and **Alert Type** = **Configured**.
 1. Click an alert to view more details about the alert and change its state.
-
-   :::image type="content" source="./media/metrics-overview/backup-center-metric-alerts-inline.png" alt-text="Screenshot showing the process to view your fired metric alerts." lightbox="./media/metrics-overview/backup-center-metric-alerts-expanded.png":::
 
 >[!NOTE]
 >The alert has two fields - **Monitor condition (fired/resolved)** and **Alert State (New/Ack/Closed)**.
@@ -144,12 +140,9 @@ To view your fired metric alerts, follow these steps:
 
 #### Datasource alerts and Global alerts
 
-Based on the alert rules configuration, the fired alert appears under the **Datasource Alerts** section or the **Global Alerts** section in Backup center:
+Based on the alert rules configuration, the fired alert appears on the **Alerts** blade in the **Business Continuity Center**.
 
-- If the alert has a datasource ID dimension associated with it, the fired alert appears under **Datasource Alerts**.
-- If the alert doesn't have a datasource ID dimension associated with it, the fired alert appears under **Global Alerts** as no information that ties the alert to a specific datasource is present.
-
-[Learn more about datasource and global alerts here](backup-center-monitor-operate.md#alerts)
+[Learn how to view and filter alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md#monitor-alerts).
 
 >[!Note]
 >Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
