@@ -329,7 +329,7 @@ const localVideoStreams = call.localVideoStreams;
 
 ## Manage chat thread
 >[!IMPORTANT]
-> The optional Chat ID is only available in [1.29.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.29.1) or later of the Calling SDK for JavaScript. If you're using an earlier version, ensure you provide a unique thread ID manually.
+> The optional chat ID is only available in [1.29.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.29.1) or later of the Calling SDK for JavaScript. If you're using an earlier version, ensure you provide a unique chat ID manually.
 
 Providing a chat ID is optional for making group calls and adding participants to existing calls. Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
 
@@ -346,12 +346,12 @@ If Teams user stops call recording, the recording is placed into the chat associ
 
 Recommendations for the management of chat ID:
 - Escalation of the 1:1 phone call by adding another phone participant:
-  * Method `addParticipant` allows you to provide optional parameter thread ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
+  * Method `addParticipant` allows you to provide optional parameter chat ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
     ```
 - Start group call with single Microsoft 365 user and multiple phone participants:
-  * Method `startCall` API allows you to start a group call with multiple participants and optionally provide thread ID. If the parameter isn't provided, then a new group chat is created, and all Microsoft 365 participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
+  * Method `startCall` API allows you to start a group call with multiple participants and optionally provide chat ID. If the parameter isn't provided, then a new group chat is created, and all Microsoft 365 participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
@@ -361,4 +361,4 @@ Recommendations for the management of chat ID:
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
-  * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](/graph/api/group-post-threads)
+  * If desired, the developer can provide a unique chat ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given chat ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](/graph/api/group-post-threads)
