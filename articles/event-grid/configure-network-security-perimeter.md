@@ -68,7 +68,7 @@ To configure network security perimeter for a topic or a domain, use the **Netwo
     :::image type="content" source="./media/configure-network-security-perimeter/select-profile.png" alt-text="Screenshot that shows the Select network security perimeter page with a profile selected.":::                            
 1. Now you see the network security perimeter associated with your Azure Event Grid domain or topic resource. 
 
-    :::image type="content" source="./media/configure-network-security-perimeter/network-security-perimeter-filled.png" alt-text="Screenshot that shows the Select network security perimeter page with a profile selected." lightbox="./media/configure-network-security-perimeter/network-security-perimeter-filled.png":::
+    :::image type="content" source="./media/configure-network-security-perimeter/network-security-perimeter-filled.png" alt-text="Screenshot that shows the Networking page with the perimeter selected." lightbox="./media/configure-network-security-perimeter/network-security-perimeter-filled.png":::
 
 ## Considerations when using network security perimeter 
 This article discusses a scenario involving Azure Event Grid domains and Azure Event Hubs as destination. In this scenario, you enable managed identity for the Azure Event Grid domain, and then assign identity the Event Hubs Data Sender role on the Event Hubs namespace. For more information, see [Event delivery, managed service identity, and private link](managed-service-identity.md#use-the-azure-cli---event-hubs). 
