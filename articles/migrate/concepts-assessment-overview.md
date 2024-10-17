@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
  
 # Assessment overview 
  
-This article provides an overview of Azure Migrate assessments. An assessment evaluates workloads hosted on on-premises or other public cloud for migration to Azure Azure Migrate offers performance-based and as-is recommendations for a smooth transition to Azure.   
+This article provides an overview of Azure Migrate assessments. An assessment evaluates workloads hosted on on-premises or other public cloud for migration to Azure Migrate offers performance-based and as-is recommendations for a smooth transition to Azure.   
  
 ## Assessment types 
  

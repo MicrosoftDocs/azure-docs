@@ -107,7 +107,7 @@ Here are a few reasons why an assessment could get a low confidence rating:
 
 ## Next steps 
 
-[Review](./best-practices-assessment.md) best practices for creating assessments. 
+- [Review](./best-practices-assessment.md) best practices for creating assessments. 
 - Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
 - Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
 - Learn about setting up [dependency visualization](./concepts-dependency-visualization.md). 

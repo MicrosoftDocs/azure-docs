@@ -99,6 +99,7 @@ items:
   - name: Assessments
     items:
     - name: Overview # talk about what is an assessment - types of assessments- Scope creation - Readiness/costing/right-sizing
+      href: concepts-assessment-overview.md
     - name: Prerequisites
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
     - name: Retail vs. negotiated pricing
@@ -110,6 +111,8 @@ items:
         - name: Customize assessment settings
         - name: Review assessment report
           items: 
+          - name: Overview
+            href: assessment-report.md
           - name: Migration preference # talk about what each preference is and how that will identify recommended strategy
           - name: Compare assessment strategies
           - name: PaaS preferred strategy 
