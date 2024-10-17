@@ -224,6 +224,8 @@ When you create a business case, by default, servers remaining on-premises are a
  
 *Servers remaining on-premises are assumed to be Azure Arc-enabled. When you create a business case, by default, servers remaining on-premises are assumed to be Arc-enabled. You can disable Arc calculation by editing Azure cost assumptions. 
 
+**CAPEX & OPEX**
+
 |	| Methodology|
 |---|----|
 |CAPEX | Year n CAPEX = (100- estimated migration % that year)* Year n CAPEX in current state|
