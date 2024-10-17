@@ -77,12 +77,12 @@ By default, the attached virtual disk is available for 24 hours and then it is a
  >[!NOTE]
  > The guest restore feature allows you to view and restore system and hidden files and to view encrypted files. Do not attempt to overwrite an existing system file or to restore encrypted files to an encrypted folder. During the restore operation, the hidden, system, and encrypted attributes of guest files are not retained in the restored file. Viewing or browsing reserved partitions might cause an error.
 
-1.	From the vSphere client shortcuts window, select Hosts and Clusters and select a VM.
-2.	Right-click on the VM and select Cloud Backup for Virtual Machines > Guest File Restore.
-3.	On the Restore Scope page, specify the backup that contains the virtual disk you want to attach by doing the following:
-    1.	In the Backup Name table, select the backup that contains the virtual disk that you want attach.
-    2.	In the VMDK table, select the virtual disk that contains the files or folders you want to restore.
-    3.	In the Locations table, select the location, primary or ANFbackup, of the virtual disk that you want to attach.
+1.	From the vSphere client shortcuts window, select **Hosts and Clusters** and select a VM.
+2.	Right-click on the VM and select **Cloud Backup for Virtual Machines > Guest File Restore**.
+3.	On the **Restore Scope** page, specify the backup that contains the virtual disk you want to attach by doing the following:
+    1.	In the **Backup Name** table, select the backup that contains the virtual disk that you want attach.
+    2.	In the **VMDK table**, select the virtual disk that contains the files or folders you want to restore.
+    3.	In the **Locations** table, select the location, primary or ANFbackup, of the virtual disk that you want to attach.
 4.	On the Guest Details page, do the following:
     1.	Choose where to attach the virtual disk:
        
@@ -91,7 +91,7 @@ By default, the attached virtual disk is available for 24 hours and then it is a
         | Use Guest VM | You want to attach the virtual disk to the VM that you right-clicked before you started the wizard, and then select the credential for the VM that you right-clicked.<br /><br /> Ensure that the credentials are already be created for the VM.|
         | Use Guest File Restore proxy VM | You want to attach the virtual disk to a proxy VM, and then select the proxy VM.<br /><br /> Ensure that the proxy VM is configured before the attach and restore operation begins. |
 
-5.	Review the summary, and then click Finish.
+5.	Review the summary, and then click **Finish**.
 
   	Before you click Finish, you can go back to any page in the wizard and change the information.	
 
@@ -100,27 +100,28 @@ By default, the attached virtual disk is available for 24 hours and then it is a
     You can view the progress of the operation in the Dashboard job monitor.
 
 7.	To find the files that you want to restore from the attached virtual disk, select Cloud Backup for Virtual Machines from the vSphere client shortcuts window.
-8.	In the left navigator pane Select Guest File Restore > Guest Configuration.
+8.	In the left navigator pane, select **Guest File Restore > Guest Configuration**.
 
     In the Guest Session Monitor table, you can display additional information about a session by clicking *… *in the right column.
 
 9.	Select the guest file restore session for the virtual machine.
     
-    All partitions are assigned a drive letter, including system reserved partitions. If a VMDK has multiple partitions, you can select a specific drive by selecting the drive in the drop-down list in the drive field at the top of the Guest File Browse page.
+    All partitions are assigned a drive letter, including system reserved partitions. If a VMDK has multiple partitions, you can select a specific drive by 
+    selecting the drive in the drop-down list in the drive field at the top of the Guest File Browse page.
 
-10.	Click the Browse Files icon to view a list of files and folders on the virtual disk.
+10.	Click the **Browse Files** icon to view a list of files and folders on the virtual disk.
 
-    When you double click a folder to browse and select individual files, there might be a time latency while fetching the list of files because the fetch operation is performed at run time.
+    When you double click a folder to browse and select individual files, there might be a time latency while fetching the list of files because the fetch 
+    operation is performed at run time.
 
     For easier browsing, you can use filters in your search string. The filters are case-sensitive, Perl expressions without spaces. The default search string is .*
-
     The Guest File Browse page displays all hidden files and folders in addition to all other files and folders.
 
-11.	Select one or more files or folders that you want to restore, and then click Select Restore Location.
+11.	Select one or more files or folders that you want to restore, and then click **Select Restore Location**.
     
     The files and folders to be restored are listed in the Selected File(s) table.
 
-12.	In the Select Restore Location page, specify the following:
+12.	In the **Select Restore Location** page, specify the following:
     
     | Option | Description |
     | ------ | ----- |
@@ -128,7 +129,7 @@ By default, the attached virtual disk is available for 24 hours and then it is a
     | If original file(s) exist | Select the action to be taken if the file or folder to be restored already exists on the restore destination: Always overwrite or Always skip. <br /> <br /> If the folder already exists, then the contents of the folder are merged with the existing folder. |
     | Disconnect Guest Session after successful restore | Select this option if you want the guest file restore session to be deleted when the restore operation completes. |
 
-13.	Click Restore.
+13.	Click **Restore**.
 
     You can view the progress of the restore operation in the Dashboard job monitor.
 
@@ -136,21 +137,21 @@ By default, the attached virtual disk is available for 24 hours and then it is a
 
 If you want to use a proxy VM for attaching a virtual disk for guest file restore operations, you must set up the proxy VM before you begin the restore operation. Although you can set up a proxy VM at any time, it might be more convenient to set it up immediately after the plug-in deployment completes.
 
-1.	From the vSphere client shortcuts window, select Cloud Backup for Virtual Machines under plug-ins.
-2.	In the left navigation select Guest File Restore.
-3.	In the Run As Credentials section, do one of the following:
+1.	From the vSphere client shortcuts window, select **Cloud Backup for Virtual Machines** under plug-ins.
+2.	In the left navigation select **Guest File Restore**.
+3.	In the **Run As Credentials** section, do one of the following:
    
     | To do this… | Do this... |
     | ------ | ----- |
     | Use existing credentials | Select any of the configured credentials. |
-    | Add new credentials | 1.	Select Add.<br /> 2.	In the Run As Credentials dialog box, enter the credentials.<br /> 3.	Click Select VM, then select a VM in the Proxy VM dialog box. Click Save to return to the Run As Credentials dialog box.<br /> 4.	Enter the credentials.<br />For Username, you must enter “Administrator”. |
+    | Add new credentials | 1.	Select **Add**.<br /><br /> 2.	In the Run As Credentials dialog box, enter the credentials.<br /><br /> 3.	Click Select VM, then select a VM in the Proxy VM dialog box. Click **Save** to return to the Run As Credentials dialog box.<br /><br /> 4.	Enter the credentials.<br /> For Username, you must enter “Administrator”. |
     
 Cloud Backup for Virtual Machines uses the selected credentials to log into the selected proxy VM.
 
 The Run As credentials must be the default domain administrator that is provided by Windows or the built-in local administrator. Workgroup users can use the built-in local administrator account.
 
-4.	In the Proxy Credentials section, click Add to add a VM to use as a proxy.
-5.	In the Proxy VM dialog box, complete the information, and then click Save.
+4.	In the **Proxy Credentials** section, click **Add** to add a VM to use as a proxy.
+5.	In the **Proxy VM dialog** box, complete the information, and then click **Save**.
 
     >[!NOTE]
     > You need to delete the proxy VM from the Cloud Backup for Virtual Machines UI before you can delete it from ESXi host.
@@ -160,25 +161,25 @@ When you attach a virtual disk for guest file or folder restore operations, the 
 
 The following table lists the credential requirements for guest restore operations.
 
-|  | User access control enabled | User access control disabled |
+| User | User access control enabled | User access control disabled |
 | ------ | ----- | ------ |
 | Domain user | A domain user with “administrator” as the username works fine. For example, “NetApp\administrator”. However, a domain user with “xyz” as the username that belongs to a local administrator group will not work. For example, you cannot use “NetApp\xyz”. | Either a domain user with “administrator” as the username or a domain user with “xyz” as the username that belongs to a local administrator group, works fine. For example, “NetApp\administrator” or “NetApp\xyz”. |
 | Workgroup user | A local user with “administrator” as the username works fine. However, a local user with “xyz” as the username that belongs to a local administrator group will not work. | Either a local user with “administrator” as the username or a local user with “xyz” as the username that belongs to a local administrator group, works fine. However, a local user with “xyz” as the username that does not belong to local administrator group will not work. |
 
 In the preceding examples, “NetApp” is the dummy domain name and “xyz” is the dummy local username.
 
-1.	From the vSphere client shortcuts window, select Cloud Backup for Virtual Machines under plug-ins.
-2.	In the left navigation select Guest File Restore.
-3.	In the Run As Credentials section, do one of the following:
+1.	From the vSphere client shortcuts window, select **Cloud Backup for Virtual Machines** under plug-ins.
+2.	In the left navigation select **Guest File Restore**.
+3.	In the **Run As Credentials** section, do one of the following:
 
     | To do this… | Do this... |
     | ------ | ----- |
     | Use existing credentials | Select any of the configured credentials. |
-    | Add new credentials | 1.	Select Add.<br /><br /> 2.	In the Run As Credentials dialog box, enter the credentials. For Username, you must enter “Administrator”.<br /><br /> 3.	Click Select VM, then select a VM in the Proxy VM dialog box. Click Save to return to the Run As Credentials dialog box.<br /> Select the VM that should be used to authenticate the credentials. |
+    | Add new credentials | 1.	Select **Add**.<br /><br /> 2.	In the Run As Credentials dialog box, enter the credentials. For Username, you must enter “Administrator”.<br /><br /> 3.	Click Select VM, then select a VM in the Proxy VM dialog box. Click **Save** to return to the Run As Credentials dialog box.<br /><br /> 4. Select the VM that should be used to authenticate the credentials. |
 
 Cloud Backup for Virtual Machines uses the selected credentials to log on to the selected VM.
 
-4.	Click Save.
+4.	Click **Save**.
 
 ## Extend the time of a guest file restore session
 
@@ -187,8 +188,8 @@ By default, an attached Guest File Restore VMDK is available for 24 hours and th
  >[!NOTE]
  > You might want to extend a guest file restore session if you want to restore additional files or folders from the attached VMDK at a later time. However, because guest file restore sessions use a lot of resources, extending the session time should be performed only occasionally.
 
-1.	In the Cloud Backup for Virtual Machines, click Guest File Restore.
-2.	Select a guest file restore session and then click the Extend Selected Guest Session icon in the Guest Session Monitor title bar.
+1.	In the Cloud Backup for Virtual Machines, click **Guest File Restore**.
+2.	Select a guest file restore session and then click the **Extend Selected Guest Session** icon in the Guest Session Monitor title bar.
 
   	The session is extended for another 24 hours.
 
