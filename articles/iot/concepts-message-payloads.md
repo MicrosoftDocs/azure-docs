@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: device-developer
 
 # This article applies to device developers.
