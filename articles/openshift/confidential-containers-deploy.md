@@ -141,15 +141,11 @@ This article describes the steps required to deploy Confidential Containers for 
 
     `$ watch oc get csv -n openshift-sandboxed-containers-operator`
 
-    Example Output:
+    **Example Output**
     ```
     NAME                             DISPLAY                                  VERSION    REPLACES     PHASE
     openshift-sandboxed-containers   openshift-sandboxed-containers-operator  1.7.0      1.6.0        Succeeded
     ```
-
-
-
-
 
 ### Create the peer pods secret
 
@@ -166,18 +162,21 @@ By default, the OpenShift sandboxed containers Operator creates the secret based
     ```
 
 1.	Generate the RBAC content by running the following command:
-
+    
     ```
     $ az ad sp create-for-rbac --role Contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID \
-      --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
-    Example output
-    {
-      "client_id": `AZURE_CLIENT_ID`,
-      "client_secret": `AZURE_CLIENT_SECRET`,
-      "tenant_id": `AZURE_TENANT_ID`
-    }
+          --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     ```
-
+        
+    **Example output**        
+    ```
+    {
+          "client_id": `AZURE_CLIENT_ID`,
+          "client_secret": `AZURE_CLIENT_SECRET`,
+          "tenant_id": `AZURE_TENANT_ID`
+        }
+    ```
+  
 1.	Record the RBAC output to use in the secret object.
 
 1.	Create a peer-pods-secret.yaml manifest file according to the following example:
@@ -360,7 +359,7 @@ metadata:
 
     `$ watch oc get csv -n trustee-operator-system`
 
-    Example output:
+    **Example output**
     ```
     NAME                          DISPLAY                        PHASE
     trustee-operator.v0.1.0       Trustee Operator  0.1.0        Succeeded
@@ -393,7 +392,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
     `$ echo $TRUSTEE_HOST`
 
-    Example output:
+    **Example output**
     `kbs-service-trustee-operator-system.apps.memvjias.eastus.aroapp.io`
     
     Record this value for the peer pods config map.
@@ -402,7 +401,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 1.	Create a cc-feature-gate.yaml manifest file:
 
-    ```azurecli
+    ```
     apiVersion: v1
     kind: ConfigMap
     metadata:
@@ -533,8 +532,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
     $ oc get runtimeclass
     
-    Example output:
-    
+    **Example output**    
     ```
     NAME             HANDLER         AGE
     kata-remote      kata-remote     152m
@@ -561,7 +559,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 ### Create the Trustee config map
 
-1.	Create a kbs-config-cm.yaml manifest file:
+1.	Create a `kbs-config-cm.yaml` manifest file:
 
     ```
     apiVersion: v1
@@ -608,8 +606,298 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 
 
+### Configure attestation policies
+
+You can configure the following attestation policy settings:
+
+**Reference values**
+
+You can configure reference values for the Reference Value Provider Service (RVPS) by specifying the trusted digests of your hardware platform.
+
+The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and has not been tampered with.
+
+**Secrets for clients**
+
+You must create one or more secrets to share with attested clients.
+
+**Resource access policy**
+
+You must configure a policy for the Trustee policy engine to determine which resources to access.
+
+Do not confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
+
+**Attestation policy**
+
+Optional: You can overwrite the default attestation policy by creating your own attestation policy.
+Provisioning Certificate Caching Service for TDX
+
+If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provisioning Certificate Caching Service (PCCS). The PCCS retrieves Provisioning Certification Key (PCK) certificates and caches them in a local database.
+
+1.	Create an `rvps-configmap.yaml` manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: rvps-reference-values
+      namespace: trustee-operator-system
+    data:
+      reference-values.json: |
+        [ 
+        ]
+    ```
+    
+    **Notes:**
+
+    For `reference-values.json` specify the trusted digests for your hardware platform if required. Otherwise, leave it empty.
+
+1.	Create the RVPS config map by running the following command:
+
+    `$ oc apply -f rvps-configmap.yaml`
+
+1.	Create one or more secrets to share with attested clients according to the following example:
+
+    ```
+    $ oc create secret generic kbsres1 --from-literal key1=<res1val1> \
+      --from-literal key2=<res1val2> -n trustee-operator-system
+    ```
+
+    In this example, the `kbsres1` secret has two entries (key1, key2), which the Trustee clients retrieve. You can add more secrets according to your requirements.
+
+1.	Create a resourcepolicy-configmap.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: resource-policy
+      namespace: trustee-operator-system
+    data:
+      policy.rego:
+        package policy
+        default allow = false
+        allow {
+          input["tee"] != "sample"
+        }
+    ```
+    **Notes:**
+
+    - The name of the resource policy, `policy.rego`, must match the resource policy defined in the Trustee config map.
+    - The resource package policy follows the Open Policy Agent specification. This example allows the retrieval of all resources when the TEE is not the sample attester.
+
+1.	Create the resource policy config map by running the following command:
+
+    `$ oc apply -f resourcepolicy-configmap.yaml`
+
+1.	Optional: Create an attestation-policy.yaml manifest file according to the following example:
+    
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: attestation-policy
+      namespace: trustee-operator-system
+    data:
+      default.rego: |
+         package policy
+         import future.keywords.every
+    
+         default allow = false
+    
+         allow {
+            every k, v in input {
+                judge_field(k, v)
+            }
+         }
+    
+         judge_field(input_key, input_value) {
+            has_key(data.reference, input_key)
+            reference_value := data.reference[input_key]
+            match_value(reference_value, input_value)
+         }
+    
+         judge_field(input_key, input_value) {
+            not has_key(data.reference, input_key)
+         }
+    
+         match_value(reference_value, input_value) {
+            not is_array(reference_value)
+            input_value == reference_value
+         }
+    
+         match_value(reference_value, input_value) {
+            is_array(reference_value)
+            array_include(reference_value, input_value)
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array == []
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array != []
+            some i
+            reference_value_array[i] == input_value
+         }
+    
+         has_key(m, k) {
+            _ = m[k]
+         }
+    ```
+    **Notes:**
+
+    For `package policy`, The attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
+
+1.	Create the attestation policy config map by running the following command:
+
+    `$ oc apply -f attestation-policy.yaml`
+
+1.	If your TEE is Intel TDX, create a tdx-config.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: tdx-config
+      namespace: trustee-operator-system
+    data:
+      sgx_default_qcnl.conf: | \
+          {
+            "collateral_service": "https://api.trustedservices.intel.com/sgx/certification/v4/",
+            "pccs_url": "<pccs_url>"
+          }
+    ```
+    **Notes:**
+
+    For `pccs_url`, specify the PCCS URL, for example, https://localhost:8081/sgx/certification/v4/.
+
+1.	Create the TDX config map by running the following command:
+
+    `$ oc apply -f tdx-config.yaml`
 
 
+### Create the KbsConfig custom resource
+
+You must create the KbsConfig custom resource (CR) to launch Trustee. Then, you check the Trustee pods and pod logs to verify the configuration.
+
+1.	Create a `kbsconfig-cr.yaml` manifest file:
+
+    ```
+    apiVersion: confidentialcontainers.org/v1alpha1
+    kind: KbsConfig
+    metadata:
+      labels:
+        app.kubernetes.io/name: kbsconfig
+        app.kubernetes.io/instance: kbsconfig
+        app.kubernetes.io/part-of: trustee-operator
+        app.kubernetes.io/managed-by: kustomize
+        app.kubernetes.io/created-by: trustee-operator
+      name: kbsconfig
+      namespace: trustee-operator-system
+    spec:
+      kbsConfigMapName: kbs-config-cm
+      kbsAuthSecretName: kbs-auth-public-key
+      kbsDeploymentType: AllInOneDeployment
+      kbsRvpsRefValuesConfigMapName: rvps-reference-values
+      kbsSecretResources: ["kbsres1"]
+      kbsResourcePolicyConfigMapName: resource-policy
+    ```
+    
+1.	Create the KbsConfig CR by running the following command:
+
+    `$ oc apply -f kbsconfig-cr.yaml`
+
+#### Verification
+
+1.	Set the default project by running the following command:
+
+    `$ oc project trustee-operator-system`
+
+1.	Check the pods by running the following command:
+
+    `$ oc get pods -n trustee-operator-system`
+
+    **Example output**    
+    ```
+    NAME                                                   READY   STATUS    RESTARTS   AGE
+    trustee-deployment-8585f98449-9bbgl                    1/1     Running   0          22m
+    trustee-operator-controller-manager-5fbd44cd97-55dlh   2/2     Running   0          59m
+    ```
+    
+1.	Set the POD_NAME environmental variable by running the following command:
+
+    `$ POD_NAME=$(oc get pods -l app=kbs -o jsonpath='{.items[0].metadata.name}' -n trustee-operator-system)`
+
+1.	Check the pod logs by running the following command:
+
+    `$ oc logs -n trustee-operator-system $POD_NAME`
+
+    **Example output**    
+    ```
+    [2024-05-30T13:44:24Z INFO  kbs] Using config file /etc/kbs-config/kbs-config.json
+        [2024-05-30T13:44:24Z WARN  attestation_service::rvps] No RVPS address provided and will launch a built-in rvps
+        [2024-05-30T13:44:24Z INFO  attestation_service::token::simple] No Token Signer key in config file, create an ephemeral key and without CA pubkey cert
+        [2024-05-30T13:44:24Z INFO  api_server] Starting HTTPS server at [0.0.0.0:8080]
+        [2024-05-30T13:44:24Z INFO  actix_server::builder] starting 12 workers
+        [2024-05-30T13:44:24Z INFO  actix_server::server] Tokio runtime found; starting in existing Tokio runtime
+    ```
+        
+
+### Verify the attestation process
+
+You can verify the attestation process by creating a test pod and retrieving its secret.
+
+Important: This procedure is an example to verify that attestation is working. Do not write sensitive data to standard I/O because the data can be captured by using a memory dump. Only data written to memory is encrypted.
+
+By default, an agent side policy embedded in the pod VM image disables the exec and log APIs for a Confidential Containers pod. This policy ensures that sensitive data is not written to standard I/O.
+
+In a test scenario, you can override the restriction at runtime by adding a policy annotation to the pod. For Technology Preview, runtime policy annotations are not verified by remote attestation.
+
+1.	Create a verification-pod.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: ocp-cc-pod
+      labels:
+        app: ocp-cc-pod
+      annotations:
+        io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmRlZmF1bHQgQWRkQVJQTmVpZ2hib3JzUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgQWRkU3dhcFJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IENsb3NlU3RkaW5SZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBDb3B5RmlsZVJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IENyZWF0ZUNvbnRhaW5lclJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IENyZWF0ZVNhbmRib3hSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBEZXN0cm95U2FuZGJveFJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IEV4ZWNQcm9jZXNzUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgR2V0TWV0cmljc1JlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IEdldE9PTUV2ZW50UmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgR3Vlc3REZXRhaWxzUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgTGlzdEludGVyZmFjZXNSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBMaXN0Um91dGVzUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgTWVtSG90cGx1Z0J5UHJvYmVSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBPbmxpbmVDUFVNZW1SZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBQYXVzZUNvbnRhaW5lclJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFB1bGxJbWFnZVJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFJlYWRTdHJlYW1SZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBSZW1vdmVDb250YWluZXJSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBSZW1vdmVTdGFsZVZpcnRpb2ZzU2hhcmVNb3VudHNSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBSZXNlZWRSYW5kb21EZXZSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBSZXN1bWVDb250YWluZXJSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBTZXRHdWVzdERhdGVUaW1lUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgU2V0UG9saWN5UmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgU2lnbmFsUHJvY2Vzc1JlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFN0YXJ0Q29udGFpbmVyUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgU3RhcnRUcmFjaW5nUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgU3RhdHNDb250YWluZXJSZXF1ZXN0IDo9IHRydWUKZGVmYXVsdCBTdG9wVHJhY2luZ1JlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFR0eVdpblJlc2l6ZVJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFVwZGF0ZUNvbnRhaW5lclJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFVwZGF0ZUVwaGVtZXJhbE1vdW50c1JlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFVwZGF0ZUludGVyZmFjZVJlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFVwZGF0ZVJvdXRlc1JlcXVlc3QgOj0gdHJ1ZQpkZWZhdWx0IFdhaXRQcm9jZXNzUmVxdWVzdCA6PSB0cnVlCmRlZmF1bHQgV3JpdGVTdHJlYW1SZXF1ZXN0IDo9IHRydWUK
+    spec:
+      runtimeClassName: kata-remote
+      containers:
+        - name: skr-openshift
+          image: registry.access.redhat.com/ubi9/ubi:9.3
+          command:
+            - sleep
+            - "36000"
+          securityContext:
+            privileged: false
+            seccompProfile:
+              type: RuntimeDefault
+    ```
+    
+    Notes:
+    
+    The pod metada `annotations` overrides the policy that prevents sensitive data from being written to standard I/O.
+    
+1.	Create the pod by running the following command:
+
+    `$ oc create -f verification-pod.yaml`
+
+1.	Connect to the Bash shell of the ocp-cc-pod pod by running the following command:
+
+    `$ oc exec -it ocp-cc-pod -- bash`
+
+1.	Fetch the pod secret by running the following command:
+
+    `$ curl http://127.0.0.1:8006/cdh/resource/default/kbsres1/key1`
+    
+    **Example output**    
+    `res1val1`
+    
+    The Trustee server returns the secret only if the attestation is successful.
 
 
 
