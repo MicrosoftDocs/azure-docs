@@ -50,7 +50,7 @@ When a caller or callee reports audio interference or background noise on a call
 
 Also, make sure that the application you're using for web calling is hosted on the latest SDK. For more information, see [Azure Communication Services Calling Web (JavaScript) SDK - Release History](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md).
 
-## Pre-call checkups
+## Precall checkups
 
 When you're using the internet at various locations, you experience different internet speeds. Factors like the following examples can affect internet speed and reliability:
 
@@ -91,7 +91,7 @@ Enable the End of Call Survey feature to give Azure Communication Services users
 For more information, see [End of Call Survey overview](end-of-call-survey-concept.md) and the related tutorial [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md).
 
 ## Related content
-- For detailed deep dive inspection on how to trouble shoot call quality and relibility see [here](../../troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md).
+- For detailed deep dive inspection on how to trouble shoot call quality and reliability see [here](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md).
 - For information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md). Use these codes to help determine why a call ended and how to mitigate the issue.
 - For information about using Call Quality Dashboard (CQD) to view interoperability call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide).
 - To ensure smooth functioning of the application and provide better user experience, app developers should follow a checklist. For more information, see the blog post [Checklist for advanced calling experiences in web browsers](https://techcommunity.microsoft.com/t5/azure-communication-services/checklist-for-advanced-calling-experiences-in-web-browsers/ba-p/3266312).
