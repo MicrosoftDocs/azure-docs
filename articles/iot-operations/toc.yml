@@ -4,7 +4,7 @@ items:
     items:
     - name: Overview
       href: overview-iot-operations.md
-    - name: Get started with an end-to-end sample
+    - name: Quickstart
       expanded: true
       items:
       - name: Run Azure IoT Operations in Codespaces
