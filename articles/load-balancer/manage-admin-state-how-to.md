@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 10/17/2024
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -14,8 +14,6 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. There are three types of admin state values: **Up**, **Down**, **None**.
 
 You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin state for a backend pool instance. Each section provides instructions for each method with examples for setting, updating, or removing an admin state configuration.
-
-[!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
 
 ## Prerequisites
 
