@@ -9,6 +9,7 @@ ms.date: 10/08/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
+ms.service: azure-iot-operations
 ---
 
 # Configure dataflows in Azure IoT Operations

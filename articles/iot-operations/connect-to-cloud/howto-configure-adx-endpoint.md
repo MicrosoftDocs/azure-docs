@@ -9,6 +9,7 @@ ms.date: 09/20/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
+ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for Azure Data Explorer
