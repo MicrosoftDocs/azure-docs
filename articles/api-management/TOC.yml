@@ -113,7 +113,7 @@
     - name: VNet injection (v2 tiers) - requirements
       href: inject-vnet-v2.md
     - name: VNet integration (v2 tiers) - requirements
-      href: integrate-vnet-internal.md
+      href: integrate-vnet-outbound.md
     - name: VNet integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md
     - name: Deploy to a VNet (classic tiers) - external

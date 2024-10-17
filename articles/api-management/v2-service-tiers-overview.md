@@ -46,9 +46,9 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 ## Networking options
 
-* **Standard v2** and **Premium v2** support **VNet integration** to allow your API Management instance to reach API backends that are isolated in a single connected VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
+* **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-* **Premium v2** supports VNet injection for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](inject-vnet-v2.md.md).
+* **Premium v2** supports **virtual network injection** for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](inject-vnet-v2.md).
 
 ### Supported regions
 
@@ -120,13 +120,13 @@ A: They're not related. stv2 is a [compute platform](compute-infrastructure.md) 
 
 A: Yes, there are no changes to the classic Developer, Basic, Standard, or Premium tiers. 
 
-### Q: What is the difference between VNet integration in Standard v2 tier and VNet injection in the Premium and Premium v2 tiers? 
+### Q: What is the difference between virtual network integration in Standard v2 tier and virtual network injection in the Premium and Premium v2 tiers? 
 
-A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet has a public IP address for inbound access. 
+A: A Standard v2 service instance can be integrated with a virtual network to provide secure access to the backends residing there. A Standard v2 service instance integrated with a virtual network has a public IP address for inbound access. 
 
-The Premium tier and Premium v2 tier support full network isolation by deployment (injection) into a VNet without exposing a public IP address. [Learn more about networking options in API Management](virtual-network-concepts.md). 
+The Premium tier and Premium v2 tier support full network isolation by deployment (injection) into a virtual network without exposing a public IP address. [Learn more about networking options in API Management](virtual-network-concepts.md). 
 
-### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my VNet? 
+### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my virtual network? 
 
 A: No, such a deployment is only supported in the Premium and Premium v2 tiers. 
 
