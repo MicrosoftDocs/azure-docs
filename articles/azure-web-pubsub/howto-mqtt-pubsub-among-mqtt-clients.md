@@ -1,15 +1,14 @@
 ---
-title: PubSub among MQTT clients
+title: PubSub among MQTT web clients
 titleSuffix: Azure Web PubSub
-description: A quickstarts guide that shows to how to subscribe to messages on a topic and send messages to a topic without the involvement of a typical application server
+description: A how-to guide that shows to how to subscribe to messages on a topic and send messages to a topic without the involvement of a typical application server
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
-ms.topic: quickstart
-ms.date: 06/14/2024
-ms.custom: mode-api
+ms.topic: how-to
+ms.date: 10/17/2024
 ---
-# Publish/subscribe among MQTT clients
+# Publish/subscribe among MQTT web clients
 :::image type="content" source="media/quickstarts-pubsub-among-clients/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server.":::
 
 This quickstart guide demonstrates how to
@@ -19,9 +18,9 @@ This quickstart guide demonstrates how to
 > * **publish** messages to a topic
 
 ## Prerequisites
-- A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
+- A Web PubSub resource. To created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
 - A code editor, such as Visual Studio Code
-- Install the dependencies for the language you plan to use
+- Dependencies for the language you plan to use
 
 > [!NOTE]
 > Except for the MQTT client libraries mentioned belows, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
@@ -210,7 +209,7 @@ client.loop_forever()
 ---
 
 ## Publish a message to a group
-In the previous step, we've set up everything needed to receive messages from `group1`, now we send messages to that group.
+In the previous step, we set up everything needed to receive messages from `group1`, now we send messages to that group.
 
 # [JavaScript](#tab/javascript)
 
@@ -240,13 +239,8 @@ client.publish("group1", "Hello World!")
 ```
 ---
 
-## Next steps
 By using the client SDK, you now know how to
 > [!div class="checklist"]
 > * **connect** to your Web PubSub resource
 > * **subscribe** to topics
 > * **publish** messages to topics
-
-Next, you learn how to **push messages in real-time** from an application server to your clients.
-> [!div class="nextstepaction"]
-> [Push message from application server](quickstarts-push-messages-from-server.md)
