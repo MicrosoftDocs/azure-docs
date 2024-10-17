@@ -3,7 +3,7 @@ title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ms.custom:
 ---
 
