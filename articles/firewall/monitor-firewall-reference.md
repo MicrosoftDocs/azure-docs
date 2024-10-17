@@ -50,16 +50,35 @@ If your firewall is running into SNAT port exhaustion, you should add at least f
 The *AZFW Latency Probe* metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes:
 
 - Diagnose if Azure Firewall is the cause of latency in the network
-- Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.  
-- There might be various reasons that can cause high latency in Azure Firewall. For example, high CPU utilization, high throughput, or a possible networking issue.
+- Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.
 
-  This metric doesn't measure end-to-end latency of a given network path. In other words, this latency health probe doesn't measure how much latency Azure Firewall adds.
+What the Latency Metric Measures (and Doesn't):
 
-- When the latency metric isn't functioning as expected, a value of 0 appears in the metrics dashboard.
-- As a reference, the average expected latency for a firewall is approximately 1 ms. This value might vary depending on deployment size and environment.
-- The latency probe is based on Microsoft's Ping Mesh technology. So, intermittent spikes in the latency metric are to be expected. These spikes are normal and don't signal an issue with the Azure Firewall. They're part of the standard host networking setup that supports the system.
+- What it measures: The latency of the Azure Firewall within the Azure platform
+- What it doesn't measure: The metric does not measure the end-to-end latency of a given network path. In other words, the latency probe metric doesn't measure how much latency the Azure Firewall adds.
+- Error reporting: If the latency metric isn't functioning correctly, it reports a value of 0 in the metrics dashboard, indicating a probe failure or interruption.
 
-  As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.
+Factors that impact latency:
+
+- High CPU utilization
+- High throughput or traffic load
+- Networking issues within the Azure platform
+
+ Latency Probe: ICMP-Based Behavior
+
+ The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protocl). ICMP is suitable for quick health checks, like ping requests, but it may not accurately represent real-world application traffic, which typically relies on TCP. 
+
+ - Latency spikes: WIth ICMP probes, intermittent spikes are normal and are part of the host network's standard behavior. These should not be misinterpreted as firewall issues unless they are persistent.
+ - Average latency: On average, the latency for Azure Firewall is expected to range from 1 ms to 10 ms, depending on the Firewall SKU and deployment size. However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs.
+
+Best Practices for Monitoring Latency:
+
+- Set a baseline: Establish a latency baseline under light traffic conditions for accurate comparisons during normal or peak usage.
+- Monitor for patterns: Expect occasional latency spikes as part of normal network operations. If high latency persists beyond these normal variations, it may indicate a deeper issue requiring investigation.
+- Recommended latency threshold: A good guideline is that latency should not exceed 3x the baseline. If this threshold is crossed, further investigation is recommended.
+- Check the rule limit: Ensure that the network rules are within the 20K rule limit. Exceeding this limit can affect performance.
+- New application onboarding: Check for any newly onboarded applications that could be adding significant load or causing latency issues.
+- Support request: If you observe continuous latency degradation that does not align with expected behavior, consider filing a Support ticket for further assistance.
 
   :::image type="content" source="media/metrics/latency-probe.png" alt-text="Screenshot showing the Azure Firewall Latency Probe metric.":::
 
