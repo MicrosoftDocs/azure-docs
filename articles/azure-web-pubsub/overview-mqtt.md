@@ -27,7 +27,7 @@ It’s important to note that this MQTT support is a lightweight adaptation of t
 - Shared subscriptions 
 - Topic alias
 
-For a comprehensive list of what MQTT features are supported, read [this documentaion article](./reference-mqtt-support-status.md). 
+For a comprehensive list of what MQTT features are supported, read [this documentation article](./reference-mqtt-support-status.md). 
 
 For a more comprehensive MQTT broker solution on Azure, we recommend exploring [Azure Event Grid](../event-grid/overview.md). 
 
