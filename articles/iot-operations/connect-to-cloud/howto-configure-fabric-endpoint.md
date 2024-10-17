@@ -219,6 +219,29 @@ fabricOneLakeSettings: {
 
 You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
+### OneLake path type
+
+The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that is not supported by the `Tables` path type.
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  oneLakePathType: Tables # Or Files
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+  oneLakePathType: 'Tables'
+}
+```
+
+---
+
+### Batching
+
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 
 | Field | Description | Required |

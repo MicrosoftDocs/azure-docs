@@ -342,6 +342,7 @@ metadata:
   name: local-to-remote
   namespace: azure-iot-operations
 spec:
+  profileRef: default
   operations:
   - operationType: Source
     sourceSettings:
@@ -359,6 +360,7 @@ metadata:
   name: remote-to-local
   namespace: azure-iot-operations
 spec:
+  profileRef: default
   operations:
   - operationType: Source
     sourceSettings:
