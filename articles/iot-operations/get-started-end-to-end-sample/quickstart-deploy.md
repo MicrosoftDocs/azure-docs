@@ -225,4 +225,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-configure.md)
