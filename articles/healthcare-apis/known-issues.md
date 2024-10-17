@@ -20,7 +20,7 @@ Refer to the table for details about resolution dates or possible workarounds.
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|For FHIR instances created after August 19,2024, diagnostic logs aren't available in log analytics workspace. |September 19,2024 9:00 am PST| -- | -- |
+|For FHIR instances created after August 19,2024, diagnostic logs aren't available in log analytics workspace. |September 19,2024 9:00 am PST| -- | October 17,2024 9:00 am PST |
 |For FHIR instances created after August 19,2024, in metrics blade - Total requests, Total latency, and Total errors metrics are not being populated. |September 19,2024 9:00 am PST| -- | -- |
 |For FHIR instances created after August 19,2024, changes in private link configuration at the workspace level causes FHIR service to be stuck in 'Updating' state. |September 24,2024 9:00 am PST| Accounts deployed prior to September 27,2024 and facing this issue can follow the steps: <br> 1. Remove private endpoint from the Azure Health Data Services workspace having this issue. On Azure blade, go to Workspace and then click on Networking blade. In networking blade, select existing private link connection and click on 'Remove' <br> 2. Create new private connection to link to the workspace.| September 27,2024 9:00 am PST |
 |Changes in private link configuration at the workspace level don't propagate to the child services.|September 4,2024 9:00 am PST| To fix this issue a service reprovisioning is required. To reprovision the service, reach out to FHIR service team| September 17,2024 9:00am PST|
