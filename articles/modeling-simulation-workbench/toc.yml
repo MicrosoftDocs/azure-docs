@@ -89,6 +89,8 @@ items:
         href: ./troubleshoot-known-issues.md
       - name: Best practices
         href: ./best-practices.md
+      - name: Limits and quotas
+        href: ./limits-quotas.md
       - name: Business continuity and disaster recovery
         href: ./disaster-recovery.md
       - name: Get support
