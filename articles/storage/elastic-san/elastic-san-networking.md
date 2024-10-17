@@ -196,7 +196,7 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanN
 
 # [Azure CLI](#tab/azure-cli)
 
-Use this sample code to enable CRC protection on a new volume group using Azure CLI. Replace the variable values before running the sample.
+The following code sample enable CRC protection on a new volume group using Azure CLI. Replace the values of `RgName`, `EsanName`, `EsanVgName`, before running the sample.
 
 ```azurecli
 # Set the variable values.
