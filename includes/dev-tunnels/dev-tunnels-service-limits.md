@@ -1,6 +1,6 @@
 ---
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.service: azure-dev-tunnels
 ms.topic: include
 ms.date: 06/07/2023
