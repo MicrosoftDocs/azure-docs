@@ -69,7 +69,7 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 
 # [Kubernetes](#tab/kubernetes)
 
-Create a Kubernetes manifest `.yaml` file to start creating a dataflow. The follow example shows the structure of the dataflow containing the source, transformation, and destination configurations.
+Create a Kubernetes manifest `.yaml` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -97,7 +97,7 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-Create a Bicep `.bicep` file to start creating a dataflow. The follow example shows the structure of the dataflow containing the source, transformation, and destination configurations.
+Create a Bicep `.bicep` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -776,7 +776,7 @@ Similar to data sources, data destination is a concept that is used to keep the 
 | Endpoint type | Data destination meaning | Description |
 | - | - | - |
 | MQTT (or Event Grid) | Topic | The MQTT topic where the data is sent. Only static topics are supported, no wildcards. |
-| Kafka (or Event Hub) | Topic | The Kafka topic where the data is sent. Only static topics are supported, no wildcards. If the endpoint is an Event Hubs namespace, the data destination is the individual event hub within the namespace. |
+| Kafka (or Event Hubs) | Topic | The Kafka topic where the data is sent. Only static topics are supported, no wildcards. If the endpoint is an Event Hubs namespace, the data destination is the individual event hub within the namespace. |
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
 | Azure Data Explorer | Table | The table in the Azure Data Explorer database. |
