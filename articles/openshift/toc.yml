@@ -125,9 +125,9 @@
     - name: Confidential Containers
       items:
         - name: Use Confidential Containers to protect senstive data
-          href: confidential-containers.md
+          href: confidential-containers-overview.md
         - name: Deploy Confidential Containers
-          href: howto-confidential-containers.md
+          href: confidential-containers-deploy.md
 
 - name: Concepts
   items:

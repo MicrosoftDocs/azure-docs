@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/11/2024
+ms.date: 10/17/2024
 ---
 # Confidential Containers with Azure Red Hat OpenShift
 
@@ -68,4 +68,4 @@ A typical Confidential Containers deployment involves Azure Red Hat OpenShift wo
 
 ## Next steps
 
-Now that you've considered the benefits and various use cases for Confidential Containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](howto-confidential-containers.md).
+Now that you've considered the benefits and various use cases for Confidential Containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](confidential-containers-deploy.md).
