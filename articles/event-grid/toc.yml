@@ -644,6 +644,8 @@ items:
           href: secure-webhook-delivery.md
         - name: Configure minimum required TLS version
           href: transport-layer-security-configure-minimum-version.md
+        - name: Configure network security perimeter
+          href: configure-network-security-perimeter.md
       - name: Monitor
         items:
         - name: Enable diagnostic logs
