@@ -28,7 +28,7 @@ In this tutorial, you use the operations experience web UI to create your assets
 An instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
 - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
-- [Deployment overview](deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s.
+- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s.
 
 To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
 
@@ -45,12 +45,12 @@ This tutorial uses the OPC PLC simulator to generate sample data. To deploy the 
 <!-- TODO: Change branch to main before merging the release branch -->
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tutorials/opc-plc-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
 
 The following snippet shows the YAML file that you applied:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/tutorials/opc-plc-deployment.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
 > This configuration isn't secure. Don't use this configuration in a production environment.
