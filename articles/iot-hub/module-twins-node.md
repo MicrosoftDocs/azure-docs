@@ -5,7 +5,7 @@ description: Learn how to create module identities and update module twins using
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 08/23/2021

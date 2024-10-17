@@ -141,7 +141,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     ALB Controller can be installed by running the following commands:
 
     ```azurecli-interactive
-    HELM_NAMESPACE='<your cluster name>'
+    HELM_NAMESPACE='<namespace for deployment>'
     CONTROLLER_NAMESPACE='azure-alb-system'
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \

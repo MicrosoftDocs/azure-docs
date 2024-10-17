@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-twenty-six
