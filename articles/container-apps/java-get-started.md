@@ -105,8 +105,7 @@ az containerapp env java-component config-server-for-spring create \
   --resource-group $RESOURCE_GROUP \
   --name $CONFIG_SERVER_COMPONENT \
   --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI \
-  spring.cloud.config.server.git.search-paths=$CONFIG_SERVER_SEARCH_PATHS \
-  spring.cloud.config.server.git.default-label=$CONFIG_SERVER_LABEL
+  spring.cloud.config.server.git.search-paths=$CONFIG_SERVER_SEARCH_PATHS
 ```
 
 Create the Eureka Server for Java component.
