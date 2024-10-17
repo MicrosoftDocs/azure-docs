@@ -147,7 +147,7 @@ Where
 
 ### Enforce iSCSI error detection
 
-To enforce iSCSI error detection, you need to set CRC32C for both header and data digests on the client side and enable the CRC protection property on the volume group that contains volumes that are already connected to or are yet to be connected to the client. If the volumes are already connected and don’t have CRC32C set for both digests, it is recommended to disconnect the volumes and reconnect them using multi-session scripts generated in portal disconnect/connect flow or from documentation, which contain steps to set CRC32C on both header and data digests.
+To enforce iSCSI error detection, set CRC-32C for both header and data digests on your clients and enable the CRC protection property on the volume group that contains volumes already connected to or have yet to be connected to from your clients. If your Elastic SAN volumes are already connected and don't have CRC-32C for both digests, you should disconnect the volumes and reconnect them using multi-session scripts generated in the Azure portal when connecting to an Elastic SAN volume, or from the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
 
 > [!NOTE]
 > CRC protection feature is not currently available in North Europe and South Central US.
