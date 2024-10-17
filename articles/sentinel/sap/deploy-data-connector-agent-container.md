@@ -270,7 +270,7 @@ While deployment is also supported from the command line, we recommend that you 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the instructions to add an SAP API-based collector agent." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
 
-1. In the **Create a collector agent** pane, enter the following the agent details:
+1. In the **Create a collector agent** pane, enter the following agent details:
 
     |Name |Description  |
     |---------|---------|

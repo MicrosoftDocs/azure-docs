@@ -232,7 +232,7 @@ Use the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-
 
 See the Microsoft Security Copilot working with an SAP Incident in action [here](https://www.youtube.com/watch?v=snV2joMnSlc&t=234s).
 
-Discover partner offerings for SAP security on the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=Sentinel%20for%20SAP&page=1).
+Discover partner offerings for SAP security on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=Sentinel%20for%20SAP&page=1).
 
 #### Microsoft Sentinel for SAP
 
