@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting your NGINXaaS deployment
 description: This article provides information about getting support and troubleshooting an NGINXaaS integration.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/18/2023
 
