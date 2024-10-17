@@ -83,7 +83,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
     - Whether the requester is an isolated identity or using multifactor authentication.
     - Permissions levels.
     Based on the JIT rule, this request might also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
-1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
+1. When the request requires direct access to customer data, a Customer Lockbox request is initiated.
 
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 1. One or more approvers at the customer organization for a given Customer Lockbox request are determined as follows:
