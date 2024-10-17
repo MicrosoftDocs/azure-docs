@@ -186,7 +186,7 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 
