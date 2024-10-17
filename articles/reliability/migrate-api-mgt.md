@@ -14,11 +14,11 @@ ms.custom: references_regions, subject-reliability
 
 The Azure API Management service supports [availability zones](../reliability/availability-zones-overview.md) in both zonal and zone-redundant configurations:
 
-* **Zonal** - the API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone you select within an Azure region. You might choose this configuration for performance reasons or to meet specific compliance requirements.  
+* **Zonal** - the API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone you select within an Azure region.
 
-* **Zone-redundant** - the gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones within an Azure region. Zone redundancy provides resiliency and high availability to a service instance.
+* **Zone-redundant** - the gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are replicated across two or more physically separated zones within an Azure region. Zone redundancy provides resiliency and high availability to a service instance.
 
-This article describes four scenarios for migrating an API Management instance to availability zones. For background about configuring API Management for high availability, see [Ensure API Management availability and reliability](../api-management/high-availability.md).
+This article describes four scenarios for migrating an API Management instance to availability zones. For more information about configuring API Management for high availability, see [Ensure API Management availability and reliability](../api-management/high-availability.md).
 
 ## Prerequisites
 
