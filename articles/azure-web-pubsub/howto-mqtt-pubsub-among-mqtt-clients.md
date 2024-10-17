@@ -1,13 +1,12 @@
 ---
 title: PubSub among MQTT clients
 titleSuffix: Azure Web PubSub
-description: A quickstarts guide that shows to how to subscribe to messages on a topic and send messages to a topic without the involvement of a typical application server
+description: A how-to guide that shows to how to subscribe to messages on a topic and send messages to a topic without the involvement of a typical application server
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
-ms.topic: quickstart
-ms.date: 06/14/2024
-ms.custom: mode-api
+ms.topic: how-to
+ms.date: 10/17/2024
 ---
 # Publish/subscribe among MQTT clients
 :::image type="content" source="media/quickstarts-pubsub-among-clients/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server.":::
@@ -240,13 +239,8 @@ client.publish("group1", "Hello World!")
 ```
 ---
 
-## Next steps
 By using the client SDK, you now know how to
 > [!div class="checklist"]
 > * **connect** to your Web PubSub resource
 > * **subscribe** to topics
 > * **publish** messages to topics
-
-Next, you learn how to **push messages in real-time** from an application server to your clients.
-> [!div class="nextstepaction"]
-> [Push message from application server](quickstarts-push-messages-from-server.md)

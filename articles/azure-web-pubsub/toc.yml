@@ -20,8 +20,6 @@
       href: howto-develop-create-instance.md
     - name: PubSub among clients
       href: quickstarts-pubsub-among-clients.md
-    - name: PubSub among MQTT clients
-      href: quickstarts-pubsub-among-mqtt-clients.md
     - name: Push message from server
       href: quickstarts-push-messages-from-server.md
     - name: Event notifications from clients
@@ -158,6 +156,8 @@
       items:
         - name: Connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md
+        - name: PubSub among MQTT clients
+          href: howto-mqtt-pubsub-among-mqtt-clients.md
     - name: Reference
       items:
         - name: MQTT event handler protocol

@@ -37,8 +37,6 @@ For a more comprehensive MQTT broker solution on Azure, we recommend exploring [
 - Broadcast messages to MQTT web clients
 - Receive notifications for lifetime events of MQTT web client
 
-Each data exchange pattern has a how-to guide. Refer to them to get started.
-
 ## How MQTT is adapted into Web PubSub's system
 
 > [!NOTE]
