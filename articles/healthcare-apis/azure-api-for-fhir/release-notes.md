@@ -17,6 +17,18 @@ ms.author: kavitagaddam
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **October 2024**
+
+### FHIR service
+
+**Bug fixes**
+
+- Export Validation: An issue was identified where exports proceeded despite invalid search parameters. We are introducing a change that prevents exports under these conditions. This feature is currently behind a strict validation flag and will become the default behavior on or after October 30th. [Reference #4617]
+- Search Parameter Inclusion: We resolved an issue where additional search parameters (for instance, `_include`, `_has`) did not return all expected results, sometimes omitting the next link. [Reference 4613]
+- Export Job Execution: A rare occurrence of `System.ObjectDisposedException` during export job completion has been addressed by preventing premature exits. [Reference #4268]
+- HTTP Status Code Update: The HTTP status code for invalid parameters during `$reindex` job creation is now updated to 400, ensuring better error handling. [Reference #4439]
+- Search Parameter Cleanup: A fix has been implemented to ensure complete cleanup of search parameters in the database when triggered with delete API calls, addressing issues related to incomplete deletions. [Reference #4623]
+
 ## **August 2024**
 
 ### FHIR service
