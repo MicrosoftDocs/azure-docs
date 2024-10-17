@@ -48,7 +48,7 @@ LOCATION="eastus"
 az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure, contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
+Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
 ```azurecli-interactive
 REGISTRY_NAME=mycontainerregistry007
@@ -233,11 +233,11 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
    The following parameters are used in the above Azure CLI command:
 
-   * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
+   * *resource-group* &rarr; Use the same resource group name in which you created the web app - for example, `msdocs-quarkus-postgres-webapp-rg`.
    * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-quarkus-postgres-webapp-db`)
    * *location* &rarr; Use the same location used for the web app. Change to a different location if it doesn't work.
    * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
-   * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
+   * *sku-name* &rarr; The name of the pricing tier and compute configuration - for example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
    * *tier* &rarr; The compute tier of the server. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
    * *active-directory-auth* &rarr; `Enabled` to enable Microsoft Entra authentication.
 
