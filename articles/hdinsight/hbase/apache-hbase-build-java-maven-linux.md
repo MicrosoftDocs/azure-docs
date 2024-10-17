@@ -401,7 +401,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. To create an HBase table using the Java application, use the following command in your open ssh connection:
+3. To create a HBase table using the Java application, use the following command in your open ssh connection:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
