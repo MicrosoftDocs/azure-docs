@@ -3,8 +3,7 @@ title: Log support ticket for Azure Stack Edge, Azure Data Box Gateway | Microso
 description: Learn how to log support request for issues related to your Azure Stack Edge or Data Box Gateway orders.
 services: databox
 author: alkohli
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/27/2024
 ms.author: alkohli

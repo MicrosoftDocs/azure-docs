@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/13/2023
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to roll X.509 device certificates
