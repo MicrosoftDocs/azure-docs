@@ -379,7 +379,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     ```
     
     > [!NOTE]
-    >     Currently, only a route with a valid CA-signed certificate is supported. You cannot use a route with self-signed certificate.
+    > Currently, only a route with a valid CA-signed certificate is supported. You cannot use a route with self-signed certificate.
     > 
 
 1.	Set the TRUSTEE_HOST variable by running the following command:
@@ -412,11 +412,199 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
       confidential: "true"
     ```
 
-2.	Create the config map by running the following command:
+1.	Create the config map by running the following command:
 
     `$ oc apply -f cc-feature-gate.yaml`
 
 
+
+### Update the peer pods config map
+
+1.	Obtain the following values from your Azure instance:
+
+    i.	Retrieve and record the Azure resource group:
+    
+    `$ AZURE_RESOURCE_GROUP=$(oc get infrastructure/cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}') && echo "AZURE_RESOURCE_GROUP: \"$AZURE_RESOURCE_GROUP\""`
+    
+    ii.	Retrieve and record the Azure VNet name:
+    
+    `$ AZURE_VNET_NAME=$(az network vnet list --resource-group ${AZURE_RESOURCE_GROUP} --query "[].{Name:name}" --output tsv)`
+    
+    This value is used to retrieve the Azure subnet ID.
+    
+    iii.	Retrieve and record the Azure subnet ID:
+    
+    `$ AZURE_SUBNET_ID=$(az network vnet subnet list --resource-group ${AZURE_RESOURCE_GROUP} --vnet-name $AZURE_VNET_NAME --query "[].{Id:id} | [? contains(Id, 'worker')]" --output tsv) && echo "AZURE_SUBNET_ID: \"$AZURE_SUBNET_ID\""`
+    
+    iv.	Retrieve and record the Azure network security group (NSG) ID:
+    
+    `$ AZURE_NSG_ID=$(az network nsg list --resource-group ${AZURE_RESOURCE_GROUP} --query "[].{Id:id}" --output tsv) && echo "AZURE_NSG_ID: \"$AZURE_NSG_ID\""`
+    
+    v.	Retrieve and record the Azure region:
+    
+    `$ AZURE_REGION=$(az group show --resource-group ${AZURE_RESOURCE_GROUP} --query "{Location:location}" --output tsv) && echo "AZURE_REGION: \"$AZURE_REGION\""`
+
+1.	Create a `peer-pods-cm.yaml` manifest file according to the following example:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: peer-pods-cm
+      namespace: openshift-sandboxed-containers-operator
+    data:
+      CLOUD_PROVIDER: "azure"
+      VXLAN_PORT: "9000"
+      AZURE_INSTANCE_SIZE: "Standard_DC2as_v5"
+      AZURE_INSTANCE_SIZES: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5,Standard_DC16as_v5"
+      AZURE_SUBNET_ID: "<azure_subnet_id>"
+      AZURE_NSG_ID: "<azure_nsg_id>"
+      PROXY_TIMEOUT: "5m"
+      AZURE_IMAGE_ID: "<azure_image_id>"
+      AZURE_REGION: "<azure_region>"
+      AZURE_RESOURCE_GROUP: "<azure_resource_group>"
+      DISABLECVM: "false"
+      AA_KBC_PARAMS: "cc_kbc::https://${TRUSTEE_HOST}"
+    ```
+
+    **Notes:**
+    - `AZURE_INSTANCE_SIZE` is the default if an instance size is not defined in the workload.
+    - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
+    - Specify the `AZURE_SUBNET_ID` value that you retrieved.
+    - Specify the `AZURE_NSG_ID` value that you retrieved.
+    - `AZURE_IMAGE_ID` (Optional): By default, this value is populated when you run the KataConfig CR, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.
+    - Specify the `AZURE_REGION` value you retrieved.
+    - Specify the `AZURE_RESOURCE_GROUP` value you retrieved.
+    - `AA_KBC_PARAMS` specifies the host name of the Trustee route.
+
+1.	Create the config map by running the following command:
+
+    `$ oc apply -f peer-pods-cm.yaml`
+
+1.	Restart the `peerpodconfig-ctrl-caa-daemon` daemon set by running the following command:
+
+    ```
+    $ oc set env ds/peerpodconfig-ctrl-caa-daemon \
+      -n openshift-sandboxed-containers-operator REBOOT="$(date)"
+    ```
+
+
+
+### Create the KataConfig custom resource
+
+1.	Create an `example-kataconfig.yaml` manifest file according to the following example:
+
+    ```
+    apiVersion: kataconfiguration.openshift.io/v1
+        kind: KataConfig
+        metadata:
+          name: example-kataconfig
+        spec:
+          enablePeerPods: true
+          logLevel: info
+        #  kataConfigPoolSelector:
+        #    matchLabels:
+        #      <label_key>: '<label_value>'
+    ```
+
+    Optional: If you have applied node labels to install kata-remote on specific nodes, specify the key and value, for example, cc: 'true'.
+
+1.	Create the KataConfig CR by running the following command:
+
+    `$ oc apply -f example-kataconfig.yaml`
+    
+    The new KataConfig CR is created and installs kata-remote as a runtime class on the worker nodes.
+    
+    > [!NOTE]
+    > Wait for the kata-remote installation to complete and the worker nodes to reboot before verifying the installation.
+    > 
+
+1.	Monitor the installation progress by running the following command:
+
+    `$ watch "oc describe kataconfig | sed -n /^Status:/,/^Events/p"`
+    
+    When the status of all workers under kataNodes is installed and the condition InProgress is False without specifying a reason, the kata-remote is installed on the cluster.
+
+1.	Verify the daemon set by running the following command:
+
+    `$ oc get -n openshift-sandboxed-containers-operator ds/peerpodconfig-ctrl-caa-daemon`
+
+1.	Verify the runtime classes by running the following command:
+
+    $ oc get runtimeclass
+    
+    Example output:
+    
+    ```
+    NAME             HANDLER         AGE
+    kata-remote      kata-remote     152m
+    ```
+
+### Create the Trustee authentication secret
+
+1.	Create a private key by running the following command:
+
+    `$ openssl genpkey -algorithm ed25519 > privateKey`
+
+1.	Create a public key by running the following command:
+
+    `$ openssl pkey -in privateKey -pubout -out publicKey`
+
+1.	Create a secret by running the following command:
+
+    `$ oc create secret generic kbs-auth-public-key --from-file=publicKey -n trustee-operator-system`
+
+1.	Verify the secret by running the following command:
+
+    `$ oc get secret -n trustee-operator-system`
+
+
+### Create the Trustee config map
+
+1.	Create a kbs-config-cm.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: kbs-config-cm
+      namespace: trustee-operator-system
+    data:
+      kbs-config.json: |
+        {
+          "insecure_http" : true,
+          "sockets": ["0.0.0.0:8080"],
+          "auth_public_key": "/etc/auth-secret/publicKey",
+          "attestation_token_config": {
+            "attestation_token_type": "CoCo"
+          },
+          "repository_config": {
+            "type": "LocalFs",
+            "dir_path": "/opt/confidential-containers/kbs/repository"
+          },
+          "as_config": {
+            "work_dir": "/opt/confidential-containers/attestation-service",
+            "policy_engine": "opa",
+            "attestation_token_broker": "Simple",
+              "attestation_token_config": {
+              "duration_min": 5
+              },
+            "rvps_config": {
+              "store_type": "LocalJson",
+              "store_config": {
+                "file_path": "/opt/confidential-containers/rvps/reference-values/reference-values.json"
+              }
+             }
+          },
+          "policy_engine_config": {
+            "policy_path": "/opt/confidential-containers/opa/policy.rego"
+          }
+        }
+    ```
+    
+1.	Create the config map by running the following command:
+
+    `$ oc apply -f kbs-config-cm.yaml`
 
 
 
