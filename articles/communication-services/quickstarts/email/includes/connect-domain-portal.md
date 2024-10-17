@@ -48,7 +48,7 @@ ms.custom: mode-other
     :::image type="content" source="../media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
 
 > [!Note]
-> We enable customers to link up to 1000 custom domains to a single communication service resource. All Mail-From addresses configured under these custom domains are accessible for the communication service resource. You can only link verified custom domains.
+> We enable customers to link up to 100 custom domains to a single communication service resource. All Mail-From addresses configured under these custom domains are accessible for the communication service resource. You can only link verified custom domains.
 
 ## Disconnect an email domain from the Communication Service Resource
 
