@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/10/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: mvc
 ---

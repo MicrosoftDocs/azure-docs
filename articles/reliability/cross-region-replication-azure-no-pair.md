@@ -7,7 +7,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 09/10/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Cross-region replication solutions for nonpaired regions
