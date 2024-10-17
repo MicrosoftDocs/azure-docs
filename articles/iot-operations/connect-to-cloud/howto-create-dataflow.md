@@ -3,6 +3,7 @@ title: Create a dataflow using Azure IoT Operations
 description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 10/08/2024
@@ -157,12 +158,6 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-Then, deploy via Azure CLI.
-
-```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
-```
-
 ---
 
 Review the following sections to learn how to configure the operation types of the dataflow.
@@ -256,7 +251,7 @@ To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your
 
 # [Portal](#tab/portal)
 
-Currently not supported.
+Using a custom MQTT or Kafka endpoint as a source is currently not supported in the operations experience.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -314,7 +309,7 @@ Example with multiple MQTT topic filters with wildcards:
 
 ```yaml
 sourceSettings:
-  endpointRef: mq
+  endpointRef: default
   dataSources:
     - thermostats/+/telemetry/temperature/#
     - humidifiers/+/telemetry/humidity/#
@@ -339,7 +334,7 @@ Example with multiple MQTT topic filters with wildcards:
 
 ```bicep
 sourceSettings: {
-  endpointRef: mq
+  endpointRef: default
   dataSources: [
     'thermostats/+/telemetry/temperature/#',
     'humidifiers/+/telemetry/humidity/#'
@@ -362,7 +357,7 @@ To configure the Kafka topics:
 
 # [Portal](#tab/portal)
 
-Currently not supported.
+Using a Kafka endpoint as a source is currently not supported in the operations experience.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -793,7 +788,7 @@ To configure the data destination:
 
 When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the dataflow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the dataflow endpoint is a MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot showing the operations experience prompting the user to enter an MQTT topic given the endpoint type.":::
+:::image type="content" source="media/howto-create-dataflow/data-destination.png" alt-text="Screenshot showing the operations experience prompting the user to enter an MQTT topic given the endpoint type.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -885,7 +880,7 @@ spec:
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        endpointRef: default
         dataSources:
           - thermostats/+/telemetry/temperature/#
           - humidifiers/+/telemetry/humidity/#
@@ -909,7 +904,7 @@ spec:
             output: 'Tag 10'
     - operationType: Destination
       destinationSettings:
-        endpointRef: mq
+        endpointRef: default
         dataDestination: factory
 ```
 

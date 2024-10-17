@@ -3,6 +3,7 @@ title: Configure dataflow endpoints for Azure Data Lake Storage Gen2
 description: Learn how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 10/16/2024
