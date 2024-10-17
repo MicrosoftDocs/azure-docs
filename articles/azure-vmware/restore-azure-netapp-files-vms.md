@@ -7,7 +7,7 @@ ms.date: 10/17/2024
 ms.custom: engagement-fy23
 ---
 
-# Restore VMs using Cloud Backup for Virtual Machines (preview)
+# Restore VMs using Cloud Backup for Virtual Machines 
 
 Cloud Backup for Virtual Machines enables you to restore virtual machines (VMs) from the cloud backup to the vCenter. 
 
