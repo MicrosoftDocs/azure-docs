@@ -548,7 +548,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
    1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
+   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP_PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
 
       | Name | Value | Description |
       |------|-------|-------------|

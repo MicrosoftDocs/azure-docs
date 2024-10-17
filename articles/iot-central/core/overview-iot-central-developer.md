@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/01/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, device-developer, iot-central-frontdoor]
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/13/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.tool: azure-cli
 ms.custom: device-developer, devx-track-azurecli, engagement-fy23
 services: iot-central
