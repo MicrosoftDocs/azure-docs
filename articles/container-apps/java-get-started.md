@@ -47,7 +47,7 @@ By the end of this tutorial, you deploy one web application and three backend ap
 Clone the Spring PetClinic Microservices sample to your machine and change into the *spring-petclinic-microservices* folder.
 
 ```bash
-git clone https://github.com/yiliuTo/spring-petclinic-microservices && cd spring-petclinic-microservices
+git clone https://github.com/Azure-Samples/azure-container-apps-java-samples && cd azure-container-apps-java-samples/spring-petclinic-microservices
 ```
 
 Create a bash script with environment variables by making a copy of the supplied template:
@@ -104,7 +104,9 @@ az containerapp env java-component config-server-for-spring create \
   --environment $CONTAINER_APP_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
   --name $CONFIG_SERVER_COMPONENT \
-  --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI spring.cloud.config.server.git.default-label=$CONFIG_SERVER_LABEL
+  --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI \
+  spring.cloud.config.server.git.search-paths=$CONFIG_SERVER_SEARCH_PATHS \
+  spring.cloud.config.server.git.default-label=$CONFIG_SERVER_LABEL
 ```
 
 Create the Eureka Server for Java component.
