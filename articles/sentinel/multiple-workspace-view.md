@@ -3,9 +3,9 @@ title: Work with Microsoft Sentinel incidents in many workspaces at once | Micro
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 10/17/2024
 ms.author: yelevin
-
+appliesto: Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
 
@@ -16,6 +16,8 @@ ms.author: yelevin
  To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recommends using a single-workspace environment. However, there are some use cases that require having several workspaces, in some cases – for example, that of a [Managed Security Service Provider (MSSP)](./multiple-tenants-service-providers.md) and its customers – across multiple tenants. **Multiple workspace view** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## Entering multiple workspace view
 
