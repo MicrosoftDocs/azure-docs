@@ -40,7 +40,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 | East US        | US East (Ashburn)          | ✓   | ✓  |
 | Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ |
 
-# Available DR regions for Oracle Database@Azure
+## Available DR regions for Oracle Database@Azure
 
 Below Azure regions offer single zone DR solution for Oracle Database@Azure.
 
