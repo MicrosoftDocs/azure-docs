@@ -160,11 +160,11 @@ To enable CRC protection on the volume group:
 
 Enable CRC protection on a new volume group:
 
-:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-vg.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-vg.png":::
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png":::
 
 Enable CRC protection on an existing volume group:
 
-:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-update-vg.png" alt-text="Screenshot of CRC protection enablement on an existing volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-update-vg.png":::
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png" alt-text="Screenshot of CRC protection enablement on an existing volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
