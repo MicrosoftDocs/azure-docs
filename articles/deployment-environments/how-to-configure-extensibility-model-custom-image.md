@@ -66,11 +66,10 @@ The main steps you'll follow when using a container image are:
 1. Add your image location to the `runner` parameter in your environment definition
 1. Deploy environments that use your custom image.
 
-::: zone pivot="arm-bicep,pulumi"
+
 The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
 ### [Use a sample container image](#tab/sample/)
-::: zone-end
 
 ::: zone pivot="arm-bicep"
 ### Use a sample container image
@@ -93,6 +92,10 @@ You can see the sample Bicep container image in the ADE sample repository under 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 ::: zone-end
 
+::: zone pivot="terraform"
+Use a custom image to configure a Terraform image.
+::: zone-end
+
 ::: zone pivot="pulumi"
 ### Use a sample container image provided by Pulumi
 
@@ -112,9 +115,7 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
-::: zone pivot="arm-bicep,pulumi"
 ### [Create a custom image](#tab/custom/)
-::: zone-end
 
 ### Create a custom image
 
@@ -482,9 +483,8 @@ echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
 
-::: zone pivot="arm-bicep,pulumi"
 ---
-::: zone-end
+
 
 ## Build an image
 
