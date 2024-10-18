@@ -3,7 +3,7 @@ title: "Create a private network connector: Azure Modeling and Simulation Workbe
 description: Learn how to deploy a private connector for a virtual private network.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 09/21/2024
 

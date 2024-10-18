@@ -3,7 +3,7 @@ title: Known issues for Azure Modeling and Simulation Workbench
 description: "Troubleshooting guide for known issues on Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: troubleshooting-known-issue
 ms.date: 09/29/2024
 
