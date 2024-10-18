@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 08/20/2024
+ms.date: 10/18/2024
 ---
 # Access SMB volumes from Microsoft Entra joined Windows virtual machines
 
@@ -91,7 +91,7 @@ The configuration process takes you through five process:
     * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. For example: `CIFS/NETBIOS-1234.CONTOSO.COM`
     * `$targetApplicationID`: Application (client) ID of the Microsoft Entra application.
     * `$domainCred`: use `Get-Credential` (should be an AD DS domain administrator)
-    * `$cloudCred`: use `Get-Credential` (should be a Microsoft Entra Global Administrator)
+    * `$cloudCred`: use `Get-Credential` (likely a [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator))
 
     ```powershell
     $servicePrincipalName = CIFS/NETBIOS-1234.CONTOSO.COM
