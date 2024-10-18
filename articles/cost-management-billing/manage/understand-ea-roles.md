@@ -5,19 +5,15 @@ author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual-article
+ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: banders
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
-# Managing Azure Enterprise Agreement roles
+# Manage Azure Enterprise Agreement roles
 
-> [!NOTE]
-> Enterprise administrators have permissions to create new subscriptions under active enrollment accounts. For more information about creating new subscriptions, see [Add a new subscription](direct-ea-administration.md#add-a-subscription).
-
-
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign six distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign the following six distinct administrative roles.
 
 - Enterprise Administrator
 - Enterprise Administrator (read only)¹
@@ -29,6 +25,9 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 ¹ The Bill-To contact of the EA contract is under this role.
 
 ² The Bill-To contact can't be added or changed in the Azure portal. It gets added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
+
+> [!NOTE]
+> Enterprise administrators have permissions to create new subscriptions under active enrollment accounts. For more information about creating new subscriptions, see [Add a new subscription](direct-ea-administration.md#add-a-subscription).
 
 The first enrollment administrator that is set up during the enrollment provisioning determines the authentication type of the Bill-to contact account. When the bill-to contact gets added to the Azure portal as a read-only administrator, they're given Microsoft account authentication.
 
@@ -144,6 +143,8 @@ The following sections describe the limitations and capabilities of each role.
 
 ## User limit for admin roles
 
+The following table outlines the user limits and permissions for each administrative role in an Enterprise Agreement.
+
 |Role| User limit|
 |---|---|
 |Enterprise Administrator|Unlimited|
@@ -156,6 +157,8 @@ The following sections describe the limitations and capabilities of each role.
 ³ Each account requires a unique Microsoft account, or work or school account.
 
 ## Organization structure and permissions by role
+
+The following table shows user limits and permissions associated with each administrative role.
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)| EA Purchaser | Department Administrator|Department Administrator (read only)|Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
@@ -199,6 +202,8 @@ After an Azure EA admin creates a department, the Azure Enterprise administrator
 Direct EA admins can add department admins in the Azure portal. For more information, see [Create an Azure EA department admin](direct-ea-administration.md#add-a-department-administrator).
 
 ## Usage and costs access by role
+
+The following table shows usage and costs access by administrative role.
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|EA Purchaser|Department Administrator|Department Administrator (read only) |Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
