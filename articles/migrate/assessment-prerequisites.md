@@ -12,9 +12,9 @@ ms.date: 10/16/2024
  
 Azure Migrate assessments identifies the readiness and right-sized Azure targets using the configuration and performance data collected from the source workloads. The quality of assessments depends on the quality of the data available for assessments. Thus, to get high quality assessments ensure you have all the prerequisites satisfied. Before creating the assessments, ensure the following: 
 
-- You have successfully discovered the inventory of all the workloads and applications you intend to assess. 
-- If your workloads are flagged for any data collection issues, ensure that you have resolved them.  
-- You have enough performance data collected before you create the assessment. You can create assessments anytime, but it's recommended to let the appliance collect the performance data for at least 24 hours.  
+- You discovered the inventory of all the workloads and applications you intend to assess. 
+- You resolved any data collection issues that your workloads are flagged for.
+- You have enough performance data collected before you create the assessment. You can create assessments anytime, but we recommend letting the appliance collect the performance data for at least 24 hours.  
 - For better results, in the case of appliance-based discovery, ensure that the appliances are in a connected state and performance data is flowing. 
 - If you have an Enterprise agreement with Microsoft and want to use the negotiated prices to identify the resource cost, ensure that you have access to the required subscriptions. 
 
@@ -31,4 +31,5 @@ The recommended discovery source is the Azure Migrate appliance as it provides a
 
 If you're using the Azure Migrate appliance for assessment, see [metadata and performance data](discovered-metadata.md) collected as an input for the assessment. 
 
- 
+## Next steps
+Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
