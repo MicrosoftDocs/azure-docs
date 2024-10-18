@@ -56,13 +56,25 @@ The following table lists the dimensions that Backup Health Events and Restore H
 | Backup Instance Name        | Friendly name of the backup instance for easy readability. It's of the format `{protectedContainerName};{backupItemFriendlyName}`. <br><br> For example, `testStorageAccount;testFileShare`      |
 | Health Status               | Represents the health of the backup item after the job had completed. It can take one of the following values: Healthy, Transient Unhealthy, Persistent Unhealthy, Transient Degraded, Persistent Degraded. <br> <br> <ul> <li> When a backup/restore job is successful, a health event with status _Healthy_ appears. </li><br><br><li>_Unhealthy_ appears to job failures due to service errors, and _Degraded_ appears to failures due to user errors. </li> <br><br><li> When the same error happens for the same backup item repeatedly, the state changes from _Transient Unhealthy/Degraded_ to _Persistent Unhealthy/Degraded_. </li></ul> |
 
-## Monitoring scenarios
-
-### View metrics in the Azure portal
+## View metrics in the Azure portal
 
 To view metrics in the Azure portal, follow the below steps:
 
 1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Business Continuity Center** > **Monitoring + Reporting** > **Metrics**.
+
+   Alternatively, you can go to the **Recovery Services vault** or **Azure Monitor**, and select **Metrics**.
+
+1. To filter the metrics, select the following data type:
+
+   - **Scope**
+   - **Subscription** (only 1 can be selected at a time)
+   - **Recovery Services vault**/ **Backup vault** as the resource type
+   - **Location**
+
+   >[!Note]
+   >- If you go to **Metrics** from **Recovery Services vault**/ **Backup vault**, the metric scope is preselected.
+   >- Selection of the **Recovery Services vault**/ **Backup vault** as the resource type allows you to track the backup related built-in metrics - **Backup health events** and **Restore health events**.
+   >- Currently, the scope to view metrics is available for all Recovery Services vaults in a particular subscription and region. For example, all Recovery Services vaults in East US in TestSubscription1.
    
 1. Select a vault or a group of vaults for which you want to view metrics.
 
@@ -82,7 +94,7 @@ To view metrics in the Azure portal, follow the below steps:
 
    :::image type="content" source="./media/metrics-overview/metrics-filters-inline.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters-expanded.png":::
 
-### Configure alerts and notifications on your metrics
+## Configure alerts and notifications on your metrics
 
 To configure alerts and notifications on your metrics, follow these steps:
 
@@ -90,7 +102,11 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](#view-metrics-in-the-azure-portal) section.
 
-1. Select the condition on which the alert should be fired.      <br><br>   By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed. To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
+1. Select the condition on which the alert should be fired.
+
+   - By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed.
+   - Choose the threshold type and value to set the trigger condition for the alert. Learn more [about the alert conditions for alert rules](/azure-monitor/alerts/alerts-create-metric-alert-rule).
+   - To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
 
    - Firing alerts on failed backup jobs for each datasource:
 
@@ -124,7 +140,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 :::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
-### Managing Alerts
+## Manage Alerts
 
 To view your fired metric alerts, follow these steps:
 
