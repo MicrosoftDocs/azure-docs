@@ -22,7 +22,7 @@ sections:
       - question: |
           What is Microsoft Entra External ID?
         answer: |
-          Earlier this year we released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
+          We have released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
       - question: |
           How does this preview affect me?
         answer: |
