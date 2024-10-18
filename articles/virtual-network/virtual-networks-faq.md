@@ -539,7 +539,7 @@ Yes, it's possible when you're using service endpoints for Azure Storage and Azu
 
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from on-premises or ExpressRoute. You can add these IP addresses through the IP firewall configuration for the Azure service resources.
 
-Alternatively, you can implement [private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) for supported services.
+Alternatively, you can implement [private endpoints](/azure/private-link/private-endpoint-overview) for supported services.
 
 ### Can I use virtual network service endpoints to secure Azure services to multiple subnets within a virtual network or across multiple virtual networks?
 
