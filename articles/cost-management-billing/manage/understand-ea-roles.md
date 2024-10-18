@@ -1,13 +1,14 @@
 ---
-title: Understand admin roles for Enterprise Agreements (EA) in Azure
-description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
+title: Understand admin roles for Enterprise Agreements in Azure
+description: Learn about the administrative roles available to manage Azure Enterprise Agreements (EA), including permissions and how to assign them.
 author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
-ms.date: 09/04/2024
+ms.topic: conceptual-article
+ms.date: 10/18/2024
 ms.author: banders
+#customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
 # Managing Azure Enterprise Agreement roles
@@ -53,7 +54,7 @@ The Azure portal hierarchy for Cost Management consists of:
 
 The following diagram illustrates simple Azure EA hierarchies.
 
-:::image type="content" border="false" source="./media/understand-ea-roles/ea-hierarchies.png" alt-text="Diagram of simple Azure EA hierarchies.":::
+:::image type="content" border="false" source="./media/understand-ea-roles/ea-hierarchies.png" alt-text="Diagram showing the hierarchical structure of Azure Enterprise Agreement roles.":::
 
 ## Enterprise user roles
 
@@ -172,7 +173,7 @@ The following sections describe the limitations and capabilities of each role.
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
-- ⁶ A subscription owner, reservation purchaser or savings plan purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation/savings plan purchase-enabled flags. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation/savings plan purchase-enabled flags don't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner, reservation purchaser or savings plan purchaser permission, the user can purchase reservations and/or savings plans, regardless of the flags.
+- ⁶ A subscription owner, reservation purchaser, or savings plan purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation/savings plan purchase-enabled flags. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation/savings plan purchase-enabled flags don't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner, reservation purchaser or savings plan purchaser permission, the user can purchase reservations and/or savings plans, regardless of the flags.
 
 ## Add a new enterprise administrator
 
@@ -186,7 +187,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 > [!NOTE]
 > If the Account Owner is a service account and doesn't have an email, use an In-Private session to sign in to the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.
 
-Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the `Warning` message and select **Continue**. New users might get prompted to enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
+Once they activate their account, the account status is updated from **Pending** to **Active**. The account owner needs to read the content and select **Yes, I wish to continue**. New users might get prompted to enter their first and family name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
 
 > [!NOTE]
 > A subscription is associated with one and only one account. The warning message includes details that warn the Account Owner that accepting the offer will move the subscriptions associated with the Account to the new Enrollment.
