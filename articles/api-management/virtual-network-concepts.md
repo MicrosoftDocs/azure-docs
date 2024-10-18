@@ -14,15 +14,6 @@ ms.author: danlep
 
 By default your API Management instance is accessed from the internet at a public endpoint, and acts as a gateway to public backends. API Management provides several options to use an Azure virtual network to secure access to your API Management instance and to backend APIs. Available options depend on the [service tier](api-management-features.md) of your API Management instance. Choose networking capabilities to meet your organization's needs.
 
-* **Injection** of the API Management instance into a subnet in the virtual network, enabling the gateway to access resources in the network. 
-
-    * **Classic tiers** - Choose one of two injection modes: *external* or *internal*. They differ in whether inbound connectivity to the gateway and other API Management endpoints is allowed from the internet or only from within the virtual network.
-
-    * **V2 tiers** - Injection provides complete isolation of the API Management instance's inbound and outbound traffic, similar to the internal mode in the Classic tiers.
-
-* **Outbound integration** of your API Management instance with a subnet in a virtual network so that your API Management gateway can make outbound requests to API backends that are isolated in the network.
-
-* **Enabling secure and private inbound connectivity** to the API Management gateway using a *private endpoint*.
   
 The following table compares virtual networking options. For more information, see later sections of this article and links to detailed guidance.
 
@@ -31,13 +22,13 @@ The following table compares virtual networking options. For more information, s
 |**[Virtual network injection (classic tiers) - external](#virtual-network-injection-classic-tiers)**     | Developer, Premium       | Developer portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | External access to private and on-premises backends |
 |**[Virtual network injection (classic tiers) - internal](#virtual-network-injection-classic-tiers)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository       |  Inbound and outbound traffic can be allowed to peered virtual networks, ExpressRoute, and S2S VPN connections.       | Internal access to private and on-premises backends |
 |**[Virtual network injection (v2 tiers)](#virtual-network-injection-v2-tiers)**   |  Premium v2        |   Gateway only      |  Inbound and outbound traffic can be allowed to a delegated subnet of a virtual network, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Internal access to private and on-premises backends |
-|**[Outbound integration (v2 tiers)](#virtual-network-outbound-integration-v2-tiers)**   | Standard v2, Premium v2        |   Gateway only      |  Outbound request traffic can reach APIs hosted in a delegated subnet of a single connected virtual network.     | External access to private and on-premises backends | 
-|**[Inbound private endpoint](#inbound-private-endpoint-classic-tiers)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported)      |    Only inbound traffic can be allowed from internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Secure client connection to API Management gateway |
+|**[Virtual network integration (v2 tiers)](#virtual-network-integration-v2-tiers)**   | Standard v2, Premium v2        |   Gateway only      |  Outbound request traffic can reach APIs hosted in a delegated subnet of a single connected virtual network.     | External access to private and on-premises backends | 
+|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported)      |    Only inbound traffic can be allowed from internet, peered virtual networks, ExpressRoute, and S2S VPN connections.     | Secure client connection to API Management gateway |
 
 
 ## Virtual network injection (classic tiers)
 
-In the API Management classic Developer and Premium tiers, deploy ("inject") your API Management instance in a subnet in a non-internet-routable network to which you control access. In the virtual network, your API Management instance can securely access other networked Azure resources and also connect to on-premises networks using various VPN technologies. To learn more about Azure virtual networks, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+In the API Management classic Developer and Premium tiers, deploy ("inject") your API Management instance in a subnet in a non-internet-routable network to which you control access. In the virtual network, your API Management instance can securely access other networked Azure resources and also connect to on-premises networks using various VPN technologies. 
 
  You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the configuration. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups](../virtual-network/network-security-groups-overview.md).
 
@@ -81,7 +72,7 @@ This configuration is recommended for scenarios where you want to isolate both t
 
 For more information, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
 
-## Virtual network outbound integration (v2 tiers)
+## Virtual network integration (v2 tiers)
 
 The Standard v2 and Premium v2 tiers support outbound virtual network integration to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. 
 
@@ -91,7 +82,7 @@ Outbound integration enables the API Management instance to reach both public an
 
 For more information, see [Integrate an Azure API Management instance with a private virtual network for outbound connections](integrate-vnet-outbound.md).
 
-## Inbound private endpoint (classic tiers)
+## Inbound private endpoint
 
 API Management supports [private endpoints](../private-link/private-endpoint-overview.md) for secure inbound client connections to your API Management instance. Each secure connection uses a private IP address from your virtual network and Azure Private Link. 
 
@@ -116,13 +107,12 @@ For more information, see [Deploy API Management in an internal virtual network 
 
 ## Related content
 
-Learn more about:
-
-Virtual network configuration with API Management:
+Learn more about virtual network configuration with API Management:
 * [Deploy your Azure API Management instance to a virtual network - external mode](./api-management-using-with-vnet.md).
 * [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md).
 * [Connect privately to API Management using a private endpoint](private-endpoint.md)
+* [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md)
 * [Integrate an Azure API Management instance with a private virtual network for outbound connections](integrate-vnet-outbound.md)
 * [Defend your Azure API Management instance against DDoS attacks](protect-with-ddos-protection.md)
 
-
+To learn more about Azure virtual networks, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).

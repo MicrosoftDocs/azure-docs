@@ -116,9 +116,9 @@
       href: integrate-vnet-outbound.md
     - name: Virtual network integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md
-    - name: Deploy to virtual network  (classic tiers) - external
+    - name: Deploy to virtual network - external
       href: api-management-using-with-vnet.md
-    - name: Deploy to Virtual network (classic tiers) - internal
+    - name: Deploy to virtual network - internal
       href: api-management-using-with-internal-vnet.md
     - name: Integrate Application Gateway in internal virtual network
       href: api-management-howto-integrate-internal-vnet-appgateway.md
