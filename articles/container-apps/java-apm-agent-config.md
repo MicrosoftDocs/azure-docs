@@ -107,7 +107,7 @@ The following commands help you define variables and ensure your Container Apps 
 ## Prepare an image to set up Java agent and push to Azure Container Registry
 
 > [!TIP]
-> You can skip this step and use `` as the init-container image.
+> You can skip this step and use `croff.azurecr.io/app-insights-java-agent-setup:3.5.4` as the init-container image.
 
 1. Build setup image for Application Insights Java agent.
 
@@ -129,7 +129,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     ---
 
-    ```shell
+    ```setup.sh
     #!/bin/sh
 
     if [[ -z "$CONNECTION_STRING" ]]; then
