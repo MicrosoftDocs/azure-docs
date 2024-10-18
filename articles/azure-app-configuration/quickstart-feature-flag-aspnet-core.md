@@ -142,7 +142,7 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 
 1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-:::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
     The `<feature>` tag ensures the **Beta** menu item is shown only when the *Beta* feature flag is enabled.
 
