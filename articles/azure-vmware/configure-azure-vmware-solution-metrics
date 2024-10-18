@@ -12,20 +12,20 @@ ms.custom: engagement-fy24
 
 # Leveraging the improved private cloud metrics for Azure VMware Solution
 
-Azure VMware Solution provides users with an array of high-level metrics available for consumption in the Azure VMware Solution portal that provide visibility into the health and performance of an Azure VMware Solution private cloud. As of March 2024, another set of identical metrics labeled with the word "(new)" were introduced, where a series of enhancements to the stability, reliability, and performance of these metrics were made to provide users a better experience relative to the older set of metrics. 
+Azure VMware Solution provides users with an array of high-level metrics available for consumption in the Azure VMware Solution portal that provide visibility into the health and performance of an Azure VMware Solution private cloud. Beginning in March 2024, another set of identical metrics labeled with the word "(new)" were introduced, where a series of enhancements to the stability, reliability, and performance of these metrics were made to provide users a better experience relative to the older set of metrics. 
   
 In this article, learn how to leverage the new and improved metrics available to monitor your Azure VMware Solution private cloud.
 
 ### Azure VMware Solution metrics
-From your Azure VMware Solution private cloud, select **Metrics**, then under the **Metric** dropdown, choose a metric that contains the word "(new)" These newer metrics are powered by our improved metrics engine, providing utmost reliability and stability. Here, you can see metrics that allow you to monitor crucial things like memory consumption, datastore usage, and CPU across your Azure VMware Solution private cloud.
+From your Azure VMware Solution private cloud, select **Metrics** under the **Monitoring** section. Then under the **Metric** dropdown, choose a metric that contains the word "(new)". These newer metrics are powered by our improved metrics engine, providing utmost reliability and stability. Here, you can see metrics that allow you to monitor crucial things like memory consumption, datastore usage, and CPU across your Azure VMware Solution private cloud.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to get the new metrics.":::
+:::image type="content" source="media/new-metrics/avs-metrics-new-1.png" alt-text="Screenshot showing where to get the new metrics.":::
 
 #### Setting up a chart
 
 Select a metric you'd like to build a chart for, such as "Percentage CPU (new)" in this example. Upon doing so, you will see a chart like the one below showing a time series for the metric you've selected.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing an example metric.":::
+:::image type="content" source="media/new-metrics/avs-metrics-new-2.png" alt-text="Screenshot showing an example metric.":::
 
 You can toggle the time window you are interested in this metric for by simply selecting the time window button in the top-right corner. The default window for your selected metric will be **24 hours**.
 
