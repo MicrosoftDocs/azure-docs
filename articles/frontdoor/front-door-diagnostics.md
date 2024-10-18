@@ -128,7 +128,7 @@ The following example JSON snippet shows a health probe log entry for a failed h
   "records": [
     {
       "time": "2021-02-02T07:15:37.3640748Z",
-      "resourceId": "/SUBSCRIPTIONS/27CAFCA8-B9A4-4264-B399-45D0C9CCA1AB/RESOURCEGROUPS/AFDXPRIVATEPREVIEW/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDXPRIVATEPREVIEW-JESSIE",
+      "resourceId": "/SUBSCRIPTIONS/mySubscriptionID/RESOURCEGROUPS/myResourceGroup/PROVIDERS/MICROSOFT.CDN/PROFILES/MyProfile",
       "category": "FrontDoorHealthProbeLog",
       "operationName": "Microsoft.Cdn/Profiles/FrontDoorHealthProbeLog/Write",
       "properties": {
@@ -137,9 +137,9 @@ The following example JSON snippet shows a health probe log entry for a failed h
         "httpVerb": "HEAD",
         "result": "OriginError",
         "httpStatusCode": "400",
-        "probeURL": "http://afdxprivatepreview.blob.core.windows.net:80/",
-        "originName": "afdxprivatepreview.blob.core.windows.net",
-        "originIP": "52.239.224.228:80",
+        "probeURL": "http://www.example.com:80/",
+        "originName": "www.example.com",
+        "originIP": "PublicI:Port",
         "totalLatencyMilliseconds": "141",
         "connectionLatencyMilliseconds": "68",
         "DNSLatencyMicroseconds": "1814"
