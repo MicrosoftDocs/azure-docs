@@ -68,7 +68,9 @@ The main steps you'll follow when using a container image are:
  
 The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
+::: zone pivot="arm-bicep,pulumi"
 ### [Use a sample container image](#tab/sample/)
+::: zone-end
 
 ::: zone pivot="arm-bicep"
 ### Use a sample container image
@@ -110,7 +112,9 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
+::: zone pivot="arm-bicep,pulumi"
 ### [Create a custom image](#tab/custom/)
+::: zone-end
 
 ### Create a custom image
 
@@ -478,7 +482,10 @@ stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "s
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
+
+::: zone pivot="arm-bicep,pulumi"
 ---
+::: zone-end
 
 ## Build an image
 
