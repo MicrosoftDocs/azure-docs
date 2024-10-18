@@ -335,7 +335,6 @@ var videoResponse = await notificationMessagesClient.SendAsync(videoNotification
 
 #### Sending an Audio File
 
-
 Assemble the audio message:  
 ```csharp
 var audioLink = new Uri("https://example.com/audio.mp3");
