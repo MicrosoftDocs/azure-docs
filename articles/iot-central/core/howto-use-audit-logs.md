@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/14/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # CustomerIntent: As an administrator, I want to be able to track changes made to my IoT Central application so that I can understand who made what changes at what time.

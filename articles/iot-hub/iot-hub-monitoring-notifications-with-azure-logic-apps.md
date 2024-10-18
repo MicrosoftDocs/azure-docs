@@ -5,7 +5,7 @@ description: Tutorial - Use Azure Logic Apps to monitor IoT temperature data in 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 02/07/2024
 ---

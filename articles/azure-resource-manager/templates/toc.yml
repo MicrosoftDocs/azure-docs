@@ -420,10 +420,13 @@
   - name: Export templates
     items:
     - name: Portal
+      displayName: export
       href: export-template-portal.md
     - name: Azure CLI
+      displayName: export
       href: export-template-cli.md
     - name: PowerShell
+      displayName: export
       href: export-template-powershell.md
   - name: Test templates
     items:

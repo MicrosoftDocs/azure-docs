@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/30/2024
+ms.date: 10/15/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 09/30/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, please [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before **October 11, 2024**. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
+>The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) at your earliest convenience. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -369,9 +369,9 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Salesforce linked service 
+## <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector
 
-Here are steps that help you upgrade your linked service and related queries:
+Here are steps that help you upgrade your Salesforce connector:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce.md#prerequisites).
 
