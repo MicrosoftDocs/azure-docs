@@ -65,7 +65,7 @@ The choices between these two options are based on your customer’s needs and y
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
 
 > [!NOTE]
-> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed. For more information, see [Modify an ExpressRoute circuit](expressroute/expressroute-howto-circuit-portal-resource-manager.md#modify)
+> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed. For more information, see [Modify an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify)
 >
 
 ExpressRoute supports the connection of multiple VNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
