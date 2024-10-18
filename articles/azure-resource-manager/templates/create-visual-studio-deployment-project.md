@@ -7,6 +7,12 @@ ms.date: 03/20/2024
 
 # Creating and deploying Azure resource groups through Visual Studio
 
+> [!NOTE]
+> The Azure Resource Group project is now in extended support, meaning we will continue to support existing features and capabilities but won't prioritize adding new features.
+
+> [!NOTE]
+> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio?view=vs-2022). Upgrading will improve both the reliability and overall performance of your Visual Studio environment.
+
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
 This article shows how to use [Visual Studio 2019 or later with the Azure development and ASP.NET workloads installed](/visualstudio/install/install-visual-studio). If you use Visual Studio 2017, your experience is largely the same.
@@ -86,11 +92,7 @@ You can customize a deployment project by modifying the Resource Manager templat
    }
    ```
 
-1. Visual Studio also provides intellisense to help you understand the properties that are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the **HostingPlan** resource, and add a value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
-
-   :::image type="content" source="./media/create-visual-studio-deployment-project/show-intellisense.png" alt-text="Screenshot of Visual Studio editor showing intellisense suggestions for Resource Manager template.":::
-
-   You can set **numberOfWorkers** to 1, and save the file.
+1. Navigate to the **HostingPlan** resource, and add a value for the **properties** with some properties.
 
    ```json
    "properties": {
@@ -99,11 +101,22 @@ You can customize a deployment project by modifying the Resource Manager templat
    }
    ```
 
+  You also need to define the `hostingPlanName` parameter:
+
+   ```json
+   "hostingPlanName": {
+     "type": "string",
+     "metadata": {
+       "description": "Hosting paln name."
+     }
+   }
+   ```
+
 1. Open the **WebSite.parameters.json** file. You use the parameters file to pass in values during deployment that customize the resource being deployed. Give the hosting plan a name, and save the file.
 
    ```json
    {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "hostingPlanName": {
@@ -211,7 +224,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
    ```json
    {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "hostingPlanName": {
