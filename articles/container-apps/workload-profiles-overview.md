@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/14/2024
+ms.date: 10/19/2024
 ms.author: cshoe
 ms.custom:
   - references_regions
@@ -63,7 +63,8 @@ There are different types and sizes of workload profiles available by region. By
 
 <sup>\*</sup> Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.
 
-**Important Update:** The command `az containerapp env workload-profile set` is no longer available for selecting a workload profile. Instead, use the command `az containerapp env workload-profile add` or `az containerapp env workload-profile update` to configure your workload profiles.
+> [!NOTE]
+> The command `az containerapp env workload-profile set` is no longer available for selecting a workload profile. Instead, use [az containerapp env workload-profile add](/cli/azure/containerapp/env/workload-profile?view=azure-cli-latest#az-containerapp-env-workload-profile-add) or [az containerapp env workload-profile update](/cli/azure/containerapp/env/workload-profile?view=azure-cli-latest#az-containerapp-env-workload-profile-update).
 
 In addition to different core and memory sizes, workload profiles also have varying image size limits available. To learn more about the image size limits for your container apps, see [hardware reference](hardware.md#image-size-limit).
 
@@ -71,7 +72,7 @@ The availability of different workload profiles varies by region.
 
 ## Resource consumption
 
-You can constrain the memory and CPU usage of each app inside a workload profile, and you can run multiple apps inside a single instance of a workload profile. However, the total resources available to a container app are lesser than the resources allocated to a profile. The difference between allocated and available resources is the amount reserved by the Container Apps runtime.
+You can constrain the memory and CPU usage of each app inside a workload profile, and you can run multiple apps inside a single instance of a workload profile. However, the total resources available to a container app are less than the resources allocated to a profile. The difference between allocated and available resources is the amount reserved by the Container Apps runtime.
 
 ## Scaling
 
