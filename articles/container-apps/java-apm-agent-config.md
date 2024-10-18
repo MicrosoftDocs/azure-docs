@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure APM integration for Java applications in Azure Container Apps"
-description: Learn to configure APM integration for Java applications in Azure Container Apps
+title: "Tutorial: Configure APM integration for Java applications with Java agent and init-container"
+description: Learn to configure APM integration for Java applications with Java agent and init-container
 services: container-apps
 author: croffz
 ms.service: azure-container-apps
@@ -10,9 +10,11 @@ ms.date: 09/26/2024
 ms.author: kuzhong
 ---
 
-# Tutorial: Configure APM integration for Java applications in Azure Container Apps
+# Tutorial: Configure APM integration for Java applications with Java agent and init-container
 
-APM (Application Performance Management) is useful when you need observability on your applications running online. You can configure APM integration for Java applications in Azure Container Apps easily by Java agent and init containers without modifying your app image. In this tutorial, you learn how to:
+APM (Application Performance Management) is useful when it comes to observability for your applications running online. You can package the APM plugin in the same image or Dockerfile with your app, but this will bind the management efforts together, like release and CVE (Common Vulnerabilities and Exposures) mitigation. Alternatively, you can leverage Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare an image to set up Java agent and push to Azure Container Registry
@@ -44,8 +46,6 @@ The following commands help you define variables and ensure your Container Apps 
     az login
     ```
 
-    ---
-
 1. Ensure you have the latest version of Azure CLI extensions for Container Apps and Application Insights.
 
     # [Bash](#tab/bash)
@@ -61,8 +61,6 @@ The following commands help you define variables and ensure your Container Apps 
     az extension add -n containerapp --upgrade
     az extension add -n application-insights --upgrade
     ```
-
-    ---
 
 1. Set up environment variables used in various commands to follow.
 
@@ -88,10 +86,6 @@ The following commands help you define variables and ensure your Container Apps 
     $LOCATION="eastus"
     ```
 
-    ---
-
-## Prepare an image to set up Java agent and push to Azure Container Registry
-
 1. Retrieve the connection string of Application Insights.
 
     # [Bash](#tab/bash)
@@ -110,43 +104,56 @@ The following commands help you define variables and ensure your Container Apps 
       --query connectionString)
     ```
 
-    ---
+## Prepare an image to set up Java agent and push to Azure Container Registry
+
+> [!TIP]
+> You can skip this step and use `` as the init-container image.
 
 1. Build setup image for Application Insights Java agent.
 
-    Save the Dockerfile and run `docker build` in the same directory.
+    Save the Dockerfile along with the setup script, and run `docker build` in the same directory.
     
     ```Dockerfile
     FROM mcr.microsoft.com/cbl-mariner/base/core:2.0
     
-    ARG connectionString
+    ARG version="3.5.4"
     
     RUN tdnf update -y && tdnf install -y curl ca-certificates
     
-    RUN curl -L https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.4/applicationinsights-agent-3.5.4.jar > agent.jar
+    RUN curl -L "https://github.com/microsoft/ApplicationInsights-Java/releases/download/${version}/applicationinsights-agent-${version}.jar" > agent.jar
     
-    RUN echo "{\"connectionString\": \"${connectionString}\"}" > applicationinsights.json
+    ADD setup.sh /setup.sh
     
-    ENTRYPOINT ["/bin/sh", "-c", "cp agent.jar /java-agent/agent.jar && cp applicationinsights.json /java-agent/applicationinsights.json"]
+    ENTRYPOINT ["/bin/sh", "setup.sh"]
     ```
-    
+
+    ---
+
+    ```shell
+    #!/bin/sh
+
+    if [[ -z "$CONNECTION_STRING" ]]; then
+      echo "Environment variable CONNECTION_STRING is not found. Exiting..."
+      exit 1
+    else
+      echo "{\"connectionString\": \"$CONNECTION_STRING\"}" > /java-agent/applicationinsights.json
+      cp agent.jar /java-agent/agent.jar
+    fi
+    ```
+
+    ---
+
     # [Bash](#tab/bash)
 
     ```azurecli
-    docker build . \
-      -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0" \
-      --build-arg connectionString=$CONNECTION_STRING
+    docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker build . `
-      -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0" `
-      --build-arg connectionString=$CONNECTION_STRING
+    docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
-
-    ---
 
 1. Push the image to Azure Container Registry or other container image registries.
     
@@ -163,8 +170,6 @@ The following commands help you define variables and ensure your Container Apps 
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
-
-    ---
 
 ## Create a Container Apps environment and a Container App as the target Java app
 
@@ -190,8 +195,6 @@ The following commands help you define variables and ensure your Container Apps 
       --query "properties.provisioningState"
     ```
 
-    ---
-
     Once created, the command returns a "Succeeded" message.
 
 1. Create a Container app for further configurations.
@@ -216,13 +219,11 @@ The following commands help you define variables and ensure your Container Apps 
       --query "properties.provisioningState"
     ```
 
-    ---
-
     Once created, the command returns a "Succeeded" message.
 
-## Configure init containers and volume mounts to set up Application Insights integration
+## Configure init-container, environment variables and volumes to set up Application Insights integration
 
-1. Get current configurations of running Container App.
+1. Get current configurations of the running Container App.
 
     # [Bash](#tab/bash)
 
@@ -242,13 +243,23 @@ The following commands help you define variables and ensure your Container Apps 
       -o yaml > app.yaml
     ```
 
-    ---
-
     YAML File `app.yaml` is created in current directory.
 
 2. Edit the app YAML file.
 
-    - Ephemeral storage volume for Java agent files
+    - Add a secret for Application Insights connection string
+
+    ```yaml
+    properties:
+      configuration:
+        secrets:
+        - name: app-insights-connection-string
+          value: $CONNECTION_STRING
+    ```
+
+    Replace $CONNECTION_STRING with your Azure Application Insights connection string.
+
+    - Add ephemeral storage volume for Java agent files
   
     ```yaml
     properties:
@@ -258,7 +269,7 @@ The following commands help you define variables and ensure your Container Apps 
           storageType: EmptyDir
     ```
 
-    - Init container with volume mount to set up Java agent
+    - Add init-container with volume mounts and environment variables to set up Java agent
   
     ```yaml
     properties:
@@ -268,8 +279,10 @@ The following commands help you define variables and ensure your Container Apps 
           name: java-agent-setup
           resources:
             cpu: 0.25
-            ephemeralStorage: 1Gi
             memory: 0.5Gi
+          env:
+          - name: CONNECTION_STRING
+            secretRef: app-insights-connection-string
           volumeMounts:
           - mountPath: /java-agent
             volumeName: java-agent-volume
@@ -277,7 +290,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     Replace $CONTAINER_REGISTRY_NAME with your Azure Container Registry name or replace the image from other container image registries.
 
-    - App container with volume mount and environment variable to inject Java agent
+    - App container with volume mounts and environment variables to inject Java agent
   
     ```yaml
     properties:
@@ -287,7 +300,6 @@ The following commands help you define variables and ensure your Container Apps 
           image: mcr.microsoft.com/azurespringapps/samples/hello-world:0.0.1
           resources:
             cpu: 0.5
-            ephemeralStorage: 2Gi
             memory: 1Gi
           env:
           - name: JAVA_TOOL_OPTIONS
@@ -318,8 +330,6 @@ The following commands help you define variables and ensure your Container Apps 
       --yaml app.yaml `
       --query "properties.provisioningState"
     ```
-
-    ---
 
     Once updated, the command returns a "Succeeded" message. Then you can check out your Application Insights in Azure portal to see your Container App is connected.
 
