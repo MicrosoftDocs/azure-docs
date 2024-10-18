@@ -101,9 +101,14 @@ The following parameters are used by the App Configuration snapshot task:
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.
 
 ## Next step
+For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
 
-> [!div class="nextstepaction"]
-> [Use Azure App Configuration Snapshot Task in YAML Pipelines](https://learn.microsoft.com/azure/devops/pipelines/tasks/reference/azure-app-configuration-snapshot-v1?view=azure-pipelines)
+[Azure App Configuration Snapshot Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-snapshot-v1)
 
-> [!div class="nextstepaction"]
-> [Pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
+To learn how to export key-values from your App Configuration store and set them as Azure pipeline variables, continue to the following document.
+
+[Pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
+
+To learn how to import key-values from a configuration file into your App Configuration store, continue to the following document.
+
+[Push settings to App Configuration with Azure pipelines](./push-kv-devops-pipeline.md)
