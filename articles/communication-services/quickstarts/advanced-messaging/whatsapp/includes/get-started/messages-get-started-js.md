@@ -348,7 +348,7 @@ Messages SDK allows Contoso to send media (Image, Video, Audio or Document) mess
 
 #### Sending an Image Message
 
-To send a image message, provide a URL to an image. As an example,
+To send an image message, provide a URL to an image. As an example,
 ```javascript
 const url = "https://example.com/image.jpg";
 ```
@@ -378,7 +378,7 @@ if (mediaMessageResult.status === "202") {
 
 #### Sending a Video Message
 
-To send a video message, provide a URL to an video. As an example,
+To send a video message, provide a URL to a video. As an example,
 ```javascript
 const url = "https://example.com/video.mp4";
 ```
@@ -408,7 +408,7 @@ if (mediaMessageResult.status === "202") {
 
 #### Sending an Audio Message
 
-To send a audio message, provide a URL to an audio. As an example,
+To send an audio message, provide a URL to an audio file. As an example,
 ```javascript
 const url = "https://example.com/audio.mp3";
 ```
@@ -438,7 +438,7 @@ if (mediaMessageResult.status === "202") {
 
 #### Sending a Document Message
 
-To send a document message, provide a URL to an document. As an example,
+To send a document message, provide a URL to a document. As an example,
 ```javascript
 const url = "https://example.com/document.pdf";
 ```
