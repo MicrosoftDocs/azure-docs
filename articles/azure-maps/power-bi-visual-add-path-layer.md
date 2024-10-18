@@ -37,18 +37,18 @@ To draw paths, provide data for "Path ID" and "Point Order":
 
 ### Configure a Path Layer
 
-After adding your data, you can adjust the Path Layer's color, line width, and opacity. Apply settings by legend or path ID, coloring paths and locations with the same legend identically.
+After adding your data, you can adjust the Path Layer's color, line width, and opacity. Apply settings by legend or path ID, coloring paths, and locations with the same legend identically.
 
-After adding your data, you can configure the Path Layer according to your requirements. The style of the paths can be customized by adjusting the line color, width, and opacity. These settings can be applied based on legend or path ID. If a legend is provided, paths and locations associated with the same legend will share the same color.
+After adding your data, you can configure the Path Layer according to your requirements. The style of the paths can be customized by adjusting the line color, width, and opacity. These settings can be applied based on legend or path ID. If a legend is provided, paths and locations associated with the same legend share the same color.
 
-:::image type="content" source="media/power-bi-visual/path-layer-configuration.png" alt-text="A screenshot showing the path layer configuration properties, including line color, transparency and width as well as minimum and maximum zoom.":::
+:::image type="content" source="media/power-bi-visual/path-layer-configuration.png" alt-text="A screenshot showing the path layer configuration properties, including line color, transparency, and width as well as minimum and maximum zoom.":::
 
 ### Interact with a Path Layer
 
 The Path Layer feature offers several interactive options:
 
 1. **Hover and Select**: Hover over a path to select points; clicking on a path selects the nearest point. The selected point will also select other reports by legend, path ID, location, and point order.
-1. **Tooltips**: Tooltips will show information for the nearest point when hovering over a line.
+1. **Tooltips**: Tooltips show information for the nearest point when hovering over a line.
 
     :::image type="content" source="media/power-bi-visual/path-layer-map.png" alt-text="A screenshot showing a map using the path layer.":::
 
@@ -58,9 +58,9 @@ Examine the connections and insights revealed by the Path Layer visualization. F
 
 #### Legends in a Path Layer
 
-Adding a field to the legend field well creates a higher level of grouping. Consequently, paths and locations associated with the same legend are colored identically. Here is the process:
+Adding a field to the legend field well creates a higher level of grouping. Consequently, paths and locations associated with the same legend are colored identically. Here's the process:
 
-- **Grouping by Legend**: When a legend is provided, the paths and locations will be grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline will share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123", and another with legend "MSAirline" and path ID "A123", the Path Layer will interpret these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
+- **Grouping by Legend**: When a legend is provided, the paths and locations are grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123", and another with legend "MSAirline" and path ID "A123", the Path Layer interprets these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
 - **Styling by Legend**: Configure the style (color, line width, opacity) using the legend to visually differentiate path groups.
 - **Interaction by Legend**: When interacting with the Path Layer, selecting a path or point will also select other reports based on legend, path ID, location, and point order. This ensures all related data points are highlighted together.
 
