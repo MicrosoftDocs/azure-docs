@@ -180,9 +180,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ## Configure the JVM TTL for DNS name lookups
 
-The Java Virtual Machine (JVM) caches responses from successful DNS name lookups for a specified period of time, known as time-to-live (TTL). The default TTL value for many JVMs is `-1`, which means that the JVM caches the response indefinitely, or until the JVM is restarted.
-
-Because Azure resources use DNS names that can change, we recommend that you set the JVM TTL value to X seconds. This configuration ensures that any updated IP addresses for resources are returned with the next DNS query. You can change the TTL value by setting the `networkaddress.cache.ttl` system property.
+The Java Virtual Machine (JVM) caches responses from successful DNS name lookups for a specified period of time, known as time-to-live (TTL). The default TTL value for many JVMs is `-1`, which means that the JVM caches the response indefinitely, or until the JVM is restarted. Because Azure resources use DNS name entries that can change, we recommend that you set the JVM TTL value to X seconds. This configuration ensures that an updated IP address for a resource is returned with the next DNS query.
 
 To change the TTL value globally for all applications using the JVM, set the `networkaddress.cache.ttl` property in the `java.security` file.
 
