@@ -12,11 +12,11 @@ ms.date: 01/29/2024
 
 This article explains how to use the Azure CLI to upload firmware images to Firmware analysis.
 
-[Firmware analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment for the Azure CLI
 
@@ -32,7 +32,7 @@ This quickstart assumes a basic understanding of Firmware analysis. For more inf
 
 * To find the version and dependent libraries that are installed, run the command [az version](/cli/azure/reference-index?#az-version). To upgrade to the latest version, run the command [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-* [Onboard](tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
+* [Onboard](./tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
 
 * Select the appropriate subscription ID where you'd like to upload your firmware images by running the command [az account set](/cli/azure/account?#az-account-set).
 

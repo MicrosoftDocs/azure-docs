@@ -12,11 +12,11 @@ ms.date: 01/29/2024
 
 This article explains how to use Azure PowerShell to upload firmware images to Firmware analysis.
 
-[Firmware analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment for Azure PowerShell
 

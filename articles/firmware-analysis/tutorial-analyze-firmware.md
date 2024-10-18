@@ -19,7 +19,7 @@ This tutorial describes how to use the **Firmware analysis** page to upload a fi
 ## Prerequisites
 
 > [!NOTE]
-> The **Firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **Firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](firmware-analysis-rbac.md).
+> The **Firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **Firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
 >
 
 * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -36,7 +36,7 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 ## Onboard your subscription to use Firmware analysis
 > [!NOTE]
-> To onboard a subscription to use Firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in Firmware Analysis, visit [Firmware Analysis Roles, Scopes, and Capabilities](firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
+> To onboard a subscription to use Firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in Firmware Analysis, visit [Firmware Analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
 >
 
 If this is your first interaction with **Firmware analysis**, then you'll need to onboard your subscription to the service and select a region in which to upload and store your firmware images.
@@ -125,8 +125,8 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
+For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md).
 
-To use the Azure CLI commands for Firmware analysis, refer to the [Azure CLI Quickstart](quickstart-upload-firmware-using-azure-command-line-interface), and see [Azure PowerShell Quickstart](quickstart-upload-firmware-using-powershell) to use the Azure PowerShell commands. See [Quickstart: Upload firmware using Python](quickstart-upload-firmware-using-python) to run a Python script using the SDK to upload and analyze firmware images.
+To use the Azure CLI commands for Firmware analysis, refer to the [Azure CLI Quickstart](./quickstart-upload-firmware-using-azure-command-line-interface.md), and see [Azure PowerShell Quickstart](./quickstart-upload-firmware-using-powershell.md) to use the Azure PowerShell commands. See [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md) to run a Python script using the SDK to upload and analyze firmware images.
 
-Visit [FAQs about Firmware analysis](firmware-analysis-FAQ.md) for answers to frequent questions.
+Visit [FAQs about Firmware analysis](./firmware-analysis-faq.md) for answers to frequent questions.
