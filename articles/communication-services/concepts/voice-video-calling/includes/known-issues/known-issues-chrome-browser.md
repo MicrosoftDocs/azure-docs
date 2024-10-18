@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 ## Chrome Desktop
 
-### Call disconnection issues on macOS 15.0, Build: 24A335 with Chrome browsers
+### Call disconnection issues on macOS 15.0, Build: 24A335
 
 **OS version:** macOS 15.0, build: 24A335.<br>
 **Browser version:** Google Chrome - all versions.<br>
