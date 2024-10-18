@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 09/09/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
+ms.service: azure-iot-operations
 ---
 
 # Configure core MQTT broker settings

@@ -3,6 +3,7 @@ title: Configure dataflow endpoints in Azure IoT Operations
 description: Configure dataflow endpoints to create connection points for data sources.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 09/17/2024
