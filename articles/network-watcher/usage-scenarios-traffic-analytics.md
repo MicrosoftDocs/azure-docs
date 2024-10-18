@@ -1,5 +1,5 @@
 ---
-title: Usage scenarios of traffic analytics
+title: Traffic analytics usage scenarios
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher traffic analytics and the insights it can provide in different usage scenarios.
 author: halkazwini
@@ -10,7 +10,7 @@ ms.date: 10/18/2024
 ms.custom: references_regions
 ---
 
-# Usage scenarios of traffic analytics
+# Traffic analytics usage scenarios
 
 In this article, you learn how to get insights about your traffic after configuring traffic analytics in different scenarios.
 
