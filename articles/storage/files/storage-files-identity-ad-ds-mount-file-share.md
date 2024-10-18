@@ -1,22 +1,18 @@
 ---
-title: Mount SMB Azure file share using AD DS credentials
-description: Learn how to mount an SMB Azure file share using your on-premises Active Directory Domain Services (AD DS) credentials.
+title: Mount SMB Azure file share with identity-based access
+description: Learn how to mount an SMB Azure file share on Windows using Active Directory (AD) or Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 10/18/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
 ---
 
-# Mount an Azure file share
+# Mount an SMB Azure file share
 
-Before you begin this article, make sure you've read [configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
-
-The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can mount your SMB Azure file share. Remember that share-level role assignment can take some time to take effect.
-
-Sign in to the client using the credentials of the identity that you granted permissions to.
+The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can mount your SMB Azure file share.
 
 ## Applies to
 
@@ -30,12 +26,14 @@ Sign in to the client using the credentials of the identity that you granted per
 
 Before you can mount the Azure file share, make sure you've gone through the following prerequisites:
 
-- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions on how to remove cached credentials with storage account key and delete existing SMB connections before initializing a new connection with AD DS or Microsoft Entra credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
-- Your client must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
+- Make sure you've [assigned share-level permissions](storage-files-identity-ad-ds-assign-permissions.md) and [configured directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md). Remember that share-level role assignment can take some time to take effect.
+- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share and removed the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with Active Directory Domain Services (AD DS) or Microsoft Entra credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
+- If your AD source is AD DS or Microsoft Entra Kerberos, your client must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
+- Sign in to the client using the credentials of the AD DS or Microsoft Entra identity that you granted permissions to.
 
 ## Mount the file share from a domain-joined VM
 
-Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+Run the following PowerShell script or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. Because you've been authenticated, you won't need to provide the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 Unless you're using [custom domain names](#mount-file-shares-using-custom-domain-names), you should mount Azure file shares using the suffix `file.core.windows.net`, even if you set up a private endpoint for your share.
 
@@ -59,7 +57,9 @@ If you run into issues, see [Unable to mount Azure file shares with AD credentia
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials (username and password). The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+If your AD source is on-premises AD DS, then non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the AD domain controllers and provide explicit credentials (username and password). The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+
+If your AD source is Microsoft Entra Domain Services, the VM must have unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name. This will allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 
@@ -69,8 +69,15 @@ For example:
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
 ```
 
+If your AD source is Microsoft Entra Domain services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
+```
+
+
 > [!NOTE]
-> Azure Files doesn't support SID to UPN translation for users and groups from a non-domain joined VM or a VM joined to a different domain via Windows File Explorer. If you want to view file/directory owners or view/modify NTFS permissions via Windows File Explorer, you can do so only from domain joined VMs.
+> Azure Files doesn't support SID to UPN translation for users and groups from a non-domain joined VM or a VM joined to a different domain via Windows File Explorer. If you want to view file/directory owners or view/modify NTFS permissions via Windows File Explorer, you can do so only from domain-joined VMs.
 
 ## Mount file shares using custom domain names
 
@@ -85,7 +92,7 @@ This will allow clients to mount the share with `net use \\mystorageaccount.onpr
 
 To use this method, complete the following steps:
 
-1. Make sure you've set up identity-based authentication and synced your AD user account(s) to Microsoft Entra ID.
+1. Make sure you've set up identity-based authentication. If your AD source is AD DS or Microsoft Entra Kerberos, make sure you've synced your AD user account(s) to Microsoft Entra ID.
 
 2. Modify the SPN of the storage account using the `setspn` tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
 
