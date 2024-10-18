@@ -25,7 +25,7 @@ The command produces an output file containing the results of the data extract. 
 ## Verify access to the Cluster Manager storage account
 
 > [!NOTE]
-> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and user managed storage option is fully supported.
+> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
 
 If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
 
@@ -35,7 +35,7 @@ If using the Cluster Manager storage method, verify you have access to the Clust
 1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
 1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
-## **PREVIEW:** Sending command output to a user specified storage account
+## **PREVIEW:** Send command output to a user specified storage account
 
 > [!IMPORTANT]
 > Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
@@ -120,9 +120,9 @@ az rest --method patch \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
 
-### Viewing the Principal ID for the Managed Identity
+### View the principal ID for the managed identity
 
-The identity resource ID can be found by clicking "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
+The identity resource ID can be found by selecting "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
 
 The CLI can also be used to view the identity and the associated principal ID data within the cluster.
 
@@ -662,7 +662,7 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
 
 The CVE data is refreshed per container image every 24 hours or when there's a change to the Kubernetes resource referencing the image.
 
-## Viewing the Output
+## Viewing the output
 
 The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
 

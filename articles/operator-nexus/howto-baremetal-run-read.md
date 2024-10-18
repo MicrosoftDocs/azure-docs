@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Troubleshoot BMM issues using the `az networkcloud baremetalmachine run-read-command`
 
-There might be situations where a user needs to investigate & resolve issues with an on-premises bare metal machine (BMM). Operator Nexus provides the `az networkcloud baremetalmachine run-read-command` so users can run a curated list of read only commands to get information from a BMM.
+There might be situations where a user needs to investigate and resolve issues with an on-premises bare metal machine (BMM). Operator Nexus provides the `az networkcloud baremetalmachine run-read-command` so users can run a curated list of read only commands to get information from a BMM.
 
 The command produces an output file containing the results of the run-read command execution. By default, the data is sent to the Cluster Manager storage account. There's also a preview method where users can configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output.
 
@@ -25,7 +25,7 @@ The command produces an output file containing the results of the run-read comma
 ## Verify access to the Cluster Manager storage account
 
 > [!NOTE]
-> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and user managed storage option is fully supported.
+> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
 
 If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
 
@@ -35,7 +35,7 @@ If using the Cluster Manager storage method, verify you have access to the Clust
 1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
 1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
-## **PREVIEW:** Sending command output to a user specified storage account
+## **PREVIEW:** Send command output to a user specified storage account
 
 > [!IMPORTANT]
 > Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
@@ -120,9 +120,9 @@ az rest --method patch \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
 
-### Viewing the Principal ID for the Managed Identity
+### View the principal ID for the managed identity
 
-The identity resource ID can be found by clicking "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
+The identity resource ID can be found by selecting "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
 
 The CLI can also be used to view the identity and the associated principal ID data within the cluster.
 
@@ -403,7 +403,7 @@ This guide walks you through accessing the output file that is created in the Cl
 
 1. You can manage & download the output file from the **Overview** pop-out.
 
-## **PREVIEW**: Checking command status and viewing output in a user specified storage account
+## **PREVIEW**: Check the command status and view the output in a user specified storage account
 
 Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
