@@ -12,7 +12,7 @@ ms.author: kuzhong
 
 # Tutorial: Configure APM integration for Java applications with Java agent and init-container
 
-APM (Application Performance Management) is useful when it comes to observability for your applications running online. You can package the APM plugin in the same image or Dockerfile with your app, but this will bind the management efforts together, like release and CVE (Common Vulnerabilities and Exposures) mitigation. Alternatively, you can leverage Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
+APM (Application Performance Management) is useful when it comes to observability for your applications running online. You can package the APM plugin in the same image or Dockerfile with your app, but it binds the management efforts together, like release and CVE (Common Vulnerabilities and Exposures) mitigation. Alternatively, you can apply Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
 
 In this tutorial, you learn how to:
 
@@ -195,7 +195,7 @@ The following commands help you define variables and ensure your Container Apps 
       --query "properties.provisioningState"
     ```
 
-    Once created, the command returns a "Succeeded" message.
+  Once created, the command returns a "Succeeded" message.
 
 1. Create a Container app for further configurations.
 
@@ -219,9 +219,9 @@ The following commands help you define variables and ensure your Container Apps 
       --query "properties.provisioningState"
     ```
 
-    Once created, the command returns a "Succeeded" message.
+  Once created, the command returns a "Succeeded" message.
 
-## Configure init-container, environment variables and volumes to set up Application Insights integration
+## Configure init-container, environment variables, and volumes to set up Application Insights integration
 
 1. Get current configurations of the running Container App.
 
@@ -243,11 +243,11 @@ The following commands help you define variables and ensure your Container Apps 
       -o yaml > app.yaml
     ```
 
-    YAML File `app.yaml` is created in current directory.
+  The YAML file `app.yaml` is created in current directory.
 
-2. Edit the app YAML file.
+1. Edit the app YAML file.
 
-    - Add a secret for Application Insights connection string
+    - Add secret for Application Insights connection string
 
     ```yaml
     properties:
@@ -309,7 +309,7 @@ The following commands help you define variables and ensure your Container Apps 
             volumeName: java-agent-volume
     ```
 
-3. Update the Container App with modified YAML file.
+1. Update the Container App with modified YAML file.
 
     # [Bash](#tab/bash)
 
@@ -331,11 +331,11 @@ The following commands help you define variables and ensure your Container Apps 
       --query "properties.provisioningState"
     ```
 
-    Once updated, the command returns a "Succeeded" message. Then you can check out your Application Insights in Azure portal to see your Container App is connected.
+  Once updated, the command returns a "Succeeded" message. Then you can check out your Application Insights in Azure portal to see your Container App is connected.
 
 ## Clean up resources
 
-The resources created in this tutorial contributes to your Azure bill. If you are not going to keep them in a long run, run the following commands to clean them up.
+The resources created in this tutorial contribute to your Azure bill. If you are not going to keep them in a long run, run the following commands to clean them up.
 
 # [Bash](#tab/bash)
 ```azurecli
