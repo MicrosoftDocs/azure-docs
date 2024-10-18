@@ -142,17 +142,17 @@ To get targeting context for users automatically (instead of manually constructi
 
 To add a default implementation of `ITargetingContextAccessor` use the `WithTargeting()` extension on the feature management builder as seen below. The default uses `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type `Role` for `Groups`. You can see how the accessor works by looking at the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs).
 
-    ``` C#
-    // Existing code in Program.cs
-    // ... ...
+``` C#
+// Existing code in Program.cs
+// ... ...
 
-    // Add feature management to the container of services
-    builder.Services.AddFeatureManagement()
-                    .WithTargeting();
+// Add feature management to the container of services
+builder.Services.AddFeatureManagement()
+                .WithTargeting();
 
-    // The rest of existing code in Program.cs
-    // ... ...
-    ```
+// The rest of existing code in Program.cs
+// ... ...
+```
 
 ### Custom Targeting Accessor
 
