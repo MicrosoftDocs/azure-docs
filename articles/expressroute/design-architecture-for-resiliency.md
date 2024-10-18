@@ -25,7 +25,7 @@ Users of ExpressRoute rely on the availability and performance of edge sites, WA
 There are three ExpressRoute resiliency architectures that can be utilized to ensure high availability and resiliency in your network connections between on-premises and Azure. These architecture designs include:
 
 * [Maximum resiliency](#maximum-resiliency)
-* [High resiliency](#high-resiliency---in-preview)
+* [High resiliency](#high-resiliency)
 * [Standard resiliency](#standard-resiliency)
 
 ### Maximum resiliency
@@ -34,7 +34,7 @@ The Maximum resiliency architecture in ExpressRoute is structured to eliminate a
 
 :::image type="content" source="./media/design-architecture-for-resiliency/maximum-resiliency.png" alt-text="Diagram illustrating a pair of ExpressRoute circuits, configured at two distinct peering locations, between an on-premises network and Microsoft.":::
 
-### High resiliency - In Preview
+### High resiliency
 
 High resiliency, also referred to as ExpressRoute Metro, enables the use of multiple sites within the same metropolitan (Metro) area to connect your on-premises network through ExpressRoute to Azure. High resiliency offers site diversity by splitting a single circuit across two sites. The first connection is established at one site and the second connection at a different site. The objective of ExpressRoute Metro is to mitigate the effect of edge-sites isolation and failures by introducing capabilities to enable site diversity. Site diversity is achieved by using a single circuit across paired sites within a metropolitan city, which offers resiliency to failures between edge and region. ExpressRoute Metro provides a higher level of site resiliency than Standard resiliency, but not as much as Maximum resiliency. ExpressRoute Metro architecture can be used for business and mission-critical workloads within a region. For more information, see [ExpressRoute Metro](metro.md)
 
