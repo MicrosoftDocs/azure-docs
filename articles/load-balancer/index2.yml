@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender
-  ms.date: 08/07/2024
+  ms.date: 10/18/2024
   ms.custom: engagement-fy23, seo-FY24Q2
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -69,23 +69,50 @@ landingContent:
   # Card
   - title: Manage and monitor
     linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
+
 
   # Card
   - title: Reliability and availability
     linkLists:
-
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
   # Card
   - title: Security and compliance
     linkLists:
-  
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview  
   # Card
   - title: Troubleshoot
     linkLists:
-     
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview     
   # Card
   - title: How-to guidance
     linkLists:
-
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
   # Card
   - title: Load balancing and content delivery
     linkLists:
@@ -99,3 +126,9 @@ landingContent:
   # Card
   - title: Training
     linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
