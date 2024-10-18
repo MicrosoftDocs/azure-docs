@@ -8,7 +8,7 @@ ms.date: 3/22/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
-# Use Azure VMware Solution with Azure Elastic SAN (Integration in Preview)
+# Use Azure VMware Solution with Azure Elastic SAN 
 
 This article explains how to use Azure Elastic SAN as backing storage for Azure VMware Solution. [Azure VMware Solution](introduction.md) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
 
@@ -25,6 +25,12 @@ The following prerequisites are required to continue.
     > The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
 - You have permission to set up new resources in the subscription your private cloud is in.
 
+- Register the following feature flags for your subscription:
+
+  - iSCSIMultipath
+    
+  - ElasticSanDatastore
+    
 - Reserve a dedicated address block for your external storage.
 
 ## Supported host types

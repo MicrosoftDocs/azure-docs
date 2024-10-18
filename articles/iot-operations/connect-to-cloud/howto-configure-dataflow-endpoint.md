@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 09/17/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints
