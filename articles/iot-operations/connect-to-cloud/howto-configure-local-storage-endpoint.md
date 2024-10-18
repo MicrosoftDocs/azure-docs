@@ -3,12 +3,14 @@ title: Configure local storage dataflow endpoint in Azure IoT Operations
 description: Learn how to configure a local storage dataflow endpoint in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
+ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for local storage
@@ -29,39 +31,47 @@ Use the local storage option to send data to a locally available persistent volu
 
 # [Kubernetes](#tab/kubernetes)
 
+Create a Kubernetes manifest `.yaml` file with the following content.
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
-  name: esa
+  name: <ENDPOINT_NAME>
   namespace: azure-iot-operations
 spec:
   endpointType: localStorage
   localStorageSettings:
-    persistentVolumeClaimRef: <PVC-NAME>
+    persistentVolumeClaimRef: <PVC_NAME>
 ```
 
-The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
 
 # [Bicep](#tab/bicep)
 
-This Bicep template file from [Bicep File for local storage dataflow Tutorial](https://gist.github.com/david-emakenemi/52377e32af1abd0efe41a5da27190a10) deploys the necessary resources for dataflows to local storage.
-
-Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
-
-Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-```
-This endpoint is the destination for the dataflow that receives messages to Local storage.
+Create a Bicep `.bicep` file with the following content.
 
 ```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param persistentVCName string = '<PERSISTENT_VC_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
 resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: 'local-storage-ep'
+  name: endpointName
   extendedLocation: {
-    name: customLocation.id
+    name: customLocationName
     type: 'CustomLocation'
   }
   properties: {
@@ -72,51 +82,16 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
   }
 }
 ```
----
 
-## Configure dataflow destination
+Then, deploy via Azure CLI.
 
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: my-dataflow
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        endpointRef: mq
-        dataSources:
-          *
-    - operationType: Destination
-      destinationSettings:
-        endpointRef: esa
+```azurecli
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  operationType: 'Destination'
-  destinationSettings: {
-    endpointRef: localStorageDataflowEndpoint.name
-    dataDestination: 'sensorData'
-  }
-}
-```
 ---
 
-For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
-
-> [!NOTE]
-> Using the local storage endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
+The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
 
 
 ## Supported serialization formats
