@@ -26,7 +26,7 @@ sections:
       - question: |
           How does this preview affect me?
         answer: |
-          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
+          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. 
   - name: General
     questions:
       - question: |
@@ -115,7 +115,7 @@ sections:
           Currently, you can’t change the "From:" field on the email.
           
           > [!TIP]
-          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true).
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md) or [SendGrid](custom-email-sendgrid.md).
           
       - question: |
           How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
