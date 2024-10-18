@@ -333,9 +333,22 @@ The following commands help you define variables and ensure your Container Apps 
 
     Once updated, the command returns a "Succeeded" message. Then you can check out your Application Insights in Azure portal to see your Container App is connected.
 
+## Clean up resources
+
+The resources created in this tutorial contributes to your Azure bill. If you are not going to keep them in a long run, run the following commands to clean them up.
+
+# [Bash](#tab/bash)
+```azurecli
+az group delete --resource-group $RESOURCE_GROUP
+```
+# [PowerShell](#tab/powershell)
+```azurecli
+az group delete --resource-group $RESOURCE_GROUP
+```
+
 ## Other APM solutions
 
-Other than [Azure Monitor Application Insights](/azure/azure-monitor/app/java-standalone-config), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
+Other than [Azure Application Insights](/azure/azure-monitor/app/java-standalone-config), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
 
 - [AppDynamics](https://docs.appdynamics.com/appd/21.x/21.4/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent)
 - [Dynatrace](https://docs.dynatrace.com/docs/setup-and-configuration/technology-support/application-software/java)
