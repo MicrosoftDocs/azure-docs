@@ -1,8 +1,8 @@
 ---
 title: Get support for Datadog resource
 description: This article describes how to contact support for a Datadog resource.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 
