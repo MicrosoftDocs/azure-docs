@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Python"
-description: "Learn how to upload firmware images for analysis using Python."
+title: "Quickstart: Upload firmware images to Firmware analysis using Python"
+description: "Learn how to upload firmware images for analysis using a Python script."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
@@ -8,21 +8,21 @@ ms.custom: devx-track-python
 ms.date: 04/10/2024
 ---
 
-# Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Python
+# Quickstart: Upload firmware images to Firmware analysis using Python
 
-This article explains how to use a Python script to upload firmware images to Defender for IoT Firmware Analysis.
+This article explains how to use a Python script to upload firmware images to Firmware analysis.
 
-[Defender for IoT Firmware Analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support).
+This quickstart assumes a basic understanding of Firmware Analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware Analysis](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment
 
 * Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version.
 * Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
-* Ensure that your Azure account has the necessary permissions to upload firmware images to Defender for IoT Firmware Analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](defender-iot-firmware-analysis-rbac#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
+* Ensure that your Azure account has the necessary permissions to upload firmware images to Firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware Analysis Roles, Scopes, and Capabilities](firmware-analysis-rbac#firmware-analysis-roles-scopes-and-capabilities).
 * Ensure that your firmware image is stored in the same directory as the Python script.
 * Install the packages needed to run this script:
     ```python

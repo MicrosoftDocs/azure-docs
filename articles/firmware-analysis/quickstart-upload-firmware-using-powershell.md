@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Azure PowerShell"
-description: "Learn how to upload firmware images for analysis using Azure PowerShell."
+title: "Quickstart: Upload firmware images to Firmware analysis using Azure PowerShell"
+description: "Learn how to upload firmware images for analysis using the Azure Powershell."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
@@ -8,15 +8,15 @@ ms.custom: devx-track-azurepowershell
 ms.date: 01/29/2024
 ---
 
-# Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Azure PowerShell
+# Quickstart: Upload firmware images to Firmware analysis using Azure PowerShell
 
-This article explains how to use Azure PowerShell to upload firmware images to Defender for IoT Firmware Analysis.
+This article explains how to use Azure PowerShell to upload firmware images to Firmware analysis.
 
-[Defender for IoT Firmware Analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support).
+This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment for Azure PowerShell
 
@@ -24,13 +24,13 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
 
 * Sign in to Azure PowerShell by running the command [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Skip this step if you're using Cloud Shell.
 
-* If this is your first use of Defender for IoT Firmware Analysis's Azure PowerShell, install the extension:
+* If this is your first use of Firmware analysis's Azure PowerShell, install the extension:
 
     ```powershell
     Find-Module -Name Az.FirmwareAnalysis | Install-Module
     ```
 
-* [Onboard](tutorial-analyze-firmware.md#onboard-your-subscription-to-use-defender-for-firmware-analysis) your subscription to Defender for IoT Firmware Analysis.
+* [Onboard](tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
 
 * Run [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set your subscription to use in the current session. Select the subscription where you would like to upload your firmware images.
 

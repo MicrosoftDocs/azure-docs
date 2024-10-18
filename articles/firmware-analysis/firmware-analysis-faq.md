@@ -8,13 +8,13 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/10/2024
 ---
 
-# Frequently asked questions about Firmware Analysis
-This article addresses frequent questions about Defender for IoT Firmware Analysis.
+# Frequently asked questions about Firmware analysis
+This article addresses frequent questions about Firmware analysis.
 
-[Defender for IoT Firmware Analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
-## What types of firmware images does Defender for IoT Firmware Analysis support?
-Defender for IoT Firmware Analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Defender for IoT Firmware Analysis supports the following file system formats:
+## What types of firmware images does Firmware analysis support?
+Firmware analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Firmware analysis supports the following file system formats:
 
 * Android sparse image
 * bzip2 compressed data
@@ -45,7 +45,7 @@ Defender for IoT Firmware Analysis supports unencrypted images that contain file
 * ZStandard compressed data
 * Zip archive
 
-## Where are the Defender for IoT Firmware Analysis Azure CLI/PowerShell docs?
+## Where are the Firmware analysis Azure CLI/PowerShell docs?
 You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
 
 You can also find the Quickstart for our Azure CLI [here](quickstart-upload-firmware-using-azure-command-line-interface) and the Quickstart for our Azure PowerShell [here](quickstart-upload-firmware-using-powershell). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](quickstart-upload-firmware-using-python).

@@ -1,6 +1,6 @@
 ---
-title: Analyze a firmware image with Microsoft Defender for IoT.
-description: Learn to analyze a compiled firmware image within Microsoft Defender for IoT.
+title: Analyze a firmware image with the Firmware analysis service.
+description: Learn to analyze a compiled firmware image using Firmware analysis.
 ms.topic: tutorial
 ms.date: 06/15/2023
 author: karengu0
@@ -10,16 +10,16 @@ ms.author: karenguo
 
 # Tutorial: Analyze an IoT/OT firmware image
 
-This tutorial describes how to use Defender for IoT's **Firmware analysis** page to upload a firmware image for security analysis and view analysis results.
+This tutorial describes how to use the **Firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
 > [!NOTE]
-> The Defender for IoT **Firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The **Firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Prerequisites
 
 > [!NOTE]
-> The Defender for IoT **Firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **Firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Defender for IoT Firmware Analysis Azure RBAC](defender-iot-firmware-analysis-rbac.md).
+> The **Firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **Firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](firmware-analysis-rbac.md).
 >
 
 * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -34,9 +34,9 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 5 GB in size.
 
-## Onboard your subscription to use Defender for Firmware Analysis
+## Onboard your subscription to use Firmware analysis
 > [!NOTE]
-> To onboard a subscription to use Defender for Firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in Defender for Firmware Analysis, visit [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](defender-iot-firmware-analysis-rbac.md#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
+> To onboard a subscription to use Firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in Firmware Analysis, visit [Firmware Analysis Roles, Scopes, and Capabilities](firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
 >
 
 If this is your first interaction with **Firmware analysis**, then you'll need to onboard your subscription to the service and select a region in which to upload and store your firmware images.
@@ -56,7 +56,7 @@ If this is your first interaction with **Firmware analysis**, then you'll need t
 4. In the **Onboard subscription** pane, select a subscription from the drop-down list.
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
 6. Select a region to use for storage in the **Location** drop-down.
-7. Select **Onboard** to onboard your subscription to Defender for Firmware Analysis.
+7. Select **Onboard** to onboard your subscription to Firmware analysis.
 
     :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
@@ -115,7 +115,7 @@ The analysis time will vary based on the size of the firmware image and the numb
 
 ## Delete a firmware image
 
-Delete a firmware image from Defender for IoT when you no longer need it analyzed.
+Delete a firmware image from Firmware analysis when you no longer need it analyzed.
 
 After you delete an image, there's no way to retrieve the image or the associated analysis results. If you need the results, you'll need to upload the firmware image again for analysis.
 
@@ -127,6 +127,6 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
-To use the Azure CLI commands for Defender for IoT Firmware Analysis, refer to the [Azure CLI Quickstart](quickstart-upload-firmware-using-azure-command-line-interface), and see [Azure PowerShell Quickstart](quickstart-upload-firmware-using-powershell) to use the Azure PowerShell commands. See [Quickstart: Upload firmware using Python](quickstart-upload-firmware-using-python) to run a Python script using the SDK to upload and analyze firmware images.
+To use the Azure CLI commands for Firmware analysis, refer to the [Azure CLI Quickstart](quickstart-upload-firmware-using-azure-command-line-interface), and see [Azure PowerShell Quickstart](quickstart-upload-firmware-using-powershell) to use the Azure PowerShell commands. See [Quickstart: Upload firmware using Python](quickstart-upload-firmware-using-python) to run a Python script using the SDK to upload and analyze firmware images.
 
-Visit [FAQs about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
+Visit [FAQs about Firmware analysis](firmware-analysis-FAQ.md) for answers to frequent questions.
