@@ -3,7 +3,7 @@ title: Basic Load balancer deprecation - Guidelines for Azure HDInsight
 description: Guidelines to transition to standard load balancer for Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/25/2024
+ms.date: 10/18/2024
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
