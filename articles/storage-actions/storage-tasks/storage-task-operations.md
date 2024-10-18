@@ -15,7 +15,7 @@ ms.author: normesta
 
 A storage task contains a set of conditions and operations. An operation is an action that a storage task performs on each object that meets the requirements of each condition. This article describes the JSON format of a storage task operation. Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the operations, operation parameters, and the allowable values of each parameter. 
 
-To learn more about conditions, see [Storage task conditions](storage-task-conditions.md). 
+This article focuses on **operations**. To learn more about **conditions**, see [Storage task conditions](storage-task-conditions.md). 
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
@@ -95,7 +95,7 @@ The following table shows the supported operations, parameters, and parameter va
 | Operation                    | Parameters           | Values                                         |
 |------------------------------|----------------------|------------------------------------------------|
 | SetBlobTier                | tier                 | Hot \| Cold \| Archive |
-| SetBlobExpiry              | expiryTime, expiryOption                 |(expiryTime): Number of milliseconds<br><br>(expiryOption): Absolute \| NeverExpire \| RelativeToCreation \| RelativeToNow |
+| SetBlobExpiry              | expiryTime, expiryOption                 |(expiryTime): Number of milliseconds<br>(expiryOption): Absolute \| NeverExpire \| RelativeToCreation \| RelativeToNow |
 | DeleteBlob                  | None                 | None                                           |
 | UndeleteBlob                | None                 | None                                           |
 | SetBlobTags                | Tag name<sup>1</sup>               | Tag value |

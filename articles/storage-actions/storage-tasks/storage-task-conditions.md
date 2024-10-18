@@ -14,9 +14,9 @@ ms.author: normesta
 
 # Storage task conditions
 
-A storage task contains a set of conditions and operations. This article describes the JSON format of a storage task condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition. 
+A storage task contains a set of conditions and operations. This article describes the JSON format of a condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition. 
 
-To learn more about operations, see [Storage task operations](storage-task-operations.md). 
+This article focuses on **conditions**. To learn more about **operations**, see [Storage task operations](storage-task-operations.md). 
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
@@ -36,6 +36,8 @@ The following clause allows operations only on Microsoft Word documents. This cl
    "condition": "[[[endsWith(Name, '.docx')]]"
 }
 ```
+
+For a complete list of operator and property names, see the [Supported operators](#supported-operators) and [Supported properties](#supported-properties) section of this article.
 
 ### Multiple clauses in a condition
 
