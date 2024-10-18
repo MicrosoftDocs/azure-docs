@@ -22,18 +22,17 @@ Azure Backup provides a reporting solution that uses [Azure Monitor logs](/azure
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM), Azure Database for PostgreSQL Server, Azure Blobs and Azure Disks. For Azure File share backup, data is displayed for records created on or after June 1, 2020.
-- For Azure File share backup, data on protected instances is displayed for records created after Feb 1st, 2021 (defaults to zero for older records).
-- For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
-- For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
-- Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
-- If you're an [Azure Lighthouse](/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
-- Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
-  >[!Note]
-  >Depending on the complexity of queries and the volume of data processed, it's possible that you might see errors when selecting a large number of workspaces that are less than 100, in some cases. We recommend that you limit the number of workspaces being queried at a time.
-- Data for log backup jobs currently isn't displayed in the reports.
+The following table lists the supported scenarios to configure Azure Backup reports:
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+| Report | Solution | Description | Scope | Type |
+| --- | --- | --- | --- | --- |
+| **Backup Reports** | Backup | Gain visibility into backup jobs, instances, usage, policies, policy adherence, and optimization. | - Azure VM <br> - SQL database in Azure VMs <br> - SAP HANA database in Azure VMs <br> - Backup Agent <br> - Backup Server <br> - Data Protection Manager (DPM) <br> - Azure Files <br> - Azure Disk <br> - Azure Blob (operational tier) <br> - PostgreSQL database (Single Server) |	Consolidated |
+| **Backup Configuration Status** | Backup | Information on whether all of your VMs are configured for backup. | Azure VM | Out-of-Box |
+| **Backup Job History** | Backup | Information on the successful and failed backup jobs over a specified duration of time. | - Azure VM <br> - Backup Agent (MARS) <br> - Backup Server (MABS) <br> - Data Protection Manager (DPM) <br> - Azure Database for PostgreSQL Server <br> - Azure Blobs <br> - Azure Disks | Out-of-Box |
+| ** Backup Schedule and Retention** | Backup | Information on schedule and retention of all the backup items so that you can verify if they meet the business requirements. | - Azure VM <br> - Azure Files | Out-of-Box |
+| **User Triggered Operations** | Backup | Information on user triggered operations on Recovery Services vaults over a specified period of time. | Recovery Services Vault | Out-of-Box | 
+| **Azure Site Recovery Job History** | Azure Site Recovery | Information on the successful and failed Azure Site Recovery jobs over a specified duration of time. <br><br> Note that only jobs triggered on replicated items and recovery plans currently appear in this report. | - Azure VM <br> - V2A <br> - H2A | Out-of-Box |
+| **Azure Site Recovery Replication History** | Azure Site Recovery | Information on the replicated items over a specified duration of time. | - Azure VM <br> - V2A <br> - H2A | Out-of-Box |
 
 ## Get started
 
@@ -181,7 +180,7 @@ Once the logic app is created, you'll need to authorize connections to Azure Mon
 
 ###### Customize Azure Backup reports
 
-Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
+Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in the Log Analytics, and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
 
 To create your own reporting workbooks using Backup Reports as a base, you can go to **Backup Reports**, click **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) to learn more about how to create custom reports. 
 
