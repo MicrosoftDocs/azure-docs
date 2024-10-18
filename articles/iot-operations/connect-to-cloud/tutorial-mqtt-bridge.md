@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 10/01/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
+ms.service: azure-iot-operations
 ---
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
