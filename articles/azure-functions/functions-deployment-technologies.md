@@ -77,6 +77,8 @@ The Functions host also performs a background trigger sync after the application
 
 
 
+> [!IMPORTANT]
+> When you apply network restrictions to your Function App either being outbound (VNET Integration) and/or Inbound (Private Endpoints) you need to guarantee connectivity to the Storage Account, configured on AzureWebJobsStorage app setting, and that the Function App can connect to itself, in order for sync triggers operation to be successfully.
 ### Remote build
 
 Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds differ depending on whether your app is running on Windows or Linux. 
