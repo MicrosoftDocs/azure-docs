@@ -112,7 +112,9 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
+::: zone pivot="arm-bicep,pulumi"
 ### [Create a custom image](#tab/custom/)
+::: zone-end
 
 ### Create a custom image
 
@@ -337,7 +339,6 @@ if [ -z "$deploymentOutput" ]; then
 fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
-
 ::: zone-end
 
 ::: zone pivot="terraform"
@@ -480,7 +481,10 @@ stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "s
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
+
+::: zone pivot="arm-bicep,pulumi"
 ---
+::: zone-end
 
 ## Build an image
 
