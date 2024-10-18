@@ -161,21 +161,7 @@ By default, debug console runs as root user.
 You can access /proc/1 to access container's file system if your container runs as root user. If your container does not run as root user, run below command to switch user before accessing /proc/1 directory, or you'll get permission denied error.
 
 ```bash
-tdnf install -y shadow-utils
-app_gid=$(ps -ax --sort pid -o 'group' --no-headers | head -1)
-
-if [ "$app_uid" != "$(whoami)" ]; then
-  if [ -z "$(getent passwd $app_uid)" ]; then
-    echo "User $app_uid does not exist. Creating..."
-    groupadd -g $app_gid appgroup
-    useradd -u $app_uid -g $app_gid appuser
-  fi
-
-  echo "Switching to user $app_uid..."
-  su appuser
-else
-  echo "No need to switch user"
-fi
+switch-to-app-user
 ```
 
 ---
