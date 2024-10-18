@@ -22,15 +22,11 @@ sections:
       - question: |
           What is Microsoft Entra External ID?
         answer: |
-          We announced an early preview of our next-generation Microsoft Entra External ID solution. This early preview represents an evolutionary step in unifying secure and engaging experiences across all external identities including partners, customers, citizens, patients, and others within a single, integrated platform. For more information about the preview, see [What is Microsoft Entra External ID for customers?](../active-directory/external-identities/customers/overview-customers-ciam.md). 
+          Earlier this year we released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
       - question: |
           How does this preview affect me?
         answer: |
-          No action is required on your part at this time. The next-generation platform is currently in early preview only. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
-      - question: |
-          How do I participate in the preview?
-        answer: |
-          As the next-generation platform represents our future for customer identity and access management (CIAM), we welcome and encourage your participation and feedback during early preview. If you're interested in joining the early preview, contact your sales team for details. 
+          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
   - name: General
     questions:
       - question: |
