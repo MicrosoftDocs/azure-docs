@@ -65,7 +65,8 @@ The main steps you'll follow when using a container image are:
     - For a private registry, give the DevCenter ACR permissions.
 1. Add your image location to the `runner` parameter in your environment definition
 1. Deploy environments that use your custom image.
- 
+
+
 The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
 ### [Use a sample container image](#tab/sample/)
@@ -89,6 +90,10 @@ The following example shows a `runner` that references the sample ARM-Bicep cont
 You can see the sample Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
+::: zone-end
+
+::: zone pivot="terraform"
+Use a custom image to configure a Terraform image.
 ::: zone-end
 
 ::: zone pivot="pulumi"
@@ -335,7 +340,6 @@ if [ -z "$deploymentOutput" ]; then
 fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
-
 ::: zone-end
 
 ::: zone pivot="terraform"
@@ -478,7 +482,9 @@ stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "s
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
+
 ---
+
 
 ## Build an image
 
