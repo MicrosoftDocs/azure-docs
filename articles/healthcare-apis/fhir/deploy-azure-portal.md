@@ -59,7 +59,7 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
 Once a service name has been used, it cannot be reused in a different subscription, even after deletion. This restriction is in place to prevent impersonation and primarily impacts Azure API for FHIR.
 
-If deployed to the wrong subscription, we can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure Resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+If deployed to the wrong subscription, you can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure Resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 **How can I delete a service and then re-add it with the same settings?**
 
