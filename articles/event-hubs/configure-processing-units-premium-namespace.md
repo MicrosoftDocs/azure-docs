@@ -23,7 +23,7 @@ To update the number of PUs for an existing premium namespace, follow these step
 
 
 
-![Screenshot of scaling processing units for an existing premium namespace.](media/configure-processing-units-premium-namespace/scale-settings-prem1.png)
+![Screenshot of the Scale page of an existing premium namespace with partitioned configured.](media/configure-processing-units-premium-namespace/scale-settings-prem1.png)
 
 ## Next steps
 To learn more about processing units and Event Hubs premium tier, see the following articles.
