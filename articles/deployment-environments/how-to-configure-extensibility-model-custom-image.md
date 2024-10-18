@@ -65,10 +65,10 @@ The main steps you'll follow when using a container image are:
     - For a private registry, give the DevCenter ACR permissions.
 1. Add your image location to the `runner` parameter in your environment definition
 1. Deploy environments that use your custom image.
- 
-The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
 ::: zone pivot="arm-bicep,pulumi"
+The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
+
 ### [Use a sample container image](#tab/sample/)
 ::: zone-end
 
@@ -112,9 +112,7 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
-::: zone pivot="arm-bicep,pulumi"
 ### [Create a custom image](#tab/custom/)
-::: zone-end
 
 ### Create a custom image
 
@@ -482,10 +480,7 @@ stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "s
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
-
-::: zone pivot="arm-bicep,pulumi"
 ---
-::: zone-end
 
 ## Build an image
 
