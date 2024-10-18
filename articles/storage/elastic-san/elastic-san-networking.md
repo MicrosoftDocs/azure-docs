@@ -134,7 +134,9 @@ az elastic-san update \
 
 ### Enable iSCSI error detection
 
-To enable error detection via CRC32C checksum verification for iSCSI headers and/or data payloads, set CRC32C for header and/or data digests respectively on all connections on the client side. You can do this by connecting to the volumes from the client using multi-session scripts generated in portal connect flow or using the scripts from documentation, which already contain steps to do this. If you choose to do it without using the connect scripts, on Windows, this can be done by setting header and/or data digests to 1 during target login (LoginTarget and PersistentLoginTarget). On Linux, this can be done by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example on Ubuntu, it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected one or more volumes to the client before updating global configuration file, update the node specific configuration file for each volume directly or using the following command:
+To enable CRC-32C checksum verification for iSCSI headers or data payloads, set CRC-32C on header or data digests for all connections on your clients that connect to Elastic SAN volumes. To do this, connect your clients to Elastic SAN volumes using multi-session scripts generated either in the Azure portal or provided in either the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
+
+If you need to, you can do this without the multi-session connection scripts. On Windows, you can do this by setting header or data digests to 1 during login to the Elastic SAN volumes (LoginTarget and PersistentLoginTarget). On Linux, you can do this by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example, on Ubuntu it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected volumes to your client before updating your global configuration file, update the node specific configuration file for each volume directly, or using the following command:
 
 sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value
 
@@ -201,11 +203,11 @@ The following code sample enable CRC protection on a new volume group using Azur
 ```azurecli
 # Set the variable values.
 # The name of the resource group where the Elastic San is deployed.
-$RgName="<ResourceGroupName>"
+RgName="<ResourceGroupName>"
 # The name of the Elastic SAN.
-$EsanName="<ElasticSanName>"
+EsanName="<ElasticSanName>"
 # The name of volume group within the Elastic SAN.
-$EsanVgName= "<VolumeGroupName>"
+EsanVgName= "<VolumeGroupName>"
 
 # Create the Elastic San.
 az elastic-san volume-group create \
@@ -219,9 +221,9 @@ The following code sample enable CRC protection on an existing volume group usin
 
 ```azurecli
 # Set the variable values.
-$RgName="<ResourceGroupName>"
-$EsanName="<ElasticSanName>"
-$EsanVgName= "<VolumeGroupName>"
+RgName="<ResourceGroupName>"
+EsanName="<ElasticSanName>"
+EsanVgName= "<VolumeGroupName>"
 
 # Create the Elastic San.
 az elastic-san volume-group update \
