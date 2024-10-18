@@ -3,7 +3,7 @@ title: Troubleshooting your Cloud NGFW by Palo Alto Networks
 description: This article provides information about getting support and troubleshooting a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks.
 
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 10/18/2024
 
 ---
 
