@@ -138,7 +138,7 @@ To enable CRC-32C checksum verification for iSCSI headers or data payloads, set 
 
 If you need to, you can do this without the multi-session connection scripts. On Windows, you can do this by setting header or data digests to 1 during login to the Elastic SAN volumes (LoginTarget and PersistentLoginTarget). On Linux, you can do this by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example, on Ubuntu it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected volumes to your client before updating your global configuration file, update the node specific configuration file for each volume directly, or using the following command:
 
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value
+```sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value```
 
 Where
 - $volume_iqn: Elastic SAN volume IQN
