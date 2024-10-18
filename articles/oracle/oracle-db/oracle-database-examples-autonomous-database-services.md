@@ -18,14 +18,17 @@ For more information on reference implementations for Terraform or OpenTofu modu
 * [OCI Landing Zones](https://github.com/oci-landing-zones/)
 * [Azure Verified Modules](https://aka.ms/avm)
 
->[!NOTE]
->This document describes examples of provisioning and management of Oracle Database@Azure resources through Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
+> [!NOTE]
+> This article describes examples of provisioning and management of Oracle Database@Azure resources through the Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
+
 The samples use example values for illustration purposes. You must replace them with your own settings.
+
 The samples use [AzAPI Dynamic Properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
 
 ## Create delegated subnet for Oracle Database@Azure
 
-```resource "azurerm_resource_group" "resource_group" {
+```terraform
+resource "azurerm_resource_group" "resource_group" {
   location = "eastus"
   name     = "ExampleRG"
 }
@@ -59,7 +62,8 @@ module "avm_odbas_network" {
 
 ## Create an Oracle Autonomous Database
 
-```terraform {
+```terraform
+{
   required_providers {
     azapi = {
       source = "Azure/azapi"

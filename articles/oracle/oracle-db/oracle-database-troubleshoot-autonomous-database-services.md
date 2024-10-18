@@ -21,10 +21,10 @@ Oracle advises removal of all Microsoft Azure locks to Oracle Database@Azure res
 ## IP Address requirement differences
 
 There are IP address requirement differences between Oracle Database@Azure and Oracle Cloud Infrastructure (OCI). In the [Requirements for IP Address Space](https://docs.oracle.com/iaas/exadatacloud/exacs/ecs-network-setup.html#GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA) documentation, the following changes for Oracle Database@Azure must be considered.
+
 * Oracle Database@Azure only supports Exadata X9M. All other shapes are unsupported.
 * Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
 
 ## Private DNS zone limitation
 
 When provisioning Exadata Services, in a private DNS zone you can only select zones with four labels or less. For example, a.b.c.d is allowed, while a.b.c.d.e isn't allowed.
-

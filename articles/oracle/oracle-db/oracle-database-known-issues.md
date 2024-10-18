@@ -21,7 +21,9 @@ Learn about known issues in Oracle Database@Azure.
 
 **Error message**:
 
-`Error returned by CreateCloudVmCluster operation in Database service.(400, InvalidParameter, false) Cidr block of the subnet must have at least 11 ip addresses available.`
+```output
+Error returned by CreateCloudVmCluster operation in Database service.(400, InvalidParameter, false) Cidr block of the subnet must have at least 11 ip addresses available.
+```
 
 **Diagnosis**: Verify the correct number of available IP addresses in the subnet using the OCI Console. For instructions, see [List private IP addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/private-ip-address-list.htm).
 
@@ -33,7 +35,7 @@ Learn about known issues in Oracle Database@Azure.
 
 **Error message**:
 
-```
+```output
 Authorization Failed
 The client *&lt;client\_name&gt;* with object id *&lt;object\_id&gt;* does not have authorization to perform action 'Oracle.Database/location/operationStatuses/read' over scope <scope_details> or scope is invalid. If access was recently granted, please refresh your credentials.
 ```
@@ -64,7 +66,9 @@ Any policy that blocks the creation of the MRG triggers the error. For example, 
 
 #### Error message
 
-`The resource write operation failed to complete successfully, because it reached terminal provisioning state 'Failed'`
+```output
+The resource write operation failed to complete successfully, because it reached terminal provisioning state 'Failed'
+```
 
 ### Workaround
 

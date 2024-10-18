@@ -26,7 +26,7 @@ You can use Oracle Database@Azure resources in two or more [Azure subscriptions]
 
 ## How multiple Azure subscriptions work in Oracle Database@Azure
 
-During Oracle Database@Azure onboarding, you select an Azure subscription to use initially with the service. In this documentation, the subscription selected during onboarding is referred to as the primary subscription for Oracle Database@Azure. After onboarding is complete and your Azure account is linked to your OCI tenancy, the OCI tenancy has a new, automatically created [compartment](https://docs.oracle.com/iaas/Content/Identity/compartments/managingcompartments.htm) for the management of the service.
+During Oracle Database@Azure onboarding, you select an Azure subscription to use initially with the service. In Azure documentation, the subscription selected during onboarding is referred to as the primary subscription for Oracle Database@Azure. After onboarding is complete and your Azure account is linked to your OCI tenancy, the OCI tenancy has a new, automatically created [compartment](https://docs.oracle.com/iaas/Content/Identity/compartments/managingcompartments.htm) for the management of the service.
 
 When you add more Azure subscriptions to your Oracle Database@Azure service, the service automatically creates a child compartment within the main Oracle Database@Azure compartment created during onboarding. You don't have to do any manual configuration of your OCI tenancy to add more Azure subscriptions to the service.
 

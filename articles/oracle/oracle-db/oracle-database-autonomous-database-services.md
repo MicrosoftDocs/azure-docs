@@ -15,7 +15,8 @@ Oracle Database@Azure (OracleDB@Azure) provides you with a seamless integration 
 You access the OracleDB@Azure service through the Microsoft Azure portal. You create and manage Oracle Autonomous Database resources. For additional Autonomous Database functionality, you have direct access to the Oracle Cloud Infrastructure (OCI) portal.
 
 There are IP address requirement differences between Oracle Database@Azure and Oracle Cloud Infrastructure (OCI).
-* Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
+
+\* Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
 
 For more information on specific Oracle Autonomous Database articles beyond their implementation and use within OracleDB@Azure, see [Using Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/index.html).
 

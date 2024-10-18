@@ -13,16 +13,18 @@ ms.date: 08/01/2024
 After provisioning any OracleDB@Azure resource, you can use the Microsoft Azure blade for a limited set of management functions.
 
 ## Prerequisites
+
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
 - An existing Azure subscription
 - An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
 - Permissions in Azure to create resources in the region, with the following conditions:
-   * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
-   * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
+  - No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
+  - No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
 - Purchase OracleDB@Azure in the Azure portal.
 - Select your Oracle Cloud Infrastructure (OCI) account.
-For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
+
+For more detailed information, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 ## Common Management Functions from the Microsoft Azure Blade
 
@@ -69,8 +71,8 @@ The following management functions are available for all resources from the Micr
 
 ### Manage Resource Allocation for Oracle Autonomous Database Serverless Instances
 
->[!NOTE] 
->You can only change the resource allocation settings for Oracle Autonomous Database Serverless instances using these steps. This does not apply to any other resource type.
+> [!NOTE]
+> You can only change the resource allocation settings for Oracle Autonomous Database Serverless instances using these steps. This does not apply to any other resource type.
 
 1. Follow the steps to access the Oracle Autonomous Database@Azure blade.
 1. Select the link to the resource from the **Name** field in the table.
@@ -111,8 +113,8 @@ The following management functions are available for all resources from the Micr
 1. Follow the steps to Access the OCI console.
 1. From the OCI console, there are two ways to access support resources.
    1. At the top of the page, select the Help (?) icon at the top-right of the menu bar.
-   1. On the right-side of the page, select the floating Support icon. 
-    >[!NOTE] 
+   1. On the right-side of the page, select the floating Support icon.
+    > [!NOTE]
     > This icon can be moved by the user, and the precise horizontal location can vary from user to user.
 
 1. You have several support options from here, including documentation, requesting help via chat, visiting the Support Center, posting a question to a forum, submitting feedback, requesting a limit increase, and creating a support request.

@@ -12,16 +12,17 @@ ms.date: 08/01/2024
 Provisioning and basic management functions for an Oracle Autonomous Database Serverless instance is done from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
 
 ## Prerequisites
-The following are prerequisites that must be completed before you can provision Exadata Services. 
+
+The following are prerequisites that must be completed before you can provision Exadata Services.
 
 - An existing Azure subscription
 - An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
 - Permissions in Azure to create resources in the region, with the following conditions:
-   * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
-   * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
+  - No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
+  - No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
 - Purchase OracleDB@Azure in the Azure portal.
 - Select your Oracle Cloud Infrastructure (OCI) account.
-For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
+For more information, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 ## Provision an Oracle autonomous database serverless instance
 
@@ -54,7 +55,7 @@ For more detailed documentation, including optional steps, see [Onboarding with 
 1. From the **Networking** tab of the Create Oracle Autonomous Database flow, enter the following information.
    1. Currently, the **Access type** drop-down only allows you to select **Managed private virtual network IP only**.
    1. For **Managed private virtual network IP only**, the **Require mutual TLS (mTLS) authentication** is unselected by default and can be selected if desired. Additionally, the **Virtual network** and **Subnet** drop-downs are required and require you to select from existing resources.
-    
+
        > [!NOTE]
        > The selected virtual network must have one subnet delegated to the **Oracle.Database/networkAttachments** service. For more information, see Delegate a subnet to an Azure service.
 

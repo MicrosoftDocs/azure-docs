@@ -8,13 +8,14 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-#  Database operations processes for Exadata services
+# Database operations processes for Exadata services
 
 There are Oracle processes that are accessible from Microsoft Azure, but are setup and maintained from the Oracle Cloud Infrastructure (OCI) console.
 
 ## Oracle database Autonomous Recovery Service@Azure
 
 Oracle Database Autonomous Recovery Service@Azure (RCV) is the preferred backup solution for OracleDB@Azure resources. The key customer benefits are as follows:
+
 * Allows use of Microsoft Azure Consumption Commitment (MACC) to pay for your backup storage.
 * Allows choice of backup storage locations to meet corporate data residency and compliance requirements.
 * Provides zero data loss with real-time database protection, enabling recovery to less than a second after an outage or ransomware attack.
@@ -27,13 +28,16 @@ Oracle Database Autonomous Recovery Service@Azure (RCV) is the preferred backup 
 * Centralizes database protection insights with a granular recovery health dashboard.
 
 ### High-level steps to enable autonomous recovery Service@Azure
+
 1. Access the OCI console for the database you want to enable for Autonomous Recovery Service@Azure. For details on this, see Access the OCI console in [Manage autonomous database resources](oracle-database-manage-autonomous-database-resources.md).
 1. Configure or create an Autonomous Recovery Service@Azure protection policy with Store backups in the same cloud provider as the database set.
 1. Use the protection policy to Configure automated backups.
 1. When the backup completes, subscription and backup location details will appear in the database within OCI.
 
-## Next steps
-For details and additional documentation for Autonomous Recovery Service@Azure, see the following documents:
+## Related content
+
+For more information about Autonomous Recovery Service@Azure, see these articles:
+
 * [Multicloud Oracle Database Backup Support](https://docs.oracle.com/en/cloud/paas/recovery-service/dbrsu/azure-multicloud-recoveryservice.html)
 * [Backup Automation and Storage in Oracle Cloud](https://docs.oracle.com/en/cloud/paas/recovery-service/dbrsu/backup-automation.html)
 * [Enable Automatic Backups to Recovery Service](https://docs.oracle.com/en/cloud/paas/recovery-service/dbrsu/enable-automatic-backup.html#GUID-B8A2D342-3331-42C9-8FDD-D0DB0E25F4CE)

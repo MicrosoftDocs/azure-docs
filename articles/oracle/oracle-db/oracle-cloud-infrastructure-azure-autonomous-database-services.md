@@ -42,7 +42,7 @@ For more information about modules, see [Oracle Multicloud Landing Zone for Azur
 | Template | Use case and configurations | Terraform/OpenTofu providers |
 | -------- | --------------------------- | ---------------------------- |
 | [az-oci-adbs](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-adbs) | **Quick start Autonomous Database** | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
-|   | 1. Configure Azure virtual network with [delegated subnet limits](https://docs.oracle.com/iaas/Content/database-at-azure/oaa-delegated-subnets-limits.htm) | [azure/api](https://registry.terraform.io/providers/Azure/azapi) |
+|   | 1. Configure an Azure virtual network with [delegated subnet limits](https://docs.oracle.com/iaas/Content/database-at-azure/oaa-delegated-subnets-limits.htm) | [azure/api](https://registry.terraform.io/providers/Azure/azapi) |
 |   | 2. [Provision an Autonomous Database](oracle-database-provision-autonomous-database.md) |   |
 | [az-oci-rbac-n-sso-fed](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-rbac-n-sso-fed) | Set up both identity federation and RBAC roles/groups | All the following |
 | [az-oci-sso-federation](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-sso-federation) | Set up [SSO Between OCI and Microsoft Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/sso_azure/azure_sso.htm) | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
@@ -58,7 +58,9 @@ For more information about modules, see [Oracle Multicloud Landing Zone for Azur
 |   | 2. Create an Azure resource group. |  |
 |   | 3. Create an Azure role assignment. |  |
 
-## More Terraform/OpenTofu resources
+## Related content
+
+For related content about Terraform/OpenTofu resources, see these articles:
 
 - [QuickStart Oracle Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/learn/dbazure-terraform/index.html)
 - [Terraform: Set Up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)

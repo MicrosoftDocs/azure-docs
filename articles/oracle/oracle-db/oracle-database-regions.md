@@ -20,9 +20,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
 
-
-## Europe, Middle East, Africa (EMEA) 
-
+## Europe, Middle East, Africa (EMEA)
 
 |Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |------------|--|--------------------------|------------------------------|
@@ -31,14 +29,12 @@ Learn what Azure regions offer Oracle Database@Azure.
 | UK South             | UK South (London)   | ✓   | ✓    |
 | Italy North          | Italy North (Milan)   | ✓   |     |
 
-
-## North America (NA) 
+## North America (NA)
 
 | Azure region   | OCI region                 | Oracle Exadata Database@Azure                    | Oracle Autonomous Database@Azure                      |
 | -------------- | -------------------|------------------------|------------------ |
 | East US        | US East (Ashburn)          | ✓   | ✓  |
 | Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ |
 
-
->[!Note] 
-> To provision Oracle Database@Azure resources in a supported region, your  tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/en-us/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/en-us/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
+> [!NOTE]
+> To provision Oracle Database@Azure resources in a supported region, your  tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).

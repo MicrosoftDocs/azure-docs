@@ -1,6 +1,6 @@
 ---
 title: Groups and roles for Oracle Database@Azure
-description: Learn about groups and roles for Oracle Database@Azure
+description: Learn about groups and roles for Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: conceptual
@@ -26,7 +26,7 @@ Use the following groups in your Azure account.
 |odbaa-exa-cdb-administrators |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-exa-pdb-administrators |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 
-## Groups in Oracle Cloud Infrastructure 
+## Groups in Oracle Cloud Infrastructure
 
 Use the following groups in your Oracle Cloud Infrastructure (OCI) tenancy.
 
@@ -38,14 +38,16 @@ Use the following groups in your Oracle Cloud Infrastructure (OCI) tenancy.
 |odbaa-exa-pdb-administrators | Users this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
 
 ## Required IAM policies
+
 The following IAM policies are needed for Oracle Database@Azure users or groups:
 
-- ``Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’``
-- `` Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’``
+- `Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’`
+- `Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’`
 
-For information on working with policies, see [Getting Started with Policies](https://docs.oracle.com/en-us/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
+For information on working with policies, see [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
 
-## Next steps
+## Related content
+
 - [Overview - Oracle Database@Azure](database-overview.md)
 - [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
