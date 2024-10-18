@@ -30,10 +30,10 @@ To link a BrokerListener to a *BrokerAuthentication* resource, specify the `auth
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
-kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
+kubectl get brokerauthentication default -n azure-iot-operations -o yaml
 ```
 
 The output shows the default *BrokerAuthentication* resource, with metadata removed for brevity:
@@ -42,14 +42,14 @@ The output shows the default *BrokerAuthentication* resource, with metadata remo
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata:
-  name: authn
+  name: default
   namespace: azure-iot-operations
 spec:
   authenticationMethods:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-          - "aio-internal"
+          - aio-internal
 ```
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ With multiple authentication methods, MQTT broker has a fallback mechanism. For 
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata: 
-  name: authn
+  name: default
   namespace: azure-iot-operations
 spec:
   authenticationMethods:

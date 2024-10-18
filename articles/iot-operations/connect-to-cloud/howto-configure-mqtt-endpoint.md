@@ -10,7 +10,6 @@ ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
-ms.service: azure-iot-operations
 ---
 
 # Configure MQTT dataflow endpoints

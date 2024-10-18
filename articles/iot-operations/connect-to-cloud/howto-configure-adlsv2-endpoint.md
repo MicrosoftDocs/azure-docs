@@ -10,7 +10,6 @@ ms.date: 10/16/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for Azure Data Lake Storage Gen2
