@@ -4,8 +4,7 @@ description: Describes the safety instructions in other languages to follow whil
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 09/27/2024
 ms.author: alkohli

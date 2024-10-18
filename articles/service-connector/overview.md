@@ -7,8 +7,9 @@ ms.service: service-connector
 ms.custom:
   - build-2024
 ms.topic: overview
-ms.date: 05/06/2024
+ms.date: 10/15/2024
 ---
+
 # What is Service Connector?
 
 Service Connector helps you connect Azure compute services to other backing services. Service Connector configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
@@ -19,9 +20,9 @@ This article provides an overview of Service Connector.
 
 Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
-* **WebApp/Container Apps/Spring Apps + Database:** Use Service Connector to connect PostgreSQL, MySQL, or Azure Cosmos DB to your App Service/Container Apps/Spring Apps.
-* **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
-* **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
+* **Database:** Use Service Connector to connect databases, such as PostgreSQL, MySQL, or Azure Cosmos DB, to your apps.
+* **Storage:** Use Service Connector to use your preferred storage products, such as Azure Storage for any of your apps.
+* **Messaging Service:** User Service Connector to connect your cloud apps to messaging services, such as Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
 See [what services are supported in Service Connector](#what-services-are-supported-by-service-connector) to see more supported services and application patterns.
 
@@ -37,7 +38,7 @@ Once a service connection is created, developers can validate and check the heal
 
 ## What services are supported by Service Connector?
 
-**Compute Services:**
+Compute services:
 
 * Azure App Service
 * Azure Functions
@@ -45,7 +46,7 @@ Once a service connection is created, developers can validate and check the heal
 * Azure Container Apps
 * Azure Kubernetes Service (AKS)
 
-**Target Services:**
+Target services:
 
 * Azure AI services
 * Azure App Configuration

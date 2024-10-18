@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/08/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
+ms.service: azure-iot-operations
 ---
 
 # Test connectivity to MQTT broker with MQTT clients

@@ -52,6 +52,8 @@ Calculate ports per instance as follows:
 
 If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, scale out of Virtual Machine Scale Sets could be blocked, or the new VMs won't receive sufficient SNAT ports. 
 
+When multiple frontend IPs are configured using outbound rules, outbound connections may come from any of the frontend IPs configured to the backend instance. We do not recommend building any dependencies on which frontend IP may be selected for connections.
+
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
 ## 2. Associate a NAT gateway to the subnet

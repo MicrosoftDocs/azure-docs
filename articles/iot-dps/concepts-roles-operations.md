@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 09/14/2020
 ms.topic: concept-article
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Roles and operations

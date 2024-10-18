@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As an SOC admin, I want to connect Microsoft Sentinel to a STIX/TAXII feed to ingest threat intelligence so that I can generate alert incidents.
+
+
+#Customer intent: As a security admin, I want to integrate STIX/TAXII feeds into Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents to enhance threat detection and response capabilities.
+
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds

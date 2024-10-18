@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 10/15/2024
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -131,7 +131,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az extension add --name vmware`
 1. Create a datastore using an existing Azure NetApp Files volume in Azure VMware Solution private cloud cluster.
 
-    `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
+    `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-net-app-volume /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
 1. If needed, display the help on the datastores.
 
     `az vmware datastore -h`
@@ -160,7 +160,7 @@ az vmware datastore netapp-volume create \
     --resource-group <resource group containing AVS private cloud> \
     --cluster <cluster name in AVS private cloud> \
     --private-cloud <name of AVS private cloud> \
-    --volume-id /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
+    --net-app-volume /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
 ```
 
 >[!IMPORTANT]  

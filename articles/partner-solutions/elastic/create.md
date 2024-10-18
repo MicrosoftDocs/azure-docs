@@ -3,8 +3,8 @@ title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
 ms.date: 06/01/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 
 ---
 

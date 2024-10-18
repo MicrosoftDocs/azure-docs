@@ -2,7 +2,7 @@
 title: Confidential applications as Azure IoT Edge modules
 description: Use the Open Enclave SDK and API to write confidential applications and deploy them as IoT Edge modules for confidential computing
 author: PatAltimore
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 04/08/2024

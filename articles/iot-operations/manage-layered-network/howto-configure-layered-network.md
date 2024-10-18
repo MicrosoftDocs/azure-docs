@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Create sample network environment for Azure IoT Layered Network Management Preview

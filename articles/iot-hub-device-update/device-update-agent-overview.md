@@ -5,7 +5,8 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 9/12/2022
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub agent overview

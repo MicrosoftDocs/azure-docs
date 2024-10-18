@@ -3,8 +3,7 @@ title: Multi-site hosting with Application Gateway for Containers - Ingress API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Ingress API.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 02/27/2024
 ms.author: greglin

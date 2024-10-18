@@ -4,7 +4,7 @@ description: This article provides guidance on when to use direct methods, devic
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/29/2018
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
