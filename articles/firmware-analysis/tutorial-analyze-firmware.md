@@ -8,7 +8,7 @@ ms.author: karenguo
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 
-# Tutorial: Analyze an IoT/OT firmware image
+# Tutorial: Analyze an IoT/OT firmware image with Firmware analysis 
 
 This tutorial describes how to use the **Firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
