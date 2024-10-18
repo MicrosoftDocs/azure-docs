@@ -45,7 +45,7 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
    * Use a custom policy to implement object-level authorization, if it's not implemented in the backend.
    * Implement a custom policy to map identifiers from request to backend and from backend to client, so that internal identifiers aren't exposed. 
 
-        In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send-request](send-request-policy.md) policy.
+    In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send-request](send-request-policy.md) policy.
 
 * For GraphQL scenarios, enforce object-level authorization through the [validate-graphql-request](validate-graphql-request-policy.md) policy, using the `authorize` element.  
 
@@ -76,7 +76,7 @@ More information about this threat: [API3:2023 Broken Object Property Level Aut
 ### Recommendations
 
 - The best approach to mitigating this vulnerability is to ensure that the external interfaces defined at the backend API are designed carefully and, ideally, independently of the data persistence. They should contain only the fields required by consumers of the API. APIs should be reviewed frequently, and legacy fields deprecated, then removed.
-- In API Management, use [revisions](/azure/api-management/api-management-revisions) to gracefully control nonbreaking changes, for example, the addition of a field to an interface, and [versions](/api-management/api-management-versions) to implement breaking changes. You should also version backend interfaces, which typically have a different lifecycle than consumer-facing APIs.
+- In API Management, use [revisions](/azure/api-management/api-management-revisions) to gracefully control nonbreaking changes, for example, the addition of a field to an interface, and [versions](/azure/api-management/api-management-versions) to implement breaking changes. You should also version backend interfaces, which typically have a different lifecycle than consumer-facing APIs.
 - Decouple external API interfaces from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services.
 - If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](/azure/api-management/api-management-policies#transformation) to rewrite response payloads and mask or filter data. [Content validation](/azure/api-management/validate-content-policy) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. For example, [remove unneeded JSON properties](/azure/api-management/policies/filter-response-content) from a response body. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. The [validate-content](/azure/api-management/validate-content-policy) policy also supports blocking responses exceeding a specified size.
 - Use the [validate-status-code](/azure/api-management/validate-status-code-policy) policy to block responses with errors undefined in the API schema.
