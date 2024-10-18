@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 10/08/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
+ms.service: azure-iot-operations
 ---
 
 # Secure MQTT broker communication using BrokerListener
