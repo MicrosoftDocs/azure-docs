@@ -1,5 +1,5 @@
 ---
-title: Graphics encoding over the Remote Desktop Protocol
+title: Graphics encoding over the Remote Desktop Protocol - Azure Virtual Desktop
 description: Learn how graphics data, including text, images, and video, is encoded and delivered over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 author: dknappettmsft
