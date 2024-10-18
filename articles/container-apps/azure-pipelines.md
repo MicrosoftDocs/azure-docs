@@ -96,7 +96,7 @@ Take the following steps to configure an Azure DevOps pipeline to deploy to Azur
 
 ### Create an Azure DevOps repository and clone the source code
 
-Before you create a pipeline, ensure that the source code for your app is in a repository. 
+Before creating a pipeline, the source code for your app must be in a repository. 
 
 1. Sign in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
 
