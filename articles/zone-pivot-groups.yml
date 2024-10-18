@@ -397,7 +397,7 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: To a Tomcat server
   - id: java-jboss
@@ -407,7 +407,7 @@ groups:
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
