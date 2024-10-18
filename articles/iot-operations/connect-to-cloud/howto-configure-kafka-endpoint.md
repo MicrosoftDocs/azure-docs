@@ -10,7 +10,6 @@ ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
-ms.service: azure-iot-operations
 ---
 
 # Configure Azure Event Hubs and Kafka dataflow endpoints
