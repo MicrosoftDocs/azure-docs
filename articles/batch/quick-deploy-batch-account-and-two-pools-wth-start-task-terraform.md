@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/18/2024
 ms.custom: devx-track-terraform
 ms.service: azure-batch
-author: TomArcherMsft
+author: Padmalathas
 ms.author: padmalathas
 #customer intent: As a Terraform user, I want to see how to create an Azure resource group, Storage account, Batch account, and two Batch pools with different scaling configurations.
 content_well_notification: 
