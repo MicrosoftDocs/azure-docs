@@ -101,6 +101,7 @@ items:
     - name: Overview # talk about what is an assessment - types of assessments- Scope creation - Readiness/costing/right-sizing
       href: concepts-assessment-overview.md
     - name: Prerequisites
+      href: assessment-prerequisites.md
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
     - name: Retail vs. negotiated pricing
     - name: Performance-based assessments # help users understand how perf data is used in depth
