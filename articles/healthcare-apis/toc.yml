@@ -20,6 +20,8 @@ items:
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
+    - name: Availability zones
+      href: availability-zones.md
     - name: Manage network access security
       href: network-access-security.md
 - name: Get started

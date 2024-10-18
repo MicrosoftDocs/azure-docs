@@ -9,6 +9,7 @@ ms.date: 07/02/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
+ms.service: azure-iot-operations
 ---
 
 # MQTT broker state store protocol
