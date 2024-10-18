@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 07/04/2024
+ms.date: 10/18/2024
 ms.topic: conceptual
 ms.custom: build-2024, linux-related-content
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
@@ -91,10 +91,13 @@ If you run into any issues with these managed resource groups, you should contac
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
  
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running in a Container Apps environment:
-    + HTTP 
+    + Azure Event Grid 
+    + Azure Event Hubs 
+    + Azure Blob storage (event-based)
     + Azure Queue Storage 
     + Azure Service Bus 
-    + Azure Event Hubs 
+    + Durable Functions (MSSQL storage provider)
+    + HTTP 
     + Kafka  
     + Timer  
 + These limitations apply to Kafka triggers:
