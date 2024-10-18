@@ -18,7 +18,7 @@ Azure Migrate assessments identifies the readiness and right-sized Azure targets
 - For better results, in the case of appliance-based discovery, ensure that the appliances are in a connected state and performance data is flowing. 
 - If you have an Enterprise agreement with Microsoft and want to use the negotiated prices to identify the resource cost, ensure that you have access to the required subscriptions. 
 
-## Discovery Sources 
+## Discovery sources 
 
 The discovery source might vary for different workloads depending on the data required for creating the assessments. You can discover your on-premises servers by using either of the following methods: 
 
