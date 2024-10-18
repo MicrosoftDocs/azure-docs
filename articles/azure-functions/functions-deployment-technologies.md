@@ -28,26 +28,26 @@ Specific deployments should use the best technology based on the specific scenar
 
 The deployment method also depends on the hosting plan and operating system on which you run your function app.  
 
-Currently, Functions offers five hosting plans:
+Currently, Functions offers five options for hosting your function apps:
 
-+ [Flex Consumption](flex-consumption-plan.md)
++ [Flex Consumption plan](flex-consumption-plan.md)
 + [Consumption](consumption-plan.md)
-+ [Elastic Premium](functions-premium-plan.md)
-+ [Dedicated (App Service)](dedicated-plan.md)
-+ [Container Apps](functions-container-apps-hosting.md)
++ [Elastic Premium plan](functions-premium-plan.md)
++ [Dedicated (App Service) plan](dedicated-plan.md)
++ [Azure Container Apps](functions-container-apps-hosting.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
 | Deployment technology | Flex Consumption| Consumption | Elastic Premium | Dedicated | Container Apps |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|
 | [OneDeploy](#one-deploy) |✔| | | | |
-| [Zip deploy](#zip-deploy) | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
-| [External package URL](#external-package-url)<sup>1</sup> | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
-| [Docker container](#docker-container) | |Windows: X<br/>Linux: ✔|Windows: X<br/>Linux: ✔|Windows: X<br/>Linux: ✔|✔|
-| [Source control](#source-control) | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
-| [Local Git](#local-git)<sup>1</sup> | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
-| [FTPS](#ftps)<sup>1</sup> | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
-| [In-portal editing](#portal-editing)<sup>2</sup> | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [Zip deploy](#zip-deploy) | |✔|✔|✔| |
+| [External package URL](#external-package-url)<sup>1</sup> | |✔|✔|✔| |
+| [Docker container](#docker-container) | | Linux-only | Linux-only | Linux-only |✔|
+| [Source control](#source-control) | | Windows-only |✔|✔| |
+| [Local Git](#local-git)<sup>1</sup> | |Windows-only |✔|✔| |
+| [FTPS](#ftps)<sup>1</sup> | |Windows-only |✔|✔| |
+| [In-portal editing](#portal-editing)<sup>2</sup> | |✔|✔|✔| |
 
 <sup>1</sup> Deployment technologies that require you to [manually sync triggers](#trigger-syncing) aren't recommended.   
 <sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).    
@@ -72,10 +72,9 @@ You can sync triggers in one of three ways:
 + Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](function-keys-how-to.md).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header).
 
-The Azure CLI can be used to perform the HTTP POST requests. For example:
++ Use the [az rest](/cli/azure/reference-index#az-rest) command to send an HTTP POST request that calls the `syncfunctiontriggers` API: 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>/syncfunctiontriggers?api-version=2016-08-01
-```
 
 When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
 The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
@@ -85,13 +84,13 @@ The Functions host also performs a background trigger sync after the application
 
 ### Remote build
 
-If you do not wish to build your code locally before deployment, you can request Azure Functions to perform a remote build. A remote build is recommended under these scenarios:
+You can request Azure Functions to perform a remote build of your code project during deployment. In these scenarios, you should request a remote build instead of building locally:
 
-+ You're developing functions for a Linux-based function app from a Windows machine. This is commonly the case for Python app development.
++ You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with in incorrect libraries being used when building the deployment package locally on Windows.
 + Your project has dependencies on a [custom package index](functions-reference-python.md#remote-build-with-extra-index-url).
 + You want to reduce the size of your deployment package.
 
-How to convey your intention for a remote build depends on whether your app in running on Windows or Linux.
+How you request a remote build depends on whether your app runs in Azure on Windows or Linux.
 
 #### [Windows](#tab/windows)
 
@@ -110,7 +109,7 @@ By default, both [Azure Functions Core Tools](functions-run-local.md) and the [A
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
-To enable remote build on the Flex Consumption plan, you do not need to set any application settings. Rather, you pass a remote build parameter when deploying. How this is done depends on the deployment tool you are using. For Core Tools and Visual Studio Code, a remote build is requested whenever you deploy to a Python app.
+When deploying to the Flex Consumption plan, you don't need to set any application settings to request a remote build. You instead pass a remote build parameter when you start deployment. How you pass this parameter depends on the deployment tool you are using. For Core Tools and Visual Studio Code, a remote build is always requested when deploying a Python app.
 
 ---
 
@@ -123,7 +122,7 @@ The following considerations apply when using remote builds during deployment:
 
 ### App content storage
 
-Several deployment methods store the deployed or built app content on the storage account associated with the function app. Functions tries to use the Azure Files content share when configured, but some methods instead store the payload in the blob storage instance associated with the `AzureWebJobsStorage` connection. See the details in the _Where app content is stored_ paragraphs of each deployment technology covered in the next section.
+Package-based deployment methods store the package in the storage account associated with the function app, which is defined in the [AzureWebJobsStorage](functions-app-settings.md#azurewebjobsstorage) setting. When available, Consumption and Elastic Premium plan apps try to use the Azure Files content share from this account, but you can also maintain the package in another location. Flex Consumption plan apps instead use a storage container in default storage account, unless you [configure a different storage account to use for deployment](flex-consumption-how-to.md#configure-deployment-settings). For more information, review the details in **Where app content is stored** in each deployment technology covered in the next section.
 
 [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
@@ -134,7 +133,7 @@ The following deployment methods are available in Azure Functions.
 ### One deploy
 One deploy is the only deployment technology supported for apps on the Flex Consumption plan. The end result is a ready-to-run .zip package that your function app runs on.
 
->__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
+>__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
 >
 > When you create a Flex Consumption app, you will need to specify a deployment storage (blob) container as well as an authentication method to it. By default the same storage account as the `AzureWebJobsStorage` connection is used, with a connection string as the authentication method. Thus, your [deployment settings](flex-consumption-how-to.md#configure-deployment-settings) are configured during app create time without any need of application settings.
 
@@ -146,7 +145,7 @@ One deploy is the only deployment technology supported for apps on the Flex Cons
 
 Zip deploy is the default and recommended deployment technology for function apps on the Consumption, Elastic Premium, and App Service (Dedicated) plans. The end result a ready-to-run .zip package that your function app runs on. It differs from [external package URL](#external-package-url) in that our platform is responsible for remote building and storing your app content.
 
->__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
+>__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
 
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI.
 
@@ -160,11 +159,11 @@ External package URL is an option if you want to manually control how deployment
 
 >__How to use it:__ Add [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) to your application settings. The value of this setting should be a blob URL pointing to the location of the specific package you want your app to run. You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
->If you use Azure Blob Storage, you can choose to have your function app access the blob with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) token or with a managed identity. The option you choose affects what kind of URL you use as the value for WEBSITE_RUN_FROM_PACKAGE.
+>If you use Azure Blob Storage, your Function app can access the container either by using a managed identity-based connection or with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer). The option you choose affects what kind of URL you use as the value for WEBSITE_RUN_FROM_PACKAGE. Managed identity is recommended for overall security and because SAS tokens expire and must be manually maintained.
 >
 >Whenever you deploy the package file that a function app references, you must [manually sync triggers](#trigger-syncing), including the initial deployment. When you change the contents of the package file and not the URL itself, you must also restart your function app to sync triggers. Refer to our [how-to guide](run-functions-from-deployment-package.md#use-website_run_from_package--url) on configuring this deployment technology.
 
->__When to use it:__ External package URL is the only supported deployment method for apps running on the Linux Consumption plan when you don't want a [remote build](#remote-build) to occur. This method is also the recommended deployment technology when you [create your app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
+>__When to use it:__ External package URL is the only supported deployment method for apps running on the Linux Consumption plan when you don't want a [remote build](#remote-build) to occur. This method is also the recommended deployment technology when you [create your app without Azure Files](storage-considerations.md#create-an-app-without-azure-files). For scalable apps running on Linux, you should instead consider [Flex Consumption plan](flex-consumption-plan.md) hosting.
 
 >__Where app content is stored:__ You are responsible for uploading your app content to blob storage. You may use any blob storage account, though Azure Blob Storage is recommended. 
 

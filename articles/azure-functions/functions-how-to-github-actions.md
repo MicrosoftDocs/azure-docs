@@ -299,7 +299,7 @@ The following parameters are specific to the Consumption, Elastic Premium, and A
 
 |Parameter |Explanation  |
 |---------|---------|
-|_**scm-do-build-during-deployment**_ | (Optional) Allow the Kudu site (e.g. https://your-site-name.scm.azurewebsites.net/) to perform pre-deployment operations like [remote build](functions-deployment-technologies.md#remote-build). By default, this is set to `false`. If you don't want to resolve the dependencies in the GitHub Workflow, and instead, you want to control the deployments in Kudu / KuduLite, you may want to change this setting to `true`. For more information on [SCM_DO_BUILD_DURING_DEPLOYMENT](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
+|_**scm-do-build-during-deployment**_ | (Optional) Allow the Kudu site (e.g. `https://<APP_NAME>.scm.azurewebsites.net/`) to perform pre-deployment operations, such as [remote builds](functions-deployment-technologies.md#remote-build). By default, this is set to `false`. Set this to `true` when you do want to control deployment behaviors using Kudu instead of resolving dependencies in your GitHub workflow. For more information, see the [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
 |_**enable-oryx-build**_ | (Optional) Allow Kudu site to resolve your project dependencies with Oryx. By default, this is set to `false`. If you want to use [Oryx](https://github.com/Microsoft/Oryx) to resolve your dependencies instead of the GitHub Workflow, set both **scm-do-build-during-deployment** and **enable-oryx-build** to `true`.|
 
 Optional parameters for all function app plans:
