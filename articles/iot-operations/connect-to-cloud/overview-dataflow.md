@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how I can use dataflows to connect data sources.
+ms.service: azure-iot-operations
 ---
 
 # Process and route data with dataflows
