@@ -105,7 +105,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 1. Select the condition on which the alert should be fired.
 
    - By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed.
-   - Choose the threshold type and value to set the trigger condition for the alert. Learn more [about the alert conditions for alert rules](/azure-monitor/alerts/alerts-create-metric-alert-rule).
+   - Choose the threshold type and value to set the trigger condition for the alert. Learn more [about the alert conditions for alert rules](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
    - To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
 
    - Firing alerts on failed backup jobs for each datasource:
