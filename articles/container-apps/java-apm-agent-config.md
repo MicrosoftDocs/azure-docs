@@ -269,7 +269,7 @@ The following commands help you define variables and ensure your Container Apps 
           storageType: EmptyDir
     ```
 
-    - Add init-container with volume mounts and environment variables to set up Java agent
+    - Add init-container with volume mounts and environment variables
   
     ```yaml
     properties:
@@ -290,7 +290,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     Replace $CONTAINER_REGISTRY_NAME with your Azure Container Registry name or replace the image from other container image registries.
 
-    - App container with volume mounts and environment variables to inject Java agent
+    - Update app container with volume mounts and environment variables
   
     ```yaml
     properties:
@@ -335,7 +335,7 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Clean up resources
 
-The resources created in this tutorial contribute to your Azure bill. If you are not going to keep them in a long run, run the following commands to clean them up.
+The resources created in this tutorial contribute to your Azure bill. If you aren't going to keep them in a long run, run the following commands to clean them up.
 
 # [Bash](#tab/bash)
 ```azurecli
