@@ -31,8 +31,6 @@ In this quickstart, you use a Bicep file to configure your Azure IoT Operations 
 
 Have an instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
-The [jq](https://jqlang.github.io/jq/download/) utility installed in your shell environment.
-
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
 ## What problem will we solve?
@@ -43,7 +41,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 This quickstart uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
 
-<!-- TODO: Change branch to main before merging the release branch -->
+<!-- TODO: Change branch to main in two places below before merging the release branch. Don't delete the samples release-m3 branch until the updates are done in the docs repo. -->
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/opc-plc-deployment.yaml
@@ -51,10 +49,10 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 
 The following snippet shows the YAML file that you applied:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples-m3/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
-> This configuration isn't secure. Don't use this configuration in a production environment.
+> This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
 To establish mutual trust between the OPC PLC simulator and the OPC UA connector, run the following commands:
 
@@ -133,19 +131,35 @@ Run the following commands to download and run the Bicep file that configures yo
 - Adds a dataflow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
 
-<!-- TODO: Fix download link, possibly remove jq, and add PowerShell version -->
+<!-- TODO: Fix download link -->
 
 Download the Bicep file to your local environment from [quickstart.bicep](https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=%2F.pipelines%2Fbicep%2Fquickstart.bicep)
+
+# [Bash](#tab/bash)
 
 ```bash
 # wget https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=/.pipelines/bicep/quickstart.bicep -O quickstart.bicep
 
-AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters | jq -r '.[] | select(.extensionType == "microsoft.iotoperations") | .id | split("/")[-1]')
-AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP | jq -r '.[0].name')
-CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP | jq -r '.[0].extendedLocation.name | split("/")[-1]')
+AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv | awk -F'/' '{print $NF}')
+AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
+CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv | awk -F'/' '{print $NF}')
 
 az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+# wget https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=/.pipelines/bicep/quickstart.bicep -O quickstart.bicep
+
+$AIO_EXTENSION_NAME = (az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv) -split '/' | Select-Object -Last 1
+$AIO_INSTANCE_NAME = $(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
+$CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv) -split '/' | Select-Object -Last 1
+
+az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file quickstart.bicep --parameters clusterName=$CLUSTER_NAME customLocationName=$CUSTOM_LOCATION_NAME aioExtensionName=$AIO_EXTENSION_NAME aioInstanceName=$AIO_INSTANCE_NAME
+```
+
+---
 
 ## Verify data is flowing to MQTT broker
 
