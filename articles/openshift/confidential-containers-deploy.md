@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 10/18/2024
 ms.custom: template-how-to
 ---
 
@@ -17,59 +17,70 @@ This article describes the steps required to deploy Confidential Containers for 
 
 **Part 1: Deploy OpenShift Sandboxed Containers**
 
-1. Install the OpenShift Sandboxed Containers Operator.
+1. [Install the OpenShift Sandboxed Containers Operator](#install-the-openshift-sandboxed-containers-operator).    
     
-    Create several manifest files and run commands to install and verify the Operator.
+    Create manifest files and run commands to install and verify the Operator.
 
-1. Create the peer pods secret.
+1. [Create the peer pods secret](#create-the-peer-pods-secret).
     1. Gather necessary Azure credentials.
     1. Generate and record RBAC content.
     1. Create peer pods secret manifest file.
 
-1. Create the peer pods config map.
+1. [Create the peer pods config map](#create-the-peer-pods-config-map).
     1. Create the peer pods config file.
     1. Create the ConfigMap.
 
-1. Create the Azure secret.
+1. [Create the Azure secret](#create-the-azure-secret).
     1. Generate SSH keys.
     1. Create a secret object.
     1. Delete the generated keys. 
 
 
-
-
 **Part 2: Deploy Confidential Containers**
 
-1.	Install the Trustee Operator: Create and apply manifests to install the operator.
+1.	[Install the Trustee Operator](#install-the-trustee-operator).
 
-1.	Create the route for the Trustee: Create a secure route with edge TLS termination for the Trustee service. 
-    1. Run a command to create the route.
+    Create and apply manifests to install the operator.
+
+1.	[Create the route for the Trustee](#create-the-route-for-the-trustee). 
+    1. Create a secure route with edge TLS termination for the Trustee service.
     1. Set and record the TRUSTEE_HOST variable.
 
-1.	Enable the Confidential Containers feature gate: Create a config map to enable the Confidential Containers feature.
+1.	[Enable the Confidential Containers feature gate](#enable-the-confidential-containers-feature-gate).
+    
+    Create a config map to enable the Confidential Containers feature.
 
-1.	Update the peer pods config map: 
+1.	[Update the peer pods config map](#update-the-peer-pods-config-map).
     1. Retrieve necessary Azure resource information (resource group, VNet name, subnet ID, NSG ID, region) using Azure CLI commands.
     1. Create a YAML file containing the retrieved information and the TRUSTEE_HOST value.
     1. Run a command to apply the updated configuration.
     1. Restart the `peerpodconfig-ctrl-caa-daemon` daemon set.
 
-1.	Create the KataConfig custom resource: Install kata-remote as the runtime class. 
+1.	[Create the KataConfig custom resource](#create-the-kataconfig-custom-resource). 
     1. Create a YAML file defining the KataConfig configuration.
     1. Run a command to apply the configuration.
     1. Monitor and verify the installation process.
 
-1.	Create the Trustee authentication secret: Generate private and public keys and create a secret object.
-
-1.	Create the Trustee config map: This defines configuration for the Trustee service. 
+1.	[Create the Trustee authentication secret](#create-the-trustee-authentication-secret).
+    1. Generate private and public keys
+    1. Create a secret object.
+    
+1.	[Create the Trustee config map](#create-the-trustee-config-map). 
     1. Create a YAML file containing the Trustee configuration.
     1. Run a command to apply the configuration.
 
-1.	Configure attestation policies (optional): Additional configurations for reference values, client secrets, resource access policies, and attestation policies.
+1.	[Configure attestation policies (optional)](#configure-attestation-policies).
 
-1.	Create the KbsConfig custom resource: Create the KbsConfig custom resource (CR) to launch Trustee and check the Trustee pods and pod logs to verify the configuration.
+    Additional configurations for reference values, client secrets, resource access policies, and attestation policies.
 
-1.	Verify the attestation process: Create a test pod and retrieve its secret to verify the attestation process.
+1.	[Create the KbsConfig custom resource](#create-the-kbsconfig-custom-resource).
+
+    1. Create the KbsConfig custom resource to launch Trustee.
+    1. Check the Trustee pods and pod logs to verify the configuration.
+
+1.	[Verify the attestation process](#verify-the-attestation-process).
+    
+    Create a test pod and retrieve its secret to verify the attestation process.
 
 ## Part 1: Deploy OpenShift sandboxed containers
 
@@ -266,7 +277,7 @@ By default, the OpenShift sandboxed containers Operator creates the secret based
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
     - Specify the `AZURE_NSG_ID` value that you retrieved.
-    - `AZURE_IMAGE_ID` is optional. By default, this value is populated when you run the KataConfig CR, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.
+    - `AZURE_IMAGE_ID` is optional. By default, this value is populated when you run the KataConfig custom resource, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.
     - Specify the `AZURE_REGION` value you retrieved.
     - Specify the `AZURE_RESOURCE_GROUP` value you retrieved.
     
@@ -399,7 +410,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 ### Enable the Confidential Containers feature gate
 
-1.	Create a cc-feature-gate.yaml manifest file:
+1.	Create a `cc-feature-gate.yaml` manifest file:
 
     ```
     apiVersion: v1
@@ -471,7 +482,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
     - Specify the `AZURE_NSG_ID` value that you retrieved.
-    - `AZURE_IMAGE_ID` (Optional): By default, this value is populated when you run the KataConfig CR, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.
+    - `AZURE_IMAGE_ID` (Optional): By default, this value is populated when you run the KataConfig custom resource, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.
     - Specify the `AZURE_REGION` value you retrieved.
     - Specify the `AZURE_RESOURCE_GROUP` value you retrieved.
     - `AA_KBC_PARAMS` specifies the host name of the Trustee route.
@@ -508,11 +519,11 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
     Optional: If you have applied node labels to install kata-remote on specific nodes, specify the key and value, for example, cc: 'true'.
 
-1.	Create the KataConfig CR by running the following command:
+1.	Create the KataConfig custom resource by running the following command:
 
     `$ oc apply -f example-kataconfig.yaml`
     
-    The new KataConfig CR is created and installs kata-remote as a runtime class on the worker nodes.
+    The new KataConfig custom resource is created and installs kata-remote as a runtime class on the worker nodes.
     
     > [!NOTE]
     > Wait for the kata-remote installation to complete and the worker nodes to reboot before verifying the installation.
@@ -778,7 +789,7 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
 ### Create the KbsConfig custom resource
 
-You must create the KbsConfig custom resource (CR) to launch Trustee. Then, you check the Trustee pods and pod logs to verify the configuration.
+You must create the KbsConfig custom resource to launch Trustee. Then, you check the Trustee pods and pod logs to verify the configuration.
 
 1.	Create a `kbsconfig-cr.yaml` manifest file:
 
@@ -803,7 +814,7 @@ You must create the KbsConfig custom resource (CR) to launch Trustee. Then, you 
       kbsResourcePolicyConfigMapName: resource-policy
     ```
     
-1.	Create the KbsConfig CR by running the following command:
+1.	Create the KbsConfig custom resource by running the following command:
 
     `$ oc apply -f kbsconfig-cr.yaml`
 
