@@ -7,6 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
 ms.date: 07/02/2024
+ms.service: azure-iot-operations
 ---
 
 # Deploy Dapr pluggable components
