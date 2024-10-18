@@ -19,7 +19,7 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* Optional [zone redundancy](../reliability/migrate-api-mgt.md), if that region supports it.
+* Optional [availability zones](../reliability/migrate-api-mgt.md), if that region supports it.
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. To enable zone redundancy, also set up a new public IP. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -184,7 +184,7 @@ This section provides considerations for multi-region deployments when the API M
 
 * Learn more about configuring API Management for [high availability](high-availability.md).
 
-* Learn more about [zone redundancy](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
+* Learn more about configuring [availability zones](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
 
 * For more information about virtual networks and API Management, see:
 

@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 08/22/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
+ms.service: azure-iot-operations
 ---
 
 # Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
