@@ -1,10 +1,10 @@
 ---
-title: 'Deploy a Batch account and two pools with a start task - Terraform'
+title: 'Deploy an Azure Batch account and two pools with a start task - Terraform'
 description: In this article, you deploy an Azure Batch account and two pools with a start task using Terraform.
 ms.topic: quickstart
 ms.date: 10/18/2024
 ms.custom: devx-track-terraform
-ms.service: batch
+ms.service: azure-batch
 author: TomArcherMsft
 ms.author: padmalathas
 #customer intent: As a Terraform user, I want to see how to create an Azure resource group, Storage account, Batch account, and two Batch pools with different scaling configurations.
@@ -13,9 +13,9 @@ content_well_notification:
 ai-usage: ai-assisted
 ---
 
-# Deploy a Batch account and two pools with a start task - Terraform
+# Deploy an Azure Batch account and two pools with a start task - Terraform
 
-In this quickstart, you create an Azure Batch account, an Azure Storage account, and two Batch pools using Terraform. Batch is a cloud-based job scheduling service that parallelizes and distributes the processing of large volumes of data across many computers. It's typically used for tasks like rendering 3D graphics, analyzing large datasets, or processing video. In this case, the resources created include a Batch account, which is the central organizing entity for distributed processing tasks, a storage account for holding the data to be processed, and two Batch pools, which are groups of virtual machines that execute the tasks.
+In this quickstart, you create an Azure Batch account, an Azure Storage account, and two Batch pools using Terraform. Batch is a cloud-based job scheduling service that parallelizes and distributes the processing of large volumes of data across many computers. It's typically used for tasks like rendering 3D graphics, analyzing large datasets, or processing video. In this case, the resources created include a Batch account (which is the central organizing entity for distributed processing tasks), a storage account for holding the data to be processed, and two Batch pools, which are groups of virtual machines that execute the tasks.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -77,13 +77,13 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run [`az batch account show`](/cli/azure/batch/account#az-batch-account-show) to view the Azure Batch account.
+Run [`az batch account show`](/cli/azure/batch/account#az-batch-account-show) to view the Batch account.
 
 ```azurecli
 az batch account show --name <batch_account_name> --resource-group <resource_group_name>
 ```
 
-In the above command, replace `<batch_account_name>` with the name of your Azure Batch account and `<resource_group_name>` with the name of your resource group.
+In the above command, replace `<batch_account_name>` with the name of your Batch account and `<resource_group_name>` with the name of your resource group.
 
 ---
 
@@ -98,4 +98,4 @@ In the above command, replace `<batch_account_name>` with the name of your Azure
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure batch account](/search/?terms=Azure%20batch%20account%20and%20terraform).
+> [See more articles about Batch accounts](/search/?terms=Azure%20batch%20account%20and%20terraform).

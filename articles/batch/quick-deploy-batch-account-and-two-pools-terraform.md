@@ -98,4 +98,4 @@ Replace `<batch_account_name>` with the name of your Batch account and `<resourc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Batch account](/search/?terms=Azure%20batch%20account%20and%20terraform).
+> [See more articles about Batch accounts](/search/?terms=Azure%20batch%20account%20and%20terraform).
