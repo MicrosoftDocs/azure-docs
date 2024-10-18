@@ -96,7 +96,7 @@ This transition is done in line with the announcement of retirement of Azure bas
 
    * **Method 1:** The most recommended way is to associate a NAT gateway to the subnet along with network security group.
 
-      According to [Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway), NAT gateway is incomaptible with Azure basic load balancer.
+      According to [Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway), NAT gateway is incompatible with Azure basic load balancer.
 
       To associate with a NAT Gateway, perform the following steps.
 
