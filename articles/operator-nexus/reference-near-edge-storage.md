@@ -19,9 +19,14 @@ Within each Azure Operator Nexus storage appliance, multiple storage devices are
 
 This table lists the available SKUs for the storage appliance in the near-edge Azure Operator Nexus offering.
 
-| SKU                     | Description                            |
-| ----------------------- | ------------------------------------- |
-| Pure x70r3-91           | Storage appliance model x70r3-91 provided by Pure Storage |
+| SKU                     | Raw storage capacity | Description                            |
+| ----------------------- | -------------------- | -------------------------------------- |
+| Pure X70R4-22TB           | 22TB | //X70 series FlashArray provided by Pure Storage  |
+| Pure X70R4-45TB           | 45TB | //X70 series FlashArray provided by Pure Storage |
+| Pure X70R4-91TB           | 91TB | //X70 series FlashArray provided by Pure Storage |
+| Pure X70R4-183TB          | 183TB | //X70 series FlashArray provided by Pure Storage |
+| Pure X70R4-366TB          | 366TB | //X70 series FlashArray provided by Pure Storage |
+| Pure X70R4-622TB          | 622TB | //X70 series FlashArray provided by Pure Storage |
 
 ## Storage connectivity
 
@@ -35,7 +40,7 @@ This table lists the characteristics of the storage appliance.
 
 | Property                               | Specification/Description |
 | -------------------------------------- | -------------------------|
-| Raw storage capacity                   | 91 TB |
+| Raw storage capacity                   | Determined by SKU - see [Available SKUs](#available-skus) |
 | Usable capacity | 50 TB |
 | Number of maximum I/O operations supported per second <br>(with 80/20 read/write ratio) | 250K+ (4K) <br>150K+ (16K) |
 | Number of I/O operations supported per volume per second | 50K+ |
