@@ -402,7 +402,7 @@ You can connect to these resources via Azure ExpressRoute or network-to-network 
 
 ### Can I enable virtual network peering if my virtual networks belong to subscriptions within different Microsoft Entra tenants?
 
-Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the [Azure portal](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-portal), [PowerShell](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-powershell), or the [Azure CLI](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-cli).
+Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the [Azure portal](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-portal), [PowerShell](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-powershell), or the [Azure CLI](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-cli).
 
 ### My virtual network peering connection is in an Initiated state. Why can't I connect?
 
