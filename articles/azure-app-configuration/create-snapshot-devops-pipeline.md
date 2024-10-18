@@ -101,6 +101,7 @@ The following parameters are used by the App Configuration snapshot task:
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.
 
 ## Next step
+
 For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
 
 [Azure App Configuration Snapshot Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-snapshot-v1)
