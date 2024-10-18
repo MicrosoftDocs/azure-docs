@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 08/13/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
+ms.service: azure-iot-operations
 ---
 
 # Enrich data by using dataflows
