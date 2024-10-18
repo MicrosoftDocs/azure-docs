@@ -3,11 +3,11 @@ title: Route web traffic based on the URL - Azure CLI
 description: In this article, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, devx-track-linux
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
 
@@ -28,9 +28,9 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -189,7 +189,7 @@ for i in `seq 1 3`; do
 
   if [ $i -eq 1 ]
   then
-    poolName="appGatewayBackendPool" 
+    poolName="appGatewayBackendPool"
   fi
 
   if [ $i -eq 2 ]

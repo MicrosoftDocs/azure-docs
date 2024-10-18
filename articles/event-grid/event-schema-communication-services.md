@@ -6,7 +6,7 @@ ms.date: 09/19/2023
 ms.author: mikben
 ---
 
-# Event Handling in Azure Communication Services
+# Azure Communication Services as an Azure Event Grid source
 
 Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable, and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
 
@@ -29,6 +29,7 @@ Azure Communication Services emits the following event types:
 * [Presence Events](./communication-services-presence-events.md)
 * [Email Events](./communication-services-email-events.md)
 * [Job Router Events](./communication-services-router-events.md)
+* [Advanced Messaging Events](./communication-services-advanced-messaging-events.md)
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. 
 

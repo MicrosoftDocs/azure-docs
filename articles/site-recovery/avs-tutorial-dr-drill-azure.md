@@ -3,9 +3,9 @@ title: Run a disaster recovery drill from Azure VMware Solution to Azure by usin
 description: Learn how to run a disaster recovery drill from an Azure VMware Solution private cloud to Azure, by using Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 02/19/2024
 ms.author: ankitadutta
 ms.custom: MVC
 
@@ -72,7 +72,7 @@ When you run a test failover, the following actions happen:
 2. Failover processes the data, so that an Azure VM can be created. If you select the latest recovery point, a recovery point is created from the data.
 3. An Azure VM is created from the data processed in the previous step.
 
-Run the test failover as follows:
+**Run the test failover as follows:**
 
 1. In **Settings** > **Replicated Items**, select the VM, and then select **+Test Failover**.
 2. Select the **Latest processed** recovery point for this tutorial. This step fails over the VM to the latest available point in time. The time stamp is shown.
@@ -99,5 +99,4 @@ If you want to connect to Azure VMs by using Remote Desktop Protocol (RDP) or Se
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> [Learn more about running a failover](avs-tutorial-failover.md)
+- [Learn more about running a failover](avs-tutorial-failover.md).

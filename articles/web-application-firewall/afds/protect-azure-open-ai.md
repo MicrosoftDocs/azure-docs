@@ -3,7 +3,7 @@ title: Protect Azure OpenAI using Azure Web Application Firewall on Azure Front 
 description: Learn how to Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 author: sowmyam2019
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 First, create an OpenAI instance.
 
 
-1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](../../ai-services/openai/how-to/create-resource.md).
+1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource).
 1. Identify the Azure OpenAI endpoint and the API key.
 
    Open the Azure OpenAI studio and open the **Chat** option under **Playground**.
@@ -35,7 +35,7 @@ First, create an OpenAI instance.
 
    :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::
 
-1. Validate Azure OpenAI call using [Postman](https://www.postman.com/).
+1. Validate Azure OpenAI call using your favorite API test method, such as [Visual Studio](/aspnet/core/test/http-files) or [Insomnia](https://insomnia.rest/).
    Use the Azure OpenAPI endpoint and api-key values found in the earlier steps.
    Use these lines of code in the POST body:
 
@@ -51,7 +51,7 @@ First, create an OpenAI instance.
    }
 
    ```
-   :::image type="content" source="../media/protect-azure-open-ai/postman-body.png" alt-text="Screenshot showing the post body." lightbox="../media/protect-azure-open-ai/postman-body.png":::
+   :::image type="content" source="../media/protect-azure-open-ai/post-body.png" alt-text="Screenshot showing the post body." lightbox="../media/protect-azure-open-ai/post-body.png":::
 1. In response to the POST, you should receive a *200 OK*:
    :::image type="content" source="../media/protect-azure-open-ai/post-200-ok.png" alt-text="Screenshot showing the POST 200 OK." lightbox="../media/protect-azure-open-ai/post-200-ok.png":::
 
@@ -82,8 +82,8 @@ Now verify your Azure Front Door endpoint.
 1. Retrieve the Azure Front Door endpoint from the Front Door Manager.
 
    :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot showing the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
-2. Use Postman to send a POST request to the Azure Front Door endpoint.
-   1. Replace the Azure OpenAI endpoint with the AFD endpoint in Postman POST request.
+2. Use your favorite API test method, such as [Visual Studio](/aspnet/core/test/http-files) or [Insomnia](https://insomnia.rest/) to send a POST request to the Azure Front Door endpoint.
+   1. Replace the Azure OpenAI endpoint with the AFD endpoint in the POST request.
    :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
 
    Azure OpenAI also generates a response using the GPT model.
@@ -106,4 +106,4 @@ The following items are common issues you may encounter when using Azure OpenAI 
 
 - You get a *415: Unsupported Media Type* message when you send a POST request to your Azure OpenAI endpoint.
 
-   If you attempt to send a POST request to your Azure OpenAI endpoint with the Content-Type header `text/plain`, you get this message. Make sure to update your Content-Type header to `application/json` in the header section in Postman.
+   If you attempt to send a POST request to your Azure OpenAI endpoint with the Content-Type header `text/plain`, you get this message. Make sure to update your Content-Type header to `application/json` in the header section in your test.

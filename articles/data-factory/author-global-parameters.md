@@ -1,12 +1,11 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 05/05/2023
+ms.date: 01/05/2024
 ms.custom:
 ---
 
@@ -65,7 +64,7 @@ We strongly recommend using the new mechanism of including global parameters in 
 
 
 
-## Next steps
+## Related content
 
 * Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery-improvements.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)

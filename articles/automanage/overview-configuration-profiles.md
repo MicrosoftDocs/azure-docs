@@ -2,8 +2,7 @@
 title: Automanage Configuration profiles
 description: Learn about Azure Automanage configuration profiles for virtual machines.
 author: mmccrory
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
@@ -11,6 +10,11 @@ ms.custom: references_regions
 ---
 
 # Configuration profiles
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!IMPORTANT]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
 
 When you are enabling Automanage for your machine, a configuration profile is required. Configuration profiles are the foundation of this service. They define which services we onboard your machines to and to some extent what the configuration of those services would be.
 

@@ -1,11 +1,10 @@
 ---
 title: Manage Apache Spark configuration
 description: Learn how to create an Apache Spark configuration for your synapse studio.
-services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
-ms.service: synapse-analytics
+ms.reviewer: whhender 
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/21/2022
@@ -132,7 +131,9 @@ For .json config file, you can refer to the following examples:
    }
    ```
 
-
+> [!NOTE] 
+>
+> Synapse Studio will continue to support terraform or bicep-based configuration files.
 
 
 ## Next steps

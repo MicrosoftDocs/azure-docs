@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
-ms.date: 04/13/2023
+ms.date: 03/01/2024
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: seo-python-october2019, mvc, devx-track-python, mode-api
+ms.custom: mvc, devx-track-python, mode-api
 ---
 
 # Quickstart: Use Python to create a Batch pool and run a job
@@ -25,7 +25,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 
-- [Python](https://python.org/downloads) version 3.6 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
+- [Python](https://python.org/downloads) version 3.8 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
 
 ## Run the app
 
@@ -137,7 +137,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
        for file_path in input_file_paths]
    ```
 
-1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
+1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Microsoft Entra authentication.
 
    ```python
    credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,

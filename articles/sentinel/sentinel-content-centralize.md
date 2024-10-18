@@ -6,7 +6,10 @@ author: austinmccollum
 ms.topic: conceptual
 ms.date: 06/22/2023
 ms.author: austinmc
-#Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out-of-the-box content, and how to centralize the management, discovery, and inventory of content in Microsoft Sentinel.
+
+
+#Customer intent: As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and centrally manage content efficiently.
+
 ---
 
 # Microsoft Sentinel out-of-the-box content centralization changes
@@ -123,7 +126,7 @@ Here's an example of an analytics rule before and after the centralization chang
 
 - After you run the tool to reinstate the analytics rule template, the source changes to the solution that it's reinstated from.
 
-  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Azure Active Directory solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
+  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Microsoft Entra solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
 
 ## Action needed
 

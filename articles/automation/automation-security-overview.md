@@ -4,9 +4,10 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 10/04/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Azure Automation account authentication overview
@@ -29,11 +30,11 @@ An Azure Automation account is different from your Microsoft account or accounts
 
 The Automation resources for each Automation account are associated with a single Azure region, but the account can manage all the resources in your Azure subscription. The main reason to create Automation accounts in different regions is if you have policies that require data and resources to be isolated to a specific region.
 
-All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory (Azure AD) organizational identity credential-based authentication.
+All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Microsoft Entra organizational identity credential-based authentication.
 
 ## Managed identities
 
-A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Managed identities are the recommended way to authenticate in your runbooks, and is the default authentication method for your Automation account.
 
@@ -62,16 +63,18 @@ You need the `Microsoft.Authorization/*/Write` permission. This permission is ob
 - [Owner](../role-based-access-control/built-in-roles.md#owner)
 - [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)
 
-To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md).
 
-### Azure AD permissions
+<a name='azure-ad-permissions'></a>
 
-To renew the service principal, you need to be a member of one of the following Azure AD built-in roles:
+### Microsoft Entra permissions
+
+To renew the service principal, you need to be a member of one of the following Microsoft Entra built-in roles:
 
 - [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)
 - [Application Developer](../active-directory/roles/permissions-reference.md#application-developer)
 
-Membership can be assigned to **ALL** users in the tenant at the directory level, which is the default behavior. You can grant membership to either role at the directory level. For more information, see [Who has permission to add applications to my Azure AD instance?](../active-directory/develop/how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+Membership can be assigned to **ALL** users in the tenant at the directory level, which is the default behavior. You can grant membership to either role at the directory level. For more information, see [Who has permission to add applications to my Microsoft Entra instance?](../active-directory/develop/how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 ### Automation account permissions
 
@@ -89,7 +92,7 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 
 ## Role-based access control
 
-Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate the service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.
+Role-based access control is available with Azure Resource Manager to grant permitted actions to a Microsoft Entra user account and Run As account, and authenticate the service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.
 
 If you have strict security controls for permission assignment in resource groups, you need to assign the Run As account membership to the **Contributor** role in the resource group.
 

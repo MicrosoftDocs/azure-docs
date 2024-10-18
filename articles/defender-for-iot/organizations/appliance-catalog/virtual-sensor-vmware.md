@@ -1,7 +1,7 @@
 ---
 title: OT sensor VM (VMware ESXi) - Microsoft Defender for IoT
 description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMware ESXi.
-ms.date: 04/24/2022
+ms.date: 08/20/2023
 ms.topic: reference
 ---
 
@@ -12,7 +12,7 @@ This article describes an OT sensor deployment on a virtual appliance using VMwa
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
-|**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Performance** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
@@ -53,7 +53,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
    - Guest OS family: **Linux**
 
-   - Guest OS version: **Ubuntu Linux (64-bit)**
+   - Guest OS version: **Debian**
 
 1. Select **Next**.
 
@@ -62,6 +62,8 @@ This procedure describes how to create a virtual machine by using ESXi.
 1. Change the virtual hardware parameters according to the required architecture.
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+
+1. In your VM options, change your boot options from **Firmware** to **BIOS**. Make sure that you're not booting from EFI.
 
 1. Select **Next** > **Finish**.
 

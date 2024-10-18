@@ -4,8 +4,8 @@ description: In part one of this three-part Azure SQL Edge tutorial for predicti
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: tutorial
 ms.custom:
   - devx-track-azurepowershell
@@ -13,7 +13,9 @@ ms.custom:
 ---
 # Install software and set up resources for the tutorial
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this three-part tutorial, you'll create a machine learning model to predict iron ore impurities as a percentage of Silica, and then deploy the model in Azure SQL Edge. In part one, you'll install the required software and deploy Azure resources.
@@ -25,8 +27,8 @@ In this three-part tutorial, you'll create a machine learning model to predict i
    - Azure IoT Edge tools
    - .NET core cross-platform development
    - Container development tools
-1. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-1. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). This step can take several minutes.
+1. Install [Azure Data Studio](/azure-data-studio/download-azure-data-studio/)
+1. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/azure-data-studio/notebooks/notebooks-python-kernel). This step can take several minutes.
 1. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
 1. Set up the environment to debug, run, and test IoT Edge solution by installing [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
 1. Install Docker.
@@ -257,6 +259,6 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    az ml workspace create -w $MyWorkSpace -g $ResourceGroup
    ```
 
-## Next steps
+## Related content
 
 - [Set up IoT Edge modules and connections](tutorial-set-up-iot-edge-modules.md)

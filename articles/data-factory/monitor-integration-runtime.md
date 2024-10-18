@@ -1,10 +1,9 @@
 ---
 title: Monitor integration runtime in Azure Data Factory 
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 author: nabhishek
 ms.author: abnarain
 ms.custom:
@@ -20,7 +19,7 @@ ms.custom:
 - Self-hosted integration runtime
 - Azure-SQL Server Integration Services (SSIS) integration runtime
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
@@ -295,7 +294,7 @@ See the following articles to learn more about Azure-SSIS integration runtime:
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to start, stop, or delete your Azure-SSIS IR. It also shows you how to scale it out by adding more nodes. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides instructions on joining your Azure-SSIS IR to a virtual network.
 
-## Next steps
+## Related content
 See the following articles for monitoring pipelines in different ways: 
 
 - [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md).

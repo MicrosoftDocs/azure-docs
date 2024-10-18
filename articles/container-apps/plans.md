@@ -3,7 +3,9 @@ title: Azure Container Apps plan types
 description: Compare different plains available in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -24,18 +26,14 @@ Azure Container Apps features two different plan types.
 
 The Dedicated plan consists of a series of workload profiles that range from the default consumption profile to profiles that feature dedicated hardware customized for specialized compute needs.  
 
-You can select from general purpose and memory optimized [workload profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory. You pay per instance of the workload profile, versus per app, and workload profiles can scale in and out as demand rises and falls.
+You can select from general purpose or specialized compute
+[workload profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory or GPU enabled features. You pay per instance of the workload profile, versus per app, and workload profiles can scale in and out as demand rises and falls.
 
 Use the Dedicated plan when you need any of the following in a single environment:
 
-- **Secure outbound traffic**: You can assign single outbound network path to systems protected by firewalls or other network appliances.
-
-- **Environment isolation**: Dedicated workload profiles provide access to dedicated hardware with a single tenant guarantee.
+- **Compute isolation**: Dedicated workload profiles provide access to dedicated hardware with a single tenant guarantee.
 
 - **Customized compute**: Select from many types and sizes of workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independently as more apps are added or removed or as apps scale their replicas up or down.
-
-
-- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. Dedicated workload profiles let you set minimum and maximum scaling to help you better control costs.
 
     The Dedicated plan can be more cost effective when you're running higher scale deployments with steady throughput.
 

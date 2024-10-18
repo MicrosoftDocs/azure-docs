@@ -2,7 +2,7 @@
 title: Migrate to Azure Firewall Premium
 description: Learn how to migrate from Azure Firewall Standard to Azure Firewall Premium.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 03/30/2022
@@ -50,7 +50,7 @@ During your migration process, you may need to migrate your Classic firewall rul
 
 1. From the Azure portal, select your standard firewall. On the **Overview** page, select **Migrate to firewall policy**.
 
-   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy":::
+   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" lightbox="media/premium-migrate/firewall-overview-migrate.png" alt-text="Screenshot showing migrate to firewall policy.":::
 
 1. On the **Migrate to firewall policy** page, select **Review + create**.
 1. Select **Create**.
@@ -110,7 +110,7 @@ function ValidatePolicy {
     Write-Host "Validating resource is as expected"
 
     if ($null -eq $Policy) {
-        Write-Error "Recived null policy"
+        Write-Error "Received null policy"
         exit(1)
     }
     if ($Policy.GetType().Name -ne "PSAzureFirewallPolicy") {
@@ -272,7 +272,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 - Allocate Firewall Premium
 
    ```azurepowershell
-   $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
    $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)

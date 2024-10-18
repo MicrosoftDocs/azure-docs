@@ -1,10 +1,10 @@
 ---
-title: Apache Sqoop with Apache Hadoop - Azure HDInsight 
+title: Apache Sqoop with Apache Hadoop - Azure HDInsight
 description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and Azure SQL Database.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/21/2023
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 09/06/2024
 ---
 
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
@@ -138,13 +138,13 @@ From SQL to Azure storage.
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
-    For an example, see the [Connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
+    For an example, see [How to connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
 
-    For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
+    For more information on using HDInsight with an Azure Virtual Network, see [how to extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 
-* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
+* You may have to configure SQL Server to accept remote connections.
 
 ## Next steps
 

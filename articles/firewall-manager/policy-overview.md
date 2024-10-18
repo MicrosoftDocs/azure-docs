@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall Manager policy overview
-description: Learn about Azure Firewall Manager policies
+description: Learn about Azure Firewall Manager policies.
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/10/2023
+ms.topic: concept-article
+ms.date: 03/06/2024
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ Firewall Policy is the recommended method to configure your Azure Firewall. It's
 
 ## Policy creation and association
 
-A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, and CLI.
+A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, CLI and Terraform.
 
 You can also migrate existing Classic rules from Azure Firewall using the portal or Azure PowerShell to create policies. For more information, see [How to migrate Azure Firewall configurations to Azure Firewall policy](migrate-to-policy.md). 
 
@@ -44,7 +44,7 @@ Azure Firewall supports Basic, Standard, and Premium policies. The following tab
 
 |Policy type|Feature support  | Firewall SKU support|
 |---------|---------|----|
-|Basic policy|NAT rules, Application rules<br>IP Groups<br>Threat Intelligence (alerts)|Basic
+|Basic policy|NAT rules, Network rules, Application rules<br>IP Groups<br>Threat Intelligence (alerts)|Basic
 |Standard policy    |NAT rules, Network rules, Application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Web Categories<br>Threat Intelligence|Standard or Premium|
 |Premium policy    |All Standard feature support, plus:<br><br>TLS Inspection<br>Web Categories<br>URL Filtering<br>IDPS|Premium
 
@@ -53,7 +53,7 @@ Azure Firewall supports Basic, Standard, and Premium policies. The following tab
 
 New policies can be created from scratch or inherited from existing policies. Inheritance allows DevOps to create local firewall policies on top of organization mandated base policy.
 
-Policies created with non-empty parent policies inherit all rule collections from the parent policy. The parent policy and the child policy must be in the same region. A firewall policy can be associated with firewalls across regions regardless where they are stored.
+Policies created with non-empty parent policies inherit all rule collections from the parent policy. The parent policy and the child policy must be in the same region. A firewall policy can be associated with firewalls across regions regardless where they're stored.
 
 Network rule collections inherited from a parent policy are always prioritized over network rule collections defined as part of a new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
@@ -68,8 +68,7 @@ With inheritance, any changes to the parent policy are automatically applied dow
 ## Built-in high availability
 
 High availability is built in, so there's nothing you need to configure.
-
-Azure Firewall Policy is replicated to a paired Azure region. For example, if one Azure region goes down, Azure Firewall policy becomes active in the paired Azure region. The paired region is automatically selected based on the region where the policy is created. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+You can create an Azure Firewall Policy object in any region and link it globally to multiple Azure Firewall instances under the same Azure AD tenant. If the region where you create the Policy goes down and has a paired region, the ARM(Azure Resource Manager) object metadata automatically fails over to the secondary region. During the failover, or if the single-region with no pair remains in a failed state, you can't modify the Azure Firewall Policy object. However, the Azure Firewall instances linked to the Firewall Policy continue to operate. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Pricing
 

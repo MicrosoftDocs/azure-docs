@@ -1,11 +1,10 @@
 ---
 title: include file
 description: Web how-to guide for enabling Closed captions during a Teams interop call.
-author: Kunaal
+author: valindrae
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
-ms.topic: include file
 ms.date: 07/21/2023
 ms.author: kpunjabi
 ---
@@ -19,7 +18,7 @@ ms.author: kpunjabi
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
+>Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -33,7 +32,7 @@ ms.author: kpunjabi
 ## Get closed captions feature
 
 ### External Identity users
-If you're building an application that allows ACS users to join a Teams meeting.
+If you're building an application that allows Azure Communication Services users to join a Teams meeting.
 ``` typescript
 let captionsCallFeature: SDK.CaptionsCallFeature = call.feature(SDK.Features.Captions);
 ```
@@ -57,7 +56,7 @@ if (captionsCallFeature.captions.kind === 'TeamsCaptions') {
 ### Add a listener to receive captions active/inactive status
 ```typescript
 const captionsActiveChangedHandler = () => {
-    if (teamsCaptions.isCaptionsFeatureActive()) {
+    if (teamsCaptions.isCaptionsFeatureActive) {
         /* USER CODE HERE - E.G. RENDER TO DOM */
     }
 }

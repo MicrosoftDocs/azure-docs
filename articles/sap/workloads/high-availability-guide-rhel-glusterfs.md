@@ -2,13 +2,12 @@
 title: GlusterFS on Azure VMs on RHEL for SAP NetWeaver | Microsoft Docs
 description: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: linux-related-content
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 07/03/2023
 ms.author: radeltch
 ---
@@ -336,5 +335,5 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]

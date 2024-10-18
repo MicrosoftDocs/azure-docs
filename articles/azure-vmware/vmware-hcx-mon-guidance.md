@@ -3,14 +3,15 @@ title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
 ms.service: azure-vmware
-ms.date: 3/24/2023
+ms.date: 2/28/2024
+ms.custom: engagement-fy23
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
 
 >[!NOTE]
 >
-> VMware HCX Mobility Optimized Networking is officially supported by VMware and Azure VMware Solutions from HCX version 4.1.0. 
+> VMware HCX Mobility Optimized Networking is officially supported by VMware and Azure VMware Solution from HCX version 4.1.0. 
 
 >[!IMPORTANT] 
 >
@@ -20,11 +21,11 @@ ms.date: 3/24/2023
 > 
 >[Limitations for any HCX deployment including MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BEC26054-D560-46D0-98B4-7FF09501F801.html)
 >
->VMware HCX Mobility Optimized Networking (MON) is not supported with the use of a 3rd party gateway. It may only be used with the T1 gateway directly connected to the T0 gateway with no network virtual appliance (NVA). You may be able to make this configuration function, but we do not support it. 
+>VMware HCX Mobility Optimized Networking (MON) is not supported with the use of a 3rd party gateway. It may only be used with the T1 gateway directly connected to the T0 gateway without a network virtual appliance (NVA). You may be able to make this configuration function, but we do not support it.
 
 [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) is an optional feature to enable when using [HCX Network Extensions (NE)](configure-hcx-network-extension.md). MON provides optimal traffic routing under certain scenarios to prevent network tromboning between the on-premises and cloud-based resources on extended networks. 
 
-As MON is an enterprise capability of the NE feature, make sure you've [enabled the VMware HCX Enterprise](/azure/azure-vmware/install-vmware-hcx#hcx-license-edition) through the Azure portal. 
+As MON is an enterprise capability of the NE feature, make sure you [enabled the VMware HCX Enterprise](/azure/azure-vmware/install-vmware-hcx#hcx-license-edition) through the Azure portal. 
 
 Throughout the migration cycle, MON optimizes application mobility for:
 
@@ -32,7 +33,7 @@ Throughout the migration cycle, MON optimizes application mobility for:
 
 - Optimizing and avoiding asymmetric traffic flows between on-premises, Azure VMware Solution, and Azure
 
-In this article, you'll learn about the Azure VMware Solution-specific use cases for MON.
+In this article, learn about the Azure VMware Solution-specific use cases for MON.
 
 ## Optimize traffic flows across standard and stretched segments on the private cloud side 
 
@@ -45,24 +46,36 @@ In this scenario, VM1 is migrated to the cloud using the NE, which provides opti
 
 ## Optimize and avoid asymmetric traffic flows 
 
-In this scenario, we assume a VM from on-premises has been migrated to Azure VMware Solution and participates in L2, and L3 traffic flows back to on-premises to access services. We also assume some VM communication from Azure (in the Azure VMware Solution connected vNET) could reach down into the Azure VMware Solution private cloud.
+In this scenario, we assume a VM from on-premises is migrated to Azure VMware Solution and participates in L2, and L3 traffic flows back to on-premises to access services. We also assume some VM communication from Azure (in the Azure VMware Solution connected virtual network) could reach down in to the Azure VMware Solution private cloud.
 
 >[!IMPORTANT]
 >The main point here is to plan and avoid asymmetric traffic flows carefully. 
 
-By default and without using MON, a VM in Azure VMware Solution on a stretched network without MON can communicate back to on-premises using the ExpressRoute preferred path. Ideally, and based on customers use case one should evaluate how a VM on an Azure VMware Solution stretched segment enabled with MON should be traversing back to on-premises either over the NE or the T0 gateway via the ExpressRoute, but keeping traffic flows symmetric.
+By default and without using MON, a VM in Azure VMware Solution on a stretched network without MON can communicate back to on-premises using the ExpressRoute preferred path. Based on customer use-cases, one should evaluate how a VM on an Azure VMware Solution stretched segment enabled with MON should be traversing back to on-premises, either over the Network Extension or the T0 gateway via the ExpressRoute while keeping traffic flows symmetric.
 
-If choosing the NE path for example, the MON policy routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0.0.0/0 default route is used. Policy routes can be found under the NE segment, selecting advanced. By default, all RFC1918 IP addresses are included in the MON policy routes definition. 
+If choosing the NE path for example, the MON policy routes have to specifically address the subnet at the on-premises side; otherwise, the 0.0.0.0/0 default route is used. Policy routes can be found under the NE segment, by selecting advanced.
 
-:::image type="content" source="media/tutorial-vmware-hcx/default-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the default policy-based routes.":::
+By default, all RFC 1918 IP addresses are included in the MON policy routes definition.
+
+:::image type="content" source="media/tutorial-vmware-hcx/default-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the egress traffic flow with default policy-based routes.":::
+
+This results in all RFC 1918 egress traffic being tunneled over the NE path and all internet and public traffic being routed to the T0 gateway.
+
+:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-3.png" alt-text="Diagram showing the RFC 1918 egress and egress traffic flow." border="false":::
 
 Policy routes are evaluated only if the VM gateway is migrated to the cloud. The effect of this configuration is that any matching subnets for the destination get tunneled over the NE appliance.  If not matched, they get routed through the T0 gateway.
 
 >[!NOTE]
->Special consideration for using MON in Azure VMware Solution is to give the /32 routes advertised over BGP to its peers; this includes on-premises and Azure over the ExpressRoute connection. For example, a VM in Azure learns the path to an Azure VMware Solution VM on an Azure VMware Solution MON enabled segment. Once the return traffic is sent back to the T0 gateway as expected, if the return subnet is an RFC1918 match, traffic is forced over the NE instead of the T0. Then egresses over the ExpressRoute back to Azure on the on-premises side. This can cause confusion for stateful firewalls in the middle and asymmetric routing behavior. It's also a good idea to determine how VMs on NE MON segments will need to access the internet, either via the T0 in Azure VMware Solution or only through the NE back to on-premises. In general, all of the default policy routes should be removed to avoid asymmetric traffic. Only enable policy routes if the network infrastructure as been configured in such a way to account for and prevent asymmetric traffic.
+>Special consideration for using MON in Azure VMware Solution is to give the /32 routes advertised over BGP to its peers; this includes on-premises and Azure over the ExpressRoute connection. For example, a VM in Azure learns the path to an Azure VMware Solution VM on an Azure VMware Solution MON enabled segment. Once the return traffic is sent back to the T0 gateway as expected, if the return subnet is an RFC 1918 match, traffic is forced over the NE instead of the T0. Then egresses over the ExpressRoute back to Azure on the on-premises side. This can cause confusion for stateful firewalls in the middle and asymmetric routing behavior. It's also a good idea to determine how VMs on NE MON segments will need to access the internet, either via the T0 gateway in Azure VMware Solution or only through the NE back to on-premises. In general, all of the default policy routes should be removed to avoid asymmetric traffic. Only enable policy routes if the network infrastructure as been configured in such a way to account for and prevent asymmetric traffic.
 
-:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-3.png" alt-text="Diagram showing the RFC1918 egress and egress traffic flow." border="false":::
+The MON policy routes can be deleted with none defined. This results in all egress traffic being routed to the T0 gateway.
 
-As outlined in the above diagram, the importance is to match a policy route to each required subnet. Otherwise, the traffic gets routed over the T0 and not the NE.
+:::image type="content" source="media/tutorial-vmware-hcx/none-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the egress traffic flow with no policy-based routes.":::
+
+The MON policy routes can be updated with a default route (0.0.0.0/0). This results in all egress traffic being tunneled over the NE path.
+
+:::image type="content" source="media/tutorial-vmware-hcx/all-traffic-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the egress traffic flow with a 0.0.0.0/0 policy-based route.":::
+
+As outlined in the above diagrams, the importance is to match a policy route to each required subnet. Otherwise, the traffic gets routed over the T0 and not tunneled over the NE.
 
 To learn more about policy routes, see [Mobility Optimized Networking Policy Routes](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-F45B1DB5-C640-4A75-AEC5-45C58B1C9D63.html).

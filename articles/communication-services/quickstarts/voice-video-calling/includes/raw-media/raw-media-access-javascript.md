@@ -267,6 +267,8 @@ Raw screen share media gives access specifically to the `MediaStream` object for
 
 Processed raw screen share frames can be sent as an outgoing screen share of the sender. Processed raw incoming screen share frames can be rendered on the receiver side.
 
+Note: Sending screenshare is only supported on desktop browser.
+
 ### Start screen sharing with a custom screen share stream 
 ```js
 const createVideoMediaStreamToSend = () => {
@@ -352,7 +354,7 @@ const blackAndWhiteMediaStream = applyBlackAndWhiteEffect(rawMediaStream);
 // Set the media stream with effects no the local screen sharing stream
 await localScreenSharingStream.setMediaStream(blackAndWhiteMediaStream);
 
-// Stop screen screen sharing and clean up the black and white video filter
+// Stop screen sharing and clean up the black and white video filter
 await call.stopScreenSharing();
 clearTimeout(bwTimeout);
 bwVideoElem.srcObject.getVideoTracks().forEach((track) => { track.stop(); });

@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  include
 ms.date: 09/05/2023
 ms.author: cshoe
@@ -21,5 +21,8 @@ For dedicated workload profiles, the image size limit is per instance.
 | Dedicated-E8 | E8 |  210 |
 | Dedicated-E16 | E16 |  460 |
 | Dedicated-E32 | E32 |  940 |
+| Dedicated-NC24-A100 (preview) | NC24-A100 | 210 |
+| Dedicated-NC48-A100 (preview) | NC48-A100 | 460 |
+| Dedicated-NC96-A100 (preview) | NC96-A100 | 940 |
 
 \* The image size limit for a consumption workload profile is a shared among both image and app. For example, logs used by your app are subject to this size limit.

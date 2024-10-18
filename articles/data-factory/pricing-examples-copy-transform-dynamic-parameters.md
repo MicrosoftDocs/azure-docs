@@ -4,10 +4,9 @@ description: This article shows how to estimate pricing for Azure Data Factory t
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Copy data and transform with dynamic parameters hourly
@@ -46,7 +45,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 :::image type="content" source="media/pricing-concepts/scenario-3-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with dynamic parameters scenario." lightbox="media/pricing-concepts/scenario-3-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

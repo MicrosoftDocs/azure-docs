@@ -1,13 +1,13 @@
 ---
 title: Guidance for integration and responsible use with Trial Matcher
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: Microsoft wants to help you responsibly develop and deploy solutions that use Trial Matcher.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 01/27/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 

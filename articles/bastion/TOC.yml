@@ -7,24 +7,28 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Bastion with default settings
+  - name: Deploy Bastion automatically - Basic SKU
     href: quickstart-host-portal.md
+  - name: Deploy Bastion automatically - Developer SKU
+    href: quickstart-developer-sku.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
-  - name: Deploy Bastion with manual settings
+  - name: Deploy Bastion using manually specified settings
     href: tutorial-create-host-portal.md
-  - name: Deploy Bastion with DDoS protection
-    href: tutorial-protect-bastion-host.md
 - name: Concepts
   items:
-  - name: Support for working remotely
-    href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
-  - name: Leverage Bastion for remote working
-    href: work-remotely-support.md
+  - name: Work remotely
+    items:
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
+    - name: Leverage Bastion for remote working
+      href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
+  - name: Design architecture
+    href: design-architecture.md
   - name: Bastion configuration settings
     href: configuration-settings.md
   - name: VM connections and features
@@ -33,6 +37,10 @@
     href: vnet-peering.md
   - name: Work with NSGs
     href: bastion-nsg.md
+  - name: Reliability
+    items:
+    - name: Availability zones and disaster recovery 
+      href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
   - name: Security
     items:
     - name: Security baseline
@@ -47,6 +55,10 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
+    - name: Developer SKU
+      href: quickstart-developer-sku.md
+  - name: Deploy private-only Bastion
+    href: private-only-deployment.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
@@ -63,6 +75,8 @@
       href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
+    - name: Configure session recording
+      href: session-recording.md
   - name: Connect to a virtual machine
     items:
     - name: Windows VM
@@ -75,6 +89,8 @@
       items: 
       - name: SSH connection
         href: bastion-connect-vm-ssh-linux.md
+      - name: RDP connection
+        href: bastion-connect-vm-linux-rdp.md
   - name: Connect to a VM - native client
     items:
     - name: Connect from Windows client

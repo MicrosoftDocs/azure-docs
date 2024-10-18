@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/26/2023
 ---
 
-# Azure Resource Notifications overview
+# Azure Resource Notifications as an Azure Event Grid source
 Azure Resource Notifications (ARN) represent the cutting-edge unified pub/sub service catering to all Azure resources. ARN taps into a diverse range of publishers, and this wealth of data is now accessible through ARN's dedicated system topics in Azure Event Grid.
 
 Here are the key advantages:
@@ -28,6 +28,7 @@ In addition to these permissions, you need to grant the following permissions to
 | Topic Type | Permission |
 | ---------- | ---------- | 
 | HealthResources | `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action` |
+| Azure Resource Management | `Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action` |
 
 To enhance customer experience, a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic is available. This role includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition is regularly updated to incorporate more topic types as they become accessible through our service. **As a result, users assigned this built-in role automatically gains access to all future ARN topic types**. You can choose to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
 
@@ -59,6 +60,12 @@ To enhance customer experience, a built-in role definition that encompasses all 
 }
 ```
 
+## Contact us
+If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+
 
 ## Next steps
-See [Azure Resource Notifications - Health Resources events in Azure Event Grid](event-schema-health-resources.md).
+See the following articles:
+
+- [Azure Resource Notifications - Health Resources events in Azure Event Grid](event-schema-health-resources.md).
+- [Azure Resource Notifications - Azure Resource Manager events in Azure Event Grid](event-schema-resources.md).

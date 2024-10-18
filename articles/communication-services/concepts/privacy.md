@@ -38,6 +38,15 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
+> [!Note]
+> Advanced Messaging for WhatsApp is only available in the following Regions.
+
+- Asia Pacific
+- Australia
+- Europe
+- United Kingdom
+- United States
+
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
@@ -86,6 +95,8 @@ Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, a
 - `Delete Thread`
 - `Delete Message`
 
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
+
 ### SMS
 
 Sent and received SMS messages are ephemerally processed by the service and not retained.
@@ -107,7 +118,7 @@ Email message content is ephemerally stored for processing in the resource's ```
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
+Azure Communication Services feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](/azure/azure-monitor/logs/personal-data-mgmt). You may also want to configure [the default retention period for Azure Monitor](/azure/azure-monitor/logs/data-retention-configure).
 
 ## Additional resources
 

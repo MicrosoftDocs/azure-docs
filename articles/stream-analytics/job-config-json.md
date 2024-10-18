@@ -3,7 +3,7 @@ title: Azure Stream Analytics JobConfig.json fields
 description: This article lists the supported fields for the Azure Stream Analytics JobConfig.json file used to create jobs in Visual Studio Code.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/27/2022
 ---
@@ -45,7 +45,7 @@ The following fields are supported in the *JobConfig.json* file used to [create 
 |Sku.Name|string|No|Specifies the SKU name of the job. Acceptable values are "Standard" and "StandardV2".|
 |Sku.StreamingUnits|integer|Yes|Specifies the number of streaming units that the streaming job uses. [Learn more](stream-analytics-streaming-unit-consumption.md).|
 |CompatibilityLevel|string|No|Controls certain runtime behaviors of the streaming job. - Acceptable values are "1.0", "1.1", "1.2"|
-|UseSystemAssignedIdentity|boolean|No|Set true to enable this job to communicate with other Azure services as itself using a Managed Azure Active Directory Identity.|
+|UseSystemAssignedIdentity|boolean|No|Set true to enable this job to communicate with other Azure services as itself using a Managed Microsoft Entra identity.|
 |GlobalStorage.AccountName|string|No|Global storage account is used for storing content related to your stream analytics job, such as SQL reference data snapshots.|
 |GlobalStorage.AccountKey|string|No|Corresponding key for global storage account.|
 |DataSourceCredentialDomain|string|No|Reserved Property for credential local storage.|

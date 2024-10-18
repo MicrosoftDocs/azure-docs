@@ -4,8 +4,7 @@ description: Learn how to develop a C# IoT Edge module that can be deployed on y
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
@@ -236,7 +235,7 @@ Create a C# solution template that you can customize with your own code.
     ```
 
 7. Save this file.
-8. You can also [download an existing code sample](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
+8. You can also [download an existing code sample](https://github.com/Azure-Samples/data-box-edge-csharp-modules) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
 
 ## Build your IoT Edge solution
 

@@ -3,7 +3,7 @@ title: 'Connectivity between virtual networks over ExpressRoute'
 description: This article explains why virtual network peering is the recommended solution for VNet to VNet connectivity when using ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/30/2023
 ms.author: duau
@@ -26,6 +26,10 @@ Virtual networks that are connected to an ExpressRoute circuit are established b
 ### Higher latency
 
 ExpressRoute connectivity gets managed by a pair of Microsoft Enterprise Edge (MSEE) devices located at [ExpressRoute peering locations](expressroute-locations-providers.md#expressroute-locations). ExpressRoute peering locations are physically separate from Azure regions, when virtual network to virtual network connectivity is enabled using ExpressRoute. Traffic from the virtual network leaves the origin Azure region and passes through the MSEE devices at the peering location. Then that traffic goes through Microsoft's global network to reach the destination Azure region. With VNet peering, traffic flows from the origin Azure region directly to the destination Azure region using Microsoft's global network, without the extra hop of the MSEE devices. Since the extra hop is no longer in the data path, you see lower latency and an overall better experience with your applications and network traffic.
+
+## Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute
+
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## Next steps
 

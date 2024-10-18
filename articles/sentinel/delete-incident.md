@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/22/2022
+
+
+#Customer intent: As a security analyst, I want to delete duplicate or erroneous incidents in my incident management system so that I can maintain an accurate and efficient incident queue.
+
 ---
 
 # Delete incidents in Microsoft Sentinel
@@ -78,7 +82,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
     >
     > Due to the 64 KB limit of the record size in the *SecurityIncident* table, incident comments may be truncated (beginning from the earliest) if the limit is exceeded.
 
-- You can't delete incidents from within Microsoft Sentinel that were [imported from and synchronized with Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
+- You can't delete incidents from within Microsoft Sentinel that were [imported from and synchronized with Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
 - If an alert [related to a deleted incident](relate-alerts-to-incidents.md) gets updated, or if a new alert is grouped under a deleted incident, a new incident will be created to replace the deleted one.
 

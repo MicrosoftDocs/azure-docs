@@ -21,7 +21,7 @@ The following limits apply only for networking resources managed through **Azure
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
 | Virtual network peerings per virtual network |500 |
-| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/about-gateway-skus.md#benchmark) |1 |
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
@@ -34,7 +34,7 @@ The following limits apply only for networking resources managed through **Azure
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
 | NSG rules per NSG |1,000 |
-| IP addresses and ranges specified for source or destination in a security group |4,000 |
+| IP addresses and ranges specified for source or destination in a security group (The limit applies separately to source and destination) |4,000 |
 | Application security groups |3,000 |
 | Application security groups per IP configuration, per NIC | 20 |
 | Application security groups referenced as source/destination per NSG rule | 10 |
@@ -71,14 +71,16 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                         |
 | Frontend IP configurations              | 600                           |
 | Rules (Load Balancer + Inbound NAT) per resource  | 1,500               |
-| Rules per NIC (across all IPs on a NIC) | 300                           |
+| Rules per NIC (across all IPs on a NIC)<sup>1<sup> | 300                           |
 | High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
-| Backend IP configurations per frontend <sup>1<sup> | 10,000                        |
+| Azure global Load Balancer Backend pool size                       | 300                         |
+| Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
 | Backend IP configurations across all frontends | 500,000 |
 
-<sup>1</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
+<sup>1<sup> Each NIC can have a total of 300 rules (load balancing, inbound NAT, and outbound rules combined) configured across all IP configurations on the NIC.
+<sup>2</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
 
 Load Balancer doesn't apply any throughput limits. However, throughput limits for virtual machines and virtual networks still apply. For more information, see [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
 

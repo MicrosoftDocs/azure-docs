@@ -2,7 +2,7 @@
 title: Azure Functions language runtime support policy
 description: Learn about Azure Functions language runtime support policy
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/05/2024
 ---
 
 # Language runtime support policy
@@ -15,7 +15,7 @@ Azure Functions runtime is built around various components, including operating 
 
 ### Notification phase
 
-The Functions team sends notification emails to function app users about upcoming language version retirements. The notifications are sent at least one year before the date of retirement. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
+The Functions team sends notification emails to function app users about upcoming language version retirements. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
 
 ### Retirement phase
 
@@ -28,14 +28,9 @@ After the language end-of-life date, function apps that use retired language ver
 
 ## Retirement policy exceptions
 
-There are few exceptions to the retirement policy outlined above. Here's a list of languages that are approaching or have reached their end-of-life (EOL) dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they're no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
+Any Azure Functions supported exceptions to language-specific retirement policies are documented here.  
 
-|Language Versions                        |EOL Date         |Retirement Date|
-|-----------------------------------------|-----------------|----------------|
-|Python 3.7|27 June 2023|30 September 2023|
-|Node 14|30 April 2023|30 June 2024|
-|Node 16|11 September 2023|30 June 2024|
-
+> There are currently no exceptions to the general retirement policy.
 
 ## Language version support timeline
 
@@ -50,8 +45,9 @@ To learn more about specific language version support policy timeline, visit the
 
 |Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
 |C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
+|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|Java |[link](./update-language-versions.md#update-the-stack-configuration)|
 |Node |[link](./functions-reference-node.md#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|

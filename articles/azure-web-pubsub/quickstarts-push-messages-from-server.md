@@ -72,7 +72,7 @@ As shown in the diagram above, the client joins the hub named `myHub1`.
 In the `subscriber` project folder, create a file named `subscribe.js` with the following code
 
 ```javascript
-import { WebPubSubClient } from "@azure/web-pubsub-client";
+const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object
 // <client-access-url> is copied from Azure portal mentioned above
@@ -85,7 +85,7 @@ client.on("server-message", (e) => {
 
 // Before a client can receive a message, 
 // you must invoke start() on the client object.
-await client.start();
+client.start();
 ```
 
 #### Run the program

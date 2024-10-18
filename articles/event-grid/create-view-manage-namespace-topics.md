@@ -3,21 +3,23 @@ title: Create, view, and manage Azure Event Grid namespace topics
 description: This article describes how to create, view and manage namespace topics
 author: robece
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.author: robece
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 ---
 
-# Create, view, and manage namespace topics (Preview)
+# Create, view, and manage namespace topics
 This article shows you how to create, view, and manage namespace topics in Azure Event Grid. 
 
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 
 ## Create a namespace topic
 
 1. Follow the [create, view and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to create the topic.
 
-2. Once you are in the resource, click on the **Topics** option in the **Eventing** section.
+2. Once you are in the resource, click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 
@@ -33,7 +35,7 @@ This article shows you how to create, view, and manage namespace topics in Azure
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to view the topic.
 
-2. Click on the **Topics** option in the **Eventing** section.
+2. Click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 
@@ -49,7 +51,7 @@ This article shows you how to create, view, and manage namespace topics in Azure
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to delete the topic.
 
-2. Click on the **Topics** option in the **Eventing** section.
+2. Click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 

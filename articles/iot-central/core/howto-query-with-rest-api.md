@@ -4,9 +4,9 @@ description: How to use the IoT Central REST API to query devices in an applicat
 titleSuffix: Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/19/2023
+ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -17,7 +17,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 - Get the last 10 telemetry values reported by a device.
 - Find all devices that are in an error state and have outdated firmware.
-- Telemetry trends from devices, averaged in 10-minute windows.
+- Analyze telemetry trends from devices, averaged in 10-minute windows.
 - Get the current firmware version of all your thermostat devices.
 
 This article describes how to use the `/query` API to query devices.
@@ -27,8 +27,6 @@ A device can group the properties, telemetry, and commands it supports into _com
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
 
@@ -44,11 +42,11 @@ The query is in the request body and looks like the following example:
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
-The `dtmi:azurertos:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
+The `dtmi:eclipsethreadx:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
@@ -111,7 +109,7 @@ If your device template uses components, then you reference telemetry defined in
 
 ```json
 {
-  "query": "SELECT ComponentName.TelemetryName FROM dtmi:azurertos:devkit:hlby5jgib2o"
+  "query": "SELECT ComponentName.TelemetryName FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o"
 }
 ```
 
@@ -121,7 +119,7 @@ You can find the component name in the device template:
 
 The following limits apply in the `SELECT` clause:
 
-- There's no wildcard operator.
+- No wildcard operator is available.
 - You can't have more than 15 items in the select list.
 - A query returns a maximum of 10,000 records.  
 
@@ -131,7 +129,7 @@ Use the `AS` keyword to define an alias for an item in the `SELECT` clause. The 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
 }
 ```
 
@@ -165,7 +163,7 @@ Use the `TOP` to limit the number of results the query returns. For example, the
 
 ```json
 {
-    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o"
+    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o"
 }
 ```
 
@@ -193,7 +191,7 @@ To get telemetry received by your application within a specified time window, us
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
@@ -214,7 +212,7 @@ You can get telemetry based on specific values. For example, the following query
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
+  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
 }
 ```
 
@@ -238,7 +236,7 @@ Aggregation functions let you calculate values such as average, maximum, and min
 
 ```json
 {
-  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
+  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
 }
 ```
 
@@ -279,7 +277,7 @@ The `ORDER BY` clause lets you sort the query results by a telemetry value, the 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o ORDER BY timestamp DESC"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o ORDER BY timestamp DESC"
 }
 ```
 
@@ -295,7 +293,3 @@ The current limits for queries are:
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
 - Queries can retrieve up to 10,000 records.
-
-## Next steps
-
-Now that you've learned how to query devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).

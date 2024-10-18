@@ -1,53 +1,60 @@
 ---
 title: ISV solution framework in Azure Data Manager for Agriculture
-description: Provides information on using solutions from ISVs 
+description: Learn about solutions that ISVs build on top of Azure Data Manager for Agriculture. 
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.custom: template-concept
 ---
 
-# What is our Solution Framework?
+# ISV solution framework in Azure Data Manager for Agriculture
 
-In this article, you learn how Azure Data Manager for Agriculture provides a framework for customer to use solutions built by Bayer and other ISV Partners.
+In this article, you learn how Azure Data Manager for Agriculture provides a framework for customers to use solutions built by Bayer and other independent software vendor (ISV) partners.
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 ## Overview
 
-The agriculture industry is going through a significant technology transformation where technology is playing a key role towards building sustainable agriculture.  With the increase in adoption of technology like drones, satellite imagery, IOT devices – there are large volumes of data generated from these source systems and stored in cloud. Today, companies are looking at ways to efficiently manage this data and derive actionable insights that are provided to the user timely and help achieve more with less. Data Manager for Agriculture provides core technology platform that hides all the technical complexity and helps customers focus on their building their core business logic and drive business value.
+The agriculture industry is going through a significant technology transformation. Technology is playing a key role in building sustainable agriculture.
 
-The solution framework is built on top of Data Manager for Agriculture that provides extensibility capabilities. It enables our Independent Software Vendor (ISV) partners to apply their deep domain knowledge and develop specialized domain specific industry solutions to top of the core platform.  The solution framework provides below capabilities:
+The adoption of technology like drones, satellite imagery, and Internet of Things (IoT) devices has increased. These source systems generate large volumes of data that's stored in the cloud. Companies want to efficiently manage this data and derive actionable insights that they can use to achieve more with less.
 
-:::image type="content" source="./media/solution-framework-isv-1.png" alt-text="Screenshot showing ISV solution framework.":::
+Azure Data Manager for Agriculture provides a core technology platform that hides all the technical complexity and helps customers focus on building their core business logic and drive business value.
 
-* Enables ISV Partners to easily build industry specific solutions to top of Data Manager for Agriculture.  
-* Helps ISVs generate revenue by monetizing their solution and publishing it on the Azure Marketplace* Provides simplified onboarding experience for ISV Partners and customers.
-* Asynchronous Application Programming Interface (API) based integration
-* Data privacy complaint ensuring the right level of access to customers and ISV Partners.
-* Hides all the technical complexity of the platform and allows ISVs and customers to focus on the core business logic
+The solution framework is built on top of Azure Data Manager for Agriculture to provide extensibility.
+
+:::image type="content" source="./media/solution-framework-isv-1.png" alt-text="Diagram that shows the solution framework relates to Azure Data Manager for Agriculture, solutions from independent software vendors, and customers.":::
+
+The solution framework:
+
+* Enables ISV partners to apply their deep domain knowledge and build industry-specific solutions on top of Azure Data Manager for Agriculture.
+* Helps ISV partners generate revenue by monetizing their solutions and publishing them on Azure Marketplace.
+* Provides a simplified onboarding experience for ISV partners and customers.
+* Offers integration that's based on asynchronous APIs.
+* Complies with data privacy standards to help ensure that ISV partners and customers have the right level of access.
 
 ## Use cases
 
- Following are some of the examples of use cases on how an ISV partner could use the solution framework to build an industry specific solution.
+Here are a few examples of how an ISV partner could use the solution framework to build an industry-specific solution:
 
-* Yield Prediction Model: An ISV partner can build a yield model using historical data for a specific geometry and track periodic progress. The ISV can then enable forecast of estimated yield for the upcoming season.
-* Carbon Emission Model: An ISV partner can estimate the amount of carbon emitted from the field based upon the imagery, sensors data for a particular farm.
-* Crop Identification: Use imagery data to identify crop growing in an area of interest.
+* **Yield prediction model**: Build a yield model by using historical data for a specific geometry, forecast estimated crop yield for the upcoming season, and track progress.
+* **Carbon emission model**: Estimate the amount of carbon emitted from a field based on imagery and sensor data for a particular farm.
+* **Crop identification**: Use imagery data to identify crops growing in an area of interest.
 
-The above list has only a few examples but an ISV partner can come with their own specific scenario and build a solution. 
+An ISV partner can come up with its own specific scenario and build a solution.
 
 ## Bayer AgPowered Services
 
-Additionally, Bayer has built the below Solutions in partnership with Microsoft and can be installed on top of customer's ADMA instance.
+Bayer built the following solutions in partnership with Microsoft. A customer can install them on top of an Azure Data Manager for Agriculture instance.
+
 * Growing Degree Days
 * Crop Water Usage Maps
 * Biomass Variability
 
-To install the above Solutions, please refer to [this](./how-to-set-up-isv-solution.md) article.
+To install the preceding solutions, see the [article about working with ISV solutions](./how-to-set-up-isv-solution.md).
 
 ## Next steps
 
-* Test our APIs [here](/rest/api/data-manager-for-agri).
+* [Test the Azure Data Manager for Agriculture REST APIs](/rest/api/data-manager-for-agri)

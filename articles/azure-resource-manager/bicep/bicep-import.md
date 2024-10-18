@@ -1,87 +1,118 @@
 ---
-title: Import Bicep namespaces
-description: Describes how to import Bicep namespaces.
+title: Imports in Bicep
+description: This article describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/21/2023
+ms.date: 08/20/2024
 ---
 
-# Import Bicep namespaces
+# Imports in Bicep
 
-This article describes the syntax you use to import user-defined data types and the Bicep namespaces including the Bicep extensibility providers.
+This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions.
 
-## Import user-defined data types (Preview)
+## Export variables, types, and functions
 
-[Bicep version 0.21.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+The `@export()` decorator indicates that another file can import a specific statement. This decorator is only valid on [`type`](./user-defined-data-types.md), [`var`](./variables.md), and [`func`](./user-defined-functions.md) statements. Variable statements marked with `@export()` must be compile-time constants.
 
-
-The syntax for importing [user-defined data type](./user-defined-data-types.md) is:
-
-```bicep
-import {<user-defined-data-type-name>, <user-defined-data-type-name>, ...} from '<bicep-file-name>'
-```
-
-or with wildcard syntax:
+The syntax for exporting functionality for use in other Bicep files is:
 
 ```bicep
-import * as <namespace> from '<bicep-file-name>'
+@export()
+<statement_to_export>
 ```
 
-You can mix and match the two preceding syntaxes.
+## Import variables, types, and functions
 
-Only user-defined data types that bear the [@export() decorator](./user-defined-data-types.md#import-types-between-bicep-files-preview) can be imported. Currently, this decorator can only be used on [`type`](./user-defined-data-types.md) statements.
+The syntax for importing functionality from another Bicep file is:
 
-Imported types can be used anywhere a user-defined type might be, for example, within the type clauses of type, param, and output statements.
+```bicep
+import {<symbol_name>, <symbol_name>, ...} from '<bicep_file_name>'
+```
+
+With optional aliasing to rename symbols:
+
+```bicep
+import {<symbol_name> as <alias_name>, ...} from '<bicep_file_name>'
+```
+
+Using the wildcard import syntax:
+
+```bicep
+import * as <alias_name> from '<bicep_file_name>'
+```
+
+You can mix and match the preceding syntaxes. To access imported symbols by using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
+
+Only statements that were [exported](#export-variables-types-and-functions) in the file being referenced are available for import.
+
+You can use functionality that was imported from another file without restrictions. For example, you can use imported variables anywhere that a variable declared in-file would normally be valid.
 
 ### Example
 
-myTypes.bicep
+*exports.bicep*
 
 ```bicep
 @export()
-type myString = string
+type myObjectType = {
+  foo: string
+  bar: int
+}
 
 @export()
-type myInt = int
+var myConstant = 'This is a constant value'
+
+@export()
+func sayHello(name string) string => 'Hello ${name}!'
 ```
 
-main.bicep
+*main.bicep*
 
 ```bicep
-import * as myImports from 'myTypes.bicep'
-import {myInt} from 'myTypes.bicep'
+import * as myImports from 'exports.bicep'
+import {myObjectType, sayHello} from 'exports.bicep'
 
-param exampleString myImports.myString = 'Bicep'
-param exampleInt myInt = 3
+param exampleObject myObjectType = {
+  foo: myImports.myConstant
+  bar: 0
+}
 
-output outString myImports.myString = exampleString
-output outInt myInt = exampleInt
+output greeting string = sayHello('Bicep user')
+output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensibility providers
+## Import namespaces and extensions (preview)
 
-The syntax for importing the namespaces is:
+> [!NOTE]
+> The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
+
+The syntax for importing namespaces is:
 
 ```bicep
 import 'az@1.0.0'
 import 'sys@1.0.0'
 ```
 
-Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
+Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
-The syntax for importing Bicep extensibility providers is:
+The syntax for importing Bicep extensions is:
 
 ```bicep
-import '<provider-name>@<provider-version>' with {
-  <provider-properties>
+import '<extension-name>@<extension-version>'
+```
+
+The syntax for importing Bicep extensions, which require configuration is:
+
+```bicep
+import '<extension-name>@<extension-version>' with {
+  <extension-properties>
 }
 ```
 
-For an example, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
+For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 
-## Next steps
+## Related content
 
-- To learn about the Bicep data types, see [Data types](./data-types.md).
-- To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn about how to use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).
+- To learn about Bicep data types, see [Data types](./data-types.md).
+- To learn about Bicep functions, see [Bicep functions](./bicep-functions.md).
+- To learn how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
+- To go through a Kubernetes extension tutorial, see [Quickstart: Deploy Azure applications to Azure Kubernetes Services by using the Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).

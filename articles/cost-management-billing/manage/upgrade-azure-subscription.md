@@ -4,11 +4,10 @@ description: Learn how to upgrade your Azure free or Azure for Students Starter 
 keywords: pay as you go upgrade
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -16,7 +15,7 @@ ms.author: banders
 
 You can upgrade your [Azure free account](https://azure.microsoft.com/free/) to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure portal.
 
-If you have an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/free/), you can upgrade to it to a [Azure free account](https://azure.microsoft.com/free/). You get $200 Azure credit in your billing currency and 12 months of free services on upgrade. If you don't qualify for a free account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/free/), you can upgrade to it to an [Azure free account](https://azure.microsoft.com/free/). You get $200 Azure credit in your billing currency and 12 months of free services on upgrade. If you don't qualify for a free account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 If you have an [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
@@ -38,7 +37,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
 1. If you don't have a payment method for your account, you're prompted to add one.
 1. You might need to enter a phone number to verify your identity.
 1. Type a name for your subscription.  
-     :::image type="content" source="./media/upgrade-azure-subscription/free-upgrade-name.png" alt-text="ALTScreenshot that shows the subscription name.TEXT" lightbox="./media/upgrade-azure-subscription/free-upgrade-name.png" :::
+     :::image type="content" source="./media/upgrade-azure-subscription/free-upgrade-name.png" alt-text="Screenshot that shows the subscription name." lightbox="./media/upgrade-azure-subscription/free-upgrade-name.png" :::
 1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/us/support/plans/).
 1. Select **Upgrade**.
 
@@ -59,6 +58,6 @@ If you're eligible, use the following steps to upgrade to an Azure free account.
 1. In the subscription overview, select **Upgrade** in the command bar.  
     :::image type="content" source="./media/upgrade-azure-subscription/student-upgrade.png" alt-text="Screenshot that shows upgrade option for students." lightbox="./media/upgrade-azure-subscription/student-upgrade.png" :::
 
-## Next steps
+## Related content
 
 - Now that you've upgraded your account, see [Plan to manage Azure costs](../understand/plan-manage-costs.md).

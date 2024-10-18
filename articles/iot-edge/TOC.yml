@@ -113,7 +113,7 @@
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
     - name: Deploy IoT Edge VM using a Bicep file
-      displayname: ARM,template,resource manager
+      displayName: ARM,template,resource manager
       href: how-to-install-iot-edge-ubuntuvm-bicep.md
     - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
@@ -137,16 +137,12 @@
         href: how-to-deploy-modules-portal.md
       - name: Azure CLI
         href: how-to-deploy-modules-cli.md
-      - name: Visual Studio Code
-        href: how-to-deploy-modules-vscode.md
     - name: Deploy at scale
       items:
       - name: Azure portal
         href: how-to-deploy-at-scale.md
       - name: Azure CLI
         href: how-to-deploy-cli-at-scale.md
-      - name: Visual Studio Code
-        href: how-to-deploy-vscode-at-scale.md
   - name: Monitor and diagnose
     items:
       - name: Monitor IoT Edge deployments
@@ -183,8 +179,6 @@
         href: how-to-authenticate-downstream-device.md
       - name: Connect a downstream device
         href: how-to-connect-downstream-device.md
-      - name: Modbus protocol gateway
-        href: deploy-modbus-gateway.md
     - name: Gateways for IoT Edge devices
       items:
       - name: Configure gateways for IoT Edge devices
@@ -204,13 +198,7 @@
     - name: Deploy Azure SQL Edge modules
       href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
-    items:
-    - name: Azure DevOps
-      items:
-      - name: YAML
-        href: how-to-continuous-integration-continuous-deployment.md
-      - name: Classic editor
-        href: how-to-continuous-integration-continuous-deployment-classic.md
+    href: how-to-continuous-integration-continuous-deployment.md
   - name: Troubleshoot
     items:
     - name: Diagnose IoT Edge devices
@@ -297,7 +285,7 @@
   - name: Azure IoT Edge 1.1 archive
     href: /previous-versions/azure/iot-edge
   - name: Runtime modules environment variables
-    href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
+    href: https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
   - name: Azure CLI
@@ -322,8 +310,6 @@
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
-  - name: IoT device developer
-    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
@@ -344,8 +330,6 @@
       href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
       href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
-  - name: Azure Certified for IoT device catalog
-    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
@@ -365,6 +349,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-edge
   - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+    href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge

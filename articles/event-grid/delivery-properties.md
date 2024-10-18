@@ -51,7 +51,7 @@ This section gives you a few examples of using delivery properties.
 
 ### Setting the Authorization header with a bearer token (non-normative example)
 
-Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Azure Active Directory](secure-webhook-delivery.md).
+Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Microsoft Entra ID](secure-webhook-delivery.md).
 
 | Header name   | Header type | Header value |
 | :--           | :--         | :--            |
@@ -110,5 +110,5 @@ For the Azure Storage Queues destination, you can only configure the time-to-liv
 For more information about event delivery, see the following article:
 
 - [Delivery and retry](delivery-and-retry.md)
-- [Webhook event delivery](webhook-event-delivery.md)
+- [Endpoint validation](end-point-validation-cloud-events-schema.md)
 - [Event filtering](event-filtering.md)

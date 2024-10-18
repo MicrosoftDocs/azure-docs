@@ -3,11 +3,11 @@ title: Troubleshoot connectivity between Synapse Studio and storage
 description: Troubleshoot connectivity between Synapse Studio and storage  
 author: Danzhang-msft
 ms.author: danzhang
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Troubleshoot connectivity between Azure Synapse Analytics Synapse Studio and storage
@@ -47,9 +47,11 @@ There might be several possible reasons behind this issue:
 
 You can use the command "nslookup \<storage-account-name\>.dfs.core.windows.net" to check the connectivity after the storage private endpoint is configured. It should return a string similar to: "\<storage-account-name\>.privatelink.dfs.core.windows.net".
 
-### The storage resource is not behind a vNet but the Blob service (Azure AD) endpoint is not accessible due to firewall configured
+<a name='the-storage-resource-is-not-behind-a-vnet-but-the-blob-service-azure-ad-endpoint-is-not-accessible-due-to-firewall-configured'></a>
 
-**SOLUTION**: In this case, you need to open your storage account in the Azure portal. In the left navigation scroll down to **Support + troubleshooting** and select **Connectivity check** to check the **Blob service (Azure AD)** connectivity status. If it is not accessible, follow the promoted guide to check the **Firewalls and virtual networks** configuration under your storage account page. For more information about storage firewalls, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+### The storage resource is not behind a vNet but the Blob service (Microsoft Entra ID) endpoint is not accessible due to firewall configured
+
+**SOLUTION**: In this case, you need to open your storage account in the Azure portal. In the left navigation scroll down to **Support + troubleshooting** and select **Connectivity check** to check the **Blob service (Microsoft Entra ID)** connectivity status. If it is not accessible, follow the promoted guide to check the **Firewalls and virtual networks** configuration under your storage account page. For more information about storage firewalls, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 
 ### Other issues to check 
 

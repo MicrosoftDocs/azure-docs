@@ -3,14 +3,16 @@ title: Supported networking scenarios
 titleSuffix: Azure Lab Services
 description: Learn about the supported networking scenarios and architectures for lab plans in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 06/20/2023
 ---
 
 # Supported networking scenarios for lab plans in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 With Azure Lab Services advanced networking for lab plans you can implement various network architectures and topologies. This article lists  different networking scenarios and their support in Azure Lab Services.
 
@@ -35,7 +37,7 @@ The following table lists common networking scenarios and topologies and their s
 | Use a connection broker, such as Parsec, for high-framerate gaming scenarios | Not recommended | This scenario isn’t directly supported with Azure Lab Services and would run into the same challenges as accessing lab VMs by private IP address. |
 | *Cyber field* scenario, consisting of a set of vulnerable VMs on the network for lab users to discover and hack into (ethical hacking)  | Yes | This scenario works with advanced networking for lab plans. Learn about the [ethical hacking class type](./class-type-ethical-hacking.md). |
 | Enable using Azure Bastion for lab VMs  | No | Azure Bastion isn't supported in Azure Lab Services. |
-| Set up line-of-sight to domain controller | Not recommended | Line-of-sight from a lab to a domain controller is required to Hybrid Azure AD join or AD domain join VMs; however, we currently do *not* recommend that lab VMs be Azure AD joined/registered, Hybrid Azure AD joined, or AD domain joined due to product limitations. |
+| Set up line-of-sight to domain controller | Not recommended | Line-of-sight from a lab to a domain controller is required to Microsoft Entra hybrid join or AD domain join VMs; however, we currently do *not* recommend that lab VMs be Microsoft Entra joined/registered, Microsoft Entra hybrid joined, or AD domain joined due to product limitations. |
 
 ## Next steps
 

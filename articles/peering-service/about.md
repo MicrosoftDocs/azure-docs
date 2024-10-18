@@ -3,16 +3,16 @@ title: Azure Peering Service overview
 description: Learn about Azure Peering Service concepts and features to optimize network connectivity with Microsoft's global network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: overview
-ms.date: 09/27/2023
+ms.date: 10/07/2024
 
 #CustomerIntent: As an administrator, I want learn about Azure Peering Service so I can optimize the connectivity to Microsoft.
 ---
 
 # Azure Peering Service overview
 
-Azure Peering Service is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Azure Peering Service is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 With Peering Service, customers can select a well-connected partner service provider in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
@@ -49,11 +49,10 @@ Microsoft and partner service providers ensure that the traffic for the prefixes
 
 > [!NOTE]
 > For more information about the Microsoft global network, see [Microsoft global network](../networking/microsoft-global-network.md).
->
 
 ## Why use Peering Service?
 
-Enterprises looking for internet-first access to the cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and high-performing internet connectivity. Customers can make that transition happen by using Peering Service. Microsoft and service providers have partnered to deliver reliable and performance-centric public connectivity to the Microsoft cloud. Some of the key customer features are listed here:
+Enterprises looking for internet-first access to the cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and high-performing internet connectivity. Customers can make that transition happen by using Peering Service. Microsoft and service providers partnered to deliver reliable and performance-centric public connectivity to the Microsoft cloud. Some of the key customer features are listed here:
 
 - Best public routing over the internet to Microsoft Azure Cloud Services for optimal performance and reliability.
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
@@ -73,7 +72,7 @@ Peering Service uses two types of redundancy:
 
 - **Geo-redundancy**
 
-   Microsoft has interconnected with service providers at multiple metro locations so that if one of the Edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
+   Microsoft interconnected with service providers at multiple metro locations so that if one of the Edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
 
     This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft Edge PoP to the end user and ensures that the customer is one network hop (AS hops) away from Microsoft​.
 

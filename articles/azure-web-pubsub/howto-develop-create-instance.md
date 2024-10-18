@@ -26,7 +26,7 @@ zone_pivot_groups: azure-web-pubsub-create-resource-methods
 
 ## Create a resource from Azure portal
 
-1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type **Web PubSub** in the search box and press enter.
+1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type **Web PubSub** in the search box and then press Enter.
 
    :::image type="content" source="./media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Screenshot of searching the Azure Web PubSub in portal.":::
 
@@ -70,7 +70,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## Create a resource using Bicep template
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Review the Bicep file
 

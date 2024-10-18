@@ -5,7 +5,7 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/08/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
@@ -45,7 +45,7 @@ For large objects, you may choose to work with individual blocks. The following 
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob from a source within Azure, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key.
+If you're copying a blob from a source within Azure, access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key.
 
 The following example shows a scenario for copying from a source blob within Azure:
 

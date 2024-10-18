@@ -9,69 +9,54 @@ ms.author: bashan
 ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
+ms.devlang: azurecli 
 ---
 
 # Quickstart: How to add Azure Managed Domains to Email Communication Service
 
-In this quick start, you learn about how to provision the Azure Managed domain in Azure Communication Services to send email.
+In this quick start, you learn how to provision the Azure Managed Domain to Email Communication Service in Azure Communication Services.
 
-## Prerequisites
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/create-azure-managed-domain-resource-az-portal.md)]
+::: zone-end
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/create-azure-managed-domain-resource-az-cli.md)]
+::: zone-end
 
-## Azure Managed Domains vs. Custom Domains
+::: zone pivot="platform-net"
+[!INCLUDE [.NET](./includes/create-azure-managed-domain-resource-dot-net.md)]
+::: zone-end
 
-Before provisioning an Azure Managed Domain, review the following table to determine which domain type is most appropriate for your particular use case.
+::: zone pivot="platform-powershell"
+[!INCLUDE [PowerShell](./includes/create-azure-managed-domain-resource-powershell.md)]
+::: zone-end
+
+## Azure Managed Domains compared to Custom Domains
+
+Before provisioning an Azure Managed Domain, review the following table to decide which domain type best meets your needs.
 
 | | [Azure Managed Domains](./add-azure-managed-domains.md) | [Custom Domains](./add-custom-verified-domains.md) | 
 |---|---|---|
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
-|**Cons:** | - Sender domain is not personalized and cannot be changed | - Requires verification of domain records <br /> - Longer setup for verification |
+|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames can't be personalized<br/>- Very limited sending volume<br />- User Engagement Tracking can't be enabled <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
 
-
-## Provision Azure Managed Domain
-
-1. Go the overview page of the Email Communications Service resource that you created earlier.
-2. Create the Azure Managed Domain.   
-    - (Option 1) Click the **1-click add** button under **Add a free Azure subdomain**. Move to the next step.
-    
-    :::image type="content" source="./media/email-add-azure-domain.png" alt-text="Screenshot that highlights the adding a free Azure Managed Domain.":::
-
-    - (Option 2) Click **Provision Domains** on the left navigation panel.
-    
-    :::image type="content" source="./media/email-add-azure-domain-navigation.png" alt-text="Screenshot that shows the Provision Domains navigation page.":::
-
-    - Click **Add domain** on the upper navigation bar.
-    - Select **Azure domain** from the dropdown.
-3. Wait for the deployment to complete.
- 
-    :::image type="content" source="./media/email-add-azure-domain-progress.png" alt-text="Screenshot that shows the Deployment Progress." lightbox="media/email-add-azure-domain-progress-expanded.png":::
-
-4. After domain creation is completed, you'll see a list view with the created domain.
-
-    :::image type="content" source="./media/email-add-azure-domain-created.png" alt-text="Screenshot that shows the list of provisioned email domains." lightbox="media/email-add-azure-domain-created-expanded.png":::
-
-5. Click the name of the provisioned domain, which navigates you to the overview page for the domain resource type.
-
-    :::image type="content" source="./media/email-azure-domain-overview.png"  alt-text="Screenshot that shows Azure Managed Domain overview page." lightbox="media/email-azure-domain-overview-expanded.png":::
 
 ## Sender authentication for Azure Managed Domain
-Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication best practices](../../concepts/email/email-authentication-best-practice.md). 
 
-## Changing MailFrom and FROM display name for Azure Managed Domain
-
-You can optionally configure your MailFrom address to be something other than the default DoNotReply, and also add more than one sender username to your domain. To understand how to configure your sender address, see how to [add multiple sender addresses](add-multiple-senders.md).
+Azure Communication Services automatically configures the required email authentication protocols for the email as described in [Email Authentication best practices](../../concepts/email/email-authentication-best-practice.md). 
 
 **Your email domain is now ready to send emails.**
 
 ## Next steps
 
-* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Quickstart: How to connect a verified email domain](../../quickstarts/email/connect-email-communication-resource.md)
 
 * [How to send an email using Azure Communication Service](../../quickstarts/email/send-email.md)
 
-The following documents may be interesting to you:
+## Related articles
 
-- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
-- How to send emails with custom verified domains? [Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+* Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
+* Learn how to send emails with custom verified domains in [Quickstart: How to add custom verified email domains](../../quickstarts/email/add-custom-verified-domains.md)

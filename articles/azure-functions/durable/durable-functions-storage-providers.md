@@ -30,7 +30,7 @@ The key benefits of the Azure Storage provider include:
 * Lowest-cost serverless billing model - Azure Storage has a consumption-based pricing model based entirely on usage ([more information](durable-functions-billing.md#azure-storage-transactions)).
 * Best tooling support - Azure Storage offers cross-platform local emulation and integrates with Visual Studio, Visual Studio Code, and the Azure Functions Core Tools.
 * Most mature - Azure Storage was the original and most battle-tested storage backend for Durable Functions.
-* Preview support for using identity instead of secrets for connecting to the storage provider.
+* Support for using identity instead of secrets for connecting to the storage provider.
 
 The source code for the DTFx components of the Azure Storage storage provider can be found in the [Azure/durabletask](https://github.com/Azure/durabletask/tree/main/src/DurableTask.AzureStorage) GitHub repo.
 
@@ -91,7 +91,7 @@ If the configured value is both an exact match for a single setting and a prefix
 
 ##### Identity-based connections 
 
-If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
+If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
 
 To use an identity-based connection for Durable Functions, configure the following app settings:
 

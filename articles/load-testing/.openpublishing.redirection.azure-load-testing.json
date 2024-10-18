@@ -7,12 +7,12 @@
         },
         {
             "source_path_from_root": "/articles/load-testing/tutorial-cicd-azure-pipelines.md",
-            "redirect_url": "/azure/load-testing/tutorial-identify-performance-regression-with-cicd",
+            "redirect_url": "/azure/load-testing/quickstart-add-load-test-cicd",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/load-testing/tutorial-cicd-github-actions.md",
-            "redirect_url": "/azure/load-testing/tutorial-identify-performance-regression-with-cicd",
+            "redirect_url": "/azure/load-testing/how-to-configure-load-test-cicd",
             "redirect_document_id": false
         },
         {
@@ -24,6 +24,16 @@
             "source_path_from_root": "/articles/load-testing/how-to-appservice-insights.md",
             "redirect_url": "/azure/load-testing/concept-load-test-app-service",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root":"/articles/load-testing/how-to-troubleshoot-failing-test.md",
+            "redirect_url":"/azure/load-testing/how-to-diagnose-failing-load-test",
+            "redirect_document_id":true
+        },
+        {
+            "source_path_from_root":"/articles/load-testing/tutorial-identify-performance-regression-with-cicd.md",
+            "redirect_url":"/azure/load-testing/quickstart-add-load-test-cicd",
+            "redirect_document_id":false
         }
     ]
 }

@@ -1,5 +1,5 @@
 ---
-title: Use Python to manage data in Azure Data Lake Storage Gen2
+title: Use Python to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Python to manage directories and files in a storage account that has hierarchical namespace enabled.
 author: pauljewellmsft
@@ -13,11 +13,11 @@ ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Use Python to manage directories and files in Azure Data Lake Storage Gen2
+# Use Python to manage directories and files in Azure Data Lake Storage
 
 This article shows you how to use Python to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
-To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Python to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md).
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Python to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-python.md).
 
 [Package (PyPi)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
@@ -49,13 +49,17 @@ from azure.storage.filedatalake import (
 from azure.identity import DefaultAzureCredential
 ```
 
+[!INCLUDE [data-lake-storage-sdk-note](../../../includes/data-lake-storage-sdk-note.md)]
+
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).
 
-### [Azure AD](#tab/azure-ad)
+<a name='azure-ad'></a>
 
-You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
+### [Microsoft Entra ID](#tab/azure-ad)
+
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Microsoft Entra ID.
 
 Create an instance of the [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) class and pass in a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) object.
 

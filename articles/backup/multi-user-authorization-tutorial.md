@@ -3,7 +3,7 @@ title: Tutorial - Enable Multi-user authorization using Resource Guard
 description: In this tutorial, you'll learn about how create a resource guard and enable Multi-user authorization on Recovery Services vault and Backup vault for Azure Backup.
 ms.topic: tutorial
 ms.date: 09/25/2023
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -205,7 +205,6 @@ Once the Backup admin has the Reader role on the Resource Guard, they can enable
 ## Next steps
 
 - [Protected operations using MUA](multi-user-authorization.md?pivots=vaults-recovery-services-vault#protected-operations-using-mua)
-- [Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
+- [Authorize critical (protected) operations using Microsoft Entra Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
 - [Performing a protected operation after approval](multi-user-authorization.md#performing-a-protected-operation-after-approval)
 - Disable MUA on a [Recovery Services vault](multi-user-authorization.md?tabs=azure-portal&pivots=vaults-recovery-services-vault#disable-mua-on-a-recovery-services-vault) or a [Backup vault](multi-user-authorization.md?tabs=azure-portal&pivots=vaults-backup-vault#disable-mua-on-a-backup-vault).
-

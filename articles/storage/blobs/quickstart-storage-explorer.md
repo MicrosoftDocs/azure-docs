@@ -28,7 +28,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect to Azure Stora
 - Subscription
 - Storage account
 - Blob container
-- ADLS Gen2 container or directory
+- Azure Data Lake Storage container or directory
 - File share
 - Queue
 - Table
@@ -103,7 +103,7 @@ When you create a SAS for a storage account, Storage Explorer generates an accou
 When you create a SAS for a container or blob, Storage Explorer generates a service SAS. For more information about the service SAS, see [Create a service SAS](/rest/api/storageservices/create-service-sas).
 
 > [!NOTE]
-> When you create a SAS with Storage Explorer, the SAS is always assigned with the storage account key. Storage Explorer does not currently support creating a user delegation SAS, which is a SAS that is signed with Azure AD credentials.
+> When you create a SAS with Storage Explorer, the SAS is always assigned with the storage account key. Storage Explorer does not currently support creating a user delegation SAS, which is a SAS that is signed with Microsoft Entra credentials.
 
 ## Next steps
 

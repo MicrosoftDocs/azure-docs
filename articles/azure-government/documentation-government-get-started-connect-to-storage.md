@@ -4,8 +4,8 @@ description: Guidance for getting started with Storage on Azure Government
 ms.service: azure-government
 ms.topic: article
 author: yujhongmicrosoft
-ms.author: stevevi
-ms.date: 10/01/2021
+ms.author: eliotgra
+ms.date: 10/16/2024
 ---
 
 # Develop with Storage API on Azure Government
@@ -42,132 +42,257 @@ For more information about Azure Storage Explorer, see [Get started with Storage
 
 ### Getting Started with Storage API
 
-One important difference to remember when connecting with the Storage API is that the URL for storage in Azure Government is different than the URL for storage in commercial Azure. Specifically, the domain ends with "core.usgovcloudapi.net", rather than "core.windows.net".
+One important difference to remember when connecting with the Storage API is that the URL for storage in Azure Government is different than the URL for storage in commercial Azure. Specifically, the domain ends with `core.usgovcloudapi.net`, rather than `core.windows.net`. These endpoint differences must be taken into account when you connect to storage in Azure Government with a client library.
 
-These endpoint differences must be taken into account when you connect to storage in Azure Government with C#.
-1. Go to the [Azure Government portal](https://portal.azure.us) and select your storage account and then click the "Access Keys" tab:
+Application requests to Azure Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code.
 
-    ![storage4](./media/documentation-government-get-started-connect-with-storage-img4.png)
-2. Copy/paste the storage account connection string.
+You can also authorize requests to Azure Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following examples.
 
-#### C# 
+#### C#/.NET
 
-1. Open Visual Studio and create a new project. Add a reference to the [Azure Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
+Open Visual Studio and create a new project. Add a reference to the [Azure Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
 
-2. Add these two lines of C# code to connect:
-    ```cs
-    var credentials = new TableSharedKeyCredential(storageAccountName, Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_KEY"));
-    var storageTableUri = Environment.GetEnvironmentVariable("STORAGE_TABLE_URI");
-    var tableServiceClient = new TableServiceClient(new Uri(storageTableUri), credentials);   
-    ```
+#### [Passwordless (recommended)](#tab/passwordless)
 
+An easy and secure way to authorize access and connect to Azure Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a `TableServiceClient` object, as shown in the following code example:
 
-3. At this point, we can interact with Storage as we normally would. For example, if we want to retrieve a specific entity from our Table Storage, we could do it like this:
+```csharp
+var credentialOptions = new DefaultAzureCredentialOptions()
+{
+    AuthorityHost = AzureAuthorityHosts.AzureGovernment,
+};
 
-   ```cs
-    var tableClient = tableServiceClient.GetTableClient("Contacts");
-    ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
-    Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
-    ```
+var credential = new DefaultAzureCredential(credentialOptions);
+var storageTableUri = Environment.GetEnvironmentVariable("STORAGE_TABLE_URI");
+var tableServiceClient = new TableServiceClient(
+    new Uri(storageTableUri)
+    credential);   
+```
+
+To learn more about authorizing access to data in Azure Storage, see [Authenticate to Azure and authorize access to data](../../articles/storage/blobs/storage-quickstart-blobs-dotnet.md#authenticate-to-azure-and-authorize-access-to-blob-data).
+
+#### [Connection string](#tab/connectionstring)
+
+Add these lines of C# code to connect using a connection string:
+
+```csharp
+var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+var tableServiceClient = new TableServiceClient(connectionString);   
+```
+
+You can also connect using an account key, as shown in the following code example:
+
+```csharp
+var credentials = new TableSharedKeyCredential(
+    storageAccountName, 
+    Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_KEY"));
+var storageTableUri = Environment.GetEnvironmentVariable("STORAGE_TABLE_URI");
+var tableServiceClient = new TableServiceClient(new Uri(storageTableUri), credentials);   
+```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
+
+At this point, we can interact with Storage as we normally would. The following example shows how to retrieve a specific entity from Table Storage:
+
+```csharp
+var tableClient = tableServiceClient.GetTableClient("Contacts");
+ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition-test", "0abc123e-1111-1a2b-3c4d-fghi5678j9k0");
+Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+```
 
 #### Java
-1. Download the [Azure Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
-2. Create a "test" class where we'll access Azure Table Storage using the Azure Tables client library.  
- Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
-    ```java
-    import com.azure.data.tables.implementation.ModelHelper;
-    import com.azure.data.tables.models.*;
-    import java.util.HashMap;
-    public class test {
-        public static final String storageConnectionString = System.getEnv("AZURE_STORAGE_CONNECTION_STRING");
-        public static void main(String[] args) {
-        try
-        {
-            // Create the table service client.
-            TableServiceClient tableServiceClient = new TableServiceClientBuilder()
-                .connectionString(storageConnectionString)
-                .buildClient();
-            // Create the table if it doesn't exist.
-            String tableName = "Contacts";
-            TableClient tableClient = tableServiceClient.createTableIfNotExists(tableName);
-            // Create a new customer entity.
-            TableEntity customer1 = ModelHelper.createEntity(new HashMap<String, Object>() {{
-                put("PartitionKey", "Brown");
-                put("RowKey", "Walter");
-                put("Email", "Walter@contoso.com");
-            }});
-            // Insert table entry into table
-            tableClient.createEntity(customer1);
-        }
-        catch (Exception e)
-        {
-            // Output the stack trace.
-            e.printStackTrace();
-        }
-      }    
-    }   
-    ```
+
+Download the [Azure Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
+
+#### [Passwordless (recommended)](#tab/passwordless)
+
+An easy and secure way to authorize access and connect to Azure Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/java/api/overview/azure/identity-readme#defaultazurecredential) instance. You can then use that credential to create a `TableServiceClient` object, as shown in the following code example:
+
+```java
+import com.azure.data.tables.implementation.ModelHelper;
+import com.azure.data.tables.models.*;
+import java.util.HashMap;
+public class test {
+    public static final String storageConnectionString = System.getEnv("AZURE_STORAGE_CONNECTION_STRING");
+    public static void main(String[] args) {
+    try
+    {
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .authorityHost("https://management.usgovcloudapi.net/.default")
+            .build();
+
+        // Create the table service client.
+        TableServiceClient tableServiceClient = new TableServiceClientBuilder()
+            .endpoint("https://<storage-account-name>.table.core.usgovcloudapi.net/")
+            .credential(credential)
+            .buildClient();
+
+        // Create the table if it doesn't exist.
+        String tableName = "Contacts";
+        TableClient tableClient = tableServiceClient.createTableIfNotExists(tableName);
+        // Create a new customer entity.
+        TableEntity customer1 = ModelHelper.createEntity(new HashMap<String, Object>() {{
+            put("PartitionKey", "Brown");
+            put("RowKey", "Walter");
+            put("Email", "Walter@contoso.com");
+        }});
+        // Insert table entry into table
+        tableClient.createEntity(customer1);
+    }
+    catch (Exception e)
+    {
+        // Output the stack trace.
+        e.printStackTrace();
+    }
+    }
+}
+```
+
+To learn more about authorizing access to data in Azure Storage, see [Authenticate to Azure and authorize access to data](../../articles/storage/blobs/storage-quickstart-blobs-java.md#authenticate-to-azure-and-authorize-access-to-blob-data).
+
+#### [Connection string](#tab/connectionstring)
+
+Create a "test" class where we'll access Azure Table Storage using the Azure Tables client library.
+
+Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
+
+```java
+import com.azure.data.tables.implementation.ModelHelper;
+import com.azure.data.tables.models.*;
+import java.util.HashMap;
+public class test {
+    public static final String storageConnectionString = System.getEnv("AZURE_STORAGE_CONNECTION_STRING");
+    public static void main(String[] args) {
+    try
+    {
+        // Create the table service client.
+        TableServiceClient tableServiceClient = new TableServiceClientBuilder()
+            .connectionString(storageConnectionString)
+            .buildClient();
+        // Create the table if it doesn't exist.
+        String tableName = "Contacts";
+        TableClient tableClient = tableServiceClient.createTableIfNotExists(tableName);
+        // Create a new customer entity.
+        TableEntity customer1 = ModelHelper.createEntity(new HashMap<String, Object>() {{
+            put("PartitionKey", "Brown");
+            put("RowKey", "Walter");
+            put("Email", "Walter@contoso.com");
+        }});
+        // Insert table entry into table
+        tableClient.createEntity(customer1);
+    }
+    catch (Exception e)
+    {
+        // Output the stack trace.
+        e.printStackTrace();
+    }
+    }
+}
+```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 #### Node.js
-1. Download the [Azure Storage Blob client library for Node.js](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) and configure your application correctly.
-2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
-    **Paste** your Azure Storage account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
 
-    ```javascript
-    var { BlobServiceClient } = require("@azure/storage-blob");
-    var storageConnectionString = process.env["AZURE_STORAGE_CONNECTION_STRING"];
-    var blobServiceClient = BlobServiceClient.fromConnectionString(storageConnectionString);
-    var containerClient = blobServiceClient.getContainerClient('testing');
-    containerClient.createIfNotExists();
-    ```
+Download the [Azure Storage Blob client library for Node.js](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) and configure your application correctly.
+
+#### [Passwordless (recommended)](#tab/passwordless)
+
+An easy and secure way to authorize access and connect to Azure Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) instance. You can then use that credential to create a `BlobServiceClient` object, as shown in the following code example:
+
+```javascript
+const { BlobServiceClient } = require('@azure/storage-blob');
+const {
+ DefaultAzureCredential,
+ DefaultAzureCredentialOptions,
+ AzureAuthorityHosts
+} = require('@azure/identity');
+
+const credentialOptions = new DefaultAzureCredentialOptions(
+  { 
+    authorityHost: AzureAuthorityHosts.AzureGovernment
+  }
+);
+
+const blobServiceClient = new BlobServiceClient(
+  `https://<storage-account-name>.blob.core.usgovcloudapi.net`,
+  new DefaultAzureCredential(credentialOptions)
+);
+
+var containerClient = blobServiceClient.getContainerClient('testing');
+containerClient.createIfNotExists();
+```
+
+To learn more about authorizing access to data in Azure Storage, see [Authenticate to Azure and authorize access to data](../../articles/storage/blobs/storage-quickstart-blobs-nodejs.md#authenticate-to-azure-and-authorize-access-to-blob-data).
+
+#### [Connection string](#tab/connectionstring)
+
+The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
+**Paste** your Azure Storage account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
+
+```javascript
+var { BlobServiceClient } = require("@azure/storage-blob");
+var storageConnectionString = process.env["AZURE_STORAGE_CONNECTION_STRING"];
+var blobServiceClient = BlobServiceClient.fromConnectionString(storageConnectionString);
+var containerClient = blobServiceClient.getContainerClient('testing');
+containerClient.createIfNotExists();
+```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 #### Python
-1. Download the [Azure Storage Blob client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob).
-2. When using the Storage library for Python to connect to Azure Government, paste your Azure storage connection string in the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
-    
-    ```python
-    # Create the BlobServiceClient that is used to call the Blob service for the storage account
-    connection_string = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
-    blob_service_client = BlobServiceClient.from_connection_string(conn_str=connection_string)
-    container_name ='ml-gov-demo'
-    container = blob_service_client.get_container_client(container=container_name)
-    generator = container.list_blobs()
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
-    ```
 
-#### PHP
-1. Download the [Azure Storage SDK for PHP](https://github.com/Azure/azure-sdk-for-php).
-2. The code below accesses Azure Table Storage using the Azure Storage API.
-   In the `connectionString` variable, you'll notice that there's a `TableEndpoint` parameter. 
-   Depending on which service you're using, you must define the parameter and set it to the endpoint for that service:
-   
-   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-     >[!Note]
-     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-     >
-    
-     ```php
-     <?php
-     require_once "vendor/autoload.php";
-     use WindowsAzure\Common\ServicesBuilder;
-     use MicrosoftAzure\Storage\Common\ServiceException; 
-     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
+Download the [Azure Storage Blob client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob).
 
-     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-     try {
-     // Create table.
-     $tableRestProxy->createTable("test");
-     }
-     catch(ServiceException $e){
-     $code = $e->getCode();
-     $error_message = $e->getMessage();
-     }
-     ?>
-     ```
+#### [Passwordless (recommended)](#tab/passwordless)
+
+An easy and secure way to authorize access and connect to Azure Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/python/api/overview/azure/identity-readme#defaultazurecredential) instance. You can then use that credential to create a `BlobServiceClient` object, as shown in the following code example:
+
+```python
+from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
+from azure.storage.blob import BlobServiceClient
+
+credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT)
+
+blob_service_client = BlobServiceClient("https://<storage-account-name>.blob.core.usgovcloudapi.net", credential=credential)
+
+container_name ="<container-name>"
+container = blob_service_client.get_container_client(container=container_name)
+generator = container.list_blobs()
+for blob in generator:
+    print("\t Blob name: " + blob.name)
+```
+
+To learn more about authorizing access to data in Azure Storage, see [Authenticate to Azure and authorize access to data](../../articles/storage/blobs/storage-quickstart-blobs-python.md#authenticate-to-azure-and-authorize-access-to-blob-data).
+
+#### [Connection string](#tab/connectionstring)
+
+When using the Storage library for Python to connect to Azure Government, paste your Azure storage connection string in the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
+    
+```python
+# Create the BlobServiceClient that is used to call the Blob service for the storage account
+connection_string = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+blob_service_client = BlobServiceClient.from_connection_string(conn_str=connection_string)
+container_name ="<container-name>"
+container = blob_service_client.get_container_client(container=container_name)
+generator = container.list_blobs()
+for blob in generator:
+    print("\t Blob name: " + blob.name)
+```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 ## Next steps
 

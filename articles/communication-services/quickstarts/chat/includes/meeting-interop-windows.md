@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
+In this quickstart, you learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
 Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
@@ -22,12 +22,12 @@ Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/c
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting will add them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user will not have access to chat messages that were sent before they joined the meeting and they will not be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting adds them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user won't have access to chat messages that were sent before they joined the meeting, and they won't be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
 
 ## Run the code
-You can build and run the code on Visual Studio. Please note the solution platforms we support `x64`,`x86` and `ARM64`. 
+You can build and run the code on Visual Studio. Note the solution platforms we support: `x64`,`x86`, and `ARM64`. 
 
-1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
+1. Open an instance of PowerShell, Windows Terminal, Command Prompt, or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
 3. Open the project ChatTeamsInteropQuickStart/ChatTeamsInteropQuickStart.csproj in Visual Studio.
 4. Install the following NuGet packages versions (or higher):
@@ -39,15 +39,15 @@ Install-Package Azure.Communication.Identity -Version 1.0.1
 
 ```
 
-5. With the Communication Services resource procured in pre-requisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
+5. With the Communication Services resource procured in prerequisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
 
 ``` csharp
-//Azure Communication Services resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
+//Azure Communication Services resource connection string, i.e., = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
 private const string connectionString_ = "";
 ```
 
 > [!IMPORTANT]
-> * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code. i.e `x64`
+> * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code, i.e., `x64`
 > * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](/windows/apps/get-started/enable-your-device-for-development)
 >  
 >  *The next steps will not work if this is not configured properly*
@@ -116,7 +116,7 @@ private const string connectionString_ = "";
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            _ = new MessageDialog($"An error ocurred while fetching messages in PollingChatMessagesAsync(). The application will shutdown. Details : {e.Message}").ShowAsync();
+                            _ = new MessageDialog($"An error occurred while fetching messages in PollingChatMessagesAsync(). The application will shutdown. Details : {e.Message}").ShowAsync();
                             throw e;
                         });
                         await SetInCallState(false);
@@ -143,6 +143,7 @@ The Teams meeting link can be retrieved using Graph APIs, detailed in [Graph doc
 
 You can also get the required meeting link from the **Join Meeting** URL in the Teams meeting invite itself.
 A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. 
+If your teams link has a different format to this, you need to retrieve the thread ID using the Graph API.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-windows.png" alt-text="Screenshot of the completed csharp Application.":::
 

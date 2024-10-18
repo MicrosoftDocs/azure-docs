@@ -3,14 +3,16 @@ title: Set up a lab with Adobe Creative Cloud
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services for digital arts and media classes that use Adobe Creative Cloud.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 02/17/2023
 ---
 
 # Set up a lab for Adobe Creative Cloud in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -97,7 +99,6 @@ Read [Adobe’s deployment steps](https://helpx.adobe.com/enterprise/admin-guide
 
 Lab virtual machines have a maximum disk size of 128 GB.  If users need extra storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
 
-- [Using external file storage in Azure Lab Services](how-to-attach-external-storage.md)
 - [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive)
 
 ### Save template VM image

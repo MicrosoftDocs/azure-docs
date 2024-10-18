@@ -25,6 +25,8 @@ An [isolated worker process class library](dotnet-isolated-process-guide.md) com
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
 ---
@@ -457,6 +459,8 @@ Kafka messages are passed to the function as strings and string arrays that are 
 ::: zone-end 
 
 In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Enable runtime scaling](functions-bindings-kafka.md#enable-runtime-scaling). 
+
+You can't use the **Test/Run** feature of the **Code + Test** page in the Azure Portal to work with Kafka triggers. You must instead send test events directly to the topic being monitored by the trigger.  
 
 For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
 

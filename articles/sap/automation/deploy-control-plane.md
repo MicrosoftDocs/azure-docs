@@ -4,7 +4,7 @@ description: Overview of the control plane deployment process in SAP Deployment 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/19/2023
+ms.date: 12/15/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -40,9 +40,15 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 Optionally, assign the following permissions to the service principal:
 
 ```azurecli
-az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
+az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>
 ```
 
+If you want to provide the User Access Administrator role scoped to the resource group only, use the following command:
+
+```azurecli
+
+az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
+```
 
 ## Deploy the control plane
 
@@ -194,7 +200,7 @@ You can track the progress in the Azure DevOps portal. After the deployment is f
 
 ---
 
-### Manually configure a virtual machine as a SDAF deployer by using Azure Bastion
+### Manually configure a virtual machine as a SDAF deployer using Azure Bastion
 
 To connect to the deployer:
 
@@ -222,15 +228,14 @@ Run the following script to configure the deployer:
 
 mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-git clone https://github.com/Azure/sap-automation-bootstrap.git config
-
-git clone https://github.com/Azure/sap-automation.git sap-automation
-
-git clone https://github.com/Azure/sap-automation-samples.git samples
-
-cd sap-automation/deploy/scripts
-
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+chmod +x ./configure_deployer.sh
 ./configure_deployer.sh
+
+# Source the new variables
+
+. /etc/profile.d/deploy_server.sh
+
 ```
 
 The script installs Terraform and Ansible and configures the deployer.
@@ -269,15 +274,13 @@ Configure the deployer by using the following script:
 ```bash
 mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-git clone https://github.com/Azure/sap-automation-bootstrap.git config
-
-git clone https://github.com/Azure/sap-automation.git sap-automation
-
-git clone https://github.com/Azure/sap-automation-samples.git samples
-
-cd sap-automation/deploy/scripts
-
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+chmod +x ./configure_deployer.sh
 ./configure_deployer.sh
+
+# Source the new variables
+
+. /etc/profile.d/deploy_server.sh
 ```
 
 The script installs Terraform and Ansible and configures the deployer.
@@ -287,7 +290,15 @@ The script installs Terraform and Ansible and configures the deployer.
 The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
 If you have created your control plane using an external virtual machine or by using the cloud shell, you should secure the control plane by implementing private endpoints for the storage accounts and key vaults.
 
-Log on to the deployer virtual machine and copy the control plane configuration `tfvars` terraform files to the deployer. Ensure that the files are located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES` DEPLOYER and LIBRARY folders.
+You can use the `sync_deployer.sh` script to copy the control plane configuration files to the deployer VM. Sign in to the deployer VM and run the following commands:
+
+```bash
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+../sap-automation/deploy/scripts/sync_deployer.sh --storageaccountname mgtneweeutfstate### --state_subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+```
 
 Ensure that the `use_private_endpoint` variable is set to `true` in the `DEPLOYER` and `LIBRARY` configuration files. Also ensure that `public_network_access_enabled` is set to `false` in the `DEPLOYER`  configuration files.
 

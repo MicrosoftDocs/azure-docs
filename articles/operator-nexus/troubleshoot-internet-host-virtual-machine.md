@@ -19,7 +19,7 @@ This article outlines troubleshooting for scenarios where you're having problems
   * Subscription ID
   * Cluster name and resource group
   * AKS hybrid cluster name and resource group
-* Become familiar with the procedures in [Connect to the AKS hybrid cluster](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster).
+* Become familiar with the procedures in [Connect to the AKS hybrid cluster](/azure/aks/tutorial-kubernetes-deploy-cluster).
 
 ## Common scenarios
 
@@ -103,3 +103,6 @@ sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.package
 > If you set these flags system wide, they might lose their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
 
 For more information, see the [Xmodulo article about installing RPM packages behind a proxy](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html).
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

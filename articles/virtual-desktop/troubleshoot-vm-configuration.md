@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Azure Virtual Desktop session host virtual machines.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 05/11/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Session host virtual machine configuration
 
@@ -60,15 +60,15 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../virtual-network/create-peering-different-subscriptions.md).
 
-**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
+**Cause 2:** When using Microsoft Entra Domain Services, the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Fix 2:** To update the DNS settings for the virtual network containing Microsoft Entra Domain Services, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3:** The network interface's DNS server settings don't point to the appropriate DNS server on the virtual network.
 
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
-- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers).
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.yml#change-dns-servers).
 
 ## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader aren't installed
 
@@ -132,7 +132,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo.
 2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token.
-3. Confirm that the *-ExpriationTime* parameter is set to three days.
+3. Confirm that the *-ExpirationTime* parameter is set to three days.
 
 ### Error: Azure Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 
@@ -319,5 +319,5 @@ Golden images must not include the Azure Virtual Desktop agent. You can install 
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

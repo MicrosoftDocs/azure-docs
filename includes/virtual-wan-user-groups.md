@@ -1,8 +1,8 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 07/31/2023
-ms.service: virtual-wan
+ms.date: 10/15/2024
+ms.service: azure-virtual-wan
 ms.topic: include
 
 #This article is used for both Virtual WAN and VPN Gateway. Any updates to the article must work for both of these services. Otherwise, update the VWAN or VPNGW article directly.
@@ -34,21 +34,23 @@ Each group is also assigned a numerical priority. Groups with lower priority are
 The following section describes the different parameters that can be used to define which groups members are a part of. The available parameters vary based on selected authentication methods.
 The following table summarizes the available setting types and acceptable values. For more detailed information on each type of Member Value, view the section corresponding to your authentication type.
 
-|Authentication type|Member type |Member values|Example member value|
+|Authentication type|Member type |Member values| Example value |
 |---|---|---|---|
-Azure Active Directory|AADGroupID|Azure Active Directory Group Object ID	|0cf484f2-238e-440b-8c73-7bf232b248dc|
+Microsoft Entra ID|AADGroupID|Microsoft Entra group Object ID	| {object ID value} |
 |RADIUS|AzureRADIUSGroupID|Vendor-specific Attribute Value (hexadecimal) (must begin with 6ad1bd)|6ad1bd23|
 |Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red|
 
-#### Azure Active Directory authentication (OpenVPN only)
+<a name='azure-active-directory-authentication-openvpn-only'></a>
 
-Gateways using Azure Active Directory authentication can use **Azure Active Directory Group Object IDs** to determine which user group a user belongs to. If a user is part of multiple Azure Active Directory groups, they're considered to be part of the P2S VPN user group that has the lowest numerical priority.
+#### Microsoft Entra authentication (OpenVPN only)
 
-However, if you plan to have users who are external (users who aren't part of the Azure Active Directory domain configured on the VPN gateway) connect to the point-to-site VPN gateway, make sure that the user type of the external user is "Member" and **not** "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly as described above or you can't set an external member to be a "Member" of your Azure Active Directory domain, that connecting user will be assigned to the default group and assigned an IP from the default IP address pool.
+Gateways using Microsoft Entra authentication can use **Microsoft Entra group Object IDs** to determine which user group a user belongs to. If a user is part of multiple Microsoft Entra groups, they're considered to be part of the P2S VPN user group that has the lowest numerical priority.
+
+However, if you plan to have users who are external (users who aren't part of the Microsoft Entra domain configured on the VPN gateway) connect to the point-to-site VPN gateway, make sure that the user type of the external user is "Member" and **not** "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly as described above or you can't set an external member to be a "Member" of your Microsoft Entra domain, that connecting user will be assigned to the default group and assigned an IP from the default IP address pool.
 
 You can also identify whether or not a user is external by looking at the user's "User Principal Name." External users have **#EXT** in their "User Principal Name."
 
-:::image type="content" source="./media/virtual-wan-user-groups-about/groups.png" alt-text="Screenshot of an Azure Active Directory group." lightbox="./media/virtual-wan-user-groups-about/groups.png":::
+:::image type="content" source="./media/virtual-wan-user-groups-about/groups.png" alt-text="Screenshot of a Microsoft Entra group." lightbox="./media/virtual-wan-user-groups-about/groups.png":::
 
 #### Azure Certificate (OpenVPN and IKEv2)
 

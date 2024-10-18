@@ -3,12 +3,11 @@ title: Manage DNS records in Azure DNS using the Azure CLI
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS.
 author: greg-lindsay
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
-ms.service: dns
+ms.service: azure-dns
 ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ---
 
@@ -46,16 +45,16 @@ The record set name given must be a *relative* name, meaning it must exclude the
 
 If a new record set is created, a default time-to-live (TTL) of 3600 is used. For instructions on how to use different TTLs, see [Create a DNS record set](#create-a-dns-record-set).
 
-The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *1.2.3.4*.
+The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *203.0.113.11*.
 
 ```azurecli-interactive
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 203.0.113.11
 ```
 
 To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "\@", including the quotation marks:
 
 ```azurecli-interactive
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 203.0.113.11
 ```
 
 ## Create a DNS record set
@@ -93,7 +92,7 @@ There's no example for create an SOA record set, since SOAs are created and dele
 ### Create an AAAA record
 
 ```azurecli-interactive
-az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address FD00::1
 ```
 
 ### Create a CAA record
@@ -124,7 +123,7 @@ az network dns record-set mx add-record --resource-group myresourcegroup --zone-
 ### Create an NS record
 
 ```azurecli-interactive
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.fabrikam.com
 ```
 
 ### Create a PTR record
@@ -193,10 +192,10 @@ This command deletes a DNS record from a record set. If the last record in a rec
 
 When you use the `az network dns record-set <record-type> add-record` command, you need to specify the record getting deleted and the zone to delete from. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
 
-The following example deletes the A record with value '1.2.3.4' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*.
+The following example deletes the A record with value '203.0.113.11' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*.
 
 ```azurecli-interactive
-az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 203.0.113.11
 ```
 
 ## Modify an existing record set
@@ -207,11 +206,11 @@ Each record set contains a [time-to-live (TTL)](dns-zones-records.md#time-to-liv
 
 To modify an existing record of type A, AAAA, CAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
 
-The following example shows how to modify an 'A' record, from IP address 1.2.3.4 to IP address 5.6.7.8:
+The following example shows how to modify an 'A' record, from IP address 203.0.113.11 to IP address 203.0.113.22:
 
 ```azurecli-interactive
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
-az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 203.0.113.22
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 203.0.113.11
 ```
 
 You can't add, remove, or modify the records in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, the only changes permitted are to modify the record set TTL and metadata.
@@ -251,7 +250,7 @@ This restriction applies only to the NS record set at the zone apex. Other NS re
 The following example shows how to add another name server to the NS record set at the zone apex:
 
 ```azurecli-interactive
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.fabrikam.com 
 ```
 
 ### To modify the TTL of an existing record set

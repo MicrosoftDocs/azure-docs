@@ -4,10 +4,10 @@ titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 06/27/2023
-ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurepowershell, engagement-fy23
+ms.date: 07/31/2024
+ms.custom: template-tutorial, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using Azure PowerShell
@@ -48,7 +48,7 @@ A virtual network is needed for the resources that are in the backend pool of th
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -339,4 +339,4 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
-> [Cross-region load balancer](tutorial-cross-region-powershell.md)
+> [Cross-region load balancer](tutorial-cross-region-portal.md)

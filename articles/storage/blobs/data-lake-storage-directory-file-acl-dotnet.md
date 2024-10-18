@@ -1,5 +1,5 @@
 ---
-title: Use .NET to manage data in Azure Data Lake Storage Gen2
+title: Use .NET to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: pauljewellmsft
@@ -13,11 +13,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
-# Use .NET to manage directories and files in Azure Data Lake Storage Gen2
+# Use .NET to manage directories and files in Azure Data Lake Storage
 
 This article shows you how to use .NET to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
-To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use .NET to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md).
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use .NET to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-dotnet.md).
 
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API reference](/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
@@ -41,16 +41,19 @@ using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
 using Azure.Storage;
 using System.IO;
-
 ```
+
+[!INCLUDE [data-lake-storage-sdk-note](../../../includes/data-lake-storage-sdk-note.md)]
 
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).
 
-### [Azure AD](#tab/azure-ad)
+<a name='azure-ad'></a>
 
-You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Azure AD.
+### [Microsoft Entra ID](#tab/azure-ad)
+
+You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Microsoft Entra ID.
 
 Create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 

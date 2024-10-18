@@ -1,5 +1,5 @@
 ---
-title: Access control model for Azure Data Lake Storage Gen2
+title: Access control model for Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
 author: normesta
@@ -11,9 +11,9 @@ ms.author: normesta
 ms.custom: engagement-fy23
 ---
 
-# Access control model in Azure Data Lake Storage Gen2
+# Access control model in Azure Data Lake Storage
 
-Data Lake Storage Gen2 supports the following authorization mechanisms:
+Data Lake Storage supports the following authorization mechanisms:
 
 - Shared Key authorization
 - Shared access signature (SAS) authorization
@@ -21,9 +21,9 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 - Attribute-based access control (Azure ABAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect.
+[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect.
 
-Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
+Azure RBAC and ACL both require the user (or application) to have an identity in Microsoft Entra ID. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 
 This article focuses on Azure RBAC, ABAC, and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
 
@@ -31,7 +31,7 @@ This article focuses on Azure RBAC, ABAC, and ACLs, and how the system evaluates
 
 ## Role-based access control (Azure RBAC)
 
-Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container.
+Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Microsoft Entra ID. A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container.
 
 The following roles permit a security principal to access data in a storage account.
 
@@ -51,7 +51,7 @@ For more information on using Azure ABAC to control access to Azure Storage, see
 
 ## Access control lists (ACLs)
 
-ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level. To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level. To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ## How permissions are evaluated
 
@@ -117,7 +117,7 @@ The following table shows you how to combine Azure roles, conditions, and ACL en
 |                          |   None                           | `--X`    | `--X`    | `R-X`     | N/A    |
 
 > [!NOTE]
-> To view the contents of a container in Azure Storage Explorer, security principals must [sign in to Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.
+> To view the contents of a container in Azure Storage Explorer, security principals must [sign in to Storage Explorer by using Microsoft Entra ID](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.
 
 ## Security groups
 
@@ -131,7 +131,7 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage Gen2 also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
 In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
 
@@ -139,4 +139,4 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 
 ## Next steps
 
-To learn more about access control lists, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+To learn more about access control lists, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).

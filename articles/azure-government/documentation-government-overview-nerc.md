@@ -1,8 +1,8 @@
 ---
 title: NERC CIP standards and cloud computing
 description: This article discusses implications of NERC CIP standards on cloud computing. It explores compliance assurances that cloud service providers can furnish to registered entities subject to compliance with NERC CIP standards.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.topic: article
 ms.service: azure-government
 recommendations: false
@@ -219,13 +219,13 @@ A multi-tenant cloud platform implies that multiple customer applications and da
 
 ### Identity and access
 
-Azure Active Directory (Azure AD) is an identity repository and cloud service that provides authentication, authorization, and access control for an organization’s users, groups, and objects. Azure AD can be used as a standalone cloud directory or as an integrated solution with existing on-premises Active Directory to enable key enterprise features such as directory synchronization and single sign-on. The separation of the accounts used to administer cloud applications is critical to achieving logical isolation. Account isolation in Azure is achieved using Azure AD and its capabilities to support granular Azure role-based access control (RBAC). Azure AD implements extensive data protection features, including tenant isolation and access control, data operational considerations for insider access, and more.
+Microsoft Entra ID is an identity repository and cloud service that provides authentication, authorization, and access control for an organization’s users, groups, and objects. Microsoft Entra ID can be used as a standalone cloud directory or as an integrated solution with existing on-premises Active Directory to enable key enterprise features such as directory synchronization and single sign-on. The separation of the accounts used to administer cloud applications is critical to achieving logical isolation. Account isolation in Azure is achieved using Microsoft Entra ID and its capabilities to support granular Azure role-based access control (RBAC). Microsoft Entra ID implements extensive data protection features, including tenant isolation and access control, data operational considerations for insider access, and more.
 
 For more information, see [Identity-based isolation](./azure-secure-isolation-guidance.md#identity-based-isolation).
 
 ### Data encryption key management
 
-Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system. With Azure services, you have a [wide range of options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest. You can manage data encryption keys using [Azure Key Vault](../key-vault/general/overview.md), which can store encryption keys in FIPS 140 validated hardware security modules (HSMs). You can use [customer-managed keys](../security/fundamentals/encryption-models.md) (CMK) with Azure Key Vault to have sole control over encryption keys stored in HSMs. Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. Moreover, Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
+Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system. With Azure services, you have a [wide range of options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest. You can manage data encryption keys using [Azure Key Vault](/azure/key-vault/general/overview), which can store encryption keys in FIPS 140 validated hardware security modules (HSMs). You can use [customer-managed keys](../security/fundamentals/encryption-models.md) (CMK) with Azure Key Vault to have sole control over encryption keys stored in HSMs. Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. Moreover, Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
 
 You're responsible for choosing the Azure regions for deploying your applications and data. Moreover, you're responsible for designing your applications to use end-to-end data encryption that meets NERC CIP standards requirements. Microsoft doesn't inspect or approve your Azure applications.
 
@@ -249,7 +249,7 @@ For more information, see [Networking isolation](./azure-secure-isolation-guidan
 
 Microsoft Azure separates your VM-based computation resources from storage as part of its fundamental design. The separation allows computation and storage to scale independently, making it easier to provide multi-tenancy and isolation. Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically.
 
-Azure provides extensive options for data encryption at rest to help you safeguard your data and meet your NERC CIP standards compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management.
+Azure provides extensive options for data encryption at rest to help you safeguard your data and meet your NERC CIP standards compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management.
 
 For more information, see [Storage isolation](./azure-secure-isolation-guidance.md#storage-isolation).
 

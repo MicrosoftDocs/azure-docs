@@ -9,7 +9,6 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/29/2023
 ms.author: shaas
-ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
@@ -36,6 +35,9 @@ Complete the following configuration prerequisites for Data Box service and devi
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
 
 * Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
+  
+> [!NOTE] 
+> The Export functionality will not include Access Control List (ACL) or metadata regarding the files and folders. If you are exporting Azure Files data, you may consider using a tool such as Robocopy to apply ACLs to the target folders prior to import. 
 
 ### For device
 

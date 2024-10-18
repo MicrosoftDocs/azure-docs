@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Queue Storage
 titleSuffix: Azure Storage
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Storage Queues.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security with Azure Storage Queues.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/09/2023
@@ -24,7 +24,7 @@ Passwordless connections can be configured to work for both local and Azure-host
 
 ### Sign-in to Azure locally
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
 
 ### Update the application code to use passwordless connections
 
@@ -183,14 +183,14 @@ After making these code changes, run your application locally. The new configura
 
 ## Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Queue Storage using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) for applications to use when connecting to resources that support Azure AD authentication. Learn more about managed identities:
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Queue Storage using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. Learn more about managed identities:
 
 * [Passwordless Overview](/azure/developer/intro/passwordless-overview)
 * [Managed identity best practices](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
 
 ### Create the managed identity
 
-[!INCLUDE [create-user-assigned-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-user-assigned-managed-identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -213,11 +213,11 @@ Complete the following steps in the Azure portal to associate an identity with y
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity.png":::
 
 # [Azure CLI](#tab/azure-cli-associate)
 
-[!INCLUDE [associate-managed-identity-cli](../../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+[!INCLUDE [associate-managed-identity-cli](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
 
 # [Service Connector](#tab/service-connector-associate)
 
@@ -273,7 +273,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
@@ -285,5 +285,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize access to blobs using Azure Active Directory](../blobs/authorize-access-azure-active-directory.md)
+* [Authorize access to blobs using Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

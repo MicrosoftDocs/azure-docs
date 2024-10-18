@@ -22,7 +22,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 ## Sending an Email using Try Email
 
-Try Email helps you kick starting with sending email using Azure Communication Services and as well verifying the configuration for your application to send email. It also helps to jump-start your email notification development with the code snippet in your preferred choice of language.
+Try Email helps you kick-start sending emails to the desired recipients using Azure Communication Services, as well as verifying the configuration for your application to send email. It also helps to jump-start your email notification development with the code snippet in your preferred choice of language.
 
 To send a message to a recipient, and to specify the message subject and body, 
 

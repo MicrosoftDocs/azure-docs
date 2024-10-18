@@ -5,7 +5,7 @@ author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
 ms.date: 07/20/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
@@ -21,7 +21,7 @@ A surrogate key on a table is a column with a unique identifier for each row. Th
 > [!NOTE]
 > In Azure Synapse Analytics: 
 > - The IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
-> - UPDATE on distribution column does not guarantee IDENTITY value to be unique. Use [DBCC CHECKIDENT (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=azure-sqldw-latest) after UPDATE on distribution column to verify uniqueness.
+> - UPDATE on distribution column does not guarantee IDENTITY value to be unique. Use [DBCC CHECKIDENT (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=azure-sqldw-latest&preserve-view=true) after UPDATE on distribution column to verify uniqueness.
 
 
 ## Creating a table with an IDENTITY column

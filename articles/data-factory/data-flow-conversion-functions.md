@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about conversion functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 09/26/2024
 ---
 
 # Conversion functions in mapping data flow
@@ -58,7 +57,7 @@ Conversion functions are used to convert data and test for data types
 | [toUTC](data-flow-expressions-usage.md#toUTC) | Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

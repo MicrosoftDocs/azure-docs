@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: devx-track-js
 ---
 
@@ -28,7 +28,7 @@ This article uses the Azure Maps Web SDK, however the Azure Maps services work w
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
 * An [Azure Maps account]
-* A [subscription key] or Azure Active Directory (Azure AD) credentials. For more information, see [authentication options].
+* A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
 ## Create a new map in a web page
 
@@ -53,7 +53,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
-     ```
+    ```
 
     > [!NOTE]
     > TypeScript definitions can be imported into your application by adding the following code:
@@ -85,7 +85,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Azure AD credentials with [authentication options].
+5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Microsoft Entra credentials with [authentication options].
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
@@ -106,7 +106,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </script>
     ```
 
-    If you're using Azure AD for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
+    If you're using Microsoft Entra ID for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
 
       ```HTML
     <script type="text/javascript">
@@ -118,9 +118,9 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your AAD Client Id>',
-                    aadAppId: '<Your AAD App Id>',
-                    aadTenant: '<Your AAD Tenant Id>'
+                    clientId: '<Your Microsoft Entra Client Id>',
+                    aadAppId: '<Your Microsoft Entra App Id>',
+                    aadTenant: '<Your Microsoft Entra tenant Id>'
                 }
             });
         }
@@ -135,7 +135,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 6. Optionally, you may find it helpful to add the following `meta` elements to the `head` element of the page:
 
    ```HTML
-    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+    <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
     <!-- Ensures the web page looks good on all screen sizes. -->
@@ -152,7 +152,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
         <meta charset="utf-8">
 
-        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->
@@ -198,7 +198,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 8. Open the file in your web browser and view the rendered map. It should look like the following image:
 
-   ![Map image showing rendered result](./media/how-to-use-map-control/map-of-seattle.png)
+    :::image type="content" source="./media/how-to-use-map-control/map-of-seattle.png" alt-text="Screenshot of a map image showing rendered result." lightbox="./media/how-to-use-map-control/map-of-seattle.png":::
 
 ## Localizing the map
 
@@ -230,7 +230,7 @@ map = new atlas.Map('myMap', {
 
 Here's an example of Azure Maps with the language set to "fr-FR" and the regional view set to `Auto`.
 
-![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
+:::image type="content" source="./media/how-to-use-map-control/websdk-localization.png" alt-text="Screenshot showing a map image with its labels in French." lightbox="./media/how-to-use-map-control/websdk-localization.png":::
 
 For a list of supported languages and regional views, see [Localization support in Azure Maps].
 
@@ -238,7 +238,7 @@ For a list of supported languages and regional views, see [Localization support 
 
 Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
 
-![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl-2-compatability.png)
+:::image type="content" source="./media/how-to-use-map-control/webgl-2-compatability.png" alt-text="Screenshot of a map image showing WebGL 2 Compatibility." lightbox="./media/how-to-use-map-control/webgl-2-compatability.png":::
 
 ```html
 <!DOCTYPE html>
@@ -249,7 +249,7 @@ Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility w
         <title>WebGL2 - Azure Maps Web SDK Samples</title>
         <link href=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet"/>
         <script src=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
-        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+        <script src="https://unpkg.com/deck.gl@^8/dist.min.js"></script>
         <style>
             html,
             body {
@@ -437,10 +437,10 @@ Learn best practices and see samples:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-For a list of samples showing how to integrate Azure AD with Azure Maps, see:
+For a list of samples showing how to integrate Microsoft Entra ID with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Microsoft Entra authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
 [3D terrain tiles]: #3d-terrain-tiles
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions

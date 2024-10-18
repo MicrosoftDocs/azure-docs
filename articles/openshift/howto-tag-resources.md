@@ -2,7 +2,7 @@
 title: Tag ARO resources using Azure Policy
 description: Learn how to tag ARO resources in a cluster's resource group using Azure Policy
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/30/2023
 author: johnmarco
 ms.author: johnmarc
@@ -450,7 +450,7 @@ export LOCATION=<the Azure region you want to use here>
     
 ## Create the ARO cluster
 
-Follow the [instructions to create a new ARO cluster](tutorial-create-cluster.md). Be sure to pass the parameter `--cluster-resource-group $MANAGED_RESOURCE_GROUP` to the `az aro create` command when creating the cluster.
+Follow the [instructions to create a new ARO cluster](create-cluster.md). Be sure to pass the parameter `--cluster-resource-group $MANAGED_RESOURCE_GROUP` to the `az aro create` command when creating the cluster.
 
 > [!NOTE]
 > The Policy does not apply any tags to the user-supplied virtual network.
@@ -481,8 +481,8 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
 1. Trigger the remediation task:
 
     ```
-    az policy assignment update -n $POLICY_ASSIGNMENT
-    	--params param-values.json
+    az policy remediation create --resource-group $MANAGED_RESOURCE_GROUP --name myRemediation --policy-assignment $POLICY_ASSIGNMENT
+
     ```
 
 1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. 

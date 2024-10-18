@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Azure Operator Nexus compute
 
-Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare-metal machines (BMMs), represent the physical machines on the rack. They run the CBL-Mariner operating system and provide closed integration support for high-performance workloads.
+Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare-metal machines (BMMs), represent the physical machines on the rack. They run the Azure Linux (formerly CBL-Mariner) operating system and provide closed integration support for high-performance workloads.
 
 These BMMs are deployed as part of the Azure Operator Nexus automation suite. They exist as nodes in a Kubernetes cluster to serve various virtualized and containerized workloads in the ecosystem.
 
@@ -23,13 +23,13 @@ Each BMM in an Azure Operator Nexus instance is represented as an Azure resource
 
 Nonuniform memory access (NUMA) alignment is a technique to optimize performance and resource utilization in multiple-socket servers. It involves aligning memory and compute resources to reduce latency and improve data access within a server system.
 
-Through the strategic placement of software components and workloads in a NUMA-aware way, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their telco cloud environments.
+Through the strategic placement of software components and workloads in a NUMA-aware way, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their cloud environments.
 
 By default, all the workloads deployed in an Azure Operator Nexus instance are NUMA aligned.
 
 ### CPU pinning
 
-CPU pinning is a technique to allocate specific CPU cores to dedicated tasks or workloads, which helps ensure consistent performance and resource isolation. Pinning critical network functions or real-time applications to specific CPU cores allows operators to minimize latency and improve predictability in their infrastructure. This approach is useful in scenarios where strict quality-of-service requirements exist, because these tasks can receive dedicated processing power for optimal performance.
+CPU pinning is a technique to allocate specific CPU cores to dedicated tasks or workloads, which help ensure consistent performance and resource isolation. Pinning critical network functions or real-time applications to specific CPU cores allows operators to minimize latency and improve predictability in their infrastructure. This approach is useful in scenarios where strict quality-of-service requirements exist, because these tasks can receive dedicated processing power for optimal performance.
 
 All of the virtual machines created for virtual network function (VNF) or containerized network function (CNF) workloads on Azure Operator Nexus compute are pinned to specific virtual cores. This pinning provides better performance and avoids CPU stealing.
 
@@ -41,11 +41,11 @@ Azure Operator Nexus reserves a small set of CPUs for the host operating system 
 
 ### Huge page support
 
-Huge page usage in telco workloads refers to the utilization of large memory pages, typically 2 MB or 1 GB in size, instead of the standard 4-KB pages. This approach helps reduce memory overhead and improves the overall system performance. It reduces the translation look-aside buffer (TLB) miss rate and improves memory access efficiency.
+Huge page usage in workloads refers to the utilization of large memory pages, typically 2 MiB or 1 GiB in size, instead of the standard 4 KiB pages. This approach helps reduce memory overhead and improves the overall system performance. It reduces the translation look-aside buffer (TLB) miss rate and improves memory access efficiency.
 
-Telco workloads that involve large data sets or intensive memory operations, such as network packet processing, can benefit from huge page usage because it enhances memory performance and reduces memory-related bottlenecks. As a result, users see improved throughput and reduced latency.
+Workloads that involve large data sets or intensive memory operations such as network packet processing, can benefit from huge page usage because it enhances memory performance and reduces memory-related bottlenecks. As a result, users see improved throughput and reduced latency.
 
-All virtual machines created on Azure Operator Nexus can make use of either 2-MB or 1-GB huge pages, depending on the type of virtual machine.
+All virtual machines created on Azure Operator Nexus are backed by 1GiB(1G) hugepages for the requested memory.  The kernel running inside the VM can manage these available memory anyway it likes, including the allocation of memory to support hugepages (2M or 1G).
 
 ### Dual-stack support
 
@@ -82,6 +82,14 @@ The following properties reflect the operational state of a BMM:
   - `Error`: The machine couldn't be provisioned.
 
   `Preparing` and `Provisioning` are transitory states. `Provisioned`, `Available`, and `Error` are end-state statuses.
+
+- `MachineRoles` helps identify the role(s) that BMM fulfills in the Nexus cluster. The following roles are assigned to BMM resources:
+
+  - `Control plane`: These BMM runs the Kubernetes control plane agents for Nexus platform cluster.
+  - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
+  - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
+  
+  Refer this [link](reference-near-edge-baremetal-machine-roles.md) for more details on Machine Roles.
 
 ## BMM operations
 

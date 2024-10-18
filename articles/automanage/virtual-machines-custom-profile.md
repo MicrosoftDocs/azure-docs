@@ -2,8 +2,7 @@
 title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
 author: johnmarco
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/01/2023
@@ -12,6 +11,9 @@ ms.author: johnmarc
 
 
 # Create a custom profile in Azure Automanage for VMs
+
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
 
 Azure Automanage for Virtual Machines includes default best practice profiles that can't be edited. However, if you need more flexibility, you can pick and choose the set of services and settings by creating a custom profile.
 
@@ -122,6 +124,7 @@ The following ARM template creates an Automanage custom profile. Details on the 
               "LogAnalytics/Enable": true,
               "LogAnalytics/Reprovision": "[parameters('LogAnalyticsBehavior')]",
               "LogAnalytics/Workspace": "[parameters('logAnalyticsWorkspace')]",
+              "LogAnalytics/UseAma": true,
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
               "WindowsAdminCenter/Enable": true,
@@ -156,6 +159,8 @@ The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose 
 * ApplyAndAutoCorrect : This setting applies the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
 * ApplyAndMonitor : This setting applies the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
 * Audit : This setting installs the Azure security baseline using the Guest Configuration extension. You're able to see where your machine is out of compliance with the baseline, but noncompliance isn't automatically remediated.
+
+The `LogAnalytics/UseAma` value is where you can specify to use Azure Monitor Agent or not.
 
 You can also specify an existing log analytics workspace by adding this setting to the configuration section of properties below:
 * "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"

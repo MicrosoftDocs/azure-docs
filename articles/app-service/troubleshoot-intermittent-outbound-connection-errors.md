@@ -98,7 +98,7 @@ Although PHP doesn't support connection pooling, you can try using persistent da
 
 * Other data Sources
 
-   * [PHP Connection Management](https://www.php.net/manual/en/pdo.connections.php)
+   * [PHP Connection Management](https://www.php.net/manual/pdo.connections.php)
 
 #### Python
 

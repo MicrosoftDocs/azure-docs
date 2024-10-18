@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="305px" preserveAspectRatio="none" style="width:681px;height:305px;background:#FFFFFF;" version="1.1" viewBox="0 0 681 305" width="681px" zoomAndPan="magnify"><defs/><g><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="67" x2="67" y1="37.6094" y2="269.125"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="333.5" x2="333.5" y1="37.6094" y2="269.125"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="570" x2="570" y1="37.6094" y2="269.125"/><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="12" y="26.5332">Operator network</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="5" y="268.125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="12" y="289.6582">Operator network</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="217" x="225.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="232.5" y="26.5332">Azure Communications Gateway</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="217" x="225.5" y="268.125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="232.5" y="289.6582">Azure Communications Gateway</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="210" x="465" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="472" y="26.5332">Operator Connect environment</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="210" x="465" y="268.125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="472" y="289.6582">Operator Connect environment</text><polygon fill="#181818" points="345,98.6641,335,102.6641,345,106.6641,341,102.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="339" x2="569" y1="102.6641" y2="102.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="42" x="351" y="65.1045">INVITE</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="351" y="81.4561">(From number provisioned</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="212" x="351" y="97.8076">on Azure Communications Gateway)</text><path d="M178,115.6641 L178,206.6641 L489,206.6641 L489,125.6641 L479,115.6641 L178,115.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M479,115.6641 L479,125.6641 L489,125.6641 L479,115.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="235" x="184" y="134.1592">Lookup in internal database to determine</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="245" x="184" y="150.5107">if the calling number configuration includes</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="90" x="184" y="166.8623">custom header.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="4" x="184" y="183.2139"> </text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="290" x="184" y="199.5654">Contents added in X-MS-Operator-Content header.</text><polygon fill="#181818" points="78,247.125,68,251.125,78,255.125,74,251.125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="72" x2="333" y1="251.125" y2="251.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="42" x="84" y="229.917">INVITE</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="84" y="246.2686">X-MS-Operator-Content:</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="105" x="222" y="246.2686">[Operator content]</text><!--MD5=[2b15a592aca7f36e968d023c5bfb44ee]
+@startuml azure-communications-gateway-provisioning-platform-custom-header
+
+skinparam {
+ParticipantBackgroundColor application
+BackgroundColor white
+}
+
+Participant "Operator network" as ON
+
+Participant "Azure Communications Gateway" as ACG
+
+Participant "Operator Connect environment" as OC
+
+ 
+OC -> ACG: **INVITE**\n(From number provisioned\non Azure Communications Gateway)
+
+note over ACG: Lookup in internal database to determine\nif the calling number configuration includes\ncustom header.\n\nContents added in X-MS-Operator-Content header.
+
+ACG -> ON: **INVITE**\nX-MS-Operator-Content://[Operator content]//
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

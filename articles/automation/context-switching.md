@@ -4,9 +4,10 @@ description: This article explains context switching and how to avoid runbook is
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 08/18/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
+ms.service: azure-automation
 ---
 
 # Context switching in Azure Automation
@@ -19,7 +20,7 @@ Context switching is when the context in one process changes the context in a di
 |Account | The user name or service principal used to authenticate communications with Azure.|
 |Environment | Represents the Azure global or one of the national Azure clouds, such as Azure Government. You can also specify a hybrid cloud platform, like Azure Stack.|
 |Subscription | Represents the Azure subscription that contains the resources you want to manage.|
-|Tenant | A dedicated and trusted instance of Azure Active Directory that represents a single organization.|
+|Tenant | A dedicated and trusted instance of Microsoft Entra ID that represents a single organization.|
 |Credentials | The information used by Azure to verify your identity and confirm your authorization to access resources in Azure.|
 
 When an account signs on that can access several subscriptions, any of those subscriptions may be added to the user's context. To guarantee the correct subscription, you must declare it when connecting. For example, use `Add-AzAccount -Credential $Cred -subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749'`. However, issues can arise when your runbooks managing one subscription runs in the same sandbox process as your other runbooks managing resources in another subscription from the same Automation account. Changes to the context made by one runbook can affect your other runbooks using the default context. As the context includes information, such as the credentials to use and the subscription to target, cmdlets could target the wrong subscription resulting in `not found` or permissions errors. This issue is known as **Context Switching**.

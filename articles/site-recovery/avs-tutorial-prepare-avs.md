@@ -3,9 +3,9 @@ title: Prepare Azure VMware Solution for disaster recovery to Azure Site Recover
 description: Learn how to prepare Azure VMware Solution servers for disaster recovery to Azure by using the Azure Site Recovery service.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 3/22/2024
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 ---
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Prepare an account on the vCenter server to automate VM discovery.
+> * Prepare an account on the vCenter Server to automate VM discovery.
 > * Prepare an account for automatic installation of the Mobility service on VMware vSphere VMs.
 > * Review requirements and support for VMware vCenter servers and VMs.
 > * Prepare to connect to Azure VMs after failover.
@@ -47,7 +47,7 @@ Create the account as follows:
 Task | Role/Permissions | Details
 --- | --- | ---
 VM discovery | At least a read-only user<br/><br/> Data Center object > Propagate to Child Object, role=Read-only | User is assigned at the datacenter level and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
-Full replication, failover, failback |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object > Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore > Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network > Network assign<br/><br/> Resource > Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks > Create task, update task<br/><br/> Virtual machine > Configuration<br/><br/> Virtual machine > Interact > answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine > Inventory > Create, register, unregister<br/><br/> Virtual machine > Provisioning > Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine > Snapshots > Remove snapshots | User is assigned at the datacenter level and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
+Full replication, failover, failback |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object > Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore > Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network > Network assign<br/><br/> Resource > Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Scheduled Tasks > Create task, update task<br/><br/> Virtual machine > Configuration<br/><br/> Virtual machine > Interact > answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine > Inventory > Create, register, unregister<br/><br/> Virtual machine > Provisioning > Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine > Snapshots > Remove snapshots | User is assigned at the datacenter level and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ## Prepare an account for Mobility service installation
 
@@ -66,7 +66,7 @@ To prepare the account with permissions to install on the VM, take one of the fo
 
 Make sure that the VMware vCenter server and VMs comply with requirements:
 
-* Verify [Azure VMware Solution software versions](../azure-vmware/concepts-private-clouds-clusters.md#vmware-software-versions).
+* Verify [Azure VMware Solution software versions](../azure-vmware/architecture-private-clouds.md#vmware-software-versions).
 * Verify [VMware vCenter server requirements](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 * For Linux VMs, check [file system and storage requirements](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 * Check [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support.
@@ -74,9 +74,11 @@ Make sure that the VMware vCenter server and VMs comply with requirements:
 * Verify that the Azure VMware Solution VMs that you'll replicate to Azure comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 * For Linux VMs, ensure that no two devices or mount points have the same names. These names must be unique and aren't case-sensitive. For example, you can't name two devices for the same VM as *device1* and *Device1*.
 
+
 ## Prepare to connect to Azure VMs after failover
 
 After failover, you might want to connect to the Azure VMs from your Azure VMware Solution network.
+
 
 ### Connect to a Windows VM by using RDP
 
@@ -93,6 +95,7 @@ There should be no Windows updates pending on the VM when you trigger a failover
 
 After failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+
 ### Connect to Linux VMs by using SSH
 
 On the Azure VMware Solution VM before failover:
@@ -104,16 +107,14 @@ After failover, allow incoming connections to the SSH port for the network secur
 
 You can check **Boot diagnostics** to view a screenshot of the VM.
 
+
 ## Failback requirements
 
 If you plan to fail back to your Azure VMware Solution cloud, there are several [prerequisites for failback](avs-tutorial-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](avs-tutorial-replication.md)
+- Learn how to [set up disaster recovery](avs-tutorial-replication.md).
+- If you're replicating multiple VMs, perform [capacity planning](site-recovery-deployment-planner.md).
 
-If you're replicating multiple VMs:
-
-> [!div class="nextstepaction"]
-> [Perform capacity planning](site-recovery-deployment-planner.md)

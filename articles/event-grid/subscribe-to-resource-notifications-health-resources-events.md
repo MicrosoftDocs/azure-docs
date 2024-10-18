@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 09/08/2023
 ---
 
-# Subscribe to events raised by Azure Resource Notifications - Health Resources system topic
+# Subscribe to events raised by Azure Resource Notifications - Health Resources system topic (Preview)
 This article explains the steps needed to subscribe to events published by Azure Resource Notifications - Health Resources. For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
 
 ## Create Health Resources system topic
@@ -243,6 +243,7 @@ Value = Microsoft.Compute/virtualMachines
 
 ---
 
+[!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
 For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).

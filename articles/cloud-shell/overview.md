@@ -1,12 +1,12 @@
 ---
 description: Overview of the Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 03/03/2023
-ms.topic: article
+ms.date: 04/11/2024
+ms.topic: overview
 tags: azure-resource-manager
-title: Azure Cloud Shell overview
+title: What is Azure Cloud Shell?
 ---
-# Overview of Azure Cloud Shell
+# What is Azure Cloud Shell?
 
 Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure
 resources. It provides the flexibility of choosing the shell experience that best suits the way you
@@ -56,15 +56,15 @@ mounted Azure Files share. Regular storage costs apply.
 
 ## Next steps
 
-- [Cloud Shell quickstart][08]
+- [Get started with Cloud Shell (Classic)][08]
 
 <!-- link references -->
 [01]: /cli/azure
 [02]: /powershell/azure
-[03]: features.md#pre-installed-tools
+[03]: features.md#preinstalled-tools
 [04]: https://azure.microsoft.com/features/azure-portal/mobile-app/
 [05]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account
 [06]: https://portal.azure.com
 [07]: https://shell.azure.com
-[08]: quickstart.md
+[08]: get-started/classic.md
 [09]: using-cloud-shell-editor.md

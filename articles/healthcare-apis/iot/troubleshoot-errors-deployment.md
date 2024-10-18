@@ -2,18 +2,15 @@
 title: Troubleshoot MedTech service deployment errors - Azure Health Data Services
 description: Learn how to troubleshoot and fix MedTech service deployment errors.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: troubleshooting
 ms.date: 07/21/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Troubleshoot MedTech service deployment errors
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 
@@ -22,7 +19,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 >  
 > [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
-> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+> [How to configure the MedTech service metrics](configure-metrics.md)
 >
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
@@ -101,7 +98,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: MedTech service's FHIR destination resource quota is reached (default is one per MedTech service).
+**Description**: MedTech service's FHIR&reg; destination resource quota is reached (default is one per MedTech service).
 
 **Fix**: Delete the existing instance of the MedTech service's FHIR destination resource. Only one FHIR destination resource is permitted per MedTech service.
 
@@ -134,11 +131,6 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix MedTech service deployment errors. 
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

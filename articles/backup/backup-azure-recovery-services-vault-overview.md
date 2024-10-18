@@ -1,12 +1,12 @@
 ---
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
-ms.topic: conceptual
-ms.date: 01/24/2023
-ms.service: backup
+ms.topic: overview
+ms.date: 07/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 # Recovery Services vaults overview
 
@@ -24,9 +24,12 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Azure role-based access control (Azure RBAC)**: Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Recovery Services vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
-- **Soft Delete**:  With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to you. [Learn more](backup-azure-security-feature-cloud.md).
+- **Soft Delete**:  With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to you. Additionally, Azure Backup provides *Enhanced soft delete*, an improvement to the soft delete feature. With enhanced soft delete, you can *customize soft delete retention period* and make *soft delete always-on*, thus protecting it from being disabled by any malicious actors. Learn more about [Soft delete](backup-azure-security-feature-cloud.md) and [Enhanced soft delete](backup-azure-enhanced-soft-delete-about.md).
 
 - **Cross Region Restore**:  Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region. By enabling this feature at the [vault level](backup-create-rs-vault.md#set-cross-region-restore), you can restore the replicated data in the secondary region any time, when you choose. This enables you to restore the secondary region data for audit-compliance, and during outage scenarios, without waiting for Azure to declare a disaster (unlike the GRS settings of the vault). [Learn more](backup-azure-arm-restore-vms.md#cross-region-restore).
+
+- **Data isolation**: With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, which ensures the isolation of backup data from the production environment where the data source resides. This robust approach ensures that even in a compromised environment, existing backups can't be tampered or deleted by unauthorized users.
+ 
 
 ## Storage settings in the Recovery Services vault
 
@@ -52,9 +55,9 @@ Read more about how to encrypt your backup data [using customer-managed keys](en
 
 ## Azure Advisor
 
-[Azure Advisor](../advisor/index.yml) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
+[Azure Advisor](/azure/advisor/) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
 
-Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
+Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
 
 ![Screenshot shows the Azure Advisor page.](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

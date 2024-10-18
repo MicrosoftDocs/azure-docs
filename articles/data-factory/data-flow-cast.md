@@ -5,11 +5,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Cast transformation in mapping data flow 
@@ -51,6 +50,6 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 	),
 	errors: true) ~> <castTransformationName<>
 ```
-## Next steps
+## Related content
 
 Modify existing columns and new columns using the [derived column transformation](data-flow-derived-column.md).

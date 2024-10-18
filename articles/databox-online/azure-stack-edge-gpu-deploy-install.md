@@ -4,8 +4,7 @@ description: The second tutorial about installing Azure Stack Edge Pro GPU invol
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 07/05/2022
 ms.author: alkohli
@@ -253,7 +252,6 @@ The backplane of Azure Stack Edge device:
 For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 > [!NOTE]
 > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.

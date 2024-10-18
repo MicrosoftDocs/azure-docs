@@ -1,9 +1,8 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 03/31/2023
 ms.author: spelluru

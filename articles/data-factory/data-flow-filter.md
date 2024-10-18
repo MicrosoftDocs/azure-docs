@@ -5,11 +5,10 @@ description: Filter out rows using the filter transformation in a mapping data f
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Filter transformation in mapping data flow
@@ -57,6 +56,6 @@ CleanData
 
 ```
 
-## Next steps
+## Related content
 
 Filter out columns with the [select transformation](data-flow-select.md)

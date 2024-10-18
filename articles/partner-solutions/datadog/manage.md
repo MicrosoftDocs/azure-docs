@@ -56,7 +56,7 @@ You can filter the list of resources by resource type, subscription, resource gr
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
 
 - Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 - Error. The resource is configured to send logs to Datadog, but is blocked by an error.
 - Logs not configured. Only Azure resources that have the appropriate resource tags are configured to send logs to Datadog.
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
@@ -151,9 +151,9 @@ To uninstall Datadog agents on the app service, go to **App Service Extension**.
 
 If you would like to reconfigure single sign-on, select **Single sign-on** in the left pane.
 
-To establish single sign-on through Azure Active directory, select **Enable single sign-on through Azure Active Directory**.
+To establish single sign-on through Microsoft Entra ID, select **Enable single sign-on through Microsoft Entra ID**.
 
-The portal retrieves the appropriate Datadog application from Azure Active Directory. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
+The portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
 
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
 

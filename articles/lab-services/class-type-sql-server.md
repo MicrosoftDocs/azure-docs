@@ -3,14 +3,16 @@ title: Set up a lab to manage SQL databases
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to manage and develop with Azure SQL Database.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/03/2023
 ---
 
 # Set up a lab to manage and develop with SQL Server
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -111,7 +113,7 @@ Visual Studio supports several workloads including **Web & cloud** and **Desktop
 
 [Azure Data Studio](https://github.com/microsoft/azuredatastudio) is a multi-database, cross-platform desktop environment for data professionals using the family of on-premises and cloud data platforms on Windows, macOS, and Linux.
 
-1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/sql/azure-data-studio/download) download page.
+1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/azure-data-studio/download-azure-data-studio) download page.
 
 1. On the **License Agreement** page, select **I accept the agreement**, and then select **Next**.
 

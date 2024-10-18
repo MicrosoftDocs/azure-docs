@@ -123,10 +123,37 @@ var startCallOptions = new StartCallOptions();
 var callees = new [] { new UserCallIdentifier(CalleeTextBox.Text.Trim()) };
 
 this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
-this.call.nStateChanged += Call_OnStateChangedAsync;
+this.call.OnStateChanged += Call_OnStateChangedAsync;
 ```
 
 Feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
+
+## Mute and unmute
+To mute or unmute the outgoing audio you can use the `MuteOutgoingAudioAsync` and `UnmuteOutgoingAudioAsync` asynchronous APIs:
+
+```csharp
+// mute outgoing audio
+await this.call.MuteOutgoingAudioAsync();
+
+// unmute outgoing audio
+await this.call.UnmuteOutgoingAudioAsync();
+```
+
+## Mute other participants
+> [!NOTE]
+> To use this API please use the Azure Communication Services Calling Windows SDK version 1.9.0 or higher. 
+
+To mute all other participants or mute a specific participant, you can use the asynchronous APIs `MuteAllRemoteParticipantsAsync` on the call and `MuteAsync` on the remote participant:
+
+```csharp
+// mute all participants except yourself
+await this.call.MuteAllRemoteParticipantsAsync();
+
+// mute specific participant in the call
+await this.call.RemoteParticipants.FirstOrDefault().MuteAsync();
+```
+
+To notify the local participant they have been muted by others, subscribe to the `MutedByOthers` event. 
 
 ## End a call
 

@@ -1,10 +1,10 @@
 ---
 title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 05/26/2023
+ms.date: 06/15/2024
 ---
 
 # Run MapReduce jobs with Apache Hadoop on HDInsight using PowerShell
@@ -23,7 +23,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce jobs on HDInsight. Internally, PowerShell makes REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
 
-The following cmdlets are used when running MapReduce jobs in a remote HDInsight cluster.
+The following cmdlets used when running MapReduce jobs in a remote HDInsight cluster.
 
 |Cmdlet | Description |
 |---|---|

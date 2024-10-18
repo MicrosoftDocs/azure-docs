@@ -23,7 +23,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, binary data for content, and an optional Content ID to define it as an inline attachment. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
 | EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
@@ -111,9 +111,11 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const emailClient = new EmailClient(connectionString);
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
 
-You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
+#### [Microsoft Entra ID](#tab/aad)
+
+You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
 
 ```bash
 npm install @azure/identity
@@ -151,7 +153,7 @@ const emailClient = new EmailClient(endpoint, key);
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
-## Basic email sending 
+## Basic email sending
 
 ### Send an email message
 

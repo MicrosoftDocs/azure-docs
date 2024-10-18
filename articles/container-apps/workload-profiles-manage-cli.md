@@ -3,7 +3,7 @@ title: Create a workload profiles environment with the Azure CLI
 description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic:  how-to
 ms.date: 08/29/2023
@@ -152,7 +152,7 @@ Use the following commands to create a workload profiles environment.
         --name "<CONTAINER_APP_NAME>" \
         --target-port 80 \
         --ingress external \
-        --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+        --image mcr.microsoft.com/k8se/quickstart:latest \
         --environment "<ENVIRONMENT_NAME>" \
         --workload-profile-name "Consumption"
       ```
@@ -165,7 +165,7 @@ Use the following commands to create a workload profiles environment.
         --name "<CONTAINER_APP_NAME>" \
         --target-port 80 \
         --ingress internal \
-        --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+        --image mcr.microsoft.com/k8se/quickstart:latest \
         --environment "<ENVIRONMENT_NAME>" \
         --workload-profile-name "Consumption"
       ```
@@ -181,7 +181,7 @@ Use the following commands to create a workload profiles environment.
 Add a new workload profile to an existing environment.
 
 ```azurecli
-az containerapp env workload-profile set \
+az containerapp env workload-profile add \
   --resource-group <RESOURCE_GROUP> \
   --name <ENVIRONMENT_NAME> \
   --workload-profile-type <WORKLOAD_PROFILE_TYPE> \
@@ -196,10 +196,10 @@ Using friendly names allow you to add multiple profiles of the same type to an e
 
 ## Edit profiles
 
-You can modify the minimum and maximum number of nodes used by a workload profile via the `set` command.
+You can modify the minimum and maximum number of nodes used by a workload profile via the `update` command.
 
 ```azurecli
-az containerapp env workload-profile set \
+az containerapp env workload-profile update \
   --resource-group <RESOURCE_GROUP> \
   --name <ENV_NAME> \
   --workload-profile-type <WORKLOAD_PROFILE_TYPE> \

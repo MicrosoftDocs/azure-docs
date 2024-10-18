@@ -21,7 +21,7 @@ If you have an existing network that you're ready to use with Azure Center for S
 ## Prerequisites
 
 - An Azure subscription.
-- [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
+- [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 - It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
 - The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
@@ -52,7 +52,7 @@ If internet connectivity isn't possible, allowlist the IP addresses for the foll
 - [SUSE or Red Hat endpoints](#allowlist-suse-or-red-hat-endpoints)
 - [Azure Storage accounts](#allowlist-storage-accounts)
 - [Allowlist Azure Key Vault](#allowlist-key-vault)
-- [Allowlist Azure Active Directory (Azure AD)](#allowlist-azure-ad)
+- [Allowlist Microsoft Entra ID](#allowlist-azure-ad)
 - [Allowlist Azure Resource Manager](#allowlist-azure-resource-manager)
 
 Then, make sure all resources within the virtual network can connect to each other. For example, [configure a network security group](../../virtual-network/manage-network-security-group.md#work-with-network-security-groups) to allow resources within the virtual network to communicate by listening on all ports.
@@ -67,13 +67,13 @@ If it's not possible to allow the resources within the virtual network to connec
 
 If you're using SUSE for the VMs, [allowlist the SUSE endpoints](https://www.suse.com/c/azure-public-cloud-update-infrastructure-101/). For example:
 
-1. Create a VM with any OS [using the Azure portal](../../virtual-machines/linux/quick-create-portal.md) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
+1. Create a VM with any OS [using the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
 1. Install *pip3* by running `zypper install python3-pip`.
 1. Install the *pip* package *susepubliccloudinfo* by running `pip3 install susepubliccloudinfo`.
 1. Get a list of IP addresses to configure in the network and firewall by running `pint microsoft servers --json --region` with the appropriate Azure region parameter.
 1. Allowlist all these IP addresses on the firewall or network security group where you're planning to attach the subnets.
 
-If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
+If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
 
 ### Allowlist storage accounts
 
@@ -97,9 +97,11 @@ Azure Center for SAP solutions creates a key vault to store and access the secre
 - Configure a [**AzureKeyVault** service tag](../../virtual-network/service-tags-overview.md#available-service-tags)
 - Configure an [**AzureKeyVault** service tag](../../virtual-network/service-tags-overview.md#available-service-tags) with regional scope. Make sure to configure the tag in the region where you're deploying the infrastructure.
 
-### Allowlist Azure AD
+<a name='allowlist-azure-ad'></a>
 
-Azure Center for SAP solutions uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD, you can:
+### Allowlist Microsoft Entra ID
+
+Azure Center for SAP solutions uses Microsoft Entra ID to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Microsoft Entra ID, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureActiveDirectory** service tag](../../virtual-network/service-tags-overview.md#available-service-tags).
@@ -177,7 +179,7 @@ The configuration process for an example network might include:
     | -------- | ---- | -------- | ------ | ----------- | ------ |
     | 110 | Any | Any | Any | SUSE or Red Hat endpoints | Allow |
     | 115 | Any | Any | Any | Azure Resource Manager  | Allow |
-    | 116 | Any | Any | Any | Azure AD | Allow |
+    | 116 | Any | Any | Any | Microsoft Entra ID | Allow |
     | 117 | Any | Any | Any | Storage accounts | Allow |
     | 118 | 8080 | Any | Any | Key vault | Allow |
     | 119 | Any | Any | Any | virtual network | Allow |

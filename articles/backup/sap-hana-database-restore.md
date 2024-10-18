@@ -2,9 +2,8 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 07/31/2023
-ms.service: backup
-ms.custom: ignite-2022
+ms.date: 03/26/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -349,6 +348,8 @@ The secondary region restore user experience is similar to the primary region re
 >* The role and access level that are required to perform a restore operation in cross-regions are the Backup Operator role in the subscription and Contributor (write) access on the source and target virtual machines. To view backup jobs, Backup reader is the minimum permission that's required in the subscription.
 >* The recovery point objective (RPO) for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is *12 hours + log frequency duration* (which can be set to a minimum of 15 minutes).
 
+Learn about the [minimum role requirements for cross-region restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
+
 ### Monitor secondary region restore jobs
 
 1. In the Azure portal, go to **Backup center**, and then select **Backup Jobs**.
@@ -366,6 +367,16 @@ With Cross Subscription Restore (CSR), you have the flexibility of restoring to 
 >- You can trigger Cross Subscription Restore from Recovery Services vault.
 >- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
 >- Cross Regional Restore (CRR) with CSR is not supported.
+
+**Cross Subscription Restore to a Private Endpoint enabled vault**
+
+To perform Cross Subscription Restore to a Private Endpoint enabled vault:
+
+1. In the *source Recovery Services vault*, go to the **Networking** tab.
+2. Go to the **Private access** section and create **Private Endpoints**.
+3. Select the *subscription* of the target vault in which you want to restore.
+4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
+5. Create the **Private Endpoint** and trigger the restore process.
 
 **Azure RBAC  requirements**
 
@@ -402,6 +413,7 @@ Add the parameter `--target-subscription-id` that enables you to provide the tar
    az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
 
 ```
+
 
 ## Next steps
 

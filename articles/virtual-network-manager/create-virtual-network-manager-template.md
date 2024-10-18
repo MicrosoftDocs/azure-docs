@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 08/15/2023
 ms.topic: quickstart
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -16,12 +16,7 @@ Get started with Azure Virtual Network Manager by using Azure Resource Manager t
 
 In this quickstart, an Azure Resource Manager template is used to deploy Azure Virtual Network Manager with different connectivity topology and network group membership types. Use deployment parameters to specify the type of configuration to deploy.
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

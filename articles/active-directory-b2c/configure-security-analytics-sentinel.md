@@ -2,16 +2,16 @@
 title: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
 titleSuffix: Azure AD B2C
 description: Use Microsoft Sentinel to perform security analytics for Azure Active Directory B2C data.
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: tutorial
-ms.date: 03/06/2023
+ms.date: 07/31/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As an IT professional, I want to gather logs and audit data using Microsoft Sentinel and Azure Monitor to secure applications that use Azure Active Directory B2C.
 ---
 

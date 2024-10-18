@@ -4,8 +4,7 @@ description: Describes how to create and manage virtual machines (VMs) on an Azu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
@@ -114,7 +113,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 7. Prepare your environment for the Azure CLI:
 
-   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Set up Azure CLI/Python on the client
 
@@ -437,4 +436,4 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 ## Next steps
 
-[Common Az CLI commands for Linux virtual machines](../virtual-machines/linux/cli-manage.md)
+[Common Az CLI commands for Linux virtual machines](/azure/virtual-machines/linux/cli-manage)

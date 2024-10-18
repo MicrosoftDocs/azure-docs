@@ -2,11 +2,11 @@
 title: Best practices for Using and Monitoring the Server Load
 titleSuffix: Azure Cache for Redis
 description: Learn how to use and monitor your server load for Azure Cache for Redis.
-author: flang-msft
-ms.service: cache
+
+
 ms.topic: conceptual
 ms.date: 12/30/2021
-ms.author: franlanglois
+
 ---
 
 # Manage Server Load for Azure Cache for Redis
@@ -43,6 +43,8 @@ Currently, Azure Cache For Redis exposes two metrics in **Insights** under **Mon
 The **CPU** metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
 
 The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
+
+When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
 
 ## Plan for server maintenance
 

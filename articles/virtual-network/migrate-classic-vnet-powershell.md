@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about migrating a virtual network from the classic deployment model to the Resource Manager model.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 01/25/2022
 ms.custom: template-how-to, devx-track-azurepowershell
@@ -36,7 +36,7 @@ The following scenarios are supported for a classic to Resource Manager migratio
 
 * Classic Virtual Networks with one availability set per cloud service at the most.
 
-* Classic Virtual Networks that contain Azure AD Domain services.
+* Classic Virtual Networks that contain Microsoft Entra Domain Services.
 
 * Classic Virtual Networks with a single VPN gateway or a single Express Route circuit.
 
@@ -156,6 +156,6 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 For more information on migrating resources in Azure from classic to Resource Manager, see:
 
-- [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
-- [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.yml).
-- [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md).
+- [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
+- [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-faq).
+- [Planning for migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-plan).

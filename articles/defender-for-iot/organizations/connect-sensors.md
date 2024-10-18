@@ -175,7 +175,7 @@ For more information, see:
 
 Define an Azure virtual machine scale set to create and manage a group of load-balanced virtual machine, where you can automatically increase or decrease the number of virtual machines as needed.
 
-For more information, see [What are virtual machine scale sets?](../../virtual-machine-scale-sets/overview.md)
+For more information, see [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 
 **To create a scale set to use with your sensor connection**:
 
@@ -200,7 +200,7 @@ For more information, see [What are virtual machine scale sets?](../../virtual-m
 
     - For the upgrade mode, select **Automatic - instance will start upgrading**
     - Disable boot diagnostics
-    - Clear the settings for **Identity** and **Azure AD**
+    - Clear the settings for **Identity** and **Microsoft Entra ID**
     - Select **Overprovisioning**
     - Select **Enabled automatic OS upgrades**
 
@@ -423,4 +423,3 @@ If you don't configure these settings during deployment, you can also return and
 
 > [!div class="step-by-step"]
 > [Control the OT traffic monitored by Microsoft Defender for IoT »](how-to-control-what-traffic-is-monitored.md)
-

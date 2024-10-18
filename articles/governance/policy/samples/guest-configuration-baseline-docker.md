@@ -2,10 +2,15 @@
 title: Reference - Azure Policy guest configuration baseline for Docker
 description: Details of the Docker baseline on Azure implemented through Azure Policy guest configuration.
 ms.date: 05/17/2022
+author: michaeltlombardi
+ms.author: mlombardi
 ms.topic: reference
 ms.custom: generated
 ---
 # Docker security baseline
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article details the configuration settings for Docker hosts as applicable in the following
 implementations:
@@ -15,7 +20,7 @@ implementations:
   Security Center
 
 For more information, see [Understand the guest configuration feature of Azure Policy](../../machine-configuration/overview.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
 
 ## General security controls
 

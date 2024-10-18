@@ -3,9 +3,9 @@ title: Create and manage tests
 titleSuffix: Azure Load Testing
 description: 'Learn how to create and manage tests in your Azure Load Testing resource.'
 services: load-testing
-ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.service: azure-load-testing
+ms.author: ninallam
+author: ninallam
 ms.date: 05/10/2023
 ms.topic: how-to
 ---
@@ -240,4 +240,4 @@ To delete a test in the Azure portal:
 
 - [Create and manage test runs](./how-to-create-manage-test-runs.md)
 - [Identify performance bottlenecks with Azure Load Testing in the Azure portal](./quickstart-create-and-run-load-test.md)
-- [Set up automated load testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md)
+- [Set up automated load testing with CI/CD](./quickstart-add-load-test-cicd.md)

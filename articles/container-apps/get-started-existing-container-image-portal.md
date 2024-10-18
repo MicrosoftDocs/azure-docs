@@ -3,10 +3,9 @@ title: 'Quickstart: Deploy an existing container image in the Azure portal'
 description: Deploy an existing container image to Azure Container Apps using the Azure portal.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/13/2021
+ms.date: 10/14/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
@@ -46,7 +45,7 @@ In the *Basics* tab, do the following actions.
 |---|---|
 | Subscription | Select your Azure subscription. |
 | Resource group | Select **Create new** and enter **my-container-apps**. |
-| Container app name |  Enter **my-container-app**. |
+| Container app name | Enter **my-container-app**. |
 
 #### Create an environment
 
@@ -115,17 +114,17 @@ If you enabled ingress, configure the following settings:
 
     Next, the settings in the Container App are verified. If no errors are found, the *Create* button is enabled.  
 
-    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error will be highlighted in red.  Once all errors are fixed, select **Review and create** again.
+    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error is highlighted in red. Once all errors are fixed, select **Review and create** again.
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message: *Your deployment is complete*.
+    A page with the message *Deployment is in progress* is displayed. Once the deployment is successfully completed, you see the message: *Your deployment is complete*.
 
 ### Verify deployment
 
-You can verify your deployment is successful by querying the Log Analytics workspace. You may need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you are able to query the logs.
+You can verify your deployment is successful by querying the Log Analytics workspace. You might need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you're able to query the logs.
 
-After about 5 to 10 minutes has passed after creating the container app, use the following steps to view logged messages.
+After 5 to 10 minutes of creating the container app, follow these steps to view logged messages:
 
 1. Select **Go to resource** to view your new container app.
 1. Select **Logs** under the *Monitoring* header.
@@ -147,7 +146,7 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
 1. Select **Delete**.  
-    The process to delete the resource group may take a few minutes to complete.
+    The process to delete the resource group might take a few minutes to complete.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

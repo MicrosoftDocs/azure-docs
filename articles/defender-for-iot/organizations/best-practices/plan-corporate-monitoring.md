@@ -60,7 +60,7 @@ For example:
 
 Understand who in your organization will be using Defender for IoT, and what their use cases are. While your security operations center (SOC) and IT personnel will be the most common users, you may have others in your organization who will need read-access to resources in Azure or on local resources.
 
-- **In Azure**, user assignments are based on their Azure Active Directory and RBAC roles. If you're segmenting your network into multiple sites, decide which permissions you'll want to apply per site.
+- **In Azure**, user assignments are based on their Microsoft Entra ID and RBAC roles. If you're segmenting your network into multiple sites, decide which permissions you'll want to apply per site.
 
 - **OT network sensors** support both local users and Active Directory synchronizations. If you'll be using Active Directory, make sure that you have the access details for the Active Directory server.
 

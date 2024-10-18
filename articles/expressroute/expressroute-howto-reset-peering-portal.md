@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Reset circuit peerings by using the Azure portal'
 description: Learn how to disable and enable peerings of an Azure ExpressRoute circuit by using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau

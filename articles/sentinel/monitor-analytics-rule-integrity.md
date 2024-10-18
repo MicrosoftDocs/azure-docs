@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 02/20/2023
+
+
+#Customer intent: As a security analyst, I want to monitor and audit the health and integrity of my analytics rules so that I can ensure uninterrupted and tampering-free threat detection.
+
 ---
 
 # Monitor the health and audit the integrity of your analytics rules
@@ -99,7 +103,7 @@ Here are some sample queries to help you get started:
     | where Status != "Success"
     ``` 
 
-- Find rules that have been "[auto-disabled](detect-threats-custom.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
+- Find rules that have been "[auto-disabled](troubleshoot-analytics-rules.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
 
     ```kusto
     _SentinelHealth()

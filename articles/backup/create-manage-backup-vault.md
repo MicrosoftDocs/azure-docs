@@ -2,9 +2,9 @@
 title: Create and manage Backup vaults
 description: Learn how to create and manage the Backup vaults.
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 02/01/2024
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -220,7 +220,7 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Cause**: You may face this error if you try to move multiple Backup vaults  in a single attempt. 
 
-**Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
+**Recommendation**: Ensure that only one Backup vault is selected for every move operation. 
 
 #### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
 
@@ -240,13 +240,13 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
 
-## Perform Cross Region Restore using Azure portal (preview)
+## Perform Cross Region Restore using Azure portal
 
-Follow these steps:
+The Cross Region Restore option allows you to restore data in a secondary Azure paired region. To configure Cross Region Restore for the backup vault:  
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Backup vault](create-manage-backup-vault.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore (Preview)**, and choose **Enable**.
+1. [Create a new Backup vault](create-manage-backup-vault.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore**, and choose **Enable**.
 
    :::image type="content" source="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png" alt-text="Screenshot shows how to enable Cross Region Restore for PostgreSQL database." lightbox="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png":::
 
@@ -258,9 +258,9 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png" alt-text="Screenshot shows how to check availability for the recovery points in the secondary region." lightbox="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png":::
 
-1. The recovery points available in the secondary region are now listed.
+   The recovery points available in the secondary region are now listed.
 
-   Choose **Restore to secondary region**.
+1. Select **Restore to secondary region**.
 
    :::image type="content" source="./media/backup-vault-overview/initiate-restore-to-secondary-region.png" alt-text="Screenshot shows how to initiate restores to the secondary region." lightbox="./media/backup-vault-overview/initiate-restore-to-secondary-region.png":::
 
@@ -273,6 +273,9 @@ Follow these steps:
 1. Once the restore starts, you can monitor the completion of the restore operation under **Backup Jobs** of the Backup vault by filtering **Jobs workload type** to *Azure Database for PostgreSQL servers* and **Instance Region** to *Secondary Region*.
 
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
+
+> [!NOTE]
+> Cross Region Restore is currently only available for PostGreSQL servers.
 
 ## Cross Subscription Restore using Azure portal
 
@@ -298,7 +301,8 @@ You can also select the state of CSR  during the creation of Backup vault.
 >- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation.
 >- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting **Vault** > **Properties** > **Cross Subscription Restore** > **Enable**.
 >- If a Backup vault is moved to a different subscription when CSR is disabled or permanently disabled, restore to the original subscription will fail.
- 
+
+
 ## Next steps
 
 - [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)

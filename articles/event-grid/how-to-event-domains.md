@@ -117,7 +117,7 @@ New-AzEventGridSubscription `
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
 
 Permissions that are set for a topic are stored in Microsoft Entra ID and must be deleted explicitly. Deleting an event subscription doesn't revoke a users access to create event subscriptions if they've write access on a topic.
 
@@ -193,7 +193,7 @@ And then use your favorite method of making an HTTP POST to publish your events 
 > [!NOTE]
 > For samples that use programming language SDKs to publish events to an Event Grid domain, use the following links: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventgrid/Azure.Messaging.EventGrid/samples/Sample2_PublishEventsToDomain.md#publishing-events-to-an-event-grid-domain)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/samples/sync_samples/sample_publish_eg_events_to_a_domain.py)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/samples/basic/sync_samples/sample_publish_eg_events_to_a_domain.py)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventgrid/azure-messaging-eventgrid-cloudnative-cloudevents/src/samples/java/com/azure/messaging/eventgrid/cloudnative/cloudevents/samples/PublishNativeCloudEventToDomainAsync.java)
 
 ## Search lists of topics or subscriptions

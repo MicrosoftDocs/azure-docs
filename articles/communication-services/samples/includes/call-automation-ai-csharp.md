@@ -46,7 +46,7 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-##### 2. Add a Managed Identity to the ACS Resource that connects to the Azure AI services resource
+##### 2. Add a Managed Identity to the Azure Communication Services Resource that connects to the Azure AI services resource
 Follow the instructions in this [documentation](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
 ##### 3. Add the required API Keys and endpoints
@@ -55,9 +55,9 @@ Open the appsettings.json file to configure the following settings:
 - `DevTunnelUri`: your dev tunnel endpoint
 - `CognitiveServiceEndpoint`: The Azure AI services endpoint
 - `AcsConnectionString`: Azure Communication Service resource's connection string.
-- `AzureOpenAIServiceKey`: Open AI's Service Key
-- `AzureOpenAIServiceEndpoint`: Open AI's Service Endpoint
-- `AzureOpenAIDeploymentModelName`: Open AI's Model name
+- `AzureOpenAIServiceKey`: Azure OpenAI Service Key
+- `AzureOpenAIServiceEndpoint`: Azure OpenAI Service Endpoint
+- `AzureOpenAIDeploymentModelName`: Azure OpenAI Model name
 
 
 ## Run the application
@@ -67,7 +67,7 @@ Open the appsettings.json file to configure the following settings:
 3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification).
 
 
-Once that's completed, you should have a running application. The best way to test this sample is to place a call to your ACS phone number and talk to your intelligent agent.
+Once that's completed, you should have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 
 ## Next steps
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).

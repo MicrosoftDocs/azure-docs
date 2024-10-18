@@ -1,9 +1,9 @@
 ---
 title: Granular role-based access Azure HDInsight cluster configurations
 description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Migrate to granular role-based access for cluster configurations
@@ -177,7 +177,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### Using the Azure portal
 
-You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## FAQ
 
@@ -187,9 +187,9 @@ Cluster configurations are now behind granular role-based access control and req
 
 ### Why do I see "Insufficient privileges to complete the operation" when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
 
-In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Azure AD permissions to look up the object IDs of the assignee. This message indicates insufficient Azure AD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az-role-assignment-create) for more info.
+In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Microsoft Entra permissions to look up the object IDs of the assignee. This message indicates insufficient Microsoft Entra permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az-role-assignment-create) for more info.
 
-If it still does not work, contact your Azure AD admin to acquire the correct permissions.
+If it still does not work, contact your Microsoft Entra admin to acquire the correct permissions.
 
 ### What will happen if I take no action?
 

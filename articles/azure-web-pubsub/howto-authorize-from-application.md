@@ -1,154 +1,127 @@
 ---
-title: Authorize request to Web PubSub resources with Microsoft Entra ID from applications
-description: This article provides information about authorizing request to Web PubSub resources with Microsoft Entra ID from applications
+title: Authorize an application request by using Microsoft Entra ID
+description: Learn how to authorize an application request to Web PubSub resources by using Microsoft Entra ID.
 author: terencefan
-
 ms.author: tefa
-ms.date: 11/08/2021
+ms.date: 10/12/2024
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize request to Web PubSub resources with Microsoft Entra ID from Azure applications
+# Authorize an application request by using Microsoft Entra ID
 
-Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
+Azure Web PubSub supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
 
-This article shows how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from an Azure application.
+This article shows you how to configure your Web PubSub resource and code to authorize a request to a Web PubSub resource from an Azure application.
 
 ## Register an application
 
 The first step is to register an Azure application.
 
-1. On the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Entra ID**
-2. Under **Manage** section, select **App registrations**.
-3. Click **New registration**.
+1. In the [Azure portal](https://portal.azure.com/), search for and then select **Microsoft Entra ID**.
+1. On the left menu under **Manage**, select **App registrations**.
+1. Select **New registration**.
+1. For **Name**, enter a name to use for your application.
+1. Select **Register** to confirm the application registration.
 
-   ![Screenshot of registering an application.](./media/howto-authorize-from-application/register-an-application.png)
+:::image type="content" source="media/howto-authorize-from-application/register-an-application.png" alt-text="Screenshot that shows registering an application.":::
 
-4. Enter a display **Name** for your application.
-5. Click **Register** to confirm the register.
+When your application is registered, go to the application overview to view the values for **Application (client) ID** and **Directory (tenant) ID**. You use these values in the following sections.
 
-Once you have your application registered, you can find the **Application (client) ID** and **Directory (tenant) ID** under its Overview page. These GUIDs can be useful in the following steps.
+:::image type="content" source="media/howto-authorize-from-application/application-overview.png" alt-text="Screenshot that shows an application.":::
 
-![Screenshot of an application.](./media/howto-authorize-from-application/application-overview.png)
-
-To learn more about registering an application, see
-
-- [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+For more information about registering an application, see the quickstart [Register an application by using the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 ## Add credentials
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
-### Client secret
+For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
-The application requires a client secret to prove its identity when requesting a token. To create a client secret, follow these steps.
+### Add a client secret
 
-1. Under **Manage** section, select **Certificates & secrets**
-1. On the **Client secrets** tab, click **New client secret**.
-   ![Screenshot of creating a client secret.](./media/howto-authorize-from-application/new-client-secret.png)
-1. Enter a **description** for the client secret, and choose a **expire time**.
-1. Copy the value of the **client secret** and then paste it to a secure location.
+The application requires a client secret for a client to prove its identity when it requests a token.
+
+To create a client secret:
+
+1. On the left menu under **Manage**, select **Certificates & secrets**.
+1. On the **Client secrets** tab, select **New client secret**.
+
+   :::image type="content" source="media/howto-authorize-from-application/new-client-secret.png" alt-text="Screenshot that shows creating a client secret.":::
+
+1. Enter a description for the client secret, and then choose an **Expires** time for the secret.
+1. Copy the value of the client secret and paste it in a secure location for later use.
+
    > [!NOTE]
-   > The secret will display only once.
+   > The secret is visible only when you create the secret. You can't view the client secret in the portal later.
 
-### Certificate
+### Add a certificate
 
-You can also upload a certification instead of creating a client secret.
+You can upload a certificate instead of creating a client secret.
 
-![Screenshot of uploading a certification.](./media/howto-authorize-from-application/upload-certificate.png)
+:::image type="content" source="media/howto-authorize-from-application/upload-certificate.png" alt-text="Screenshot that shows uploading a certificate.":::
 
-To learn more about adding credentials, see
+## Add a role assignment in the Azure portal
 
-- [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials)
-
-## Add role assignments on Azure portal
-
-This sample shows how to assign a `Web PubSub Service Owner` role to a service principal (application) over a Web PubSub resource.
+This section demonstrates how to assign a Web PubSub Service Owner role to a service principal (application) for a Web PubSub resource.
 
 > [!NOTE]
-> A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
+> You can assign a role to any scope, including management group, subscription, resource group, and single resource. For more information about scope, see [Understand scope for Azure role-based access control](../role-based-access-control/scope-overview.md).
 
-1. On the [Azure portal](https://portal.azure.com/), navigate to your Web PubSub resource.
+1. In the [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
 
-1. Click **Access Control (IAM)** to display access control settings for the Azure Web PubSub.
+1. On the left menu, select **Access control (IAM)** to display access control settings for the resource.
 
-1. Click the **Role assignments** tab to view the role assignments at this scope.
+1. Select the **Role assignments** tab and view the role assignments at this scope.
 
-   The following screenshot shows an example of the Access control (IAM) page for a Web PubSub resource.
+   The following figure shows an example of the **Access control (IAM)** pane for a Web PubSub resource:
 
-   ![Screenshot of access control.](./media/howto-authorize-from-application/access-control.png)
+   :::image type="content" source="media/howto-authorize-from-application/access-control.png" alt-text="Screenshot that shows an example of the Access control (IAM) pane.":::
 
-1. Click **Add > Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the **Roles** tab, select `Web PubSub Service Owner`.
+1. Select the **Roles** tab, and then select **Web PubSub Service Owner**.
 
-1. Click **Next**.
+1. Select **Next**.
 
-   ![Screenshot of adding role assignment.](./media/howto-authorize-from-application/add-role-assignment.png)
+   :::image type="content" source="media/howto-authorize-from-application/add-role-assignment.png" alt-text="Screenshot that shows adding a role assignment.":::
 
-1. On the **Members** tab, under **Assign access to** section, select **User, group, or service principal**.
+1. Select the **Members** tab. Under **Assign access to**, select **User, group, or service principal**.
 
-1. Click **Select Members**
+1. Choose **Select members**.
 
-1. Search for and select the application that you would like to assign the role to.
+1. Search for and select the application to assign the role to.
 
-1. Click **Select** to confirm the selection.
+1. Choose **Select** to confirm the selection.
 
-1. Click **Next**.
+1. Select **Next**.
 
-   ![Screenshot of assigning role to service principals.](./media/howto-authorize-from-application/assign-role-to-service-principals.png)
+   :::image type="content" source="media/howto-authorize-from-application/assign-role-to-service-principals.png" alt-text="Screenshot that shows assigning a role to service principals.":::
 
-1. Click **Review + assign** to confirm the change.
+1. Select **Review + assign** to confirm the change.
 
 > [!IMPORTANT]
-> Azure role assignments may take up to 30 minutes to propagate.
-> To learn more about how to assign and manage Azure role assignments, see these articles:
+> Azure role assignments might take up to 30 minutes to propagate.
 
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
-- [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
-- [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-- [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
-- [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
+To learn more about how to assign and manage Azure role assignments, see these articles:
 
-## Use Postman to get the Microsoft Entra token
+- [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles by using REST API](../role-based-access-control/role-assignments-rest.md)
+- [Assign Azure roles by using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Assign Azure roles by using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles by using an Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
 
-1. Launch Postman
+## Code samples that use Microsoft Entra authorization
 
-2. For the method, select **GET**.
-
-3. For the **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the **Directory (tenant) ID** value in the **Overview** tab of the application you created earlier.
-
-4. On the **Headers** tab, add **Content-Type** key and `application/x-www-form-urlencoded` for the value.
-
-   ![Screenshot of the basic info using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
-
-5. Switch to the **Body** tab, and add the following keys and values.
-   1. Select **x-www-form-urlencoded**.
-   2. Add `grant_type` key, and type `client_credentials` for the value.
-   3. Add `client_id` key, and paste the value of **Application (client) ID** in the **Overview** tab of the application you created earlier.
-   4. Add `client_secret` key, and paste the value of client secret you noted down earlier.
-   5. Add `resource` key, and type `https://webpubsub.azure.com` for the value.
-
-   ![Screenshot of the body parameters when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png)
-
-6. Select **Send** to send the request to get the token. You see the token in the `access_token` field.
-
-   ![Screenshot of the response token when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
-
-## Sample codes using Microsoft Entra authorization
-
-We officially support 4 programming languages:
+Get samples that use Microsoft Entra authorization in our four officially supported programming languages:
 
 - [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
 - [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
 - [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
 - [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
-## Next steps
-
-See the following related articles:
+## Related content
 
 - [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
-- [Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
+- [Use Microsoft Entra ID to authorize a request from a managed identity to Web PubSub resources](howto-authorize-from-managed-identity.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

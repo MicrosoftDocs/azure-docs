@@ -1,29 +1,25 @@
 ---
-title: Create and run .NET Framework code from Standard workflows
-description: Write and run code using the .NET Framework from Standard workflows in Azure Logic Apps.
+title: Create and run .NET code from Standard workflows
+description: Write and run .NET code inline for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 08/07/2023
-# Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
+ms.date: 09/06/2024
+# Customer intent: As a logic app workflow developer, I want to write and run my own .NET code to perform custom integration tasks.
 ---
 
-# Create and run .NET Framework code from Standard workflows in Azure Logic Apps (preview)
+# Create and run .NET code from Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+For integration solutions where you have to author and run .NET code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
 
-For integration solutions where you have to author and run .NET Framework code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
-
-- Create code that has the flexibility and control to solve your most challenging integration problems.
+- Write your own code by creating functions that have the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
 - Deploy code alongside your workflows. No other service plans are necessary.
-- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
+- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET investments from on premises to the cloud.
 
 With the capability to write your own code, you can accomplish scenarios such as the following:
 
@@ -33,7 +29,7 @@ With the capability to write your own code, you can accomplish scenarios such as
 - Message shaping for outbound messages to another system, such as an API
 - Calculations
 
-However, custom code isn't suitable for scenarios such as the following:
+This capability isn't suitable for scenarios such as the following:
 
 - Processes that take more than 10 minutes to run
 - Large message and data transformations
@@ -46,17 +42,19 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- The most recent Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-  - The custom code capability is currently available only in Visual Studio Code, running on a Windows operating system.
+  - The custom functions capability is currently available only in Visual Studio Code, running on a Windows operating system.
 
-  - This capability currently supports calling .NET Framework 4.7.2 assemblies. 
+  - The custom functions capability currently supports calling .NET Framework and .NET 8 for Azure-hosted logic app workflows.
 
 - A local folder to use for creating your code project
 
 ## Limitations
 
-Custom code authoring currently isn't available in the Azure portal. However, after you deploy your custom code to Azure, you can use the **Call a local function in this logic app** built-in action and deployed functions to run code and reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
+- Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) for the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
+
+- Custom functions use an isolated worker to invoke the code in your logic app workflow. To avoid package references conflicts between your own function code and the worker, use the same package versions referenced by the worker. For the full package list and versions referenced by the worker, see [Worker and package dependencies](https://github.com/Azure/logicapps/blob/master/articles/worker-packages-dependencies-custom-code.pdf).
 
 ## Create a code project
 
@@ -72,37 +70,46 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
    :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, Workspace section toolbar, and selected option for Create new logic app workspace.":::
 
-1. In the **Create new logic app workspace** prompt that appears, find and select the local folder that you created for your project.
+1. In the **Select folder** box, browse to and select the local folder that you created for your project.
 
-   :::image type="content" source="media/create-run-custom-code-functions/select-local-folder.png" alt-text="Screenshot shows Visual Studio Code with prompt to select a local folder for workflow project.":::
+1. When the **Create new logic app workspace** prompt box appears, provide a name for your workspace:
 
-1. Follow the prompts to provide the following example values:
+   :::image type="content" source="media/create-run-custom-code-functions/workspace-name.png" alt-text="Screenshot shows Visual Studio Code with prompt to enter workspace name.":::
+
+   This example continues with **MyLogicAppWorkspace**.
+
+1. When the **Select a project template for your logic app workspace** prompt box appears, select **Logic app with custom code project**.
+
+   :::image type="content" source="media/create-run-custom-code-functions/project-template.png" alt-text="Screenshot shows Visual Studio Code with prompt to select project template for logic app workspace.":::
+
+1. For Azure-hosted Standard logic app workflows, follow the prompt to select either **.NET Framework** or **.NET 8**.
+
+1. Follow the subsequent prompts to provide the following example values:
 
    | Item | Example value |
    |------|---------------|
-   | Workspace name | **MyLogicAppWorkspace** |
-   | Function name | **WeatherForecast** |
-   | Namespace name | **Contoso.Enterprise** |
+   | Function name for your .NET functions project | **WeatherForecast** |
+   | Namespace name for your .NET functions project | **Contoso.Enterprise** |
    | Workflow template: <br>- **Stateful Workflow** <br>- **Stateless Workflow** | **Stateful Workflow** |
    | Workflow name | **MyWorkflow** |
 
 1. Select **Open in current window**.
 
-   After you finish this step, Visual Studio Code creates your workspace, which includes a function project and a logic app workflow project, by default, for example:
+   After you finish this step, Visual Studio Code creates your workspace, which includes a .NET functions project and a logic app project, by default, for example:
 
    :::image type="content" source="media/create-run-custom-code-functions/created-workspace.png" alt-text="Screenshot shows Visual Studio Code with created workspace.":::
 
    | Node | Description |
    |------|-------------|
-   | **<*workspace-name*>** | Contains both your function project and logic app workflow project. |
-   | **Functions** | Contains the artifacts for your function project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
+   | **<*workspace-name*>** | Contains both your .NET functions project and logic app workflow project. |
+   | **Functions** | Contains the artifacts for your .NET functions project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
    | **LogicApp** | Contains the artifacts for your logic app project, including a blank workflow. |
 
 ## Write your code
 
 1. In your workspace, expand the **Functions** node, if not already expanded.
 
-1. Open the **<*function-name*>.cs** file.
+1. Open the **<*function-name*>.cs** file, which is named **WeatherForecast.cs** in this example.
 
    By default, this file contains sample code that has the following code elements along with the previously provided example values where appropriate:
 
@@ -127,20 +134,32 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
        using System.Threading.Tasks;
        using Microsoft.Azure.Functions.Extensions.Workflows;
        using Microsoft.Azure.WebJobs;
+       using Microsoft.Extensions.Logging;
 
        /// <summary>
        /// Represents the WeatherForecast flow invoked function.
        /// </summary>
-       public static class WeatherForecast
+       public class WeatherForecast
        {
+
+           private readonly ILogger<WeatherForecast> logger;
+
+           public WeatherForecast(ILoggerFactory loggerFactory)
+           {
+               logger = loggerFactory.CreateLogger<WeatherForecast>();
+           }
+
            /// <summary>
            /// Executes the logic app workflow.
            /// </summary>
            /// <param name="zipCode">The zip code.</param>
            /// <param name="temperatureScale">The temperature scale (e.g., Celsius or Fahrenheit).</param>
            [FunctionName("WeatherForecast")]
-           public static Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
+           public Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
            {
+
+               this.logger.LogInformation("Starting WeatherForecast with Zip Code: " + zipCode + " and Scale: " + temperatureScale);
+
                // Generate random temperature within a range based on the temperature scale
                Random rnd = new Random();
                var currentTemp = temperatureScale == "Celsius" ? rnd.Next(1, 30) : rnd.Next(40, 90);
@@ -160,7 +179,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
            }
 
            /// <summary>
-           /// Represents the weather information.
+           /// Represents the weather information for WeatherForecast.
            /// </summary>
            public class Weather
            {
@@ -188,7 +207,28 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    }
    ```
 
-   The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+   The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom functions feature, such as passing different inputs and outputs, including complex .NET types.
+
+   The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows, for example:
+
+   ```csharp
+   private readonly ILogger<WeatherForecast> logger;
+
+   public WeatherForecast(ILoggerFactory loggerFactory)
+   {
+       logger = loggerFactory.CreateLogger<WeatherForecast>();
+   }
+
+   [FunctionName("WeatherForecast")]
+   public Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
+   {
+
+       this.logger.LogInformation("Starting WeatherForecast with Zip Code: " + zipCode + " and Scale: " + temperatureScale);
+
+       <...>
+
+   }
+   ```
 
 1. Replace the sample function code with your own, and edit the default `Run` method for your own scenarios. Or, you can copy the function, including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function with a unique name. You can then edit the renamed function to meet your needs.
 
@@ -196,7 +236,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom code to run. These tasks put the assemblies in the **lib\custom\net472** folder.
+After you finish writing your code, compile to make sure that no build errors exist. Your .NET functions project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** or **lib\custom\net8** folder, based on your .NET version.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -218,13 +258,15 @@ After you finish writing your code, compile to make sure that no build errors ex
 
 1. Confirm that the following items exist in your logic app project:
 
-   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **net472**. Confirm that the subfolder named **net472** contains the multiple assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
+   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **net472** or **net8**, based on your .NET version. Confirm that the subfolder named **net472** or **net8**, respectively, contains the assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
 
-   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
    The following example shows sample generated assemblies and other files in the logic app project:
 
-   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code and logic app workspace with function project and logic app project, now with the generated assemblies and other required files.":::
+   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code and logic app workspace with .NET functions project and logic app project, now with the generated assemblies and other required files.":::
+
+<a name="call-code-from-workflow"></a>
 
 ## Call your code from a workflow
 
@@ -266,19 +308,37 @@ After you confirm that your code compiles and that your logic app project contai
 
    :::image type="content" source="media/create-run-custom-code-functions/storage-services-running.png" alt-text="Screenshot shows Visual Studio Code taskbar with Azure Blob Service, Azure Queue Service, and Azure Table Service running.":::
 
-1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
+1. Attach the debugger to your logic app project by following these steps:
 
-   :::image type="content" source="media/create-run-custom-code-functions/run-debug.png" alt-text="Screenshot shows Visual Studio Code Activity Bar with Run and Debug selected.":::
+   1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
 
-1. From the **Run and Debug** list, select **Attach to logic app (LogicApp)**, if not already selected, and then select **Play** (green arrow).
+      :::image type="content" source="media/create-run-custom-code-functions/run-debug.png" alt-text="Screenshot shows Visual Studio Code Activity Bar with Run and Debug selected.":::
 
-   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app.png" alt-text="Screenshot shows Run and Debug list with Attach to logic app selected and Play button selected.":::
+   1. From the **Run and Debug** list, select **Attach to logic app (LogicApp)**, if not already selected, and then select **Play** (green arrow).
 
-   The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
+      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app.png" alt-text="Screenshot shows Run and Debug list with Attach to logic app selected and Play button selected.":::
 
-1. From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, and then select **Play** (green arrow).
+      The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
 
-   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
+1. Attach the debugger to your .NET functions project by following these steps, based on your code:
+
+   **.NET 8 projects**
+
+   1. From the Visual Studio Code **View** menu, select **Command Palette**.
+
+   1. From the command palette, find and select **Debug: Attach to a .NET 5+ or .NET Core process**.
+
+      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-core.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
+
+   1. From the list, find and select the **dotnet.exe** process. If multiple **dotnet.exe** processes exist, select the process that has the following path:
+
+      **\<drive-name\>:\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\<extension-bundle-version>\CustomCodeNetFxWorker\net8\Microsoft.Azure.Workflows.Functions.CustomCodeNetFxWorker.dll**
+
+   **.NET Framework projects**
+
+   From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, if not already selected, and then select **Play** (green arrow).
+
+   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions (Functions) selected and Play button selected.":::
 
 1. To set any breakpoints, in your function definition (**<*function-name*>.cs**) or workflow definition (**workflow.json**), find the line number where you want the breakpoint, and select the column to the left, for example:
 
@@ -306,7 +366,13 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Deploy your code
 
-You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
+You can deploy your custom functions in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the following logic app project folder before you deploy:
+
+- .NET 4.7.2: **lib/custom/net472** folder
+
+- .NET 8: **lib/custom/net8** folder
+
+For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
 ## Troubleshoot problems
 
@@ -326,7 +392,7 @@ To fix this problem, from the **Run and Debug** list, select **Attach to logic a
 
 ### Package not imported correctly
 
-If the Output window shows an error similar to the following message, make sure that you have .NET 6.0 installed. If you have this version installed, try uninstalling and then reinstalling.
+If the Output window shows an error similar to the following message, make sure that you have at least .NET 6.0 installed. If you have this version installed, try uninstalling and then reinstalling.
 
 `C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.targets(83,5): warning : The ExtensionsMetadataGenerator package was not imported correctly. Are you missing 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.targets' or 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.props'? [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] WeatherForecast -> C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\\bin\Debug\net472\WeatherForecast.dll C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : It was not possible to find any compatible framework version [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : The specified framework 'Microsoft.NETCore.App', version '6.0.0' was not found. [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : - Check application dependencies and target a framework version installed at: [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj]`
 

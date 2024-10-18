@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 06/20/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Connect to a WFS service
@@ -29,12 +30,10 @@ The `WfsClient` class supports the following features:
 
 The `atlas.io.ogc.WfsClient` class in the spatial IO module makes it easy to query a WFS service and convert the responses into GeoJSON objects. This GeoJSON object can then be used for other mapping purposes.
 
+<!--------------------------------------------------
 The [Simple WFS example] sample shows how to easily query a Web Feature Service (WFS) and renders the returned features on the map. For the source code for this sample, see [Simple WFS example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/simple-wfs-example.png"alt-text="A screenshot that shows the results of a WFS overlay on a map.":::
-
-<!--------------------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------->
 
 ## Supported filters
@@ -71,11 +70,11 @@ The specification for the WFS standard makes use of OGC filters. The WFS client 
 - `PropertyIsNull`
 - `PropertyIsNil`
 - `PropertyIsBetween`
-
+<!--------------------------------------------------
 The [WFS filter example] sample demonstrates the use of different filters with the WFS client. For the source code for this sample, see [WFS filter example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-filter-example.png"alt-text="A screenshot that shows The WFS filter sample that demonstrates the use of different filters with the WFS client.":::
-
+-------------------------------------------------->
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
@@ -122,7 +121,6 @@ See the following articles for more code samples to add to your maps:
 [Simple WFS example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20WFS%20example/Simple%20WFS%20example.html
 [Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
 [Supported data format details]: spatial-io-supported-data-format-details.md
-[WFS filter example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20filter%20examples/WFS%20filter%20examples.html
 [WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
 [WFS service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20service%20explorer/WFS%20service%20explorer.html
 [WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer

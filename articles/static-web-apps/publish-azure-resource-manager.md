@@ -3,7 +3,7 @@ title: "Tutorial: Publish Azure Static Web Apps using an ARM template"
 description: Create and deploy an ARM Template for Static Web Apps
 services: static-web-apps
 author: petender
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.custom: devx-track-arm-template
 ms.topic:  tutorial
 ms.date: 07/13/2021
@@ -44,7 +44,9 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 1. Select **Generate New Token**.
 
-1. Provide a name for this token in the _Note_ field, for example *myfirstswadeployment*.
+1. Provide a name for this token in the _Name_ field, for example *myfirstswadeployment*.
+
+1. Select an _Expiration_ for the token, the default is 30 days.
 
 1. Specify the following *scopes*: **repo, workflow, write:packages**
 

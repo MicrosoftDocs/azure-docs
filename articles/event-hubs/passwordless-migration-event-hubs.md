@@ -1,11 +1,10 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Event Hubs
 titleSuffix: Azure Event Hubs
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Event Hubs.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure role-based access control (RBAC) for enhanced security with Azure Event Hubs.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 06/12/2023
-ms.service: event-hubs
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -16,7 +15,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 ## Configure your local development environment
 
-Passwordless connections can be configured to work for both local and Azure-hosted environments. In this section, you'll apply configurations to allow individual users to authenticate to Azure Event Hubs for local development.
+Passwordless connections can be configured to work for both local and Azure-hosted environments. In this section, you apply configurations to allow individual users to authenticate to Azure Event Hubs for local development.
 
 ### Assign user roles
 
@@ -24,7 +23,7 @@ Passwordless connections can be configured to work for both local and Azure-host
 
 ### Sign-in to Azure locally
 
-[!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
 
 ### Update the application code to use passwordless connections
 
@@ -254,14 +253,14 @@ After making these code changes, run your application locally. The new configura
 
 ## Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Event Hubs using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) for applications to use when connecting to resources that support Azure AD authentication. Learn more about managed identities:
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Event Hubs using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. Learn more about managed identities:
 
 * [Passwordless Overview](/azure/developer/intro/passwordless-overview)
 * [Managed identity best practices](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
 
 ### Create the managed identity
 
-[!INCLUDE [create-user-assigned-managed-identity](../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-user-assigned-managed-identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -284,11 +283,11 @@ Complete the following steps in the Azure portal to associate an identity with y
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../articles/storage/common/media/create-user-assigned-identity.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity.png":::
 
 # [Azure CLI](#tab/azure-cli-associate)
 
-[!INCLUDE [associate-managed-identity-cli](../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+[!INCLUDE [associate-managed-identity-cli](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
 
 # [Service Connector](#tab/service-connector-associate)
 
@@ -308,7 +307,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
     :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png" :::
 
-1. In the **Role** search box, search for *Azure Event Hub Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hub Data Sender* from the list and choose **Next**.
+1. In the **Role** search box, search for *Azure Event Hubs Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hubs Data Sender* from the list and choose **Next**.
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
@@ -322,7 +321,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az eventhubs eventhub show](/cli/azure/eventhubs/eventhub) show command. You can filter the output properties using the `--query` parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [`az eventhubs eventhub show`](/cli/azure/eventhubs/eventhub) show command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az eventhubs eventhub show \
@@ -350,11 +349,11 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
-After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the event hub successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the event hub successfully. Keep in mind that it can take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 

@@ -5,18 +5,18 @@ summary: Learn how to use Azure NetApp Files to create NetApp accounts, capacity
 
 metadata:
   title: Azure NetApp Files documentation
-  description: Learn how to set up, access, and manage volumes using the Azure NetApp Files service.
+  description: Learn how to set up, access, and manage volumes using Azure NetApp Files.
   ms.service: azure-netapp-files
   ms.topic: landing-page
   author: b-hchen
   ms.author: anfdocs
-  ms.date: 09/27/2021 
+  ms.date: 12/13/2023
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | train | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
   # Card
-  - title: About Azure NetApp Files
+  - title: About Azure NetApp Files  
     linkLists:
       - linkListType: overview
         links:
@@ -24,61 +24,73 @@ landingContent:
             url: azure-netapp-files-introduction.md
           - text: What's new?
             url: whats-new.md
-          - text: Understand the storage hierarchy
-            url: azure-netapp-files-understand-storage-hierarchy.md
+          - text: Azure NetApp Files for Azure Government
+            url: azure-government.md
+      - linkListType: reference  
+        links: 
+          - text: REST 
+            url: /rest/api/netapp/
+          - text: Resource Manager template 
+            url: /azure/templates/microsoft.netapp/allversions
+          - text: Azure CLI 
+            url: /cli/azure/netappfiles
+          - text: Pricing 
+            url: https://azure.microsoft.com/pricing/details/netapp/
+          - text: Regional availability 
+            url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
+          - text: Feature availability
+            url: https://aka.ms/anfmap
+          - text: SLA
+            url: https://azure.microsoft.com/support/legal/sla/netapp/
+          - text: Videos
+            url: azure-netapp-files-videos.md
+
+
+
+  # Card
+  - title: Azure NetApp Files concepts 
+    linkLists:
       - linkListType: concept
         links:
-          - text: Service levels
-            url: azure-netapp-files-service-levels.md
-          - text: Performance considerations
-            url: azure-netapp-files-performance-considerations.md
-          - text: Guidelines for network planning
-            url: azure-netapp-files-network-topologies.md
-      - linkListType: video
-        links:
-          - text: Azure NetApp Files videos
-            url: azure-netapp-files-videos.md
+          - text: Volumes as a service
+            url: network-attached-storage-concept.md 
+          - text: Azure NetApp Files essentials
+            url: azure-netapp-files-understand-storage-hierarchy.md
+          - text: Cost model 
+            url: azure-netapp-files-cost-model.md
+          - text: Quotas
+            url: volume-quota-introduction.md
+          - text: Performance
+            url: azure-netapp-files-performance-considerations.md  
+          - text: Application volume groups 
+            url: application-volume-group-concept.md
+          - text: Data protection and resiliency
+            url: data-protection-disaster-recovery-options.md
+          - text: Solutions and benefits
+            url: azure-netapp-files-solution-architectures.md
+          - text: Security 
+            url: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 
   # Card
   - title: Get started
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Register for NetApp Resource Provider
-            url: azure-netapp-files-register.md
-          - text: Create a NetApp account
-            url: azure-netapp-files-create-netapp-account.md
-          - text: Delegate a subnet to Azure NetApp Files
-            url: azure-netapp-files-delegate-subnet.md
-      - linkListType: quickstart
-        links:
+    linkLists: 
+      - linkListType: quickstart 
+        links: 
           - text: Set up Azure NetApp Files and create an NFS volume
-            url: azure-netapp-files-quickstart-set-up-account-create-volumes.md 
-
-  # Card
-  - title: Create
-    linkLists:
+            url: azure-netapp-files-quickstart-set-up-account-create-volumes.md
       - linkListType: how-to-guide
-        links:
-          - text: Create Active Directory connections 
-            url: create-active-directory-connections.md
-          - text: Create a capacity pool
+        links: 
+          - text: Register and set up 
+            url: azure-netapp-files-register.md
+          - text: Manage Active Directory 
+            url: understand-guidelines-active-directory-domain-service-site.md
+          - text: Manage capacity pools 
             url: azure-netapp-files-set-up-capacity-pool.md
-          - text: Create an NFS volume
+          - text: Manage volumes 
             url: azure-netapp-files-create-volumes.md
-          - text: Create an SMB volume
-            url: azure-netapp-files-create-volumes-smb.md
-          - text: Create a dual-protocol volume
-            url: create-volumes-dual-protocol.md
-
-  # Card          
-  - title: Develop
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: REST API
+          - text: Manage application volume groups 
+            url: application-volume-group-deploy-first-host.md
+          - text: Develop
             url: azure-netapp-files-develop-with-rest-api.md
-          - text: REST API using PowerShell
-            url: develop-rest-api-powershell.md
-          - text: Azure NetApp Files SDKs and CLI tools
-            url: azure-netapp-files-sdk-cli.md
+          - text: Troubleshoot 
+            url: troubleshoot-diagnose-solve-problems.md

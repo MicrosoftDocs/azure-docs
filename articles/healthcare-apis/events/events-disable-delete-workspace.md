@@ -1,56 +1,54 @@
 ---
-title: How to disable events and delete events enabled workspaces - Azure Health Data Services
-description: Learn how to disable events and delete events enabled workspaces.
+title: Disable events for the FHIR or DICOM service in Azure Health Data Services
+description: Disable events for the FHIR or DICOM service in Azure Health Services by deleting an event subscription. Learn why and how to stop sending notifications from your data and resources.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: fhir
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: events
 ms.topic: how-to
-ms.date: 09/26/2023
-ms.author: jasteppe
+ms.date: 01/31/2024
+ms.author: chrupa
 ---
 
-# How to disable events and delete event enabled workspaces
+# Disable events
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+Events in Azure Health Services allow you to monitor and respond to changes in your data and resources. By creating an event subscription, you can specify the conditions and actions for sending notifications to various endpoints.
 
-In this article, learn how to disable events and delete events enabled workspaces.
+However, there may be situations where you want to temporarily or permanently stop receiving notifications from an event subscription. For example, you might want to pause notifications during maintenance or testing, or delete the event subscription if you no longer need it. 
 
-## Disable events
+To disable events from sending notifications for an **Event Subscription**, you need to delete the subscription.
 
-To disable events from sending event messages for a single **Event Subscription**, the **Event Subscription** must be deleted.
+1. In the Azure portal on the left pane, select **Events**. 
 
-1. Select the **Event Subscription** to be deleted. In this example, we're selecting an Event Subscription named **fhir-events**.
+1. Select **Event Subscriptions**. 
 
-   :::image type="content" source="media/disable-delete-workspaces/select-event-subscription.png" alt-text="Screenshot of Events Subscriptions and select event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-event-subscription.png":::
+1. Select the **Event Subscription** you want to disable notifications for. In the example, the event subscription is named **azuredocsdemo-fhir-events-subscription**.
 
-2. Select **Delete** and confirm the **Event Subscription** deletion.
+   :::image type="content" source="media/disable-delete-workspaces/select-event-subscription.png" alt-text="Screenshot showing selection of event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-event-subscription.png":::
 
-   :::image type="content" source="media/disable-delete-workspaces/select-subscription-delete.png" alt-text="Screenshot of events subscriptions and select delete and confirm the event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-subscription-delete.png":::
+1. Choose **Delete**.
 
-3. If you have multiple **Event Subscriptions**, follow the steps to delete the **Event Subscriptions** so that no **Event Subscriptions** remain.
+   :::image type="content" source="media/disable-delete-workspaces/select-subscription-delete-sml.png" alt-text="Screenshot showing confirmation of the event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-subscription-delete-lrg.png":::
 
-   :::image type="content" source="media/disable-delete-workspaces/no-event-subscriptions-found.png" alt-text="Screenshot of Event Subscriptions and delete all event subscriptions to disable events." lightbox="media/disable-delete-workspaces/no-event-subscriptions-found.png":::
+1. If there are multiple event subscriptions, repeat these steps to delete each one until the message **No Event Subscriptions Found** is displayed in the **Name** field.
 
-> [!NOTE]
-> The FHIR service will automatically go into an **Updating** status to disable events when a full delete of **Event Subscriptions** is executed. The FHIR service will remain online while the operation is completing, however, you won't be able to make any further configuration changes to the FHIR service until the updating has completed.
+   :::image type="content" source="media/disable-delete-workspaces/no-event-subscriptions-found-sml.png" alt-text="Screenshot showing deletion of all event subscriptions to disable events." lightbox="media/disable-delete-workspaces/no-event-subscriptions-found-lrg.png":::
 
-## Delete events enabled workspaces
+> [!NOTE] 
+> When you delete all event subscriptions, the FHIR or DICOM service disables events and goes into **Updating** status. The FHIR or DICOM service stays online during the update, but you can’t change the configuration until it completes.
 
-To avoid errors and successfully delete events enabled workspaces, follow these steps and in this specific order:
+## Delete events-enabled workspaces
 
-1. Delete all workspace associated child resources (for example: DICOM services, FHIR services, and MedTech services).
-2. Delete all workspace associated **Event Subscriptions**.
-3. Delete workspace.
+To delete events-enabled workspaces without errors, do these steps in this exact order:
+
+1. Delete all child resources associated with the workspace (for example, FHIR&reg; services, DICOM&reg; services, and MedTech services).
+
+1. [Delete all event subscriptions](#disable-events) associated with the workspace.
+
+1. Delete the workspace.
 
 ## Next steps
 
-In this article, you learned how to disable events and delete events enabled workspaces.
+[Troubleshoot events](events-troubleshooting-guide.md)
 
-To learn about how to troubleshoot events, see
-
-> [!div class="nextstepaction"]
-> [Troubleshoot events](events-troubleshooting-guide.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

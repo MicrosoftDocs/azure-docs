@@ -2,14 +2,19 @@
 title: Network Monitoring in Azure Monitor logs
 description: Overview of network monitoring solutions, including network performance monitor, to manage networks across cloud, on-premises, and hybrid environments.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
-ms.date: 03/23/2023
+ms.service: azure-virtual-network
+ms.topic: conceptual
+ms.date: 10/30/2023
 ms.author: allensu
 ---
 # Network monitoring solutions 
 
 Azure offers a host of solutions to monitor your networking assets. Azure has solutions and utilities to monitor network connectivity, the health of ExpressRoute circuits, and analyze network traffic in the cloud.
+
+> [!IMPORTANT]
+> As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
+> 
+> To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor), or  [migrate from Connection Monitor (Classic)](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
 
 ## Network Performance Monitor
 
@@ -38,8 +43,6 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 * Determine the specific segment on the network that is responsible for degraded performance
 
 * Monitor the health of the network, without the need for SNMP
-
-:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
 
 For more information, view the following articles:
 

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
@@ -80,4 +80,4 @@ To try this [sample](https://github.com/Azure/azure-quickstart-templates/tree/ma
 * [Create agreements](logic-apps-enterprise-integration-agreements.md)
 * [Add schemas](logic-apps-enterprise-integration-schemas.md)
 * [Add maps](logic-apps-enterprise-integration-maps.md)
-* [Migrate from BizTalk Services](logic-apps-move-from-mabs.md)
+* [Migrate from BizTalk Server](biztalk-server-to-azure-integration-services-overview.md)

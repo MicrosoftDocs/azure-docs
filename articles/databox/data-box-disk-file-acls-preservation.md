@@ -6,6 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 12/22/2022
 ms.author: shaas

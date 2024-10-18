@@ -4,7 +4,7 @@ description: In this article, you learn how to upgrade a basic SKU public IP add
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
@@ -29,6 +29,8 @@ In this article, you'll learn how to upgrade a static Basic SKU public IP addres
 In this section, you'll sign in to the Azure portal and upgrade your static Basic SKU public IP to the Standard sku.
 
 In order to upgrade a public IP, it must not be associated with any resource. For more information, see [View, modify settings for, or delete a public IP address](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) to learn how to disassociate a public IP.
+
+Upgrading a public IP resource retains the IP address.
 
 >[!IMPORTANT]
 >In the majority of cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.  (In rare cases where the Basic Public IP has a specific zone assigned, it will retain this zone when upgraded to Standard.)

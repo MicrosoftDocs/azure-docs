@@ -1,8 +1,8 @@
 ---
 title: What's new in Microsoft Defender for IoT
-description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
+description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 09/14/2023
+ms.date: 10/14/2024
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,296 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
+
+## October 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [New sensor setting type Public addresses](#new-sensor-setting-type-public-addresses) <br>  - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Add wildcards allowlist domain names
+
+When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+
+### Added protocol
+
+We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+
+### New sensor setting type Public addresses
+
+We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
+
+### Improved OT sensor onboarding
+
+If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
+
+## July 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Security update](#security-update) |
+
+### Security update
+
+This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
+
+## June 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> - [Newly supported protocols](#newly-supported-protocols)|
+
+### Malicious URL path alert
+
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+
+For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
+
+### Newly supported protocols
+
+We now support the Open protocol. [See the updated protocol list](concept-supported-protocols.md).
+
+## April 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update-1) |
+
+### Single sign-on for the sensor console
+
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites.
+
+Using Microsoft Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
+
+For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
+
+### Sensor time drift detection
+
+This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues.
+
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
+
+### Security update
+
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
+
+## February 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Version 24.1.2**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols-1)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
+
+### Alert suppression rules from the Azure portal (Public preview)
+
+Now you can configure alert suppression rules from the Azure portal to instruct your OT sensors to specified traffic on your network that would otherwise trigger an alert.
+
+- Configure which alerts to suppress by specifying an alert title, IP/MAC address, hostname, subnet, sensor, or site.
+- Set each suppression rule to be active always, or only during a predefined period, such as for a specific maintenance window.
+
+> [!TIP]
+> If you're currently using exclusion rules on the on-premises management console, we recommend that you migrate them to suppression rules on the Azure portal. 
+For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
+
+### Focused alerts in OT/IT environments
+
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The number of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
+
+To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
+
+This update is available in sensor version 24.1.3 and later.
+
+For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
+
+### Alert ID now aligned on the Azure portal and sensor console
+
+The alert ID in the **Id** column on the Azure portal **Alerts** page now displays the same alert ID as the sensor console. [Learn more about alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal).
+
+> [!NOTE]
+> If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
+
+### Newly supported protocols
+
+We now support these protocols:
+
+- HART-IP
+- FANUC FOCAS
+- Dicom
+- ABB NetConfig
+- Rockwell AADvance Discover
+- Rockwell AADvance SNCP/IXL
+- Schneider NetManage
+
+[See the updated protocol list](concept-supported-protocols.md).
+
+### L60 hardware profile is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB (the minimum hardware profile is now [L100](ot-virtual-appliances.md)).
+
+To migrate from the L60 profile to a supported profile follow the [Back up and restore OT network sensor](back-up-restore-sensor.md) procedure.
+
+### New license renewal reminder in the Azure portal
+
+When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md).
+
+:::image type="content" source="media/whats-new/license-renewal-note.png" alt-text="Screenshot of the license renewal reminder note." lightbox="media/whats-new/license-renewal-note.png":::
+
+### New OT appliance hardware profile
+
+The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
+
+For more information, see [DELL XE4 SFF](appliance-catalog/dell-xe4-sff.md).
+
+### New fields for SNMP MIB OIDs
+
+Additional standard, generic fields have been added to the SNMP MiB OIDs. For the full list of fields, see [OT sensor OIDs for manual SNMP configurations](how-to-set-up-snmp-mib-monitoring.md#ot-sensor-oids-for-manual-snmp-configurations).
+
+## January 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) |
+
+### Sensor update in Azure portal now supports selecting a specific version
+
+When you update the sensor in the Azure portal, you can now choose to update to any of the supported, previous versions (versions other than the latest version). Previously, sensors onboarded to Microsoft Defender for IoT on the Azure portal were automatically updated to the latest version.
+
+You might want to update your sensor to a specific version for various reasons, such as for testing purposes, or to align all sensors to the same version.
+
+:::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
+| **OT networks** |**Version 24.1.0**: <br>- [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)|
+
+## December 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br> **Version 23.2.0**: <br>- [OT network sensors now run on Debian 11](#ot-network-sensors-now-run-on-debian-11)<br>-  [Default privileged user is now admin instead of support](#default-privileged-user-is-now-admin-instead-of-support) <br><br>**Cloud features**:<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+
+### OT network sensors now run on Debian 11
+
+Sensor version 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+
+Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
+
+Due to the operating system switch, the software update from your legacy version to version 23.2.0 might be longer and heavier than usual. 
+
+For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### Default privileged user is now admin instead of support
+
+Starting with version 23.2.0, the default, privileged user installed with new OT sensor installations is the *admin* user instead of the *support* user.
+
+For example, use the privileged *admin* user in the following scenarios:
+
+- Signing into a new sensor for the first time after installation. For more information, see [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md).
+
+- Using the Defender for IoT CLI. For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
+- Accessing the sensor's **Support** page.
+
+> [!IMPORTANT]
+> If you're updating your sensor software from a previous version to version 23.2.0, the privileged *support* user is automatically renamed to *admin*. If you've saved your *support* credentials, such as in CLI scripts, you must update your scripts to use the new *admin* user instead.
+>
+> The legacy *support* user is available and supported only on versions earlier than 23.2.0.
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+### New architecture for hybrid and air-gapped support
+
+Hybrid and air-gapped networks are common in many industries, such as government, financial services, or industrial manufacturing. Air-gapped networks are physically separated from other, unsecured external networks like enterprise networks or the internet, and are less vulnerable to cyber-attacks. However, air-gapped networks are still not completely secure, can still be breached, and must be secured and monitored carefully.
+
+Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped networks. The new architecture guidance is designed to add efficiency, security, and reliability to your SOC operations, with fewer components to maintain and troubleshoot. The sensor technology used in the new architecture allows for on-premises processing that keeps data within your own network, reducing the need for cloud resources and improving performance.
+
+The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
+
+:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support." lightbox="media/on-premises-architecture/on-premises-architecture.png" border="false":::
+
+In this sample image, communication for alerts, syslog messages, and APIs is shown in a solid black line. On-premises management communication is shown in a solid purple line, and cloud / hybrid management communication is shown in a dotted black line.
+
+We recommend that existing customers who are currently using an on-premises management console to manage OT sensors transition to the updated architecture guidance.
+
+For more information, see [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md).
+
+#### On-premises management console retirement
+
+The [legacy on-premises management console](legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
+
+- Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
+
+- Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
+
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
+
+For more information, see:
+
+- [Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
+- [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+
+### Live statuses for cloud-based sensor updates
+
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, isn't stuck or has failed. For example:
+
+:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### Streamlined alert records in the SecurityAlert table
+When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.
+
+For more information, see [Understand multiple records per alert](iot-solution.md#understand-multiple-records-per-alert).
+
+## November 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **Enterprise IoT networks** | [Enterprise IoT protection now included in Microsoft 365 E5 and E5 Security licenses](#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) |
+| **OT networks** | [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
+
+### Enterprise IoT protection now included in Microsoft 365 E5 and E5 Security licenses
+
+Enterprise IoT (EIoT) security with Defender for IoT discovers unmanaged IoT devices and also provides added security value, including continuous monitoring, vulnerability assessments and tailored recommendations specifically designed for Enterprise IoT devices. Seamlessly integrated with Microsoft Defender XDR, Microsoft Defender Vulnerability Management, and Microsoft Defender for Endpoint on the Microsoft Defender Portal, it ensures a holistic approach to safeguarding an organization's network.
+
+Defender for IoT EIoT monitoring is now automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, covering up to five devices per user license. For example, if your organization possesses 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 EIoT devices. This integration represents a significant leap toward fortifying your IoT ecosystem within the Microsoft 365 environment.
+
+- **Customers who have ME5 or E5 Security plans but aren't yet using Defender for IoT for their EIoT devices** must [toggle on support](eiot-defender-for-endpoint.md) in the Microsoft Defender Portal.
+
+- **New customers** without an ME5 or E5 Security plan can purchase a standalone, **Microsoft Defender for IoT - EIoT Device License - add-on** license, as an add-on to Microsoft Defender for Endpoint P2. Purchase standalone licenses from the Microsoft admin center.
+
+- **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, at no extra charge, and with no action item required from you.
+
+- **Customers with legacy Enterprise IoT plans and no ME5/E5 Security plans** can continue to use their existing plans until the plans expire.
+
+Trial licenses are available for Defender for Endpoint P2 customers as standalone licenses. Trial licenses support 100 number of devices.
+
+For more information, see:
+
+- [Securing IoT devices in the enterprise](concept-enterprise.md)
+- [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md)
+- [Defender for IoT subscription billing](billing.md)
+- [Microsoft Defender for IoT Plans and Pricing](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing#x2a571382a40c482a993d13d7239102eb)
+- Blog: [Enterprise IoT security with Defender for IoT now included in Microsoft 365 E5 and E5 Security plans](https://techcommunity.microsoft.com/t5/microsoft-365-defender-blog/enterprise-iot-security-with-defender-for-iot-now-included-in/ba-p/3967533)
+
+### Updated security stack integration guidance
+
+Defender for IoT is refreshing its security stack integrations to improve the overall robustness, scalability, and ease of maintenance of various security solutions.
+
+If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](concept-sentinel-integration.md). For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events](how-to-forward-alert-information-to-partners.md)), or use [Defender for IoT APIs](references-work-with-defender-for-iot-apis.md).
+
+The legacy Aruba ClearPass, Palo Alto Panorama, and Splunk integrations are supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions.
+
+For customers using legacy integration methods, we recommend moving your integrations to newly recommended methods. For more information, see:
+
+- [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)
+- [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
+- [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 
 ## September 2023
 
@@ -34,7 +324,6 @@ From your sensor, do one of the following to open the **Cloud connectivity troub
 
 - On the **Overview** page, select the **Troubleshoot** link at the top of the page
 - Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
-
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
@@ -90,9 +379,7 @@ For more information, see [Install and set up your OT sensor](ot-deploy/install-
 
 ### Analyze and fine tune your deployment
 
-After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections. For example:
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
+After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
 
 You might find that you need to fine tune your deployment, such as changing the sensor's location in the network, or verifying that your monitoring interfaces are connected correctly. Select **Analyze** again after making any changes to see the updated monitoring state. 
 
@@ -115,7 +402,7 @@ In new sensor installations of version 23.1.2, only the privileged *support* use
 In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
 
 > [!TIP]
-> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as a *support* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user).
+> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as an *admin* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user).
 
 ### Migrate to site-based licenses
 
@@ -195,7 +482,7 @@ For more information, see:
 
 Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
 
-For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference).
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#add-sensor-settings).
 
 ## April 2023
 
@@ -236,7 +523,7 @@ For more information, see [Enrich Windows workstation and server data with a loc
 
 ### Automatically resolved OS notifications
 
-After updating your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+After you've updated your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
 For more information, see [Device notification responses](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 
@@ -288,7 +575,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -312,13 +599,13 @@ For more information, see [Malware engine alerts](alert-engine-messages.md#malwa
 
 Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
-After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. While any **Inactive devices** notifications that are left over from before the update are automatically dismissed, you may still have legacy **New OT devices** notifications to handle. Handle these notifications as needed to remove them from your sensor.
+After you've updated your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. While any **Inactive devices** notifications that are left over from before the update are automatically dismissed, you might still have legacy **New OT devices** notifications to handle. Handle these notifications as needed to remove them from your sensor.
 
 For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map.md#manage-device-notifications).
 
 ### New Microsoft Sentinel incident experience for Defender for IoT
 
-Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. When investigating OT/IoT-related incidents, SOC analysts can now use the following enhancements on incident details pages:
+Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. SOC analysts who are investigating OT/IoT-related can now use the following enhancements on incident details pages:
 
 - **View related sites, zones, sensors, and device importance** to better understand an incident's business impact and physical location.
 
@@ -397,7 +684,7 @@ See and filter which devices are defined as *local* or *routed*, according to yo
 Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#local-subnets)
 - [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
@@ -577,11 +864,11 @@ OT network sensors connect to Azure to provide alert and device data and sensor 
 
 For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards.
 
-When defining outbound allow rules to connect to Azure, you need to enable HTTPS traffic to each of the required endpoints on port 443. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.
+When defining outbound *allow* rules to connect to Azure, you need to enable HTTPS traffic to each of the required endpoints on port 443. Outbound *allow* rules are defined once for all OT sensors onboarded to the same subscription.
 
 For supported sensor versions, download the full list of required secure endpoints from the following locations in the Azure portal:
 
-- **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoints you'll need to add as secure outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
+- **A successful sensor registration page**: After onboarding a new OT sensor with version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoints you'll need to add as secure outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
 
     For example:
 
@@ -688,7 +975,7 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 |Service area  |Updates  |
 |---------|---------|
 |**Enterprise IoT networks**     | - [Enterprise IoT and Defender for Endpoint integration in GA](#enterprise-iot-and-defender-for-endpoint-integration-in-ga)        |
-|**OT networks**     |**Sensor software version 22.2.4**: <br>- [Device inventory enhancements](#device-inventory-enhancements)<br>- [Enhancements for the ServiceNow integration API](#enhancements-for-the-servicenow-integration-api)<br><br>**Sensor software version 22.2.3**:<br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>**Sensor software version 22.1.7**: <br>- [Same passwords for *cyberx_host* and *cyberx* users](#same-passwords-for-cyberx_host-and-cyberx-users)  |
+|**OT networks**     |**Sensor software version 22.2.4**: <br>- [Device inventory enhancements](#device-inventory-enhancements)<br>- [Enhancements for the ServiceNow integration API](#enhancements-for-the-servicenow-integration-api)<br><br>**Sensor software version 22.2.3**:<br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>**Sensor software version 22.1.7**: <br>- [Same passwords for *cyberx_host* and *cyberx* users](#same-passwords-for-cyberx_host-and-cyberx-users)  |
 |**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
 
 ### Enterprise IoT and Defender for Endpoint integration in GA
@@ -706,7 +993,7 @@ The Enterprise IoT integration with Microsoft Defender for Endpoint is now in Ge
 
 ### Same passwords for cyberx_host and cyberx users
 
-During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
+During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When you update from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
 
 For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -714,7 +1001,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 Starting in OT sensor versions 22.2.4, you can now take the following actions from the sensor console's **Device inventory** page:
 
-- **Merge duplicate devices**. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
+- **Merge duplicate devices**. You might need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
 - **Delete single devices**. Now, you can delete a single device that hasn't communicated for at least 10 minutes.
 
@@ -780,7 +1067,7 @@ For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 - [View and manage alerts on your sensor](how-to-view-alerts.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation
 
@@ -804,14 +1091,6 @@ For more information, see:
 - [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
-### Improved security for uploading protocol plugins
-
-This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
-
-:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
-
-For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
-
 ### Sensor names shown in browser tabs
 
 Starting in sensor version 22.2.3, your sensor's name is displayed in the browser tab, making it easier for you to identify the sensors you're working with.
@@ -832,7 +1111,7 @@ Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use t
 
 For more information, see:
 
-- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 
@@ -911,7 +1190,7 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
-[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
 
 In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
 
@@ -985,15 +1264,13 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Device inventory** page now includes detailed device pages. Select a device in the table and then select **View full details** on the right.
 
-    :::image type="content" source="media/release-notes/device-inventory-details.png" alt-text="Screenshot of the View full details button." lightbox="media/release-notes/device-inventory-details.png":::
-
 - Properties updated from the sensor's inventory are now automatically updated in the cloud device inventory.
 
 - The device details pages, accessed either from the **Device map** or **Device inventory** pages, is shown as read only. To modify device properties, select **Edit properties** on the bottom-left.
 
 - The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
-    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report)
+    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report) 
 
 - The **System settings** area has been reorganized in to sections for *Basic* settings, settings for *Network monitoring*, *Sensor management*, *Integrations*, and *Import settings*.
 
@@ -1093,7 +1370,7 @@ For more information, see [Create custom alert rules on an OT sensor](how-to-acc
 
 ### CLI command updates
 
-The Defender for Iot sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
+The Defender for IoT sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
 
 This *cyberx_host* user is available by default and connects to the host machine. If you need to, recover the password for the *cyberx_host* user from the **Sites and sensors** page in Defender for IoT.
 
@@ -1114,7 +1391,7 @@ For more information, see [Defender for IoT installation](how-to-install-softwar
 
 To use all of Defender for IoT's latest features, make sure to update your sensor software versions to 22.1.x.
 
-If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and reactivate your sensor with a new activation file.
+If you're on a legacy version, you might need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and reactivate your sensor with a new activation file.
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
@@ -1128,7 +1405,7 @@ For more information, see [Update OT system software](update-ot-software.md).
 
 Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-In addition to [migration steps](update-legacy-ot-software.md#migrate-a-cloud-connection-from-the-legacy-method), this new connectivity model requires that you open a new firewall rule. For more information, see:
+In addition to migration steps, this new connectivity model requires that you open a new firewall rule. For more information, see:
 
 - **New firewall requirements**: [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 - **Architecture**: [Sensor connection methods](architecture-connections.md)

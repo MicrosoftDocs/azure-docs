@@ -3,11 +3,9 @@ title: How to run Self-Hosted Integration Runtime in Windows container
 description: Learn about how to run Self-Hosted Integration Runtime in Windows container.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # How to run Self-Hosted Integration Runtime in Windows container
@@ -85,7 +83,7 @@ Currently we don't support the below features when running the Self-Hosted Integ
 
 There is a known issue when hosting an Azure Data Factory self-hosted integration runtime in Azure App Service. Azure App Service creates a new container instead of reusing existing container after restarting. This may cause self-hosted integration runtime node leak problem.
 
-### Next steps
+### Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 - Learn how to [create a self-hosted integration runtime in the Azure portal](./create-self-hosted-integration-runtime.md).

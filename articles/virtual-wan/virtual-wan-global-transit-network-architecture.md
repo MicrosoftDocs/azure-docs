@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between globally distributed sets of cloud workloads in VNets, branch sites, SaaS and PaaS applications, and users.
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 09/25/2023
 ms.author: cherylmc
@@ -69,7 +69,7 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 
 * Branch-to-VNet (a)
 * Branch-to-branch (b)
-  * ExpressRoute Global Reach and Virtual WAN
+* ExpressRoute Global Reach and Virtual WAN
 * Remote User-to-VNet (c)
 * Remote User-to-branch (d)
 * VNet-to-VNet (e)
@@ -137,32 +137,37 @@ For more information on deploying and orchestrating Next-Generation Firewall Net
 
 Virtual WAN supports the following global secured transit connectivity paths. While the diagram and traffic patterns in this section describe Azure Firewall use cases, the same traffic patterns are supported with Network Virtual Appliances and SaaS security solutions deployed in the hub. The letters in parentheses map to Figure 5.
 
+* Branch-to-VNet secure transit (c)
+* Branch-to-VNet secure transit across Virtual hubs (g), supported with [Routing Intent](../virtual-wan/how-to-routing-policies.md)
 * VNet-to-VNet secure transit (e)
+* VNet-to-VNet secure transit across Virtual Hubs (h), supported with [Routing Intent](../virtual-wan/how-to-routing-policies.md)
+* Branch-to-Branch secure transit (b),  supported with [Routing Intent](../virtual-wan/how-to-routing-policies.md)
+* Branch-to Branch secure transit across Virtual Hubs (f),  supported with [Routing Intent](../virtual-wan/how-to-routing-policies.md)
 * VNet-to-Internet or third-party Security Service (i)
 * Branch-to-Internet or third-party Security Service (j)
 
-### VNet-to-VNet secured transit (e)
+### VNet-to-VNet secured transit (e), VNet-to-VNet secure transit cross-region(h)
 
-The VNet-to-VNet secured transit enables VNets to connect to each other via the Azure Firewall in the Virtual WAN hub.
+The VNet-to-VNet secured transit enables VNets to connect to each other via security appliances (Azure Firewall, select NVA and SaaS) deployed in the Virtual WAN hub.
 
 ### VNet-to-Internet or third-party Security Service (i)
 
-The VNet-to-Internet enables VNets to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
+The VNet-to-Internet enables VNets to connect to the internet via the security appliances (Azure Firewall, select NVA and SaaS) in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
 
-The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
+The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager.
 
-### Branch-to-branch secured transit cross-region (f)
+### Branch-to-branch secured transit, Branch-to-branch secured transit cross-region (b), (f)
 
-Branches can be connected to a secured virtual hub with Azure Firewall using ExpressRoute circuits and/or site-to-site VPN connections. You can connect the branches to the virtual WAN hub that is in the region closest to the branch.
+Branches can be connected to a secured virtual hub with Azure Firewall using ExpressRoute circuits and/or site-to-site VPN connections. You can connect the branches to the virtual WAN hub that is in the region closest to the branch. Configuring [Routing Intent](../virtual-wan/how-to-routing-policies.md) on Virtual WAN hubs allows for branch-to-branch same hub or branch-to-branch inter-hub/inter-region inspection by security appliances (Azure Firewall, select NVA and SaaS) deployed in the Virtual WAN Hub.
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
 
 
-### Branch-to-VNet secured transit (g)
+### Branch-to-VNet secured transit (c), Branch-to-VNet secured transit cross-region (g)
 
-The Branch-to-VNet secured transit enables branches to communicate with virtual networks in the same region as the virtual WAN hub as well as another virtual network connected to another virtual WAN hub in another region.
+The Branch-to-VNet secured transit enables branches to communicate with virtual networks in the same region as the virtual WAN hub as well as another virtual network connected to another virtual WAN hub in another region (inter-hub traffic inspection supported only with [Routing Intent](../virtual-wan/how-to-routing-policies.md)).
 
 
 ### How do I enable default route (0.0.0.0/0) in a Secured Virtual Hub

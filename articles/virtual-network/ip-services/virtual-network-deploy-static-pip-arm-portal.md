@@ -5,10 +5,9 @@ services: virtual-network
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: template-how-to, engagement-fy23
 ---
 # Create a virtual machine with a static public IP address using the Azure portal
@@ -83,7 +82,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 > [!WARNING]
 > Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary. For more information, see [Add a private IP address to an operating system](./virtual-network-network-interface-addresses.md#private).
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Clean up resources
 
@@ -104,5 +103,3 @@ In this article, you learned how to create a VM with a static public IP.
 - Learn how to [Assign multiple IP addresses to virtual machines](./virtual-network-multiple-ip-addresses-portal.md) using the Azure portal.
 
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
-
-

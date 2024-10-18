@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Lab setup guide
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this guide, you'll learn how to create a lab for students at your school.
 
 The process for publishing a lab to your students can take up to several hours. The amount of setup time depends on the number of virtual machines (VMs) that you want to create in your lab. Allow at least a day to ensure that the lab is working properly and to allow enough time to publish your students' VMs.

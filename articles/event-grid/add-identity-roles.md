@@ -3,7 +3,7 @@ title: Add managed identity to a role on Azure Event Grid destination
 description: This article describes how to add managed identity to Azure roles on destinations such as Azure Service Bus and Azure Event Hubs. 
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 03/25/2021
+ms.date: 01/31/2024
 ---
 
 # Grant managed identity the access to Event Grid destination
@@ -16,9 +16,9 @@ Assign a system-assigned managed identity by using instructions from the followi
 - [System topics](enable-identity-system-topics.md)
 
 ## Supported destinations and Azure roles
-After you enable identity for your event grid custom topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the custom topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid custom topic can forward events to event hubs in that namespace. 
+After you enable identity for your Event Grid custom topic or domain, Azure automatically creates an identity in Microsoft Entra ID. Add this identity to appropriate Azure roles so that the custom topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the Event Grid custom topic can forward events to event hubs in that namespace. 
 
-Currently, Azure event grid supports custom topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the custom topic can forward the events.
+Currently, Azure Event Grid supports custom topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the custom topic can forward the events.
 
 | Destination | Azure role | 
 | ----------- | --------- | 
@@ -30,7 +30,7 @@ Currently, Azure event grid supports custom topics or domains configured with a 
 ## Use the Azure portal
 You can use the Azure portal to assign the custom topic or domain identity to an appropriate role so that the custom topic or domain can forward events to the destination. 
 
-The following example adds a managed identity for an event grid custom topic named **msitesttopic** to the **Azure Service Bus Data Sender** role for a Service Bus namespace that contains a queue or topic resource. When you add to the role at the namespace level, the event grid custom topic can forward events to all entities within the namespace. 
+The following example adds a managed identity for an Event Grid custom topic named **msitesttopic** to the **Azure Service Bus Data Sender** role for a Service Bus namespace that contains a queue or topic resource. When you add to the role at the namespace level, the Event Grid custom topic can forward events to all entities within the namespace. 
 
 1. Go to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com). 
 1. Select **Access Control** in the left pane. 
@@ -56,7 +56,7 @@ The following example adds a managed identity for an event grid custom topic nam
 The steps are similar for adding an identity to other roles mentioned in the table. 
 
 ## Use the Azure CLI
-The example in this section shows you how to use the Azure CLI to add an identity to an Azure role. The sample commands are for event grid custom topics. The commands for event grid domains are similar. 
+The example in this section shows you how to use the Azure CLI to add an identity to an Azure role. The sample commands are for Event Grid custom topics. The commands for Event Grid domains are similar. 
 
 ### Get the principal ID for the custom topic's system identity 
 First, get the principal ID of the custom topic's system-managed identity and assign the identity to appropriate roles.
@@ -82,7 +82,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$event
 ```
 
 ### Create a role assignment for a Service Bus topic at various scopes 
-The following CLI example shows how to add an event grid custom topic's identity to the **Azure Service Bus Data Sender** role at the namespace level or at the Service Bus topic level. If you create the role assignment at the namespace level, the event grid topic can forward events to all entities (Service Bus queues or topics) within that namespace. If you create a role assignment at the Service Bus queue or topic level, the event grid custom topic can forward events only to that specific Service Bus queue or topic. 
+The following CLI example shows how to add an Event Grid custom topic's identity to the **Azure Service Bus Data Sender** role at the namespace level or at the Service Bus topic level. If you create the role assignment at the namespace level, the Event Grid topic can forward events to all entities (Service Bus queues or topics) within that namespace. If you create a role assignment at the Service Bus queue or topic level, the Event Grid custom topic can forward events only to that specific Service Bus queue or topic. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 

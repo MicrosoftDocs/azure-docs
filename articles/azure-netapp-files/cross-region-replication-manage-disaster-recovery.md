@@ -1,35 +1,26 @@
 ---
-title: Manage disaster recovery using Azure NetApp Files cross-region replication | Microsoft Docs
+title: Manage disaster recovery using Azure NetApp Files 
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/09/2022
-ms.author: anfdocs
+ms.author: anfdocs 
 ---
-# Manage disaster recovery using cross-region replication 
+# Manage disaster recovery using Azure NetApp Files 
 
-An ongoing replication between the source and the destination volumes (see [Create volume replication](cross-region-replication-create-peering.md)) prepares you for a disaster recovery event. 
+An ongoing replication (with [cross-zone](create-cross-zone-replication.md) or [cross-region replication](cross-region-replication-create-peering.md)) between the source and the destination volumes prepares you for a disaster recovery event. 
 
 When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
 After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
-The details are described below. 
-
 ## Fail over to destination volume
 
-When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
+Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering then mount the destination volume.
 
-1. To break replication peering, select the destination volume. Click **Replication** under Storage Service.  
+1. To break replication peering, select the destination volume. Select **Replication** under Storage Service.  
 
 2.	Check the following fields before continuing:  
     * Ensure that Mirror State shows ***Mirrored***.   
@@ -39,11 +30,11 @@ When you need to activate the destination volume (for example, when you want to 
 
     See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
 
-3.	Click **Break Peering**.  
+3.	Select **Break Peering**.  
 
-4.	Type **Yes** when prompted and click the **Break** button. 
+4.	Type **Yes** when prompted and then select **Break**.
 
-    ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+    ![Break replication peering](./media/shared/cross-region-replication-break-replication-peering.png)
 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
@@ -60,11 +51,11 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
 
 
-1. To reverse resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Reverse Resync**.  
+1. To reverse resync replication, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
 
-2. Type **Yes** when prompted and click **OK**. 
+2. Type **Yes** when prompted then select **OK**. 
  
-    ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
+    ![Resync replication](./media/cross-region-replication-manage-disaster-recovery/cross-region-replication-resync-replication.png)
 
 3. Monitor the source volume health status by following steps in [Display health status of replication relationship](cross-region-replication-display-health-status.md).   
     When the source volume health status shows the following values, the reverse resync operation is complete, and changes made at the destination volume are now captured on the source volume:   
@@ -77,7 +68,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 After the resync operation from destination to source is complete, you need to break replication peering again to reestablish source-to-destination replication. You should also remount the source volume so that the client can access it.  
 
 1. Break the replication peering:  
-    a. Select the *destination* volume. Click **Replication** under Storage Service.  
+    a. Select the *destination* volume. Select **Replication** under Storage Service.  
     b. Check the following fields before continuing:   
     * Ensure that Mirror State shows ***Mirrored***.   
     Do not attempt to break replication peering if Mirror State shows *uninitialized*.  
@@ -86,12 +77,12 @@ After the resync operation from destination to source is complete, you need to b
 
         See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
 
-    c. Click **Break Peering**.   
-    d. Type **Yes** when prompted and click the **Break** button.  
+    c. Select **Break Peering**.   
+    d. Type **Yes** when prompted then select **Break**.  
 
 2. Resync the source volume with the destination volume:  
-    a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Reverse Resync**.   
-    b. Type **Yes** when prompted and click the **OK** button.
+    a. Select the *destination* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.   
+    b. Type **Yes** when prompted then select **OK**.
 
 3. Remount the source volume by following the steps in [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     This step enables a client to access the source volume.
@@ -105,4 +96,3 @@ After the resync operation from destination to source is complete, you need to b
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-

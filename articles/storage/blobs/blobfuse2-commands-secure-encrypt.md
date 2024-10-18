@@ -7,7 +7,6 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
-ms.reviewer: tamram
 ---
 
 # How to use the BlobFuse2 secure encrypt command to encrypt a BlobFuse2 configuration file

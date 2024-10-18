@@ -1,10 +1,14 @@
 ---
 title: Partner integrations with Microsoft Sentinel
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 01/09/2023
+
+
+#Customer intent: As a security partner, I want to create a content hub solution to integrate my product with Microsoft Sentinel so that SOC teams can leverage my data source types, detections, and automation for enhanced threat detection and response.
+
 ---
 
 # Best practices for partners integrating with Microsoft Sentinel
@@ -187,13 +191,13 @@ When you're ready to begin work on your Microsoft Sentinel solution, find instru
 
 Microsoft offers the programs to help partners approach Microsoft customers:
 
-- [Microsoft Partner Network](https://partner.microsoft.com/) (MPN). The primary program for partnering with Microsoft is the Microsoft Partner Network.  Membership in MPN is required to become an Azure Marketplace publisher, which is where all Microsoft Sentinel solutions are published.
+- [Microsoft Partner Network (MPN)](https://partner.microsoft.com/). The primary program for partnering with Microsoft is the Microsoft Partner Network.  Membership in MPN is required to become an Azure Marketplace publisher, which is where all Microsoft Sentinel solutions are published.
 
 - [Azure Marketplace](https://azure.microsoft.com/marketplace/). Microsoft Sentinel solutions are delivered via the Azure Marketplace, which is where customers go to discover and deploy both Microsoft- and partner-supplied general Azure integrations.
 
     Microsoft Sentinel solutions are one of many types of offers found in the Marketplace. You can also find the solution offerings embedded in the Microsoft Sentinel [content hub](sentinel-solutions-catalog.md)
 
-- [Microsoft Intelligent Security Association](https://www.microsoft.com/security/partnerships/intelligent-security-association) (MISA). MISA provides Microsoft Security Partners with help in creating awareness about partner-created integrations with Microsoft customers, and helps to provide discoverability for Microsoft Security product integrations.
+- [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/partnerships/intelligent-security-association). MISA provides Microsoft Security Partners with help in creating awareness about partner-created integrations with Microsoft customers, and helps to provide discoverability for Microsoft Security product integrations.
 
     Joining the MISA program requires a nomination from a participating Microsoft Security Product Team. Building any of the following integrations can qualify partners for nomination:
 
@@ -233,4 +237,3 @@ For more information, see:
 - [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Create and customize Microsoft Sentinel playbooks from built-in templates](use-playbook-templates.md)
  
-

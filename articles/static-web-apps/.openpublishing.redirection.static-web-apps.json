@@ -9,6 +9,21 @@
             "source_path_from_root": "/articles/static-web-apps/deploy-nextjs.md",
             "redirect_url": "/azure/static-web-apps/deploy-nextjs-hybrid",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/static-web-apps/routes.md",
+            "redirect_url": "/azure/static-web-apps/configuration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/static-web-apps/publish-devops.md",
+            "redirect_url": "/azure/static-web-apps/get-started-portal?pivots=azure-devops",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/static-web-apps/github-actions-workflow.md",
+            "redirect_url": "/azure/static-web-apps/build-configuration",
+            "redirect_document_id": true
         }
     ]
 }

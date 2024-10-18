@@ -1,11 +1,11 @@
 ---
 title: Create Azure Virtual Desktop (classic) host pool PowerShell - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with PowerShell cmdlets.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 08/08/2022
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Create a host pool in Azure Virtual Desktop (classic) with PowerShell
 
@@ -36,7 +36,7 @@ Run the next cmdlet to create a registration token to authorize a session host t
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
-After that, run this cmdlet to add Azure Active Directory users to the default desktop application group for the host pool.
+After that, run this cmdlet to add Microsoft Entra users to the default desktop application group for the host pool.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
@@ -56,8 +56,8 @@ Now you can create an Azure virtual machine that can be joined to your Azure Vir
 
 You can create a virtual machine in multiple ways:
 
-- [Create a virtual machine from an Azure Gallery image](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Create a virtual machine from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Create a virtual machine from an Azure Gallery image](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Create a virtual machine from a managed image](/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#manually-apply-a-windows-license-to-a-windows-client-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
@@ -66,27 +66,27 @@ After you've created your session host virtual machines, [apply a Windows licens
 
 You need to do the following things to prepare your virtual machines before you can install the Azure Virtual Desktop agents and register the virtual machines to your Azure Virtual Desktop host pool:
 
-- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Azure Active Directory account to their Active Directory account and be successfully allowed access to the virtual machine.
+- You must domain-join the machine. This allows incoming Azure Virtual Desktop users to be mapped from their Microsoft Entra account to their Active Directory account and be successfully allowed access to the virtual machine.
 - You must install the Remote Desktop Session Host (RDSH) role if the virtual machine is running a Windows Server OS. The RDSH role allows the Azure Virtual Desktop agents to install properly.
 
 To successfully domain-join, do the following things on each virtual machine:
 
-1. [Connect to the virtual machine](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+    > If you're joining your VMs to a Microsoft Entra Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Azure Virtual Desktop host pool
 
-Registering the virtual machines to a Azure Virtual Desktop host pool is as simple as installing the Azure Virtual Desktop agents.
+Registering the virtual machines to an Azure Virtual Desktop host pool is as simple as installing the Azure Virtual Desktop agents.
 
 To register the Azure Virtual Desktop agents, do the following on each virtual machine:
 
-1. [Connect to the virtual machine](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Azure Virtual Desktop Agent.
    - Download the [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.

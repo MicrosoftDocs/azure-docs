@@ -2,18 +2,18 @@
 title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.date: 01/22/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
+
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
@@ -53,7 +53,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|
@@ -212,9 +212,7 @@ In this article, we use Azure Blob storage to host our content. You can choose t
 To host your HTML content in Blob storage, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Microsoft Entra tenant, and which has a subscription: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the Directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Storage accounts**
 1. Select **+ Create**.
 1. Select a **Subscription** for your storage account.
@@ -230,6 +228,9 @@ To host your HTML content in Blob storage, use the following steps:
 
 To create a public container in Blob storage, perform the following steps:
 
+1. Under **Settings** in the leftmost menu, select **Configuration**.
+1. Enable **Allow Blob anonymous access**.
+1. Select **Save**.
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
@@ -266,7 +267,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 Validate that you're ready by performing the following steps:
 
 1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. Navigate to [www.test-cors.org](https://cors-test.codehappy.dev/) 
 1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
@@ -278,9 +279,7 @@ Learn more about [how to create and manage Azure storage accounts](../storage/co
 
 ### 4. Update the user flow
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left-hand menu, select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
 1. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, select **Yes** for **Use custom page content**.
@@ -331,13 +330,14 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 1. Save the extensions file.
 
+1. [Enable JavaScript](javascript-and-page-layout.md?pivots=b2c-custom-policy#enable-javascript)
+
+
 ### 5. Upload and test your updated custom policy
 
 #### 5.1 Upload the custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 author: steveesp
-ms.service: virtual-network
-ms.custom: devx-track-linux
+ms.service: azure-virtual-network
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 10/02/2024
 ms.author: steveesp
 ---
 
@@ -31,12 +31,11 @@ A list of setup instructions for DPDK on MANA VMs is available here: [Microsoft 
 
 The following distributions from the Azure Marketplace are supported:
 
-| Linux OS     | Kernel version               | 
+| Linux OS     | Kernel version               |
 |--------------|---------------------------   |
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
-| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
-| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
-| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+| SLES 15 SP1  | 4.12.14-8.19-azure+          |
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  |
 | Debian 10    | 4.19.0-1-cloud+              |
 
 The noted versions are the minimum requirements. Newer versions are supported too.
@@ -45,7 +44,7 @@ A list of requirements for DPDK on MANA VMs is available here: [Microsoft Azure 
 
 **Custom kernel support**
 
-For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
+For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com).
 
 ## Region support
 
@@ -55,7 +54,7 @@ All Azure regions support DPDK.
 
 Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface isn't recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. In the VM, ensure the correct RDMA kernel drivers are loaded. They can be mlx4_ib, mlx5_ib or mana_ib depending on VM sizes. 
+In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. In the VM, ensure the correct RDMA kernel drivers are loaded. They can be mlx4_ib, mlx5_ib or mana_ib depending on VM sizes.
 
 
 
@@ -65,9 +64,9 @@ DPDK installation instructions for MANA VMs are available here: [Microsoft Azure
 
 ### Install build dependencies
 
-# [RHEL, CentOS](#tab/redhat)
+# [RHEL](#tab/redhat)
 
-#### RHEL7.5/CentOS 7.5
+#### RHEL7.5
 
 ```bash
 yum -y groupinstall "Infiniband Support"
@@ -137,9 +136,9 @@ After restarting, run the following commands once:
     ```
 
     * Create a directory for mounting with `mkdir /mnt/huge`.
-   
+
     * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   
+
     * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
     * The example above is for 2M huge pages. 1G huge pages can also be used.
@@ -152,7 +151,7 @@ After restarting, run the following commands once:
 3. PCI addresses
 
    * Use `ethtool -i <vf interface name>` to find out which PCI address to use for *VF*.
-   
+
    * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the *VF* pci device for *eth0*. If the DPDK application accidentally takes over the management network interface and causes you to lose your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
@@ -270,7 +269,7 @@ When you're running the previous commands on a virtual machine, change *IP_SRC_A
 
 ## Install DPDK via system package (not recommended)
 
-# [RHEL, CentOS](#tab/redhat)
+# [RHEL](#tab/redhat)
 
 ```bash
 sudo yum install -y dpdk

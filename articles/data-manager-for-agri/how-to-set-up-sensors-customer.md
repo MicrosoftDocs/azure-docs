@@ -3,7 +3,7 @@ title: How to set up a sensor in Azure Data Manager for Agriculture
 description: Provides step by step guidance to integrate Sensor as a customer
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 06/19/2023
 ms.custom: template-how-to
@@ -15,7 +15,7 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments (sensorPartnerId: `DavisInstruments`). 
+Each sensor partner has their own multi-tenant Microsoft Entra app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments (sensorPartnerId: `DavisInstruments`). 
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 
@@ -23,7 +23,7 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 2. For Davis Instruments, click on this [link](https://login.microsoftonline.com/common/adminconsent?client_id=30b00405-3b4e-4003-933c-0d96ce47d670) to provide consent. 
 
-3. On the permission review page, Azure Active Directory app requests for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
+3. On the permission review page, Microsoft Entra app requests for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
 
 4. Click on "Accept" button to grant admin consent. 
 

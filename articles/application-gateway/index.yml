@@ -6,8 +6,7 @@ summary: Learn how to create application gateways. This documentation helps you 
 metadata:
   title: Azure Application Gateway documentation
   description: Learn about Azure Application Gateway, a web traffic load balancer that enables you to manage traffic to your web applications.
-  services: application-gateway
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.topic: landing-page
   author: greg-lindsay
   ms.author: greglin
@@ -91,7 +90,7 @@ landingContent:
             url: tutorial-autoscale-ps.md
 
 # Card
-  - title: Application Gateway for Containers (preview)
+  - title: Application Gateway for Containers
     linkLists:
       - linkListType: overview
         links:

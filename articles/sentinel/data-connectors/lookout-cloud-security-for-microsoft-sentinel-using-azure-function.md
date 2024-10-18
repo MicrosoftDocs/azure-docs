@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Lookout Cloud Security (using Azure Functions) connector for Microsoft Sentinel
@@ -152,4 +153,4 @@ If you're already signed in, go to the next step.
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/lookoutinc.lookout_cloudsecurity_sentinel?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/lookoutinc.lookout_casb_for_o365?tab=Overview) in the Azure Marketplace.

@@ -2,16 +2,22 @@
 title: Drawing package guide for Microsoft Azure Maps Creator
 titleSuffix: Microsoft Azure Maps Creator
 description: Learn how to prepare a drawing package for the Azure Maps Conversion service
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 03/21/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 zone_pivot_groups: drawing-package-version
 ---
 
 # Conversion drawing package guide
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 :::zone pivot="drawing-package-v1"
 
@@ -71,8 +77,7 @@ The following image shows the Drawing Units window within Autodesk's AutoCAD® s
 
 ### Alignment
 
-Each floor of a facility is provided as an individual DWG file. As a result, it's possible that the floors aren't perfectly aligned when stacked on top of each other. Azure Maps Conversion service requires that all drawings be aligned with the physical space. To verify alignment, use a reference point that can span across floors, such as an elevator or column that spans multiple floors. you can view all the floors by opening a new drawing, and then use the `XATTACH` command to load all floor drawings. If you need to fix any alignment issues, you can use the reference points and the `MOVE` command to realign the floors that require it.
-
+Each floor of a facility is provided as an individual DWG file. As a result, it's possible that the floors aren't perfectly aligned when stacked on top of each other. Azure Maps Conversion service requires that all drawings be aligned with the physical space. To verify alignment, use a reference point that can span across floors, such as an elevator or column that spans multiple floors. You can view all the floors by opening a new drawing, and then use the `XATTACH` command to load all floor drawings. If you need to fix any alignment issues, you can use the reference points and the `MOVE` command to realign the floors that require it.
 ### Layers
 
 Ensure that each layer of a drawing contains entities of one feature class. If a layer contains entities for walls, then it can't have other features such as units or doors.  However, a feature class can be split up over multiple layers. For example, you can have three layers in the drawing that contain wall entities.
@@ -223,6 +228,11 @@ The following snippet shows the unit property object that is associated with the
 
 You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package].
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
 :::zone-end
 
 :::zone pivot="drawing-package-v2"
@@ -340,28 +350,25 @@ When finished, select the **Create + Download** button to download a copy of the
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
 
-## Step 4: Prepare the drawing package
-
-You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be compressed into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the drawing package. All other files can be in any directory of the drawing package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package v2].
-
-:::zone-end
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
+> [Create indoor map with the onboarding tool]
+:::zone-end
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
 [Manifest file requirements]: drawing-requirements.md#manifest-file-requirements-1
 [Drawing Package Requirements]: drawing-requirements.md
-[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
-
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
 [Conversion service]: https://aka.ms/creator-conversion
 [sample drawing package v2]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
-[Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
+[Azure Maps Creator onboarding tool]: creator-onboarding-tool.md
 [manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
-[Create indoor map with the onboarding tool]: creator-onboarding-tool.md
+
+[Creator for indoor maps]: creator-indoor-maps.md

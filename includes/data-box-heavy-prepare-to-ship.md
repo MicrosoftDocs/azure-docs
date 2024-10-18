@@ -1,10 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
-ms.subservice: heavy
+author: stevenmatthew
+ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 05/28/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start this process.
@@ -46,3 +45,4 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
 6. Repeat all the above steps for the other device node.
 7. Once the device has completely shut down, all the LEDs at the back of the device would have turned off. The next step is to remove all the cables and ship the device to Microsoft.
+

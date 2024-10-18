@@ -4,8 +4,7 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: alkohli
@@ -75,7 +74,6 @@ Here are the details for the Mellanox card:
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## Storage specifications
 

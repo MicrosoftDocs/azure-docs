@@ -3,7 +3,7 @@ title: Container Apps outbound traffic control with Azure Firewall
 description: Use Azure Firewall to route outbound traffic from Container Apps to the internet, private IP addresses, and Azure services.
 services: container-apps
 author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.author: cachai
 ms.topic: article
 ms.date: 08/29/2023
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 # Control outbound traffic with user defined routes
 
 > [!NOTE]
-> This feature is only supported for the workload profiles environment type. User defined routes only work with an internal Azure Container Apps environment.
+> This feature is only supported for the workload profiles environment type.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
@@ -20,7 +20,7 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
+See the [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) in [networking in Azure Container Apps](./networking.md) for more information.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
     | **Virtual network** | Select the integrated virtual network. |
     | **Public IP address** | Select an existing address or create one by selecting **Add new**. |
 
-1. Select **Review + create**. After validation finishes, select **Create**. The validation step may take a few minutes to complete.
+1. Select **Review + create**. After validation finishes, select **Create**. The validation step might take a few minutes to complete.
 
 1. Once the deployment completes, select **Go to Resource**.
 
@@ -114,8 +114,8 @@ Your virtual networks in Azure have default route tables in place when you creat
 
     | Setting      | Action      |
     |--|--|
-    | **Address prefix** | Select the virtual network for your container app. |
-    | **Next hop type** | Select the subnet your for container app.  |
+    | **Virtual network** | Select the virtual network for your container app. |
+    | **Subnet** | Select the subnet your for container app.  |
 
 1. Select **OK**.
 

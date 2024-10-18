@@ -6,20 +6,17 @@ description: Data cleanroom and multi-party data confidential computing solution
 
 services: virtual-machines
 
-author: grbury
+author: kapilv
 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
-ms.subservice: confidential-computing
-
-ms.workload: infrastructure
+ms.subservice: azure-confidential-computing
 
 ms.topic: conceptual
 
 ms.date: 04/20/2023
 
-ms.author: grbury
-
+ms.author: kapilv
 ---
 
 # Cleanroom and Multi-party Data Analytics
@@ -87,4 +84,4 @@ Use a partner that has built a multi-party data analytics solution on top of the
 - [**Habu**](https://habu.com) delivers an interoperable data clean room platform that enables businesses to unlock collaborative intelligence in a smart, secure, scalable, and simple way. Habu connects decentralized data across departments, partners, customers, and providers for better collaboration, decision-making, and results.
 - [**Mithril Security**](https://www.mithrilsecurity.io/) provides tooling to help SaaS vendors serve AI models inside secure enclaves, and providing an on-premises level of security and control to data owners. Data owners can use their SaaS AI solutions while remaining compliant and in control of their data.
 - [**Opaque**](https://opaque.co/) provides a confidential computing platform for collaborative analytics and AI, giving the ability to perform collaborative scalable analytics while protecting data end-to-end and enabling organizations to comply with legal and regulatory mandates.
-- [**SafeLiShare**](https://safelishare.com/solution/encrypted-data-clean-room/) provides policy-driven encrypted data clean rooms where access to data is auditable, trackable, and visible, while keeping data protected during multi-party data sharing.
+- [**SafeLiShare**](https://safelishare.com/) provides policy-driven encrypted data clean rooms where access to data is auditable, trackable, and visible, while keeping data protected during multi-party data sharing.

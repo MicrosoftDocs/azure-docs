@@ -4,7 +4,7 @@ description: Learn how to upgrade Azure Web Application Firewall policies using 
 services: web-application-firewall
 ms.topic: how-to
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 05/18/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Upgrade Web Application Firewall policies using Azure PowerShell
 
-This script makes it easy to transition from a WAF config, or a custom rules-only WAF policy, to a full WAF policy. You may see a warning in the portal that says *upgrade to WAF policy*, or you may want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
+This script makes it easy to transition from a WAF config, or a custom rules-only WAF policy, to a full WAF policy. You might see a warning in the portal that says *upgrade to WAF policy*, or you might want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
 
 For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [upgrade to WAF policy](create-waf-policy-ag.md#upgrade-to-waf-policy).
 
@@ -22,7 +22,7 @@ Use the following steps to run the migration script:
 
 1. Open the following  Cloud Shell window, or open one from within the portal.
 2. Copy the script into the Cloud Shell window and run it.
-3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that you will create. Once you enter these inputs, the script  runs and creates your new WAF policy
+3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that you create. Once you enter these inputs, the script  runs and creates your new WAF policy
 4. Verify the new WAF policy is associated with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Verify the Application Gateway is associated with the WAF policy.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
 
     if ($appgw.FirewallPolicy) {
         $customRulePolicyId = $appgw.FirewallPolicy.Id
-        $rg = Get-AzResourceGroup -Id $customRulePolicyId
+        $rg = Get-AzResourceGroup -Name $resourceGroupName
         $crPolicyName = $customRulePolicyId.Substring($customRulePolicyId.LastIndexOf("/") + 1)
         $customRulePolicy = Get-AzApplicationGatewayFirewallPolicy -ResourceGroupName $rg.ResourceGroupName -Name $crPolicyName
         $wafPolicy = New-AzApplicationGatewayFirewallPolicy -ResourceGroupName $rg.ResourceGroupName -Name $wafPolicyName -CustomRule $customRulePolicy.CustomRules -ManagedRule $managedRule -PolicySetting $policySetting -Location $appgw.Location
@@ -200,14 +200,6 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
     Write-Host " firewallPolicy: $wafPolicyName has been created/updated successfully and applied to applicationGateway: $applicationGatewayName!"
     return $wafPolicy
 }
-
-function Main() {
-    Login
-    $policy = createNewTopLevelWafPolicy -subscriptionId $subscriptionId -resourceGroupName $resourceGroupName -applicationGatewayName $applicationGatewayName -wafPolicyName $wafPolicyName
-    return $policy
-}
-
-Main
 
 function Main() {
     Login

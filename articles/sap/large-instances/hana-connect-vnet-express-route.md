@@ -2,19 +2,15 @@
 title: Connect a virtual network to SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to connect a virtual network to SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+author: ju-shim
 manager: bburns
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 6/1/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-
 ---
 
 # Connect a virtual network to HANA Large Instances
@@ -28,7 +24,7 @@ First, create an Azure ExpressRoute gateway on your virtual network. This gatewa
 > [!NOTE] 
 > This step can take up to 30 minutes to complete. You create the new gateway in the designated Azure subscription and then connect it to the specified Azure virtual network.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - If a gateway already exists, check whether it's an ExpressRoute gateway. If it isn't an ExpressRoute gateway, delete the gateway and recreate it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, skip to the following section of this article, [Link virtual networks](#link-virtual-networks). 
 

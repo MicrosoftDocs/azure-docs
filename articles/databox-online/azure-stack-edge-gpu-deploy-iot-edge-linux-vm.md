@@ -4,8 +4,8 @@ description: Learn how to deploy IoT Edge runtime and run IoT Edge module on an 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: alkohli

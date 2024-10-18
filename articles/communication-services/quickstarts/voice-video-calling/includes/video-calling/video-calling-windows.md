@@ -139,7 +139,7 @@ namespace CallingQuickstart
 {
     public sealed partial class MainPage : Page
     {
-        private const string authToken = "<ACS auth token>";
+        private const string authToken = "<Azure Communication Services auth token>";
     
         private CallClient callClient;
         private CallTokenRefreshOptions callTokenRefreshOptions;
@@ -321,7 +321,7 @@ var callString = CalleeTextBox.Text.Trim();
 
 if (!string.IsNullOrEmpty(callString))
 {
-    if (callString.StartsWith("8:")) // 1:1 ACS call
+    if (callString.StartsWith("8:")) // 1:1 Azure Communication Services call
     {
         call = await StartAcsCallAsync(callString);
     }
@@ -346,7 +346,7 @@ if (call != null)
 }
 ```
 
-Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
+Add the methods to start or join the different types of Call (1:1 Azure Communication Services call, 1:1 phone call, Azure Communication Services Group call, Teams meeting join, etc.).
 
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
@@ -437,7 +437,10 @@ _ = await incomingCall.AcceptAsync(acceptCallOptions);
 
 ### Remote participant and remote video streams
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call becomes connected (`CallState.Connected`), we can access the remote participants of the call and handle the remote video streams. 
+
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `RemoteParticipants` collection. The `RemoteParticipantsUpdated` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
 
 ```C#
 
@@ -899,6 +902,9 @@ call = await incomingCall.AcceptAsync(acceptCallOptions);
 ### Remote participant and remote video streams
 
 All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `RemoteParticipants` collection. The `OnRemoteParticipantsUpdated` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
 
 ```C#
 private async void Call_OnVideoStreamsUpdatedAsync(object sender, RemoteVideoStreamsEventArgs args)

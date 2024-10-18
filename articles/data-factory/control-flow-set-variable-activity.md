@@ -2,13 +2,12 @@
 title: Set Variable Activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Set Variable activity to set the value of an existing variable defined in an Azure Data Factory or Azure Synapse Analytics pipeline or to set a pipeline return value. 
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
+ms.date: 01/05/2024
 ms.topic: conceptual
-ms.date: 02/16/2023
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ---
 
@@ -134,7 +133,7 @@ A common scenario involving variable is to use a variable as an iterator within 
 Variables are scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
-## Next steps
+## Related content
 Learn about another related control flow activity: 
 - [Append Variable Activity](control-flow-append-variable-activity.md)
 

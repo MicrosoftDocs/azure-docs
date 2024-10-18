@@ -1,8 +1,8 @@
 ---
 author: spelluru
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 01/04/2024
 ms.author: spelluru
 ---
 1. Sign in to the [Azure portal].
@@ -34,5 +34,4 @@ ms.author: spelluru
 <!--Image references-->
 
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

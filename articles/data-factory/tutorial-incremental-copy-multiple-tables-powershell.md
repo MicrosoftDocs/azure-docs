@@ -4,11 +4,10 @@ description: In this tutorial, you create an Azure Data Factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
@@ -67,7 +66,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create source tables in your SQL Server database
 
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
@@ -106,7 +105,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create destination tables in your Azure SQL Database
 
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
@@ -980,7 +979,7 @@ project_table    2017-10-01 00:00:00.000
 
 Notice that the watermark values for both tables were updated.
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

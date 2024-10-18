@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 07/04/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: devx-track-js
 ---
 
@@ -20,7 +20,7 @@ The [azure-maps-control] npm package is a client-side library that allows you to
 To use the npm package in an application, you must have the following prerequisites:
 
 * An [Azure Maps account]
-* A [subscription key] or Azure Active Directory (Azure AD) credentials. For more information, see [authentication options].
+* A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
 ## Installation
 

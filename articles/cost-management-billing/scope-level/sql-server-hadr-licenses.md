@@ -1,10 +1,9 @@
 ---
 title: SQL Server HADR and centrally managed Azure Hybrid Benefit coexistence
 description: This article explains how the SQL Server HADR Software Assurance benefit and centrally managed Azure Hybrid Benefit coexist.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -30,7 +29,7 @@ Prices shown in the following image are for example purposes only.
 > [!NOTE]
 > HADR option reflects the specific role of this SQL Server instance in the Always On availability group. Selecting it is the responsibility of the service owner or DBA and requires at least a [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role. This task is unrelated to scope-level license assignments.
 
-## Next steps
+## Related content
 
 - Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how discounts are applied at [What is centrally managed Azure Hybrid Benefit?](sql-server-hadr-licenses.md)

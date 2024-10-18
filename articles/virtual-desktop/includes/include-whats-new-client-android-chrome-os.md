@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 05/29/2024
 ---
 
 ## Latest client versions
@@ -11,14 +11,30 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.0.16.1237   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
-| Beta    | 10.0.16.1237   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+| Public  | 10.0.19.1279   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
+| Beta    | 10.0.19.1279   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+
+## Updates for version 10.0.19.1279
+
+*Published: May 29, 2024*
+
+In this release, we made the following changes:
+
+- Added Microsoft Intune MAM support for configuring redirection settings. It includes MAM SDK version 9.7.1.
+
+## Updates for version 10.0.18.1251
+
+*Published: December 14, 2023*
+
+In this release, we made the following changes:
+
+- Bug fixes and improvements.
 
 ## Updates for version 10.0.16.1237 
 
-*Date published: August 14, 2023*
+*Published: August 14, 2023*
 
-In this release, we've made the following changes: 
+In this release, we made the following changes: 
 
 - Added support for pen redirection.
 - Azure Virtual Desktop desktop previews are now available.
@@ -31,27 +47,27 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.15.1207
 
-*Date published: October 31, 2022*
+*Published: October 31, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for camera redirection.
 - Bug fixes and improvements.
 
 ## Updates for version 10.0.14.1182
 
-*Date published: June 13, 2022*
+*Published: June 13, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and improvements.
 - App localized into 16 languages.
 
 ## Updates for version 10.0.13.1174
 
-*Date published: February 22, 2022*
+*Published: February 22, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Client-side time zone redirection.
 - HTTP proxy support.
@@ -67,11 +83,11 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.12.1148
 
-*Date published: December 15, 2021*
+*Published: December 15, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- We've made an in-session UI that switches between workspaces and PCs.
+- We made an in-session UI that switches between workspaces and PCs.
 - Updated language support for Input Method Editors (IME) and external keyboards.
 - Added support for Azure Virtual Desktop workspace subscriptions that use multiple identities for the same URL.
 - We added a warning message that says you shouldn't use the RD Gateway for local addresses.
@@ -81,17 +97,17 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.11
 
-*Date published: July 13, 2021*
+*Published: July 13, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and performance improvements.
 
 ## Updates for version 10.0.10
 
-*Date published: 3/24/2021*
+*Published: 3/24/2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for client-side IMEs when using built-in and onscreen keyboards.
 - Added a prompt for credentials when subscribing to a workflow.
@@ -100,9 +116,9 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.9
 
-*Date published: 2/2/2021*
+*Published: 2/2/2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Support for dark mode on Android 10 and later.
 - Fixed clipboard redirection synchronization issues.
@@ -114,9 +130,9 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.8
 
-*Date published: 12/04/2020*
+*Published: 12/04/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Client now supports microphone redirection.
 - New UI for subscribing to and editing workspaces.
@@ -131,7 +147,7 @@ In this release, we've made the following changes:
 
 *Date Published: 07/24/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Implemented full support for Azure Virtual Desktop.
 - Rewrote the client to use the same underlying RDP core engine as the iOS and macOS clients.
@@ -146,23 +162,23 @@ In this release, we've made the following changes:
 
 *Date Published: 05/26/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Changed the client icon to distinguish it from the new client currently in preview.
 - Prepared the client to support settings and connections transfer to the new client.
 
 ## Updates for version 8.1.79
 
-*Date published: 03/24/2020*
+*Published: 03/24/2020*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue where barcode scanners didn't work.
 
 ## Updates for version 8.1.77
 
-*Date published: 02/11/2020*
+*Published: 02/11/2020*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Improved accessibility for users of keyboard-only navigation.

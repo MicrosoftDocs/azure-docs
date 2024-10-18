@@ -2,12 +2,11 @@
 title: Manage IoT Central organizations
 description: How to create and manage an organization hierarchy to create multi-tenanted IoT Central applications.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/14/2023
 ms.topic: how-to
-ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations

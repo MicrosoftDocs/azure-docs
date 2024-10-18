@@ -45,7 +45,7 @@ To enable preregistered alphanumeric sender ID, go to your Communication Service
 
 :::image type="content" source="./media/enable-alphanumeric-sender-id/manage-phone-azure-portal-start-1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
 
-Navigate to the Alphanumeric Sender ID blade in the resource menu, select preregistered tab and click on "Submit an application" button to submit the registration form.
+Navigate to the Alphanumeric Sender ID blade in the resource menu, select preregistered tab and click on "Submit an application" button to submit the registration form. Once the application is submitted, the provisioning typically takes 4-5 weeks before it is available to use.
 
 :::image type="content" source="./media/enable-alphanumeric-sender-id/enable-pre-reg-alphanumeric-sender-id.png"alt-text="Screenshot showing the preregistered tab in Alphanumeric senderID blade.":::
 

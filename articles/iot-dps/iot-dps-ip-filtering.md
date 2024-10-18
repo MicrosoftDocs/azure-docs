@@ -3,11 +3,12 @@ title: Microsoft Azure IoT DPS IP connection filters
 description: How to use IP filtering to block connections from specific IP addresses to your Azure IoT DPS instance. 
 author: kgremban
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 services: iot-dps
 ms.topic: how-to
 ms.date: 11/12/2021
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Use Azure IoT DPS IP connection filters
@@ -86,7 +87,7 @@ To edit an existing rule:
 
 1. Select the IP filter rule data you want to change.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an an IP filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an IP filter rule.":::
 
 2. Make the change.
 

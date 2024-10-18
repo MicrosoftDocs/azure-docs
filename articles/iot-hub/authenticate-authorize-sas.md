@@ -3,7 +3,7 @@ title: Control access with shared access signatures
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses shared access signatures (SAS) to authenticate identities and authorize access to IoT hubs and devices. 
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.author: kgremban
 ms.topic: conceptual
 ms.date: 09/01/2023
@@ -100,7 +100,7 @@ The result, which grants access to read all device identities in the identity re
 
 For more examples, see [Generate SAS tokens](#generate-sas-tokens).
 
-For services, SAS tokens only grant permissions at the IoT Hub level. That is, a service authenticating with a token based on the **service** policy will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Azure Active Directory. To learn more, see [Authenticate with Azure AD](authenticate-authorize-azure-ad.md).
+For services, SAS tokens only grant permissions at the IoT Hub level. That is, a service authenticating with a token based on the **service** policy will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Microsoft Entra ID. To learn more, see [Authenticate with Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 
 ## Use SAS tokens from devices
 
@@ -358,7 +358,7 @@ Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in dif
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, `{iothubhostname}/{deviceId}` in the Username field, and a SAS token in the Password field. `{iothubhostname}` should be the full CName of the IoT hub (for example, myhub.azure-devices.net).
 
-When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](https://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](https://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=50506).
 
 If you use AMQP claims-based-security, the standard specifies how to transmit these tokens.
 

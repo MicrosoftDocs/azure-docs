@@ -50,9 +50,10 @@ message = {
     "senderAddress": "str",  # Sender email address from a verified domain. Required.
     "attachments": [
         {
-            "contentInBase64": "str",  # Base64 encoded contents of the attachment. Required.
-            "contentType": "str",  # MIME type of the content being attached. Required.
             "name": "str"  # Name of the attachment. Required.
+            "contentType": "str",  # MIME type of the content being attached. Required.
+            "contentInBase64": "str",  # Base64 encoded contents of the attachment. Required.
+            "contentId": "str" # Unique identifier (CID) to reference an inline attachment. Optional
         }
     ],
     "userEngagementTrackingDisabled": bool,  # Optional. Indicates whether user engagement tracking should be disabled for this request if the resource-level user engagement tracking setting was already enabled in the control plane.
@@ -166,7 +167,9 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 You can also use Active Directory authentication using [DefaultAzureCredential](../../../../concepts/authentication.md).
 

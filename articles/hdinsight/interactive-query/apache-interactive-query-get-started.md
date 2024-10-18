@@ -1,10 +1,10 @@
 ---
 title: What is Interactive Query in Azure HDInsight?
 description: An introduction to Interactive Query, also called Apache Hive LLAP, In Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 08/23/2022
+ms.date: 10/17/2024
 #Customer intent: As a developer new to Interactive Query in Azure HDInsight, I want to have a basic understanding of Interactive Query so I can decide if I want to use it rather than build my own cluster.
 ---
 
@@ -23,7 +23,7 @@ You can access the Hive service in the Interactive Query cluster only via Apache
 For information about creating a HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choose the Interactive Query cluster type.
 
 > [!IMPORTANT]
-> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. See the [Azure VM Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)for more information.
+> The minimum headnode size for Interactive Query clusters is Standard_D13_v2. For more information, see the [Azure Virtual Machine Sizing Chart](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## Execute Apache Hive queries from Interactive Query
 
@@ -34,8 +34,8 @@ To execute Hive queries, you have the following options:
 |Microsoft Power BI|See [Visualize Interactive Query Apache Hive data with Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md), and [Visualize big data with Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).|
 |Visual Studio|See [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).|
 |Visual Studio Code|See [Use Visual Studio Code for Apache Hive, LLAP, or pySpark](../hdinsight-for-vscode.md).|
-|Apache Ambari Hive View|See [Use Apache Hive View with Apache Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md). Hive View is not available for HDInsight 4.0.|
-|Apache Beeline|See [Use Apache Hive with Apache Hadoop in HDInsight with Beeline](../hadoop/apache-hadoop-use-hive-beeline.md). You can use Beeline from either the head node or from an empty edge node. We recommend using Beeline from an empty edge node. For information about creating an HDInsight cluster by using an empty edge node, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).|
+|Apache Ambari Hive View|See [Use Apache Hive View with Apache Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md). Hive View isn't available for HDInsight 4.0.|
+|Apache Beeline|See [Use Apache Hive with Apache Hadoop in HDInsight with Beeline](../hadoop/apache-hadoop-use-hive-beeline.md). You can use Beeline from either the head node or from an empty edge node. We recommend using Beeline from an empty edge node. For information about creating a HDInsight cluster by using an empty edge node, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).|
 |Hive ODBC|See [Connect Excel to Apache Hadoop with the Microsoft Hive ODBC driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).|
 
 To find the Java Database Connectivity (JDBC) connection string:
@@ -43,7 +43,7 @@ To find the Java Database Connectivity (JDBC) connection string:
 1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, where `CLUSTERNAME` is the name of your cluster.
 1. To copy the URL, select the clipboard icon:
 
-   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="HDInsight Hadoop Interactive Query LLAP JDBC" border="true":::
+   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="HDInsight Hadoop Interactive Query LLAP JDBC." border="true":::
 
 ## Next steps
 

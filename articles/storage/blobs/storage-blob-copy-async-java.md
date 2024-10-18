@@ -5,7 +5,7 @@ description: Learn how to copy a blob with asynchronous scheduling in Azure Stor
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 08/26/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
@@ -20,12 +20,23 @@ This article shows how to copy a blob with asynchronous scheduling using the [Az
 
 The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-java](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-java.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operations:
-    - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
-    - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-java](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-java.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_Imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to perform a copy operation, or to abort a pending copy. For authorization with Microsoft Entra ID (recommended), the least privileged Azure RBAC built-in role varies based on several factors. To learn more, see the authorization guidance for [Copy Blob (REST API)](/rest/api/storageservices/copy-blob#authorization) or [Abort Copy Blob (REST API)](/rest/api/storageservices/abort-copy-blob#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
 
 [!INCLUDE [storage-dev-guide-blob-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy-async.md)]
 
@@ -41,7 +52,7 @@ The `beginCopy` method returns a [SyncPoller](/java/api/com.azure.core.util.poll
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
 
 If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
@@ -50,7 +61,7 @@ The following example shows a scenario for copying a source blob from a differen
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyAcrossStorageAccounts_CopyBlob":::
 
 > [!NOTE]
-> User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
+> User delegation SAS tokens offer greater security, as they're signed with Microsoft Entra credentials instead of an account key. To create a user delegation SAS token, the Microsoft Entra security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
 
 ## Copy a blob from a source outside of Azure
 
@@ -81,6 +92,10 @@ This method wraps the [Abort Copy Blob](/rest/api/storageservices/abort-copy-blo
 
 To learn more about copying blobs using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods covered in this article use the following REST API operations:
@@ -88,8 +103,6 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
-
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

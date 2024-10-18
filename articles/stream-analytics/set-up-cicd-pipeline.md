@@ -1,10 +1,9 @@
 ---
 title: Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
 description: This article describes how to set up a continuous integration and deployment (CI/CD) pipeline for an Azure Stream Analytics job in Azure DevOps
-services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 09/08/2023
 ---

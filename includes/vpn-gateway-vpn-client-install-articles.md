@@ -1,18 +1,22 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 07/29/2022
-ms.service: vpn-gateway
+ms.date: 10/08/2024
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 
-| Authentication | Tunnel type | HowTo article |
-| --- | --- | --- |
-| Azure certificate | IKEv2, OpenVPN, SSTP   | [Windows](../articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md)|
-| Azure certificate | IKEv2, OpenVPN  |[macOS-iOS](../articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md)|
-| Azure certificate |  IKEv2, OpenVPN  | [Linux](../articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md) |
-| Azure AD |OpenVPN (SSL) | [Windows](../articles/vpn-gateway/openvpn-azure-ad-client.md) |
-| Azure AD | OpenVPN (SSL)| [macOS](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |
-| RADIUS - certificate |  - |[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate.md)|
-| RADIUS -  password | - |[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md)|
-| RADIUS - other methods |  - |[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-other.md)|
+| Authentication | Tunnel type |Client OS|VPN client |
+| --- | --- | --- |---|
+| Certificate |    | |  |
+|  | IKEv2, SSTP   |Windows |  [Native VPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-native.md)|
+|  | IKEv2|macOS |[Native VPN client](../articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md)|
+| |  IKEv2|Linux |[strongSwan](../articles/vpn-gateway/point-to-site-vpn-client-certificate-ike-linux.md) |
+| | OpenVPN |Windows |[Azure VPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)<br> [OpenVPN client version 2.x](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md)<br>[OpenVPN client version 3.x](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md) |
+| | OpenVPN  |macOS|[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-mac.md)|
+| | OpenVPN  |iOS |[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-ios.md)|
+| | OpenVPN |Linux | [Azure VPN Client](../articles/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client.md)<br>[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md)|
+| Microsoft Entra ID |    | |  |
+|   | OpenVPN| Windows | [Azure VPN client](../articles/vpn-gateway/point-to-site-entra-vpn-client-windows.md)|
+|  | OpenVPN| macOS |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-mac.md) |
+|  | OpenVPN| Linux |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |

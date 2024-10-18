@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
-ms.topic: article
-ms.date: 08/23/2023
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 04/04/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -26,7 +26,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
 
 - Contributor or Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault, used during registration of the Azure Site Recovery replication appliance with Azure.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
@@ -52,13 +52,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 4. In **Add a role assignment**, select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-  To register the appliance, your Azure account needs permissions to register Azure Active Directory apps.
+  To register the appliance, your Azure account needs permissions to register Microsoft Entra apps.
 
   **Follow these steps to assign required permissions**:
 
-  - In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+  - In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
+  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The Application Developer role **cannot** be used to enable registration of Microsoft Entra App.
 
 
 ## Prepare infrastructure
@@ -109,12 +109,12 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-      - DisableRegistryTools value shouldn't be equal 0.
+      - DisableRegistryTools value should be equal 0.
 
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
       - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
-      - DisableCMD value shouldn't be equal 0.
+      - DisableCMD value should be equal 0.
 
   - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 
@@ -129,21 +129,27 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   **Use the following steps to register the appliance**:
 
-1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option. All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported. 
 
-    All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
+2. Proxy settings can be updated later also using the "Update proxy" button.
+
+    :::image type="Update proxy settings" source="./media/deploy-vmware-azure-replication-appliance-modernized/proxy-settings.png" alt-text="Screenshot showing proxy update screen.":::
 
 2. Ensure the [required URLs](./replication-appliance-support-matrix.md#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
-3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. After saving the details, proceed to choose the appliance connectivity.
+3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. 
 
-4. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
+4. After saving the details, proceed to choose the appliance connectivity. Either FQDN or a NAT IP can be selected to define how the communication with the appliance would happen. 
+
+    :::image type="Select appliance connectivity" source="./media/deploy-vmware-azure-replication-appliance-modernized/select-connectivity-type.png" alt-text="Screenshot showing appliance connectivity options.":::
+
+4. After saving connectivity details, select **Continue** to proceed to registration with Microsoft Azure.
 
 5. Ensure the [prerequisites](./replication-appliance-support-matrix.md#pre-requisites) are met, proceed with registration.
 
     :::image type="Register appliance" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png" alt-text="Screenshot showing register appliance.":::
 
-  - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+  - **Friendly name of appliance**: Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure. This name cannot be changed once set. 
 
   - **Azure Site Recovery replication appliance key**: Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **Site Recovery** > **VMware to Azure: Prepare Infrastructure**.
 

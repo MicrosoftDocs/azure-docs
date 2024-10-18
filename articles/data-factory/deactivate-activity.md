@@ -2,13 +2,12 @@
 title: Deactivate an Activity in Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to deactivate an activity to exclude from pipeline run and validation
-author: chez-charlie
-ms.author: chez
-ms.service: data-factory
+author: kromerm
+ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/01/2023
+ms.date: 01/05/2024
 ---
 
 # Deactivate an Activity
@@ -74,7 +73,7 @@ Deactivation is a powerful tool for pipeline developer. It allows developers to 
 
 An inactive activity never actually runs. This means the activity won't have an error field, or its typical output fields. Any references to missing fields may throw errors downstream.
 
-## Next steps
+## Related content
 
 Learn more about Azure Data Factory and Synapse pipelines.
 

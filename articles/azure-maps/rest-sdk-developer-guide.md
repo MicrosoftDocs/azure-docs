@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-services: azure-maps
+ms.subservice: rest-sdk
+ms.custom: devx-track-java, devx-track-js, devx-track-python, devx-track-ts
 ---
 
 # REST SDK Developer Guide
@@ -109,7 +109,7 @@ For more information, see the [Java SDK Developers Guide].
 [JavaScript/TypeScript SDK Developers Guide]: how-to-dev-guide-js-sdk.md
 [js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
 [js search package]: https://www.npmjs.com/package/@azure-rest/maps-search
-[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta/javascript
+[js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v2-beta/javascript
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route

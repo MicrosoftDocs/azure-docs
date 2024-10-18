@@ -2,15 +2,10 @@
 metadata:
   title: Azure DDoS Protection frequently asked questions
   description: Frequently asked questions about the Azure DDoS Protection, which helps provide defense against DDoS attacks.
-  services: virtual-network
-  documentationcenter: na
   author: AbdullahBell
-  ms.service: ddos-protection
+  ms.service: azure-ddos-protection
   ms.topic: faq
-  ms.tgt_pltfrm: na
-  ms.custom: ignite-2022
-  ms.workload: infrastructure-services
-  ms.date: 06/12/2023
+  ms.date: 01/31/2024
   ms.author: abell
 title: Azure DDoS Protection frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection.
@@ -39,6 +34,11 @@ sections:
 
           See [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for pricing and more details.
 
+      - question: | 
+          Which Azure DDoS Protection tier should I choose?
+        answer: |
+          If you need to protect less than 15 public IP resources, the IP Protection tier is the more cost-effective option. If you have more than 15 public IP resources to protect, then the Network Protection tier is more cost-effective. Network Protection also offers additional features, including DDoS Protection Rapid Response (DRR), cost protection guarantees, and Web Application Firewall (WAF) discounts.
+          
       - question: |
           Is the service zone resilient?
         answer: |
@@ -121,3 +121,5 @@ sections:
           Is a single VM deployment behind public IP supported?
         answer: |
           Scenarios in which a single VM is running behind a public IP is supported but not recommended. DDoS mitigation might not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability).
+      
+  

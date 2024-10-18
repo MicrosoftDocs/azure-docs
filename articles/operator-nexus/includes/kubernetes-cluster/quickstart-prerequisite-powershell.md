@@ -7,11 +7,11 @@ ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecpowershell
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Use the Bash environment in [Azure PowerShell](../../../cloud-shell/overview.md). For more information, see [Quickstart for PowerShell in Azure Cloud Shell.](../../../cloud-shell/quickstart.md)
 
-[:::image type="icon" source="~/articles/reusable-content/azure-cli/media/hdi-launch-cloud-shell.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
+[:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Launch Azure Cloud Shell." :::](https://shell.azure.com)
 
 * If you are running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
@@ -19,6 +19,8 @@ ms.custom: devx-track-azurecpowershell
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet. On setting the subscription, one need not pass the 'SubscriptionID' each time executing the PowerShell command.
 
 * Refer the VM SKU table in the [reference section](../../reference-nexus-kubernetes-cluster-sku.md) for the list of supported VM SKUs.
+
+* Refer the [supported Kubernetes versions](../../reference-nexus-kubernetes-cluster-supported-versions.md) for the list of supported Kubernetes versions.
 
 * Create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet. An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation. The following example creates a resource group named myResourceGroup in the eastus location.
 
@@ -43,5 +45,5 @@ ms.custom: devx-track-azurecpowershell
 <!-- LINKS - internal -->
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md
+[kubernetes-concepts]: /azure/aks/concepts-clusters-workloads
 [azure-resource-group]: ../../../azure-resource-manager/management/overview.md

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 01/09/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to enrich IP address data with geolocation information via a REST API so that I can enhance threat detection and response in Microsoft Sentinel.
+
 ---
 
 # Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)

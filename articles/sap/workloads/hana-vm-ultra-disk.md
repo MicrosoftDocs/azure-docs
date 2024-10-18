@@ -3,13 +3,11 @@ title: SAP HANA Azure virtual machine Ultra Disk configurations | Microsoft Docs
 description: Storage recommendations for SAP HANA using Ultra disk.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.date: 08/30/2023
+ms.date: 09/03/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -22,7 +20,7 @@ This document is about HANA storage configurations for Azure Ultra Disk storage 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](/azure/virtual-machines/disks-types#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160,000 IOPS (maximum depends on VM types as well)
@@ -33,7 +31,7 @@ Ultra disk gives you the possibility to define a single disk that fulfills your 
 Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. 
 
 > [!NOTE]
-> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md#ultra-disks).
+> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types#ultra-disks).
 
 > [!IMPORTANT]
 > You have the possibility to define the sector size of Ultra disk as 512 Bytes or 4096 Bytes. Default sector size is 4096 Bytes. Tests conducted with HCMT did not reveal any significant differences in performance and throughput between the different sector sizes. This sector size is different than stripe sizes that you need to define when using a logical volume manager. 
@@ -57,20 +55,30 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M32ts | 192 GiB | 500 MBps | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
 | M32ls | 256 GiB | 500 MBps | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
 | M64ls | 512 GiB | 1,000 MBps | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M32(d)ms_v2, | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64(d)ms_v2| 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
+| M416(d)s_6_v3 | 5,696 GiB | 4,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
 | M416s_8_v2 | 7,600 | 2,000 MBps | 9,500 GB | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| M624s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |
 | M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 512 GB | 600 MBps | 9,000 |
+| M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 4,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
 | M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 

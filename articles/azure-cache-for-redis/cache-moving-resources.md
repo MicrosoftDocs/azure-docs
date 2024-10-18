@@ -1,10 +1,10 @@
 ---
 title: Move Azure Cache for Redis instances to different regions
 description: How to move Azure Cache for Redis instances to a different Azure region.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: how-to
 ms.custom: subject-moving-resources, engagement-fy23
 ms.date: 10/20/2022
@@ -65,7 +65,7 @@ After geo-replication is configured, the following restrictions apply to your li
   - Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
-- You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
+- You can't change the number of shards if the cache has clustering enabled.
 - You can't enable persistence on either cache.
 - You can [Export](cache-how-to-import-export-data.md#export) from either cache.
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
@@ -135,7 +135,7 @@ If you don't need to maintain your data during the move, the easiest way to move
 
 ### Move
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 Finally, update your application to use the new instances.
 
@@ -169,7 +169,7 @@ To move your cache instance to another region, you'll need to create [a second p
 
 ### Verify
 
-You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
+You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](/azure/azure-monitor/essentials/activity-log).
 
 ### Clean up source resources
 

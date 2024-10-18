@@ -12,15 +12,15 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 
 # Tutorial: Connect to a MySQL Database from Java JBoss EAP App Service with passwordless connection
 
-[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](/azure/mysql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database.
 > * Deploy a sample JBoss EAP app to Azure App Service using a WAR package.
-> * Configure a Spring Boot web application to use Azure Active Directory (Azure AD) authentication with MySQL Database.
+> * Configure a Spring Boot web application to use Microsoft Entra authentication with MySQL Database.
 > * Connect to MySQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Follow these steps to create an Azure Database for MySQL in your subscription. T
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it isn't used because we're going to use the Azure AD admin account to perform administrative tasks.
+1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it isn't used because we're going to use the Microsoft Entra admin account to perform administrative tasks.
 
    ```azurecli-interactive
    export MYSQL_ADMIN_USER=azureuser
@@ -125,7 +125,7 @@ Install the Service Connector passwordless extension for the Azure CLI:
 az extension add --name serviceconnector-passwordless --upgrade
 ```
 
-Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
 export USER_IDENTITY_NAME=<your-user-assigned-managed-identity-name>
@@ -155,7 +155,7 @@ az webapp connection create mysql-flexible \
 This Service Connector command does the following tasks in the background:
 
 * Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
-* Set the Azure Active Directory admin to the current signed-in user.
+* Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. You can get the user name from the connection string in the output from the previous command.
 * Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`.
 
@@ -279,4 +279,4 @@ curl https://${WEBAPP_URL}/checklist/1
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](../app-service/configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](../app-service/configure-language-java-security.md?pivots=platform-linux)

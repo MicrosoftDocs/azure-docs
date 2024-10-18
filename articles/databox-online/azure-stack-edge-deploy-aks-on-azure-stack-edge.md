@@ -4,10 +4,9 @@ description: Learn how to deploy and configure Azure Kubernetes service on Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 11/29/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -33,7 +32,7 @@ Before you begin, ensure that:
 - You have a Microsoft account with credentials to access Azure portal, and access to an Azure Stack Edge Pro GPU device. The Azure Stack Edge device is configured and activated using instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
 - You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device. For detailed steps, see [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
 - You have a client to access your device that's running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
-- Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
+- Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you need to create a resource group. You must have owner level access to the resource group.
 
   To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
@@ -42,7 +41,7 @@ Before you begin, ensure that:
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
-- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you need to register the `Microsoft.ExtendedLocation` resource provider against your subscription.
+- If you intend to deploy [custom locations](/azure/azure-arc/platform/conceptual-custom-locations) on your Arc-enabled cluster, you need to register the `Microsoft.ExtendedLocation` resource provider against your subscription.
  
   You must fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
 
@@ -59,7 +58,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
    PS /home/user>
    ```
 
-  For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
+  For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations).
 
 - If deploying Kubernetes or PMEC workloads:
    - You may have selected a specific workload profile using the local UI or using PowerShell. Detailed steps are documented for the local UI in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) and for PowerShell in [Change Kubernetes workload profiles](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles). 
@@ -153,7 +152,10 @@ To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure
 
 ## Specify static IP pools (optional)
 
-An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods. 
+An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods.
+
+> [!NOTE]
+> SAP customers can skip this step.
 
 You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes generates a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 
@@ -197,8 +199,10 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
     [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
 
-1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS. 
+1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS.
 
+   The Azure consistent services virtual IP must be able to reach this compute virtual switch network either via external routing or by creating an Azure consistent services virtual IP on the same network. 
+ 
 1. For Kubernetes nodes, specify a contiguous range of six static IPs in the same subnet as the network for this port. 
 
    As part of the AKS deployment, two clusters are created, a management cluster and a target cluster. The IPs that you specified are used as follows:

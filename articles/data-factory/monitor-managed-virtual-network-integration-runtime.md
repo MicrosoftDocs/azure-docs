@@ -1,10 +1,9 @@
 ---
 title: Monitor an integration runtime within a managed virtual network 
 description: Learn how to monitor an integration runtime within an Azure Data Factory managed virtual network.  
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 05/15/2024
 author: lrtoyou1223
 ms.author: lle
 ms.custom:
@@ -57,6 +56,8 @@ Regardless of the type of compute pool that you're using, you can access and ana
 |External available capacity percentage of MVNet integration runtime|Percent|The maximum percentage of available DIU for external activities in a managed virtual network's integration runtime within a 1-minute window.|
 |External waiting queue length of MVNet integration runtime|Count|The waiting queue length of external activities in a managed virtual network's integration runtime within a 1-minute window.|
 
+For more information about these metrics, see [Supported metrics for Microsoft.DataFactory/factories](monitor-data-factory-reference.md#supported-metrics-for-microsoftdatafactoryfactories).
+
 ## Using metrics for performance optimization
 
 By using the metrics, you can seamlessly track and assess the performance and robustness of your integration runtime within a managed virtual network. You can also uncover potential areas for continuous improvement by optimizing the compute settings and workflow to maximize efficiency.
@@ -97,6 +98,6 @@ By implementing either of these solutions, you can enhance the performance of yo
 
 :::image type="content" source="media\monitor-managed-virtual-network-integration-runtime\monitor-managed-virtual-network-integration-runtime-intermittent-activity.png" alt-text="Screenshot of an intermittent activity scenario for an integration runtime within a managed virtual network." lightbox="media\monitor-managed-virtual-network-integration-runtime\monitor-managed-virtual-network-integration-runtime-intermittent-activity.png":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about managed virtual networks and managed private endpoints: [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).

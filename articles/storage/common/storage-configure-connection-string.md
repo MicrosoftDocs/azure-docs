@@ -3,13 +3,12 @@ title: Configure a connection string
 titleSuffix: Azure Storage
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime using Shared Key authorization.
 services: storage
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 01/24/2023
-ms.author: akashdubey
+ms.date: 05/10/2024
 ms.reviewer: nachakra
 ---
 
@@ -23,18 +22,20 @@ A connection string includes the authorization information required for your app
 
 To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
 
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## Store a connection string
 
 Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your account access keys or connection string:
 
-- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](../../key-vault/secrets/about-managed-storage-account-keys.md).
+- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](/azure/key-vault/secrets/about-managed-storage-account-keys).
 - You can store your connection string in an environment variable.
 - An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 
 > [!WARNING]
-> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Azure AD authorization for access to your storage account.
+> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Microsoft Entra authorization for access to your storage account.
 
 ## Configure a connection string for Azurite
 

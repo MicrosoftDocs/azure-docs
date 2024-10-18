@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -22,6 +22,12 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 > * Create a data source and load in a GeoJSON file from a local file or the web.
 > * Display the data on the map.
 > * Interact with the data on the maps to view its details.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Prerequisites
 

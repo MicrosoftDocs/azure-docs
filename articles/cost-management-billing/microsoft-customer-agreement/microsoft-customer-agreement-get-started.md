@@ -2,11 +2,10 @@
 title: Key next steps after accepting your Microsoft Customer Agreement - Azure
 description: This article helps you get started as you begin to manage Azure billing and subscriptions under your new Microsoft Customer Agreement.
 author: bandersmsft
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 05/26/2023
+ms.date: 03/21/2024
 ms.author: banders
 ms.reviewer: sgautam
 ---
@@ -47,7 +46,7 @@ When you or your organization signed the Microsoft Customer Agreement, a billing
 
 ## Update your PO and tax ID number
 
-[Update your PO number](../manage/change-azure-account-profile.md#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.md#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+[Update your PO number](../manage/change-azure-account-profile.yml#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.yml#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
 
 
 ## Confirm payment details
@@ -69,7 +68,7 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 ## Complete outstanding payments
 
-Make sure that you complete any outstanding payments for your older [pay-as-you-go](../understand/download-azure-invoice.md) or [EA](../manage/ea-portal-enrollment-invoices.md) contract subscription invoices. For more information, see [Understand your Microsoft Customer Agreement Invoice in Azure](../understand/mca-understand-your-invoice.md#billing-period).
+Make sure that you complete any outstanding payments for your older [pay-as-you-go](../understand/download-azure-invoice.md) or [EA](../manage/direct-ea-billing-invoice-documents.md) contract subscription invoices. For more information, see [Understand your Microsoft Customer Agreement Invoice in Azure](../understand/mca-understand-your-invoice.md#billing-period).
 
 ## Cancel support plan
 
@@ -79,7 +78,7 @@ Learn how to [cancel a previous support plan](../manage/subscription-transfer.md
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Learn how about the charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA)
 - [Take a step-by-step invoice tutorial](../understand/review-customer-agreement-bill.md)

@@ -4,7 +4,7 @@ description: Learn to configure private endpoint access for Azure Static Web App
 services: static-web-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 7/28/2021
 ---
@@ -27,6 +27,9 @@ If your app has a private endpoint enabled, the server responds with a `403` sta
 The default DNS resolution of the static web app still exists and routes to a public IP address. The private endpoint exposes 2 IP Addresses within your VNet, one for the production environment and one for any staging environments. To ensure your client is able to reach the app correctly, make sure your client resolves the hostname of the app to the appropriate IP address of the private endpoint. This is required for the default hostname as well as any custom domains configured for the static web app. This resolution is done automatically if you select a private DNS zone when creating the private endpoint (see example below) and is the recommended solution.
 
 If you are connecting from on-prem or do not wish to use a private DNS zone, manually configure the DNS records for your application so that requests are routed to the appropriate IP address of the private endpoint. You can find more information on private endpoint DNS resolution [here](../private-link/private-endpoint-dns.md).
+
+> [!NOTE]
+> Private endpoints restrict the incoming traffic going to the website to a specific virtual network. They do not apply to deployments of new site assets.
 
 ## Prerequisites
 

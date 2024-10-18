@@ -2,12 +2,12 @@
 title: Show the correct map copyright attribution information
 titleSuffix: Microsoft Azure Maps
 description: The map copyright attribution information must be displayed in all applications that use the Render API, including web and mobile applications. This article discusses how to display the correct attribution every time you display or update a tile. 
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 3/16/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 ---
 
 # Show the correct copyright attribution
@@ -62,11 +62,11 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Su
 
 [Android]: how-to-use-android-map-control-library.md
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Get Map Attribution API]: /rest/api/maps/render-v2/get-map-attribution
-[Get Map Attribution]: /rest/api/maps/render-v2/get-map-attribution#tilesetid
+[Get Map Attribution API]: /rest/api/maps/render/get-map-attribution
+[Get Map Attribution]: /rest/api/maps/render/get-map-attribution#tilesetid
 [iOS]: how-to-use-ios-map-control-library.md
-[Render service]: /rest/api/maps/render-v2
-[Tileset Create API]: /rest/api/maps/v2/tileset/create
-[TilesetID]: /rest/api/maps/render-v2/get-map-attribution#tilesetid
+[Render service]: /rest/api/maps/render
+[Tileset Create API]: /rest/api/maps-creator/tileset/create
+[TilesetID]: /rest/api/maps/render/get-map-attribution#tilesetid
 [Web]: how-to-use-map-control.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md

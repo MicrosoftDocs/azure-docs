@@ -38,9 +38,11 @@ This article supports both programming models.
 
 The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-31":::
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
@@ -364,7 +366,7 @@ In [C# class libraries](../articles/azure-functions/functions-dotnet-class-libra
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, the following properties on the `event_hub_message_trigger`:
 
 | Property    | Description |
 |-------------|-----------------------------|

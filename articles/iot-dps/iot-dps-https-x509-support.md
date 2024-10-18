@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 10/27/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to use X.509 certificates over HTTPS without an SDK
@@ -325,7 +326,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 {"operationId":"5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
@@ -386,7 +387,7 @@ Note down the device ID and the assigned IoT hub. You'll use them to send a tele
 
 ## Send a telemetry message
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/rest/api/iothub/device/device/send-device-event) REST API to send telemetry to the device.
 
 Use the following curl command:
 

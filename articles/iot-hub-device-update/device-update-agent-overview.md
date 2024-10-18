@@ -5,14 +5,15 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 9/12/2022
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub agent overview
 
 The Device Update agent consists of two conceptual layers:
 
-* The *interface layer* builds on top of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), allowing for messaging to flow between the Device Update agent and Device Update service.
+* The *interface layer* builds on top of [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md), allowing for messaging to flow between the Device Update agent and Device Update service.
 * The *platform layer* is responsible for the high-level update actions of download, install, and apply that may be platform- or device-specific.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Agent Implementations." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::

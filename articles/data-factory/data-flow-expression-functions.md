@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Expression functions in mapping data flow
@@ -144,7 +143,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [xor](data-flow-expressions-usage.md#xor) | Logical XOR operator. Same as ^ operator.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

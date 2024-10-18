@@ -1,12 +1,11 @@
 ---
 title: Enclave aware containers on Azure
 description: enclave ready application containers support on Azure Kubernetes Service (AKS)
-author: agowdamsft
+author: angarg05
 ms.service: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
-ms.author: amgowda
-ms.custom: ignite-fall-2021
+ms.author: ananyagarg
 ---
 
 # Enclave Aware Containers with Intel SGX
@@ -58,7 +57,7 @@ The open-source [EGo SDK](https://www.ego.dev) brings support for the Go program
 [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 <!-- LINKS - external -->
-[Azure Attestation](../attestation/overview.md)
+[Azure Attestation](/azure/attestation/overview)
 
 
 <!-- LINKS - internal -->

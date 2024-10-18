@@ -3,13 +3,12 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on RHEL| Microsof
 description: High-availability guide for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 07/11/2023
 ms.author: radeltch
 ---
@@ -169,7 +168,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
    Each virtual machine has three network interfaces, which correspond to the three Azure virtual network subnets (`client`, `storage` and `hana`). 
 
-   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](../../virtual-machines/linux/multiple-nics.md).  
+   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. To achieve low latency, work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity. When you're [onboarding new SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) that's using SAP HANA Azure NetApp Files, submit the necessary information. 
@@ -611,48 +610,8 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
        <pre><code>
         # Execute as root
-        sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30301/tcp
-        sudo firewall-cmd --zone=public --add-port=30303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30303/tcp
-        sudo firewall-cmd --zone=public --add-port=30306/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30306/tcp
-        sudo firewall-cmd --zone=public --add-port=30307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30307/tcp
-        sudo firewall-cmd --zone=public --add-port=30313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30313/tcp
-        sudo firewall-cmd --zone=public --add-port=30315/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30315/tcp
-        sudo firewall-cmd --zone=public --add-port=30317/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30317/tcp
-        sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30340/tcp
-        sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30341/tcp
-        sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30342/tcp
-        sudo firewall-cmd --zone=public --add-port=1128/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1128/tcp
-        sudo firewall-cmd --zone=public --add-port=1129/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1129/tcp
-        sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40302/tcp
-        sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40301/tcp
-        sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40307/tcp
-        sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40303/tcp
-        sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40340/tcp
-        sudo firewall-cmd --zone=public --add-port=50313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50313/tcp
-        sudo firewall-cmd --zone=public --add-port=50314/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50314/tcp
-        sudo firewall-cmd --zone=public --add-port=30310/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30310/tcp
-        sudo firewall-cmd --zone=public --add-port=30302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30302/tcp
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp --permanent
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp
        </code></pre>
 
    - Start HANA

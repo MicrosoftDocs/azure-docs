@@ -1,13 +1,15 @@
 ---
-title: Manage change tracking and inventory in Azure Automation using Azure Monitoring Agent (Preview)
-description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent (Preview)
+title: Manage change tracking and inventory in Azure Automation using Azure Monitoring Agent
+description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/17/2023
-ms.topic: conceptual
+ms.custom: linux-related-content
+ms.date: 09/19/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
-# Manage change tracking and inventory using Azure Monitoring Agent (Preview)
+# Manage change tracking and inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
@@ -30,7 +32,7 @@ To manage tracking and inventory, ensure that you enable Change tracking with AM
    1. Use the filter to view all the DCRs that are configured to the specific LA workspace level.
 
    >[!NOTE]
-   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md).
+   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 1. Select **Add** to configure new file settings
    

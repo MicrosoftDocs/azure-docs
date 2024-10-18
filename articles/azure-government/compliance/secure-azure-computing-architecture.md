@@ -22,7 +22,7 @@ The SCCA has four components:
 
 Microsoft has developed a solution that helps you meet the SCCA requirements for both [DoD IL4](/azure/compliance/offerings/offering-dod-il4) and [DoD IL5](/azure/compliance/offerings/offering-dod-il5) workloads that run in Azure. This Azure-specific solution is called the **Secure Azure Computing Architecture (SACA)**, and it can help you comply with the SCCA FRD. It can enable you to move workloads into Azure after you're connected.
 
-SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](./compliance-tic.md) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
+SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections (TIC)](./compliance-tic.md) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
 
 ## Secure Cloud Computing Architecture components
 
@@ -106,11 +106,11 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various SCCA requirements:
 
-    - [Azure Monitor](../../azure-monitor/overview.md)
-    - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
+    - [Azure Monitor](/azure/azure-monitor/overview)
+    - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-    - [Azure Key Vault](../../key-vault/general/overview.md)
-    - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+    - [Azure Key Vault](/azure/key-vault/general/overview)
+    - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)
     - [Azure Front Door](../../frontdoor/front-door-overview.md)

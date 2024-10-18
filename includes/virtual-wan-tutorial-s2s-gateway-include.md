@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 04/12/2022
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 
@@ -19,6 +19,6 @@ ms.topic: include
      If you pick 1 scale unit = 500 Mbps, it implies that two instances for redundancy will be created, each having a maximum throughput of 500 Mbps. For example, if you had five branches, each doing 10 Mbps at the branch, you'll need an aggregate of 50 Mbps at the head end. Planning for aggregate capacity of the Azure VPN gateway should be done after assessing the capacity needed to support the number of branches to the hub.
    * **Routing preference**: Azure routing preference lets you choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network, or via the ISP network (public internet). These options are also referred to as cold potato routing and hot potato routing, respectively. 
 
-     The public IP address in Virtual WAN is assigned by the service, based on the routing option selected. For more information about routing preference via Microsoft network or ISP, see the [Routing preference](../articles/virtual-network/ip-services/routing-preference-overview.md) article.
+     The public IP address in Virtual WAN is assigned by the service, based on the routing option selected. For more information about routing preference via Microsoft network or ISP, see the [Routing preference](/azure/virtual-network/ip-services/routing-preference-overview) article.
 1. Select **Review + Create** to validate.
 1. Select **Create** to create the hub and gateway. This can take up to 30 minutes. After 30 minutes, **Refresh** to view the hub on the **Hubs** page. Select **Go to resource** to navigate to the resource.

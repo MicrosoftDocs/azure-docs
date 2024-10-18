@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 09/06/2023
+ms.date: 11/09/2023
 ms.topic: how-to
 ms.service: azure-blob-storage
 ms.reviewer: sadodd 
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 # Change feed support in Azure Blob Storage
 
-The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** logs of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
 To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
@@ -84,7 +84,7 @@ Enable change feed by using PowerShell:
 1. Install the latest PowershellGet.
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet -Repository PSGallery -Force
    ```
 
 2. Close, and then reopen the PowerShell console.
@@ -92,7 +92,7 @@ Enable change feed by using PowerShell:
 3. Install version 2.5.0 or later of the **Az.Storage** module.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
+   Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.5.0 -AllowClobber -Force
    ```
 
 4. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
@@ -507,6 +507,106 @@ The following example shows a change event record in JSON format that uses event
 }
 ```
 
+#### Schema version 6
+
+The following event types may be captured in the change feed records with schema version 6:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+
+Schema version 6 adds support for [cold tier](access-tiers-overview.md#cold-tier).
+
+The following example shows a change event record in JSON format that uses event schema version 6:
+
+```json
+{
+    "schemaVersion": 6,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2023-10-11T13:12:11.5746587Z",
+    "id": "62616073-8020-0000-00ff-233467060cc0",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "b3f9b39a-ae5a-45ac-afad-95ac9e9f2791",
+        "requestId": "62616073-8020-0000-00ff-233467000000",
+        "etag": "0x8D9F2171BE32588",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "blobVersion": "2023-10-11T16:11:52.5901564Z",
+        "containerVersion": "0000000000000001",
+        "blobTier": "Archive",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "previousInfo": {
+            "SoftDeleteSnapshot": "2023-10-11T13:12:11.5726507Z",
+            "WasBlobSoftDeleted": "true",
+            "BlobVersion": "2024-02-17T16:11:52.0781797Z",
+            "LastVersion" : "2023-10-11T16:11:52.0781797Z",
+            "PreviousTier": "Hot"
+        },
+        "snapshot" : "2023-10-11T16:09:16.7261278Z",
+        "blobPropertiesUpdated" : {
+            "ContentLanguage" : {
+                "current" : "pl-Pl",
+                "previous" : "nl-NL"
+            },
+            "CacheControl" : {
+                "current" : "max-age=100",
+                "previous" : "max-age=99"
+            },
+            "ContentEncoding" : {
+                "current" : "gzip, identity",
+                "previous" : "gzip"
+            },
+            "ContentMD5" : {
+                "current" : "Q2h1Y2sgSW51ZwDIAXR5IQ==",
+                "previous" : "Q2h1Y2sgSW="
+            },
+            "ContentDisposition" : {
+                "current" : "attachment",
+                "previous" : ""
+            },
+            "ContentType" : {
+                "current" : "application/json",
+                "previous" : "application/octet-stream"
+            }
+        },
+        "asyncOperationInfo": {
+            "DestinationTier": "Hot",
+            "WasAsyncOperation": "true",
+            "CopyId": "copyId"
+        },
+        "blobTagsUpdated": {
+            "previous": {
+                "Tag1": "Value1_3",
+                "Tag2": "Value2_3"
+            },
+            "current": {
+                "Tag1": "Value1_4",
+                "Tag2": "Value2_4"
+            }
+        },
+        "restorePointMarker": {
+            "rpi": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpp": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpl": "test-restore-label",
+            "rpt": "2023-10-11T13:56:09.3559772Z"
+        },
+        "storageDiagnostics": {
+            "bid": "9d726db1-8006-0000-00ff-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
+
 <a id="specifications"></a>
 
 ## Specifications
@@ -551,11 +651,13 @@ The following example shows a change event record in JSON format that uses event
 
 This section describes known issues and conditions in the current release of the change feed.
 
-- The `url` property of the log file is currently always empty.
+- If you enable firewall rules for your storage account, lifecycle management requests to delete blobs within $blobchangefeed container might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
 - You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
+- BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
+- Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
 
 ## Frequently asked questions (FAQ)
 

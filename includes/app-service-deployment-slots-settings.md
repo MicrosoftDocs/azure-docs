@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 09/09/2021
 ms.author: cephalin
@@ -10,9 +10,10 @@ When you clone configuration from another deployment slot, the cloned configurat
 
 **Settings that are swapped**:
 
-* General settings, such as framework version, 32/64-bit, web sockets
+* Language stack and version, 32/64-bit
 * App settings (can be configured to stick to a slot)
 * Connection strings (can be configured to stick to a slot)
+* Mounted storage accounts (can be configured to stick to a slot)
 * Handler mappings
 * Public certificates
 * WebJobs content
@@ -25,6 +26,7 @@ Features marked with an asterisk (*) are planned to be unswapped.
 
 **Settings that aren't swapped**:
 
+* General settings not mentioned in **Settings that are swapped**
 * Publishing endpoints
 * Custom domain names
 * Non-public certificates and TLS/SSL settings
@@ -37,6 +39,7 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Virtual network integration
 * Managed identities and related settings
 * Settings that end with the suffix _EXTENSION_VERSION
+* Settings that created by [Service Connector](../articles/service-connector/overview.md)
 
 > [!NOTE]
 > To make aforementioned settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped and are not affected by this override app setting.

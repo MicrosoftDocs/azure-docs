@@ -3,7 +3,7 @@ title: Use managed identities for Microsoft Azure Data Manager for Energy on Azu
 description: Learn how to use a managed identity to access Azure Data Manager for Energy from other Azure services. 
 author: sandeepchads
 ms.author: sancha
-ms.service: energy-data-services	
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.custom: template-how-to
@@ -23,7 +23,7 @@ This article walks you through the five main steps for configuring Azure Functio
 
 ## Overview of managed identities 
 
-A managed identity from Azure Active Directory (Azure AD) allows your application to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to access Azure Data Manager for Energy control plane or data plane for any operation can use a managed identity to do so. 
+A managed identity from Microsoft Entra ID allows your application to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform and doesn't require you to create or rotate any secrets. Any Azure service that wants to access Azure Data Manager for Energy control plane or data plane for any operation can use a managed identity to do so. 
 
 There are two types of managed identities:
 
@@ -63,7 +63,7 @@ To retrieve the object ID for the user-assigned identity that will access the Az
 
 Retrieve the application ID of the user-assigned identity by using the object ID:
 
-1. In the Azure portal, go to **Azure Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 2. On the left menu, select **Enterprise applications**.
 3. In the **Search by application name or object ID** box, enter the object ID.
 4. For the application that appears in the results, note the **Application ID** value.

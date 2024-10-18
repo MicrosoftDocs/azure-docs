@@ -120,3 +120,70 @@ public void disableBackgroundBlur() {
     videoEffectsFeature.disableEffect(backgroundBlurEffect);
 }
 ```
+
+### Background replacement
+
+Background Replacement is a Video Effect that allows a person's background to be replaced. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+
+To enable Background Replacement Video Effect:
+
+- Create a method that obtains the `VideoEFfects` Feature subscribes to the events:
+
+```java
+private void handleOnVideoEffectEnabled(VideoEffectEnabledEvent args) {
+   Log.i("VideoEfects", "Effect enabled for effect " + args.getVideoEffectName());
+}
+private void handleOnVideoEffectDisabled(VideoEffectDisabledEvent args) {
+   Log.i("VideoEfects", "Effect disabled for effect " + args.getVideoEffectName());
+}
+private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
+   Log.i("VideoEfects", "Error " + args.getCode() + ":" + args.getMessage()
+           + " for effect " + args.getVideoEffectName());
+}
+
+VideoEffectsLocalVideoStreamFeature videoEffectsFeature;
+public void createVideoEffectsFeature() {
+    videoEffectsFeature = currentVideoStream.feature(Features.LOCAL_VIDEO_EFFECTS);
+    videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectEnabled);
+    videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectDisabled);
+    videoEffectsFeature.addOnVideoEffectErrorListener(this::handleOnVideoEffectError);
+}
+
+```
+
+- Create a new Background Replacement Video Effect object:
+
+```java
+BackgroundReplacementEffect backgroundReplacementVideoEffect = new BackgroundReplacementEffect();
+```
+
+- Set a custom background by passing in the image through a buffer.
+
+```java
+//example of where we can get an image from, in this case, this is from assets in Android folder
+InputStream inputStream = getAssets().open("image.jpg");
+Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+ByteArrayOutputStream stream = new ByteArrayOutputStream();
+bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+byte[] data = stream.toByteArray();
+ByteBuffer dataBuffer = ByteBuffer.allocateDirect(data.length);
+dataBuffer.put(data);
+dataBuffer.rewind();
+backgroundReplacementVideoEffect.setBuffer(dataBuffer);
+```
+
+- Call `EnableEffect` on the `videoEffectsFeature` object:
+
+```java
+public void enableBackgroundReplacement() {
+    videoEffectsFeature.enableEffect(backgroundReplacementVideoEffect);
+}
+```
+
+To disable Background Replacement Video Effect:
+
+```java
+public void disableBackgroundReplacement() {
+    videoEffectsFeature.disableEffect(backgroundReplacementVideoEffect);
+}
+```

@@ -4,8 +4,9 @@ description: This article tells how to create credential assets and use them in 
 services: automation
 ms.subservice: shared-capabilities
 ms.custom: devx-track-python
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
+ms.service: azure-automation
 ---
 
 # Manage credentials in Azure Automation
@@ -15,7 +16,7 @@ An Automation credential asset holds an object that contains security credential
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note.md](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## PowerShell cmdlets used to access credentials
 
@@ -176,7 +177,7 @@ You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to 
 
 ![Add credential cmdlet to canvas](../media/credentials/credential-add-canvas.png)
 
-The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
+The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Microsoft Entra ID in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
 
 ![Credential workflow with pipeline link example](../media/credentials/get-credential.png)
 

@@ -1,9 +1,9 @@
 ---
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 04/21/2023
+ms.date: 11/03/2023
 ---
 
 # File functions for Bicep
@@ -28,7 +28,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 Use this function when you have binary content you would like to include in deployment. Rather than manually encoding the file to a base64 string and adding it to your Bicep file, load the file with this function. The file is loaded when the Bicep file is compiled to a JSON template. You can't use variables in the file path because they haven't been resolved when compiling to the template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
-This function requires **Bicep version 0.4.412 or later**.
+This function requires [Bicep CLI version 0.4.X or higher](./install.md).
 
 The maximum allowed size of the file is **96 Kb**.
 
@@ -58,7 +58,7 @@ Use this function when you have JSON content or minified JSON content that is st
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
-This function requires **Bicep version 0.7.4 or later**.
+This function requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
@@ -70,11 +70,40 @@ The contents of the file as an Any object.
 
 The following example creates a JSON file that contains values for a network security group.
 
-::: code language="json" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/nsg-security-rules.json" :::
+```json
+{
+  "description": "Allows SSH traffic",
+  "protocol": "Tcp",
+  "sourcePortRange": "*",
+  "destinationPortRange": "22",
+  "sourceAddressPrefix": "*",
+  "destinationAddressPrefix": "*",
+  "access": "Allow",
+  "priority": 100,
+  "direction": "Inbound"
+}
+```
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,12" :::
+```bicep
+param location string = resourceGroup().location
+
+var nsgconfig = loadJsonContent('nsg-security-rules.json')
+
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+  name: 'example-nsg'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'SSH'
+        properties: nsgconfig
+      }
+    ]
+  }
+}
+```
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -96,11 +125,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
-Use this function when you have YAML content or minified YAML content that is stored in a separate file. Rather than duplicating the YAML content in your Bicep file, load the content with this function. You can load a part of a YAML file by specifying a path filer. The file is loaded when the Bicep file is compiled to the YAML template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the YAML template contains the contents of the file as a hard-coded string.
+Use this function when you have YAML content or minified YAML content that is stored in a separate file. Rather than duplicating the YAML content in your Bicep file, load the content with this function. You can load a part of a YAML file by specifying a path filter. The file is loaded when the Bicep file is compiled to the YAML template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the YAML template contains the contents of the file as a hard-coded string.
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
-This function requires **Bicep version >0.16.2**.
+This function requires [Bicep CLI version 0.16.X or higher](./install.md).
 
 The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
@@ -112,11 +141,38 @@ The contents of the file as an Any object.
 
 The following example creates a YAML file that contains values for a network security group.
 
-::: code language="yml" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/nsg-security-rules.yaml" :::
+```yaml
+description: "Allows SSH traffic"
+protocol: "Tcp"
+sourcePortRange: "*"
+destinationPortRange: "22"
+sourceAddressPrefix: "*"
+destinationAddressPrefix: "*"
+access: "Allow"
+priority: 100
+direction: "Inbound"
+```
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/loadsharedrules.bicep" highlight="3,12" :::
+```bicep
+param location string = resourceGroup().location
+
+var nsgconfig = loadYamlContent('nsg-security-rules.yaml')
+
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+  name: 'example-nsg'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'SSH'
+        properties: nsgconfig
+      }
+    ]
+  }
+}
+```
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -141,7 +197,7 @@ Use this function when you have content that is stored in a separate file. You c
 
 Use the [`loadJsonContent()`](#loadjsoncontent) function to load JSON files.
 
-This function requires **Bicep version 0.4.412 or later**.
+This function requires [Bicep CLI version 0.4.X or higher](./install.md).
 
 The maximum allowed size of the file is **131,072 characters**, including line endings.
 
@@ -153,7 +209,24 @@ The contents of the file as a string.
 
 The following example loads a script from a file and uses it for a deployment script.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
+```bicep
+resource exampleScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'exampleScript'
+  location: resourceGroup().location
+  kind: 'AzurePowerShell'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '/subscriptions/{sub-id}/resourcegroups/{rg-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{id-name}': {}
+    }
+  }
+  properties: {
+    azPowerShellVersion: '8.3'
+    scriptContent: loadTextContent('myscript.ps1')
+    retentionInterval: 'P1D'
+  }
+}
+```
 
 ## Next steps
 

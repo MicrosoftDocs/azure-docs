@@ -14,12 +14,12 @@ ms.subservice: data
 
 # End of call survey 
 
-> 
+> [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
 ## Prerequisites
 
-Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
@@ -36,7 +36,7 @@ The following are instructions for configuring your Azure Monitor resource to st
 ### Overview 
 
 
-The implementation of end-of-call survey logs represents an augmented functionality within ACS (Azure Communication Services), enabling Contoso to submit surveys to gather customers' subjective feedback on their calling experience. This approach aims to supplement the assessment of call quality beyond objective metrics such as audio and video bitrate, jitter, and latency, which may not fully capture whether a customer had a satisfactory or unsatisfactory experience. By leveraging Azure logs to publish and examine survey data, Contoso gains insights for analysis and identification of areas that require improvement. These survey results serve as a valuable resource for Azure Communication Services to continuously monitor and enhance quality and reliability. For more details about [End of call survey](../../../concepts/voice-video-calling/end-of-call-survey-concept.md)
+The implementation of end-of-call survey logs represents an augmented functionality within Azure Communication Services (Azure Communication Services), enabling Contoso to submit surveys to gather customers' subjective feedback on their calling experience. This approach aims to supplement the assessment of call quality beyond objective metrics such as audio and video bitrate, jitter, and latency, which may not fully capture whether a customer had a satisfactory or unsatisfactory experience. By leveraging Azure logs to publish and examine survey data, Contoso gains insights for analysis and identification of areas that require improvement. These survey results serve as a valuable resource for Azure Communication Services to continuously monitor and enhance quality and reliability. For more details about [End of call survey](../../../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
 
 The End of Call Survey is a valuable tool that allows you to gather insights into how end-users perceive the quality and reliability of your JavaScript/Web SDK calling solution. The accompanying logs contain crucial data that helps assess end-users' experience, including:

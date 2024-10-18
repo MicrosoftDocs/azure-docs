@@ -1,16 +1,9 @@
 ---
 title: Understand NFS group memberships and supplemental groups for Azure NetApp Files | Microsoft Learn
-description: This article helps you understand NFS group memberships and supplemental groups as they apply to Azure NetApp Files.  
+description: This article helps you understand NFS group memberships and supplemental groups as they apply to Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: whyistheinternetbroken
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: anfdocs
@@ -34,15 +27,15 @@ The following example shows the output from Active Directory with a user’s DN 
 
 The following example shows the Windows group member field:
 
-:::image type="content" source="../media/azure-netapp-files/windows-group-member-field.png" alt-text="Screenshot that shows the Windows group member field." lightbox="../media/azure-netapp-files/windows-group-member-field.png":::
+:::image type="content" source="./media/network-file-system-group-memberships/windows-group-member-field.png" alt-text="Screenshot that shows the Windows group member field." lightbox="./media/network-file-system-group-memberships/windows-group-member-field.png":::
 
 The following example shows `LDAPsearch` of all groups where `User1` is a member:
 
-:::image type="content" source="../media/azure-netapp-files/user1-search-group.png" alt-text="Screenshot that shows the search of a user named `User1`." lightbox="../media/azure-netapp-files/user1-search-group.png":::
+:::image type="content" source="./media/network-file-system-group-memberships/user1-search-group.png" alt-text="Screenshot that shows the search of a user named `User1`." lightbox="./media/network-file-system-group-memberships/user1-search-group.png":::
 
 You can also query group memberships for a user in Azure NetApp Files by selecting **LDAP Group ID List** link under **Support + troubleshooting** on the volume menu.
 
-:::image type="content" source="../media/azure-netapp-files/group-id-list-option.png" alt-text="Screenshot that shows the query of group memberships by using the **LDAP Group ID List** link." lightbox="../media/azure-netapp-files/group-id-list-option.png":::
+:::image type="content" source="./media/network-file-system-group-memberships/group-id-list-option.png" alt-text="Screenshot that shows the query of group memberships by using the **LDAP Group ID List** link." lightbox="./media/network-file-system-group-memberships/group-id-list-option.png":::
 
 ## Group limits in NFS 
 
@@ -56,7 +49,7 @@ The options to extend the group limitation work the same way that the `manage-gi
 
 The following example shows RPC packet with 16 GIDs.
 
-:::image type="content" source="../media/azure-netapp-files/remote-procedure-call-packets.png" alt-text="Screenshot that shows RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/remote-procedure-call-packets.png":::
+:::image type="content" source="./media/network-file-system-group-memberships/remote-procedure-call-packets.png" alt-text="Screenshot that shows RPC packet with 16 GIDs." lightbox="./media/network-file-system-group-memberships/remote-procedure-call-packets.png":::
 
 Any GID past the limit of 16 is dropped by the protocol. With extended groups in Azure NetApp Files, when a new NFS request comes in, information about the user’s group membership is requested.
 

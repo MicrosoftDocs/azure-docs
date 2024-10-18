@@ -2,14 +2,15 @@
 title: Remediate anonymous read access to blob data (Azure Resource Manager deployments)
 titleSuffix: Azure Storage
 description: Learn how to analyze current anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/12/2023
-ms.author: akashdubey
+ms.date: 08/13/2024
+
 ms.reviewer: nachakra
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ---
 
@@ -49,7 +50,7 @@ The following table summarizes how the two settings together affect anonymous ac
 | **Anonymous access is disallowed for the storage account** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
 | **Anonymous access is allowed for the storage account** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
 
-When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
+When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed *without* an `Authorization` header is accepted by the service, and the blob's data is returned in the response. However, if the request is passed *with* an `Authorization` header, then anonymous access on the storage account is ignored, and the request is authorized based on the provided credentials.
 
 ## Detect anonymous requests from client applications
 
@@ -59,7 +60,7 @@ To understand how disallowing anonymous access may affect client applications, w
 
 ### Monitor anonymous requests with Metrics Explorer
 
-To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 Follow these steps to create a metric that tracks anonymous requests:
 
@@ -85,7 +86,7 @@ After you have configured the metric, anonymous requests will begin to appear on
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot showing aggregated anonymous requests against Blob storage":::
 
-You can also configure an alert rule to notify you when a certain number of anonymous requests are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
+You can also configure an alert rule to notify you when a certain number of anonymous requests are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ### Analyze logs to identify containers receiving anonymous requests
 
@@ -93,26 +94,15 @@ Azure Storage logs capture details about requests made against the storage accou
 
 To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](./monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings**.
-1. Select **Blob** to log requests made against Blob storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose which types of requests to log. All anonymous requests are read requests, so select **StorageRead** to capture anonymous requests.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
-
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](./monitor-blob-storage-reference.md#resource-logs).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](monitor-blob-storage-reference.md#resource-logs).
 
 #### Query logs for anonymous requests
 
@@ -126,7 +116,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ### Responses to anonymous requests
 
@@ -136,19 +126,19 @@ When Blob Storage receives an anonymous request, that request will succeed if al
 - The targeted container is configured to allow anonymous access.
 - The request is for read access.
 
-If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
+If any of those conditions aren't true, the request fails. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
 
 - If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
-- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
+- If the anonymous request was made with a service version that doesn't support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
 - If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is allowed for the storage account, then the service returns error code 404 (Not Found).
 
 For more information about the bearer challenge, see [Bearer challenge](/rest/api/storageservices/authorize-with-azure-active-directory#bearer-challenge).
 
 ## Remediate anonymous access for the storage account
 
-After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
+After you evaluate anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
 
-The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you've disallowed anonymous access for the account, you don't also need to disable anonymous access for individual containers.
+The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you disallow anonymous access for the account, you don't also need to disable anonymous access for individual containers.
 
 If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved for anonymous access. You can then disallow anonymous access for any other storage accounts.
 
@@ -166,16 +156,16 @@ Role assignments must be scoped to the level of the storage account or higher to
 
 Be careful to restrict assignment of these roles only to those administrative users who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
-These roles don't provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles don't provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data access via the account keys, but doesn't grant a user the ability to change the **AllowBlobPublicAccess** property for a storage account. For users who need to access data in your storage account but shouldn't have the ability to change the storage account's configuration, consider assigning roles such as [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor), [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader), or [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create storage accounts and manage account configuration. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create storage accounts and manage account configuration. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Set the storage account's AllowBlobPublicAccess property to False
 
-To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**.
 
 > [!IMPORTANT]
 > Disallowing anonymous access for a storage account overrides the access settings for all containers in that storage account. When anonymous access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously by following the steps outlined in [Detect anonymous requests from client applications](#detect-anonymous-requests-from-client-applications).
@@ -320,8 +310,8 @@ Set this parameter so that no sign-in occurs -- you must sign in first. Use this
 This command produces only STDOUT output (not standard PowerShell) with information about affect accounts.
 #>
 param(
-    [boolean]$BypassConfirmation=$false,
-    [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName='SubscriptionId')]
+    [boolean]$BypassConfirmation = $false,
+    [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = 'SubscriptionId')]
     [String] $SubscriptionId,
     [switch] $ReadOnly, # Use this if you don't want to make changes, but want to get information about affected accounts
     [switch] $NoSignin # Use this if you are already signed in and don't want to be prompted again
@@ -329,50 +319,41 @@ param(
 
 begin {
     if ( ! $NoSignin.IsPresent ) {
-        login-azaccount | out-null
+        Login-AzAccount | Out-Null
     }
 }
 
 process {
-    Write-Host "NOTE: If you are using OAuth authorization on a storage account, disabling public access at the account level may interfere with authorization."
-
     try {
-        select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
-    } catch {
-        write-error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+        Select-AzSubscription -SubscriptionId $SubscriptionId -ErrorAction Stop | Out-Null
+    }
+    catch {
+        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -ErrorAction Stop
     }
 
-    foreach ($account in Get-AzStorageAccount) 
-    {
-        if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
-        {
+    foreach ($account in Get-AzStorageAccount) {
+        if ($null -eq $account.AllowBlobPublicAccess -or $account.AllowBlobPublicAccess -eq $true) {
             Write-host "Account:" $account.StorageAccountName " isn't disallowing public access."
 
             if ( ! $ReadOnly.IsPresent ) {
-                if(!$BypassConfirmation)
-                {
+                if (!$BypassConfirmation) {
                     $confirmation = Read-Host "Do you wish to disallow public access? [y/n]"
                 }
-                if($BypassConfirmation -or $confirmation -eq 'y')
-                {
-                    try
-                    {
-                        set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
+                if ($BypassConfirmation -or $confirmation -eq 'y') {
+                    try {
+                        Set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
                         Write-Host "Success!"
                     }
-                    catch
-                    {
-                        Write-output $_
+                    catch {
+                        Write-Output $_
                     }
                 }
             }
         }
-        elseif($account.AllowBlobPublicAccess -eq $false)
-        {
-            Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
+        elseif ($account.AllowBlobPublicAccess -eq $false) {
+            Write-Host "Account:" $account.StorageAccountName "has public access disabled, no action required."
         }
-        else
-        {
+        else {
             Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
         }
     }
@@ -381,56 +362,6 @@ process {
 end {
     Write-Host "Script complete"
 }
-```
-
-## Verify that anonymous access has been remediated
-
-To verify that you've remediated anonymous access for a storage account, you can test that anonymous access to a blob isn't permitted, that modifying a container's access setting isn't permitted, and that it's not possible to create a container with anonymous access enabled.
-
-### Verify that anonymous access to a blob isn't permitted
-
-To verify that anonymous access to a specific blob is disallowed, you can attempt to download the blob via its URL. If the download succeeds, then the blob is still publicly available. If the blob isn't publicly accessible because anonymous access has been disallowed for the storage account, then you'll see an error message indicating that anonymous access isn't permitted on this storage account.
-
-The following example shows how to use PowerShell to attempt to download a blob via its URL. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$url = "<absolute-url-to-blob>"
-$downloadTo = "<file-path-for-download>"
-Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
-```
-
-### Verify that modifying the container's access setting isn't permitted
-
-To verify that a container's access setting can't be modified after anonymous access is disallowed for the storage account, you can attempt to modify the setting. Changing the container's access setting fails if anonymous access is disallowed for the storage account.
-
-The following example shows how to use PowerShell to attempt to change a container's access setting. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
-```
-
-### Verify that a container can't be created with anonymous access enabled
-
-If anonymous access is disallowed for the storage account, then you won't be able to create a new container with anonymous access enabled. To verify, you can attempt to create a container with anonymous access enabled.
-
-The following example shows how to use PowerShell to attempt to create a container with anonymous access enabled. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
 
 ### Check the anonymous access setting for multiple accounts
@@ -446,13 +377,13 @@ resources
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
 
-The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property has been explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property hasn't been set for a storage account, it appears as blank (or **null**) in the query results.
+The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property is explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property isn't set for a storage account, it appears as blank (or **null**) in the query results.
 
 :::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot showing query results for anonymous access setting across storage accounts":::
 
 ## Use Azure Policy to audit for compliance
 
-If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
+If you have a large number of storage accounts, you might want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
 
 ### Create a policy with an Audit effect
 
@@ -553,7 +484,7 @@ To create a policy with a Deny effect for an anonymous access setting that allow
 
 After you create the policy with the Deny effect and assign it to a scope, a user can't create a storage account that allows anonymous access. Nor can a user make any configuration changes to an existing storage account that currently allows anonymous access. Attempting to do so results in an error. The anonymous access setting for the storage account must be set to **false** to proceed with account creation or configuration.
 
-The following image shows the error that occurs if you try to create a storage account that allows anonymous access (the default for a new account) when a policy with a Deny effect requires that anonymous access is disallowed.
+The following image shows the error that occurs if you try to create a storage account that allows anonymous access when a policy with a Deny effect requires that anonymous access is disallowed.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 

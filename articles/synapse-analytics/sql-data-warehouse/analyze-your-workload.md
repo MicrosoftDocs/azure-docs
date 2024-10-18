@@ -4,7 +4,7 @@ description: Techniques for analyzing query prioritization for dedicated SQL poo
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/03/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

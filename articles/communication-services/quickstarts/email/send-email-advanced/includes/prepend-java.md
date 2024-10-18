@@ -22,7 +22,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, and a string of content bytes. |
+| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, a string of content bytes, and an optional content ID to define it as an inline attachment. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
@@ -120,7 +120,9 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 

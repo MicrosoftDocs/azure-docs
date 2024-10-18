@@ -7,8 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -159,6 +158,8 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
 
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+
 1. Choose a **Label** for the time series and select **Update**.  
 
 This will load the chart view of the historized values for the chosen property. You can use the tabs above the chart to toggle between the [chart view](#view-history-in-chart) and [table view](#view-history-in-table).
@@ -301,7 +302,7 @@ To view the property values of a twin or a relationship, select the element in t
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can use this panel to directly edit writable properties. Update their values inline, and select the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writable properties. Update their values inline, and select the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/digital-twins/dataplane/twins/digital-twins-update).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 

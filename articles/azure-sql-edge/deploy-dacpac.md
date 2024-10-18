@@ -3,8 +3,8 @@ title: Using SQL Database DACPAC and BACPAC packages - Azure SQL Edge
 description: Learn about using DACPACs and BACPACs in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # SQL Database DACPAC and BACPAC packages in SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
@@ -32,7 +34,7 @@ SQL Database DACPAC and BACPAC packages can be deployed to SQL Edge using the `M
 To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `(*.bacpac)` using Azure Blob storage and a zip file, follow these steps.
 
 1. Create/extract a DAC package or export a BACPAC file using one of the following mechanisms.
-   - Use [SQL Database Project Extension - Azure Data Studio](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started) to [create a new database project or export an existing database](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started)
+   - Use [SQL Database Project Extension - Azure Data Studio](/azure-data-studio/extensions/sql-database-project-extension-getting-started) to [create a new database project or export an existing database](/azure-data-studio/extensions/sql-database-project-extension-getting-started)
    - Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
    - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a BACPAC file for an existing SQL Server database.
 
@@ -73,7 +75,7 @@ On each restart of the Azure SQL Edge container, SQL Edge attempts to download t
 
 During some DACPAC or BACPAC deployments users may encounter a command timeout, resulting in the failure of the DACPAC deployment operation. If you encounter this problem, use the SQLPackage.exe (or SQL Client Tools) to apply the DACPAC or BACPAC manually.
 
-## Next steps
+## Related content
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md).
 - [Stream Data](stream-data.md)

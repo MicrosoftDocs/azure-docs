@@ -9,7 +9,7 @@ ms.author: kenieva
 ---
 # Tutorial: Adding user assigned managed identities to existing virtual machines or virtual machine scale sets 
 
-Existing virtual machines and virtual machines scale sets that need to use the [Azure Monitoring Agent](../../../azure-monitor/agents/agents-overview.md) must be updated to use a user assigned managed identity. This article shows the steps needed to assign a custom definition that adds a user assigned identity to those resources at scale via Azure Policy.
+Existing virtual machines and virtual machines scale sets that need to use the [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview) must be updated to use a user assigned managed identity. This article shows the steps needed to assign a custom definition that adds a user assigned identity to those resources at scale via Azure Policy.
 
  > [!NOTE]
 > The definition template MUST be assigned with [enforcement mode disabled (DoNotEnforce)](../concepts/assignment-structure.md#enforcement-mode) to prevent failures on newly created resources. 
@@ -230,4 +230,4 @@ To remediate the existing resources, follow these steps:
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate noncompliant resources](../how-to/remediate-resources.md).
 - Learn more on [enforcement mode](../concepts/assignment-structure.md#enforcement-mode)
-- Learn more on [installing Azure Monitor Agent using Azure Policy](../../../azure-monitor/agents/azure-monitor-agent-manage.md)
+- Learn more on [installing Azure Monitor Agent using Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-manage)

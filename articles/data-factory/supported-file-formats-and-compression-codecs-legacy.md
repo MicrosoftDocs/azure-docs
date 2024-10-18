@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about file formats and compression codecs supported by file-based connectors in Azure Data Factory and Synapse Analytics.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory and Synapse Analytics (legacy)
@@ -531,7 +530,7 @@ To use Avro format in a Hive table, you can refer to [Apache Hive's tutorial](ht
 
 Note the following points:
 
-* [Complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
+* Complex data types are not supported (records, enums, arrays, maps, unions, and fixed).
 
 ## <a name="compression-support"></a> Compression support (legacy)
 
@@ -590,6 +589,6 @@ You can see a sample that uses an Azure function to [extract the contents of a t
 
 You can also build this functionality using a custom dotnet activity. Further information is available [here](./transform-data-using-dotnet-custom-activity.md)
 
-## Next steps
+## Related content
 
 Learn the latest supported file formats and compressions from [Supported file formats and compressions](supported-file-formats-and-compression-codecs.md).

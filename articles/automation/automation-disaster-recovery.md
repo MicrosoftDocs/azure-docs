@@ -6,8 +6,9 @@ services: automation
 ms.subservice: process-automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 10/17/2022
-ms.topic: conceptual 
+ms.date: 08/20/2024
+ms.topic: how-to 
+ms.service: azure-automation
 ---
 
 # Disaster recovery for Azure Automation
@@ -89,10 +90,10 @@ You can use these scripts for migration of Automation account assets from the ac
       - Az.Resources version 6.0.0 
       - Az.Automation version 1.7.3 
       - Az.Storage version 4.6.0 
-1. Ensure that both the source and destination Automation accounts should belong to the same Azure Active Directory tenant.
+1. Ensure that both the source and destination Automation accounts should belong to the same Microsoft Entra tenant.
 
 ### Create and execute the runbook
-You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
+You can use the [PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
 
 Follow the steps to import and execute the runbook:
 

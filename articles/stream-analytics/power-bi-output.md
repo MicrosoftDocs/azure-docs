@@ -1,9 +1,9 @@
 ---
 title: Power BI output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Power BI.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---
@@ -48,13 +48,13 @@ Azure Stream Analytics updates the data model dynamically at runtime when the ou
 
 This table covers the data type conversions from [Stream Analytics data types](/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
 
-From Stream Analytics | To Power BI
------|-----
-bigint | Int64
-nvarchar(max) | String
-datetime | Datetime
-float | Double
-Record array | String type, constant value `IRecord` or `IArray`
+| From Stream Analytics | To Power BI |
+| -----|----- |
+| bigint | Int64 |
+| nvarchar(max) | String |
+| datetime | Datetime |
+| float | Double |
+| Record array | String type, constant value `IRecord` or `IArray` |
 
 ### Update the schema
 
@@ -62,12 +62,12 @@ Stream Analytics infers the data model schema based on the first set of events i
 
 Avoid the `SELECT *` query to prevent dynamic schema update across rows. In addition to potential performance implications, it might result in uncertainty of the time taken for the results. Select the exact fields that need to be shown on the Power BI dashboard. Additionally, the data values should be compliant with the chosen data type.
 
-Previous/current | Int64 | String | Datetime | Double
------------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | String | String | String | String 
-Datetime | String | String |  Datetime | String
+| Previous/current | Int64 | String | Datetime | Double |
+| ---|---|---|---|--- |
+| Int64 | Int64 | String | String | Double |
+| Double | Double | String | String | Double |
+| String | String | String | String | String  |
+| Datetime | String | String |  Datetime | String |
 
 ## Limitations and best practices
 Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements. For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).
@@ -103,7 +103,7 @@ Given this configuration, you can change the original query to the one:
 ```
 
 ### Renew authorization
-If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Azure AD Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.
+If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Microsoft Entra multifactor authentication is configured on your Microsoft Entra tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.
 
 Similarly, if a job starts after the token has expired, an error occurs and the job fails. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
 

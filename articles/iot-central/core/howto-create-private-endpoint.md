@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/19/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # Administrator
@@ -142,6 +142,9 @@ To restrict public access for your devices to IoT Central, turn off access from 
 1. Optionally, you can define a list of IP addresses/ranges that can connect to the public endpoint of your IoT Central application.
 
 1. Select **Save**.
+
+> [!TIP]
+> If you choose to define a list of IP addresses/ranges that can connect to the public endpoint of your IoT Central application, be sure to include the IP address of any proxy that your devices use to connect to your IoT Central application.
 
 ## Connect to a private endpoint
 

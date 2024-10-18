@@ -3,23 +3,23 @@ title: 'Tutorial: Access data with managed identity in Java'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/14/2023
+ms.date: 06/04/2024
 author: KarlErickson
-ms.author: karler
+ms.author: edburns
 ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database.
 > * Deploy the sample app to Azure App Service on Tomcat using WAR packaging.
-> * Configure a Spring Boot web application to use Azure AD authentication with PostgreSQL Database.
+> * Configure a Tomcat web application to use Microsoft Entra authentication with PostgreSQL Database.
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ cd Passwordless-Connections-for-Java-Apps/Tomcat/
 
 ## Create an Azure Database for PostgreSQL
 
-Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres in your subscription. The Tomcat app connects to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -57,9 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it isn't used because we're going to use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
-
-   ### [Flexible Server](#tab/flexible)
+1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it isn't used because we're going to use the Microsoft Entra admin account to perform administrative tasks.
 
    ```azurecli-interactive
    export POSTGRESQL_ADMIN_USER=azureuser
@@ -78,28 +76,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --sku-name Standard_D2s_v3
    ```
 
-   ### [Single Server](#tab/single)
-
-   ```azurecli-interactive
-   export POSTGRESQL_ADMIN_USER=azureuser
-   # PostgreSQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
-   export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-   export POSTGRESQL_HOST=<postgresql-host-name>
-
-   # Create a PostgreSQL server.
-   az postgres server create \
-       --resource-group $RESOURCE_GROUP \
-       --name $POSTGRESQL_HOST \
-       --location $LOCATION \
-       --admin-user $POSTGRESQL_ADMIN_USER \
-       --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-       --public-access 0.0.0.0 \
-       --sku-name B_Gen5_1
-   ```
-
 1. Create a database for the application.
-
-   ### [Flexible Server](#tab/flexible)
 
    ```azurecli-interactive
    export DATABASE_NAME=checklist
@@ -108,17 +85,6 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --resource-group $RESOURCE_GROUP \
        --server-name $POSTGRESQL_HOST \
        --database-name $DATABASE_NAME
-   ```
-
-   ### [Single Server](#tab/single)
-
-   ```azurecli-interactive
-   export DATABASE_NAME=checklist
-
-   az postgres db create \
-       --resource-group $RESOURCE_GROUP \
-       --server-name $POSTGRESQL_HOST \
-       --name $DATABASE_NAME
    ```
 
 ## Deploy the application to App Service
@@ -174,8 +140,6 @@ az extension add --name serviceconnector-passwordless --upgrade
 
 Then, connect your app to a Postgres database with a system-assigned managed identity using Service Connector.
 
-### [Flexible Server](#tab/flexible)
-
 To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
 ```azurecli-interactive
@@ -188,23 +152,6 @@ az webapp connection create postgres-flexible \
     --system-identity \
     --client-type java
 ```
-
-### [Single Server](#tab/single)
-
-To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
-
-```azurecli-interactive
-az webapp connection create postgres \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type java
-```
-
----
 
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
 
@@ -258,7 +205,7 @@ curl https://${WEBAPP_URL}/checklist/1
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

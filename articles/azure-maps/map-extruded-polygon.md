@@ -4,9 +4,10 @@ titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/15/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a polygon extrusion layer to the map
@@ -102,7 +103,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer.png"alt-text="A screenshot of a map showing New York City with a polygon extrusion layer covering central park with what looks like a rectangular red box. The maps angle is set to 45 degrees giving it a 3d appearance.":::
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer.png" lightbox="./media/map-extruded-polygon/polygon-extrusion-layer.png" alt-text="A screenshot of a map showing New York City with a polygon extrusion layer covering central park with what looks like a rectangular red box. The maps angle is set to 45 degrees giving it a 3d appearance.":::
 
 <!------------------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true]
@@ -114,7 +115,7 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 
 The [Create a Choropleth Map] sample shows an extruded choropleth map of the United States based on the measurement of the population density by state. For the source code for this sample, see [Create a Choropleth Map source code].
 
-:::image type="content" source="./media/map-extruded-polygon/choropleth-map.png"alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
+:::image type="content" source="./media/map-extruded-polygon/choropleth-map.png" lightbox="./media/map-extruded-polygon/choropleth-map.png" alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
 
 <!------------------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true]
@@ -192,7 +193,7 @@ function InitMap()
 
 The Polygon Extrusion layer has several styling options. The [Polygon Extrusion Layer Options] sample is a tool to try them out. For the source code for this sample, see [Polygon Extrusion Layer Options source code].
 
-:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png"alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png" lightbox="./media/map-extruded-polygon/polygon-extrusion-layer-options.png" alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
 <!------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result]
 ------------------------------------------------------------>

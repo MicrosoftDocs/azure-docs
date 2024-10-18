@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,7 +31,7 @@ Budget alerts notify you when spending, based on usage or cost, reaches or excee
 
 In the Azure portal, budgets are defined by cost. Using the Azure Consumption API, budgets are defined by cost or by consumption usage. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it's shown in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
 
-If you have an Enterprise Agreement, you can [Create and edit budgets with PowerShell](tutorial-acm-create-budgets.md#create-and-edit-budgets-with-powershell). Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
+If you have an Enterprise Agreement, you can [Create and edit budgets](tutorial-acm-create-budgets.md#create-and-edit-budgets). Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
 
 You can use the Budget API to send email alerts in a different language. For more information, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -41,7 +41,7 @@ Credit alerts notify you when your Azure Prepayment (previously called monetary 
 
 ## Department spending quota alerts
 
-Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the EA portal. Whenever a threshold is met it generates an email to department owners and is shown in cost alerts. For example, 50% or 75% of the quota.
+Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the Azure portal. Whenever a threshold is met it generates an email to department owners and is shown in cost alerts. For example, 50% or 75% of the quota.
 
 ## Supported alert features by offer categories
 
@@ -59,7 +59,7 @@ Support for alert types depends on the type of Azure account that you have (Micr
 
 To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-![Example image of alerts shown in Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png" alt-text="Screenshot showing the Cost alerts page and example alerts in Cost Management.":::
 
 The total number of active and dismissed alerts appears on the cost alerts page.
 
@@ -69,11 +69,11 @@ Possible status includes **active** and **dismissed**. Active status indicates t
 
 Select an alert from the list to view its details. Alert details show more information about the alert. Budget alerts include a link to the budget. If a recommendation is available for a budget alert, then a link to the recommendation is also shown. Budget, credit, and department spending quota alerts have a link to analyze in cost analysis where you can explore costs for the alert's scope. The following example shows spending for a department with alert details.
 
-![Example image showing spending for a department with alert details](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png" alt-text="Screenshot showing spending for a department with alert details.":::
 
 When you view the details of a dismissed alert, you can reactivate it if manual action is needed. The following image shows an example.
 
-![Example image showing dismiss and reactivate options](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png" alt-text="Screenshot showing dismiss and reactivate alert options.":::
 
 ## See also
 

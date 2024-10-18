@@ -1,56 +1,70 @@
 ---
 title: Hierarchy model in Azure Data Manager for Agriculture 
-description: Provides information on the data model to organize your agriculture data. 
+description: Get information on the data model to organize your agriculture-related data. 
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 08/22/2023
 ms.custom: template-concept
 ---
 
-# Hierarchy model to organize agriculture related data
+# Hierarchy model in Azure Data Manager for Agriculture
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
-To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
+To generate actionable insights, data related to growers, farms, and fields should be organized in a well-defined way. Firms that operate in the agriculture industry often perform longitudinal studies and need high-quality data to generate insights. Azure Data Manager for Agriculture  organizes agronomic data in the following hierarchy.
 
-:::image type="content" source="./media/data-model-v-2.png" alt-text="Screenshot showing farm hierarchy model.":::
-:::image type="content" source="./media/management-zones.png" alt-text="Screenshot showing management zones.":::
+:::image type="content" source="./media/data-model-v-2.png" alt-text="Screenshot that shows a farm hierarchy model.":::
+:::image type="content" source="./media/management-zones.png" alt-text="Screenshot that shows management zones.":::
 
-## Understanding farm hierarchy
+## Farm hierarchy
 
-### Party  
-* Party is the owner and custodian of any data related to their farm. You could imagine Party to be the legal entity that is running the business.  
-* The onus of defining the Party entity is with the customer setting up Data Manager for Agriculture. 
+### Party
+
+A party is the owner and custodian of any data related to a farm. You can think of a party as the legal entity that runs the business.  
+
+The customer who sets up Azure Data Manager for Agriculture defines the party entity.
 
 ### Farm
-* Farms are logical entities. A farm is a collection of fields. 
-* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example, Contoso Inc is the Party that has farms in Oregon and Idaho.
+
+Farms are logical entities. A farm is a collection of fields.
+
+Farms don't have any geometry associated with them. A farm entity helps you organize your growing operations. For example, Contoso Ltd. is the party that has farms in Oregon and Idaho.
 
 ### Field
-* Fields denote a stable geometry that is in general agnostic to seasons and other temporal constructs. For example, field could be the geometry denoted in government records.
-* Fields are multi-polygon. For example, a road might divide the farm in two or more parts.
+
+Fields denote a stable geometry that's generally agnostic to seasons and other temporal constructs. For example, a field could be the geometry denoted in government records.
+
+Fields are multipolygons. For example, a road might divide the farm into two or more parts.
 
 ### Seasonal field
-* Seasonal field is the most important construct in the farming world. A seasonal fields definition includes the following things
-     * geometry
-     * Season 
-     * Crop
-* A seasonal field is associated with a field or a farm
-* In Data Manager for Agriculture, seasonal fields are mono crop entities. In cases where farmers are cultivating different crops simultaneously, they have to create one seasonal field per crop.
-* A seasonal field is associated with one season. If a farmer cultivates across multiple seasons, they have to create one seasonal field per season.
-* It's multi-polygon. Same crop can be planted in different areas within the farm.
+
+A seasonal field is the most important construct in the farming world. A seasonal field's definition includes:
+
+* Geometry
+* Season
+* Crop
+
+A seasonal field is:
+
+* Associated with a field or a farm.
+* A monocrop entity in Azure Data Manager for Agriculture. If farmers cultivate multiple crops simultaneously, they have to create one seasonal field per crop.
+* Associated with one season. If farmers cultivate across multiple seasons, they have to create one seasonal field per season.
+* A multipolygon. The same crop can be planted in various areas within the farm.
 
 ### Season
-* Season represents the temporal aspect of farming. It's a function of local agronomic practices, procedures and weather.
+
+The season represents the temporal aspect of farming. It's a function of local agronomic practices, procedures, and weather.
 
 ### Crop
-* Crop entity provides the phenotypic details of the planted crop.
+
+A crop entity provides the phenotypic details of the planted crop.
 
 ### Crop product
-* Crop Product entity refers to the commercial variety (brand, product) of the planted seeds. A seasonal field can contain information about various varieties of seeds planted (belonging to the same crop).
+
+A crop product is the commercial variety (brand and product) of the planted seeds. A seasonal field can contain information about varieties of seeds planted in the same crop.
 
 ## Next steps
 
-* Test our APIs [here](/rest/api/data-manager-for-agri).
+* [Test the Azure Data Manager for Agriculture REST APIs](/rest/api/data-manager-for-agri)

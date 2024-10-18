@@ -8,12 +8,14 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 08/05/2024
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Set or change a block blob's access tier with TypeScript
+
+[!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
 
 This article shows how to set or change a blob's [access tier](access-tiers-overview.md) with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 

@@ -2,8 +2,8 @@
 title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -21,7 +21,7 @@ In the **Cloud Services** area of the Azure portal, you can:
 * Link resources to your cloud service so that you can see the resource dependencies and scale the resources together.
 * Delete a cloud service or a deployment.
 
-For more information about how to scale your cloud service, see [Configure auto-scaling for a cloud service in the portal](cloud-services-how-to-scale-portal.md).
+For more information about how to scale your cloud service, see [Configure autoscaling for a cloud service in the portal](cloud-services-how-to-scale-portal.md).
 
 ## Update a cloud service role or deployment
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
@@ -42,7 +42,7 @@ If you need to update the application code for your cloud service, use **Update*
 
     Azure can guarantee only 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine processes client requests while the other is updated.
 
-6. Select the **Start deployment** check box to apply the update after the upload of the package has finished.
+6. Select the **Start deployment** check box to apply the update after the upload of the package finishes.
 
 7. Select **OK** to begin updating the service.
 
@@ -77,16 +77,17 @@ There are two key prerequisites for a successful deployment swap:
 
 - All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole) command in Windows PowerShell.
 
-Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
+> [!NOTE]
+> Guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
-As described in the previous section, a deployment swap is typically fast because it's just a configuration change in the Azure load balancer. In some cases, it can take 10 or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](/azure/architecture/best-practices/transient-faults).
+As described in the previous section, a deployment swap is typically fast because it's just a configuration change in the Azure load balancer. In some cases, it can take 10 or more seconds and result in transient connection failures. To limit the impact to your customers, consider implementing [client retry logic](/azure/architecture/best-practices/transient-faults).
 
 ## Delete deployments and a cloud service
 Before you can delete a cloud service, you must delete each existing deployment.
 
-To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected. You are billed for compute costs for deployed role instances that are stopped.
+To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected. Even if you stop your deployed role instances, Azure bills you for compute costs.
 
 Use the following procedure to delete a deployment or your cloud service.
 

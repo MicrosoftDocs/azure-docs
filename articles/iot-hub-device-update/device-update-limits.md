@@ -5,7 +5,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 9/23/2022
 ms.topic: conceptual
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub limits
@@ -36,9 +37,9 @@ The following table shows the enforced throttles for operations that are availab
 |GetAllUpdateCompliance |30/min|
 |GetSubgroupUpdateCompliance| 30/min|
 |GetSubgroupBestUpdates| 30/min|
-|CreateOrUpdateDeployment| 7/min |
-|DeleteDeployment| 7/min |
-|ProcessSubgroupDeployment | 7/min|
+|CreateOrUpdateDeployment| 6/min |
+|DeleteDeployment| 6/min |
+|ProcessSubgroupDeployment | 6/min|
 |Delete Update | 510/min*|
 |Get File| 510/min*|
 |Get Operation Status| 510/min*|

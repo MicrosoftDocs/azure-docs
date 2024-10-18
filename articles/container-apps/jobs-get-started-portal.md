@@ -3,7 +3,7 @@ title: Create a job with Azure Container Apps using the Azure portal
 description: Learn to create an on-demand or scheduled job in Azure Container Apps using the Azure portal
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 08/21/2023
@@ -72,7 +72,7 @@ Next, create an environment for your container app.
 1. In *Job details*, select **Scheduled** for the *Trigger type*.
 
     In the *Cron expression* field, enter `*/1 * * * *`.
-    
+
     This expression starts the job every minute.
 
 1. Select the **Next: Container** button at the bottom of the page.
@@ -103,7 +103,7 @@ Next, create an environment for your container app.
 
 1. Select **Go to resource** to view your new Container Apps job.
 
-2. Select the **Execution history** tab.
+1. Select the **Execution history** tab.
 
     The *Execution history* tab displays the status of each job execution. Select the **Refresh** button to update the list. Wait up to a minute for the scheduled job execution to start. Its status changes from *Pending* to *Running* to *Succeeded*.
 

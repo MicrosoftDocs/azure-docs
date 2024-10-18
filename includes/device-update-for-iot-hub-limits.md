@@ -3,7 +3,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 9/14/2023
 ms.topic: include
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 > [!NOTE]
@@ -28,12 +29,15 @@ This table provides the various limits associated with the operations within Dev
 | Number of device groups per instance | 100 | 10 | Yes |
 | Number of device classes per instance | 80 | 10 | Yes |
 | Number of active deployments per instance | 50 (includes 1 reserved deployment for Cancels) | 5 (includes 1 reserved deployment for Cancels) | Yes |
-| Number of total deployments per instance | 100 | 20 | No |
+| Number of total deployments per instance (includes all active, inactive and cancelled deployments that are not deleted) | 100 | 20 | No |
 | Number of update providers per instance | 25 | 2 | No |
 | Number of update names per provider per instance | 25 | 2 | No |
 | Number of update versions per update provider and name per instance | 100 | 5 | No |
 | Total number of updates per instance | 100 | 10 | No |
 | Maximum single update file size | 2 GB | 2 GB | Yes |
 | Maximum combined size of all files in a single import action | 2 GB | 2 GB | Yes |
+| Maximum number of files in a single update | 10 | 10 | No |
 | Total data storage included per instance | 100 GB | 5 GB | No |
 
+> [!NOTE]
+> Cancelled or Inactive deployments count towards your total deployment limit. Please ensure that these deployments are periodically cleaned up, so that you are not prevented from creating new deployments. 

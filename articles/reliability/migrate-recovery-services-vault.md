@@ -2,7 +2,7 @@
 title: Migrate Azure Recovery Services Vault to availability zone support 
 description: Learn how to migrate your Azure Recovery Services Vault to availability zone support.
 author: jfaurskov 
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 06/24/2022
 ms.author: anaharris 
@@ -17,6 +17,8 @@ This article describes how to migrate Recovery Services vault from non-availabil
 Recovery Services vault supports local redundancy, zone redundancy, and geo-redundancy for storage. Storage redundancy is a setting that must be configured *before* protecting any workloads. Once a workload is protected in Recovery Services vault, the setting is locked and can't be changed. To learn more about different storage redundancy options, see [Set storage redundancy](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
 To change your current Recovery Services vault to availability zone support, you need to deploy a new vault. Perform the following actions to create a new vault and migrate your existing workloads.
+
+For more detailed information about availability zone and disaster recovery support for Azure Backup services and data redundancy, see [Reliability for Azure Backup](./reliability-backup.md).
 
 ## Prerequisites
 
@@ -119,7 +121,5 @@ Follow these steps:
 
 ## Next steps
 
-Learn more about:
-
-> [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+-  [Reliability for Azure Backup](./reliability-backup.md)
+-  [Azure services and regions that support availability zones](availability-zones-service-support.md)

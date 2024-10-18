@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to develop custom ASIM parsers so that I can normalize and analyze security event data from various sources in a consistent format.
+
 --- 
 
 # Develop Advanced Security Information Model (ASIM) parsers (Public preview)
@@ -347,7 +351,7 @@ let parseLogsWithUrls = AzureFirewallNetworkRuleLogs
         msg_s with           networkProtocol:string 
         " request from "     srcIpAddr:string
         " to "               dstIpAddr:string
-    …
+    ...
 union parseLogs,  parseLogsWithUrls…
 ```
 
@@ -355,7 +359,7 @@ To avoid duplicate events and excessive processing, make sure each function star
 
 ## Deploy parsers
 
-Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
+Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](/azure/azure-monitor/logs/functions).
 
 To deploy a large number of parsers, we recommend using parser ARM templates, as follows:
 
@@ -477,7 +481,7 @@ If warnings listed by the ASIM testing tools are considered valid for a parser, 
 Exceptions:
 - Field: DnsQuery 
   Warning: Invalid value
-  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are are related to TKEY RR requests.
+  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are related to TKEY RR requests.
 - Field: DnsQuery
   Warning: Empty value in mandatory field
   Exception: May be empty for requests for root servers and for requests for RR type DNSKEY

@@ -5,6 +5,10 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 12/21/2021
 ms.author: austinmc
+
+
+#Customer intent: As a security analyst, I want to use the MITRE ATT&CK framework in Microsoft Sentinel so that I can assess and enhance my organization's threat detection and response capabilities.
+
 ---
 
 # Understand security coverage by the MITRE ATT&CK® framework
@@ -21,7 +25,7 @@ This article describes how to use the **MITRE** page in Microsoft Sentinel to vi
 
 :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
-Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 11.
+Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 13.
 
 ##  View current MITRE coverage
 

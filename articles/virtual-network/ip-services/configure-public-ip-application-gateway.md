@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change and manage the configuration.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 08/24/2023
+ms.date: 11/13/2023
 ms.custom: template-how-to 
 ---
 
@@ -106,7 +106,7 @@ Application gateway doesn't support changing the public IP address after creatio
 
 ## Caveats
 
-* Public IPv6 addresses aren't supported on Application Gateways at this time.  
+* Azure Application Gateway support for a [frontend public IPv6 address](../../application-gateway/ipv6-application-gateway-portal.md) is currently in public preview.  
 
 ## Next steps
 

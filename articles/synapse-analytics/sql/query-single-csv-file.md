@@ -3,12 +3,12 @@ title: Query CSV files using serverless SQL pool
 description: In this article, you'll learn how to query single CSV files with different file formats using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 # Query CSV files
@@ -28,7 +28,7 @@ All of the above variations will be covered below.
 
 ### Read a csv file
 
-The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
 ```sql
 select top 10 *

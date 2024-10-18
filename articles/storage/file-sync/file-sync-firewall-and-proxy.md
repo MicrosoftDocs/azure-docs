@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
@@ -42,7 +42,7 @@ Azure File Sync will work through any means available that allow reach into Azur
 
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the `Set-StorageSyncProxyConfiguration` PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the `Set-StorageSyncProxyConfiguration` PowerShell cmdlet. Use the `Get-StorageSyncProxyConfiguration` cmdlet to return any proxy settings that are currently configured. A blank result indicates that there are no proxy settings configured. To remove the existing proxy configuration, use the `Remove-StorageSyncProxyConfiguration` cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 
@@ -55,7 +55,7 @@ For example, if your proxy server requires authentication with a user name and p
 
 ```powershell
 # IP address or name of the proxy server.
-$Address="127.0.0.1"
+$Address="http://127.0.0.1"
 
 # The port to use for the connection to the proxy.
 $Port=8080
@@ -124,9 +124,9 @@ The following table describes the required domains for communication:
 | Service | Public cloud endpoint | Azure Government endpoint | Usage |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | `https://management.usgovcloudapi.net` | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
-| **Azure Active Directory** | `https://login.windows.net`<br>`https://login.microsoftonline.com` | `https://login.microsoftonline.us` | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
-| **Azure Active Directory** | `https://graph.microsoft.com/` | `https://graph.microsoft.com/` | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Active Directory** | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
+| **Microsoft Entra ID** | `https://login.windows.net`<br>`https://login.microsoftonline.com`<br>`https://aadcdn.msftauth.net` | `https://login.microsoftonline.us` | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
+| **Microsoft Entra ID** | `https://graph.microsoft.com/` | `https://graph.microsoft.com/` | As part of deploying Azure File Sync, a service principal in the subscription's Microsoft Entra ID will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
+| **Microsoft Entra ID** | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 | **Microsoft PKI** |  `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
@@ -213,7 +213,7 @@ Because the service tag discovery API might not be updated as frequently as the 
 # from Get-AzLocation.
 $region = "westus2"
 
-# The service tag for Azure File Sync. Do not change unless you're adapting this
+# The service tag for Azure File Sync. Don't change unless you're adapting this
 # script for another service.
 $serviceTag = "StorageSyncService"
 
@@ -228,7 +228,7 @@ $validRegions = Get-AzLocation | `
 
 if ($validRegions -notcontains $region) {
     Write-Error `
-            -Message "The specified region $region is not available. Either Azure File Sync is not deployed there or the region does not exist." `
+            -Message "The specified region $region isn't available. Either Azure File Sync isn't deployed there or the region doesn't exist." `
             -ErrorAction Stop
 }
 
@@ -315,6 +315,12 @@ To run the network connectivity test, run the following PowerShell commands:
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
 ```
+
+If the test fails, collect WinHTTP debug traces to troubleshoot: `netsh trace start scenario=InternetClient_dbg capture=yes overwrite=yes maxsize=1024`
+
+Run the network connectivity test again, and then stop collecting traces: `netsh trace stop`
+
+Put the generated `NetTrace.etl` file into a ZIP archive, open a support case, and share the file with support.
 
 ## Summary and risk limitation
 

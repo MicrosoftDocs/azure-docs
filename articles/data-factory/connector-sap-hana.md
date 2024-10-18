@@ -4,17 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2022
+ms.date: 09/25/2024
 ---
 
 # Copy data from SAP HANA using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-sap-hana-connector.md)
-> * [Current version](connector-sap-hana.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -31,7 +27,7 @@ This SAP HANA connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -40,7 +36,7 @@ Specifically, this SAP HANA connector supports:
 - Copying data from any version of SAP HANA database.
 - Copying data from **HANA information models** (such as Analytic and Calculation views) and **Row/Column tables**.
 - Copying data using **Basic** or **Windows** authentication.
-- Parallel copying from a SAP HANA source. See the [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section for details.
+- Parallel copying from an SAP HANA source. See the [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section for details.
 
 > [!TIP]
 > To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](#sap-hana-sink) section with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
@@ -262,7 +258,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 | Scenario                                           | Suggested settings                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
-| Full load from large table.                        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partition type of the specified SAP HANA table, and choose the corresponding partition strategy:<br>- **Range Partitioning**: Get the partition column and partition ranges defined for the table, then copy the data by range. <br>- **Hash Partitioning**: Use hash partition key as partition column, then partition and copy the data based on ranges calculated by the service. <br>- **Round-Robin Partitioning** or **No Partition**: Use primary key as partition column, then partition and copy the data based on ranges calculated by the service. |
+| Full load from large table.                        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partition type of the specified SAP HANA table, and chooses the corresponding partition strategy:<br>- **Range Partitioning**: Get the partition column and partition ranges defined for the table, then copy the data by range. <br>- **Hash Partitioning**: Use hash partition key as partition column, then partition and copy the data based on ranges calculated by the service. <br>- **Round-Robin Partitioning** or **No Partition**: Use primary key as partition column, then partition and copy the data based on ranges calculated by the service. |
 | Load large amount of data by using a custom query. | **Partition option**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to apply dynamic range partition. <br><br>During execution, the service first calculates the value ranges of the specified partition column, by evenly distributes the rows in a number of buckets according to the number of distinct partition column values the parallel copy setting, then replaces `?AdfHanaDynamicRangePartitionCondition` with filtering the partition column value range for each partition, and sends to SAP HANA.<br><br>If you want to use multiple columns as partition column, you can concatenate the values of each column as one column in the query and specify it as the partition column, like `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
 
 **Example: query with physical partitions of a table**
@@ -353,5 +349,5 @@ Follow the [Prerequisites](#prerequisites) to set up Self-hosted Integration Run
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

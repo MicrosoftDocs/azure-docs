@@ -3,12 +3,12 @@ title: 'Tutorial: Connect serverless SQL pool to Power BI Desktop & create repor
 description: In this tutorial, learn how to connect serverless SQL pool in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following prerequisites:
 
 Optional:
 
-- A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- A SQL query tool, such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 Values for the following parameters:
 

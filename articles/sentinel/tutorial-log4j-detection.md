@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
 ms.date: 06/21/2023
+
+
+#Customer intent: As a security analyst, I want to create and customize analytics rules to detect and respond to security threats, so that I can protect my organization from vulnerabilities like the Apache Log4j exploit.
+
 ---
 
 # Tutorial: Detect threats by using analytics rules in Microsoft Sentinel
@@ -42,12 +46,12 @@ To complete this tutorial, make sure you have:
     | **Cisco ASA** | CommonSecurityLog (Cisco) |
     | **Palo Alto Networks (Firewall)** | CommonSecurityLog (PaloAlto) |
     | **Security Events** | SecurityEvents |
-    | **Azure Active Directory** | SigninLogs<br>AADNonInteractiveUserSignInLogs |
+    | **Microsoft Entra ID** | SigninLogs<br>AADNonInteractiveUserSignInLogs |
     | **Azure Monitor (WireData)** | WireData |
     | **Azure Monitor (IIS)** | W3CIISLog |
     | **Azure Activity** | AzureActivity |
     | **Amazon Web Services** | AWSCloudTrail |
-    | **Microsoft 365 Defender** | DeviceNetworkEvents |
+    | **Microsoft Defender XDR** | DeviceNetworkEvents |
     | **Azure Firewall** | AzureDiagnostics (Azure Firewall) |
 
 ## Sign in to the Azure portal and Microsoft Sentinel

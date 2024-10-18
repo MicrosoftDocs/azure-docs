@@ -2,7 +2,6 @@
 title: Application resilience FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files application resilience.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -24,7 +23,10 @@ Azure NetApp Files might undergo occasional planned maintenance (for example, pl
 Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). Using SMB Continuous Availability is only supported for workloads on:
 * Citrix App Layering
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
+* FSLogix ODFC containers
 * Microsoft SQL Server (not Linux SQL Server)
+* [MSIX app attach](../virtual-desktop/create-netapp-files.md)
+
 
 >[!CAUTION]
 >Custom applications are not supported with SMB Continuous Availability and cannot be used with SMB Continuous Availability enabled volumes.
@@ -53,7 +55,7 @@ Because most problems with this HA solution stem from inaccurate OS-level file l
 
 ## I'm running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despites using the *SMB* protocol?
 
-The general industry recommendation is to [not run your KahaDB shared storage on CIFS/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you're having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
+The general industry recommendation is to [not run your KahaDB shared storage on CIFS [Common Internet File System]/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you're having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 
 ## I’m running Boomi on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events?
 
@@ -68,7 +70,7 @@ Boomi recommends that SMB file share is used with Windows VMs; for NFS, Boomi re
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

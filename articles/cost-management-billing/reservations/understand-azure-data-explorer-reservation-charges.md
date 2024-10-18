@@ -4,7 +4,7 @@ description: Learn how the reservation discount is applied to Azure Data Explore
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
-ms.service: data-explorer
+ms.service: azure-data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2022
 ms.custom: kr2b-contr-experiment
@@ -27,7 +27,7 @@ Stopped or suspended Azure Data Explorer clusters are not using reservation hour
 A reservation discount is applied to Azure Data Explorer markup consumption on an hour-by-hour basis. For Azure Data Explorer resources that don't run the full hour, the reservation discount is automatically applied to other Data Explorer resources that match the reservation attributes. The discount can apply to Azure Data Explorer resources that are running concurrently. If you don't have Azure Data Explorer resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 > [!NOTE]
-> * It is **highly recommended** to purchase [reservation capacity](../../virtual-machines/prepay-reserved-vm-instances.md) for the virtual machines used for the Azure Data Explorer cluster to maximize the reserved capacity savings.
+> * It is **highly recommended** to purchase [reservation capacity](/azure/virtual-machines/prepay-reserved-vm-instances) for the virtual machines used for the Azure Data Explorer cluster to maximize the reserved capacity savings.
 > * The reservation purchase will apply discounts to all regions.
 
 ## Examples
@@ -59,7 +59,7 @@ To understand and view the application of your Azure Reservations in billing usa
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure reservations, see the following articles:
 

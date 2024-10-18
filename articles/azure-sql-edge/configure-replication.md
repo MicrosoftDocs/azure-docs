@@ -3,13 +3,15 @@ title: Configure replication to Azure SQL Edge
 description: Learn about configuring replication to Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Configure replication to Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 You can configure an instance of Azure SQL Edge as the push subscriber for one-way transactional replication or snapshot replication. This instance can't act as the publisher or the distributor for a transactional replication configuration. Azure SQL Edge doesn't support merge replication, peer-to-peer replication, or Oracle publishing.
@@ -30,7 +32,7 @@ You can configure an instance of Azure SQL Edge as the push subscriber for one-w
 
 The following requirements and best practices are important to understand as you configure replication:
 
-- You can configure replication by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+- You can configure replication by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 - To replicate to an instance of Azure SQL Edge, you must use SQL Server authentication to sign in.
 - Replicated tables must have a primary key.
 - A single publication on SQL Server can support both Azure SQL Edge and SQL Server (on-premises and SQL Server in an Azure virtual machine) subscribers.
@@ -79,7 +81,7 @@ Create a publication and a push subscription. For more information, see:
 - [Create a publication](/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a push subscription](/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Edge server name and IP as the subscriber (for example, **myEdgeinstance,1433**), and a database name on the Azure SQL Edge instance as the destination database (for example, **AdventureWorks**).
 
-## Next steps
+## Related content
 
 - [Create a publication](/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a push subscription](/sql/relational-databases/replication/create-a-push-subscription/)

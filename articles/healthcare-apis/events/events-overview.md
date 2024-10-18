@@ -1,85 +1,55 @@
 ---
-title: What are events? - Azure Health Data Services
-description: Learn about events, its features, integrations, and next steps.
+title: What are events in Azure Health Data Services?
+description: Learn how to use events in Azure Health Data Services to subscribe to and receive notifications of changes to health data in the FHIR and DICOM services, and trigger other actions or services based on health data changes.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: fhir
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: events
 ms.topic: overview
-ms.date: 09/01/2023
-ms.author: jasteppe
+ms.date: 01/29/2024
+ms.author: chrupa
 ---
 
 # What are events?
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+Events in Azure Health Data Services allow you to subscribe to and receive notifications of changes to health data in the FHIR&reg; service or the DICOM&reg; service. Events also enable you to trigger other actions or services based changes to health data, such as starting workflows, sending email, text messages, or alerts. 
 
-Events are a subscription and notification feature in the Azure Health Data Services. Events enable customers to utilize and enhance the analysis and workflows of structured and unstructured data like vitals and clinical or progress notes, operations data, health data, and medical imaging data. 
+Events are:
 
-When FHIR resource changes or Digital Imaging and Communications in Medicine (DICOM) image changes are successfully written to the Azure Health Data Services, the events feature sends notification messages to events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services workspace.
+- **Scalable**. Events support growth and change in an organization's healthcare data needs by using the [Azure Event Grid service](../../event-grid/overview.md) and creating a [system topic](../../event-grid/system-topics.md) for Azure Health Data Services. For more information, see [Azure Event Grid event schema](../../event-grid/event-schema.md) and [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
 
-> [!IMPORTANT]
-> FHIR resource and DICOM image change data is only written and event messages are sent when the events feature is turned on. The event feature doesn't send messages on past resource changes or when the feature is turned off.
+- **Configurable**. Choose which FHIR and DICOM event types trigger event notifications. Use advanced features built into the Azure Event Grid service, such as filters, dead-lettering, and retry policies to tune message delivery options for events. 
 
-> [!TIP]
-> For more information about the features, configurations, and to learn about the use cases of the Azure Event Grid service, see [Azure Event Grid](../../event-grid/overview.md)
+- **Extensible**. Use events to send FHIR resource and DICOM image change messages to [Azure Event Hubs](../../event-hubs/event-hubs-about.md) or [Azure Functions](../../azure-functions/functions-overview.md).  to trigger downstream automated workflows that enhance operational data, data analysis, and visibility of the incoming data capturing in near real time.
+ 
+- **Secure**. Events are built on a platform that supports protected health information (PHI) compliance with privacy, safety, and security standards. Use [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from the Event Grid system topic to the events message-receiving endpoints of your choice.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the events pipeline." lightbox="media/events-overview/events-overview-flow.png":::
 
-> [!IMPORTANT]
-> Events currently supports the following operations:
->
-> * **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
->
-> * **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
->
-> * **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
-> 
-> * **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
-> 
-> * **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
-> 
-> - **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
-> 
-> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
+## Supported operations
 
-## Scalable
+Events support these operations:
 
-Events are designed to support growth and changes in healthcare technology needs by using the [Azure Event Grid service](../../event-grid/overview.md) and creating a system topic for the Azure Health Data Services Workspace.
+| Operation           | Trigger condition                |
+|---------------------|----------------------------------|
+| FhirResourceCreated | A FHIR resource was created.      |
+| FhirResourceUpdated | A FHIR resource was updated.      |
+| FhirResourceDeleted | A FHIR resource was soft deleted. |
+| DicomImageCreated   | A DICOM image was created.        |
+| DicomImageDeleted   | A DICOM image was deleted.        |
+| DicomImageUpdated   | A DICOM image was updated.        |
 
-## Configurable
+For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
 
-Choose the FHIR and DICOM event types that you want to receive messages about. Use the advanced features like filters, dead-lettering, and retry policies to tune events message delivery options. 
-
-> [!NOTE]
-> The advanced features come as part of the Event Grid service. 
-
-## Extensible
-
-Use events to send FHIR resource and DICOM image change messages to services like [Azure Event Hubs](../../event-hubs/event-hubs-about.md) or [Azure Functions](../../azure-functions/functions-overview.md) to trigger downstream automated workflows to enhance items such as operational data, data analysis, and visibility to the incoming data capturing near real time.
- 
-## Secure
-
-Events are built on a platform that supports protected health information compliance with privacy, safety, and security in mind.
-
-Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the events message receiving endpoints of your choice. 
+> [!IMPORTANT] 
+> Event notifications are sent only when the capability is turned on. The events capability doesn't send messages for past changes or when the capability is turned off.
 
 ## Next steps
 
-To learn about deploying events using the Azure portal, see
+[Deploy events by using the Azure portal](events-deploy-portal.md)
 
-> [!div class="nextstepaction"]
-> [Deploy events using the Azure portal](events-deploy-portal.md)
+[Troubleshoot events](events-troubleshooting-guide.md)
 
-To learn about troubleshooting events, see
+[Events FAQ](events-faqs.md)
 
-> [!div class="nextstepaction"]
-> [Troubleshoot events](events-troubleshooting-guide.md)
-
-To learn about the frequently asks questions (FAQs) about events, see
- 
-> [!div class="nextstepaction"]
-> [Frequently asked questions about Events](events-faqs.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

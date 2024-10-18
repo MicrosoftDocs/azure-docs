@@ -6,7 +6,7 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.devlang: python
-ms.custom: devx-track-python, mode-ui
+ms.custom: devx-track-python, mode-ui, linux-related-content
 ROBOTS: noindex
 ---
 

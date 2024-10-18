@@ -26,6 +26,7 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure ExpressRoute](/azure/expressroute/expressroute-howto-gateway-migration-portal) |
 | [Azure Functions](migrate-functions.md)|
 | [Azure Load Balancer](migrate-load-balancer.md)|
 | [Azure Service Fabric](migrate-service-fabric.md)  | 
@@ -43,11 +44,23 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
+| [Azure App Service](reliability-app-service.md#availability-zone-support)|
+| [Azure Batch](reliability-batch.md#availability-zone-migration)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
-| [Azure Cognitive Search](migrate-search-service.md)|
+| [Azure AI Search](migrate-search-service.md)|
+| [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-migration)|
 | [Azure Container Instances](migrate-container-instances.md)|
+| [Azure Container Registry](/azure/container-registry/zone-redundancy?toc=/azure/reliability) |
+| [Azure Cosmos DB](/azure/cosmos-db/high-availability?toc=/azure/reliability) |
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
+| [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation)|
+| [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)|
+| [Azure Functions](reliability-functions.md#availability-zone-migration)|
+| [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)|
+| [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)|
+| [Azure Logic Apps](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
+| [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones)|
 | [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
 
 

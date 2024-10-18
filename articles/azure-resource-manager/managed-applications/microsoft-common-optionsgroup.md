@@ -1,8 +1,8 @@
 ---
 title: OptionsGroup UI element
 description: Describes the Microsoft.Common.OptionsGroup UI element for Azure portal. Enables users to select from available options when deploying a managed application.
-ms.topic: conceptual
-ms.date: 07/09/2020
+ms.topic: reference
+ms.date: 06/24/2024
 ---
 
 # Microsoft.Common.OptionsGroup UI element
@@ -51,10 +51,10 @@ The OptionsGroup control lets users select one option from two or more choices. 
 ## Remarks
 
 - The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
-- If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected by default. The default value is **null**.
+- If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected by default. The default value is `null`.
 - `constraints.allowedValues` must have at least one item.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

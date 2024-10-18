@@ -1,10 +1,14 @@
 ---
 title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel
 description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Microsoft Sentinel.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: cwatson
+
+
+#Customer intent: As an MSSP, I want to understand how to protect my intellectual property in Microsoft Sentinel so that I can maintain control over my proprietary analytics rules, hunting queries, playbooks, and workbooks while providing managed security services to my customers.
+
 ---
 
 # Protecting MSSP intellectual property in Microsoft Sentinel
@@ -41,13 +45,13 @@ The following image describes how the permissions described in the [previous sec
 
 In this image:
 
-- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
+- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Microsoft Entra tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
 - Customer access to Azure resources is managed by Azure RBAC at the resource group level.
 
     This allows MSSPs to hide Microsoft Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
-For more information, also see the [Azure Lighthouse documentation](../lighthouse/concepts/cloud-solution-provider.md).
+For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
 
 ## Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 
@@ -111,7 +115,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md).
+For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/logs/log-powerbi).
 
 ### Playbooks
 
@@ -131,7 +135,7 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
 In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
-However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft Defender XDR, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
 > If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.

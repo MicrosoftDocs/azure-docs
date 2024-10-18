@@ -3,9 +3,9 @@ title: No-code stream processing in Azure Stream Analytics
 description: Learn about processing your real-time data streams by using the Azure Stream Analytics no-code editor.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022, ignite-2022
+ms.custom: mvc
 ms.date: 7/5/2023
 ---
 
@@ -19,7 +19,7 @@ With the no-code editor, you can easily:
 - Perform data preparation operations like joins and filters.
 - Approach advanced scenarios like time-window aggregations (tumbling, hopping, and session windows) for group-by operations.
 
-After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](stream-analytics-job-metrics.md) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
+After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](monitor-azure-stream-analytics-reference.md#metrics) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
 
 ## Prerequisites
 
@@ -45,16 +45,16 @@ A Stream Analytics job is built on three main components: _streaming inputs_, _t
 
 To access the no-code editor for building your stream analytics job, there are two approaches:
 
-1. **Through Azure Stream Analytics portal (preview)**: Create a Stream Analytics job, and then select the no-code editor in the **Get started** tab in **Overview** blade, or select **No-code editor** in the left panel.
+1. **Through Azure Stream Analytics portal (preview)**: Create a Stream Analytics job, and then select the no-code editor in the **Get started** tab in **Overview** page, or select **No-code editor** in the left panel.
 
-   :::image type="content" source="./media/no-code-stream-processing/no-code-on-asa-portal.png" alt-text="Screenshot that shows no-code on ASA portal locations." lightbox="./media/no-code-stream-processing/no-code-on-asa-portal.png" :::
+   :::image type="content" source="./media/no-code-stream-processing/no-code-on-asa-portal.png" alt-text="Screenshot that shows no-code on Azure Stream Analytics portal locations." lightbox="./media/no-code-stream-processing/no-code-on-asa-portal.png" :::
 
 
-2. **Through Azure Event Hubs portal**: Open an Event Hubs instance. Select **Process Data**, and then select any pre-defined template.
+2. **Through Azure Event Hubs portal**: Open an Event Hubs instance. Select **Process Data**, and then select any predefined template.
 
    :::image type="content" source="./media/no-code-stream-processing/new-stream-analytics-job.png" alt-text="Screenshot that shows selections to create a new Stream Analytics job." lightbox="./media/no-code-stream-processing/new-stream-analytics-job.png" :::
 
-   The pre-defined templates can assist you in developing and running a job to address various scenarios, including:
+   The predefined templates can assist you in developing and running a job to address various scenarios, including:
 
     - [Build real-time dashboard with Power BI dataset](./no-code-build-power-bi-dashboard.md)
     - [Capture data from Event Hubs in Delta Lake format (preview)](./capture-event-hub-data-delta-lake.md)
@@ -66,14 +66,14 @@ To access the no-code editor for building your stream analytics job, there are t
     - [Transform and store data to Azure SQL database](./no-code-transform-filter-ingest-sql.md)
     - [Filter and ingest to Azure Data Explorer](./no-code-filter-ingest-data-explorer.md)
 
-The following screenshot shows a completed Stream Analytics job. It highlights all the sections available to you while you author.
+The following screenshot shows a completed Stream Analytics job. It highlights all the sections available to you as you author.
 
 :::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot that shows the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
-1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming ETL operations), outputs, a button to save your progress, and a button to start the job.
+1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming Etract, Transform, and Load operations), outputs, a button to save your progress, and a button to start the job.
 2. **Diagram view**: This is a graphical representation of your Stream Analytics job, from input to operations to outputs.
-3. **Side pane**: Depending on which component you selected in the diagram view, you'll have settings to modify input, transformation, or output.
-4. **Tabs for data preview, authoring errors, runtime logs, and metrics**: For each tile, the data preview will show you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform. It also provides the job metrics for you to monitor the running job's health.
+3. **Side pane**: Depending on which component you selected in the diagram view, you see settings to modify input, transformation, or output.
+4. **Tabs for data preview, authoring errors, runtime logs, and metrics**: For each tile, the data preview shows you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning selects that transform. It also provides the job metrics for you to monitor the running job's health.
 
 ## Streaming data input
 
@@ -102,7 +102,7 @@ If your event hub is in the Basic tier, you can use only the existing **$Default
 
 ![Screenshot that shows consumer group selection while setting up an event hub.](./media/no-code-stream-processing/consumer-group-nocode.png)
 
-When you're connecting to the event hub, if you select **Managed Identity** as the authentication mode, the Azure Event Hubs Data Owner role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for an event hub, see [Use managed identities to access an event hub from an Azure Stream Analytics job](event-hubs-managed-identity.md).
+When you're connecting to the event hub, if you select **Managed Identity** as the authentication mode, the Azure Event Hubs Data Owner role is granted to the managed identity for the Stream Analytics job. To learn more about managed identities for an event hub, see [Use managed identities to access an event hub from an Azure Stream Analytics job](event-hubs-managed-identity.md).
 
 Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days.
 
@@ -110,14 +110,14 @@ Managed identities eliminate the limitations of user-based authentication method
 
 After you set up your event hub's details and select **Connect**, you can add fields manually by using **+ Add field** if you know the field names. To instead detect fields and data types automatically based on a sample of the incoming messages, select **Autodetect fields**. Selecting the gear symbol allows you to edit the credentials if needed. 
 
-When Stream Analytics jobs detect the fields, you'll see them in the list. You'll also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
+When Stream Analytics jobs detect the fields, you see them in the list. You also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
 
 #### Modify input data
 
 You can edit the field names, or remove field, or change the data type, or change the event time (**Mark as event time**: TIMESTAMP BY clause if a datetime type field), by selecting the three-dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
 
 > [!TIP]
-> This applies to the input data from Azure IoT Hub and ADLS Gen2 as well.
+> This applies to the input data from Azure IoT Hub and Azure Data Lake Storage Gen2 as well.
 
 :::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot that shows selections for adding, removing, and editing the fields for an event hub." lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
 
@@ -165,7 +165,7 @@ The no-code editor now supports two reference data sources:
 
 Reference data is modeled as a sequence of blobs in ascending order of the date/time combination specified in the blob name. You can add blobs to the end of the sequence only by using a date/time greater than the one that the last blob specified in the sequence. Blobs are defined in the input configuration.
 
-First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2**. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-blob-storage).
+First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2**. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-blob-storage-or-azure-data-lake-storage-gen-2).
 
 ![Screenshot that shows fields for configuring Azure Data Lake Storage Gen2 as input in the no-code editor.](./media/no-code-stream-processing/blob-referencedata-nocode.png)
 
@@ -298,7 +298,7 @@ Managed identities eliminate the limitations of user-based authentication method
 
 :::image type="content" source="./media/no-code-stream-processing/exactly-once-delivery-adls.png" alt-text="Screenshot that shows the exactly once configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/exactly-once-delivery-adls.png" :::
 
-**Write to Delta Lake table (preview)** is supported in the ADLS Gen2 as no code editor output. You can access this option in section **Serialization** in ADLS Gen2 configuration. For more information about this feature, see [Write to Delta Lake table (Public Preview)](./write-to-delta-lake.md).
+**Write to Delta Lake table (preview)** is supported in the ADLS Gen2 as no code editor output. You can access this option in section **Serialization** in ADLS Gen2 configuration. For more information about this feature, see [Write to Delta Lake table](./write-to-delta-lake.md).
 
 :::image type="content" source="./media/no-code-stream-processing/delta-lake-format-output-in-adls.png" alt-text="Screenshot that shows the delta lake configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/delta-lake-format-output-in-adls.png" :::
 
@@ -332,9 +332,9 @@ To configure Azure SQL Database as output, select **SQL Database** under the **O
 
 For more information about Azure SQL Database output for a Stream Analytics job, see [Azure SQL Database output from Azure Stream Analytics](./sql-database-output.md).
 
-### Event Hub
+### Event Hubs
 
-With the real-time data coming through event hub to ASA, no-code editor can transform, enrich the data and then output the data to another event hub as well. You can choose the **Event Hub** output when you configure your Azure Stream Analytics job.
+With the real-time data coming through to ASA, no-code editor can transform, enrich the data and then output the data to another event hub as well. You can choose the **Event Hubs** output when you configure your Azure Stream Analytics job.
 
 To configure Event Hubs as output, select **Event Hub** under the Outputs section on the ribbon. Then fill in the needed information to connect your event hub that you want to write data to.
 
@@ -410,7 +410,7 @@ If the job is running, you can monitor the health of your job on the **Metrics**
 
 :::image type="content" source="./media/no-code-stream-processing/metrics-nocode.png" alt-text="Screenshot that shows the metrics for a job created from the no-code editor." lightbox= "./media/no-code-stream-processing/metrics-nocode.png" :::
 
-You can select more metrics from the list. To understand all the metrics in detail, see [Azure Stream Analytics job metrics](stream-analytics-job-metrics.md).
+You can select more metrics from the list. To understand all the metrics in detail, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics).
 
 ## Start a Stream Analytics job
 
@@ -447,7 +447,7 @@ These are the elements of the **Stream Analytics jobs** tab:
 - **Status**: This area shows the status of the job. Select **Refresh** on top of the list to see the latest status.
 - **Streaming units**: This area shows the number of streaming units that you selected when you started the job.
 - **Output watermark**: This area provides an indicator of liveliness for the data that the job has produced. All events before the time stamp are already computed.
-- **Job monitoring**: Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics that you can use to monitor your Stream Analytics job, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
+- **Job monitoring**: Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics that you can use to monitor your Stream Analytics job, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics).
 - **Operations**: Start, stop, or delete the job.
 
 ## Next steps

@@ -2,14 +2,14 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 09/24/2024
 ---
 
 # Move operation support for resources
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Azure Active Directory tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
+Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
 
 > [!IMPORTANT]
 > In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
@@ -69,7 +69,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | actionrules | **Yes** | **Yes** | No |
+> | alertprocessingrules | No | Yes | No |
 > | alerts | No | No | No |
 > | alertslist | No | No | No |
 > | alertsmetadata | No | No | No |
@@ -167,7 +167,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
+> | automationaccounts | **Yes** | **Yes** | [PowerShell script](../../automation/automation-disaster-recovery.md)  |
 > | automationaccounts / configurations | **Yes** | **Yes** | No |
 > | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
@@ -185,6 +185,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
+
+## Microsoft.AzureArcData
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | datacontrollers | No | No | No |
+> | postgresinstances | No | No | No |
+> | sqlmanagedinstances | No | No | No |
+> | sqlserverinstances | No | No | No |
+> | sqlserverlicenses | No | No | No |
+
 
 ## Microsoft.AzureData
 
@@ -406,7 +418,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No |
-> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md) |
+> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure AI Search service to another region](/azure/search/search-howto-move-across-regions) |
 
 ## Microsoft.Commerce
 
@@ -612,6 +624,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
+> |accessConnectors| No| No| No|
 
 ## Microsoft.DataCatalog
 
@@ -627,6 +640,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
+
+## Microsoft.DataDog
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No |  No |
 
 ## Microsoft.DataExchange
 
@@ -694,7 +714,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](/azure/mariadb/concepts-business-continuity#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -702,7 +722,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/mysql/howto-move-regions-portal).
 
 ## Microsoft.DBforPostgreSQL
 
@@ -711,7 +731,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
 > | servergroups | No | No | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).
 > | serversv2 | **Yes** | **Yes** | No |
 
 ## Microsoft.DeploymentManager
@@ -733,6 +753,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgroups | **Yes** | **Yes** | No |
 > | hostpools | **Yes** | **Yes** | No |
+> | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
@@ -785,7 +806,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccounts | **Yes** | **Yes** | No |
+> | databaseaccounts | **Yes** | No | No |
 
 ## Microsoft.DomainRegistration
 
@@ -924,8 +945,10 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
+> | licenses | **Yes** | **Yes** | No |
 > | machines | **Yes** | **Yes** | No |
 > | machines / extensions | **Yes** | **Yes** | No |
+> | privatelinkscopes | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridData
 
@@ -968,8 +991,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | **Yes** | **Yes** | No |
+> | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1145,11 +1168,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 
 ## Microsoft.Maintenance
 
-> [!div class="mx-tableFixed"]
+<!-- > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationassignments | No | No | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) |
 > | maintenanceconfigurations | **Yes** | **Yes** | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | updates | No | No | No | -->
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | configurationassignments | No | No | No |
+> | maintenanceconfigurations | No | No | No |
 > | updates | No | No | No |
 
 ## Microsoft.ManagedIdentity
@@ -1304,7 +1334,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
 > | applicationsecuritygroups | **Yes** | **Yes** | No |
 > | azurefirewalls | No | No | No |
-> | bastionhosts | No | No | No |
+> | bastionhosts | Yes | No | No |
 > | bgpservicecommunities | No | No | No |
 > | connections | **Yes** | **Yes** | No |
 > | ddoscustompolicies | **Yes** | **Yes** | No |
@@ -1347,8 +1377,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
-> | virtualnetworks | **Yes** | **Yes** | No |
+> | virtualnetworkgateways | No| No | No |
+> | virtualnetworks | **Yes** | **Yes** | **Yes** |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |
 > | virtualwans | No | No |
@@ -1397,6 +1427,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | linktargets | No | No | No |
 > | storageinsightconfigs | No | No | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | querypacks | No | No | No |
+
 
 ## Microsoft.OperationsManagement
 
@@ -1454,6 +1486,19 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | **Yes** | **Yes** | No |
+
+## Microsoft.ProgrammableConnectivity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | gateways | No | No | No |
+> | openApiGatewayOfferings | No | No | No |
+> | openApiGateways | No | No | No |
+> | operatorApiConnections | No | No | No |
+> | operatorApiPlans | No | No | No |
+> | OperatorConnections | No | No | No |
+> | OperatorOfferings | No | No | No |
 
 ## Microsoft.ProjectBabylon
 
@@ -1548,7 +1593,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | [Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 
@@ -1761,7 +1806,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | **Yes** | **Yes** | **Yes**<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
 
 ## Microsoft.StorageCache
 
@@ -1987,3 +2032,4 @@ Third-party services currently don't support the move operation.
 - For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you want those properties and region move support, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+

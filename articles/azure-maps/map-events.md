@@ -4,9 +4,10 @@ titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/12/2023
+ms.date: 08/30/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Handle map events
@@ -17,7 +18,7 @@ This article shows you how to use [map events class]. The property highlight eve
 
 The [Map Events] sample highlights the name of the events that are firing as you interact with the map. For the source code for this sample, see [Map Events source code].
 
-:::image type="content" source="./media/map-events/map-events.png"alt-text="A screenshot showing a map with a list of map events that are highlighted anytime your actions on the map trigger that event.":::
+:::image type="content" source="./media/map-events/map-events.png" lightbox="./media/map-events/map-events.png" alt-text="A screenshot showing a map with a list of map events that are highlighted anytime your actions on the map trigger that event.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -27,7 +28,7 @@ The [Map Events] sample highlights the name of the events that are firing as you
 
 The [Layer Events] sample highlights the name of the events that are firing as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events. For the source code for this sample, see [Layer Events source code].
 
-:::image type="content" source="./media/map-events/layer-events.png"alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
+:::image type="content" source="./media/map-events/layer-events.png" lightbox="./media/map-events/layer-events.png" alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -37,7 +38,7 @@ The [Layer Events] sample highlights the name of the events that are firing as y
 
 The [HTML marker layer events] sample highlights the name of the events that are firing as you interact with the HTML marker layer. For the source code for this sample, see [HTML marker layer Events source code].
 
-:::image type="content" source="./media/map-events/html-marker-layer-events.png"alt-text="A screenshot showing a map with a list of HTML marker layer events that are highlighted anytime your actions on the map trigger that event.":::
+:::image type="content" source="./media/map-events/html-marker-layer-events.png" lightbox="./media/map-events/html-marker-layer-events.png" alt-text="A screenshot showing a map with a list of HTML marker layer events that are highlighted anytime your actions on the map trigger that event.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -94,7 +95,7 @@ The following table lists all supported map class events.
 | `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
 | `styledata`         | Fired when the map's style loads or changes.|
 | `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
-| `tokenacquired`     | Fired when an Azure Active Directory access token is obtained.|
+| `tokenacquired`     | Fired when a Microsoft Entra access token is obtained.|
 | `touchcancel`       | Fired when a `touchcancel` event occurs within the map.|
 | `touchend`          | Fired when a `touchend` event occurs within the map.|
 | `touchmove`         | Fired when a `touchmove` event occurs within the map.|

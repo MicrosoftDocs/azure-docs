@@ -3,7 +3,7 @@ title: 'About forced tunneling for site-to-site'
 description: Learn about forced tunneling methods for VPN Gateway site-to-site connections.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 09/22/2023
 ms.author: cherylmc
@@ -25,7 +25,7 @@ There are a few different ways that you can configure forced tunneling.
 
 ### Configure using BGP
 
-You can configure forced tunneling for VPN Gateway via BGP. You  need to advertise a default rout of 0.0.0.0/0 via BGP from your on-premises location to Azure so that all your Azure traffic is sent via the VPN Gateway S2S tunnel.
+You can configure forced tunneling for VPN Gateway via BGP. You  need to advertise a default route of 0.0.0.0/0 via BGP from your on-premises location to Azure so that all your Azure traffic is sent via the VPN Gateway S2S tunnel.
 
 ### Configure using Default Site
 

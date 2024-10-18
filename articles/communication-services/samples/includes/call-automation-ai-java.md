@@ -39,14 +39,14 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
     - `connectionstring`: Azure Communication Service resource's connection string.
     - `basecallbackuri`: Base url of the app. For local development use dev tunnel url.
     - `cognitiveServicesUrl`: The Azure AI services endpoint
-    - `azureOpenAiServiceKey`: Open AI's Service Key
-    - `azureOpenAiServiceEndpoint`: Open AI's Service Endpoint
-    - `openAiModelName`: Open AI's Model name
+    - `azureOpenAiServiceKey`: Azure OpenAI Service Key
+    - `azureOpenAiServiceEndpoint`: Azure OpenAI Service Endpoint
+    - `openAiModelName`: Azure OpenAI Model name
 
 
 ### Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll then use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -64,7 +64,7 @@ devtunnel host
     - Try the GET /outboundCall to run the Sample Application
 
 
-Once that's completed, you should have a running application. The best way to test this sample is to place a call to your ACS phone number and talk to your intelligent agent.
+Once that's completed, you should have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 
 ## Next steps
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).

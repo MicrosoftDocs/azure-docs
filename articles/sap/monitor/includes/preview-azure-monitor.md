@@ -1,10 +1,10 @@
 ---
-author: lauradolan
+author: ju-shim
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: include
 ms.date: 10/27/2022
-ms.author: ladolan
+ms.author: jushiman
 ---
 
 > [!IMPORTANT]
