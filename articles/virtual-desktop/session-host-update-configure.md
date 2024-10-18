@@ -10,7 +10,7 @@ ms.date: 10/01/2024
 # Update session hosts in host pool with a session host configuration using session host update in Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
+> Session host update for Azure Virtual Desktop is currently in PREVIEW. This is a limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -101,7 +101,7 @@ Here's how to schedule a new update for your session hosts using the Azure porta
 >
 > If you edit the session host configuration using the Azure portal, you have to schedule an update.
 
-1. From the Azure Virtual Desktop overview, select **Host pools**, then select the host pool with a session host configuration that you want to update.
+1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration. From the Azure Virtual Desktop overview, select **Host pools**, then select the host pool with a session host configuration that you want to update.
 
 1. Select **Session hosts**.
 
@@ -367,7 +367,7 @@ From your existing PowerShell session, use the `Get-AzWvdSessionHostManagementsU
 ---
 
 > [!TIP]
-> You can also see the activity of an update using [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md).
+> You can also see the activity of an update using [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log).
 
 ## Pause, resume, cancel, or retry an update
 

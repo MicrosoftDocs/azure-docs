@@ -6,7 +6,7 @@ zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 10/18/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -15,8 +15,10 @@ ms.date: 10/01/2024
 > The following features are currently in preview:
 >
 > - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
+>
 > - Azure Virtual Desktop on Azure Extended Zones.
-> - Managing session hosts using a session host configuration. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
+>
+> - Managing session hosts using a session host configuration. This is a limited preview is provided as-is, with all faults and as available, and is excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -199,7 +201,7 @@ To create a host pool with a session host configuration, select the relevant tab
 
 Here's how to create a host pool with a session host configuration using the Azure portal, which also creates a default session host management policy and default session host configuration. You can change the default session host management policy and session host configuration after deployment.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration.
 
 1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
@@ -225,7 +227,7 @@ Here's how to create a host pool with a session host configuration using the Azu
 
    | Parameter | Value/Description |
    |--|--|
-   | Number of session hosts | Enter the number of session hosts you want to create when creating the host pool. You can enter **0** to not create any session hosts at this point, but a session host configuration is still created with the values you specify for when you do create session hosts.<br /><br />You can deploy up to 500 session host VMs at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
+   | Number of session hosts | Enter the number of session hosts you want to create when creating the host pool. You can enter **0** to not create any session hosts at this point, but a session host configuration is still created with the values you specify for when you do create session hosts.<br /><br />You can deploy up to 500 session host VMs at this point if you wish (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
    | **Session host configuration** |  |
    | Resource group | Automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative from the drop-down list. |
    | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />It can be a maximum of 10 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
@@ -298,7 +300,7 @@ Here's how to create a host pool with a session host configuration, and a sessio
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
+2. Make sure you've registered for the limited preview using the link at the beginning of this article. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    ```azurepowershell
    $parameters = @{

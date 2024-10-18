@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot session host update - Azure Virtual Desktop
-description: Some troubleshoot guidance to help with session host update.
+description: Troubleshooting guidance to help with session host update.
 ms.topic: troubleshooting
 author: dknappettmsft
 ms.author: daknappe
@@ -66,7 +66,7 @@ Here are some example failures that prevent an update from starting:
 
 - **Capacity issues**: validation checks for sufficient capacity in your virtual network subnet and VM core quota. This check does not guarantee capacity during an update; creation of other resources outside of session host update can result in errors mid-update associated with capacity limits. Set your batch size to be within the remaining quota for your subscription.
 
-- **Parameter consistency with current session hosts**: session host update doesn't support changing the region, subscription, resource group, or domain join type for a session host. If the session host configuration contains properties in these fields that differs from the session hosts in the host pool, the update fails to start. You should remove the session hosts that are inconsistent with the configuration.
+- **Parameter consistency with current session hosts**: session host update doesn't support changing the region, subscription, resource group, or domain join type for a session host. If the session host configuration contains properties in these fields that differ from the session hosts in the host pool, the update fails to start. You should remove the session hosts that are inconsistent with the configuration.
 
 ### Failures during an update
 

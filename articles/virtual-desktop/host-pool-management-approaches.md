@@ -38,7 +38,7 @@ Creating, updating, and scaling session hosts in a host pool can require much ef
 
 ### Session host configuration
 
-A session host configuration is a sub-resource of a the session host configuration management approach that specifies the configuration of session hosts in the host pool. The session host configuration persists throughout the lifecycle of the host pool and is aligned with the session hosts in the host pool. The session host configuration includes the following properties: 
+A session host configuration is a sub-resource of the session host configuration management approach that specifies the configuration of session hosts in the host pool. The session host configuration persists throughout the lifecycle of the host pool and is aligned with the session hosts in the host pool. The session host configuration includes the following properties: 
 
 :::row:::
     :::column:::

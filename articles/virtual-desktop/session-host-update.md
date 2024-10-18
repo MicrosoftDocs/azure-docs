@@ -58,10 +58,10 @@ The existing power state and drain mode of session hosts is honored. You can per
 
 > [!IMPORTANT]
 > - If you use Azure Virtual Desktop Insights, the Azure Monitor agent or Log Analytics agent isn't automatically installed on the updated session hosts. To install the agent automatically, here are some options:
->    - For the Azure Monitor agent, you can [use Azure Policy](../azure-monitor/agents/azure-monitor-agent-policy.md).
->    - For the Log Analytics agent, you can [use Azure Automation](../azure-monitor/agents/agent-windows.md?tabs=azure-automation#install-the-agent).
+>    - For the Azure Monitor agent, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
+>    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
 >
-> - Keep in mind [quota limits](../quotas/view-quotas.md) on your Azure subscription and consider [submitting a request to increase a quota](../quotas/quickstart-increase-quota-portal.md) if an update would go over the limit.
+> - Keep in mind [quota limits](/azure/quotas/view-quotas) on your Azure subscription and consider [submitting a request to increase a quota](/azure/quotas/quickstart-increase-quota-portal) if an update would go over the limit.
 >
 > - We recommend that you test the update process on a test host pool aligned to the host pool you want to update. This will test the update process itself and also the result of a new VM with the same name as the previous VM within your environment. It's also important to test that any updates, such as new applications or hotfixes, work as expected within your environment before updating a production host pool.
 
@@ -110,8 +110,8 @@ Here are known issues and limitations:
 - If you decide to create an image that is taken from an existing session host that you then use as the source image for your session host update, you need to delete the `C:\packages\plugin` folder before creating the image. Otherwise this folder prevents the DSC extension that joins the updated virtual machines to the host pool from running.
 
 - If you use Azure Virtual Desktop Insights, the Azure Monitor agent or Log Analytics agent isn't automatically installed on the updated session hosts. To install the agent automatically, here are some options:
-   - For the Azure Monitor agent, you can [use Azure Policy](../azure-monitor/agents/azure-monitor-agent-policy.md).
-   - For the Log Analytics agent, you can [use Azure Automation](../azure-monitor/agents/agent-windows.md?tabs=azure-automation#install-the-agent).
+   - For the Azure Monitor agent, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
+   - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
    - Manually add these new session hosts from within [Azure Virtual Desktop Insights](insights.md) in the Azure portal.
 
 - Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.

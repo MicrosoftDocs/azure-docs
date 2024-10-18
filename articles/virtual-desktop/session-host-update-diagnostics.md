@@ -14,7 +14,7 @@ ms.date: 10/01/2024
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Session host update uses [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md) to store information about updates. This article has some example Kusto queries you can use with Log Analytics to see information about session host updates.
+Session host update uses [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to store information about updates. This article has some example Kusto queries you can use with Log Analytics to see information about session host updates.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Once you configure diagnostic settings on a host pool, diagnostic data for sessi
 
 The table `WVDSessionHostManagement` is specific to session host update and is created once you enable the category **Session Host Management Activity Logs** on the diagnostic settings for each host pool you use with session host update, and session host update runs. If you previously configured diagnostic settings for a host pool, you need to enable the category **Session Host Management Activity Logs**. For more information  [Configure diagnostic settings to capture platform logs and metrics for Azure Virtual Desktop](diagnostics-log-analytics.md).
 
-The rest of this article has some example queries you can run. You can use them as a basis to create your own queries. You need to run each of these queries in Log Analytics. For more information on how to run queries, see [Start Log Analytics](../azure-monitor/logs/log-analytics-overview.md#start-log-analytics).
+The rest of this article has some example queries you can run. You can use them as a basis to create your own queries. You need to run each of these queries in Log Analytics. For more information on how to run queries, see [Start Log Analytics](/azure/azure-monitor/logs/log-analytics-overview#start-log-analytics).
 
 ## Session host updates that completed successfully
 
