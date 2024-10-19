@@ -3,7 +3,7 @@ title: Workflow automation after API registration - Azure API Center
 description: Learn how to set up a notification workflow to set API status in your organization's API center using Azure Logic Apps and Microsoft Teams.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 10/18/2024
 ms.author: danlep
 author: dlepow
 ms.custom: 
@@ -37,9 +37,9 @@ You can adapt this example to meet your organization's notification and governan
 * Permissions to assign RBAC roles in your API center.
 * The Event Grid resource provider registered in your subscription. If you need to register the Event Grid resource provider, see [Subscribe to events published by a partner with Azure Event Grid](../event-grid/subscribe-to-partner-events.md#register-the-event-grid-resource-provider).
 
-## Add a custom metadata property in your API center
+## Step 1. Add a custom metadata property in your API center
 
-This example workflow sets the value of an example [custom metadata property](metadata.md) in your API center for status of an API registration.
+The example workflow in this article sets the value of an example [custom metadata property](metadata.md) in your API center for the status of an API registration.
 
 To create a custom *api-status* property in your API center:
 
@@ -53,11 +53,14 @@ To create a custom *api-status* property in your API center:
 1. Optionally make assignments to **Deployments** and **Environments**. Select **Next**.
 1. Review the configuration and select **Create**.
 
-## Enable a managed identity in your logic app
+## Step 2. Enable a managed identity in your logic app
 
 For this scenario, the logic app uses a managed identity to access the Azure API center. Depending on your needs, enable either a system-assigned or user-assigned managed identity. For configuration steps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../logic-apps/authenticate-with-managed-identity.md).
 
-### Assign permissions to the managed identity
+:::image type="content" source="media/set-up-notification-workflow/managed-identity-logic-app.png" alt-text="Screenshot of configuring managed identity in the portal.":::
+
+
+### Step 3. Assign permissions to the managed identity
 
 Assign the logic app managed identity the necessary permissions to access the API center. For this scenario, assign the **Contributor** role to the managed identity.
 
@@ -68,13 +71,13 @@ Assign the logic app managed identity the necessary permissions to access the AP
 1. On the **Select managed identities** page, search for and select the managed identity of the logic app. Click **Select** and then **Next**.
 1. Review the role assignment, and select **Review + assign**.
 
-## Configure logic app workflow
+## Step 4. Configure logic app workflow
 
 This section provides the manual steps to configure an event subscription that triggers a logic app workflow when an API is registered in your API center.
 
-### Workflow step 1. When a resource event occurs
+### Step 4. 1. When a resource event occurs
 
-Configure a step to trigger the logic app workflow when an event occurs in the API center.
+Configure a workflow step to trigger the logic app workflow when an event occurs in the API center.
 
 1. In the [portal](https://portal.azure.com), navigate to your logic app.
 1. In the left menu, under **Development tools**, select **Logic app designer**.
@@ -88,9 +91,11 @@ Configure a step to trigger the logic app workflow when an event occurs in the A
         `/subscriptions/<subscription ID>/resourceGroups/<resource group nam>/providers/Microsoft.ApiCenter/services/<API Center name>`. 
     1. In **Event Type Item - 1**, enter or select **Microsoft.ApiCenter.ApiAdded**.
 
-### Workflow step 2. Initialize variable - subjectvar 
+:::image type="content" source="media/set-up-notification-workflow/when-resource-event-occurs.png" alt-text="Screenshot of When a resource event occurs action in the portal.":::
 
-Add a step to initialize a variable that stores the ID of the API that's registered. 
+### Step 4.2. Initialize variable - subjectvar 
+
+Add a workflow step to initialize a variable that stores the ID of the API that's registered. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Variables*. 
@@ -100,10 +105,13 @@ In the **Initialize variable** pane:
     1. In **Type**, select **String**.
     1. In **Value**, enter `/` and select **Insert dynamic content**.
     1. Under **When a resource event occurs**, select **Subject**.
-        
-### Workflow step 3. Initialize variable - versionvar 
 
-Add a step to initialize a variable to store the version of the API Center management API. This version is needed for the HTTP requests in the workflow. 
+:::image type="content" source="media/set-up-notification-workflow/initialize-subjectvar-variable.png" alt-text="Screenshot of initializing subjectvar variable in the portal.":::
+
+        
+### Step 4.3. Initialize variable - versionvar 
+
+Add a workflow step to initialize a variable to store the version of the API Center management API. This version is needed for the HTTP requests in the workflow. 
 
 > [!TIP]
 > Initializing a variable for the version makes it easy to change the value later, as the management API gets updated.
@@ -115,10 +123,12 @@ Add a step to initialize a variable to store the version of the API Center manag
     1. In **Name**, enter *versionvar*.
     1. In **Type**, select **String**.
     1. In **Value**, enter `?api-version=2024-03-01`.
+
+:::image type="content" source="media/set-up-notification-workflow/initialize-versionvar-variable.png" alt-text="Screenshot of initializing versionvar variable in the portal.":::
     
-### Workflow step 4. HTTP action to get API details
+### Step 4.4. HTTP action to get API details
  
-Add a step to make an HTTP GET request to get API details from the API center. 
+Add a workflow step to make an HTTP GET request to get API details from the API center. 
 
 1. Select **Add an action**.
 1. In the search box, enter *HTTP*. 
@@ -134,10 +144,11 @@ Add a step to make an HTTP GET request to get API details from the API center.
         1. In **Managed identity**, select **System-assigned managed identity**.
         1. In **Audience**, enter `https://management.azure.com/`.
 
-      
-### Workflow step 5. Parse JSON action
+:::image type="content" source="media/set-up-notification-workflow/http-request-get.png" alt-text="Screenshot of HTTP GET request action in the portal.":::
 
-Add a step to parse the JSON output of the preceding HTTP request. 
+### Step 4.5. Parse JSON action
+
+Add a workflow step to parse the JSON output of the preceding HTTP request. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Parse JSON*. 
@@ -201,9 +212,12 @@ Add a step to parse the JSON output of the preceding HTTP request.
         }
         ``` 
 
-### Workflow step 6. Post adaptive card to Teams
+:::image type="content" source="media/set-up-notification-workflow/parse-json.png" alt-text="Screenshot of parse JSON action in the portal.":::
 
-Add a step to post the notification as an adaptive card in Microsoft Teams. 
+
+### Step 4.6. Post adaptive card to Teams
+
+Add a workflow step to post the notification as an adaptive card in Microsoft Teams. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Teams*. 
@@ -270,13 +284,17 @@ Add a step to post the notification as an adaptive card in Microsoft Teams.
         }
     
         ```
+
 1. Select the text `{{apiTitle}}` in the message and delete it. Enter `/` and select **Insert dynamic content**. 
     Under **Parse JSON**, select **Body title** to replace the selected text with the dynamic content.  
 1. In **Recipient**, enter the email address of the individual who receives notifications.
 
-### Workflow step 7. Initialize variable - statusvar
+:::image type="content" source="media/set-up-notification-workflow/post-adaptive-card.png" alt-text="Screenshot of post adaptive card to Teams action in the portal.":::
 
-Add a step to initialize the value of a variable that stores the API status value returned from the Teams adaptive card. 
+
+### Step 4.7. Initialize variable - statusvar
+
+Add a workflow step to initialize the value of a variable that stores the API status value returned from the Teams adaptive card. 
 
 1. Select **Add an action**.
 1. In the search box, enter *Variables*. 
@@ -286,9 +304,12 @@ Add a step to initialize the value of a variable that stores the API status valu
     1. In **Type**, select **String**.
     1. In **Value**, enter `@body('Post_adaptive_card_and_wait_for_a_response')?['data']?['apiStatus']`.
 
-### Workflow step 8. HTTP action - update API properties in Azure API Center
+:::image type="content" source="media/set-up-notification-workflow/initialize-statusvar-variable.png" alt-text="Screenshot of initializing statusvar variable in the portal.":::
 
-Add a step to make an HTTP PUT request to update the API properties in your API center. In the search box, enter *HTTP*. 
+
+### Step 4.8. HTTP action - update API properties in Azure API Center
+
+Add a workflow step to make an HTTP PUT request to update the API properties in your API center. In the search box, enter *HTTP*. 
 
 1. Select **Add an action**.
 1. In the search box, enter *HTTP*.
@@ -315,7 +336,10 @@ Add a step to make an HTTP PUT request to update the API properties in your API 
         1. In **Managed identity**, select **System-assigned managed identity**.
         1. In **Audience**, enter `https://management.azure.com/`.    
 
-### Save the workflow
+:::image type="content" source="media/set-up-notification-workflow/http-request-put.png" alt-text="Screenshot of HTTP PUT request action in the portal.":::
+
+
+### Step 4.9. Save the workflow
 
 **Save** the workflow in the **Logic app designer**. When the workflow is complete, it should look similar to the following image:
 
@@ -329,7 +353,7 @@ Confirm that the event subscription is provisioned successfully in your API cent
 
 :::image type="content" source="media/set-up-notification-workflow/logic-app-event-subscription.png" alt-text="Screenshot of a logic app event subscription in the portal.":::
  
-## Test the event subscription
+## Step 5. Test the event subscription
 
 Test the event subscription by registering an API in your API center:
 
