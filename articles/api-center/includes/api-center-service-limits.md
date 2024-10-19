@@ -29,5 +29,5 @@ ms.custom: Include file
 
 <sup>1</sup> To increase a limit in the Standard plan, contact [support](https://azure.microsoft.com/support/options/).<br/>
 <sup>2</sup> In the Free plan, use of full service features including API analysis and access through the data plane API is limited to 5 APIs.<br/>
-<sup>3</sup> Custom metadata properties assigned to APIs, deployments, and environments.
-<sup>4</sup> API sources include API Management instances linked to the API center for synchronization.
+<sup>3</sup> Custom metadata properties assigned to APIs, deployments, and environments.<br/>
+<sup>4</sup> Sources such as linked API Management instances that synchronize APIs.
