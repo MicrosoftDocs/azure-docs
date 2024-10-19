@@ -1,6 +1,6 @@
 ---
-title: Develop module for Linux devices using Azure IoT Edge for Linux on Windows
-description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Windows devices using Azure IoT Edge for Linux on Windows
+title: Develop modules for Linux devices using Azure IoT Edge for Linux on Windows
+description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules running in Linux containers for Windows devices, by using Azure IoT Edge for Linux on Windows.
 author: PatAltimore
 
 ms.author: fcabrera
@@ -12,18 +12,18 @@ services: iot-edge
 zone_pivot_groups: iotedge-dev
 ---
 
-# Tutorial: Develop IoT Edge modules with Linux containers using IoT Edge for Linux on Windows
+# Tutorial: Develop IoT Edge modules with Linux containers by using IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a **C# module to a Linux device**. You'll deploy and debug a custom Azure IoT Edge module running in a Linux container on Windows (EFLOW). Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts.
+This tutorial walks through developing, debugging, and deploying your own code to an Azure IoT Edge device by using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a C# module to a Linux device. You'll deploy and debug a custom IoT Edge module running in a Linux container on Windows. Even if you plan to use a different language or deploy an Azure service, this tutorial is still useful to learn about the development tools and concepts.
 
-This article includes steps for two IoT Edge development tools:
+This tutorial includes steps for two IoT Edge development tools:
 
-* Command line interface (CLI) is the preferred tool for development.
-* **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+* The command-line interface (CLI), which is the preferred tool for development.
+* The **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
-Use the tool selector button at the beginning of this article to select the tool version.
+Use the tool selector button at the beginning of this tutorial to select the tool version.
 
 In this tutorial, you learn how to:
 
@@ -36,23 +36,22 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This article assumes that you use a machine running Windows as your development machine. On Windows computers, you can develop either Windows or Linux modules. This tutorial guides you through the development of **Linux containers**, using [IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md) for building and deploying the modules. 
+This tutorial assumes that you use a machine running Windows as your development machine. On Windows computers, you can develop either Windows or Linux modules. This tutorial guides you through the development of Linux containers, by using [IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md) for building and deploying the modules.
 
-* Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
-* Quickstart: [Deploy your first IoT Edge module to a Windows device](./quickstart.md)
-* [.NET Core SDK](https://dotnet.microsoft.com/download).
+Before you begin:
 
-* Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
+* Install [IoT Edge for Linux on Windows](./how-to-provision-single-device-linux-on-windows-x509.md)
+* Read the quickstart [Deploy your first IoT Edge module to a Windows device](./quickstart.md).
+* Download the [.NET Core SDK](https://dotnet.microsoft.com/download).
+* Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workload options.
+* After your Visual Studio 2022 installation is ready, download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from Visual Studio Marketplace.
 
-After your Visual Studio 2022 is ready, you also need the following tools and components:
+  You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool that you use.
 
-* Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace. You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool you use.
-
-    > [!IMPORTANT]
-    > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
+  The Azure IoT Edge Tools for VS 2022 extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the Azure IoT Edge Dev Tool CLI.
 
    > [!TIP]
-   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace.
+   > If you're using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from Visual Studio Marketplace.
 
 ::: zone pivot="iotedge-dev-cli"
 
@@ -60,57 +59,64 @@ After your Visual Studio 2022 is ready, you also need the following tools and co
 
 ::: zone-end
 
-Cloud resources:
-
-* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+* Create a free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure as a cloud resource.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Key concepts
 
-This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
+This tutorial walks through the development of an *IoT Edge module*. An IoT Edge module is a container that has executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the IoT Edge for Linux on Windows (EFLOW) VM for building and deploying the modules. 
+When you're developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*.
 
-This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial uses. You can use Visual Studio Code as well, although there are differences in support between the two tools. For more information, see [Develop Azure IoT Edge modules using Visual Studio Code](./tutorial-develop-for-linux.md).
+For example, the most common scenario is someone developing a module on a Windows computer who intends to target a Linux device running IoT Edge. In that case, the container operating system is Linux.
 
+As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll use your Windows host for development and the IoT Edge for Linux on Windows virtual machine (VM) for building and deploying the modules.
 
-## Set up docker-cli and Docker engine remote connection
+This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial uses. You can also use Visual Studio Code, although there are differences in support between the two tools. For more information, see [Develop Azure IoT Edge modules using Visual Studio Code](./tutorial-develop-for-linux.md).
 
-IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. The EFLOW virtual machine already contains an instance of Docker engine, so this tutorial shows you how to remotely connect from the Windows developer machine to the EFLOW VM Docker instance. By using this, we remove the dependency on Docker Desktop for Windows.
+## Set up the Docker CLI and Docker engine for remote connection
 
-The first step is to configure docker-cli on the Windows development machine to be able to connect to the remote docker engine. 
+IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. The IoT Edge for Linux on Windows virtual machine already contains an instance of Docker engine, so this tutorial shows you how to remotely connect from the Windows developer machine to the IoT Edge for Linux on Windows VM Docker instance. By using this remote connection, you remove the dependency on Docker Desktop for Windows.
 
-1. Download the precompiled **docker.exe** version of the docker-cli from [docker-cli Chocolatey](https://download.docker.com/win/static/stable/x86_64/docker-20.10.12.zip). You can also download the official **cli** project from [docker/cli GitHub](https://github.com/docker/cli) and compile it following the repo instructions.
-2. Extract the **docker.exe** to a directory in your development machine. For example, _C:\Docker\bin_
-3. Open **About your PC** -> **System Info** -> **Advanced system settings**
-4. Select **Advanced** -> **Environment variables** -> Under **User variables** check **Path**
-5. Edit the **Path** variable and add the location of the **docker.exe**
-6. Open an elevated PowerShell session
-7. Check that Docker CLI is accessible using the command
+### Configure the Docker CLI
+
+The first step is to configure the Docker CLI on the Windows development machine to be able to connect to the remote Docker engine:
+
+1. Download the precompiled **docker.exe** version of the the Docker CLI from [Chocolatey](https://download.docker.com/win/static/stable/x86_64/docker-20.10.12.zip). You can also download the official **cli** project from [GitHub](https://github.com/docker/cli) and compile it by following the repo instructions.
+2. Extract **docker.exe** to a directory in your development machine; for example, *C:\Docker\bin*.
+3. Open **About your PC** > **System Info** > **Advanced system settings**.
+4. Select **Advanced** > **Environment variables**. Under **User variables**, select **Path**.
+5. Edit the **Path** variable and add the location of **docker.exe**.
+6. Open an elevated PowerShell session.
+7. Check that the Docker CLI is accessible by using this command:
+
    ```powershell
    docker --version
    ```
-If everything was successfully configurated, the previous command should output the docker version, something like _Docker version 20.10.12, build e91ed57_. 
 
-The second step is to configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules. 
+If you successfully configured everything, the previous command should output the Docker version. It should look something like *Docker version 20.10.12, build e91ed57*.
 
->[!WARNING]
->Exposing Docker engine to external connections may increase security risks. This configuration should only be used for development purposes. Make sure to revert the configuration to default settings after development is finished.
+### Configure the Docker engine
 
-1. Open an elevated PowerShell session and run the following commands
+The second step is to configure the IoT Edge for Linux on Windows virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
+
+> [!WARNING]
+> Exposing the Docker engine to external connections might increase security risks. You should use this configuration only for development purposes. Make sure to revert the configuration to default settings after development is finished.
+
+1. Open an elevated PowerShell session and run the following commands:
 
     ```powershell
-   # Configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
+   # Configure the IoT Edge for Linux on Windows virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
 
-   # Create a copy of the EFLOW VM _docker.service_ in the system folder.
+   # Create a copy of the IoT Edge for Linux on Windows VM _docker.service_ in the system folder.
    Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
 
    # Replace the service execution line to listen for external connections.
    Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g'  /etc/systemd/system/docker.service"
 
-   # Reload the EFLOW VM services configurations.
+   # Reload the IoT Edge for Linux on Windows VM services configurations.
    Invoke-EflowVmCommand "sudo systemctl daemon-reload"
 
    # Reload the Docker engine service.
@@ -120,19 +126,19 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
     ```
 
-   The following is example output.
+   Here's example output:
 
    ```output
-   PS C:\> # Configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
+   PS C:\> # Configure the IoT Edge for Linux on Windows virtual machine Docker engine to accept external connections, and add the appropriate firewall rules.
    PS C:\> Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
    PS C:\>
-   PS C:\> # Create a copy of the EFLOW VM docker.service in the system folder.
+   PS C:\> # Create a copy of the IoT Edge for Linux on Windows VM docker.service in the system folder.
    PS C:\> Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
    PS C:\>
    PS C:\> # Replace the service execution line to listen for external connections.
    PS C:\> Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g' /etc/systemd/system/docker.service"
    PS C:\>
-   PS C:\> # Reload the EFLOW VM services configurations.
+   PS C:\> # Reload the IoT Edge for Linux on Windows VM services configurations.
    PS C:\> Invoke-EflowVmCommand "sudo systemctl daemon-reload"
    PS C:\>
    PS C:\> # Reload the Docker engine service.
@@ -143,16 +149,20 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    tcp6       0      0 :::2375                 :::*                    LISTEN      2790/dockerd
    ```
 
+### Test the connection
 
+The final step is to test the Docker connection to the IoT Edge for Linux on Windows VM Docker engine.
 
-1. The final step is to test the Docker connection to the EFLOW VM Docker engine. First, you need the EFLOW VM IP address.
+1. Get the IP address of the IoT Edge for Linux on Windows VM:
+
    ```powershell
    Get-EflowVmAddr
    ```
-   >[!TIP]
-   >If the EFLOW VM was deployed without Static IP, the IP address may change across Windows host OS reboots or networking changes. Make sure you are using the correct EFLOW VM IP address every time you want to establish a remote Docker engine connection. 
 
-   The following is example output.
+   > [!TIP]
+   > If the IoT Edge for Linux on Windows VM was deployed without a static IP, the IP address might change across Windows host OS restarts or network changes. Make sure you're using the correct IP address for the IoT Edge for Linux on Windows VM every time you want to establish a remote connection to the Docker engine.
+
+   Here's example output:
 
    ```output
    PS C:\> Get-EflowVmAddr
@@ -163,11 +173,13 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    172.31.24.105 
    ```
 
-1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container. Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
+1. Connect to the IoT Edge for Linux on Windows VM Docker engine and run the `hello-world` sample container. Replace `<EFLOW-VM-IP>` with the IoT Edge for Linux on Windows VM IP address that you obtained in the previous step.
+
    ```powershell
    docker -H tcp://<EFLOW-VM-IP>:2375 run --rm hello-world
    ```
-   You should see that the container is being downloaded, and after will run and output the following.
+
+   When the download of the container finishes, the container runs and produces this output:
 
     ```output
     PS C:\> docker -H tcp://172.31.24.105:2375 run --rm hello-world
@@ -185,7 +197,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
      2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
         (amd64)
      3. The Docker daemon created a new container from that image which runs the
-        executable that produces the output you are currently reading.
+        executable that produces the output you're currently reading.
      4. The Docker daemon streamed that output to the Docker client, which sent it
         to your terminal.
     
@@ -201,29 +213,31 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
 
 ## Create an Azure IoT Edge project
 
-The IoT Edge project template in Visual Studio creates a solution that can be deployed to IoT Edge devices. First you create an Azure IoT Edge solution, and then you generate the first module in that solution. Each IoT Edge solution can contain more than one module.
+The IoT Edge project template in Visual Studio creates a solution that you can deploy to IoT Edge devices. You create an Azure IoT Edge solution, and then you generate the first module in that solution. Each IoT Edge solution can contain more than one module.
 
 > [!IMPORTANT]
-> The IoT Edge project structure created by Visual Studio isn't the same as the one in Visual Studio Code.
+> The IoT Edge project structure that Visual Studio creates isn't the same as the one in Visual Studio Code.
 >
 > Currently, the Azure IoT Edge Dev Tool CLI doesn't support creating the Visual Studio project type. You need to use the Visual Studio IoT Edge extension to create the Visual Studio project.
 
 1. In Visual Studio, create a new project.
 
-1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform (Linux IoT Edge module) and architecture for your IoT Edge device, and select **Next**.
+1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform (Linux IoT Edge module) and architecture for your IoT Edge device, and then select **Next**.
 
-1. On the **Configure your new project** page, enter a name for your project and specify the location, then select **Create**.
+1. On the **Configure your new project** page, enter a name for your project and specify the location, and then select **Create**.
 
-1. On the **Add Module** window, select the type of module you want to develop. You can also select **Existing module** to add an existing IoT Edge module to your deployment. Specify your module name and module image repository.
+1. In the **Add Module** dialog, select the type of module that you want to develop. You can also select **Existing module** to add an existing IoT Edge module to your deployment. Specify your module name and module image repository.
 
-1. In **Repository Url**, provide the name of the module's image repository. Visual Studio autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
+1. In **Repository Url**, provide the name of the module's image repository. Visual Studio automatically populates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information.
+
+   Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Replace only the **localhost:5000** part of the string, so that the final result looks like **\<registry name\>.azurecr.io/\<your module name\>**.
 
 1. Select **Add** to add your module to the project.
 
-   ![Screenshot of adding how to add an application and module to Visual Studio solution](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
+   ![Screenshot of how to add an application and module to a Visual Studio solution.](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
 
    > [!NOTE]
-   > If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the *repository* property of the JSON file.
+   > If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the `repository` property of the JSON file.
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
@@ -235,7 +249,7 @@ The module folder contains a file for your module code, named either `Program.cs
 
 ### Deployment manifest of your project
 
-The deployment manifest you edit is named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest that defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
+The deployment manifest you edit is named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest that defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md).
 
 If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
@@ -264,7 +278,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
           "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
        //...
     ```
-    
+
 1. If you changed the version, regenerate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This generates a deployment manifest based on your deployment template and appears in the **config** folder of your Visual Studio project.
 
 ::: zone-end
@@ -292,15 +306,15 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ### Set up Visual Studio 2022 remote Docker engine instance
 
-Use the Azure IoT Edge tools extension and configure it to use the remote Docker engine running inside the EFLOW virtual machine. 
+Use the Azure IoT Edge tools extension and configure it to use the remote Docker engine running inside the IoT Edge for Linux on Windows virtual machine.
 
-1. Select **Tools** -> **Azure IoT Edge tools** -> **IoT Edge tools settings...**
+1. Select **Tools** > **Azure IoT Edge tools** > **IoT Edge tools settings**.
 
-1. Replace the _DOCKER\_HOST_ localhost value with the EFLOW VM IP address. If you don't remember the IP address, use the EFLOW PowerShell cmdlet `Get-EflowVmAddr` to obtain it. For exmaple, if the EFLOW VM IP address is _172.20.1.100_, then the new value should be _tcp://172.20.1.100:2375_.
+1. Replace the *DOCKER\_HOST* localhost value with the IoT Edge for Linux on Windows VM IP address. If you don't remember the IP address, use the IoT Edge for Linux on Windows PowerShell cmdlet `Get-EflowVmAddr` to obtain it. For exmaple, if the IoT Edge for Linux on Windows VM IP address is *172.20.1.100*, then the new value should be *tcp://172.20.1.100:2375*.
 
    ![Screenshot of IoT Edge Tools settings](./media/tutorial-develop-for-linux-on-windows/iot-edge-tools-settings.png)
 
-1. Select **OK**
+1. Select **OK**.
 
 ::: zone-end
 
@@ -314,20 +328,20 @@ When you're ready to customize the module template with your own code, use the [
 
 ## Build and push a single module
 
-Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will be build or debug using the Docker engine running inside the EFLOW VM, the first step is building and publishing the module to enable remote debugging. 
+Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will be build or debug by using the Docker engine running inside the IoT Edge for Linux on Windows VM, the first step is building and publishing the module to enable remote debugging.
 
 1. In **Solution Explorer**, select and highlight the module project folder (for example, *myIotEdgeModule*). Set the custom module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 
 1. To debug the C# Linux module, we need to update *Dockerfile.amd64.debug* file to enable SSH service. Update the *Dockerfile.amd64.debug* file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
 
    > [!NOTE]
-   > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
-   
-   > [!WARNING]
-   > Make sure the last line of the template _ENTRYPOINT ["dotnet", "IotEdgeModule1.dll"]_ the name of the DLL matches the name of your IoT Edge module project.
+   > When you choose **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
 
-1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key. Make sure you save the RSA key under the same IoT Edge module folder, and the name of the key is _id\_rsa_.
-   
+   > [!WARNING]
+   > Make sure the last line of the template *ENTRYPOINT ["dotnet", "IotEdgeModule1.dll"]* the name of the DLL matches the name of your IoT Edge module project.
+
+1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key. Make sure you save the RSA key under the same IoT Edge module folder, and the name of the key is *id\_rsa*.
+
    ```cmd
    ssh-keygen -t RSA -b 4096 -m PEM
    ```
@@ -360,10 +374,10 @@ Typically, you'll want to test and debug each module before running it within an
           }
     ```
 
-   >[!NOTE]
-   >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+   > [!NOTE]
+   > This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module setting found in the file `deployment.debug.template.json`. 
+1. It's necessary to expose port 22 to access the module SSH service. This tutorial uses 10022 as the host port, but you may specify a different port, which will be used as an SSH port to connect into the Linux C# module. You need to add the SSH port information to the "createOptions" of this Linux module setting found in the file `deployment.debug.template.json`.
 
     ```json
          "createOptions": {
@@ -380,7 +394,7 @@ Typically, you'll want to test and debug each module before running it within an
          }
     ```
 
-1.  In **Solution Explorer**, right-click the project folder and select **Generate Deployment for IoT Edge** to build the new IoT Edge deployment json.
+1. In **Solution Explorer**, right-click the project folder and select **Generate Deployment for IoT Edge** to build the new IoT Edge deployment JSON.
 
 1. Open **Cloud Explorer** by clicking **View** > **Cloud Explorer**. Make sure you've logged in to Visual Studio 2019.
 
@@ -432,11 +446,11 @@ az acr login --name myacr
 docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
 ```
 
-### Deploy the module to the IoT Edge device.
+### Deploy the module to the IoT Edge device
 
 In Visual Studio, open *deployment.debug.template.json* deployment manifest file in the main project. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials, your module images, and the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
-1. If you're using an Azure Container Registry to store your module image, you need to add your credentials to **deployment.debug.template.json** in the *edgeAgent* settings. For example,
+1. If you're using an Azure Container Registry to store your module image, you need to add your credentials to **deployment.debug.template.json** in the *edgeAgent* settings. For example:
 
     ```json
     "modulesContent": {
@@ -465,7 +479,7 @@ In Visual Studio, open *deployment.debug.template.json* deployment manifest file
 1. Add or replace the *createOptions* value with stringified content *for each system and custom module in the deployment template*.
 
     For example, the IotEdgeModule1's *image* and *createOptions* settings would be similar to the following:
-    
+
     ```json
     "IotEdgeModule1": {
     "version": "1.0.0",
@@ -478,15 +492,14 @@ In Visual Studio, open *deployment.debug.template.json* deployment manifest file
     }
     ```
 
-Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+1. Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
 
-```azurecli
-az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
-```
+   ```azurecli
+   az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
+   ```
 
-> [!TIP]
-> You can find your IoT Hub connection string in the Azure portal under Azure IoT Hub > **Security settings** > **Shared access policies**.
->
+   > [!TIP]
+   > You can find your IoT Hub connection string in the Azure portal under Azure IoT Hub > **Security settings** > **Shared access policies**.
 
 1. In **Cloud Explorer**, right-click your edge device and refresh to see the new module running along with **$edgeAgent** and **$edgeHub** modules.
 
@@ -494,46 +507,48 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 ## Debug the solution
 
-1. Using and elevated PowerShell session run the following commands
+1. In an elevated PowerShell session, run the following commands:
 
-   1. Get the moduleId based on the name used for the Linux C# module. Make sure to replace the _\<iot-edge-module-name\>_ placeholder with your module's name.
-   
+   1. Get the moduleId based on the name used for the Linux C# module. Make sure to replace the *\<iot-edge-module-name\>* placeholder with your module's name.
+
       ```powershell
       $moduleId = Invoke-EflowVmCommand "sudo docker ps -aqf name=<iot-edge-module-name>"
       ```
 
-   1. Check that the $moduleId is correct - If the variable is empty, make sure you're using the correct module name
+   1. Check that the $moduleId is correct - If the variable is empty, make sure you're using the correct module name.
 
-   1. Start the SSH service inside the Linux container
-      
+   1. Start the SSH service inside the Linux container:
+
       ```powershell
       Invoke-EflowVmCommand "sudo docker exec -it -d $moduleId service ssh start"
       ```
-   1. Open the module SSH port on the EFLOW VM (this tutorial uses port 10022)
+
+   1. Open the module SSH port on the IoT Edge for Linux on Windows VM (this tutorial uses port 10022):
 
       ```powershell
       Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 10022 -j ACCEPT"
       ```
-   >[!WARNING]
-   >For security reasons, every time the EFLOW VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually.
 
-1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don't know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
+   > [!WARNING]
+   > For security reasons, every time the IoT Edge for Linux on Windows VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually.
+
+1. After you successfully start the SSH service, select **Debug** > **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your IoT Edge for Linux on Windows VM. If you don't know the IoT Edge for Linux on Windows VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
 
    | Field               | Value                                                             |
    |---------------------|-------------------------------------------------------------------|
-   | **Hostname**            | Use the EFLOW VM IP                                           |
+   | **Hostname**            | Use the IoT Edge for Linux on Windows VM IP                                           |
    | **Port**                | 10022 (Or the one you used in your deployment configuration)  |
    | **Username**            | root                                                          |
    | **Authentication type** | Private Key                                                   |
    | **Private Key File**    | Full path to the id_rsa that created in a previous step       |
    | **Passphrase**          | Passphrase used for the key created in a previous step        |
 
-1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10 to 20 seconds the first time.
+1. After you successfully connect to the module by using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10 to 20 seconds the first time.
 
-1. Set a breakpoint to inspect the module.
+1. Set a breakpoint to inspect the module:
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
-   * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
+   * If you're developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
+   * If you're using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
