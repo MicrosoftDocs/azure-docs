@@ -7,7 +7,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/08/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---

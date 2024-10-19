@@ -4,9 +4,9 @@ description: Use the SentinelHealth data table and the Health Monitoring workboo
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 02/11/2024
+ms.date: 10/17/2024
 ms.service: microsoft-sentinel
-
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 
 #Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
 
@@ -30,13 +30,15 @@ The following features allow you to perform this monitoring from within Microsof
 
 ## Use the health monitoring workbook
 
-1. From the Microsoft Sentinel portal, select **Content hub** from the **Content management** section of the navigation menu.
+To get started, install the **Data collection health monitoring** workbook from the **Content hub** and view or create a copy of the template from the **Workbooks** section of Microsoft Sentinel.
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. In the **Content hub**, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
 1. Select **Install** from the details pane. When you see a notification message that the workbook is installed, or if instead of *Install*, you see *Configuration*, proceed to the next step.
 
-1. Select **Workbooks** from the **Threat management** section of the navigation menu.
+1. In Microsoft Sentinel, under **Threat management**, select **Workbooks**.
 
 1. In the **Workbooks** page, select the **Templates** tab, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 

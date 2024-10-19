@@ -46,6 +46,8 @@
   items:
       - name: Use metadata for governance
         href: metadata.md
+      - name: Govern APIs - VS Code extension
+        href: govern-apis-vscode-extension.md
       - name: API analysis - Microsoft managed
         href: enable-managed-api-analysis-linting.md
       - name: API analysis - self-managed
@@ -58,6 +60,8 @@
         href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
+      - name: Discover and consume APIs - VS Code extension
+        href: discover-apis-vscode-extension.md
       - name: Enable platform API catalog - VS Code extension
         href: enable-platform-api-catalog-vscode-extension.md
       - name: Self-host Azure API Center portal

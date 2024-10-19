@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/30/2024
+ms.date: 10/16/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -17,7 +17,7 @@ ms.date: 09/30/2024
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, please [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) before **December 31, 2024**. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
+>The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
