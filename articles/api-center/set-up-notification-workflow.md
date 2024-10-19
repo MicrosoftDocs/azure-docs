@@ -60,7 +60,7 @@ For this scenario, the logic app uses a managed identity to access the Azure API
 :::image type="content" source="media/set-up-notification-workflow/managed-identity-logic-app.png" alt-text="Screenshot of configuring managed identity in the portal.":::
 
 
-### Step 3. Assign permissions to the managed identity
+## Step 3. Assign permissions to the managed identity
 
 Assign the logic app managed identity the necessary permissions to access the API center. For this scenario, assign the **Contributor** role to the managed identity.
 
@@ -75,7 +75,7 @@ Assign the logic app managed identity the necessary permissions to access the AP
 
 This section provides the manual steps to configure an event subscription that triggers a logic app workflow when an API is registered in your API center.
 
-### Step 4. 1. When a resource event occurs
+### Step 4.1. When a resource event occurs
 
 Configure a workflow step to trigger the logic app workflow when an event occurs in the API center.
 
@@ -136,9 +136,6 @@ Add a workflow step to make an HTTP GET request to get API details from the API 
 1. In the **HTTP** pane:
     1. In **URI**, enter `https://management.azure.com/` (including the trailing forward slash). After the forward slash, enter `/`, select **Insert dynamic content**, and then select the variables *subjectvar* and *versionvar*, in that order.
     1. In **Method**, select **GET**.
-
-        :::image type="content" source="media/set-up-notification-workflow/http-request-get.png" alt-text="Screenshot of HTTP request action in the portal.":::
-
     1. Under **Advanced parameters**, select **Authentication**.
         1. In **Authentication type**, select **Managed Identity**. 
         1. In **Managed identity**, select **System-assigned managed identity**.
