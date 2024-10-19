@@ -12,8 +12,6 @@ ms.custom: devx-track-azurecli
 
 # Link an API Management instance to synchronize APIs to your API center
 
-[!INCLUDE [api-center-availability-all-tiers](../../includes/api-center-availability-all-tiers.md)]
-
 This article shows how to create a link (preview) to an API Management instance so that the instances's APIs are synchronized in your [API center](overview.md).
 
 APIs in a linked API Management instance are automatically kept up to date in your API center inventory. This makes all of the API Management APIs easily discoverable and accessible in your API center to developers, API program managers, and other stakeholders.
