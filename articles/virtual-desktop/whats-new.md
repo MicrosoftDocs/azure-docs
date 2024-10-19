@@ -94,7 +94,7 @@ Here's what changed in July 2024:
 
 ### New Teams available on Windows Enterprise multi-session images with Microsoft 365 apps pre-installed 
 
-Our Windows Enterprise multi-session images with Microsoft Microsoft 365 apps have been updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
+Our Windows Enterprise multi-session images with Microsoft 365 apps have been updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
 
 Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisession-faq.yml). 
 
