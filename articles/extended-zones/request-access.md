@@ -97,7 +97,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 To register for an Azure Extended Zone, you must select the subscription that you wish to register Azure Extended Zones for and specify the Extended Zone name.
 
 > [!NOTE]
-> Your Azure account that you're using to register for Azure Extended Zones must be a billable account.
+> The Azure account that you're using to register for Azure Extended Zones must be a billable account. To share your feedback or ask questions about Azure Extended Zones, contact [Azure Extended Zones support](aez-support@microsoft.com).
 
 # [**PowerShell**](#tab/powershell)
 
