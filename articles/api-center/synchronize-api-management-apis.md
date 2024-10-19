@@ -25,10 +25,10 @@ When you link an API Management instance to an API center, the following happens
 * All APIs and related API specifications from the API Management instance are imported to the API center inventory.
 * An [environment](key-concepts.md#environment) is created in the API center.
 
-API Management APIs automatically synchronize to the API center whenever there are changes detected to existing API properties, new versions are added, new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center are not synchronized back to the API Management instance.
+API Management APIs automatically synchronize to the API center whenever there are changes detected to existing API properties, new versions are added, new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
 > [!NOTE]
-> * Certain properties of API Management APIs such as the name, description, and API definition can't be edited in the API center. 
+> * Certain properties of API Management APIs such as the name, description, and API definition can't be edited in the API center, and synchronized APIs can't be deleted from your API center.
 > * Links to API Management instances are subject to [certain limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) on number of links and frequency of synchronization.
 
 
