@@ -10,7 +10,6 @@ ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for local storage

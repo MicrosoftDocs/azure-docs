@@ -292,7 +292,7 @@ If you understand the risks and need to use an insecure port in a well-controlle
       name: non-tls-listener
       namespace: azure-iot-operations
     spec:
-      brokerRef: broker
+      brokerRef: default
       serviceType: loadBalancer
       serviceName: my-unique-service-name
       authenticationEnabled: false
