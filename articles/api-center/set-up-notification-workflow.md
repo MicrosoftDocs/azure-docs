@@ -100,7 +100,7 @@ Add a workflow step to initialize a variable that stores the ID of the API that'
 1. Select **Add an action**.
 1. In the search box, enter *Variables*. 
 1. Under **Variables**, select **Initialize variable**. 
-In the **Initialize variable** pane:
+1. In the **Initialize variable** pane:
     1. In **Name**, enter *subjectvar*.
     1. In **Type**, select **String**.
     1. In **Value**, enter `/` and select **Insert dynamic content**.
