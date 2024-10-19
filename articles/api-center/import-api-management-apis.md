@@ -26,6 +26,9 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
+> [!TIP]
+> You can also set up automatic synchronization of APIS from API Management to your API center. For more information, see [Link an API Management instance to your API center and synchronize APIs](synchronize-api-management-apis.md).
+
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
