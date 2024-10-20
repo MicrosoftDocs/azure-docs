@@ -149,14 +149,14 @@ For more information about service accounts in Google Cloud Platform, see [Servi
 1. Name the identity provider so it's recognizable for its purpose.
 
 1. Enter the following values in the provider settings (these aren't samples&mdash;use these actual values):
-   - **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
-   - **Audience**: the application ID URI: `api://2041288c-b303-4ca0-9076-9612db3beeb2`
+   - **Issuer (URL)**: `https://sts.windows.net/aaaabbbb-0000-cccc-1111-dddd2222eeee`    
+   - **Audience**: the application ID URI: `api://00001111-aaaa-2222-bbbb-3333cccc4444`
    - **Attribute mapping**: `google.subject=assertion.sub`
 
    > [!NOTE]
    > To set up the connector to send logs from GCP to the **Azure Government cloud**, use the following alternate values for the provider settings instead of those above:
-   > - **Issuer (URL)**: `https://sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e`
-   > - **Audience**: `api://e9885b54-fac0-4cd6-959f-a72066026929`
+   > - **Issuer (URL)**: `https://sts.windows.net/bbbbcccc-1111-dddd-2222-eeee3333ffff`
+   > - **Audience**: `api://11112222-bbbb-3333-cccc-4444dddd5555`
 
 For more information about workload identity federation in Google Cloud Platform, see [Workload identity federation](https://cloud.google.com/iam/docs/workload-identity-federation) in the Google Cloud documentation.
 

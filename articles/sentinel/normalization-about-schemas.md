@@ -119,7 +119,7 @@ The allowed values for a user ID type are:
 | ---- | ------- | ------------- |
 | **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
 | **UID** | A Linux user ID. | `4578` |
-| **AADID**| A Microsoft Entra user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
+| **AADID**| A Microsoft Entra user ID.| `00aa00aa-bb11-cc22-dd33-44ee44ee44ee` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
 | **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
