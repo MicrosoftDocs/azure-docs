@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 10/20/2024
 ms.author: cshoe
 ---
 
@@ -114,7 +114,7 @@ Before creating a pipeline, the source code for your app must be in a repository
 
 1. Select **Clone** to view the repository URL and copy it.
 
-1. To clone the repository, open a terminal and run the following command:
+1. Open a terminal and run the following command:
 
     ```bash
     git clone <REPOSITORY_URL> my-container-app
