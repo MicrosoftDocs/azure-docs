@@ -254,7 +254,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=19b439a8-614b-4c8e-9e3e-b0c901346362&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=00001111-aaaa-2222-bbbb-3333cccc4444&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
@@ -331,7 +331,7 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=baa9d5f8-c1f9-4e74-b9fa-b5bc551e6cd0&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
