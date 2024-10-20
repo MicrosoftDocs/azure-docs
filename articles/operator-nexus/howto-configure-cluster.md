@@ -246,7 +246,7 @@ The operation status URL can be found by examining the debug output looking for 
 The headers can provide the `OPERATION_ID` field used in the HTTP API call.
 
 ```azurecli
-OPERATION_ID="12312312-1231-1231-1231-123123123123*99399E995..."
+OPERATION_ID="aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995..."
 az rest -m GET -u "https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/providers/Microsoft.NetworkCloud/locations/${LOCATION}/operationStatuses/${OPERATION_ID}?api-version=2022-12-12-preview"
 ```
 
@@ -262,8 +262,8 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
     "code": "HardwareValidationThresholdFailed",
     "message": "HardwareValidationThresholdFailed error hardware validation threshold for cluster layout plan is not met for cluster $CLUSTER_NAME in namespace nc-system with listed failed devices $COMP0_SVR0_SERVER_NAME, $COMP1_SVR1_SERVER_NAME"
   },
-  "id": "/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.NetworkCloud/locations/$LOCATION/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...",
-  "name": "12312312-1231-1231-1231-123123123123*99399E995...",
+  "id": "/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.NetworkCloud/locations/$LOCATION/operationStatuses/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...",
+  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...",
   "resourceId": "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$CLUSTER_RESOURCE_GROUP/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME",
   "startTime": "2023-03-24T14:56:26.6442125Z",
   "status": "Failed"

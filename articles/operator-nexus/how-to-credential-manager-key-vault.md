@@ -69,8 +69,8 @@ az networkcloud clustermanager show --ids /subscriptions/<Subscription ID>/resou
 System-assigned identity example:
 ```
     "identity": {
-        "principalId": "2cb564c1-b4e5-4c71-bbc1-6ae259aa5f87",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
         "type": "SystemAssigned"
     },
 ```
@@ -81,8 +81,8 @@ User-assigned identity example:
         "type": "UserAssigned",
         "userAssignedIdentities": {
             "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
-                "clientId": "e67dd610-99cf-4853-9fa0-d236b214e984",
-                "principalId": "8e6d23d6-bb6b-4cf3-a00f-4cd640ab1a24"
+                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
             }
         }
     },
@@ -114,12 +114,12 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
-| Operator Nexus Key Vault Writer Service Role (Preview) | 44f0a1a8-6fea-4b35-980a-8ff50c487c97 |
+| Operator Nexus Key Vault Writer Service Role (Preview) | cccccccc-dddd-eeee-3333-444444444444 |
 
 Example:
 
 ```console
-az role assignment create --assignee <Managed Identity Principal Id> --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
+az role assignment create --assignee <Managed Identity Principal Id> --role cccccccc-dddd-eeee-3333-444444444444 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
 
 - User associates the Customer Key Vault with the Operator Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
