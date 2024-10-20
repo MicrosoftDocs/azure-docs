@@ -1,7 +1,7 @@
 ---
 title: About Microsoft and partner ground stations
 description: Offers specifications and definitions for Microsoft ground stations and partner ground station network. 
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/20/2023

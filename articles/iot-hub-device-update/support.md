@@ -5,8 +5,9 @@ author: eshashah
 ms.author: eshashah
 ms.date: 05/17/2023
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
 ms.custom: linux-related-content
+ms.subservice: device-update
 ---
 # Device Update for IoT Hub supported platforms
 

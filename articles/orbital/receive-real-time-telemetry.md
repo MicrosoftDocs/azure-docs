@@ -2,7 +2,7 @@
 title: Receive real-time telemetry - Azure Orbital
 description: Learn how to receive real-time telemetry during contacts. Configure your contact profile to send telemetry events to Azure Event Hubs.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 07/12/2022

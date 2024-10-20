@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 07/17/2019

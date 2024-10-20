@@ -7,7 +7,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: anaharris
-ms.custom: fasttrack-edit, mvc
+ms.custom: fasttrack-edit, mvc, subject-reliability
 ---
 
 # Business continuity management in Azure

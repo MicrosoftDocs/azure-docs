@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 10/01/2024
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
+ms.service: azure-iot-operations
 ---
 
 # Certificate management for Azure IoT Operations Preview internal communication
