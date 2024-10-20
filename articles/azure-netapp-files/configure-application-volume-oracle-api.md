@@ -76,7 +76,7 @@ The examples in this section illustrate the values passed in the volume group cr
 In the following examples, selected placeholders are specified. You should replace them with values specific to your configuration. These values include:
 
 * `<SubscriptionId>`:  
-    Subscription ID. Example: `11111111-2222-3333-4444-555555555555`
+    Subscription ID. Example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`
 * `<ResourceGroup>`:  
     Resource group. Example: `TestResourceGroup`
 * `<NtapAccount>`:  
@@ -84,9 +84,9 @@ In the following examples, selected placeholders are specified. You should repla
 * `<VolumeGroupName>`:  
     Volume group name. Example: `SH9-Test-00001`
 * `<SubnetId>`:  
-    Subnet resource ID. Example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
+    Subnet resource ID. Example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
 * `<CapacityPoolResourceId>`:  
-    Capacity pool resource ID. Example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool `
+    Capacity pool resource ID. Example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool `
 
 ## Create application volume groups for Oracle using curl
 
