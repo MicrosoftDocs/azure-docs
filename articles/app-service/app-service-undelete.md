@@ -85,7 +85,7 @@ Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetA
 
 >Restore used for scenarios where multiple apps with the same name have been deleted with `-DeletedSiteId`
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -DeletedId /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Web/locations/location/deletedSites/1234 -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -DeletedId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/location/deletedSites/1234 -TargetAppServicePlanName <my_asp>
 
 ```
 
@@ -129,5 +129,3 @@ Currently there's no support for Undelete (Restore-AzDeletedWebApp) Function app
     | **AzureWebJobsStorage** | Connection String for the storage account used by the deleted app. | 
     | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Connection String for the storage account used by the deleted app. | 
     | **WEBSITE_CONTENTSHARE** | File share on storage account used by the deleted app. | 
-
-
