@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
 manager: rkarlin
-ms.date: 10/20/2022
+ms.date: 10/20/2024
 ---
 
 # Platform code integrity
