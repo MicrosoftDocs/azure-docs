@@ -123,7 +123,7 @@ HighAvailabilityReplicaCount     :
 CurrentBackupStorageRedundancy   : Geo
 RequestedBackupStorageRedundancy : Geo
 SecondaryType                    :
-MaintenanceConfigurationId       : /subscriptions/d8392f63-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
+MaintenanceConfigurationId       : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
 EnableLedger                     : False
 PreferredEnclaveType             :
 PausedDate                       :
