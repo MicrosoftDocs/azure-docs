@@ -213,7 +213,7 @@ Now that both our OpenTelemetry Collector and the self-hosted gateway are deploy
     X-Forwarded-For: 10.244.1.1
     traceparent: 00-3192030c89fd7a60ef4c9749d6bdef0c-f4eeeee46f770061-01
     Request-Id: |3192030c89fd7a60ef4c9749d6bdef0c.f4eeeee46f770061.
-    Request-Context: appId=cid-v1:c24f5e00-aa25-47f2-bbb5-035847e7f52a
+    Request-Context: appId=cid-v1:00001111-aaaa-2222-bbbb-3333cccc4444
     X-Powered-By: Azure API Management - http://api.azure.com/,ASP.NET
     X-AspNet-Version: 4.0.30319
     ```
