@@ -306,7 +306,7 @@ Add a workflow step to initialize the value of a variable that stores the API st
 
 ### Step 4.8. HTTP action - update API properties in Azure API Center
 
-Add a workflow step to make an HTTP PUT request to update the API properties in your API center. In the search box, enter *HTTP*. 
+Add a workflow step to make an HTTP PUT request to update the API properties in your API center. 
 
 1. Select **Add an action**.
 1. In the search box, enter *HTTP*.
@@ -355,8 +355,8 @@ Confirm that the event subscription is provisioned successfully in your API cent
 Test the event subscription by registering an API in your API center:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1.  [Register an API](register-apis.md) in your API center. 
-    * The event subscription triggers the logic app workflow after the API is registered.
+1.  [Register an API](register-apis.md) in your API center. After the API is registered:
+    * The event subscription triggers the logic app workflow.
     * The logic app workflow runs and sends a notification to the individual in Microsoft Teams.
 1. In Microsoft Teams, view the adaptive card, make an API status selection, and select **Submit**. 
     :::image type="content" source="media/set-up-notification-workflow/teams-adaptive-card.png" alt-text="Screenshot of adaptive card in Microsoft Teams.":::
