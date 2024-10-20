@@ -84,7 +84,7 @@ In the following steps, you'll be using Azure CLI commands to link a virtual hub
 1. Connect the virtual network to the hub:
 
    ```azurecli-interactive
-   az network vhub connection create --resource-group "[resource_group_name]" --name "[connection_name]" --vhub-name "[virtual_hub_name]" --remote-vnet "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/vnetName"
+   az network vhub connection create --resource-group "[resource_group_name]" --name "[connection_name]" --vhub-name "[virtual_hub_name]" --remote-vnet "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/vnetName"
    ```
 
 You can view the new connection in either Azure CLI or the Azure portal:
