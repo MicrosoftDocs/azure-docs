@@ -48,14 +48,14 @@ BackendAddressPools :
 BackendAddressPoolsText : [
 {
                               "BackendAddressPool": {
-                                "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
+                                "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
                           ackendAddressPools/appGatewayBackendPool"
                               },
                               "BackendHttpSettingsCollection": [
                                 {
                                   "BackendHttpSettings": {
                                     "TrustedRootCertificates": [],
-                                    "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
+                                    "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
                           w1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
                                   },
                                   "Servers": [
