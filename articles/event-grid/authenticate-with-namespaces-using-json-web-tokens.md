@@ -110,7 +110,7 @@ Use the following command to update your namespace with the custom JWT authentic
 
   
 ```azurecli-interactive
-az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/69f9e5ac-ca07-42cc-98d2-4718d033bcc5/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
+az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
 ```
 ## JSON Web Token format
 Json Web Tokens are divided into the JWT Header and JWT payload sections.
