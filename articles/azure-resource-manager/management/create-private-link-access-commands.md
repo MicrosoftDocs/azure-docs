@@ -81,7 +81,7 @@ To create the private link association, use:
 
   ```azurecli
   # Login first with az login if not using Cloud Shell
-  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
+  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
   ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -90,7 +90,7 @@ To create the private link association, use:
 
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
-  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
+  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
   ```
 
 # [REST](#tab/REST)
