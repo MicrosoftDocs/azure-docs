@@ -1,11 +1,11 @@
 ---
 title: Request access to Azure Extended Zones
-description: Learn how to request and gain access to Azure Extended Zone using PowerShell or Azure CLI.
+description: Learn how to request and gain access to an Azure Extended Zone by using Azure PowerShell or Azure CLI.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 10/18/2024
 ---
 
 # Request access to an Azure Extended Zone
@@ -22,7 +22,7 @@ In this article, you learn how to request and gain access to an Azure Extended Z
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A billable Azure account.
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -32,7 +32,7 @@ In this article, you learn how to request and gain access to an Azure Extended Z
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A billable Azure account.
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -95,6 +95,9 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 ## Register for an Azure Extended Zone
 
 To register for an Azure Extended Zone, you must select the subscription that you wish to register Azure Extended Zones for and specify the Extended Zone name.
+
+> [!NOTE]
+> The Azure account that you're using to register for Azure Extended Zones must be a billable account. To share your feedback or ask questions about Azure Extended Zones, contact [Azure Extended Zones support](mailto:aez-support@microsoft.com).
 
 # [**PowerShell**](#tab/powershell)
 
