@@ -58,16 +58,16 @@ The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microso
 // request
 {
     "microsoftTeamsUser": {
-        "userId": "daba101a-91c5-44c9-bb9b-e2a9a790571a"
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
     }
 }
 
 // response
 {
     "kind": "microsoftTeamsUser",
-    "rawId": "8:orgid:daba101a-91c5-44c9-bb9b-e2a9a790571a",
+    "rawId": "8:orgid:00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
     "microsoftTeamsUser": {
-        "userId": "daba101a-91c5-44c9-bb9b-e2a9a790571a"
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
     }
 }
 
@@ -75,7 +75,7 @@ The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microso
 // if you're not operating in the public cloud, you must also pass the right Cloud type in a request
 {
     "microsoftTeamsUser": {
-        "userId": "daba101a-91c5-44c9-bb9b-e2a9a790571a",
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
         "cloud": "gcch"
     }
 }
@@ -83,9 +83,9 @@ The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microso
 // response
 {
     "kind": "microsoftTeamsUser",
-    "rawId": "8:gcch:daba101a-91c5-44c9-bb9b-e2a9a790571a",
+    "rawId": "8:gcch:00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
     "microsoftTeamsUser": {
-        "userId": "daba101a-91c5-44c9-bb9b-e2a9a790571a",
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
         "isAnonymous": false,
         "cloud": "gcch"
     }
@@ -134,16 +134,16 @@ The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice appli
 // request
 {
     "microsoftTeamsApp": {
-        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
 }
 
 // response
 {
     "kind": "microsoftTeamsApp",
-    "rawId": "28:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "rawId": "28:orgid:00001111-aaaa-2222-bbbb-3333cccc4444",
     "microsoftTeamsApp": {
-        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
 }
 
@@ -151,7 +151,7 @@ The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice appli
 // if you're not operating in the public cloud, you must also pass the right Cloud type in a request
 {
     "microsoftTeamsApp": {
-        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
         "cloud": "gcch"
     }
 }
@@ -159,9 +159,9 @@ The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice appli
 // response
 {
     "kind": "microsoftTeamsApp",
-    "rawId": "28:gcch:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "rawId": "28:gcch:00001111-aaaa-2222-bbbb-3333cccc4444",
     "microsoftTeamsApp": {
-        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
         "cloud": "gcch"
     }
 }

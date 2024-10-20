@@ -265,7 +265,7 @@ Here are shared fields for all logs in a P2P call:
 ```json
 "time":                     "2021-07-19T18:46:50.188Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
+"correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
 ```
 
 #### Call summary logs 
@@ -440,7 +440,7 @@ Data for a group call is generated in three call summary logs and six call diagn
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "341acde7-8aa5-445b-a3da-2ddadca47d22",
+"correlationId":            "bbbb1111-cc22-3333-44dd-555555eeeeee",
 ```
 
 #### Call summary logs
@@ -653,7 +653,7 @@ Here's a call client operations log for "CreateView" operation:
 
 ```json
 "properties": {
-    "TenantId":               "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TenantId":               "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated":          "2024-01-09T17:06:50.3Z",
     "CallClientTimeStamp":    "2024-01-09T15:07:56.066Z",
     "OperationName":          "CreateView" ,   
@@ -682,7 +682,7 @@ Here's an example of media statistics time series log. It shows the participant'
 
 ```json
 "properties": {
-    "TenantId":                     "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TenantId":                     "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated":                "2024-01-10T07:36:51.771Z",
     "OperationName":                "CallClientMediaStatsTimeSeries" ,  
     "CallId":                       "92d800c4-abde-40be-91e9-3814ee786b19", 

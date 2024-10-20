@@ -52,7 +52,7 @@ When transcription starts, your websocket will receive the transcription metadat
 {
     "kind": "TranscriptionMetadata",
     "transcriptionMetadata": {
-        "subscriptionId": "835be116-f750-48a4-a5a4-ab85e070e5b0",
+        "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "locale": "en-us",
         "callConnectionId": "65c57654=f12c-4975-92a4-21668e61dd98",
         "correlationId": "65c57654=f12c-4975-92a4-21668e61dd98"
