@@ -83,7 +83,7 @@ Make sure that the **VirtualNetworkId** and subnet values are in the correct for
 
 Here's an example of a virtual network ID:
 
-"/subscriptions/c15fd9b8-e2b8-1d4e-aa85-2e668040233b/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
+"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
 
 ---
 
