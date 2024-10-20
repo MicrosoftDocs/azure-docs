@@ -61,7 +61,7 @@ The following table lists the claim resolvers with information about the policy 
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | The relying party policy name. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | The tenant ID of the relying party policy. | your-tenant.onmicrosoft.com |
-| {Policy:TenantObjectId} | The tenant object ID of the relying party policy. | 00000000-0000-0000-0000-000000000000 |
+| {Policy:TenantObjectId} | The tenant object ID of the relying party policy. | ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0 |
 | {Policy:TrustFrameworkTenantId} | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |
 
 Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#policy) of the policy claim resolvers.
@@ -73,7 +73,7 @@ The following table lists the contextual claim resolvers of the authorization re
 | Claim | Description | Example |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | The Identity Experience Framework version (build number).  | 1.0.507.0 |
-| {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
+| {Context:CorrelationId} | The correlation ID.  | ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0 |
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2021 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
 | {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
@@ -97,7 +97,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |The `acr_values` query string parameter. | N/A |
-| {OIDC:ClientId} |The `client_id`  query string parameter. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:ClientId} |The `client_id`  query string parameter. | 00001111-aaaa-2222-bbbb-3333cccc4444 |
 | {OIDC:DomainHint} |The `domain_hint`  query string parameter. | facebook.com |
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |

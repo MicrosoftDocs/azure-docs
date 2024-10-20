@@ -114,7 +114,7 @@ As a result, the JWT token issued by Azure AD B2C, emits the `family_name` inste
 
 ```json
 {
-  "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
+  "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "auth_time": 1535013501,
   "given_name": "David",
   "family_name": "Williams",

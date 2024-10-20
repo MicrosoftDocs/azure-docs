@@ -166,7 +166,7 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
           <!-- Update the Client ID below to the Application ID -->
-          <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+          <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
           <!-- Update the metadata URL with the other Azure AD B2C tenant name and policy name -->
           <Item Key="METADATA">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration</Item>
           <Item Key="UsePolicyInRedirectUri">false</Item>

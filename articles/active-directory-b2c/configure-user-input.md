@@ -355,7 +355,7 @@ The token sent back to your application includes the `city` claim.
   "nbf": 1583496540,
   "ver": "1.0",
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "aud": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
   "iat": 1583496540,
