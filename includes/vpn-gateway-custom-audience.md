@@ -58,7 +58,7 @@ In this section, you associate the Microsoft-registered Azure VPN Client applica
 1. On the **Expose an API** page, select **+ Add a client application**.
 
    :::image type="content" source="./media/vpn-gateway-custom-audience/add-client-application.png" alt-text="Screenshot shows the Add a client application selected." lightbox="./media/vpn-gateway-custom-audience/add-client-application.png":::
-1. On the **Add a client application** pane, for **Client ID**, use the Azure Public Application ID for the Microsoft-registered Azure VPN Client app, `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` unless you know you need a different value.
+1. On the **Add a client application** pane, for **Client ID**, use the Azure Public Application ID for the Microsoft-registered Azure VPN Client app, `00001111-aaaa-2222-bbbb-3333cccc4444` unless you know you need a different value.
 
    :::image type="content" source="./media/vpn-gateway-custom-audience/authorized-scopes.png" alt-text="Screenshot shows the add a client application pane." lightbox="./media/vpn-gateway-custom-audience/authorized-scopes.png":::
 1. Make sure **Authorized scopes** is selected.

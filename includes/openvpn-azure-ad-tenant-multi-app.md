@@ -55,19 +55,19 @@ Register the VPN client in the Microsoft Entra tenant.
     Azure Government
 
     ```
-    https://login.microsoftonline.us/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
+    https://login.microsoftonline.us/common/oauth2/authorize?client_id=00001111-aaaa-2222-bbbb-3333cccc4444&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
     Microsoft Cloud Germany
 
     ```
-    https://login-us.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
+    https://login-us.microsoftonline.de/common/oauth2/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
     ````
 
     Microsoft Azure operated by 21Vianet
 
     ```
-    https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
+    https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=22223333-cccc-4444-dddd-5555eeee6666&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
 > [!NOTE]
@@ -111,9 +111,9 @@ In this step, you register additional applications for various users and groups.
 7. Click **Expose an API** then **+ Add a client application**.  For **Client ID**, enter the following values depending on the cloud:
 
     - Enter **41b23e61-6c1e-4545-b367-cd054e0ed4b4** for Azure **Public**
-    - Enter **51bb15d4-3a4f-4ebf-9dca-40096fe32426** for Azure **Government**
-    - Enter **538ee9e6-310a-468d-afef-ea97365856a9** for Azure **Germany**
-    - Enter **49f817b6-84ae-4cc0-928c-73f27289b3aa** for Azure **China 21Vianet**
+    - Enter **00001111-aaaa-2222-bbbb-3333cccc4444** for Azure **Government**
+    - Enter **11112222-bbbb-3333-cccc-4444dddd5555** for Azure **Germany**
+    - Enter **22223333-cccc-4444-dddd-5555eeee6666** for Azure **China 21Vianet**
 
 8. Click **Add application**.
 

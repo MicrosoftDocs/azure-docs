@@ -20,8 +20,8 @@ Once all the relevant permissions are set, configure the blob backup by running 
     ```azurecli-interactive
     az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
     {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
-        "name": "CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+        "name": "CLITestSA-CLITestSA-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "properties": {
           "currentProtectionState": "ProtectionConfigured",
           "dataSourceInfo": {
