@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 10/14/2024
+ms.date: 10/20/2024
 ms.author: cshoe
 ---
 
@@ -61,7 +61,7 @@ To start a container app job, the appropriate permissions are required. Ensure t
 - Microsoft.App/containerApps/jobs/read
 - Microsoft.App/containerApps/jobs/executions/read
 
-For more information about assigning roles and permissions, see [Azure Role-Based Access Control](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview).
+For more information about assigning roles and permissions, see [Azure Role-Based Access Control](/azure/role-based-access-control/overview).
 
 ## Job trigger types
 
