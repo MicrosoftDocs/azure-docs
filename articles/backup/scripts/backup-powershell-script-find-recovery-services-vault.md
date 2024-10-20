@@ -57,7 +57,7 @@ if(!$found)
 The following example tries to find the Recovery Services vault where the *afsaccount* storage account is registered:
 
 ```powershell
-.\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
+.\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ## Output
@@ -65,7 +65,7 @@ The following example tries to find the Recovery Services vault where the *afsac
 The output will display the complete path of the Recovery Services vault where the storage account is registered. Here is a sample output:
 
 ```output
-Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123
+Found Storage account afsaccount registered in vault: /subscriptions/ aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123
 ```
 
 ## Next steps
