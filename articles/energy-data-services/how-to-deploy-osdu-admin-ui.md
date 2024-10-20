@@ -154,9 +154,9 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
       "idp": {
          ...
          "tenant_id": "<tenant_id>", // Entra ID tenant ID
-         "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
+         "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "00001111-aaaa-2222-bbbb-3333cccc4444"
          "redirect_uri": "<redirect_uri>", // This is the website URL ($REDIRECT_URI), i.e. "https://contoso.z1.web.core.windows.net"
-         "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
+         "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "00001111-aaaa-2222-bbbb-3333cccc4444/.default"
       },
       "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
          "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 

@@ -44,8 +44,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
     # Define the variables for Azure Data Manager for Energy
     AZURE_DNS_NAME="<instanceName>.energy.azure.com"  # Example: demo.energy.azure.com
     DATA_PARTITION_ID="<dataPartitionId>" # Data partition ID. Example: opendes
-    AZURE_TENANT_ID="<tenantId>" # Entra ID tenant ID. Example: 557963fb-ede7-4a88-9e3e-19ace7f1e36b 
-    AZURE_CLIENT_ID="<clientId>" # App Registration client ID. Example: b149dc73-ed8c-4ad3-bbaf-882a208f87eb
+    AZURE_TENANT_ID="<tenantId>" # Entra ID tenant ID. Example: aaaabbbb-0000-cccc-1111-dddd2222eeee 
+    AZURE_CLIENT_ID="<clientId>" # App Registration client ID. Example: 00001111-aaaa-2222-bbbb-3333cccc4444
     AZURE_CLIENT_SECRET="<clientSecret>" # App Registration client secret.
     CALLBACK_URL="http://localhost:5050" #ie: http://localhost:8080
 
@@ -65,8 +65,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
     # Define the variables for Azure Data Manager for Energy
     $ADME_DNS_NAME="<instanceName>.energy.azure.com"  # Example: demo.energy.azure.com
     $DATA_PARTITION_ID="<dataPartitionId>" # Data partition ID. Example: opendes
-    $AZURE_TENANT_ID="<tenantId>" # Entra ID tenant ID. Example: 557963fb-ede7-4a88-9e3e-19ace7f1e36b
-    $AZURE_CLIENT_ID="<clientId>" # App Registration client ID. Example: b149dc73-ed8c-4ad3-bbaf-882a208f87eb
+    $AZURE_TENANT_ID="<tenantId>" # Entra ID tenant ID. Example: aaaabbbb-0000-cccc-1111-dddd2222eeee
+    $AZURE_CLIENT_ID="<clientId>" # App Registration client ID. Example: 00001111-aaaa-2222-bbbb-3333cccc4444
     $AZURE_CLIENT_SECRET="<clientSecret>" # App Registration client secret.
     $CALLBACK_URL="http://localhost:5050" #ie: http://localhost:8080
 
