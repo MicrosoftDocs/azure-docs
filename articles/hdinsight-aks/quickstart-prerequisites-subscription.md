@@ -27,11 +27,11 @@ If you're trying to onboard a new tenant to HDInsight on AKS, you need to provid
 **Commands**: 
 
 ```azurecli
-az ad sp create --id d3d1a4fe-edb2-4b09-bc39-e41d342323d6
+az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 ```azurepowershell
-New-AzureADServicePrincipal -AppId d3d1a4fe-edb2-4b09-bc39-e41d342323d6
+New-AzureADServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 ## Enable features 
@@ -94,5 +94,3 @@ At the next command prompt, enter each of the following commands:
 
 ## Next steps
 * [One-click deployment](./quickstart-get-started.md)
-
-
