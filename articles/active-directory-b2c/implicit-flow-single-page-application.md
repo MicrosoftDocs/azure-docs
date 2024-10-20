@@ -47,13 +47,13 @@ In this request, the client indicates the permissions that it needs to acquire f
 
 - `{tenant}` with the name of your Azure AD B2C tenant.
 
-- `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've registered in your tenant. 
+- `00001111-aaaa-2222-bbbb-3333cccc4444` with the app ID of the application you've registered in your tenant. 
 
 - `{policy}` with the name of a policy you've created in your tenant, for example `b2c_1_sign_in`.
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 &response_mode=fragment
@@ -88,7 +88,7 @@ GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+&scope="00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
 ```
@@ -175,7 +175,7 @@ In a typical web app flow, you would make a request to the `/token` endpoint. Ho
 
 ```http
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read

@@ -217,17 +217,17 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
             <Item Key="scope">openid profile email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
             <!-- Update the Client ID below to the Asignio Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
 
 
             <!-- trying to add additional claim-->
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-            <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="22222222-2222-2222-2222-222222222222"></Item>
+            <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+            <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+            <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+            <Item Key="aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"></Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to     sign in. -->
             <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
           </Metadata>
