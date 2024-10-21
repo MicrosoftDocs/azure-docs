@@ -142,7 +142,11 @@ This is done by using the Azure-AsyncOperation ID copied from step 1.3 in a GET 
     ```rest
     GET : https://southcentralus.management.azure.com/subscriptions/<subscription>/providers/Microsoft.NetApp/locations/<location>/operationResults/<result>?api-version=2024-05-01
     ```
-    
+1. Accept the SVM 
+
+The customer needs to accept the SVM Peer Request from ANF to their On-Prem system, by running the accept command on their ONTAP. To get the ONTAP command to accept the SVM peer request they need to GET the Operations Result.
+
+This is done by using the Azure-AsyncOperation ID copied from step 1.3 in a GET request (see example below). Since this is a long-running operation the customer needs to poll the request a few times until the status is "Succeeded".
 
 
 1. Navigate to your Azure NetApp Files account. 
