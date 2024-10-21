@@ -4,8 +4,7 @@ description: Describes how Kubernetes workloads can be managed on your Azure Sta
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli

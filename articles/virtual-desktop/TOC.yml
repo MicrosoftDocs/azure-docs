@@ -239,9 +239,6 @@
     - name: Peripheral and resource redirection
       displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
       href: redirection-remote-desktop-protocol.md
-    - name: Multimedia redirection
-      displayName: mmr
-      href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
       href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
   - name: Monitor
@@ -334,9 +331,6 @@
           - name: Use OneDrive with RemoteApp
             displayName: applications, apps
             href: onedrive-remoteapp.md
-          - name: Set up Windows Sandbox
-            displayName: applications, apps
-            href: sandbox.md
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
@@ -571,9 +565,14 @@
     - name: Customize display names
       displayName: apps, feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Set up multimedia redirection
-      displayName: mmr
-      href: multimedia-redirection.md
+    - name: Multimedia redirection
+      items:
+      - name: Redirect video playback and calls
+        displayName: multimedia redirection, mmr
+        href: multimedia-redirection-video-playback-calls.md
+      - name: Developer integration for WebRTC call apps
+        displayName: multimedia redirection, mmr
+        href: multimedia-redirection-developer-integration.md
   - name: Monitor
     items:
       - name: Send diagnostic data to Log Analytics

@@ -4,7 +4,7 @@ description: Overview - Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: overview
 ms.date: 10/01/2024
 ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay

@@ -1,7 +1,7 @@
 ---
 title: Device management and control
 description: An overview of device management and control options in an Azure IoT solution including device updates.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

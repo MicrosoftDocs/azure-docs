@@ -5,7 +5,7 @@ description: How to create, manage, and delete Azure IoT devices and how to retr
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 06/19/2024
 ---

@@ -77,10 +77,11 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
-
+Azure Firewall has two new diagnostic logs that can help monitor your firewall, but these logs currently do not show application rule details.
 - Top flows
 - Flow trace
+
+
 
 ## Top flows
 
@@ -117,6 +118,8 @@ There are a few ways to verify the update was successful, but you can navigate t
 :::image type="content" source="media/enable-top-ten-and-flow-trace/firewall-log-verification.png" alt-text="Screenshot of JSON showing additional log verification.":::
 
 To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
+
+## Flow trace
 
 The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, such an entry doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
 
