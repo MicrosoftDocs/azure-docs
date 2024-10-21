@@ -51,7 +51,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 1. Use [Select-AzContext](/powershell/module/az.accounts/select-azcontext) cmdlet to select the subscription that you want to register Azure Extended Zones for.
 
     ```azurepowershell-interactive
-    Set-AzContext -SubscriptionId '00000000-0000-0000-0000-000000000000'
+    Set-AzContext -SubscriptionId 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 1. Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) cmdlet to register Microsoft.EdgeZones resource provider.
