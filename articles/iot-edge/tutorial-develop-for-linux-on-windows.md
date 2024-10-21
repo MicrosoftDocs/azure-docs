@@ -16,7 +16,7 @@ zone_pivot_groups: iotedge-dev
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This tutorial walks through developing, debugging, and deploying your own code to an Azure IoT Edge device by using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a C# module to a Linux device. You'll deploy and debug a custom IoT Edge module running in a Linux container on Windows. Even if you plan to use a different language or deploy an Azure service, this tutorial is still useful for learning about the development tools and concepts.
+This tutorial walks you through developing, debugging, and deploying your own code to an Azure IoT Edge device by using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a C# module to a Linux device. You'll deploy and debug a custom IoT Edge module running in a Linux container on Windows. Even if you plan to use a different language or deploy an Azure service, this tutorial is still useful for learning about the development tools and concepts.
 
 This tutorial includes steps for two IoT Edge development tools:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Set up your development machine.
-> * Use the IoT Edge tools for Visual Studio Code to create a new project.
+> * Use IoT Edge development tools to create a new project.
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
 
@@ -46,7 +46,7 @@ Before you begin:
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workload options.
 * After your Visual Studio 2022 installation is ready, download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from Visual Studio Marketplace.
 
-  You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the Azure IoT Edge Dev Tool CLI. The extension includes the Azure IoT Edge project templates that you use to create the Visual Studio project. Currently, you need the extension installed regardless of the development tool that you use.
+  You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the Azure IoT Edge Dev Tool CLI. The extension includes the Azure IoT Edge project templates that you use to create the Visual Studio project. Currently, you need to install the extension regardless of the development tool that you use.
 
   > [!TIP]
   > If you're using Visual Studio 2019, download and install [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from Visual Studio Marketplace.
@@ -149,7 +149,7 @@ The second step is to configure the IoT Edge for Linux on Windows VM Docker engi
 
 ### Test the connection
 
-The final setup step is to test the Docker connection to the IoT Edge for Linux on Windows VM Docker engine.
+The final setup step is to test the Docker connection to the IoT Edge for Linux on Windows VM Docker engine:
 
 1. Get the IP address of the IoT Edge for Linux on Windows VM:
 
@@ -218,7 +218,7 @@ The IoT Edge project template in Visual Studio creates a solution that you can d
 >
 > Currently, the Azure IoT Edge Dev Tool CLI doesn't support creating the Visual Studio project type. You need to use the Azure IoT Edge Tools extension to create the Visual Studio project.
 
-1. In Visual Studio, create a new project.
+1. In Visual Studio, create a new project by selecting **Create a new project** on the start page or by selecting the **New Project** button on the toolbar.
 
 1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform (Linux IoT Edge module) and architecture for your IoT Edge device, and then select **Next**.
 
@@ -243,7 +243,9 @@ Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio s
 
 ### Project structure
 
-Your solution has two project-level folders: a main project folder and a module folder. For example, you might have a main project folder named `AzureIotEdgeApp1` and a module folder named `IotEdgeModule1`. The main project folder contains your deployment manifest.
+Your solution has two project-level folders: a main project folder and a module folder. For example, you might have a main project folder named `AzureIotEdgeApp1` and a module folder named `IotEdgeModule1`.
+
+The main project folder contains your [deployment manifest](module-deployment-monitoring.md#deployment-manifest). The deployment manifest is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
 
 The module folder contains a file for your module code. It's named either `Program.cs` or `main.c`, depending on the language that you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the necessary information to build your module as a Windows or Linux container.
 
@@ -267,7 +269,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Screenshot of selections for setting an IoT Edge runtime version.":::
 
-1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running. Then select **OK** to save your changes. If you didn't make any changes, select **Cancel**.
+1. Use the dropdown menu to choose the runtime version that your IoT Edge devices are running. Then select **OK** to save your changes. If you didn't make any changes, select **Cancel**.
 
     Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
@@ -289,7 +291,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ::: zone pivot="iotedge-dev-cli"
 
-1. Open the `deployment.debug.template.json` deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Open the `deployment.debug.template.json` deployment manifest file.
 1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
@@ -310,7 +312,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ### Set up the Visual Studio 2022 remote Docker engine instance
 
-Configure the Azure IoT Edge Tools extension to use the remote Docker engine that runs inside the IoT Edge for Linux on Windows virtual machine:
+Configure the Azure IoT Edge Tools extension to use the remote Docker engine that runs inside the IoT Edge for Linux on Windows VM:
 
 1. Select **Tools** > **Azure IoT Edge tools** > **IoT Edge tools settings**.
 
@@ -332,13 +334,13 @@ When you're ready to customize the module template with your own code, use the [
 
 ## Build and push a single module
 
-Typically, you want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will build or debug by using the Docker engine running inside the IoT Edge for Linux on Windows VM, the first step is building and publishing the module to enable remote debugging.
+Typically, you want to test and debug each module before running it within an entire solution with multiple modules. Because the solution will build or debug by using the Docker engine running inside the IoT Edge for Linux on Windows VM, the first step is building and publishing the module to enable remote debugging:
 
 1. In **Solution Explorer**, select the module project folder (for example, `myIotEdgeModule`).
 
 1. Set the custom module as the startup project. On the menu, select **Project** > **Set as StartUp Project**.
 
-1. To debug the C# Linux module, you need to update `Dockerfile.amd64.debug` file to enable the SSH service. Update the `Dockerfile.amd64.debug` file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
+1. To debug the C# Linux module, you need to update the `Dockerfile.amd64.debug` file to enable the SSH service. Update the `Dockerfile.amd64.debug` file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
 
    > [!NOTE]
    > When you select **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This file includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
@@ -453,7 +455,7 @@ docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
 
 ### Deploy the module to the IoT Edge device
 
-In Visual Studio, open the `deployment.debug.template.json` deployment manifest file in the main project. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+In Visual Studio, open the `deployment.debug.template.json` deployment manifest file in the main project.
 
 Before deployment, you need to update your Azure Container Registry credentials, your module images, and the proper `createOptions` values. For more information about `createOption` values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
@@ -516,7 +518,7 @@ Before deployment, you need to update your Azure Container Registry credentials,
 
 1. In an elevated PowerShell session, run the following commands:
 
-   1. Get the `moduleId` value, based on the name for the Linux C# module. Replace the `<iot-edge-module-name` placeholder with your module's name.
+   1. Get the `moduleId` value, based on the name for the Linux C# module. Replace the `<iot-edge-module-name>` placeholder with your module's name.
 
       ```powershell
       $moduleId = Invoke-EflowVmCommand "sudo docker ps -aqf name=<iot-edge-module-name>"
@@ -563,7 +565,7 @@ Before deployment, you need to update your Azure Container Registry credentials,
 
    ![Screenshot of how to debug a single module.](./media/tutorial-develop-for-linux-on-windows/debug-single-module.png)
 
-1. Select **Ctrl+F5** or select the **Stop** button to stop debugging.
+1. To stop debugging, select Ctrl+F5 or select the **Stop** button.
 
 ## Clean up resources
 
