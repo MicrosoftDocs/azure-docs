@@ -42,9 +42,8 @@
         },
         {
             "source_path_from_root": "articles/azure-netapp-files/access-smb-volume-from-windows-client.md",
-            "redirect_url": "mount-volumes-vms-smb.md",
+            "redirect_url": "/azure/azure-netapp-files/mount-volumes-vms-smb",
             "redirect_document_id": false
-
         }
     ]
 }
