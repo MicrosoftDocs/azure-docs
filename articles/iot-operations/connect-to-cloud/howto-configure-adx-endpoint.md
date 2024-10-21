@@ -133,7 +133,7 @@ az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP>
 
 ### Available authentication methods
 
-The following authentication methods are available for Azure Data Explorer endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../secure-iot-ops/howto-enable-secure-settings.md).
+The following authentication methods are available for Azure Data Explorer endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 #### System-assigned managed identity
 

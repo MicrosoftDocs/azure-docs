@@ -34,7 +34,7 @@ A deployment with only test settings enabled:
 
 To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
 
-If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md).
+If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
