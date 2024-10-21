@@ -485,7 +485,11 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 > [!NOTE]
 >
-> It is not yet supported to disable storage account key access if you are using Logic Apps the Standard Workflow Service Plan hosting option.
+> Currently, you can't yet disable storage account key access for Standard logic apps that use the 
+> Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
+> v3 hosting option, you might be able to disable storage account key access after you finish the steps 
+> to set up managed identity authentication.
+
 <a name="enable-run-history-stateless"></a>
 
 ## Enable run history for stateless workflows
