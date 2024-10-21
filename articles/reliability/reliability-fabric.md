@@ -39,8 +39,9 @@ Fabric makes commercially reasonable efforts to support zone-redundant availabil
 
 Fabric makes commercially reasonable efforts to provide availability zone support in various regions as follows:
 
-| **Americas**         | **Power BI**                                                       | **Datamarts**                                                      | **Data Warehouses**                                                | **Real-Time Analytics**                                            | **Data Factory (pipelines)**                                       | **Data Engineering**                                               |
+|                      | **Power BI**                                                       | **Datamarts**                                                      | **Data Warehouses**                                                | **Real-Time Analytics**                                            | **Data Factory (pipelines)**                                       | **Data Engineering**                                               |
 |:---------------------|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------------:|
+| **Americas**         |                                                                    |                                                                    |                                                                    |                                                                    |                                                                    |                                                                    |
 | Brazil South         | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                    | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                    |
 | Canada Central       | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                    |                                                                    | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                    |
 | Central US           | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                    |                                                                    |                                                                    |                                                                    | :::image type="icon" source="media/yes-icon.svg" border="false"::: |
@@ -67,9 +68,6 @@ Fabric makes commercially reasonable efforts to provide availability zone suppor
 
 ### Zone down experience
 During a zone-wide outage, no action is required during zone recovery. Fabric capabilities in regions listed in [supported regions](#supported-regions) self-heal and rebalance automatically to take advantage of the healthy zone. Running Spark Jobs may fail if the master node is in the failed zone. In such a case, the jobs will need to be resubmitted.
-
-
-
 
 >[!IMPORTANT]
 > While Microsoft strives to provide uniform and consistent availability zone support, in some cases of availability-zone failure, Fabric capacities located in Azure regions with higher customer demand fluctuations might experience higher than normal latency.
