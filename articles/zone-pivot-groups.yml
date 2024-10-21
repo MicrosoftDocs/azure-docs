@@ -1686,3 +1686,14 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium
+  - id: isolated
+    title: Isolated (App Service Environment)
