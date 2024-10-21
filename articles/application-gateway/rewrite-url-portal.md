@@ -54,7 +54,7 @@ In the following example, whenever the request URL contains `/article`, the URL 
 
     1. Select **Add rewrite rule**.
     
-       :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Screenshot that shows adding a rewrite rule.":::
+       :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Screenshot that shows Add rewrite rule.":::
     
    1. In the **Rewrite rule name** box, enter a name for the rewrite rule.
    1. In the **Rule sequence** box, enter a number.
