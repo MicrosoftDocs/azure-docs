@@ -1400,7 +1400,7 @@ items:
     items: 
     - name: Connector upgrade and deprecations
       href: connector-deprecation-plan.md
-    - name: Connector Deprecation FAQ
+    - name: Connector deprecation FAQ
       href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md
