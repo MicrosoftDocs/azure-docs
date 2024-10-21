@@ -33,6 +33,9 @@ Setting up an apex domain is a common scenario to configure once your domain nam
 
 Alternatively, for domain registrars that don't support `ALIAS` records, `ANAME` records or `CNAME` flattening, you can configure an `A` record for your static web app. This configuration directs traffic to a single regional host of your static web app. Using `A` records isn't recommended as your application no longer benefits from global distribution, and this type of setup could affect application performance if your traffic is globally distributed.
 
+> [!NOTE]  
+> `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record. Let’s say you have WebApp1 and you would like users to access it from https://www.contoso.com. You can do it in two possible ways: you can create a `CNAME` record and map it to WebApp1.azurestaticapps.net. Alternatively, you can create an `A` record and map it to the IP address of WebApp1.
+
 The following are terms you might encounter as you set up a custom domain.
 
 * **Apex or root domains**: Given the domain `www.example.com`, the `www` prefix is known as the subdomain, while the remaining segment of `example.com` is referred to as the apex domain.
