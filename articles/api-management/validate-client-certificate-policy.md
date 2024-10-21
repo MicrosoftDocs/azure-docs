@@ -54,11 +54,11 @@ For more information about custom CA certificates and certificate authorities, s
 
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
-| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list. Policy expressions aren't allowed.  | No  | `true`  |
-| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. Policy expressions aren't allowed. | No | `true` |
-| validate-not-before | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true` |
-| validate-not-after  | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true`|
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. Policy expressions aren't allowed. | No | `false` |
+| validate-revocation | Boolean. Specifies whether certificate is validated against online revocation list. Policy expressions aren't allowed. | No  | `true`  |
+| validate-trust| Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. Policy expressions aren't allowed. | No | `true` |
+| validate-not-before | Boolean. Validates value against current time. Policy expressions aren't allowed.| No| `true` |
+| validate-not-after | Boolean. Validates value against current time. Policy expressions aren't allowed.| No| `true`|
+| ignore-error | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. Policy expressions aren't allowed. | No | `false` |
 
 ## Elements
 
@@ -70,14 +70,14 @@ For more information about custom CA certificates and certificate authorities, s
 
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
-| thumbprint | Certificate thumbprint. | No | N/A |
+| thumbprint | Certificate SHA-1 thumbprint. | No | N/A |
 | serial-number | Certificate serial number. | No | N/A |
 | common-name | Certificate common name (part of Subject string). | No | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | No | N/A |
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | No | N/A |
 | issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | No | N/A |
-| issuer-thumbprint | Issuer thumbprint. | No | N/A |
-| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | No | N/A |
+| issuer-thumbprint | Issuer SHA-1 thumbprint. | No | N/A |
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes. | No | N/A |
 
 ## Usage
 
@@ -85,7 +85,7 @@ For more information about custom CA certificates and certificate authorities, s
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
-## Example
+## Examples
 
 The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
 
@@ -103,6 +103,25 @@ The following example validates a client certificate to match the policy's defau
     </identities>
 </validate-client-certificate> 
 ```
+
+The following example performs a stricter validation by cheking whether the subject thumbprint and the issuer thumbprint match specified values.
+
+```xml
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
+            thumbprint="5f53963cfc280280e238424b82bd497d345b2219"
+            issuer-thumbprint="9d0c166a4446765a87c0ed3aa52650993129eaa4" />
+    </identities>
+</validate-client-certificate> 
+```
+
+
 
 ## Related policies
 
