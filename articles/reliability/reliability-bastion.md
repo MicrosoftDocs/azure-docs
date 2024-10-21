@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-bastion
-ms.date: 06/24/2024
+ms.date: 10/22/2024
 ---
 
 # Reliability in Azure Bastion
@@ -15,11 +15,10 @@ This article describes reliability support in Azure Bastion and covers both intr
 
 Azure Bastion provides private, secure remote access to virtual machines hosted in your Azure virtual networks without exposing public IP addresses. You deploy Azure Bastion into a virtual network and can use it to access virtual machines within the virtual network or in peered virtual networks.
 
-<!-- TODO I don't know if these recs are reasonable or not -->
 > [!NOTE]
 > For production deployments, you should:
 > - Use standard or premium Azure Bastion resources.
-> - [Enable zone redundancy](#availability-zone-support).
+> - [Enable zone redundancy](#availability-zone-support) (in preview), if your Azure Bastion resources are in a supported region.
 
 ## Transient faults
 
