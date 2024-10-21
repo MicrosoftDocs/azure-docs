@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 10/21/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Nutanix Cloud Clusters on Azure BareMetal Infrastructure Reservations and buy one.
 ---
@@ -77,7 +77,7 @@ For more information about how reservation discounts appear in usage data:
 
 ## Exchange or refund a reservation
 
-Exchange is allowed between NC2 AN36, AN36P, and AN64 SKUs. You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+Exchange is allowed between NC2 AN36 and AN36P. You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Reservation expiration
 

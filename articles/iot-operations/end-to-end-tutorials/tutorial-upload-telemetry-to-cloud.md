@@ -9,6 +9,7 @@ ms.custom:
 ms.date: 10/17/2024
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
+ms.service: azure-iot-operations
 ---
 
 # Tutorial: Send asset telemetry to the cloud using a dataflow
