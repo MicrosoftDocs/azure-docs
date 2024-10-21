@@ -56,7 +56,7 @@ This command generates `playwright.service.config.ts` file which serves to:
 - Direct and authenticate your Playwright client to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
-If you already have this file, the package asks you to override it. 
+If you already have this file, the prompt asks you to override it. 
 
 To use only reporting feature for the test run, disable cloud-hosted browsers by setting `useCloudHostedBrowsers` as false. 
 
