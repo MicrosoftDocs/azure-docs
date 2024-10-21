@@ -75,6 +75,9 @@ Use the following steps:
    $azfw | Set-AzFirewall
    ```
    
+   > [!NOTE]
+   > You must reallocate a firewall and public IP to the original resource group and subscription. When stop/start is performed, the private IP address of the firewall may change to a different IP address within the subnet. This can affect the connectivity of previously configured route tables.
+
 Now when you view the firewall in the Azure portal, you see the assigned Management public IP address:
 
 :::image type="content" source="media/management-nic/firewall-with-management-ip.png" lightbox="media/management-nic/firewall-with-management-ip.png" alt-text="Screenshot showing the firewall with a management IP address.":::
