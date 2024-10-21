@@ -28,6 +28,8 @@ landingContent:
             url: concept-availability.md
           - text: Permission requirements
             url: concept-permission.md
+          - text: Microsoft Entra roles assigned by Service Connector
+            url: concept-microsoft-entra-roles.md
           - text: Frequently asked questions
             url: faq.yml
 
@@ -83,6 +85,8 @@ landingContent:
             url: tutorial-python-aks-openai-connection-string.md
           - text: Connect to Azure OpenAI in AKS using workload identity
             url: tutorial-python-aks-openai-workload-identity.md  
+          - text: Connect to Azure SQL Database
+            url: tutorial-python-aks-sql-database-connection-string.md
       - linkListType: how-to-guide
         links:
           - text: Manage authentication

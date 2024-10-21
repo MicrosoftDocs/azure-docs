@@ -4,9 +4,9 @@ description: Reference for the log-to-eventhub policy available for use in Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -41,7 +41,7 @@ The `log-to-eventhub` policy sends messages in the specified format to an event 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes

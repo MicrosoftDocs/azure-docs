@@ -2,7 +2,7 @@
 title: Azure SignalR Local Emulator for serverless development
 description: Learn how to use Azure SignalR Local Emulator for serverless development
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/20/2023
 ms.author: lianwei 

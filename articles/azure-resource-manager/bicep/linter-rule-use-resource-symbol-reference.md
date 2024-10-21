@@ -3,12 +3,12 @@ title: Linter rule - use resource symbol reference
 description: Linter rule - use resource symbol reference
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - use resource symbol reference
 
-This rule detects suboptimal uses of the [`reference`](./bicep-functions-resource.md#reference), and [`list`](./bicep-functions-resource.md#list) functions. Instead of invoking these functions, using a resource reference simplifies the syntax and allows Bicep to better understand your deployment dependency graph.
+This rule detects suboptimal uses of the [`reference`](./bicep-functions-resource.md#reference) and [`list`](./bicep-functions-resource.md#list) functions. Instead of invoking these functions, using a resource reference simplifies the syntax and allows Bicep to better understand your deployment dependency graph.
 
 ## Linter rule code
 
@@ -27,7 +27,7 @@ param clusterName string
 @description('These credentials can be used to submit jobs to the cluster and to log into cluster dashboards.')
 param clusterLoginUserName string
 
-@description('The password must be at least 10 characters in length and must contain at least one digit, one upper case letter, one lower case letter, and one non-alphanumeric character except (single-quote, double-quote, backslash, right-bracket, full-stop). Also, the password must not contain 3 consecutive characters from the cluster username or SSH username.')
+@description('The password must be at least 10 characters in length and must contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character (except single-quote, double-quote, backslash, right-bracket, or full-stop characters). Also, the password must not contain three consecutive characters from the cluster username or SSH username.')
 @minLength(10)
 @secure()
 param clusterLoginPassword string
@@ -37,11 +37,11 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
+resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -60,10 +60,10 @@ resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
     storageProfile: {
       storageaccounts: [
         {
-          name: replace(replace(reference(storageAccount.id, '2022-09-01').primaryEndpoints.blob, 'https://', ''), '/', '')
+          name: replace(replace(reference(storageAccount.id, '2023-05-01').primaryEndpoints.blob, 'https://', ''), '/', '')
           isDefault: true
           container: clusterName
-          key: listKeys(storageAccount.id, '2022-09-01').keys[0].value
+          key: listKeys(storageAccount.id, '2023-05-01').keys[0].value
         }
       ]
     }
@@ -80,7 +80,7 @@ param clusterName string
 @description('These credentials can be used to submit jobs to the cluster and to log into cluster dashboards.')
 param clusterLoginUserName string
 
-@description('The password must be at least 10 characters in length and must contain at least one digit, one upper case letter, one lower case letter, and one non-alphanumeric character except (single-quote, double-quote, backslash, right-bracket, full-stop). Also, the password must not contain 3 consecutive characters from the cluster username or SSH username.')
+@description('The password must be at least 10 characters in length and must contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character (except single-quote, double-quote, backslash, right-bracket, or full-stop characters). Also, the password must not contain three consecutive characters from the cluster username or SSH username.')
 @minLength(10)
 @secure()
 param clusterLoginPassword string
@@ -90,11 +90,11 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
+resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -124,9 +124,9 @@ resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
 }
 ```
 
-You can fix the issue automatically by selecting **Quick Fix** as shown on the following screenshot:
+Use **Quick Fix** to simplify the syntax:
 
-:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="Screenshot of use resource symbol reference quick fix." lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
+:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-resource-symbol-reference linter rule." lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
 
 ## Next steps
 

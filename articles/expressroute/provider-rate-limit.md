@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: This document discusses how rate limiting works for ExpressRoute circuits over service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: duau
@@ -16,7 +16,7 @@ This article discusses how rate limiting works for ExpressRoute circuits created
 
 ## How does rate limiting work over an ExpressRoute circuit?
 
-An ExpressRoute circuit consists of two links that connects the Customer or Provider edge to the Microsoft Enterprise Edge (MSEE) routers. With a circuit bandwidth of 1 Gbps and traffic distributed evenly across both links, a maximum throughput of 2 Gbps (twice the 1 Gbps) can be achieved. However, rate limiting will restricts your throughput to the configured bandwidth if it is exceeded on either link. It is important to note that the excess 1 Gbps in this example serves as redundancy to prevent service disruptions during any link or device maintenance periods.
+An ExpressRoute circuit consists of two links that connects the Customer or Provider edge to the Microsoft Enterprise Edge (MSEE) routers. With a circuit bandwidth of 1 Gbps and traffic distributed evenly across both links, a maximum throughput of 2 Gbps (twice the 1 Gbps) can be achieved. However, rate limiting will restrict your throughput to the configured bandwidth if it is exceeded on either link. It is important to note that the excess 1 Gbps in this example serves as redundancy to prevent service disruptions during any link or device maintenance periods.
 
 :::image type="content" source="./media/provider-rate-limit/circuit.png" alt-text="Diagram of rate limiting on an ExpressRoute circuit over provider ports.":::
 
@@ -38,7 +38,7 @@ You can seamlessly increase your circuit bandwidth through the Azure portal. For
 
 ## What are the causes of traffic drop when the throughput is below the configured bandwidth?
 
-ExpressRoute circuit throughput is monitored at an aggregate level of every few minutes, while the rate limiting is enforced at a granular level in milliseconds. Therefore, occasional traffic bursts exceeding the configured bandwidth might not get detected by the throughput monitoring. However, the rate limiting is still be enforced and traffic gets dropped.
+ExpressRoute circuit throughput is monitored at an aggregate level of every few minutes, while the rate limiting is enforced at a granular level in milliseconds. Therefore, occasional traffic bursts exceeding the configured bandwidth might not get detected by the throughput monitoring. However, the rate limiting is still being enforced and traffic gets dropped.
 
 ## Next steps
 

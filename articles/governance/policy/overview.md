@@ -27,7 +27,7 @@ Specifically, some useful governance actions you can enforce with Azure Policy i
 - Enforcing the consistent application of taxonomic tags
 - Requiring resources to send diagnostic logs to a Log Analytics workspace
 
-It's important to recognize that with the introduction of [Azure Arc](../../azure-arc/overview.md), you can extend your
+It's important to recognize that with the introduction of [Azure Arc](/azure/azure-arc/overview), you can extend your
 policy-based governance across different cloud providers and even to your local datacenters.
 
 All Azure Policy data and objects are encrypted at rest. For more information, see
@@ -165,7 +165,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated.
 
-For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
+For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
 
 ### Recommendations for managing policies
 

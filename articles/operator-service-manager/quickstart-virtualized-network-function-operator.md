@@ -107,8 +107,6 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
     ```
 1. The script creates a Virtual Network, a Network Security Group and the Managed Identity.
 
-
-
 ## Locate Resource ID for managed identity
 
 1. **Login to Azure portal**: Open a web browser and sign in to the Azure portal (https://portal.azure.com/) using your Azure account credentials.
@@ -134,7 +132,7 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
 
 ## Update Site Network Service (SNS) permissions
 
-To perform this task, you need either the 'Owner' or 'User Access Administrator' role in the respective Resource Group.
+To perform this task, you need the 'User Access Administrator' role over the respective Resource Group.
 In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-sns* inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service. (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
 
 In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the deployment of the Virtual Network Function and the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
@@ -150,7 +148,7 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 
 1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
 
-    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the Add role assignment window and Contributor with description." lightbox="media/privileged-admin-roles-contributor-ubuntu.png":::
+    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' window and Contributor with description." lightbox="media/privileged-admin-roles-contributor-ubuntu.png":::
 
 1. Select **Managed identity**.
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
@@ -176,7 +174,7 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
 1. Select **Review and assign**.
 
-    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the add role assignment screen with review + assign highlighted." lightbox="media/managed-identity-resource-group-select-members-ubuntu.png":::
+    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with review + assign highlighted." lightbox="media/managed-identity-resource-group-select-members-ubuntu.png":::
 
 ### Grant Managed Identity Operator role to itself
 
@@ -195,11 +193,11 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Select **Managed identity**.
 1. Select **+ Select members** and navigate to the user-assigned managed identity called *identity-for-ubuntu-vm-sns* and proceed with the assignment.
 
-    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
+    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
 
 1. Select **Review and assign**.
 
-Completion of all the tasks outlined in this article ensures that the Service Network Slice (SNS) has the necessary permissions to function effectively within the specified Azure environment.
+Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
 ## Next steps
 

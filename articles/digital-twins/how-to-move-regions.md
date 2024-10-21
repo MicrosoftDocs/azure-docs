@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.reviewer: MSFT-alias-of-reviewer
@@ -39,7 +39,6 @@ Here are some questions to consider:
     - Azure Functions
     - Azure Logic Apps
     - Azure Data Explorer
-    - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
 * What other personal or company apps do I have that connect to my instance?
@@ -121,7 +120,6 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Event Grid, Event Hubs, or Service Bus.
 * Logic Apps.
 * Azure Data Explorer.
-* Time Series Insights.
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.

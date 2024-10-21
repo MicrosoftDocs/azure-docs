@@ -4,8 +4,7 @@ description: Describes how to create a generalized VM image starting from a Wind
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 05/18/2022
 ms.author: alkohli
@@ -50,7 +49,7 @@ Before you prepare a Windows VHD for use as a generalized image on an Azure Stac
 When your VM source is a Windows VHD or VHDX, you first need to convert the Windows VHD to a fixed-size VHD. You will use the fixed-size VHD to create a new virtual machine.
 
 > [!IMPORTANT]
-> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 #### Convert source VHD to a fixed-size VHD
 

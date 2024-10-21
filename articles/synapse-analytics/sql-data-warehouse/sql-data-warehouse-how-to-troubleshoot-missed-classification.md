@@ -4,14 +4,15 @@ description: Identify and troubleshoot scenarios where workloads are misclassifi
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: wiassaf
-ms.date: 03/09/2022
-ms.service: synapse-analytics
+ms.date: 07/29/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
 ---
 
-# Troubleshooting a misclassified workload in Azure Synapse Analytics
+# Troubleshoot a misclassified workload in Azure Synapse Analytics
 
 This article covers guidance on how to troubleshoot a misclassified workload, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
 
@@ -20,7 +21,9 @@ Azure Synapse Analytics provides workload management capabilities like [classify
 However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting misclassified workload scenarios.
 
 > [!NOTE]
-> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, for Azure Synapse workspaces the MI runs as **dbo**. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
+> Classifying managed identities behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool managed identity maintains the assigned identity, for Azure Synapse workspaces the managed identity runs as `dbo`. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification. 
+>
+> Except for smallrc, the dynamic resource classes are implemented as pre-defined database roles. Smallrc does not appear as a database role, but is the [Default resource class](resource-classes-for-workload-management.md#default-resource-class).
 
 ## Basic troubleshooting information
 
@@ -44,7 +47,7 @@ To get a list of all workload groups (including system workload groups) and asso
 1. In the left side pane, select **Workload management** under **Settings**.
 1. Under **Workload groups** section, all workloads are listed. By default only **User-Defined Workload groups** are listed. To view a list of both user-defined and system-defined workload groups, edit the filter and **Select All**.
 
-:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png" alt-text="Workload Group List filter" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png":::
+:::image type="content" source="media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png" alt-text="Screenshot from the Azure portal of a user-defined workload group list filter.":::
 
 #### T-SQL
 
@@ -63,7 +66,7 @@ For more information, see [sys.workload_management_workload_groups](/sql/relatio
 
 To list all workload classifiers (including system-defined classifiers) by workload group in the Azure portal, see the numbers listed in **Classifiers** column in Workload group table (see previous section).
 
-:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png" alt-text="Workload Group Classifier List" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png":::
+:::image type="content" source="media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png" alt-text="Screenshot from the Azure portal of a workload group classifier list." lightbox="media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png":::
 
 #### T-SQL
 
@@ -110,7 +113,7 @@ Consider following scenario:
 
 1. A database user, DBAUser, is assigned to largerc resource class role using `sp_addrolemember` procedure.
 1. DBAUser has created a new workload group and classifier using workload management.
-1. A newly-created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
+1. A newly created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
 1. DBAUser is a made a member of the DBARole database role.
 1. When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
 
@@ -132,16 +135,13 @@ EXEC sp_droprolemember '[Resource Class]', membername;
 
 ### Some administrative users are always mapped to smallrc workload group
 
-Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
+Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users might still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these users will still run on smallrc resource class, even though the users are mapped to a different resource class or workload group. 
 
 **Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal:
+   The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal, on the **Overview** page of the dedicated SQL pool.
 
-:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
-
-Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
-
+   Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use `MEMBERNAME` option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
 
 ### Use workload group precedence for better classification
 
@@ -157,9 +157,9 @@ In scenarios where resource classes are being used it's best to create a dedicat
 1. Dynamic resource class takes precedence over static resource class. For example, if a user is member of mediumrc (dynamic) and staticrc80(static), user queries run with mediumrc.
 1. Bigger resource classes are preferred over smaller resource classes. For example, if a user is member of staticrc20 and staticrc80, then user queries will run with staticrc80.
 
-#### If Workload Management Capabilities are used
+#### If workload management capabilities are used
 
-WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
+Workload management (WLM) capabilities provide capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
 
 |**Classifier parameter** |**Weight**   |
 |---------------------|---------|
@@ -186,7 +186,7 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'Low')
 ```
 
-Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with the 'dimension_loads' label between 6PM and 7AM UTC will be assigned to `wgDashboards` as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of `CLASSIFIER-1` is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of `CLASSIFIER-2` is 68 (64 for user, 4 for START_TIME/END_TIME). 
+Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with the `dimension_loads` label between 6PM and 7AM UTC will be assigned to `wgDashboards` as weight score of `WLM_LABEL` is higher than `START_TIME`/`END_TIME`. The weighting of `CLASSIFIER-1` is 80 (64 for user, plus 16 for `WLM_LABEL`). The weighting of `CLASSIFIER-2` is 68 (64 for user, 4 for `START_TIME`/`END_TIME`). 
 
 For more information on workload classification, see [classification weighting](sql-data-warehouse-workload-classification.md#classification-weighting) and [query labels](../sql/develop-label.md).
 
@@ -214,85 +214,87 @@ If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, it can be clas
 
 If there was a tie in workload groups or classifiers, following precedence takes effect:
 
-1. The workload group with the highest resource allocation is chosen. This behavior optimizes for performance in scenarios where logins are members of multiple resource classes. This behavior also ensures backward compatibility.  
+1. The workload group with the highest resource allocation is chosen. This behavior optimizes for performance in scenarios where logins are members of multiple resource classes. This behavior also ensures backward compatibility.
+        
+    Consider the following two workload groups and workload classifiers:
+        
+    ```sql
+    -- Workload Groups
+    CREATE WORKLOAD GROUP wgDataLoad
+    WITH
+    ( MIN_PERCENTAGE_RESOURCE = 26 
+    ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2              
+    ,CAP_PERCENTAGE_RESOURCE = 100 )
     
-Consider the following two workload groups and workload classifiers:
+    CREATE WORKLOAD GROUP wgUserqueries
+    WITH
+    ( MIN_PERCENTAGE_RESOURCE = 15
+    ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5               
+    ,CAP_PERCENTAGE_RESOURCE = 50 );
     
-```sql
--- Workload Groups
-CREATE WORKLOAD GROUP wgDataLoad
-WITH
-( MIN_PERCENTAGE_RESOURCE = 26 
-,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2              
-,CAP_PERCENTAGE_RESOURCE = 100 )
-
-CREATE WORKLOAD GROUP wgUserqueries
-WITH
-( MIN_PERCENTAGE_RESOURCE = 15
-,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5               
-,CAP_PERCENTAGE_RESOURCE = 50 );
-
---Workload Classifiers
-CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
-( WORKLOAD_GROUP = 'wgDataLoad'
-,MEMBERNAME     = 'USER-1'  
-,WLM_LABEL      = 'dimension_loads' 
-,IMPORTANCE     = 'High');
-
-CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH  
-( WORKLOAD_GROUP = 'wgUserqueries'
-,MEMBERNAME     = 'USER-1'  
-,WLM_LABEL      = 'dimension_loads' 
-,IMPORTANCE     = 'High');
-```
-                  
-If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, the query meets criteria for both the classifiers. However, the user request will be routed to `wgUserQueries` workload group as it has higher minimum resource allocation per request.
-
+    --Workload Classifiers
+    CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
+    ( WORKLOAD_GROUP = 'wgDataLoad'
+    ,MEMBERNAME     = 'USER-1'  
+    ,WLM_LABEL      = 'dimension_loads' 
+    ,IMPORTANCE     = 'High');
+    
+    CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH  
+    ( WORKLOAD_GROUP = 'wgUserqueries'
+    ,MEMBERNAME     = 'USER-1'  
+    ,WLM_LABEL      = 'dimension_loads' 
+    ,IMPORTANCE     = 'High');
+    ```
+                      
+    If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, the query meets criteria for both the classifiers. However, the user request will be routed to `wgUserQueries` workload group as it has higher minimum resource allocation per request.
+    
 2. Next, concurrency setting and available concurrency for respective workload groups is considered for tie-breakers. The workload group with the highest available concurrency at a time when request arrived will give the query best chance of executing. 
-
-Consider following two workload groups and workload classifiers:
-
-```sql
---Workload Groups
-CREATE WORKLOAD GROUP wgDataLoad
-WITH
-( MIN_PERCENTAGE_RESOURCE = 30              
- ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2 (concurrency of 15)
- ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2
- ,CAP_PERCENTAGE_RESOURCE = 100 );
-
-CREATE WORKLOAD GROUP wgUserqueries
-WITH
-( MIN_PERCENTAGE_RESOURCE = 30
- ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2 (concurrency of 15)
- ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2
- ,CAP_PERCENTAGE_RESOURCE = 100 );
-
--- Workload Classifiers
-CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
-( WORKLOAD_GROUP = 'wgDataLoad'
- ,MEMBERNAME     = 'USER-1'  
- ,WLM_LABEL      = 'dimension_loads' 
- ,IMPORTANCE     = 'High');
-
-CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH  
-( WORKLOAD_GROUP = 'wgUserqueries'
- ,MEMBERNAME     = 'USER-1'  
- ,WLM_LABEL      = 'dimension_loads' 
- ,IMPORTANCE     = 'High');
-```
-              
-If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, both the classifiers have a tie as the query meets criteria for both. When user submits the query, consider the scenario where five concurrent queries are getting executed in the `wgUserqueries` group and ten queries are getting executed in the `wgDataLoad` group. The user request will be routed to `wgUserqueries` group using `CLASSIFIER-2`, as the `wgUserqueries` workload group has higher available concurrency at the time the user submitted a query.
-
+    
+    Consider following two workload groups and workload classifiers:
+    
+    ```sql
+    --Workload Groups
+    CREATE WORKLOAD GROUP wgDataLoad
+    WITH
+    ( MIN_PERCENTAGE_RESOURCE = 30              
+     ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2 (concurrency of 15)
+     ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2
+     ,CAP_PERCENTAGE_RESOURCE = 100 );
+    
+    CREATE WORKLOAD GROUP wgUserqueries
+    WITH
+    ( MIN_PERCENTAGE_RESOURCE = 30
+     ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2 (concurrency of 15)
+     ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 2
+     ,CAP_PERCENTAGE_RESOURCE = 100 );
+    
+    -- Workload Classifiers
+    CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
+    ( WORKLOAD_GROUP = 'wgDataLoad'
+     ,MEMBERNAME     = 'USER-1'  
+     ,WLM_LABEL      = 'dimension_loads' 
+     ,IMPORTANCE     = 'High');
+    
+    CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH  
+    ( WORKLOAD_GROUP = 'wgUserqueries'
+     ,MEMBERNAME     = 'USER-1'  
+     ,WLM_LABEL      = 'dimension_loads' 
+     ,IMPORTANCE     = 'High');
+    ```
+                  
+    If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, both the classifiers have a tie as the query meets criteria for both. When user submits the query, consider the scenario where five concurrent queries are getting executed in the `wgUserqueries` group and ten queries are getting executed in the `wgDataLoad` group. The user request will be routed to `wgUserqueries` group using `CLASSIFIER-2`, as the `wgUserqueries` workload group has higher available concurrency at the time the user submitted a query.
+    
 3. Next, the importance setting of the request is considered for tie-breakers. If there was a tie in workload classification using precedence rules, the request will be routed to workload group that has highest importance. For more information, see [workload importance](sql-data-warehouse-workload-importance.md).
 
 4. Finally, the creation time of the workload group is considered for tie-breakers. The user request will be routed to the workload group that was created most recently. 
 
-
-## Next steps
-- For more information on workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
-- For more information on workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
+## Next step
 
 > [!div class="nextstepaction"]
-> [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)
+
+## Related content 
+
+- For more information on workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information on workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md).
  

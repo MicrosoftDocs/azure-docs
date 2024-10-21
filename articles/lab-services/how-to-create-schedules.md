@@ -7,6 +7,8 @@ ms.date: 03/15/2024
 
 # Create and manage schedules for labs in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a lab:
 
 > [!IMPORTANT]

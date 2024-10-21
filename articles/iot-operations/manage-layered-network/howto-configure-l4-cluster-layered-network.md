@@ -9,6 +9,7 @@ ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Configure Azure IoT Layered Network Management Preview on level 4 cluster
@@ -145,18 +146,18 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
-    > [!NOTE]
-    > This is a one-time configuration per subscription.
 
-      ```powershell
-      az provider register -n "Microsoft.ExtendedLocation"
-      az provider register -n "Microsoft.Kubernetes"
-      az provider register -n "Microsoft.KubernetesConfiguration"
-      az provider register -n "Microsoft.IoTOperationsOrchestrator"
-      az provider register -n "Microsoft.IoTOperationsMQ"
-      az provider register -n "Microsoft.IoTOperationsDataProcessor"
-      az provider register -n "Microsoft.DeviceRegistry"
-      ```
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+   ```powershell
+   az provider register -n "Microsoft.ExtendedLocation"
+   az provider register -n "Microsoft.Kubernetes"
+   az provider register -n "Microsoft.KubernetesConfiguration"
+   az provider register -n "Microsoft.IoTOperations"
+   az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
+   ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID

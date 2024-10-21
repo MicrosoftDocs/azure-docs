@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
+
+
+#Customer intent: As a security operations center (SOC) analyst, I want to add advanced conditions to automation rules so that I can more effectively triage incidents and improve response efficiency.
+
 ---
 
 # Add advanced conditions to Microsoft Sentinel automation rules

@@ -3,7 +3,7 @@ title: Process real-time IoT data streams with Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 08/15/2023
 ---

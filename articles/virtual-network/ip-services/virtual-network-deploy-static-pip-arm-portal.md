@@ -5,7 +5,7 @@ services: virtual-network
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
@@ -82,7 +82,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 > [!WARNING]
 > Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary. For more information, see [Add a private IP address to an operating system](./virtual-network-network-interface-addresses.md#private).
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Clean up resources
 

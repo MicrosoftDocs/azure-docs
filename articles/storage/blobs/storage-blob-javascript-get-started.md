@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 08/05/2024
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js
 ---
 

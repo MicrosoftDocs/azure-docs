@@ -15,7 +15,7 @@ In this quickstart, you create a lab in the Azure Education Hub and choose the m
 
 ## Prerequisites
 
-- An academic grant with an approved credit amount
+- An academic sponsorship with an approved credit amount
 
 ## Create a lab
 

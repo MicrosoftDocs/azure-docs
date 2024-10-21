@@ -5,7 +5,7 @@ description: Learn how to upload a blob with TypeScript to your Azure Storage ac
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 06/21/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript

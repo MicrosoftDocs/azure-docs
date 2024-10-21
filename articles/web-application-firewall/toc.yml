@@ -183,8 +183,8 @@ items:
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
-  - name: Troubleshoot
-    items:
+- name: Troubleshoot
+  items:
      - name: Application Gateway
        items:
         - name: Troubleshoot WAF

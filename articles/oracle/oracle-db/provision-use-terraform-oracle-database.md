@@ -4,9 +4,9 @@ description: Use HashiCorp Terraform to provision Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 6/07/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-terraform
 ms.author: jacobjaygbay
 ---
 

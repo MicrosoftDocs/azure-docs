@@ -4,7 +4,7 @@ description: This document discusses objectively on using ExpressRoute circuit f
 services: expressroute
 author: rambk
 manager: tracsman
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 6/11/2024
 ms.author: rambala

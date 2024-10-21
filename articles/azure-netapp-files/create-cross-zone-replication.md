@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
@@ -17,8 +17,6 @@ For information about availability zones, see [Use availability zones zonal plac
 ## Requirements
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
-
-[!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
 
 ## Create the source volume with an availability zone  
 

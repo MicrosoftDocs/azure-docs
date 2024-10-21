@@ -41,7 +41,7 @@ Service principal appID and password or certificate can be used in connection st
 
 ### PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 #### <a name="azmodule"></a>Using Az.AnalysisServices module
 

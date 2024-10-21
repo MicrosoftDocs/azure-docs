@@ -3,11 +3,12 @@
  description: include file
  services: iot-dps
  author: kgremban
- ms.service: iot-dps
+ ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 04/14/2023
  ms.author: kgremban
  ms.custom: include file
+ ms.subservice: azure-iot-hub-dps
 ---
 
 The DPS device SDKs provide implementations of the [Register](/rest/api/iot-dps/device/runtime-registration/register-device) API and others that devices call to provision through DPS. The device SDKs can run on general MPU-based computing devices such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java.

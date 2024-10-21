@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure Global Reach using the Azure portal'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
@@ -42,8 +42,6 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
 1. Select the **Overview** tab of your ExpressRoute circuit and then select **Add Global Reach** to open the *Add Global Reach* configuration page.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/overview.png" alt-text="Screenshot of ExpressRoute overview page.":::
-
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Select the *ExpressRoute circuit* you want to connect this circuit to and enter in a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, private peering subnet, or on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
@@ -52,8 +50,6 @@ Enable connectivity between your on-premises networks. There are separate sets o
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
 
 1. Select **Save** to complete the Global Reach configuration. When the operation completes, you have connectivity between your two on-premises networks through both ExpressRoute circuits.
-
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-configuration.png" alt-text="Screenshot of the save button for Global Reach configuration.":::
 
     > [!NOTE]
     > The Global Reach configuration is bidirectional. Once you create the connection from one circuit the other circuit will also have the configuration.
@@ -69,9 +65,9 @@ If the two circuits aren't in the same Azure subscription, you need authorizatio
 
    Make a note of the circuit resource ID of circuit 2 and the authorization key.
 
-1. Select the **Overview** tab of ExpressRoute circuit 1. Select **Add Global Reach** to open the *Add Global Reach* configuration page.
+1. Select the **Overview** tab of ExpressRoute circuit 
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/overview.png" alt-text="Screenshot of Global Reach button on the overview page.":::
+1. Select **Add Global Reach** to open the *Add Global Reach* configuration page.
 
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Check the **Redeem authorization** box. Enter the **Authorization Key** and the **ExpressRoute circuit ID** generated and obtained in Step 1. Then provide a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
@@ -102,11 +98,7 @@ After the operation is complete, you no longer have connectivity between your on
 
 1. Update the configuration on the *Edit Global Reach** page and the select **Save**.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/edit-configuration.png" alt-text="Screenshot of the edit Global Reach configuration page.":::
-
 1. Select **Save** on the main overview page to apply the configuration to the circuit.
-
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
 
 ## Next steps
 - [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)

@@ -3,9 +3,9 @@ title: "Tutorial: Deploy Bitbucket repositories on Azure Static Web Apps"
 description: Use Bitbucket with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: quickstart
-ms.date: 03/31/2021
+ms.date: 04/24/2024
 ms.author: cshoe
 ---
 
@@ -62,7 +62,7 @@ This article uses a GitHub repository as the source to import code into a Bitbuc
 
 1. Next to the *Project* label, select **Create new project**.
 1. Enter **MyStaticWebApp**.
-2. Select **Import repository** and wait a moment while the website creates your repository.
+1. Select **Import repository** and wait a moment while the website creates your repository.
 
 ### Set main branch
 
@@ -72,7 +72,7 @@ From time to time the template repository have more than one branch. Use the fol
 1. Expand the **Advanced** section.
 1. Under the *Main branch* label, ensure **main** is selected in the drop down.
 1. If you made a change, select **Save changes**.
-2. Select **Back**.
+1. Select **Back**.
 
 ## Create a static web app
 
@@ -96,10 +96,10 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Select **Review + create**.
 1. Select **Create**.
-2. Select **Go to resource**.
-3. Select **Manage deployment token**.
-4. Copy the deployment token value and set it aside in an editor for later use.
-5. Select **Close** on the *Manage deployment token* window.
+1. Select **Go to resource**.
+1. Select **Manage deployment token**.
+1. Copy the deployment token value and set it aside in an editor for later use.
+1. Select **Close** on the *Manage deployment token* window.
 
 ## Create the pipeline task in Bitbucket
 
@@ -108,8 +108,8 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Ensure the **main** branch is selected in the branch drop down.
 1. Select **Pipelines**.
 1. Select text link **Create your first pipeline**.
-2. On the *Starter pipeline* card, select **Select**.
-3. Enter the following YAML into the configuration file.
+1. On the *Starter pipeline* card, select **Select**.
+1. Enter the following YAML into the configuration file.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -146,6 +146,9 @@ Now that the repository is created, you can create a static web app from the Azu
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/angular-basic'
                     API_TOKEN: $deployment_token
     ```
+
+    > [!NOTE]
+    > If you are using these instructions with your own code and Angular 17 or above, the output location value needs to end with **/browser**.
 
     # [Blazor](#tab/blazor)
 

@@ -11,7 +11,7 @@ metadata:
     - ignite-2023
   author: dominicbetts
   ms.author: dobett
-  ms.date: 09/08/2023
+  ms.date: 06/14/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -23,39 +23,34 @@ landingContent:
       - linkListType: get-started
         links:
           - text: What is Azure IoT Operations?
-            url: get-started/overview-iot-operations.md
-          - text: Deploy
-            url: get-started/quickstart-deploy.md
+            url: overview-iot-operations.md
+          - text: Get started with an end-to-end sample
+            url: get-started-end-to-end-sample/quickstart-deploy.md
   # Card
   - title: Common scenarios
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure IoT Operations
+          - text: Deploy Azure IoT Operations to a cluster
             url: deploy-iot-ops/howto-deploy-iot-operations.md
-          - text: Manage assets
-            url: manage-devices-assets/overview-manage-assets.md
-          - text: Manage MQTT connectivity
-            url: manage-mqtt-connectivity/overview-iot-mq.md
-          - text: Process data
-            url: process-data/overview-data-processor.md
+          - text: Discover and manage assets
+            url: discover-manage-assets/overview-manage-assets.md
+          - text: MQTT broker overview
+            url: manage-mqtt-broker/overview-iot-mq.md
+          - text: Route and transform data
+            url: connect-to-cloud/overview-dataflow.md
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
-          - text: Monitor service and asset health
-            url: monitor/howto-configure-observability.md
+          - text: Configure observability and monitoring
+            url: configure-observability-monitoring/howto-configure-observability.md
 
   # Card
-  - title: Connect to the cloud
+  - title: Connect to cloud services
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Connect to MQTT or Event Grid
-            url: connect-to-cloud/howto-configure-mqtt-bridge.md
-          - text: Send data to a data lake
-            url: connect-to-cloud/howto-configure-data-lake.md
-          - text: Send data to Kafka or Azure Event Hubs
-            url: connect-to-cloud/howto-configure-kafka.md
-          - text: Send data to Azure Data Explorer from a pipeline
-            url: connect-to-cloud/howto-configure-destination-data-explorer.md
-          - text: Send data to Microsoft Fabric from a pipeline
-            url: connect-to-cloud/howto-configure-destination-fabric.md
+          - text: Create a dataflow
+            url: connect-to-cloud/howto-create-dataflow.md
+          - text: Configure dataflow endpoint
+            url: connect-to-cloud/howto-configure-dataflow-endpoint.md
+

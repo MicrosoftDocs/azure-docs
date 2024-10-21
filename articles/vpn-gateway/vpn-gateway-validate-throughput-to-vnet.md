@@ -4,7 +4,7 @@ description: Learn how to validate the network throughput from your on-premises 
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 manager: dcscontentpm
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 02/13/2023
@@ -13,9 +13,6 @@ ms.reviewer: chadmat;genli
 ---
 
 # How to validate VPN throughput to a virtual network
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
@@ -41,11 +38,11 @@ The following diagram shows the logical connectivity of an on-premises network t
 
 1. Determine your application's baseline throughput requirements.
 1. Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Determine the [Azure VM throughput guidance](../virtual-machines/sizes.md) for your VM size.
+1. Determine the [Azure VM throughput guidance](/azure/virtual-machines/sizes) for your VM size.
 1. Determine your Internet Service Provider (ISP) bandwidth.
 1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8). This calculation gives you Megabytes-per-second.
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/resize-vm.md). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
+If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](/azure/virtual-machines/resize-vm). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
 
 > [!NOTE]
 > VPN Gateway throughput is an aggregate of all Site-to-Site\VNET-to-VNET, or Point-to-Site connections.
@@ -171,7 +168,7 @@ Use [SockPerf](https://github.com/mellanox/sockperf) to test VMs.
 
 On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare SockPerf on your VMs:
 
-#### CentOS / RHEL - Install GIT and other helpful tools
+#### RHEL - Install GIT and other helpful tools
 
 `sudo yum install gcc -y -q`
 `sudo yum install git -y -q`

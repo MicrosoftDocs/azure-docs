@@ -4,15 +4,17 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
 ---
 
 # Read flow logs
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. Using the script provided in this article, you can read the latest data from the flow logs without having to download the entire log.
 
@@ -32,7 +34,7 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 # [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment, specifically "yourSubscriptionId", "FLOWLOGSVALIDATIONWESTCENTRALUS", "V2VALIDATIONVM-NSG", "yourStorageAccountName", "ml-rg", "000D3AF87856", "11/11/2018 03:00". For example, yourSubscriptionId should be replaced with your subscription ID.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -382,5 +384,5 @@ The results of this value are shown in the following example:
 ## Related content
 
 - [Traffic analytics overview](./traffic-analytics.md)
-- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
 - [Azure Blob storage bindings for Azure Functions overview](../azure-functions/functions-bindings-storage-blob.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)

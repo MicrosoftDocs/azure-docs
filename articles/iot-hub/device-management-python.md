@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Python SDK for dev
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: how-to
 ms.date: 12/29/2022
@@ -31,9 +31,9 @@ This article shows you how to create:
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 * [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
@@ -52,6 +52,8 @@ In this section, you:
 * Simulate a device reboot.
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 In Azure Cloud Shell you used previously, or any other environment with Python, create the device code.
 
@@ -160,6 +162,8 @@ In Azure Cloud Shell you used previously, or any other environment with Python, 
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 In Azure Cloud Shell or any other environment with Python, create the console code.
 
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
@@ -266,10 +270,10 @@ You're now ready to run the device code and the service code that initiates a re
 
    The following shows the device response to the reboot direct method:
 
-   ![Simulated device app output](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Screenshot that shows the output of the simulated device app after receiving reboot direct method.](./media/device-management-python/device.png)
 
    The following shows the service calling the reboot direct method and polling the device twin for status:
 
-   ![Trigger reboot service output](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Screenshot that shows the output of the service app after sending reboot direct method.](./media/device-management-python/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

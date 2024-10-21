@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Create an Azure Front Door profile - Azure portal'
+title: 'Quickstart: Create an Azure Front Door using the Azure portal'
 description: This quickstart shows how to use Azure Front Door service for your highly available and high-performance global web application by using the Azure portal.
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 10/02/2023
 ms.author: duau
@@ -12,7 +12,7 @@ ms.custom: mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
-# Quickstart: Create an Azure Front Door profile - Azure portal
+# Quickstart: Create an Azure Front Door using Azure portal
 
 This quickstart guides you through the process of creating an Azure Front Door profile using the Azure portal. You have two options to create an Azure Front Door profile: Quick create and Custom create. The Quick create option allows you to configure the basic settings of your profile, while the Custom create option enables you to customize your profile with more advanced settings.
 

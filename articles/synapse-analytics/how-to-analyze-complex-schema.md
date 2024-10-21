@@ -2,12 +2,12 @@
 title: Analyze schema with arrays and nested structures
 description: How to analyze arrays and nested structures with Apache Spark and SQL
 author: Rodrigossz
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: rosouz
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Analyze complex data types in Azure Synapse Analytics
@@ -22,7 +22,7 @@ Data engineers need to understand how to efficiently process complex data types 
 
 ## What are arrays and nested structures?
 
-The following object comes from [Application Insights](../azure-monitor/app/app-insights-overview.md). In this object, there are nested structures and arrays that contain nested structures.
+The following object comes from [Application Insights](/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
 
 ```json
 {

@@ -1,18 +1,18 @@
 ---
 title: Get an access token for the DICOM service in Azure Health Data Services
 description: Find out how to secure your access to the DICOM service with a token. Use the Azure command-line tool and unique identifiers to manage your medical images.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.custom:
 ms.topic: how-to
 ms.date: 10/13/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Get an access token
 
-To use the DICOM&reg; service, users and applications need to prove their identity and permissions by getting an access token. An access token is a string that identifies a user or an application and grants them permission to access a resource. Using access tokens enhances security by preventing unauthorized access and reducing the need for repeated authentication. 
+To use the DICOM&reg; service, users and applications need to prove their identity and permissions by getting an access token. An access token is a string that identifies a user or an application, and grants them permission to access a resource. Using access tokens enhances security by preventing unauthorized access and reducing the need for repeated authentication. 
 
 ## Use the Azure command-line interface
 
@@ -27,8 +27,8 @@ To assign roles and grant access to the DICOM service:
 1. Register a client application in Microsoft Entra ID that acts as your identity provider and authentication mechanism. Use Azure portal, PowerShell, or Azure CLI to [register an application](dicom-register-application.md).
 
 1. Assign one of the built-in roles for the DICOM data plane to the client application. The roles are: 
-- **DICOM Data Owner**. Gives full access to DICOM data.
-- **DICOM Data Reader**. Allows read and search operations on DICOM data. 
+- **DICOM Data Owner**. Gives full access to DICOM data
+- **DICOM Data Reader**. Allows read and search operations on DICOM data
 
 ## Get a token
 
@@ -46,7 +46,7 @@ To get an access token using Azure CLI:
 
 #### Store a token in a variable
 
-The DICOM service uses a `resource` or `Audience` with uniform resource identifier (URI) equal to the URI of the DICOM server  `https://dicom.healthcareapis.azure.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
+The DICOM service uses a `resource` or `Audience`, with uniform resource identifier (URI) equal to the URI of the DICOM server `https://dicom.healthcareapis.azure.com`. You can obtain a token and store it in a variable (named `$token`) with the following command.
 
 ```cURL
 $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
@@ -56,13 +56,13 @@ $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azu
 
 * If you're using a local installation, sign in to the Azure CLI with the [az login](/cli/azure/reference-index#az-login) command. To finish authentication, follow the on-screen steps. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-* If prompted, install Azure CLI extensions on first use. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* If prompted on first use, install Azure CLI extensions. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
 
 ## Use a token with the DICOM service
 
-You can use a token with the DICOM service [using cURL](dicomweb-standard-apis-curl.md). Here's an example:
+You can use a token with the DICOM service [using cURL](dicomweb-standard-apis-curl.md). Following is an example.
 
 ```cURL 
 -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed

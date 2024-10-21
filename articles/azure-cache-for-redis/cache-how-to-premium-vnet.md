@@ -2,9 +2,7 @@
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
 ms.topic: conceptual
 ms.date: 08/29/2023
 
@@ -178,7 +176,7 @@ There are network connectivity requirements for Azure Cache for Redis that might
 >When you connect to an Azure Cache for Redis instance that's hosted in a virtual network, your cache clients must be in the same virtual network or in a virtual network with virtual network peering enabled within the same Azure region. Global virtual network peering isn't currently supported. This requirement applies to any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, NSGs or other network layers must be configured such that the client's network traffic is allowed to reach the Azure Cache for Redis instance.
 >
 
-After the port requirements are configured as described in the previous section, you can verify that your cache is working by following these steps:
+After the port requirements are configured as described in the previous section, a reboot is necessary in most cases to ensure the changes reflect correctly. Otherwise, you might experience some connectivity issues. You can verify that your cache is working by following these steps:
 
 - [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
 - After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:

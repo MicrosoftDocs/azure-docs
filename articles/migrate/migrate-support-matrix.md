@@ -112,8 +112,8 @@ Microsoft Azure operated by 21Vianet | China North 2
 
 There are two versions of the Azure Migrate service:
 
-- **Current version**: Using this version you can create new projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customer using, the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+- **Current version**: Using this version, you can create new projects, discover on-premises servers, and orchestrate assessments and migrations. [Learn more](whats-new.md).
+- **Previous version**: For customers using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
 
 ## Next steps
 

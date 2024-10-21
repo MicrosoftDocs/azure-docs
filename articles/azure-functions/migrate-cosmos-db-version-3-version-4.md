@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 05/07/2024
+ms.date: 07/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -88,7 +88,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 
 ## Azure Cosmos DB SDK changes
 
-The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, for cases where you were using SDK related types, please look at the [Azure Cosmos DB SDK V3 migration guide](../cosmos-db/nosql/migrate-dotnet-v3.md) for more information.
+The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, for cases where you were using SDK related types, please look at the [Azure Cosmos DB SDK V3 migration guide](/azure/cosmos-db/nosql/migrate-dotnet-v3) for more information.
 
 ---
 
@@ -127,11 +127,11 @@ The following table only includes attributes that were renamed or were removed f
 |**CollectionName** |**ContainerName** | The name of the container being monitored. |
 |**LeaseConnectionStringSetting** |**LeaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**LeaseCollectionName** |**LeaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**LeasesCollectionThroughput** |**LeasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `CreateLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**LeaseCollectionPrefix** |**LeaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**UseMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |
-|**UseDefaultJsonSerialization** |*Removed* | This attribute is no longer needed as you can fully customize the serialization using built in support in the [Azure Cosmos DB version 3 .NET SDK](../cosmos-db/nosql/migrate-dotnet-v3.md#customize-serialization). |
+|**UseDefaultJsonSerialization** |*Removed* | This attribute is no longer needed as you can fully customize the serialization using built in support in the [Azure Cosmos DB version 3 .NET SDK](/azure/cosmos-db/nosql/migrate-dotnet-v3#customize-serialization). |
 |**CheckpointInterval**|*Removed* | This attribute has been removed in the version 4 extension. |
 |**CheckpointDocumentCount** |*Removed* | This attribute has been removed in the version 4 extension. |
 
@@ -150,7 +150,7 @@ The following table only includes attributes that changed or were removed from t
 |**collectionName** |**containerName** | The name of the container being monitored. |
 |**leaseConnectionStringSetting** |**leaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**leaseCollectionName** |**leaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**leasesCollectionThroughput** |**leasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `createLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**leaseCollectionPrefix** |**leaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**useMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |
@@ -163,7 +163,7 @@ The following table only includes attributes that changed or were removed from t
 
 ## Modify your function code
 
-The Azure Functions extension version 4 is built on top of the Azure Cosmos DB .NET SDK version 3, which removed support for the [`Document` class](../cosmos-db/nosql/migrate-dotnet-v3.md#major-name-changes-from-v2-sdk-to-v3-sdk). Instead of receiving a list of `Document` objects with each function invocation, which you must then deserialize into your own object type, you can now directly receive a list of objects of your own type.
+The Azure Functions extension version 4 is built on top of the Azure Cosmos DB .NET SDK version 3, which removed support for the [`Document` class](/azure/cosmos-db/nosql/migrate-dotnet-v3#major-name-changes-from-v2-sdk-to-v3-sdk). Instead of receiving a list of `Document` objects with each function invocation, which you must then deserialize into your own object type, you can now directly receive a list of objects of your own type.
 
 This example refers to a simple `ToDoItem` type.
 
@@ -210,7 +210,7 @@ namespace CosmosDBSamples
 ```
 
 > [!NOTE]
-> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` that allow to access properties like `Document` did.
+> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` (when using `Microsoft.Azure.WebJobs.Extensions.CosmosDB`) and `JsonNode` (when using `Microsoft.Azure.Functions.Worker.Extensions.CosmosDB`) that allow to access properties like `Document` did.
 
 Additionally, if you are using the Output Binding, please review the [change in item ID generation](#changes-to-item-id-generation) to verify if you need additional code changes.
 

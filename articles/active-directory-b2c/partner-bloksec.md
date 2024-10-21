@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with BlokSec for
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
@@ -97,7 +97,7 @@ Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-reques
 
 For the following instructions, use the directory that contains your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as Global Administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least B2C IEF Policy Administrator of your Azure AD B2C tenant.
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.

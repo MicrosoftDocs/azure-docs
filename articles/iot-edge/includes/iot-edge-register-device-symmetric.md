@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 06/10/2024
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -120,7 +120,7 @@ You should see JSON output in the console, similar to the following:
 
 ```json
 {
-  "connectionString": "HostName=my-iot-hub.azure-devices.net;DeviceId=my-edge-device-1;SharedAccessKey=saQ52bt6BBUlRfusqWuxPMAx4ysQwWEb5+1eidwzHPY="
+  "connectionString": "HostName=[hub_name].azure-devices.net;DeviceId=[device_id];SharedAccessKey=[device_key]"
 }
 ```
 

@@ -11,9 +11,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The proxy feature is available starting in the public preview version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of Azure Communication Services Calling SDK. Make sure that you use this SDK or a later version of the SDK when you try to use this feature. This tutorial uses a version of the Calling SDK version later than 1.13.0.
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+The proxy feature is general available starting in the public version [1.25.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.25.1) of Azure Communication Services Calling SDK. Make sure that you use this SDK or a later version of the SDK when you try to use this feature. This tutorial uses a version of the Calling SDK 1.13.0-beta.1 where this feature became first available on public preview.
 
 ## Proxy calling media traffic
 

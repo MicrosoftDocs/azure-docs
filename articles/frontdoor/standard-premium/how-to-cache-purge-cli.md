@@ -4,7 +4,7 @@ description: This article helps you understand how to purge cache on an Azure Fr
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 09/20/2022

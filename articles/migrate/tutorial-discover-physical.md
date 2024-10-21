@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 07/02/2024
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
@@ -69,7 +69,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -116,17 +116,24 @@ For Linux servers, you can create a user account in one of two ways:
 > [!Note]
 > If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
 
-### Option 2
-- If you can't provide user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server and provide a non-root account with the required capabilities using the following commands:
+### Option 2: Discover using non-sudo user account  
+- If you can't provide user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server.
+-  Provide a non-sudo user account with the required capabilities.
+    - Sign in as root user. Create a non-sudo user account by running the `sudo useradd <account-name>` command. Set a password for the non-sudo user account using the `sudo passwd <account-name>` command.
+    - Add the non-sudo user account to the wheel group using this command: `sudo usermod –aG wheel <account-name>`. Users in this group have permissions to run setcap commands as detailed below.  
+    - Sign in to the non-sudo user account that was created and run the following commands:  
 
     **Command** | **Purpose**
     --- | --- |
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
-    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
-    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data.
+    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data.
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number.
+    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID.
+    sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat | To perform agentless dependency analysis on the server, set the required permissions on /bin/netstat and /bin/ls files.
 
-- To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+- Running all the above commands will prompt for a password. Enter the password of the non-sudo user account for each prompt.  
+- Add the credentials of the non-sudo user account to the Azure Migrate appliance.  
+- The non-sudo user account will execute the commands listed [here](discovered-metadata.md#linux-server-metadata) periodically.   
 
 ### Create an account to access servers
 
@@ -193,8 +200,10 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
-
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+    
+    | **Download** | **Hash value** |
+    | --- | --- |
+    | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
@@ -202,7 +211,7 @@ Check that the zipped file is secure, before you deploy it.
 
 ### 3. Run the Azure Migrate installer script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance. Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -242,7 +251,7 @@ Set up the appliance for the first time.
 1. Open a browser on any server that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by selecting the app shortcut.
-1. Accept the **license terms**, and read the third-party information.
+1. Accept the **license terms**, and read the third party information.
 
 #### Set up prerequisites and register the appliance
 
@@ -250,7 +259,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
     - Select **Setup proxy** to specify the proxy address (in the form `http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
     - Enter credentials if the proxy needs authentication.
-    - If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
+    - If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity, and check connectivity again.
     
         Only HTTP proxy is supported.
 1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
@@ -283,12 +292,12 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, select **Add credentials**.
 1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Select **Save**.
 1. If you're using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Select **Save**.
-1. If you're using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Select **Save**.
+1. If you're using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse, and select the SSH private key file. Select **Save**.
 
     - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
     - Currently Azure Migrate doesn't support passphrase-based SSH key. Use an SSH key without a passphrase.
     - Currently Azure Migrate doesn't support SSH private key file generated by PuTTY.
-    - The SSH key file supports CRLF to mark a line break in the text file that you upload. SSH keys created on Linux systems most commonly have LF as their newline character so you can convert them to CRLF by opening the file in vim, typing `:set textmode` and saving the file.
+    - The SSH key file supports CRLF to mark a line break in the text file that you upload. SSH keys created on Linux systems most commonly have LF as their newline character so you can convert them to CRLF by opening the file in vim, typing `:set textmode`, and saving the file.
     - If your Linux servers support the older version of RSA key, you can generate the key using the `$ ssh-keygen -m PEM -t rsa -b 4096` command.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
@@ -302,10 +311,10 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 
 
     - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and select **Save**.
-    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
-    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
+    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records, and select **Save**.
+    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file, and select **Save**.
 
-1. Select Save. The appliance tries validating the connection to the servers added and shows the **Validation status** in the table against each server.
+1. Select **Save**. The appliance tries validating the connection to the servers added and shows the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, select **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.

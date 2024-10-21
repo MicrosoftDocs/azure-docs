@@ -3,10 +3,10 @@ title: 'Advertise custom routes for point-to-site VPN Gateway clients'
 titleSuffix: Azure VPN Gateway
 description: Learn how to advertise custom routes to your VPN Gateway point-to-site clients. This article includes steps for VPN client forced tunneling.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 
@@ -35,14 +35,14 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
-    Pinging table.by4prdstr05a.store.core.windows.net [13.88.144.250] with 32 bytes of data:
+    Pinging table.by4prdstr05a.store.core.windows.net [203.0.113.250] with 32 bytes of data:
     ```
 
 1. Run the following PowerShell commands:
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 203.0.113.250/32
     ```
 
 1. To add multiple custom routes, use a comma and spaces to separate the addresses. For example:

@@ -1,10 +1,10 @@
 ---
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 02/14/2024
+ms.topic: reference
+ms.date: 10/15/2024
 ms.custom: references_regions 
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -22,7 +22,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.5.2 or later installed on the VM
-**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md).
+**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported. [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
 **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](restore-sql-database-azure-vm.md#cross-subscription-restore).
 
@@ -48,13 +48,14 @@ _*The database size limit depends on the data transfer rate that we support and 
 * TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). The backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * The backup and restore operations for mirror databases and database snapshots aren't supported.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
-* Back up of databases with extensions in their names aren’t supported. This is because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that we've allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names.
+* Back up of databases with extensions in their names aren’t supported. This is because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that we've allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names. Learn more about the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
+* FIPS encryption is currently not supported with SQL backup workloads.
 
 ## Backup throughput performance
 
 Azure Backup supports a consistent data transfer rate of 350 MBps for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
 
-- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](../virtual-machines/disks-performance.md) about disk throughput and performance in Azure VMs. 
+- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](/azure/virtual-machines/disks-performance) about disk throughput and performance in Azure VMs. 
 - Processes, which are running in the VM, are not consuming the VM bandwidth. 
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) about how to control the number of concurrent backups.
 

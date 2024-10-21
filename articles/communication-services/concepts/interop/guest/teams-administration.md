@@ -29,8 +29,6 @@ Tenant configurations are organization-wide settings that impact everyone in the
 
 |Setting name | 	Description|	Tenant configuration	|Property	|
 |--|--|--|--|
-|Enable federation with Azure Communication Services| If enabled, Azure Communication Services users can join Teams meeting as Communication Services users even if Teams anonymous users are not allowed|	[CsTeamsAcsFederationConfiguration](/PowerShell/module/teams/set-csteamsacsfederationconfiguration)| 	EnableAcsUsers|
-|List federated Azure Communication Services resources | Users from listed Azure Communication Services resources can join Teams meeting if Teams anonymous users are not allowed to join. |[CsTeamsAcsFederationConfiguration](/PowerShell/module/teams/set-csteamsacsfederationconfiguration)| 	AllowedAcsResources |
 |[Anonymous users can join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | If disabled, Teams external users can't join Teams meetings. |	[CsTeamsMeetingConfiguration](/PowerShell/module/skype/set-csteamsmeetingconfiguration) |	DisableAnonymousJoin |
 
 Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings. Use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
@@ -52,7 +50,7 @@ An organizer-assigned policy can disable the feature in all meetings this user o
 |Setting name |	Policy scope|Description	|Tenant policy|	property	|
 |--|--|--|--|--|
 |[Let anonymous people join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | per-organizer | If disabled, Teams external users can't join Teams meetings.	| [CsExternalAccessPolicy](/PowerShell/module/skype/set-csexternalaccesspolicy)|	EnableAcsFederationAccess	|
-|Blocked anonymous join client types | per-organizer	|  If the property "BlockedAnonymousJoinClientTypes" is set to "Teams" or "Null", the Teams external users via Azure Communication Services can join Teams meeting.	| [CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy) |	BlockedAnonymousJoinClientTypes	|
+|Blocked anonymous join client types | per-organizer	|  If the property "BlockedAnonymousJoinClientTypes" is set to "Teams" or "Null", the Teams external users via Azure Communication Services can't join Teams meeting.	| [CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy) |	BlockedAnonymousJoinClientTypes	|
 |[Anonymous users can join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | per-organizer |  If disabled, Teams external users can't join Teams meetings.	|[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)|	AllowAnonymousUsersToJoinMeeting|
 |[Let anonymous people start a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings)| per-organizer |  Teams external users can start a Teams meeting without Teams user if enabled. |	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToStartMeeting|
 |Anonymous users can dial out to phone users | per-organizer |  If enabled, Teams external users can add phone participants to the meeting.|	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToDialOut|

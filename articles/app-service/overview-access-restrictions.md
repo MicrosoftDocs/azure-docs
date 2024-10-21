@@ -26,11 +26,15 @@ You have the option of configuring a set of access restriction rules for each si
 
 App access allows you to configure if access is available through the default (public) endpoint. You configure this behavior to either be `Disabled` or `Enabled`. When access is enabled, you can add [Site access](#site-access) restriction rules to control access from select virtual networks and IP addresses.
 
-If the setting isn't set (the property is `null`), the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access. In Azure portal, when the property isn't set, the radio button is also not set and you're then using default behavior.
+If the setting isn't set (the property is `null`), the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access. In the Azure portal, when the property isn't set, the radio button is also not set and you're then using default behavior.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
 In the Azure Resource Manager API, the property controlling app access is called `publicNetworkAccess`. For internal load balancer (ILB) App Service Environment, the default entry point for apps is always internal to the virtual network. Enabling app access (`publicNetworkAccess`) doesn't grant direct public access to the apps; instead, it allows access from the default entry point, which corresponds to the internal IP address of the App Service Environment. If you disable app access on an ILB App Service Environment, you can only access the apps through private endpoints added to the individual apps.
+
+> [!NOTE]
+> For Linux sites, changes to the `publicNetworkAccess` property trigger app restarts. 
+> 
 
 ## Site access
 

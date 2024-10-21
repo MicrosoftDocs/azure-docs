@@ -1,7 +1,7 @@
 ---
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template (ARM template) to create multiple Azure resource instances.
-ms.date: 03/20/2024
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Add a line layer to the map in the iOS SDK (Preview)

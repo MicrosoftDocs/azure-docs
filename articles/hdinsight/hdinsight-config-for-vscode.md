@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ms.custom:
 ---
 
@@ -29,13 +29,13 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight: Azure Environment | Azure | Azure environment |
 | HDInsight: Disable Open Survey Link | Checked | Enable/Disable opening HDInsight survey |
 | HDInsight: Enable Skip Pyspark Installation | Unchecked | Enable/Disable skipping pyspark installation |
-| HDInsight: Login Tips Enable | Unchecked | When this option is checked, there is a prompt when logging in to Azure |
+| HDInsight: Sign-in Tips Enable | Unchecked | When this option is checked, there's a prompt when logging in to Azure |
 | HDInsight: Previous Extension Version | Display the version number of the current extension | Show the previous extension version|
 | HDInsight: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
 | HDInsight: Results Font Size | 13 |Set the font size for the results gird; set to blank to use the editor size |
 | HDInsight Cluster: Linked Cluster | -- | Linked clusters urls. Also can edit the JSON file to set |
 | HDInsight Hive: Apply Localization | Unchecked | [Optional] Configuration options for localizing into Visual Studio Code's configured locale (must restart Visual Studio Code for settings to take effect)|
-| HDInsight Hive: Copy Include Headers | Unchecked | [Optional] Configuration option for copying results from the Results View |
+| HDInsight Hive: Copy Includes Headers | Unchecked | [Optional] Configuration option for copying results from the Results Views |
 | HDInsight Hive: Copy Remove New Line | Checked | [Optional] Configuration options for copying multi-line results from the Results View |
 | HDInsight Hive › Format: Align Column Definitions In Columns | Unchecked | Should column definition be aligned |
 | HDInsight Hive › Format: Datatype Casing | none | Should data types be formatted as UPPERCASE, lowercase, or none (not formatted) |
@@ -44,7 +44,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Hive › Format: Place Select Statement References On New Line | Unchecked | Is reference to objects in a SELECT statement be split into separate lines? For example, for 'SELECT C1, C2 FROM T1' both C1 and C2 is on separate lines
 | HDInsight Hive: Log Debug Info | Unchecked | [Optional] Log debug output to the VS Code console (Help -> Toggle Developer Tools) 
 | HDInsight Hive: Messages Default Open | Checked | True for the messages pane to be open by default; false for closed|
-| HDInsight Hive: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC,Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
+| HDInsight Hive: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
 | HDInsight Hive: Results Font Size | 13 | Set the font size for the results grid; set to blank to use the editor size |
 | HDInsight Hive › Save as `csv`: Include Headers | Checked | [Optional] When true, column headers are included when saving results as CSV |
 | HDInsight Hive: Shortcuts | -- | Shortcuts related to the results window |
@@ -54,7 +54,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Job Submission: Livy `Conf` | -- | Livy Configuration. POST/batches |
 | HDInsight Jupyter: Append Results| Checked | Whether to append the results to the results window or to clear and display them. |
 | HDInsight Jupyter: Languages | -- | Default settings per language. |
-| HDInsight Jupyter › Log: Verbose | Unchecked | If you enable verbose logging. |
+| HDInsight Jupyter › Log: Verbose | Unchecked | If you enable verbose logging |
 | HDInsight Jupyter › Notebook: Startup Args | Can add item | `jupyter notebook` command-line arguments. Each argument is a separate item in the array. For a full list type `jupyter notebook--help` in a terminal window. |
 | HDInsight Jupyter › Notebook: Startup Folder | ${workspaceRoot} |-- |
 | HDInsight Jupyter: Python Extension Enabled | Checked | Use Python-Interactive-Window of ms-python extension when submitting pySpark Interactive jobs. Otherwise, use our own `jupyter` window. |

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: create an Azure Managed Grafana instance using the Azure CLI'
 description: Learn how to create a Managed Grafana instance using the Azure CLI
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
@@ -76,7 +76,7 @@ Now let's check if you can access your new Managed Grafana instance.
 
    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
-You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ## Clean up resources
 

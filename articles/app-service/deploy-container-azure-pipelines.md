@@ -20,10 +20,10 @@ In this article, we use Azure Pipelines to deploy a Windows container applicatio
 - A working Windows app with Dockerfile hosted on [Azure Repos](https://docs.github.com/get-started/quickstart/create-a-repo). 
 
 ## Add a Service Connection
-Before you create your pipeline, you should first create your Service Connection since you'll be asked to choose and verify your connection when creating your template. A Service Connection allows you to connect to your registry of choice (ACR or Docker Hub) when using the task templates. When adding a new service connection, choose the Docker Registry option. The following form asks you to choose Docker Hub or Azure Container Registry along with pertaining information. To follow along with this tutorial, use Azure Container Registry. You can create a new Service Connection following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#create-new).
+Before you create your pipeline, you should first create your Service Connection since you'll be asked to choose and verify your connection when creating your template. A Service Connection allows you to connect to your registry of choice (ACR or Docker Hub) when using the task templates. When adding a new service connection, choose the Docker Registry option. The following form asks you to choose Docker Hub or Azure Container Registry along with pertaining information. To follow along with this tutorial, use Azure Container Registry. You can create a new Service Connection following the directions [here](/azure/devops/pipelines/library/service-endpoints).
 
 ## Secure your secrets
-Since we're using sensitive information that you don't want others to access, we use variables to protect our information. Create a variable by following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
+Since we're using sensitive information that you don't want others to access, we use variables to protect our information. Create a variable by following the directions [here](/azure/devops/pipelines/process/variables).
 
 To add a Variable, you click the **Variables** button next to the Save button in the top-right of the editing view for your pipeline. Select the **New Variable** button and enter your information. Add the variables below with your own secrets appropriate from each resource.
 

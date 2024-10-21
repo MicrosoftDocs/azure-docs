@@ -1,14 +1,14 @@
 ---
 title: Azure Site Recovery dashboard and built-in alerts
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 04/29/2024
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 07/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Monitor Site Recovery
+# Use the Recovery Services dashboard
 
 In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
@@ -214,6 +214,9 @@ Get an at-scale view of all vaults across all subscriptions using Classic Alerts
 
 ### Manage Azure Site Recovery alerts in Backup Center
 
+> [!IMPORTANT]
+> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. For more information on how to switch, see [Switch Azure Monitor Based alerts](../backup/move-to-azure-monitor-alerts.md).
+
 To manage your alerts settings, do the following:
 
 1. Select *Click here to take action* to manage built-in alerts for site recovery. 
@@ -298,7 +301,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
 
 ### Configure notifications to non-email channels
 
-With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](../azure-monitor/alerts/action-groups.md).
+With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](/azure/azure-monitor/alerts/action-groups).
 
 
 ### Configure notifications through programmatic interfaces

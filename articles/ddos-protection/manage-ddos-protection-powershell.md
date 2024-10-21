@@ -3,9 +3,9 @@ title: 'QuickStart: Create and configure Azure DDoS Network Protection - Azure P
 description: Learn how to create a DDoS Protection Plan using Azure PowerShell
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 05/29/2024
+ms.date: 07/17/2024
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -24,9 +24,9 @@ In this QuickStart, you'll create a DDoS protection plan and link it to a virtua
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create a DDoS Protection plan
 

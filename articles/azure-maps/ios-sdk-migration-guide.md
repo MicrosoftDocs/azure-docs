@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 02/20/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # The Azure Maps iOS SDK migration guide

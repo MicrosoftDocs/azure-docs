@@ -3,7 +3,7 @@ title: Create User-Defined Routes with Azure Virtual Network Manager
 description: Learn how to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 04/30/2024
 #customer intent: As a network engineer, I want to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager.
@@ -179,13 +179,10 @@ In this step, you define the UDRs for the network group by creating a routing co
     | ------- | ----- |
     | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
-    | **Local route setting** | Select **Direct routing within virtual network**. |
+    | **Enable BGP route propagation** | Leave **unchecked**. |
     | **Target network groups** | select **ng-spoke**. |
 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
-
-    > [!NOTE]
-    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet. For more information, see [Local route settings](concept-user-defined-route-management.md#local-routing-settings).
 
 1. Under **Routing rules**, select **+ add**.
 

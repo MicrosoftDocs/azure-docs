@@ -3,9 +3,9 @@ title: Insights for Azure Load Balancer
 description: Use the load balancer insights to achieve rapid fault localization and informed design decisions.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -31,7 +31,7 @@ For Standard Load Balancers, your backend pool resources are color-coded with He
 
 ## Metrics dashboard
 
-From the Insights page of your Load Balancer, you can select More Detailed Metrics to view a preconfigured [Azure Monitor Workbook](../azure-monitor/visualize/workbooks-overview.md) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard shows the Load Balancer status and links to relevant documentation at the top of the Overview tab.
+From the Insights page of your Load Balancer, you can select More Detailed Metrics to view a preconfigured [Azure Monitor Workbook](/azure/azure-monitor/visualize/workbooks-overview) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard shows the Load Balancer status and links to relevant documentation at the top of the Overview tab.
 
 You can navigate through the available tabs each of which contain visuals relevant to a specific aspect of your Load Balancer. Explicit guidance for each is available in the dashboard at the bottom of each tab.
 
@@ -82,4 +82,4 @@ The Metric Definitions tab contains all the information shown in the [Multi-dime
 * Review the dashboard and provide feedback using the below link if there's anything that can be improved
 * [Review the metrics documentation to ensure you understand how each metric is calculated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md)
-* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

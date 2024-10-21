@@ -49,7 +49,7 @@ To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's vo
 
 ### Single and Multi-region disaster recovery
 
-For Azure Elastic SAN, you're responsible for the DR experience. You can [take snapshots](../storage/elastic-san/elastic-san-snapshots.md) of your volumes and [export them](../storage/elastic-san/elastic-san-snapshots.md#export-volume-snapshot) to managed disk snapshots. Then, you can [copy an incremental snapshot to a new region](../virtual-machines/disks-copy-incremental-snapshot-across-regions.md) to store your data is in a region other than the region your elastic SAN is in. You should export to regions that are geographically distant from your primary region to reduce the possibility of multiple regions being affected due to a disaster.
+For Azure Elastic SAN, you're responsible for the DR experience. You can [take snapshots](../storage/elastic-san/elastic-san-snapshots.md) of your volumes and [export them](../storage/elastic-san/elastic-san-snapshots.md#export-volume-snapshot) to managed disk snapshots. Then, you can [copy an incremental snapshot to a new region](/azure/virtual-machines/disks-copy-incremental-snapshot-across-regions) to store your data is in a region other than the region your elastic SAN is in. You should export to regions that are geographically distant from your primary region to reduce the possibility of multiple regions being affected due to a disaster.
 
 #### Outage detection, notification, and management
 

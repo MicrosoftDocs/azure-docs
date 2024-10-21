@@ -7,11 +7,11 @@ brand: azure # brand: aspnet | azure | bash | bizapps | bot-framework | dotnet |
 metadata:
   title: Azure Health Data Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Learn how to use Azure Health Data Services to collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry. # Required; article description that is displayed in search results. < 159/160 chars.
-  ms.service: healthcare-apis #Required; use either service or product per approved list. 
+  ms.service: azure-health-data-services
   ms.topic: hub-page # Required
   author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
+  ms.date: 08/08/2024 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
@@ -127,7 +127,27 @@ conceptualContent:
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
               text: Troubleshoot events
-             
+                     
+        # Card
+        - title: De-identify health data
+          links:
+            - url: ./deidentification/overview.md
+              itemType: overview
+              text: De-identification service overview
+            - url: ./deidentification/quickstart.md
+              itemType: how-to-guide
+              text: Deploy the de-identification service
+            - url: ./deidentification/manage-access-rbac.md
+              itemType: how-to-guide
+              text: Manage access with Azure role-based access control (RBAC)
+            - url: ./deidentification/managed-identities.md
+              itemType: how-to-guide
+              text: Use managed identities
+            - url: ./deidentification/quickstart-sdk-net.md
+              itemType: how-to-guide
+              text: De-identify health data using the .NET SDK
+
+
 additionalContent:
   sections:
     - title: Tools & resources 

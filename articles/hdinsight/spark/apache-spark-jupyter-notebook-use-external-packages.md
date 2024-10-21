@@ -1,10 +1,10 @@
 ---
 title: Use custom Maven packages with Jupyter in Spark - Azure HDInsight
 description: Step-by-step instructions on how to configure Jupyter Notebooks available with HDInsight Spark clusters to use custom Maven packages.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/12/2023
+ms.date: 07/12/2024
 ---
 
 # Use external packages with Jupyter Notebooks in Apache Spark clusters on HDInsight
@@ -21,7 +21,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 * Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see [Load data and run queries with Apache Spark on HDInsight](./apache-spark-load-data-run-query.md).
 
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
 ## Use external packages with Jupyter Notebooks
 

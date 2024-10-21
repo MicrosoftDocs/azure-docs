@@ -1,7 +1,7 @@
 ---
 title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 05/21/2024
+ms.date: 08/21/2024
 ms.topic: how-to
 ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
@@ -225,6 +225,9 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that you already have [created a virtual network with subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet) in your account. You can enable virtual network integration when you create your app or at a later time.
 
+> [!IMPORTANT]
+> The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters. 
+
 To enable virtual networking when you create your app:
 
 ### [Azure CLI](#tab/azure-cli)
@@ -445,7 +448,12 @@ You can't currently change the instance memory size setting for your app using V
 
 ## Set always ready instance counts
 
-When creating an app in a Flex Consumption plan, you can set the always ready instance count for specific groups (HTTP or Durable triggers) and triggers. For individual functions, use the format `function:<FUNCTION_NAME>=n`.
+You can set a number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. There are three special groups, as in per-function scaling: 
++ `http` - all the HTTP triggered functions in the app scale together into their own instances.  
++ `durable` - all the Durable triggered functions (Orchestration, Activity, Entity) in the app scale together into their own instances.
++ `blob` - all the blob (Event Grid) triggered functions in the app scale together into their own instances. 
+
+Use `http`, `durable` or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app you need to configure always ready for each individual function using the format `function:<FUNCTION_NAME>=n`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -486,14 +494,14 @@ az functionapp scale config always-ready set --resource-group <RESOURCE_GROUP> -
 To remove always ready instances, use the [`az functionapp scale config always-ready delete`](/cli/azure/functionapp/scale/config/always-ready#az-functionapp-scale-config-always-ready-delete) command, as in this example that removes all always ready instances from both the HTTP triggers group and also a function named `hello_world`:
 
 ```azurecli
-az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http hello_world
+az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http function:hello_world
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
 1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
 
-1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name in **Trigger** and type the **Number of always-ready instances**.
+1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
 
 1. Select **Save** to update the app.
 

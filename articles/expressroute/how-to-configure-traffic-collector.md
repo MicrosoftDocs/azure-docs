@@ -1,12 +1,12 @@
 ---
-title: Configure Traffic Collector for ExpressRoute Direct
+title: Configure Traffic Collector for ExpressRoute
 titleSuffix: Azure ExpressRoute
 description: This article shows you how to create an ExpressRoute Traffic Collector resource and import logs into a Log Analytics workspace.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 06/19/2024
 ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
 ---

@@ -1,7 +1,7 @@
 ---
 title: How to enable zone redundancy in Azure Managed Grafana
 description: Learn how to create a zone-redundant Managed Grafana instance. 
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev

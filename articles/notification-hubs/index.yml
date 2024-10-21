@@ -6,7 +6,7 @@ summary: Send push notifications from any backend to any mobile device. Tutorial
 metadata:
   title: Azure Notification Hubs documentation
   description: Send push notifications from any backend to any mobile device. Tutorials, API references, and other documentation.
-  ms.service: notification-hubs
+  ms.service: azure-notification-hubs
   ms.topic: landing-page
   author: sethmanheim
   ms.author: sethm

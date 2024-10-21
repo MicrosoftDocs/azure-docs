@@ -3,7 +3,7 @@ title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint
 description: Get started with this tutorial to learn how to connect to a storage account privately via Azure Private Endpoint using the Azure portal.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 08/30/2023
 ms.author: abell
@@ -35,9 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
@@ -155,7 +155,7 @@ In this section, you use the virtual machine you created in the previous steps t
 1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
 
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

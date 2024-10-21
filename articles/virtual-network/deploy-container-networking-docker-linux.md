@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to deploy the Azure CNI plug-in to enable container virtual network connectivity for a standalone Linux Docker host.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/28/2023
 ms.custom: template-how-to, linux-related-content
@@ -18,11 +18,11 @@ The Azure CNI plugin enables per container/pod networking for stand-alone docker
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 It can take a few minutes for the Bastion host to deploy. You can continue with the steps while the Bastion host is deploying.
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 ## Add IP configuration
 
@@ -143,7 +143,7 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     ```
     :::image type="content" source="./media/deploy-container-networking-docker-linux/ifconfig-output.png" alt-text="Screenshot of ifconfig output in Bash prompt of test container.":::
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 
@@ -151,7 +151,7 @@ In this article, you learned how to install the Azure CNI plugin and create a te
 
 For more information about Azure container networking and Azure Kubernetes service, see:
 
-- [What is Azure Kubernetes Service?](../aks/intro-kubernetes.md)
+- [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
 
 - [Microsoft Azure Container Networking](https://github.com/Azure/azure-container-networking)
 

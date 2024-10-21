@@ -3,7 +3,7 @@ title: Grafana UI
 description: Learn about the Grafana UI components--panels, visualizations and dashboards.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: reference
 ms.date: 3/23/2022
 ms.custom: engagement-fy23

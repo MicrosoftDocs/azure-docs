@@ -3,14 +3,16 @@ title: Configure Azure SQL Edge
 description: Learn about configuring Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ms.custom:
 ---
 # Configure Azure SQL Edge
 
-> [!IMPORTANT]
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge supports configuration through one of the following two options:
@@ -19,7 +21,7 @@ Azure SQL Edge supports configuration through one of the following two options:
 - An mssql.conf file placed in the /var/opt/mssql folder
 
 > [!NOTE]
-> Setting environment variables overrides the settings specified in the mssql.conf file.
+> Setting environment variables overrides the settings specified in the `mssql.conf` file.
 
 ## Configure by using environment variables
 
@@ -60,7 +62,7 @@ Add values in **Container Create Options**.
 
 ## Configure by using an `mssql.conf` file
 
-Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. You need to manually configure the mssql.conf file and place it in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When you're deploying SQL Edge from Azure Marketplace, this mapping is specified as the **Mounts** option in the **Container Create Options**.
+Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. You need to manually configure the mssql.conf file and place it in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When you're deploying SQL Edge through Azure IoT Hub, this mapping is specified as the **Mounts** option in the **Container Create Options**.
 
 ```json
 {
@@ -126,7 +128,7 @@ traceflag2 = 1204
 
 ## Run Azure SQL Edge as non-root user
 
-By default, the Azure SQL Edge containers run with a non-root user/group. When deployed through the Azure Marketplace (or using `docker run`), unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the following example, SQL Edge is configured to start as the user `*IoTAdmin*`.
+By default, the Azure SQL Edge containers run with a non-root user/group. When deployed through the Azure IoT Hub (or using `docker run`), unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the following example, SQL Edge is configured to start as the user `*IoTAdmin*`.
 
 ```json
 {
@@ -226,7 +228,7 @@ To remove a data volume container, use the `docker volume rm` command.
 > [!WARNING]
 > If you delete the data volume container, any Azure SQL Edge data in the container is *permanently* deleted.
 
-## Next steps
+## Related content
 
 - [Connect to Azure SQL Edge](connect.md)
 - [Build an end-to-end IoT solution with SQL Edge](tutorial-deploy-azure-resources.md)

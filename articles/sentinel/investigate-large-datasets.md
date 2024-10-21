@@ -9,13 +9,17 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to search and restore archived log data so that I can conduct thorough investigations on historical events.
+
 ---
 
 # Start an investigation by searching for events in large datasets
 
 One of the primary activities of a security team is to search logs for specific events. For example, you might search logs for the activities of a specific user within a given time-frame.
 
-In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and deeper analysis.
+In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search logs in a long-term retention (formerly known as archive) state. If you need to do a full investigation on such data, you can restore that data into an interactive retention state&mdash;like your regular Log Analytics tables&mdash; to run high performing queries and deeper analysis.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -25,7 +29,7 @@ Use a search job when you start an investigation to find specific events in logs
 
 Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
 
-Search results are stored in a table that has a *_SRCH suffix.
+Search results are stored in a table named with a `_SRCH` suffix.
 
 The following image shows example search criteria for a search job.
 
@@ -35,10 +39,11 @@ The following image shows example search criteria for a search job.
 
 Use search to find events in any of the following log types:
 
-- [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs](../azure-monitor/logs/basic-logs-configure.md)
+- [Analytics logs](/azure/azure-monitor/logs/data-platform-logs)
+- [Basic logs](/azure/azure-monitor/logs/data-platform-logs)
+- [Auxiliary logs](/azure/azure-monitor/logs/data-platform-logs)
 
-You can also search analytics or basic log data stored in [archived logs](../azure-monitor/logs/data-retention-archive.md).
+You can also search analytics or basic log data stored in [long-term retention](/azure/azure-monitor/logs/data-retention-configure#interactive-long-term-and-total-retention).
 
 ### Limitations of a search job
 
@@ -57,7 +62,7 @@ Search jobs aren't currently supported for the following workspaces:
 - Customer-managed key enabled workspaces
 - Workspaces in the China East 2 region
 
-To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jobs.md) in the Azure Monitor documentation.
+To learn more, see [Search job in Azure Monitor](/azure/azure-monitor/logs/search-jobs) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs
 
@@ -81,7 +86,7 @@ Before you start to restore an archived log table, be aware of the following lim
 - Restore up to four archived tables per workspace per week.
 - Limited to two concurrent restore jobs per workspace.
 
-To learn more, see [Restore logs in Azure Monitor](../azure-monitor/logs/restore.md).
+To learn more, see [Restore logs in Azure Monitor](/azure/azure-monitor/logs/restore).
 
 ## Bookmark search results or restored data rows
 

@@ -3,10 +3,10 @@ title: Custom domain names and free managed certificates in Azure Container Apps
 description: Learn to configure custom domain names and managed certificates in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 09/19/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -26,11 +26,11 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 
 The requirements are:
 
-- Your container app has HTTP ingress enabled and is publicly accessible.
+- Enable HTTP ingress and ensure your container app is publicly accessible.
 
-- For apex domains, you must have an A record pointing to your Container Apps environment's IP address.
+- Must have an A record for apex domains that points to your Container Apps environment's IP address.
 
-- For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
+- Establish a CNAME record for subdomains that maps directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
 
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
@@ -40,7 +40,7 @@ The requirements are:
 
 1. Navigate to your container app in the [Azure portal](https://portal.azure.com)
 
-1. Verify that your app has HTTP ingress enabled by selecting **Ingress** in the *Settings* section.  If ingress isn't enabled, enable it with these steps:
+1. Verify that your app has HTTP ingress enabled by selecting **Ingress** in the *Settings* section. If ingress isn't enabled, enable it with these steps:
 
    1. Set *HTTP Ingress* to **Enabled**.
    1. Select the desired *Ingress traffic* setting.
@@ -62,7 +62,7 @@ The requirements are:
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you are the owner.
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you're the owner.
 
     - If you selected *A record*, create the following DNS records:
 
@@ -82,7 +82,7 @@ The requirements are:
 
 1. Once validation succeeds, select **Add**.
 
-    It may take several minutes to issue the certificate and add the domain to your container app.
+    It might take several minutes to issue the certificate and add the domain to your container app.
 
 
 1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
@@ -184,7 +184,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
     - If you're configuring an *A record*, replace `<VALIDATION_METHOD>` with `HTTP`.
     - If you're configuring a *CNAME*, replace `<VALIDATION_METHOD>` with `CNAME`.
 
-    It may take several minutes to issue the certificate and add the domain to your container app.
+    It might take several minutes to issue the certificate and add the domain to your container app.
 
 1. Once the operation is complete, navigate to your domain to verify that it's accessible.
 

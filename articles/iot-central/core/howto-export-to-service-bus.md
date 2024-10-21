@@ -1,12 +1,12 @@
 ---
-title: Export data to Service Bus IoT Central
+title: Export data to Service Bus
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Service Bus
 services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/05/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 ---
 

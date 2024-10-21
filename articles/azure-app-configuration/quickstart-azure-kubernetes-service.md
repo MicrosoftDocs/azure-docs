@@ -226,6 +226,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 |Settings:Message|*Hello from Azure App Configuration*|
 
 ### Set up the App Configuration Kubernetes Provider
+
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
@@ -240,6 +241,9 @@ Add following key-values to the App Configuration store and leave **Label** and 
          --namespace azappconfig-system \
          --create-namespace
     ```
+    
+    > [!TIP]
+    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
@@ -257,10 +261,10 @@ Add following key-values to the App Configuration store and leave **Label** and 
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          serviceAccountName: <your-service-account-name>
     ```
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Follow the steps in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) and update the `auth` section with the client ID of the user-assigned managed identity you created.
+    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Proceed to the next step to update the `auth` section with your authentication information.
     
     > [!NOTE]
     > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
@@ -269,7 +273,9 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
+1. Follow the [instructions to use the workload identity](./reference-kubernetes-provider.md#use-workload-identity) to authenticate with your App Configuration store. Update the *appConfigurationProvider.yaml* file by replacing the `serviceAccountName` field with the name of the service account you created. For more information on other authentication methods, refer to the examples in the [Authentication](./reference-kubernetes-provider.md#authentication) section.
+
+1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
     ```yaml
     apiVersion: apps/v1
@@ -302,13 +308,13 @@ Add following key-values to the App Configuration store and leave **Label** and 
               name: configmap-created-by-appconfig-provider
     ```
 
-3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
+1. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-4. Refresh the browser. The page shows updated content.
+1. Refresh the browser. The page shows updated content.
 
     ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
@@ -347,7 +353,28 @@ If the phase is not `COMPLETE`, the data isn't downloaded from your App Configur
 kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 ```   
 
-Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure associated managed identity is assigned proper permission.
+Use the logs for further troubleshooting. Refer to the [FAQ](#faq) section for common issues.
+
+## FAQ
+
+#### Why isn’t the ConfigMap or Secret being generated?
+
+You can follow the steps in the [Troubleshooting](#troubleshooting) guide to collect logs for detailed error information. Here are some common causes.
+
+- **RESPONSE 403: 403 Forbidden**: The configured identity lacks the necessary permissions to access the App Configuration store. Refer to the [Authentication](./reference-kubernetes-provider.md#authentication) section for examples that match the identity you are using.
+- **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: One or more Key Vault references are included in the selected key-values, but the authentication information for Key Vaults is not provided. To maintain the integrity of the configuration, the entire configuration fails to load. Configure the `spec.secret` section to provide the necessary authentication information. For examples and more information, see [Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) .
+
+#### Why does the generated ConfigMap not contain the expected data?
+
+Ensure that you specify the correct key-value selectors to match the expected data. If no selectors are specified, all key-values without a label will be downloaded from your App Configuration store. When using a key filter, verify that it matches the prefix of your expected key-values. If your key-values have labels, make sure to specify the label filter in the selectors. For more examples, refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) documentation.
+
+#### How can I customize the installation of the Azure App Configuration Kubernetes Provider?
+
+You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
+
+#### Why am I unable to authenticate with Azure App Configuration using workload identity after upgrading the provider to version 2.0.0?
+
+Starting with version 2.0.0, a user-provided service account is required for authenticating with Azure App Configuration [using workload identity](./reference-kubernetes-provider.md#use-workload-identity). This change enhances security through namespace isolation. Previously, a Kubernetes provider’s service account was used for all namespaces. For updated instructions, see the documentation on using workload identity. If you need time to migrate when upgrading to version 2.0.0, you can temporarily set `workloadIdentity.globalServiceAccountEnabled=true` during provider installation. Please note that support for using the provider’s service account will be deprecated in a future release.
 
 ## Clean up resources
 

@@ -13,7 +13,7 @@ author: msangapu-msft
 > Automatic scaling is available for all app types: Windows and Linux (deploy as code and container). Automatic scaling is not supported for deployment slot traffic.
 >
 
-Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
+Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
 
 A comparison of scale-out and scale in options available on App Service:
 
@@ -46,9 +46,6 @@ Here are a few scenarios where you should scale-out automatically:
 
 __Maximum burst__ is the highest number of instances that your App Service Plan can increase to based on incoming HTTP requests. For Premium v2 & v3 plans, you can set a maximum burst of up to 30 instances. The maximum burst must be equal to or greater than the number of workers specified for the App Service Plan.
 
-> [!IMPORTANT]
-> [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
->
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -173,11 +170,17 @@ If your web app returns a 5xx status, these endpoint pings may result in intermi
  
 **AutomaticScalingInstanceCount** metric will report the number of virtual machines on which the app is running including the prewarmed instance if it is deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an Automatic Scaling event. This metric is available only for the apps that have Automatic Scaling enabled.
 
+## How does ARR Affinity affect Automatic Scaling?
+
+Azure App Service uses Application Request Routing cookies known as an ARR Affinity. ARR Affinity cookies restrict scaling because they send requests only to servers associated with the cookie, rather than any available instance. For apps that store state, it's better to scale up (increase resources on a single instance). For stateless apps, scaling out (adding more instances) offers more flexibility and scalability. ARR Affinity cookies are enabled by default on App Service. Depending on your application needs, you may choose to disable ARR affinity cookies when using Automatic scaling.
+
+To disable ARR Affinity cookies: select your App Service app, and under **Settings**, select **Configuration**. Next select the **General settings** tab. Under **ARR affinity**, select **Off** and then select the **save** button.
+
 <a name="Next Steps"></a>
 
 ## More resources
 
-* [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started)
 * [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
 * [Scale up server capacity](manage-scale-up.md)
 * [High-density hosting](manage-scale-per-app.md)

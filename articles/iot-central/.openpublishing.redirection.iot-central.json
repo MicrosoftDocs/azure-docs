@@ -337,17 +337,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-and-manage-applications-csp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-and-manage-applications-csp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-and-manage-applications-csp.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
@@ -1207,7 +1212,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
-      "redirect_url": "/learn/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/tutorial-connect-iot-edge-device.md",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1372,8 +1382,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-scalability-availability.md",
-      "redirect_url": "/azure/iot-central/core/concepts-faq-scalability-availability",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-faq-scalability-availability.md",
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
@@ -1433,6 +1448,11 @@
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-iiot-architecture.md",
       "redirect_url": "/azure/iot/concepts-iot-industrial-solution-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-upload-file-rest-api.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-with-rest-api",
       "redirect_document_id": false
     }
   ]

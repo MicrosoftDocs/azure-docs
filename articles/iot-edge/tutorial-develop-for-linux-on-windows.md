@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: fcabrera
 ms.date: 01/04/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -64,7 +64,7 @@ Cloud resources:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Key concepts
 
@@ -326,8 +326,6 @@ Typically, you'll want to test and debug each module before running it within an
    > [!WARNING]
    > Make sure the last line of the template _ENTRYPOINT ["dotnet", "IotEdgeModule1.dll"]_ the name of the DLL matches the name of your IoT Edge module project.
 
-   ![Screenshot of setting the Dockerfile template](./media/tutorial-develop-for-linux-on-windows/visual-studio-solution.png)
-
 1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key. Make sure you save the RSA key under the same IoT Edge module folder, and the name of the key is _id\_rsa_.
    
    ```cmd
@@ -530,12 +528,7 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
    | **Private Key File**    | Full path to the id_rsa that created in a previous step       |
    | **Passphrase**          | Passphrase used for the key created in a previous step        |
 
-
-   ![Screenshot of how to connect to a remote system](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
-
 1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10 to 20 seconds the first time.
-
-   [ ![Screenshot of how to attach an edge module process.](./media/tutorial-develop-for-linux-on-windows/attach-process.png) ](./media/tutorial-develop-for-linux-on-windows/attach-process.png#lightbox)
 
 1. Set a breakpoint to inspect the module.
 

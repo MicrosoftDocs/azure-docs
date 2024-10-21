@@ -4,8 +4,10 @@ titleSuffix: Azure Communication Services
 description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for WhatsApp events."
 author: shamkh
 manager: camilo.ramirez
+services: azure-communication-services
 ms.author: shamkh
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.topic: quickstart 
 ms.date: 02/12/2024
 ms.custom: template-quickstart
@@ -37,9 +39,9 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
   - `Subscription` - Select the subscription that contains your Azure Communication Services resource. This specific subscription isn't required, but it will make it easier to clean up after you're done with the quickstart.
   - `Resource Group` - Select the resource group that contains your Azure Communication Services resource. This specific resource group isn't required, but it will make it easier to clean up after you're done with the quickstart.
   - `Region` - Select the resource group that contains your Azure Communication Services resource. This specific region isn't required, but is recommended.
-  - 'Site Name' - Create a name that is globally unique. This site name is used to create a domain to connect to your Event Grid Viewer.
-  - 'Hosting Plan Name' - Create any name to identify your hosting plan.
-  - 'Sku' - The sku F1 can be used for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about skus, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/)
+  - `Site Name` - Create a name that is globally unique. This site name is used to create a domain to connect to your Event Grid Viewer.
+  - `Hosting Plan Name` - Create any name to identify your hosting plan.
+  - `Sku` - The sku F1 can be used for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about skus, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
     :::image type="content" source="./media/handle-advanced-messaging-events/custom-deployment.png" lightbox="./media/handle-advanced-messaging-events/custom-deployment.png" alt-text="Screenshot that shows Custom deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
 
@@ -71,6 +73,14 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
     -  Event types - Select the two Advanced messaging events from the list.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/create-event-subscription.png" lightbox="./media/handle-advanced-messaging-events/create-event-subscription.png" alt-text="Screenshot that shows create event subscription properties.":::
+   
+
+     -  Optional: Select the AdvancedMessageAnalysisCompleted event, currently in public preview, to receive Message Analysis events. Instruction on how to enable Message Analysis can be found at [Enable Message Analysis with Azure OpenAI](../message-analysis/message-analysis-with-azure-openai-quickstart.md)
+       
+        [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+        
+        :::image type="content" source="../message-analysis/media/get-started/create-event-subscription-message-analysis.png" lightbox="../message-analysis/media/get-started/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create Message Analysis event subscription properties.":::
+   
 
     -  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the **Setup Event Grid Viewer** step with the path `/api/updates` appended. For example: `https://{{site-name}}.azurewebsites.net/api/updates`.
 

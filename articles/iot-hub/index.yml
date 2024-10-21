@@ -4,11 +4,11 @@ title: Azure IoT Hub Documentation
 metadata:
   title: Azure IoT Hub Documentation
   description: Learn how to use Azure IoT Hub to connect, monitor, and control billions of Internet of Things assets.
-  ms.service: iot-hub
+  ms.service: azure-iot-hub
   ms.topic: landing-page
   author: kgremban
   ms.author: kgremban
-  ms.date: 04/05/2022
+  ms.date: 08/14/2024
 
 landingContent:
  - title: Learn about IoT Hub

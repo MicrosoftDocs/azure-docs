@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn about options to secure access to the API Management developer portal, including Microsoft Entra ID, Azure AD B2C, and basic authentication
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: danlep

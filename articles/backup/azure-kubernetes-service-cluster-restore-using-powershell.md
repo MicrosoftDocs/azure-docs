@@ -2,7 +2,7 @@
 title: Restore Azure Kubernetes Service (AKS) using PowerShell
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure PowerShell.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.date: 05/13/2024
 ms.custom:
   - devx-track-azurepowershell
@@ -57,7 +57,7 @@ Initialize the variables with required details related to each resource to be us
 
 - AKS backup allows you to restore to original AKS cluster (that was backed up) and to an alternate AKS cluster. AKS backup allows you to perform a full restore and item-level restore. You can utilize [restore configurations](#restore-to-an-aks-cluster) to define parameters based on the cluster resources that will be restored.
 
-- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) in the target AKS cluster. Also, you must [enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#register-the-trusted-access) between the Backup vault and the AKS cluster.
+- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) in the target AKS cluster. Also, you must [enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations) between the Backup vault and the AKS cluster.
 
 For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 

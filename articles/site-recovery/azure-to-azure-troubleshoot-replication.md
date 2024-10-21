@@ -5,8 +5,8 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: troubleshooting
-ms.date: 03/29/2024
-ms.service: site-recovery
+ms.date: 09/04/2024
+ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ You should see the event **Data change rate beyond supported limits**:
 
 If you select the event, you should see the exact disk information:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Page that shows the data change rate event details.":::
+ 
 
 ### Azure Site Recovery limits
 
@@ -69,6 +69,14 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. Go to this replica of the managed disk.
   1. You might see a banner in **Overview** that says an SAS URL has been generated. Select this banner and cancel the export. Ignore this step if you don't see the banner.
   1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
+
+### Disk tier/SKU change considerations
+
+Whenever Disk tier or SKU is changed, all the snapshots (bookmarks) corresponding to the disk are created by the disk resource provider. Thus, you may have recovery points where some of the underlying snapshots don't exist at the end of the disk resource provider.
+
+Once you trigger a failover with a recovery point created before the Tier/SKU change, the failover eventually fails with a `BookmarkNotFound` error. Since pruning of recovery points is a scheduled job, you may see such recovery points on the portal although with time it's deleted.
+
+> **Recommendation**: Wait for a recovery point created with a datetime post the change made to the disk. 
 
 ## Network connectivity problems
 

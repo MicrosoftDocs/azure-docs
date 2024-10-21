@@ -4,7 +4,7 @@ description: This article provides information on authorizing access to Azure Si
 author: vicancy
 ms.author: lianwei
 ms.date: 09/06/2021
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ---
 

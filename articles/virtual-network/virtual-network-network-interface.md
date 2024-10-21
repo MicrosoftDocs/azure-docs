@@ -3,10 +3,10 @@ title: Create, change, or delete an Azure network interface
 titlesuffix: Azure Virtual Network
 description: Learn how to create, delete, and view and change settings for network interfaces by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 10/09/2024
 ms.author: allensu
 ---
 
@@ -211,7 +211,7 @@ You can configure the following settings for a NIC:
 >
 >The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC changes. For more information, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## View network interface settings
 
@@ -499,6 +499,9 @@ $nic | Set-AzNetworkInterface
 ```
 
 ---
+
+> [!WARNING]
+> You can change the subnet of a primary network interface while the virtual machine is started. You can't change the subnet of a secondary network interface in the same manner. To change the subnet of a secondary network interface, you must first stop and de-allocate the virtual machine.
 
 ### Add or remove from application security groups
 

@@ -5,12 +5,12 @@ description: Learn how to delete or export user data in Azure AD B2C.
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
 
 
@@ -22,7 +22,7 @@ ms.custom: fasttrack-edit
 
  This article discusses how you can manage the user data in Azure Active Directory B2C (Azure AD B2C) by using the operations that are provided by the [Microsoft Graph API](/graph/use-the-api). Managing user data includes deleting or exporting data from audit logs.
 
-[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence.md](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Delete user data
 

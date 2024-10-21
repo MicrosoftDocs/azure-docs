@@ -1,9 +1,9 @@
 ---
 title: Subscribe to GitHub release notes repo
 description: Learn how to subscribe to GitHub release notes repo
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 06/28/2024
 ---
 
 # Subscribe to HDInsight release notes GitHub repo

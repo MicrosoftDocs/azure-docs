@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Handle stored procedure timeouts in the SQL connector for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 When your logic app works with result sets so large that the [SQL connector](../connectors/connectors-create-api-sqlazure.md) doesn't return all the results at the same time, or if you want more control over the size and structure for your result sets, you can create a [stored procedure](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. The SQL connector provides many backend features that you can access by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) so that you can more easily automate business tasks that work with SQL database tables.
 

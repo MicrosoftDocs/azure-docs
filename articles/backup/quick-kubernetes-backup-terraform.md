@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 05/31/2024
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
@@ -67,7 +67,7 @@ Things to ensure before you configure AKS backup:
 
 Log in to your Azure account and authenticate using one of the following methods:
 
-[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
+Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to [authenticate to Azure](/azure/developer/terraform/authenticate-to-azure).
 
 ## Implement the Terraform code
 
@@ -217,7 +217,7 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
     #Assign Role to Extension Identity over Storage Account
     resource "azurerm_role_assignment" "extensionrole" {
       scope                = azurerm_storage_account.backupsa.id
-      role_definition_name = "Storage Blob Data Contributor"
+      role_definition_name = "Storage AccountContributor"
       principal_id         = azurerm_kubernetes_cluster_extension.dataprotection.aks_assigned_identity[0].principal_id
       depends_on = [azurerm_kubernetes_cluster_extension.dataprotection]
     }

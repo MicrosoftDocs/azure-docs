@@ -1,12 +1,18 @@
 ---
 title: Manual scale
 description: How to manually scale in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Manual scale
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS provides elasticity with options to scale up and scale down the number of cluster nodes. This elasticity works to help increase resource utilization and improve cost efficiency.
 

@@ -2,11 +2,10 @@
 title: Enable replication for a physical server – Modernized
 description: This article describes how to enable physical servers replication for disaster recovery using the Azure Site Recovery service
 author: ankitaduttaMSFT
-manager: jsuri
-ms.service: site-recovery
-ms.topic: conceptual
+ms.service: azure-site-recovery
+ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 10/20/2022
+ms.date: 05/24/2024
 ---
 
 # Enable replication for a physical server – Modernized
@@ -107,7 +106,7 @@ Lists all the machines  discovered by various appliances registered to the vault
 
      - **Managed disks**
 
-       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](/azure/virtual-machines/disks-types#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
  
        >[!Note]
        >If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Otherwise, one managed disk type can be chosen at a machine level by default.
@@ -128,3 +127,7 @@ Lists all the machines  discovered by various appliances registered to the vault
     :::image type="Review." source="./media/physical-server-enable-replication/review.png" alt-text="Screenshot of review tab."::: 
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
+
+## Next steps
+
+Follow [this tutorial](vmware-azure-tutorial.md) to enable physical machine and VMware to Azure replication.

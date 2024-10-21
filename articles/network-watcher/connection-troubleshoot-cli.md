@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections using the Azure CLI.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/21/2024
 ms.custom: devx-track-azurecli
@@ -35,9 +35,9 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 > [!NOTE]
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 ## Test connectivity to a virtual machine
 

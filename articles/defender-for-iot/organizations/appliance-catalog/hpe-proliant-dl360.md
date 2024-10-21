@@ -13,7 +13,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 |---------|---------|
 |**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
-|**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
+|**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (optional)|
 |**Status** | Supported, available preconfigured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
@@ -42,8 +42,7 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 |**Power**            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |**Rack support**     | HPE 1U Gen10 SFF easy install rail kit        |
 
-
-## HPE DL360 BOM
+## HPE DL360 - Bill of materials
 
 |PN	|Description	|Quantity|
 |-------------- | --------------| --------- |

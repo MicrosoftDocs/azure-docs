@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
 description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter Notebook.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---
@@ -33,7 +33,7 @@ The application uses the sample **HVAC.csv** data that is available on all clust
 
 ## Develop a Spark machine learning application using Spark MLlib
 
-This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
+This application uses a Spark [ML pipeline](https://downloads.apache.org/spark/docs/3.3.1/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
 
 1. Create a Jupyter Notebook using the PySpark kernel. For the instructions, see [Create a Jupyter Notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 

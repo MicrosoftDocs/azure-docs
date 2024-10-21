@@ -2,7 +2,7 @@
 title: Scale SignalR Apps with Azure SignalR
 description: An overview of using Azure SignalR service to scale SignalR applications.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp

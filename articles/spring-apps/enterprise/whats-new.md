@@ -3,20 +3,63 @@ title: What's new in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
 author: KarlErickson
 ms.author: hangwan
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 04/15/2024
+ms.date: 07/29/2024
 ---
 
 # What's new in Azure Spring Apps?
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
+
+## Q3 2024
+
+The following updates are now available:
+
+- **Conveniently access app logs in the Azure portal**: We now offer a more convenient and efficient way to query app logs and do log streaming on the Azure portal. This new approach supplements manually composing queries to fetch application logs from the Log Analytics workspace and accessing the log stream through the Azure CLI. For more information, see the [Stream logs](how-to-log-streaming.md?tabs=azure-portal#stream-logs) section of [Stream Azure Spring Apps application console logs in real time](how-to-log-streaming.md).
+
+- **Regular infrastructure maintenance in the Enterprise plan**:
+  - Regular upgrade to keep managed components up-to-date:
+    - Service Registry: upgraded to 1.3.1.
+    - Application Configuration Service: upgraded to 2.3.1, including a critical fix of missing content details in the logging for ConfigMap and secret creation.
+    - Spring Cloud Gateway: upgraded to 2.2.5, including a critical fix for a routing rule persistence issue.
+    - API Portal: upgraded to 1.5.0.
+    - App Live View: upgraded to 1.8.0.
+    - App Accelerator: upgraded to 1.8.1.
+    - Build service:
+      - Go buildpack: added support for Go 1.22, deprecated Go 1.20, changed default version from Go 1.20 to Go 1.21.
+      - NodeJS buildpack: changed default version from Node.js 19 to Node.js 20.
+      - Java Native Image buildpack: deprecated Java 20, added Java 21.
+      - PHP buildpack: added PHP 8.3
+  - Regular upgrade to keep Azure Kubernetes Service up-to-date: upgraded to 1.29.7.
+
+- **Regular infrastructure maintenance in the Basic and Standard plans**:
+  - Regular upgrade to keep managed components up-to-date:
+    - Config server image: upgraded to 1.0.20240930.
+    - Eureka server image: upgraded to 1.0.20240930.
+    - Base image for apps: upgraded to Azure Linux 2.0.20231130.
+  - Regular upgrade to keep Azure Kubernetes Service up-to-date: upgraded to 1.29.7.
+
+## Q2 2024
+
+The following updates are now available in the Enterprise plan:
+
+- **Richer log of Application Configuration Service**: The Git revision is a crucial piece of information that indicates the recency of configuration files. Currently, the Application Configuration Service logs the Git revision to enhance troubleshooting efficiency. For more information, see the [Examine Git revisions of the configuration files](how-to-enterprise-application-configuration-service.md#examine-git-revisions-of-the-configuration-files) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **Managed OSS Spring Cloud Config Server (preview)**: The open-source version of Spring Cloud Config Server provides a native Spring experience to developers. Now we offer managed Spring Cloud Config Server to dynamically retrieve configuration properties from central repositories. For more information, see [Configure a managed Spring Cloud Config Server in Azure Spring App](how-to-config-server.md).
+
+- **Custom actuator endpoint support**: Users might want to use a different port or path for the actuator due to security concerns, but this choice can result in the Application Live View being unable to connect to the app. This feature enables Application Live View to work with apps that have a non-default port or path for the actuator. For more information, see the [Configure customized Spring Boot actuator](how-to-use-application-live-view.md#configure-customized-spring-boot-actuator) section of [Use Application Live View with the Azure Spring Apps Enterprise plan](how-to-use-application-live-view.md).
+
+- **Disable basic auth for the test endpoint of an app**: Azure Spring Apps provides basic authentication to protect the test endpoint of an application instance. When a user's app is integrated with their auth server, this basic authentication becomes unnecessary. If the user has a good understanding of the application's security, this feature lets them disable the basic authentication provided by the Azure Spring Apps service, making the tests against the application closer to a real-world environment. For more information, see the second tip in [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+
+- **Private storage access for virtual network injection**: The private storage access feature enables routing of traffic through a private network for backend storage hosting application assets like JAR files and logs. This feature enhances security and can potentially improve performance for users. For more information, see [Configure private network access for backend storage in your virtual network (Preview)](how-to-private-network-access-backend-storage.md).
+
+- **Support Job (preview) in Azure Spring Apps**: This feature enables customers to run their ephemeral applications in Azure Spring Apps natively. It offers batch job management and execution, along with integration with managed components. For more information, see [Job in Azure Spring Apps (Preview)](concept-job.md).
 
 ## Q1 2024
 

@@ -2,12 +2,12 @@
 title: Using file metadata in queries
 description: OPENROWSET function provides file and path information about every file used in the query to filter or analyze data based on file name and/or folder path.
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 # Use file metadata in serverless SQL pool queries
@@ -28,7 +28,7 @@ Your first step is to **create a database** with a datasource that references st
 
 This function returns the file name that row originates from.
 
-The following sample reads the NYC Yellow Taxi data files for the last three months of 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
+The following sample reads the NYC Yellow Taxi data files for September 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
 
 ```sql
 SELECT

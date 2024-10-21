@@ -4,7 +4,7 @@ description: Learn how to create Web Application Firewall policies for Applicati
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 08/24/2023
 ms.author: victorh 
 ---

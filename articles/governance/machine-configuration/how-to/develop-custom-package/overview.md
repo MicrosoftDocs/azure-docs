@@ -33,7 +33,8 @@ non-Azure machine.
 1. [Create a custom machine configuration package artifact][04]
 1. [Test the package artifact][05]
 1. [Publish the package artifact][06]
-1. [Sign the package artifact][07]
+1. [Provide access to a package][07]
+1. [Sign the package artifact][08]
 
 <!-- Link reference definitions -->
 [01]: ../../overview.md
@@ -42,4 +43,5 @@ non-Azure machine.
 [04]: ./2-create-package.md
 [05]: ./3-test-package.md
 [06]: ./4-publish-package.md
-[07]: ./5-sign-package.md
+[07]: ./5-access-package.md
+[08]: ./6-sign-package.md

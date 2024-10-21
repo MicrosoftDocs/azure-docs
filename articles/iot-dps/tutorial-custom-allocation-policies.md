@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/21/2024
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
@@ -31,7 +32,7 @@ In this tutorial, you'll do the following:
 > * Set up the development environment for the Azure IoT C SDK.
 > * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

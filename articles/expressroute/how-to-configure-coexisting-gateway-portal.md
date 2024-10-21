@@ -3,7 +3,7 @@ title: 'Configure ExpressRoute and S2S VPN coexisting connections: Azure portal'
 description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
@@ -28,7 +28,7 @@ The steps to configure both scenarios are covered in this article. You can confi
 >[!NOTE]
 > * If you want to create a Site-to-Site VPN over an ExpressRoute connection, see [Site-to-site over Microsoft peering](site-to-site-vpn-over-microsoft-peering.md).
 > * For ExpressRoute-VPN Gateway coexistence, if you’ve already deployed an ExpressRoute, you do not need to create a virtual network and gateway subnet as these are prerequisites in creating an ExpressRoute.
->
+> * For Encrypted Express Route Gateway, MSS Clamping is done over Azure VPN Gateway to clamp TCP packet size at 1250 bytes
 
 ## Limits and limitations
 

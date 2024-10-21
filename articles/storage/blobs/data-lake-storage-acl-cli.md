@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
+title: Use Azure CLI to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure CLI to manage access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
-# Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
+# Use Azure CLI to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use the [Azure CLI](/cli/azure/) to get, set, and update the access control lists of directories and files.
 
@@ -97,7 +97,7 @@ The following image shows the output after getting the ACL of a directory.
 
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ## Set ACLs
 
@@ -141,7 +141,7 @@ The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ### Set ACLs recursively
 
@@ -235,5 +235,5 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

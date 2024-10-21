@@ -3,7 +3,7 @@ title: Transform data by running a Synapse notebook
 description: In this article, you learn how to create and develop a Synapse notebook activity and a Synapse pipeline.
 services: synapse analytics 
 author: ruixinxu 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual 
 ms.date: 05/19/2021
@@ -13,9 +13,9 @@ ms.author: ruxu
 
 # Transform data by running a Synapse notebook
 
-[!INCLUDE[appliesto-adf-xxx-md](../data-factory/includes/appliesto-xxx-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](../data-factory/includes/appliesto-adf-asa-md.md)]
 
-The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
+The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
 ## Create a Synapse notebook activity
 

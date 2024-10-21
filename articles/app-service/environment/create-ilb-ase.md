@@ -9,43 +9,47 @@ ms.author: madsd
 ms.custom: mvc, mode-other, devx-track-arm-template
 ---
 
-# Create and use an Internal Load Balancer App Service Environment 
+# Create and use an Internal Load Balancer App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> As of 29 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
-The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
+The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
 
 - With a VIP on an external IP address, often called an External ASE.
-- With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). 
+- With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB).
 
 This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service Environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
 
-## Overview 
+## Overview
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.net. Apps that are made in an ILB ASE are not put in the public DNS. 
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.net. Apps that are made in an ILB ASE are not put in the public DNS.
 
-Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names. 
+Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names.
 
 With an ILB ASE, you can do things such as:
 
--   Host intranet applications securely in the cloud, which you access through a site-to-site or ExpressRoute.
--   Protect apps with a WAF device
--   Host apps in the cloud that aren't listed in public DNS servers.
--   Create internet-isolated back-end apps, which your front-end apps can securely integrate with.
+- Host intranet applications securely in the cloud, which you access through a site-to-site or ExpressRoute.
+- Protect apps with a WAF device
+- Host apps in the cloud that aren't listed in public DNS servers.
+- Create internet-isolated back-end apps, which your front-end apps can securely integrate with.
 
 ### Disabled functionality ###
 
 There are some things that you can't do when you use an ILB ASE:
 
--   Use IP-based TLS/SSL binding.
--   Assign IP addresses to specific apps.
--   Buy and use a certificate with an app through the Azure portal. You can obtain certificates directly from a certificate authority and use them with your apps. You can't obtain them through the Azure portal.
+- Use IP-based TLS/SSL binding.
+- Assign IP addresses to specific apps.
+- Buy and use a certificate with an app through the Azure portal. You can obtain certificates directly from a certificate authority and use them with your apps. You can't obtain them through the Azure portal.
 
 ## Create an ILB ASE ##
 
@@ -71,15 +75,15 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. Select a location where the location is an existing ILB ASE.
 
-1. Select or create an App Service plan. 
+1. Select or create an App Service plan.
 
 1. Select **Review and Create** then select **Create** when you are ready.
 
-### Web jobs, Functions and the ILB ASE 
+### Web jobs, Functions and the ILB ASE
 
 Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network. If your ILB ASE has a domain name that does not end in *appserviceenvironment.net*, you will need to get your browser to trust the HTTPS certificate being used by your scm site.
 
-## DNS configuration 
+## DNS configuration
 
 When you use an External ASE, apps made in your ASE are registered with Azure DNS. There are no additional steps then in an External ASE for your apps to be publicly available. With an ILB ASE, you must manage your own DNS. You can do this in your own DNS server or with Azure DNS private zones.
 
@@ -104,11 +108,11 @@ The zone named .&lt;asename&gt;.appserviceenvironment.net is globally unique. Be
 
 ## Publish with an ILB ASE
 
-For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name&gt;.&lt;ILB ASE Domain&gt;* and *&lt;app name&gt;.scm.&lt;ILB ASE Domain&gt;*. 
+For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name&gt;.&lt;ILB ASE Domain&gt;* and *&lt;app name&gt;.scm.&lt;ILB ASE Domain&gt;*.
 
-The SCM site name takes you to the Kudu console, called the **Advanced portal**, within the Azure portal. The Kudu console lets you view environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu]. 
+The SCM site name takes you to the Kudu console, called the **Advanced portal**, within the Azure portal. The Kudu console lets you view environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu].
 
-Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
+Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE.
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for MSDeploy deployment.
@@ -125,31 +129,12 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 
 ## Get started ##
 
-* To get started with ASEs, see [Introduction to App Service environments][Intro]. 
+- To get started with ASEs, see [Introduction to App Service environments][Intro].
 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
-[MakeASEfromTemplate]: ./create-from-template.md
-[MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/network-security-groups-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../overview.md
-[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
-[Functions]: ../../azure-functions/index.yml
-[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/management/overview.md
-[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[customdomain]: ../app-service-web-tutorial-custom-domain.md
-[linuxapp]: ../overview.md#app-service-on-linux

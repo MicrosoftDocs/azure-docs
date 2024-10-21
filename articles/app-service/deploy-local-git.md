@@ -20,7 +20,7 @@ This how-to guide shows you how to deploy your app to [Azure App Service](overvi
 
 To follow the steps in this how-to guide:
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
   
 - [Install Git](https://www.git-scm.com/downloads).
 
@@ -147,7 +147,7 @@ When you push commits to your App Service repository, App Service deploys the fi
     git push azure main
     ```
 
-    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
+    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure portal, by selecting **Environment variables** under **Settings** and adding a new App setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
 
 ## Troubleshoot deployment
 

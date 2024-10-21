@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 09/30/2024
 ms.author: rolyon
 ---
 
@@ -54,6 +54,7 @@ Privileged administrator roles are roles that grant privileged administrator acc
 | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> |
 | [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> |
+| [Reservations Administrator](built-in-roles.md#reservations-administrator) | <ul><li>Manage all the reservations in a tenant</li><li>Assign roles in Azure RBAC for reservations</li></ul> |
 | [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li><li>Can't manage access using other ways, such as Azure Policy</li></ul> |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 
@@ -88,7 +89,7 @@ If you are using a service principal to assign roles, you might get the error "I
 
 Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs.
 
-You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
+You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
 
 Check out the following articles for detailed steps for how to assign roles.
 

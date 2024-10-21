@@ -50,13 +50,13 @@
     - name: Azure network latency
       href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
     - name: Internet routing preference in Azure
-      href: ../../virtual-network/ip-services/routing-preference-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/ip-services/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Cloud network connectivity
     items: 
     - name: Virtual network
       href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Public IP address
-      href: ../../virtual-network/ip-services/public-ip-addresses.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
     - name: DNS
       href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route network traffic
@@ -78,7 +78,7 @@
     - name: Extend on-premises to Azure - private connection
       href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
     - name: Outbound-only internet connectivity
-      href: ../../virtual-network/nat-gateway/nat-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/nat-gateway/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Network security
     items:
     - name: Network security groups
@@ -112,10 +112,10 @@
       href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Network monitoring
     items:
-    - name: Monitor your network with Azure Monitor
+    - name: Network Watcher
+      href: ../../network-watcher/network-watcher-overview.md?toc=/azure/networking/fundamentals/toc.json 
+    - name: Network insights
       href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Monitor and repair network health
-      href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
   items:
   - name: Create and connect to cloud networks
@@ -123,11 +123,11 @@
     - name: Create a virtual network
       href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a public IP address
-      href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Optimize routing costs 
-      href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create an Azure DNS zone and record
       href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route traffic using route tables
@@ -166,12 +166,10 @@
       href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
   - name: Monitor your network
     items:
-    - name: Monitor network health
-      href:  ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Monitor communications between Azure resources
+    - name: Monitor communication between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Azure Monitor Network Insights
-      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: View topology
+      href:  ../../network-watcher/network-insights-topology.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
   - name: Troubleshooting

@@ -9,11 +9,15 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security analyst, I want to map data fields to entities in analytics rules so that I can enrich alerts and incidents with essential information for effective investigation and remediation.
+
 ---
 
 # Map data fields to entities in Microsoft Sentinel 
 
-Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
+Entity mapping is an integral part of the configuration of [scheduled analytics rules](scheduled-rules-overview.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 

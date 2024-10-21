@@ -53,6 +53,16 @@ Custom handlers are lightweight web servers that receive events from the Azure F
 
 Starting with version 2.x, the runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
 
+::: zone pivot="programming-language-python"
+## ODBC driver support
+This table indicates the ODBC driver support for your Python functions:
+
+| Driver version | Python version |
+| ---- | ---- |
+| ODBC driver 18 | ≥ Python 3.11 |
+| ODBC driver 17 | ≤ Python 3.10 |
+
+::: zone-end
 ## Next steps  
 ::: zone pivot="programming-language-csharp"  
 ### [Isolated worker model](#tab/isolated-process)

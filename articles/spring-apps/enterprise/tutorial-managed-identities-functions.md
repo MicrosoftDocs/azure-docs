@@ -3,16 +3,15 @@ title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Learn how to use a managed identity to invoke Azure Functions from an Azure Spring Apps app.
 author: KarlErickson
 ms.author: margard
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 05/07/2023
+ms.date: 08/29/2024
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -119,7 +118,7 @@ By default, functions use key-based authentication to secure HTTP endpoints. To 
 }
 ```
 
-For more information, see the [Secure an HTTP endpoint in production](../../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../../azure-functions/functions-bindings-http-webhook-trigger.md).
+For more information, see the [Secure HTTP endpoints](../../azure-functions/security-concepts.md#secure-http-endpoints) section of [Securing Azure Functions](../../azure-functions/security-concepts.md).
 
 Use the following command to publish the app to the instance created in the previous step:
 

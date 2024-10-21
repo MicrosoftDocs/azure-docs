@@ -68,7 +68,7 @@ After your Storage Mover diagnostic setting has been saved, it will be reflected
 
 ## Analyzing logs
 
-All resource logs in Azure Monitor have the same fields, and are followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md).
+All resource logs in Azure Monitor have the same fields, and are followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema).
 
 Storage Mover generates two tables, StorageMoverCopyLogsFailed and StorageMoverJobRunLogs. The schema for **StorageMoverCopyLogsFailed** is found in the [Azure Storage Copy log data reference](/azure/azure-monitor/reference/tables/StorageMoverCopyLogsFailed), and the schema for **StorageMoverJobRunLogs** is found in the [Azure Storage Job run log data reference](/azure/azure-monitor/reference/tables/StorageMoverJobRunLogs).
 
@@ -87,9 +87,9 @@ After the **Welcome** window is closed within the main content pane, the **New Q
 
 ### Sample Kusto queries
 
-After you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+After you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see the [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-The following sample queries provided can be entered in the **Log search** bar to help you monitor your migration. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
+The following sample queries provided can be entered in the **Log search** bar to help you monitor your migration. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - To list all the files that failed to copy from a specific job run within the last 30 days.
 
@@ -130,8 +130,8 @@ The following sample queries provided can be entered in the **Log search** bar t
 
 Get started with any of these guides.
 
-- [Log Analytics workspaces](../azure-monitor/logs/log-analytics-workspace-overview.md)
-- [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md)
-- [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
+- [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-workspace-overview)
+- [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
+- [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 - [Azure Storage Mover support bundle overview](troubleshooting.md)
 - [Troubleshooting Storage Mover job run error codes](status-code.md)

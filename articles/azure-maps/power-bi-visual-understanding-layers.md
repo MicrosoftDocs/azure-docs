@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 07/19/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Layers in Azure Maps Power BI visual
@@ -94,7 +94,7 @@ The general layer section of the **Format** pane are common settings that apply 
 >
 > **General layer settings retirement**
 >
-> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create new reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create new reports using these settings, but existing reports will continue to work. It is recommended that you upgrade existing reports. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
 >
 > :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
 >

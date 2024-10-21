@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for Azure Digital Twins - prerequisite to set up an instance
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 01/13/2023
 ms.author: baanders

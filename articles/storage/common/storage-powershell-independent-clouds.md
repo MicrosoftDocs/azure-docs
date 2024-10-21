@@ -20,7 +20,7 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 - [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 - [Azure German Cloud](../../germany/germany-welcome.md)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Using an independent cloud
 

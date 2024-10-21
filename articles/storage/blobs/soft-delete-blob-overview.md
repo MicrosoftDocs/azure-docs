@@ -138,7 +138,7 @@ The following table describes the expected behavior for delete and write operati
 
 |**REST API operation**|**Soft Delete enabled**|
 |---|---|
-|[Storage Accounts - Delete](/rest/api/storagerp/storage-accounts/delete) | No change. Containers and blobs in the deleted account aren't recoverable. |
+|[Delete Storage Account](/rest/api/storagerp/storage-accounts/delete) | No change. Containers and blobs in the deleted account aren't recoverable. |
 |[Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) | No change. Blobs in the deleted container aren't recoverable.|
 |[Delete Container](/rest/api/storageservices/delete-container) |No change. Blobs in the deleted container aren't recoverable.|
 |[Path - Delete](/rest/api/storageservices/datalakestoragegen2/path/delete) |A soft-deleted blob or directory is created. The soft-deleted object is deleted after the retention period.|
@@ -150,7 +150,7 @@ The following table describes the expected behavior for delete and write operati
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-Soft delete isn't supported for blobs that are uploaded by using Data Lake Storage Gen2 APIs on Storage accounts with no hierarchical namespace.
+Soft delete isn't supported for blobs that are uploaded by using Data Lake Storage APIs on Storage accounts with no hierarchical namespace.
 
 ## Pricing and billing
 

@@ -3,9 +3,10 @@ title: Learn PowerShell Workflow for Azure Automation
 description: This article teaches you the differences between PowerShell Workflow and PowerShell and concepts applicable to Automation runbooks.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/12/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 # Learn PowerShell Workflow for Azure Automation
 

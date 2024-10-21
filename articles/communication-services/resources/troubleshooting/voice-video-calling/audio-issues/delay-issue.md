@@ -30,16 +30,19 @@ A high jitter buffer delay can cause audio delays that are noticeable to the use
 
 ## How to detect using the SDK
 You can use the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) to detect the network condition changes.
+For the network quality of the audio sending end, check UFD events with the values of `networkSendQuality`.
+For the network quality of the receiving end, check UFD events with the values of `networkReceiveQuality`.
 
-For the network quality of the audio sending end, you can check events with the values of `networkSendQuality`.
+In addition, you can use the  [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) to monitor and track real-time network performance from the Web client.
+There are two metrics related to the audio delay: `rttInMs` and `jitterBufferDelayInMs`.
 
-For the network quality of the receiving end, you can check events with the values of `networkReceiveQuality`.
+The [rttInMs](../../../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web#audio-send-metrics) has a direct impact on the audio delay, as the metric indicates the round trip time of packets. High latency can result in perceptible delays in audio.
+We recommend a round-trip time of 200 ms or less.
+If the round-trip time is larger than 500 ms, users may experience significant delays that can lead to frustration and hinder effective communication. In such cases, the conversation flow can be disrupted, making it difficult to have a smooth and natural interaction.
 
-In addition, you can use the  [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) as a method to monitor and track real time the network performance from the Web client.
-
-For the quality of the audio sending end, you can check the metrics `rttInMs`.
-
-For the quality of the receiving end, you can check the metrics `jitterInMs`, `jitterBufferDelayInMs`.
+In [jitterBufferDelayInMs](../../../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web#audio-receive-metrics) shows how long the audio samples stay in the jitter buffer.
+This value can be affected by various factors, such as late arrival of packets, out-of-order, packet loss, etc.
+Normally, it's less than 200 ms. Users may notice audio delays in the call if this value is high.
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.

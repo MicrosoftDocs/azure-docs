@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 01/19/2024
+ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
@@ -41,7 +41,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance. Two alternatives for *cluster shared disk* are presented in the documentation:
 
-- [Azure shared disks](../../virtual-machines/disks-shared.md)
+- [Azure shared disks](/azure/virtual-machines/disks-shared)
 - Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that simulates clustered shared disk
 
 The documentation doesn't cover the database layer.  
@@ -84,7 +84,7 @@ SAP deployment in Azure availability zones
 The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if the cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
 
 > [!NOTE]
-> [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+> [Azure proximity placement group](/azure/virtual-machines/windows/proximity-placement-groups) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
 >
 > - If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
 > - If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
@@ -110,10 +110,7 @@ During VM configuration, you can create or select exiting load balancer in netwo
 4. Applicable to only ENSA2 architecture: Create additional frontend IP (10.0.0.44), load balancing rule (use 621<Instance-no.> for ERS2 health probe port) as described in point 1 and 3.
 
 > [!NOTE]
-> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
-
-> [!IMPORTANT]
-> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

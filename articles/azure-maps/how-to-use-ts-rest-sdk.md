@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: devx-track-js, devx-track-ts
 ---
 

@@ -7,7 +7,7 @@ author: duongau
 ms.author: duau
 ms.date: 09/20/2023
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: template tutorial
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template tutorial
 
 This article helps you create an Azure Application Gateway with a DDoS protected virtual network. Azure DDoS Network Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your application gateways from large scale DDoS attacks.
 
-:::image type="content" source="./media/tutorial-protect-application-gateway/ddos-protection-app-gateway.png" alt-text="Diagram of DDoS Protection connecting to an Application Gateway.":::
+:::image type="content" source="./media/tutorial-protect-application-gateway/ddos-protection-app-gateway.png" alt-text="Diagram of DDoS Protection connecting to an Application Gateway." lightbox="./media/tutorial-protect-application-gateway/ddos-protection-app-gateway.png":::
 
 > [!IMPORTANT]
 > Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md).

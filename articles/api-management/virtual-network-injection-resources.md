@@ -1,9 +1,9 @@
 ---
-title: Azure API Management virtual network integration - network resources
+title: Azure API Management virtual network injection - network resources
 description: Learn about requirements for network resources when you deploy (inject) your API Management instance in an Azure virtual network.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 06/10/2024
 ms.author: danlep
@@ -59,7 +59,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 * **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for 60 scale-out units (2 IP addresses/scale-out unit) for a total of 61 units. This is a large, theoretical number of scale-out units. 
 
 > [!NOTE]
-> It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 submit.
+> It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
 
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.

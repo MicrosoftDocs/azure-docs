@@ -1,7 +1,7 @@
 ---
 title: Sample script for Azure HDInsight when cluster creation fails 
 description: Sample script to run when Azure HDInsight cluster creation fails with DomainNotFound error.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 06/15/2024
 ---

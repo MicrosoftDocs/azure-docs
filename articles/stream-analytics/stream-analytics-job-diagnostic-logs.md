@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Stream Analytics using resource logs
 description: This article describes how to analyze resource logs in Azure Stream Analytics.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ---
@@ -15,14 +15,14 @@ It's highly recommended to enable resource logs for all jobs as it will greatly 
 
 Stream Analytics offers two types of logs:
 
-* [Activity logs](../azure-monitor/essentials/platform-logs-overview.md) (always on), which give insights into operations performed on jobs.
+* [Activity logs](/azure/azure-monitor/essentials/platform-logs-overview) (always on), which give insights into operations performed on jobs.
 
-* [Resource logs](../azure-monitor/essentials/platform-logs-overview.md) (configurable), which provide richer insights into everything that happens with a job. Resource logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
+* [Resource logs](/azure/azure-monitor/essentials/platform-logs-overview) (configurable), which provide richer insights into everything that happens with a job. Resource logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Debugging using activity logs
 
@@ -72,9 +72,7 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
 [!INCLUDE [resource-logs](./includes/resource-logs.md)]
 
-## Resource logs schema
-
-[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
+All logs are stored in JSON format. To learn about the schema for resource logs, see [Resource logs schema](monitor-azure-stream-analytics-reference.md#resource-logs-schema).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.author: cephalin
 ms.devlang: csharp
 # ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
-ms.date: 04/12/2022
+ms.date: 09/30/2024
 ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
@@ -15,11 +15,11 @@ ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
 
 - [Azure SQL Database](/azure/azure-sql/database/)
-- [Azure Database for MySQL](../mysql/index.yml)
-- [Azure Database for PostgreSQL](../postgresql/index.yml)
+- [Azure Database for MySQL](/azure/mysql/)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.yml).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -35,7 +35,7 @@ What you will learn:
 > * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
 > * Connect to the Azure database from your development environment using the Microsoft Entra user.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -98,9 +98,9 @@ The following Azure CLI command uses a `--client-type` parameter.
 # [Azure Database for MySQL](#tab/mysql-sc)
 
 > [!NOTE]
-> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](../mysql/flexible-server/how-to-azure-ad.md), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
+> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](/azure/mysql/flexible-server/how-to-azure-ad), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
 
-1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
 
@@ -285,10 +285,14 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [I made changes to App Service authentication or the associated app registration. Why do I still get the old token?](#i-made-changes-to-app-service-authentication-or-the-associated-app-registration-why-do-i-still-get-the-old-token)
 - [How do I add the managed identity to a Microsoft Entra group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
 - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
+- [I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.](#i-created-my-app-with-the-web-app--database-template-and-now-i-cant-configure-a-managed-identity-connection-with-the-service-connector-commands)
 
 #### Does managed identity support SQL Server?
 
-Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server. 
+Yes. For more information, see:
+
+- [Microsoft Entra authentication for SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-overview)
+- [Enable Microsoft Entra authentication for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm)
 
 #### I get the error `Login failed for user '<token-identified principal>'.`
 
@@ -318,8 +322,12 @@ To grant database permissions for a Microsoft Entra group, see documentation for
 
 Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 
-[Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-ssl-connection-security.md)
-[Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md)
+[Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-ssl-connection-security)
+[Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl)
+
+#### I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.
+
+Service Connector needs network access to the database in order to grant access for the app identity. When you create a secure-by-default app and database architecture in the Azure portal with the Web App + Database template, the architecture locks down network access to the database and only allows connections from within the virtual network. It's also true for Azure Cloud Shell. However, you can [deploy Cloud Shell in the virtual network](../cloud-shell/vnet/deployment.md), then run the Service Connector command in that Cloud Shell.
 
 ## Next steps
 

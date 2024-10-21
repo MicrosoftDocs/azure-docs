@@ -3,8 +3,8 @@ title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
 author: ekote
 ms.author: eskot 
-ms.reviewer: wiassaf, sngun
-ms.service: synapse-analytics 
+ms.reviewer: whhender, whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual 
 ms.subservice: spark
 ms.custom: devx-track-python
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 
 Hyperspace introduces the ability for Apache Spark users to create indexes on their datasets, such as CSV, JSON, and Parquet, and use them for potential query and workload acceleration.
 
-In this article, we highlight the basics of Hyperspace, emphasize its simplicity, and show how it can be used by just about anyone.
+In this article, we highlight the basics of Hyperspace, emphasize its simplicity, and show how just about anyone can use it.
 
 Disclaimer: Hyperspace helps accelerate your workloads or queries under two circumstances:
 
@@ -32,11 +32,11 @@ This document is also available in notebook form, for [Python](https://github.co
 >[!Note]
 > Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (unsupported), and Azure Synapse Runtime for Apache Spark 3.2 (End of Support announced). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
 
-To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
+To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you'll make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
 By default, Spark uses broadcast join to optimize join queries when the data size for one side of join is small (which is the case for the sample data we use in this tutorial). Therefore, we disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
 
-The output of running the following cell shows a reference to the successfully created Spark session and prints out '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
+The output of running the following cell shows a reference to the successfully created Spark session and prints '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
 
 :::zone pivot = "programming-language-scala"
 
@@ -338,7 +338,7 @@ After indexes are created, you can perform several actions:
 * **Vacuum if an index is no longer required.** You can vacuum an index, which forces a physical deletion of the index contents and associated metadata completely from Hyperspace's metadata.
 
 Refresh if the underlying data changes, you can refresh an existing index to capture that.
-Delete if the index is not needed, you can perform a soft-delete that is, index is not physically deleted but is marked as 'deleted' so it is no longer used in your workloads.
+Delete if the index isn't needed, you can perform a soft-delete that is, index isn't physically deleted but is marked as 'deleted' so it's no longer used in your workloads.
 
 The following sections show how such index management operations can be done in Hyperspace.
 
@@ -502,11 +502,11 @@ hyperspace.CreateIndex(deptDF, deptIndexConfig2);
 
 ## List indexes
 
-The code that follows shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform additional operations. 
+The code that follows shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform more operations. 
 
 For instance, you can invoke valid operations on this DataFrame for checking its content or analyzing it further (for example filtering specific indexes or grouping them according to some desired property).
 
-The following cell uses DataFrame's 'show' action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all information Hyperspace has stored about it in the metadata. You will immediately notice the following:
+The following cell uses DataFrame's 'show' action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all information Hyperspace has stored about it in the metadata. You'll immediately notice the following:
 
 * config.indexName, config.indexedColumns, config.includedColumns, and status.status are the fields that a user normally refers to.
 * dfSignature is automatically generated by Hyperspace and is unique for each index. Hyperspace uses this signature internally to maintain the index and exploit it at query time.
@@ -556,7 +556,7 @@ Results in:
 
 You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. 
 
-However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
+However, index files for a deleted index still remain available (since it's a soft-delete), so that the index could be restored if user asks for.
 
 The following cell deletes index with name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to above cell for "List Indexes" except for "deptIndex2", which now should have its status changed into "DELETED".
 
@@ -848,7 +848,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 
 &nbsp;
 &nbsp;
-This only shows the top 5 rows
+This only shows the top five rows
 &nbsp;
 &nbsp;
 
@@ -1785,9 +1785,9 @@ appendData.Write().Mode("Append").Parquet(testDataLocation);
 
 ::: zone-end
 
-Hybrid scan is disabled by default. Therefore, you will see that because we appended new data, Hyperspace will decide *not* to use the index.
+Hybrid scan is disabled by default. Therefore, you'll see that because we appended new data, Hyperspace will decide *not* to use the index.
 
-In the output, you will see no plan differences (hence, no highlighting).
+In the output, you'll see no plan differences (hence, no highlighting).
 
 :::zone pivot = "programming-language-scala"
 
@@ -1996,9 +1996,9 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 
 When you're ready to update your indexes but don't want to rebuild your entire index, Hyperspace supports updating indexes in an incremental manner using the `hs.refreshIndex("name", "incremental")` API. This will eliminates the need for a full rebuild of index from scratch, utilizing previously created index files as well as updating indexes on only the newly added data.
 
-Of course, be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you do not see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Please note that this example is simply used for illustration and you have to adapt this for your workloads.
+Of course, be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you don't see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Note that this example is for illustration and you have to adapt this for your workloads.
 
-In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Please also note that `Shuffle` i.e. Exchange is still eliminated from the plan, giving you the appropriate acceleration.
+In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Also note that `Shuffle` that is, Exchange is still eliminated from the plan, giving you the appropriate acceleration.
 
 :::zone pivot = "programming-language-scala"
 
@@ -2079,9 +2079,9 @@ Project [name#820, qty#821, date#822, qty#827, date#828]
 
 ## Optimize index layout
 
-After calling incremental refreshes multiple times on newly appended data (e.g. if the user writes to data in small batches or in case of streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
+After calling incremental refreshes multiple times on newly appended data (for example, if the user writes to data in small batches or in streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
 
-In the plan below, notice that Hyperspace has removed the additional Sort node in the query plan. Optimize can help avoiding sorting for any index bucket which contains only one file. However, this will only be true if ALL the index buckets have at most 1 file per bucket, after `optimizeIndex`.
+In the plan below, notice that Hyperspace has removed the extra Sort node in the query plan. Optimize can help avoiding sorting for any index bucket that contains only one file. However, this will only be true if ALL the index buckets have at most one file per bucket, after `optimizeIndex`.
 
 :::zone pivot = "programming-language-scala"
 

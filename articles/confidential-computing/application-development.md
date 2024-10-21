@@ -3,8 +3,8 @@ title: Azure confidential computing development tools
 description: Use tools and libraries to develop applications for confidential computing on Intel SGX
 services: virtual-machines
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: jushiman

@@ -236,7 +236,7 @@ If you used this article's recommendations and your Azure Resource Graph queries
 Provide these details when you contact the Azure Resource Graph team:
 
 - Your specific use-case and business driver needs for a higher throttling limit.
-- How many resources do you have access to? How many of the are returned from a single query?
+- How many resources do you have access to? How many of them are returned from a single query?
 - What types of resources are you interested in?
 - What's your query pattern? X queries per Y seconds, and so on.
 

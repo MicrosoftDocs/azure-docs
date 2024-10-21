@@ -19,7 +19,7 @@ The Migration and modernization portal experience lets you [migrate VMware VMs t
 
 The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
-[Learn more](../../virtual-machines/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
+[Learn more](/azure/virtual-machines/disk-encryption) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
 
 ## Prerequisites
 
@@ -55,9 +55,9 @@ The Migration and modernization portal experience simplifies preparation of the 
 
 A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. To replicate VMs with CMK, you'll create a disk encryption set and pass it as an input to the replication operation.
 
-Follow the example [here](../../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
+Follow the example [here](/azure/virtual-machines/windows/disks-enable-customer-managed-keys-powershell) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
 
-The disk encryption set can be configured to encrypt managed disks with a customer-managed key, or for double encryption with both a customer-managed key and a platform key. To use the double encryption at rest option configure the disk encryption set as described [here](../../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+The disk encryption set can be configured to encrypt managed disks with a customer-managed key, or for double encryption with both a customer-managed key and a platform key. To use the double encryption at rest option configure the disk encryption set as described [here](/azure/virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell).
 
 In the example shown below the disk encryption set is configured to use a customer-managed key.
 

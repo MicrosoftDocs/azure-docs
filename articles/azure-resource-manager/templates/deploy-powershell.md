@@ -218,7 +218,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](../../virtual-machines/linux/using-cloud-init.md).
+Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](/azure/virtual-machines/linux/using-cloud-init).
 
 If you need to pass in an array of objects, create hash tables in PowerShell and add them to an array. Pass that array as a parameter during deployment.
 

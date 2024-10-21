@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure SignalR. T
 ms.date: 02/06/2024
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---

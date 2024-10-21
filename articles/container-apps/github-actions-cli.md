@@ -3,7 +3,7 @@ title: Generate GitHub Actions workflow with Azure CLI in Azure Container Apps
 description: Learn to automatically create GitHub Actions workflow in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2022

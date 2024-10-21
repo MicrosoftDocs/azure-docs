@@ -1,14 +1,17 @@
 ---
 title: Query logging 
 description: Log query lifecycle events in Trino cluster
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Query logging
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino supports custom [event listeners](https://trino.io/docs/current/develop/event-listener.html) that can be used to listen for Query lifecycle events. You can author your own event listeners or use a built-in plugin provided by HDInsight on AKS that logs events to Azure Blob Storage.
 

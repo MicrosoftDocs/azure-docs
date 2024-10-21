@@ -2,7 +2,7 @@
 title: Deploy and configure Enterprise CA certificates for Azure Firewall Premium
 description: Learn how to deploy and configure Enterprise CA certificates for Azure Firewall Premium.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 02/03/2022

@@ -4,7 +4,7 @@ description: Learn how to view effective routes for a virtual hub in Azure Virtu
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc

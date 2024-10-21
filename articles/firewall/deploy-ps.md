@@ -3,7 +3,7 @@ title: 'Deploy and configure Azure Firewall using Azure PowerShell'
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure PowerShell. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.date: 02/20/2024
 ms.author: victorh
 ms.topic: how-to 
@@ -31,7 +31,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 :::image type="content" source="media/deploy-ps/tutorial-network.png" alt-text="Diagram that shows a firewall network infrastructure." lightbox="media/deploy-ps/tutorial-network.png":::
 
@@ -121,7 +121,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'Micros
 New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 

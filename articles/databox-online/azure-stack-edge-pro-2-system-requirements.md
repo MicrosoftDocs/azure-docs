@@ -4,11 +4,10 @@ description: Learn about the system requirements for your Azure Stack Edge Pro 2
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 06/02/2023
+ms.date: 06/26/2024
 ms.author: alkohli
 ---
 
@@ -126,7 +125,7 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 | https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
 | https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
-For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+For more information, see [Network firewall requirements for monitoring container insights](/azure/azure-monitor/containers/container-insights-onboard#network-firewall-requirements).
 
 ### URL patterns for gateway for Azure Government
 

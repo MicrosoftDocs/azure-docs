@@ -3,8 +3,8 @@ title: Use sample application for guest attestation in confidential VMs
 description: Learn how to use a sample Linux or Windows application for use with the guest attestation feature APIs.
 author: prasadmsft
 ms.author: reprasa
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.custom: template-concept, linux-related-content
@@ -21,7 +21,7 @@ Depending on your [type of scenario](guest-attestation-confidential-vms.md#scena
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure [confidential VM](quick-create-confidential-vm-portal.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
+- An Azure [confidential VM](quick-create-confidential-vm-portal.md) or a [VM with trusted launch enabled](/azure/virtual-machines/trusted-launch-portal). You can use a Ubuntu Linux VM or Windows VM.
 
 ## Use sample application
 
