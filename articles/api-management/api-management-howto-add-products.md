@@ -2,7 +2,7 @@
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
 ms.topic: tutorial
-ms.date: 10/09/2024
+ms.date: 10/21/2024
 ms.custom: devdivchpfy22, devx-track-azurecli 
 ms.service: azure-api-management
 author: dlepow
@@ -212,7 +212,7 @@ Advance to the next tutorial:
 
 :::zone pivot="terraform"
 
-In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. Azure API Management is a fully managed service that helps developers publish, secure, transform, maintain, and monitor APIs. It provides a unified management experience and full observability across all internal and external APIs. The service is scalable and helps protect your APIs from unauthorized access with keys, tokens, IP filtering, and more. It's used to connect applications and services through APIs, allowing different software systems to communicate with each other.
+In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. 
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -289,6 +289,6 @@ az apim show --<apim_service_name> --<resource_group_name>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure API Management](/search/?terms=Azure%20api%20management%20and%20terraform).
+> [Create blank API and mock API responses](mock-api-responses.md).
 
 :::zone-end
