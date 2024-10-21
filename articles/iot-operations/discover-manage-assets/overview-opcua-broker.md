@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 05/14/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster.
+ms.service: azure-iot-operations
 ---
 
 # What is the connector for OPC UA?
