@@ -447,7 +447,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
 
-1. On your Standard logic app, enable runtime scale monitoring:
+1. On your Standard logic app, enable runtime scale monitoring IF your logic app uses the Workflow Service Plan hosting option:
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
 
@@ -483,6 +483,10 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
       **"AzureWebjobsStorage" app setting is not present.**
 
+> [!NOTE]
+>
+> It is not yet supported to disable storage account key access if you are using Logic Apps the Standard Workflow Service Plan hosting option.
+> However, after completing the above steps, you may disable storage account key based access if your Logic App uses the App Service Environment v3 hosting option.
 <a name="enable-run-history-stateless"></a>
 
 ## Enable run history for stateless workflows
