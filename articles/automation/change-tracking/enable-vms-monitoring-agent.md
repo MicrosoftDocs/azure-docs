@@ -79,7 +79,7 @@ This section provides detailed procedure on how you can enable change tracking o
 1. Under **Operations**, select **Change tracking** to view the change tracking and inventory page.
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png" alt-text="Screenshot showing to select change tracking option for a single azure arc virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png":::
 
    It will initiate the deployment and the notification appears on the top right corner of the screen.
    
