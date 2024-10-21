@@ -59,6 +59,7 @@ See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation
 When you upload data, your client divides that data into blocks and uploads each block individually. Each block that is upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations required to upload a blob depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size isn't configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
 Using the [Sample prices](#sample-prices) that appear in this article, and assuming an **8-MiB** block size, the following table estimates the cost to upload **1000** blobs that are each **5 GiB** in size to the hot tier.
+
 | Price factor                                             | Value          |
 |----------------------------------------------------------|----------------|
 | Number of MiB in 5 GiB                                   | 5,120          |
