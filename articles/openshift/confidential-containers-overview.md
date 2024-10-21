@@ -42,7 +42,14 @@ The table below describes the most common use cases for deploying Confidential C
 
 Confidential Containers is a feature of Red Hat OpenShift sandboxed containers, which provide an isolated environment for running containerized applications. At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
 
-Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. This signifies that upon creating a Confidential Containers workload, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, thereby providing a secure and isolated environment for your sensitive data.
+Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. Upon creating a Confidential Containers workload, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, thereby providing a secure and isolated environment for your sensitive data.
+
+:::image type="content" source="media/confidential-containers-overview/confidential-containers-arch.png" alt-text="Architecture diagram of ARC confidential containers":::
+
+The diagram above shows the three main steps for using Confidential Containers on an ARO cluster:
+1. The OpenShift Sandboxed Containers Operator is deployed on the ARO cluster.
+1. Kata Runtime container on an ARO worker node uses the cloud-api-adapter to create a peer pod on a confidential VM.
+1. The remote attestation agent on the peer pod initiates the attestation of the container image before the data-agent deploys it, ensuring the integrity of the image.
 
 ### Attestation
 
@@ -59,8 +66,7 @@ The Trustee project provides the attestation capabilities essential for Confiden
 - Attestation Service (AS): This service validates the TEE evidence.
 
 ### The Confidential Compute Attestation Operator
-The confidential compute attestation operator, an integral component of the Azure Red Hat OpenShift Confidential Containers solution, facilitates the deployment and management of Trustee services within an Azure Red Hat OpenShift cluster. It streamlines the configuration of Trustee services and the management of secrets for Confidential Containers workloads.
-
+The confidential compute attestation Operator, an integral component of the Azure Red Hat OpenShift Confidential Containers solution, facilitates the deployment and management of Trustee services within an Azure Red Hat OpenShift cluster. It streamlines the configuration of Trustee services and the management of secrets for Confidential Containers workloads.
 
 ### A Unified Perspective
 
