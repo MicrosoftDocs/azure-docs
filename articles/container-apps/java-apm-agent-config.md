@@ -106,9 +106,6 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Prepare an image to set up Java agent and push to Azure Container Registry
 
-> [!TIP]
-> You can skip this step and use `croff.azurecr.io/app-insights-java-agent-setup:3.5.4` as the init-container image.
-
 1. Build setup image for Application Insights Java agent.
 
     Save the Dockerfile along with the setup script, and run `docker build` in the same directory.
@@ -170,6 +167,9 @@ The following commands help you define variables and ensure your Container Apps 
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
+
+> [!TIP]
+> You can find related code in this step from [Azure-Samples/azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples).
 
 ## Create a Container Apps environment and a Container App as the target Java app
 
