@@ -18,7 +18,7 @@ This article provides tables you can use to find the minimum subnet Classless In
 When you set up your network, consider the following points:
 
 - For Oracle Exadata Database@Azure, the minimum CIDR size is `/27`.
-- IP address ranges that are allocated to Oracle Exadata Database@Azure subnets and to Oracle Exadata Database@Azure VM clusters must not overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle Database@Azure.
+- IP address ranges that are allocated to Oracle Exadata Database@Azure subnets and to Oracle Exadata Database@Azure virtual machine clusters must not overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle Database@Azure.
 - For Exadata X9M: IP addresses `100.106.0.0/16` and `100.107.0.0/16` are reserved for the interconnect and can't be allocated to client or backup networks.
 
 Other requirements that are specific to client subnets and backup subnets are described in the next sections.
@@ -50,7 +50,7 @@ The following table shows scenarios of provisioned virtual machine clusters of v
 
 ### Virtual machine cluster scenarios: CIDR size required for the client subnet
 
-The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of each scenario that can fit in a client subnet depends on the CIDR size used by the subnet. This table doesn't show all possible scenarios.
+The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of each scenario that can fit in a client subnet depends on the CIDR size used by the subnet. The table doesn't show all possible scenarios.
 
 |Scenario|/27|/26|/25|/24|/23|/22|
 |--------|---|---|---|---|---|---|
@@ -74,7 +74,7 @@ A backup subnet has the following IP address requirements:
 
 ### Virtual machine cluster scenarios: CIDR size needed for the backup subnet
 
-The following table shows scenarios of provisioned virtual machine clusters of differing sizes. The number of each scenario that can fit in a backup subnet depends on the CIDR size that the subnet uses. This table doesn't display all possible scenarios.
+The following table shows scenarios of provisioned virtual machine clusters of different sizes. The number of each scenario that can fit in a backup subnet depends on the CIDR size that the subnet uses. The table doesn't display all possible scenarios.
 
 |Scenario|/28|/27|/26|/25|/24|/23|
 |--------|---|---|---|---|---|---|
@@ -87,12 +87,12 @@ The following table shows scenarios of provisioned virtual machine clusters of d
 
 ## Usable IP addresses for client and backup subnets by CIDR size
 
-The following table shows the number of IP addresses that are available for VM clusters and SCANs for various CIDR sizes, after you subtract the IP addresses that the networking services require.
+The following table shows the number of IP addresses that are available for virtual machine clusters and SCANs for various CIDR sizes, after you subtract the IP addresses that the networking services require.
 
 > [!TIP]
-> Allocating space for the subnet that's greater than the minimum required (for example, at least `/25` instead of `/27`) can help reduce the relative effect that required reserved IP addresses have on the subnet's available space.
+> Allocating more than the required space for the subnet (for example, at least `/25` instead of `/27`) can help reduce the relative effect that required reserved IP addresses have on the subnet's available space.
 
-|Subnet CIDR|Reserved networking IPs for client subnets|Usable IPs for client subnets (VMs and SCANs)|Reserved networking IPs for backup subnets|Usable IPs for backup subnets (VMs and SCANs)|
+|Subnet CIDR|Reserved networking IPs for client subnets|Usable IPs for client subnets (virtual machines and SCANs)|Reserved networking IPs for backup subnets|Usable IPs for backup subnets (virtual machines and SCANs)|
 |-----------|-----------------------------------------|-----------------------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
 |/28|17|0 (2^4 - 17)|3|13 (2^4 - 3)|
 |/27|17|15 (2^5 - 17)|3|29 (2^5 - 3)|

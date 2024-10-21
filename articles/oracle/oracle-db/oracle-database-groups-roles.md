@@ -1,6 +1,6 @@
 ---
-title: Groups and roles for Oracle Database@Azure
-description: Learn about groups and roles for Oracle Database@Azure.
+title: Groups and roles in Oracle Database@Azure
+description: Learn about groups and roles in Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
 
-# Groups and roles for Oracle Database@Azure
+# Groups and roles in Oracle Database@Azure
 
 This article lists groups and roles you use to manage access to Oracle Database@Azure. Using these groups and roles ensures that assigned users have the appropriate permissions to operate the service.
 
@@ -37,14 +37,14 @@ Use the following groups in your OCI tenancy:
 |odbaa-exa-cdb-administrators |Users of this group are administrators who manage Oracle Container Database (CDB) actions. |
 |odbaa-exa-pdb-administrators | Users of this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
 
-## Required IAM policies
+## Required Identity and Access Management policies
 
-The following IAM policies are required for each user and for each group in Oracle Database@Azure:
+The following Oracle Cloud Infrastructure Identity and Access Management (IAM) policies are required for each user and each group in Oracle Database@Azure:
 
 - `Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’`
 - `Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’`
 
-For information on working with policies, see [Getting started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
+For information on working with policies, [get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
 
 ## Related content
 

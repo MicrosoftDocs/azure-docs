@@ -1,6 +1,6 @@
 ---
-title: Region availability for Oracle Database@Azure
-description: Learn about region availability for Oracle Database@Azure.
+title: Region availability in Oracle Database@Azure
+description: Learn about region availability in Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -10,11 +10,13 @@ ms.custom: references-regions
 ms.author: jacobjaygbay
 ---
 
-# Region availability for Oracle Database@Azure
+# Region availability in Oracle Database@Azure
 
-Learn what Azure regions support Oracle Database@Azure.
+Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 
-## Asia Pacific (APAC)
+## Asia-Pacific (APAC)
+
+The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the APAC business region:
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
@@ -23,6 +25,8 @@ Learn what Azure regions support Oracle Database@Azure.
 | Korea Central  | South Korea Central(Seoul)  | ✓  |          ✓                      |
 
 ## Europe, Middle East, Africa (EMEA)
+
+The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the EMEA business region:
 
 |Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |------------|--|--------------------------|------------------------------|
@@ -33,6 +37,8 @@ Learn what Azure regions support Oracle Database@Azure.
 
 ## North America (NA)
 
+The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the NA business region:
+
 | Azure region   | OCI region                 | Oracle Exadata Database@Azure                    | Oracle Autonomous Database@Azure                      |
 | -------------- | -------------------|------------------------|------------------ |
 | East US        | US East (Ashburn)          | ✓   | ✓  |
@@ -40,11 +46,11 @@ Learn what Azure regions support Oracle Database@Azure.
 
 ## Disaster recovery regions available for Oracle Database@Azure
 
-The following Azure regions offer a single-zone disaster recovery solution for Oracle Database@Azure:
+The following table lists Azure regions and corresponding OCI regions that offer a single-zone disaster recovery solution for Oracle Database@Azure:
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
 | West US | US West (Phoenix)  | ✓  |          ✓  |
 
 > [!NOTE]
-> To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
+> To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. Learn how to [manage regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [subscribe to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
