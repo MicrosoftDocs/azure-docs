@@ -131,7 +131,7 @@ To configure the data export:
         "blocked": false
       },
       "component": "sensors",
-      "applicationId": "40a97c91-50cc-44f0-9f63-71386613facc",
+      "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "messageSource": "telemetry",
       "telemetry": [
         {
