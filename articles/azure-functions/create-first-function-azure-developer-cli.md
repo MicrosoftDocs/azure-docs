@@ -280,7 +280,7 @@ py -m venv .venv
     <http://localhost:7071/api/httpget>
 
 1. From a new terminal or command prompt window, run this `curl` command to send a POST request with a JSON payload to the `httppost` endpoint: 
-    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d @testdata.json
     ```
