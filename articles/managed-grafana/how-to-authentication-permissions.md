@@ -28,7 +28,7 @@ To enable a system-assigned managed identity:
 1. In the **System assigned (Preview)** tab, set the status for **System assigned** to **On**.
 
     > [!NOTE]
-    > Assigning multiple managed identities to a single Azure Managed Grafana resource isn't possible. If a user-assigned managed identity is already assigned to the Azure Managed Grafana resource, you must first remove the assignment from the **System assigned (Preview)** tab before you can enable the system-assigned managed identity.
+    > Assigning multiple managed identities to a single Azure Managed Grafana resource isn't possible. If a user-assigned managed identity is already assigned to the Azure Managed Grafana resource, you must first remove the assignment from the **User assigned (Preview)** tab before you can enable the system-assigned managed identity.
 
     > [!NOTE]
     > Disabling a system-assigned managed identity is irreversible. Each time you enable a system-assigned managed identity, Azure creates a new identity.
@@ -62,7 +62,7 @@ To assign a user-assigned managed identity:
     > [!NOTE]
     > You can only assign one user-assigned managed identity per Azure Managed Grafana instance.
 
-### Use a service principal
+## Use a service principal
 
 Azure Managed Grafana can also access data sources using service principals for authentication, using client IDs and secrets.
 
