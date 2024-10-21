@@ -43,7 +43,7 @@ Security content in the Microsoft Sentinel solution for Microsoft Power Platform
 
 Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
 
-For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter).
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
 
 ## What the solution includes
 
