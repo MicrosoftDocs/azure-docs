@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Connector V1 Deprecation – External FAQ 
+title: Connector Deprecation FAQ 
 description: Get answers to frequently asked questions about connector deprecation.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
@@ -10,7 +10,7 @@ ms.custom: references_regions
 ms.date: 10/17/2024
 ---
 
-# Azure Data Factory Connector V1 Deprecation – External FAQ 
+# Connector Deprecation FAQ
 
 ## 1. Why does Azure Data Factory (ADF) release new connectors and ask users to upgrade their existing connectors?
 
@@ -21,10 +21,9 @@ At Azure Data Factory (ADF), we are committed to continually enhancing our platf
  - Better supportability, ensuring quicker response times and bug fixes.
  - Enhanced security through a more robust application model
 
-
 ## 2. Which users should be concerned about this? 
 
-If your data factory includes any of the connectors listed in the parent article announcing the **End of Support**, you should plan to migrate to the newer version of the connector or explore alternative solutions before the deprecation/disabled date.
+If your data factory includes any of the connectors listed in the [parent article](connector-deprecation-plan.md) announcing the **End of Support**, you should plan to migrate to the newer version of the connector or explore alternative solutions before the deprecation/disabled date.
 
 Alternatively, you can check if you have any impacted objects in your data factory by navigating to **Manage → Linked Services** page. If you have any legacy connectors, an alert icon will be displayed beside those linked services.
 
@@ -67,7 +66,7 @@ There are three key deadlines outlined in our documentation:
 
 ## 6. What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
 
-If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at dfconnectorupgrade@microsoft.com with a description of the feature gap.
+If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap.
 
 If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
