@@ -296,7 +296,7 @@ sections:
         answer: |
           Yes, it's supported for [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options).
 
-      - question: How do I clear iSCSI session and it's processes after running the Python script for Linux ILR?
+      - question: How do I clear iSCSI session and its processes after running the Python script for Linux ILR?
         answer: |
           After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
