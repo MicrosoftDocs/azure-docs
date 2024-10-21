@@ -1,6 +1,6 @@
 ---
  title: IoT Edge one supported version - 1.4 only
- description: include file
+ description: Include file
  services: iot-edge
  author: PatAltimore
  ms.service: azure-iot-edge

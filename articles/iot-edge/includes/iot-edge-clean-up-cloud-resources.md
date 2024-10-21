@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: iot-edge
 author: PatAltimore
 ms.service: azure-iot-edge

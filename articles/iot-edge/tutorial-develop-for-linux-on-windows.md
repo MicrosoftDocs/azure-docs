@@ -508,7 +508,7 @@ Before deployment, you need to update your Azure Container Registry credentials,
    > [!TIP]
    > You can find your IoT Hub connection string in the Azure portal under **Azure IoT Hub** > **Security settings** > **Shared access policies**.
 
-1. In **Cloud Explorer**, right-click your edge device and refresh to confirm that the new module running, along with the `$edgeAgent` and `$edgeHub` modules.
+1. In **Cloud Explorer**, right-click your edge device and refresh to confirm that the new module is running, along with the `$edgeAgent` and `$edgeHub` modules.
 
 ::: zone-end
 
