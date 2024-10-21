@@ -34,6 +34,10 @@ Signing users out won't deallocate their VMs. To learn how to deallocate VMs, se
 
 Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Autoscale](autoscale-scaling-plan.md) for pooled and personal host pools.
 
+## Which VM states are supported by Start VM on Connect?
+
+Start VM on Connect to power back on a machine in either the Stopped, Stopped (Deallocated), or Hibernated (Deallocated) state.
+
 ## How does load balancing affect Start VM on Connect?
 
 For pooled host pools, Start VM on Connect will wait until all virtual machines hit their maximum session limit before turning on additional VMs.
