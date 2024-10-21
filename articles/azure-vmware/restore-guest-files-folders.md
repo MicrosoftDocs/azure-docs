@@ -1,14 +1,14 @@
 ---
-title: Restore guest files and folders
+title: Restore guest files and folders using Cloud Backup for Virtual Machines
 description: Learn how to restore files or folders from a virtual machine disk (VMDK) on a Windows guest OS. 
 ms.topic: how-to
 author: b-hchen
 ms.service: azure-vmware
-ms.date: 10/17/2024
+ms.date: 10/21/2024
 ms.custom: engagement-fy24
 ---
 
-# Restore guest files and folders 
+# Restore guest files and folders using Cloud Backup for Virtual Machines
 
 You can restore files or folders from a virtual machine disk (VMDK) on a Windows guest OS.
 
@@ -19,7 +19,7 @@ You can restore files or folders from a virtual machine disk (VMDK) on a Windows
   Cloud Backup for Virtual Machines uses information from VMware tools to establish a connection to the VMware Guest OS.
 
 * The Windows Guest OS must be running Windows Server 2008 R2 or later.
-* Credentials for the target virtual machine (VM) must specify the built-in domain administrator account or the built-in local administrator account. The username must be "Administrator." Before starting the restore operation, the credentials must be configured for the VM to which you want to attach the virtual disk. The credentials are required for both attaching the VM and the subsequent restore operation. Workgroup users can use the built-in local administrator account.
+* Credentials for the target virtual machine (VM) must specify the built-in domain administrator account or the built-in local administrator account. The username must be "Administrator." Before starting the restore operation, you must configure the credentials for the VM to which you want to attach the virtual disk. The credentials are required for both attaching the VM and the subsequent restore operation. Workgroup users can use the built-in local administrator account.
 
   >[!NOTE]
   > If you need to use an account other than the built-in administrator account, but has administrative privileges within the VM, you must disable user account control (UAC) on the guest VM.
@@ -46,7 +46,7 @@ You can restore files or folders from a virtual machine disk (VMDK) on a Windows
 
 ## Considerations for restoring guest files and folders
 
-Before you restore a file or folder from a guest OS, be aware of unsupported .
+Before you restore a file or folder from a guest OS, be aware of unsupported operations.
 
 * You can't restore dynamic disk types inside a guest OS.
 * If you restore an encrypted file or folder, the encryption attribute is not retained. You can't restore files or folders to an encrypted folder.
@@ -112,10 +112,10 @@ By default, the attached virtual disk is available for 24 hours. After 24 hours,
 
 10.	Select the **Browse Files** icon to view a list of files and folders on the virtual disk.
 
-    When you double click a folder to browse and select individual files, you can experience latency while fetching the list of files. The fetch 
+    When you select a folder to browse and select individual files, you can experience latency while fetching the list of files. The fetch 
     operation is performed at run time.
 
-    For easier browsing, you can use filters in your search string. The filters are case-sensitive Perl expressions without spaces. The default search string is .*
+    For easier browsing, you can use filters in your search string. The filters are case-sensitive Perl expressions without spaces. The default search string is `.*`.
     The Guest File Browse page displays all hidden files and folders in addition to all other files and folders.
 
 11.	Select one or more files or folders that you want to restore, then select **Select Restore Location**.
