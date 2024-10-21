@@ -91,6 +91,14 @@ docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "
 
 After you run these commands, you should have a local SQL Server running on Docker and listening on port 1443. If port 1443 conflicts with another service, you can rerun these commands after you change the variable `$port` to a different value.
 
+If you receive this error when running the last command:
+
+```
+Error response from daemon: OCI runtime exec failed: exec failed: unable to start container process: exec: "/opt/mssql-tools/bin/sqlcmd": stat /opt/mssql-tools/bin/sqlcmd: no such file or directory: unknown
+```
+
+It's likely that the folder `/opt/mssql-tools/bin/sqlcmd` does not exist. Open Docker Desktop, select  your SQL Server Docker container, select Files and browse for the mssql-tools folder. This folder might have a different name, such as `/opt/mssql-tools18/bin/sqlcmd`. Update the last line of code accordingly and run it gain.
+
 > [!NOTE]
 > To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container and to stop the container when you finish this quickstart. For more assistance, run `docker --help`.
 
