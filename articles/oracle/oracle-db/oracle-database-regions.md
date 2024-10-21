@@ -1,6 +1,6 @@
 ---
-title: Available regions for Oracle Database@Azure
-description: Learn about available regions for Oracle Database@Azure.
+title: Region availability for Oracle Database@Azure
+description: Learn about region availability for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -10,15 +10,17 @@ ms.custom: references-regions
 ms.author: jacobjaygbay
 ---
 
-# Available regions for Oracle Database@Azure
+# Region availability for Oracle Database@Azure
 
-Learn what Azure regions offer Oracle Database@Azure.
+Learn what Azure regions support Oracle Database@Azure.
 
 ## Asia Pacific (APAC)
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
+| Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
+| Korea Central  | South Korea Central(Seoul)  | ✓  |          ✓                      |
 
 ## Europe, Middle East, Africa (EMEA)
 
@@ -35,6 +37,14 @@ Learn what Azure regions offer Oracle Database@Azure.
 | -------------- | -------------------|------------------------|------------------ |
 | East US        | US East (Ashburn)          | ✓   | ✓  |
 | Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ |
+
+## Disaster recovery regions available for Oracle Database@Azure
+
+The following Azure regions offer a single-zone disaster recovery solution for Oracle Database@Azure:
+
+| Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
+|----------------|--------------------------|-------------------|-------------------|
+| West US | US West (Phoenix)  | ✓  |          ✓  |
 
 > [!NOTE]
 > To provision Oracle Database@Azure resources in a supported region, your  tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
