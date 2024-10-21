@@ -169,7 +169,7 @@ You need to set the connection string of this storage account as the `AzureWebJo
 
 Deployments to an app running in the Flex Consumption plan require a container in Azure Blob Storage as the deployment source. You can use either the default storage account or you can specify a separate storage account. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings). 
 
-This deployment account must already be configured when you create your app, including the specific container used for deployments. To learn more about configuring deployments, see [Deployment sources](#deployment-sources-2).
+This deployment account must already be configured when you create your app, including the specific container used for deployments. To learn more about configuring deployments, see [Deployment sources](#deployment-sources).
 
 This example shows how to create a container in the storage account:
 
@@ -187,7 +187,7 @@ For the snippet in context, see [this deployment example](https://github.com/Azu
 
 ---
 
-Other deployment settings are [configured with the app itself](#deployment-sources-2). 
+Other deployment settings are [configured with the app itself](#deployment-sources). 
 
 ::: zone-end  
 ### Enable storage logs
@@ -1243,8 +1243,6 @@ For a complete reference example, see [this ARM template](https://github.com/Azu
 When using a connection string instead of managed identities, you need to instead set the `authentication.type` to `StorageAccountConnectionString` and set `authentication.storageAccountConnectionStringName` to the name of the application setting that contains the deployment storage account connection string.  
 ::: zone-end  
 ::: zone pivot="consumption-plan"  
-## Deployment sources
-
 Your Bicep file or ARM template can optionally also define a deployment for your function code using a [zip deployment package](./deployment-zip-push.md).  
 ::: zone-end  
 ::: zone pivot="dedicated-plan,premium-plan,consumption-plan" 
@@ -1752,12 +1750,11 @@ These site settings are required on the `siteConfig` property:
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 ::: zone-end  
 ::: zone pivot="dedicated-plan,premium-plan,azure-arc,container-apps"  
-
-These site settings are only required when using managed identities to obtain an image from an Azure Container Registry instance:
+These site settings are required only when using managed identities to obtain the image from an Azure Container Registry instance:
 
 + [`AcrUseManagedIdentityCreds`](functions-app-settings.md#acrusemanagedidentitycreds)
 + [`AcrUserManagedIdentityID`](functions-app-settings.md#acrusermanagedidentityid)
-
+::: zone-end
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 These application settings are required (or recommended) for a specific operating system and hosting option:
 ::: zone-end  

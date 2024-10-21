@@ -107,7 +107,7 @@ Keep in mind the following considerations when deploying your function app conta
 + You can use managed identities for these connections:
     + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
     + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
-    + [Required host storage connection](functions-identity-based-connections-tutorial) 
+    + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
 + When either your function app and Azure Container Registry-based deployment use managed identity-based connections, you can't modify the CPU and memory allocation settings in the portal. You must instead [use the Azure CLI](functions-how-to-custom-container.md?tabs=acr%2Cazure-cli2%2Cazure-cli&pivots=container-apps#container-apps-workload-profiles).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
