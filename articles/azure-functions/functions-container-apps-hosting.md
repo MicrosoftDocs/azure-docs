@@ -104,7 +104,10 @@ Keep in mind the following considerations when deploying your function app conta
     + The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes). 
     + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the Kafka trigger won't be able to cause the app to scale dynamically.  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
-+ You can use managed identities both for [trigger and binding connections](functions-reference.md#configure-an-identity-based-connection) and for [deployments from an Azure Container Registry](https://azure.github.io/AppService/2021/07/03/Linux-container-from-ACR-with-private-endpoint.html#using-user-assigned-managed-identity). 
++ You can use managed identities for these connections:
+    + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
+    + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
+    + [Required host storage connection](functions-identity-based-connections-tutorial) 
 + When either your function app and Azure Container Registry-based deployment use managed identity-based connections, you can't modify the CPU and memory allocation settings in the portal. You must instead [use the Azure CLI](functions-how-to-custom-container.md?tabs=acr%2Cazure-cli2%2Cazure-cli&pivots=container-apps#container-apps-workload-profiles).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
