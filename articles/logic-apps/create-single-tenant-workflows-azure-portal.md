@@ -447,7 +447,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
 
-1. On your Standard logic app, enable runtime scale monitoring IF your logic app uses the Workflow Service Plan hosting option:
+1.  If your Standard logic app uses the hosting option named **Workflow Service Plan**, enable runtime scale monitoring:
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
 
