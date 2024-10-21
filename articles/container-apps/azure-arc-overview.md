@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 09/23/2024
+ms.date: 10/21/2024
 ms.author: cshoe
 ---
 
@@ -221,6 +221,16 @@ Arm64 based clusters aren't supported at this time.
  ### Container Apps extension v1.37.1 (July 2024)
 
  - Update EasyAuth to support MISE
+
+ ### Container Apps extension v1.37.2 (September 2024)
+
+  - Updated Dapr-Metrics image to v0.6.8 to resolve network timeout issue
+  - Resolved issue in Log Processor which prevented MDSD container from starting when cluster is connected behind a Proxy
+
+ ### Container Apps extension v1.37.7 (October 2024)
+
+  - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
+  - Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
 
 ## Next steps
 

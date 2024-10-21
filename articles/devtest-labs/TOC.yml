@@ -4,6 +4,9 @@
   items:
   - name: What is DevTest Labs?
     href: devtest-lab-overview.md
+  - name: Roadmap for Azure DevTest Labs
+    displayName: roadmap, future, features, enhancements, coming soon, in development
+    href: devtest-labs-roadmap.md
 - name: Quickstart
   items:
   - name: Create a lab - Portal

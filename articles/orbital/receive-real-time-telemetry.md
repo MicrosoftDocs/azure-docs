@@ -1,14 +1,14 @@
 ---
 title: Receive real-time telemetry - Azure Orbital
-description: Learn how to receive real-time telemetry during contacts.
+description: Learn how to receive real-time telemetry during contacts. Configure your contact profile to send telemetry events to Azure Event Hubs.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: mikailasmith
+ms.author: mosagie
 ---
-
+ 
 # Receive real-time antenna telemetry
 
 Azure Orbital Ground station emits antenna telemetry events that can be used to analyze ground station operation during a contact. You can configure your contact profile to send telemetry events to [Azure Event Hubs](../event-hubs/event-hubs-about.md).. 

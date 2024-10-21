@@ -5,7 +5,7 @@ description: Learn how to use distributed tracing to trace IoT messages througho
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 02/29/2024
 ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]

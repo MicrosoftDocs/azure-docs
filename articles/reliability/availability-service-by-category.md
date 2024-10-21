@@ -7,7 +7,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Available services by region types and categories 
@@ -121,6 +121,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: HBv3-series                        |
 > | Virtual Machines: HCv1-series                        |
 > | Virtual Machines: LSv2-series                        |
+> | Virtual Machines: LSv3-series                        |
 > | Virtual Machines: Mv2-series                         |
 > | Virtual Machines: NCv3-series                        |
 > | Virtual Machines: NCasT4 v3-series                   |

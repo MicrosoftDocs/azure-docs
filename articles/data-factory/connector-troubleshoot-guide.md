@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.author: jianleishen
 ms.custom: synapse
 ---
@@ -29,7 +29,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 - [DB2](connector-troubleshoot-db2.md)
 - [Delimited text format](connector-troubleshoot-delimited-text.md)
 - [Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
-- [FTP, SFTP and HTTP](connector-troubleshoot-ftp-sftp-http.md)
+- [FTP, SFTP, and HTTP](connector-troubleshoot-ftp-sftp-http.md)
 - [Hive](connector-troubleshoot-hive.md)
 - [Oracle](connector-troubleshoot-oracle.md)
 - [ORC format](connector-troubleshoot-orc.md)
@@ -41,7 +41,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 
 ## General copy activity errors
 
-The errors below are general to the copy activity and could occur with any connector.
+The following errors are general to the copy activity and could occur with any connector.
 
 #### Error code: 20000
 
@@ -56,9 +56,9 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Message**: `An error occurred when invoking Java Native Interface.`
 
-- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the possible cause is that JVM can't be created because some illegal (global) arguments are set.
+- **Cause**: If the error message contains "Can't create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]," the possible cause is that JVM can't be created because some illegal (global) arguments are set.
 
-- **Recommendation**: Log in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
+- **Recommendation**: Sign in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
 
 #### Error code: 20020
 
@@ -75,9 +75,9 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Cause**: This error might occur when you copy data with connectors such as Azure Blob, SFTP, and so on. Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that copy activity depends on are blocked in some scenarios.
 
-- **Resolution**: Learn [why we’re not recommending “FIPS Mode” anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
+- **Resolution**: Learn [why we’re not recommending "FIPS Mode" anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
 
-    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, do the following:
+    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, take the following steps:
 
     1. Open the folder where Self-hosted IR is installed. The path is usually *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 
@@ -105,9 +105,9 @@ The errors below are general to the copy activity and could occur with any conne
 
 #### Error code: 20152
 
-- **Message**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+- **Message**: `The token type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
 
-- **Cause**: Your authorization server is not supported.
+- **Cause**: Your authorization server isn't supported.
 
 - **Recommendation**: Use an authorization server that can return tokens with supported token types.
 
@@ -129,7 +129,7 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Message**: `The format settings are missing in dataset %dataSetName;.`
 
-- **Cause**: The dataset type is Binary, which is not supported.
+- **Cause**: The dataset type is Binary, which isn't supported.
 
 - **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
 
@@ -147,13 +147,13 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Message**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
 
-- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+- **Cause**: There's a transient issue on the sink data store, or retrieving metadata from the sink data store isn't allowed.
 
 #### Error code: 20703
 
 - **Message**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
 
-- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+- **Cause**: There's a transient issue on the sink data store, or retrieving metadata from the sink data store isn't allowed.
 
 #### Error code: 20704
 
@@ -245,15 +245,15 @@ The errors below are general to the copy activity and could occur with any conne
  
 - **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
 
-- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
+- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute nonquery scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your nonquery scripts.
 
 #### Error code: 11775
 
 - **Message**: `Failed to connect to your instance of Azure Database for PostgreSQL flexible server. '%'`
  
-- **Cause**: Exact cause depends on the text returned in `'%'`. If it is **The operation has timed out**, it can be because the instance of PostgreSQL is stopped or because the network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected. User or password provided are incorrect. If it is **28P01: password authentication failed for user "*youruser*"**, it means that the user provided doesn't exist in the instance or that the password is incorrect. If it is **28000: no pg_hba.conf entry for host "*###.###.###.###*", user "*youruser*", database "*yourdatabase*", no encryption**, it means that the encryption method selected is not compatible with the configuration of the server.
+- **Cause**: Exact cause depends on the text returned in `'%'`. If it's **The operation has timed out**, it can be because the instance of PostgreSQL is stopped or because the network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected. User or password provided is incorrect. If it's **28P01: password authentication failed for user &lt;youruser&gt;**, it means that the user provided doesn't exist in the instance or that the password is incorrect. If it's **28000: no pg_hba.conf entry for host "*###.###.###.###*", user "&lt;youruser&gt;", database "&lt;yourdatabase&gt;", no encryption**, it means that the encryption method selected isn't compatible with the configuration of the server.
 
-- **Recommendation**: Confirm that the user provided exists in your instance of PostgreSQL and that the password corresponds to the one currently assigned to that user. Make sure that the encryption method selected is accepted by your instance of PostgreSQL, based on its current configuration. If the network connectivity method of your instance is configured for Private access (VNet integration), use a Self-Hosted Integration Runtime (IR) to connect to it. If it is configured for Public access (allowed IP addresses), it is recommended to use an Azure IR with managed virtual network and deploy a managed private endpoint to connect to your instance. When it is configured for Public access (allowed IP addresses) a less recommended alternative consists in creating firewall rules in your instance to allow traffic originating on the IP addresses used by the Azure IR you're using.
+- **Recommendation**: Confirm that the user provided exists in your instance of PostgreSQL and that the password corresponds to the one currently assigned to that user. Make sure that the encryption method selected is accepted by your instance of PostgreSQL, based on its current configuration. If the network connectivity method of your instance is configured for Private access (virtual network integration), use a Self-Hosted Integration Runtime (IR) to connect to it. If it's configured for Public access (allowed IP addresses), it's recommended to use an Azure IR with managed virtual network and deploy a managed private endpoint to connect to your instance. When it's configured for Public access (allowed IP addresses) a less recommended alternative consists in creating firewall rules in your instance to allow traffic originating on the IP addresses used by the Azure IR you're using.
 
 ## Related content
 

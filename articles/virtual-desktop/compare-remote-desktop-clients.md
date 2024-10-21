@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/16/2024
+ms.date: 10/08/2024
 ---
 
 # Compare Remote Desktop app features across platforms and devices
@@ -191,7 +191,6 @@ The following table compares which display features are supported on which platf
 1. Up to 16 monitors.
 ::: zone-end
 
-
 ::: zone pivot="remote-desktop-services,remote-pc"
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -244,7 +243,7 @@ The following table provides a description for each of the multimedia features:
 ::: zone pivot="azure-virtual-desktop"
 | Feature | Description |
 |--|--|
-| [Multimedia redirection](multimedia-redirection-intro.md) | Redirect media content from the desktop or app to the physical machine for faster processing and rendering. |
+| [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop) | Redirect video playback and calls from the desktop or app to the physical machine for faster processing and rendering. |
 | [Teams media optimizations](teams-on-avd.md) | Optimized Microsoft Teams calling and meeting experience. |
 
 ::: zone-end
@@ -252,11 +251,10 @@ The following table provides a description for each of the multimedia features:
 ::: zone pivot="windows-365,dev-box"
 | Feature | Description |
 |--|--|
-| Multimedia redirection | Redirect media content from the Cloud PC or dev box to the physical machine for faster processing and rendering. |
+| [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=windows-365) | Redirect video playback and calls from the Cloud PC or dev box to the physical machine for faster processing and rendering. |
 | [Teams media optimizations](/windows-365/enterprise/teams-on-cloud-pc) | Optimized Microsoft Teams calling and meeting experience. |
 
 ::: zone-end
-
 
 ## Redirection
 
@@ -609,11 +607,19 @@ The following table shows which security features are available on each platform
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
 
 ::: zone-end
 
-::: zone pivot="windows-365,dev-box"
+::: zone pivot="windows-365"
+| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+|--|:-:|:-:|:-:|:-:|:-:|
+| Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+
+::: zone-end
+
+::: zone pivot="dev-box"
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |

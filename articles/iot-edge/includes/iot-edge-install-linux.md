@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 06/14/2024
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
@@ -16,6 +16,9 @@ Run the following commands to add the package repository and then add the Micros
 
 > [!IMPORTANT]
 > On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -190,7 +193,6 @@ The following steps show you how to configure your container to use [`local` log
 Currently, the local logging driver setting is not supported for the Docker snap.
 
 ---
-
 
 ### Install the IoT Edge runtime
 

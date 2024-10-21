@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/22/2024
+ms.date: 10/18/2024
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
@@ -155,10 +155,8 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [Create an account SAS with Java](../common/storage-account-sas-create-java.md)
-- [Create a service SAS for a container with Java](sas-service-create-java-container.md)
-- [Create a service SAS for a blob with Java](sas-service-create-java.md)
-- [Create a user delegation SAS for a container with Java](storage-blob-container-user-delegation-sas-create-java.md)
-- [Create a user delegation SAS for a blob with Java](storage-blob-user-delegation-sas-create-java.md)
+- [Create a service SAS with Java](sas-service-create-java.md)
+- [Create a user delegation SAS with Java](storage-blob-user-delegation-sas-create-java.md)
 
 > [!NOTE]
 > For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
@@ -180,6 +178,20 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ---
 
+## Configure the JVM TTL for DNS name lookups
+
+The Java Virtual Machine (JVM) caches responses from successful DNS name lookups for a specified period of time, known as time-to-live (TTL). The default TTL value for many JVMs is `-1`, which means that the JVM caches the response indefinitely, or until the JVM is restarted.
+
+Because Azure resources use DNS name entries that can change, we recommend that you set the JVM TTL value to 10 seconds. This configuration ensures that an updated IP address for a resource is returned with the next DNS query.
+
+To change the TTL value globally for all applications using the JVM, set the `networkaddress.cache.ttl` property in the `java.security` file.
+
+```plaintext
+networkaddress.cache.ttl=10
+```
+
+For Java 8, the `java.security` file is located in the `$JAVA_HOME/jre/lib/security` directory. For Java 11 and higher, the file is located in the `$JAVA_HOME/conf/security` directory.
+
 ## Build your app
 
 As you build apps to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
@@ -191,11 +203,10 @@ The following guides show you how to access data and perform specific actions us
 | [Configure a retry policy](storage-retry-policy-java.md) | Implement retry policies for client operations. |
 | [Copy blobs](storage-blob-copy-java.md) | Copy a blob from one location to another. |
 | [Create a container](storage-blob-container-create-java.md) | Create blob containers. |
-| [Create a user delegation SAS (blobs)](storage-blob-user-delegation-sas-create-java.md) | Create a user delegation SAS for a blob. |
-| [Create a user delegation SAS (containers)](storage-blob-container-user-delegation-sas-create-java.md) | Create a user delegation SAS for a container. |
+| [Create a user delegation SAS](storage-blob-user-delegation-sas-create-java.md) | Create a user delegation SAS for a container or blob. |
 | [Create and manage blob leases](storage-blob-lease-java.md) | Establish and manage a lock on a blob. |
 | [Create and manage container leases](storage-blob-container-lease-java.md) | Establish and manage a lock on a container. |
-| [Delete and restore](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Delete and restore blobs](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Delete and restore containers](storage-blob-container-delete-java.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
 | [Download blobs](storage-blob-download-java.md) | Download blobs by using strings, streams, and file paths. |
 | [Find blobs using tags](storage-blob-tags-java.md) | Set and retrieve tags as well as use tags to find blobs. |

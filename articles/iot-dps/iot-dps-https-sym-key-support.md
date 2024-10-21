@@ -5,10 +5,11 @@ author: kgremban
 ms.author: kgremban
 ms.date: 10/27/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 services: iot-dps
 manager: lizross
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to use symmetric keys over HTTPS without an SDK

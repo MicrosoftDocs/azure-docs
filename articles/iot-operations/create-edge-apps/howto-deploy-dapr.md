@@ -7,6 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
 ms.date: 07/02/2024
+ms.service: azure-iot-operations
 ---
 
 # Deploy Dapr pluggable components
@@ -48,8 +49,8 @@ To create the yaml file, use the following component definitions:
 > | `metadata:annotations:dapr.io/component-container` | Component annotations used by Dapr sidecar injector, defining the image location, volume mounts and logging configuration |
 > | `spec:type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
 > | `spec:metadata:keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See more information, see [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
-> | `spec:metadata:hostname` | The MQTT broker hostname. Default is `aio-mq-dmqtt-frontend` |
-> | `spec:metadata:tcpPort` | The MQTT broker port number. Default is `8883` |
+> | `spec:metadata:hostname` | The MQTT broker hostname. Default is `aio-broker` |
+> | `spec:metadata:tcpPort` | The MQTT broker port number. Default is `18883` |
 > | `spec:metadata:useTls` |  Define if TLS is used by the MQTT broker. Default is `true` |
 > | `spec:metadata:caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
 > | `spec:metadata:satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
@@ -69,7 +70,7 @@ To create the yaml file, use the following component definitions:
             "image": "ghcr.io/azure/iot-operations-dapr-components:latest",
             "volumeMounts": [
               { "name": "mqtt-client-token", "mountPath": "/var/run/secrets/tokens" },
-              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-mq-ca-cert" }
+              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-internal-ca-cert" }
             ],
             "env": [
                 { "name": "pubSubLogLevel", "value": "Information" },
@@ -82,13 +83,13 @@ To create the yaml file, use the following component definitions:
       version: v1
       metadata:
       - name: hostname
-        value: aio-mq-dmqtt-frontend
+        value: aio-broker
       - name: tcpPort
-        value: 8883
+        value: 18883
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token
     ---
@@ -102,13 +103,13 @@ To create the yaml file, use the following component definitions:
       version: v1
       metadata:
       - name: hostname
-        value: aio-mq-dmqtt-frontend
+        value: aio-broker
       - name: tcpPort
-        value: 8883
+        value: 18883
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token    
     ```

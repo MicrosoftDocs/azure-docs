@@ -2,7 +2,7 @@
 title: End-to-end security in Azure | Microsoft Docs
 description: The article provides a map of Azure services that help you secure and protect your cloud resources and detect and investigate threats.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -10,7 +10,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 06/28/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # End-to-end security in Azure

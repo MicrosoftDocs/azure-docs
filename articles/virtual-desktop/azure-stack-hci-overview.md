@@ -4,13 +4,14 @@ description: Learn about using Azure Virtual Desktop on Azure Stack HCI, enablng
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/11/2024
+ms.date: 09/17/2024
 ---
 
 # Azure Virtual Desktop on Azure Stack HCI
 
 > [!IMPORTANT]
-> Azure Virtual Desktop on Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>- Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure operated by 21Vianet (Azure in China) is currently in preview with HCI version 22H2. Portal provisioning isn't available.
+>- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 Using Azure Virtual Desktop on Azure Stack HCI, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
@@ -77,7 +78,7 @@ Azure Virtual Desktop on Azure Stack HCI has the following limitations:
 
 - Azure Stack HCI supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
 
-- You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services domain.
+- You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
 ## Next step
 

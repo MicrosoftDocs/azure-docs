@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 09/17/2024
+ms.date: 09/27/2024
 ms.author: anfdocs
 ---
 
@@ -14,11 +14,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Migrate on-premises volumes](migrate-on-premises-volumes.md) (Preview)
+* The [migrate on-premises volumes](migrate-on-premises-volumes.md) feature is now generally available (GA)
 
     <!-- What's new pending -->
 
+  
 ## September 2024 
+
+* [Dynamic service level change enhancement:](dynamic-change-volume-service-level.md) shortened wait time for changing to lower service levels
+
+    To address rapidly changing performance requirements, Azure NetApp Files allows [dynamic service level changes of volumes](dynamic-change-volume-service-level.md). The wait time for moving Azure NetApp Files volumes to a lower service level (after first moving service levels upwards) is now 24 hours (a change from the original seven days) enabling you to more actively benefit from this cost optimization capability. 
 
 * [Reserved capacity](reservations.md) is now generally available (GA)
 

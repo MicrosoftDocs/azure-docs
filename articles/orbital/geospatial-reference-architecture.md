@@ -1,12 +1,12 @@
 ---
 title: Geospatial reference architecture - Azure Orbital
-description: Show how to architect end-to-end geospatial data on Azure.
+description: A high-level approach to using cloud-native capabilities, open-source and commercial software options to architect end-to-end geospatial data on Azure.
 author: TaylorCorbett
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 06/13/2022
-ms.author: gecorbet
+ms.author: mosagie
 #Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
 ---
 # End-to-end geospatial storage, analysis, and visualization
