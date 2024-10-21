@@ -164,9 +164,6 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |KubeletRunningPods|Kubelet|Kubelet Running Pods|Count|Number of pods running on the node. In the absence of data, this metric will retain the most recent value emitted|Host|
 |KubeletRuntimeOperationsErrorsTotal|Kubelet|Kubelet Runtime Operations Errors Total|Count|Cumulative number of runtime operation errors by operation type. In the absence of data, this metric will retain the most recent value emitted|Host, Operation Type|
 |KubeletStartedPodsErrorsTotal|Kubelet|Kubelet Started Pods Errors Total|Count|Cumulative number of errors when starting pods. In the absence of data, this metric will retain the most recent value emitted|Host|
-|KubeletVolumeStatsAvailableBytes|Kubelet|Volume Available Bytes|Bytes|Number of available bytes in the volume. In the absence of data, this metric will retain the most recent value emitted|Host, Namespace, Persistent Volume Claim|
-|KubeletVolumeStatsCapacityBytes|Kubelet|Volume Capacity Bytes|Bytes|Capacity of the volume. In the absence of data, this metric will retain the most recent value emitted|Host, Namespace, Persistent Volume Claim|
-|KubeletVolumeStatsUsedBytes|Kubelet|Volume Used Bytes|Bytes|Number of used bytes in the volume. In the absence of data, this metric will retain the most recent value emitted|Host, Namespace, Persistent Volume Claim|
 
 ### ***Kubernetes Node***
 
