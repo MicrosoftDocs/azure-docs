@@ -21,7 +21,7 @@ For more information on reference implementations for Terraform or OpenTofu modu
 > [!NOTE]
 > This article describes examples of provisioning and management of Oracle Database@Azure resources through the Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
 
-The samples use example values for illustration purposes. You must replace them with your own settings.
+The samples use example values for illustration purposes. You must replace the placeholder example values with settings from your scenario.
 
 The samples use [AzAPI Dynamic Properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
 

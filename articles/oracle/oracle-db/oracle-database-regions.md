@@ -47,4 +47,4 @@ The following Azure regions offer a single-zone disaster recovery solution for O
 | West US | US West (Phoenix)  | ✓  |          ✓  |
 
 > [!NOTE]
-> To provision Oracle Database@Azure resources in a supported region, your  tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
+> To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. For more information, see [Managing regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [Subscribing to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
