@@ -8,7 +8,8 @@ metadata:
   ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: synapse-link
-  ms.date: 08/06/2024
+  ms.date: 10/21/2024
+  ms.custom: references_regions
 title: Azure Synapse Link for SQL FAQ
 summary: In this guide, find the most frequently asked questions for Azure Synapse Link for SQL.
 
