@@ -184,7 +184,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 ### [Using PowerShell script](#tab/limit-policy)
 
 1. For File Content changes-based settings, you must migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
-1. Any VM with > 100 file/registry settings for migration via Azure Portal isn't supported.
+1. Any VM with > 100 file/registry settings for migration via Azure portal isn't supported.
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ---
