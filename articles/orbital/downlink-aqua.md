@@ -2,7 +2,7 @@
 title: Downlink data from public satellites 
 description: Learn how to schedule a contact with public satellites by using the Azure Orbital Ground Station service.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022

@@ -2,7 +2,7 @@
 title: Azure Orbital Ground Station - Get started
 description: How to get started with Azure Orbital Ground Station, used to communicate with a private satellite or a selection of public satellites.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: overview
 ms.custom: ga
 ms.date: 8/4/2023
