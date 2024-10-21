@@ -115,10 +115,6 @@ The following features are available when you use .NET for Apache Spark in the A
 
 ## Troubleshooting
 
-### `DotNetRunner: null` / `Futures timeout` in Synapse Spark Job Definition Run
-
-Synapse Spark Job Definitions on Spark Pools using [Spark 2.4](./apache-spark-24-runtime.md) require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
-
 ### OutOfMemoryError: java heap space at org.apache.spark
 
 Dotnet Spark 1.0.0 uses a different debug architecture than 1.1.1+. You will have to use 1.0.0 for your published version and 1.1.1+ for local debugging.
