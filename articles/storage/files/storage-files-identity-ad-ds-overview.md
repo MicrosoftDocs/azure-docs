@@ -45,7 +45,7 @@ To help you set up identity-based authentication for some common use cases, we p
 
 | Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|
-| [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-ad-ds-overview/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-ad-ds-overview/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+| [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-ad-ds-overview/replace-on-premises-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-ad-ds-overview/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
 ## Prerequisites
 
