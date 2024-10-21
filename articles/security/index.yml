@@ -9,10 +9,10 @@ metadata:
   description: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
   ms.service: security
   ms.topic: hub-page
-  author: TerryLanfear
-  ms.author: terrylan
+  author: msmbaldwin
+  ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 09/14/2023
+  ms.date: 10/20/2024
 
 highlightedContent:
   items:
