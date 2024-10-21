@@ -2,7 +2,7 @@
 title: Prepare for launch and early operations
 description: Steps to prepare for an upcoming satellite launch and acquire your satellite with Azure Orbital Ground Station.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023
