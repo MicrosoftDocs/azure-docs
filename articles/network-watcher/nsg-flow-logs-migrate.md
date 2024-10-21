@@ -39,6 +39,10 @@ In this article, you learn how to migrate your existing network security group f
 
 - Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log).
 
+- PowerShell environment in [Azure Cloud Shell](https://shell.azure.com) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../cloud-shell/quickstart-powershell.md). 
+
+	- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell version 7.4.0 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). Run `Connect-AzAccount` to sign in to Azure.
+
 ## Generate migration script
 
 In this section, you learn how to generate and download the migration files for the network security group flow logs that you want to migrate. 
