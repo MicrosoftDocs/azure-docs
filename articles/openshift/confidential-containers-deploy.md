@@ -14,7 +14,6 @@ ms.custom: template-how-to
 
 This article describes the steps required to deploy Confidential Containers for an ARO cluster. This process involves two main parts and multiple steps:
 
-
 **Part 1: Deploy OpenShift Sandboxed Containers**
 
 1. [Install the OpenShift Sandboxed Containers Operator](#install-the-openshift-sandboxed-containers-operator).    
@@ -81,6 +80,15 @@ This article describes the steps required to deploy Confidential Containers for 
 1.	[Verify the attestation process](#verify-the-attestation-process).
     
     Create a test pod and retrieve its secret to verify the attestation process.
+
+## Prerequisites
+
+- An existing ARO cluster with at least one worker node
+
+- Access to the cluster with the `cluster-admin` role
+
+- The [OpenShift CLI installed](howto-create-private-cluster-4x.md#install-the-openshift-cli)
+
 
 ## Part 1: Deploy OpenShift sandboxed containers
 
