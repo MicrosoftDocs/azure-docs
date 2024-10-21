@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/07/2024
+ai.usage: ai-assisted
+ms.date: 10/21/2024
 ---
 
 # Call Azure Functions from workflows in Azure Logic Apps
@@ -89,9 +90,9 @@ This how-to guide shows how to call an existing Azure function from your Consump
     > The **`body`** property here applies to the **`context`** object and isn't the same as 
     > the **Body** token in an action's output, which you might also pass to your function.
 
-  - Your function can't use custom routes unless you defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
+  - Your function can't use custom routes unless you defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md).
 
-    When you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when you work with function parameters. Before your workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
+    When you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when you work with function parameters. Before your workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#open-ai-definition).
 
 - A Consumption or Standard logic app workflow that starts with any trigger.
 
@@ -103,11 +104,11 @@ This how-to guide shows how to call an existing Azure function from your Consump
 
 ## Tips for working with Azure functions
 
-<a name="function-swagger"></a>
+<a name="open-ai-definition"></a>
 
-### Generate an OpenAPI definition or Swagger file for your function
+### Find functions with OpenAPI definitions
 
-For a richer experience when you work with function parameters in the workflow designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md) or [Swagger file](https://swagger.io/) for your function. To set up your function app so that your workflow can find and use functions that have Swagger descriptions, follow these steps:
+To set up your function app so that your workflow can find and use functions that have OpenAPI definitions, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your function app. Make sure that the function app is actively running.
 
@@ -148,6 +149,16 @@ Here's what happens inside this function:
 
 After you create your function in Azure, follow the steps to [add an Azure function to your workflow](#add-function-logic-app).
 
+### Pass URI parameters to a function
+
+If you have to pass a URI parameter to your function, you can use query parameters in the function's endpoint URL, for example:
+
+1. In the workflow designer with the function information pane open, open the **Advanced parameters** list, select **Queries**.
+
+   A row appears where you can enter parameter input as key-value pairs, for example:
+
+   :::image type="content" source="media/call-azure-functions-from-workflows/queries-parameter.png" alt-text="Screenshot shows function information pane with Queries parameter and example key-value inputs.":::
+
 <a name="add-function-logic-app"></a>
 
 ## Add a function to your workflow (Consumption + Standard workflows)
@@ -160,19 +171,19 @@ To call an Azure function from your workflow, you can add that functions like an
 
 1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. In the **Create Connection** pane, follow these steps:
+1. In the **Add an action** pane, follow these steps:
 
-   1. Provide a **Connection Name** for the connection to your function app.
+   1. From the function apps list, select your function app, select the function, and then select **Add action**, for example:
 
-   1. From the function apps list, select your function app.
+      :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-consumption.png" alt-text="Screenshot shows Consumption workflow with a selected function app and function.":::
 
-   1. From the functions list, select the function, and then select **Add Action**, for example:
+1. After the function's information box appears, follow these steps:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-consumption.png" alt-text="Screenshot shows Consumption workflow with a selected function app and function." lightbox="media/call-azure-functions-from-workflows/select-function-app-function-consumption.png":::
+   1. For **Request Body**, provide your function's input, which must use the format for a JavaScript Object Notation (JSON) object, for example:
 
-1. In the selected function's action box, follow these steps:
+      `{"context": <selected-input> }`
 
-   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
+      This input is the *context object* payload or message that your workflow sends to your function.
 
       - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
 
@@ -180,15 +191,15 @@ To call an Azure function from your workflow, you can add that functions like an
 
       The following example specifies a JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger as the **Request Body** value:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-consumption.png" alt-text="Screenshot shows Consumption workflow and a function with a Request Body example for the context object payload." lightbox="media/call-azure-functions-from-workflows/function-request-body-example-consumption.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-consumption.png" alt-text="Screenshot shows Consumption workflow and a function with a Request Body example for the context object payload.":::
 
       Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Consumption workflow and a function with a complete Request Body example for the context object payload." lightbox="media/call-azure-functions-from-workflows/request-body-example-complete.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Consumption workflow and a function with a complete Request Body example for the context object payload.":::
 
       If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Consumption workflow and a Request Body example that casts context object as a string." lightbox="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Consumption workflow and a Request Body example that casts context object as a string.":::
 
    1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
@@ -202,36 +213,35 @@ To call an Azure function from your workflow, you can add that functions like an
 
    1. Provide a **Connection Name** for the connection to your function app.
 
-   1. From the function apps list, select your function app.
+   1. From the function apps list, select your function app, select the function, and then select **Create new**, for example:
 
-   1. From the functions list, select the function, and then select **Create New**, for example:
+   :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-standard.png" alt-text="Screenshot shows Standard workflow designer with selected function app and function.":::
 
-   :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-standard.png" alt-text="Screenshot shows Standard workflow designer with selected function app and function." lightbox="media/call-azure-functions-from-workflows/select-function-app-function-standard.png":::
+1. After the function's information box appears, follow these steps:
 
-1. In the **Call an Azure function** action box, follow these steps:
+   1. From the **Method** list, select the HTTP method required to call the selected function.
 
-   1. For **Method**, select the HTTP method required to call the selected function.
+   1. For **Request Body**, provide your function's input, which must use the format for a JavaScript Object Notation (JSON) object, for example:
 
-   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
+      `{"context": <selected-input> }`
+   
+      This input is the *context object* payload or message that your workflow sends to your function.
 
       - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
 
       - To create an expression, select inside the **Request Body** box, and then select option to open the expression editor (formula icon).
 
-      The following example specifies the following values:
+      The following example specifies a JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger as the **Request Body** value:
 
-      - **Method**: **GET**
-      - **Request Body**: A JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger.
-
-      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-standard.png" alt-text="Screenshot shows Standard workflow and a function with a Request Body example for the context object payload." lightbox="media/call-azure-functions-from-workflows/function-request-body-example-standard.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-standard.png" alt-text="Screenshot shows Standard workflow and a function with a Request Body example for the context object payload.":::
 
       Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Standard workflow and a function with a complete Request Body example for the context object payload." lightbox="media/call-azure-functions-from-workflows/request-body-example-complete.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Standard workflow and a function with a complete Request Body example for the context object payload.":::
 
       If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
 
-      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Standard workflow and a Request Body example that casts context object as a string." lightbox="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Standard workflow and a Request Body example that casts context object as a string.":::
 
    1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
