@@ -65,6 +65,10 @@ When your WAF uses an older version of the Default Rule Set (before DRS 2.0), yo
 
 The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
+### Upgrading Rulesets
+
+Note....
+
 ### DRS 2.1
 
 DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes other rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
