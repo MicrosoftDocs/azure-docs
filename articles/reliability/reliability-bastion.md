@@ -11,7 +11,7 @@ ms.date: 06/24/2024
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview). <!-- TODO revise link to WAF? -->
+This article describes reliability support in Azure Bastion and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). Because resiliency is a shared responsibility between you and Microsoft, this article also explains how Microsoft has built and supports resiliency in Azure Bastion, as well the tools you can use to build a resilient solution that meets your needs.
 
 Azure Bastion provides private, secure remote access to virtual machines hosted in your Azure virtual networks without exposing public IP addresses. You deploy Azure Bastion into a virtual network and can use it to access virtual machines within the virtual network or in peered virtual networks.
 
@@ -66,6 +66,8 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 ### Configure availability zone support
 
 **New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to. Select multiple zones for zone redundancy. You can't change the availability zone setting after your Bastion resource is deployed.
+
+When you select the availability zones to use, you're selecting the logical availability zone. If you deploy other workload components in a different Azure subscription, they might use a different logical availability zone number to access the same physical availabilty zone. For more information, see [Physical and logical availability zones](TODO).
 
 **Migration:** Migration from non-availability zone support to availability zone support isn't possible. Instead, you need to create a Bastion resource in the new region and delete the old one.
 
