@@ -249,7 +249,7 @@ py -m venv .venv
 
 1. Run this command from your app folder in a terminal or command prompt:
 
-    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     func start
     ``` 
