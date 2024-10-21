@@ -229,7 +229,7 @@ Arm64 based clusters aren't supported at this time.
 
  ### Container Apps extension v1.37.7 (October 2024)
 
-  - Resolved issue with MDM Init container which caused container to crash in event it could not be pulled
+  - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
   - Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
 
 ## Next steps
