@@ -41,10 +41,11 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 You can set up a policy to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. This means that your performance will not scale up with your storage. A sample autoscale policy would look like this:  
   
-**If spare capacity is less than X TiB of space, increase capacity by Y TiB, up-to a maximum of Z Tib.** 
+**If spare capacity (unused capacity) is less than X TiB of space, increase capacity by Y TiB, up-to a maximum of Z Tib.** 
   
-Here X is the used size beyond which the scale up policy will kick in, Y is the increment by which you are increasing the capacity of the SAN, and Z is the maximum capacity of the SAN.  
-If you want to scale your SAN down, you will need to do it manually by following the process outlined earlier.
+Here X is the used size beyond which the scale up policy will kick in, Y is the increment by which you are increasing the capacity of the SAN (minimum increments of 1 TiB), and Z is the maximum capacity of the SAN.  
+  
+If you want to scale your SAN down, you will need to do it manually by following the process outlined earlier. Note that if you want to scale your SAN down and the amount by which you are scaling down your SAN is greater than the value of the unused capacity field set in the policy, the request will fail and you will have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the spare/unused capacity should be 2 TiB, you cannot reduce the total size of the SAN by 4 TiB as according to the policy, there must be at least 2 TiB of unused capacity at all times.
 
 # [PowerShell](#tab/azure-powershell)
 
