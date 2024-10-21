@@ -81,7 +81,9 @@ This article describes the steps required to deploy Confidential Containers for 
     
     Create a test pod and retrieve its secret to verify the attestation process.
 
-## Prerequisites
+## Before you begin
+
+Before beginning the deployment process, make sure the following prerequisites are met:
 
 - An existing ARO cluster (version 1.14 or later) with at least one worker node
 
