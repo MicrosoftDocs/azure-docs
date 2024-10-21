@@ -55,7 +55,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
    az monitor account create --name <WORKSPACE_NAME> --resource-group <RESOURCE_GROUP> --location <LOCATION> --query id -o tsv
    ```
 
-   Save the Azure Monitor workspace ID from the output of this command to use when you enable metrics collection.
+   Save the Azure Monitor workspace ID from the output of this command. You use the ID when you enable metrics collection in the next section.
 
 1. Create an Azure Managed Grafana instance to visualize your Prometheus metrics.
 
@@ -63,7 +63,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
    az grafana create --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv
    ```
 
-   Save the Grafana ID from the output of this command to use when you enable metrics collection.
+   Save the Grafana ID from the output of this command. You use the ID when you enable metrics collection in the next section.
 
 1. Create a Log Analytics workspace for Container Insights
 
@@ -71,7 +71,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
    az monitor log-analytics workspace create -g <RESOURCE_GROUP> -n <LOGS_WORKSPACE_NAME> --query id -o tsv
    ```
 
-   Save the Log Analytics workspace ID from the output of this command to use when you enable metrics collection.
+   Save the Log Analytics workspace ID from the output of this command. You use the ID when you enable metrics collection in the next section.
 
 ### Enable metrics collection for the cluster
 
@@ -240,7 +240,13 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json files locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
 
-1. Sign in to the Grafana console, then in the upper right area of the Grafana application, select the **+** icon.
+1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
+
+   ```azurecli-interactive
+   az grafana show --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query url -o tsv
+   ```
+
+1. In the Grafana application, select the **+** icon.
 
 1. Select **Import dashboard**.
 
