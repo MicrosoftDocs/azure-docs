@@ -4,7 +4,7 @@ description: Learn how to export data from a chamber in Azure Modeling and Simul
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
 # Customer intent: As a Chamber User in Azure Modeling and Simulation Workbench, I want to export data from my chamber.
