@@ -414,6 +414,13 @@ For an existing stateful workflow run, you can rerun the entire workflow with th
 
 ## Set up managed identity access to your storage account
 
+> [!NOTE]
+>
+> Currently, you can't disable storage account key access for Standard logic apps that use the 
+> Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
+> v3 hosting option, you can disable storage account key access after you finish the steps 
+> to set up managed identity authentication.
+
 By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
 
 1. In the [Azure portal](https://portal.azure.com), [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
@@ -482,13 +489,6 @@ By default, your Standard logic app authenticates access to your Azure Storage a
       The following message might appear, but it isn't an error and doesn't affect your logic app:
 
       **"AzureWebjobsStorage" app setting is not present.**
-
-> [!NOTE]
->
-> Currently, you can't yet disable storage account key access for Standard logic apps that use the 
-> Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
-> v3 hosting option, you might be able to disable storage account key access after you finish the steps 
-> to set up managed identity authentication.
 
 <a name="enable-run-history-stateless"></a>
 
