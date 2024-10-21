@@ -32,25 +32,25 @@ Information in the following table is updated regularly.
 | Central India  | ✅ | ✅ | |  |
 | Central US  | |  | ✅ |  |
 | East Asia | ✅ | ✅ | ✅ | ✅ |
-| East US  |  |  | ✅ |  |
-| East US 2 | ✅ | ✅ | ✅ | ✅ |
+| East US  |  |  |  |  |
+| East US 2 | ✅ | ✅ |  | ✅ |
 | France Central  | ✅ | ✅ | ✅ | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | ✅ | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
-| North Europe | ✅ | ✅ | ✅ | ✅ |
+| North Europe | ✅ | ✅ |  | ✅ |
 | Norway East | ✅ | ✅ | ✅ | |
 | South Africa North | ✅ | ✅ | ✅ |  |
-| South Central US | ✅ | ✅ | ✅ |  |
+| South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
 | Southeast Asia | ✅ | ✅ | ✅ | ✅ |
-| Switzerland North | ✅ |✅ | ✅ | |
+| Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
 | West Europe  | ✅ | ✅ | ✅ |  |
-| West US | ✅ | ✅ | ✅ | ✅ |
-| West US 2 | ✅ | ✅ | ✅ | |
+| West US | ✅ | ✅ |  | ✅ |
+| West US 2 | ✅ | ✅ |  | |
 
 
 ## Related content

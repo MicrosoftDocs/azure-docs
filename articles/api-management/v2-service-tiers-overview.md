@@ -25,13 +25,13 @@ The following v2 tiers are generally available:
 
 The following v2 tier is in preview:
 
-* **Premium v2** (preview) - Premium v2 offers enterprise features including full virtual network isolation and greater scaling. Premium v2 instances are also availability zone-redundant by default: The underlying infrastructure and dependencies of the API Management instance are distributed across two availability zones in a region.
+* **Premium v2** (preview) - Premium v2 offers enterprise features including support for full virtual network isolation and greater scaling. The underlying infrastructure and dependencies in Premium v2 are distributed by default across two availability zones in a region.
 
 ## Key capabilities
 
 * **Faster deployment, configuration, and scaling** - Deploy a production-ready API Management instance in minutes. Quickly apply configurations such as certificate and hostname updates. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads. Scale a Premium v2 instance to up to 30 units.
 
-* **Simplified networking** - The Standard v2 and Premium v2 tiers support [outbound virtual network integration](#networking-options) to direct traffic to network-isolated backends. Premium v2 also supports simplified virtual network injection to isolate both inbound and outbound traffic.
+* **Simplified networking** - The Standard v2 and Premium v2 tiers support [options](#networking-options) for isolating inbound and outbound network traffic.
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. Upgrade from Basic v2 to Standard v2 to Premium v2 to add more production options.
 
