@@ -83,7 +83,7 @@ This article describes the steps required to deploy Confidential Containers for 
 
 ## Prerequisites
 
-- An existing ARO cluster with at least one worker node
+- An existing ARO cluster (version 1.14 or later) with at least one worker node
 
 - Access to the cluster with the `cluster-admin` role
 
