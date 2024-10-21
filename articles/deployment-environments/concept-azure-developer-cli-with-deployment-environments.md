@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
-ms.date: 10/11/2024
+ms.date: 10/21/2024
 
 # Customer intent: As a platform engineer, I want to understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 
@@ -13,7 +13,7 @@ ms.date: 10/11/2024
 
 # Use Azure Developer CLI with Azure Deployment Environments
 
-In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to provision application infrastructure and deploy application code to the new infrastructure.
+In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to simplify the process of provisioning application infrastructure and deploying application code to the new infrastructure.
 
 `azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
@@ -84,8 +84,6 @@ Changes include:
 - Tag resources in *azure.yaml* with specific information so that `azd` knows how to find the hosts and deploy the app to them.
     - Learn about [Tagging resources for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#tagging-resources-for-azure-deployment-environments).
     - Learn about [Azure Developer CLI's azure.yaml schema](/azure/developer/azure-developer-cli/azd-schema).
-- Configure dev center settings like environment variables, `azd` environment configuration, `azd` project configuration, and user configuration.
-    - Learn about [Configuring dev center settings](/azure/developer/azure-developer-cli/ade-integration?branch=main#configure-dev-center-settings).
 
 To learn more about how to make your ADE environment definition compatible with `azd`, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/ade-integration).
 
