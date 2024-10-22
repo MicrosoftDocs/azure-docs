@@ -30,8 +30,8 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 > * Generate a random string for the Batch account name.
 > * Create a Batch account with the generated name in the created resource group and linked to the created Storage account.
 > * Generate a random name for the Batch pool.
-> * Create a Batch pool with a fixed scale in the created resource group and linked to the created batch account.
-> * Create a Batch pool with autoscale in the created resource group and linked to the created batch account.
+> * Create a Batch pool with a fixed scale in the created resource group and linked to the created Batch account.
+> * Create a Batch pool with autoscale in the created resource group and linked to the created Batch account.
 > * Output the names of the created resource group, Storage account, Batch account, and both Batch pools.
 
 ## Prerequisites
