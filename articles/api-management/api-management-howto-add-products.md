@@ -2,7 +2,7 @@
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
 ms.topic: tutorial
-ms.date: 10/21/2024
+ms.date: 10/22/2024
 ms.custom: devdivchpfy22, devx-track-azurecli 
 ms.service: azure-api-management
 author: dlepow
@@ -212,7 +212,7 @@ Advance to the next tutorial:
 
 :::zone pivot="terraform"
 
-In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. 
+In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -244,16 +244,16 @@ In this article, you use Terraform to create an Azure API Management instance, a
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/main.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code:
+1. Create a file named `outputs.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/outputs.tf":::
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `providers.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/providers.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/variables.tf":::
 
 ## Initialize Terraform
