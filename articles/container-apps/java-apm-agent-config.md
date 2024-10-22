@@ -335,16 +335,16 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Clean up resources
 
-The resources created in this tutorial contribute to your Azure bill. If you aren't going to keep them in a long run, run the following commands to clean them up.
+The resources created in this tutorial contribute to your Azure bill. If you aren't going to keep them in the long term, run the following commands to clean them up.
 
-  # [Bash](#tab/bash)
-  ```azurecli
-  az group delete --resource-group $RESOURCE_GROUP
-  ```
-  # [PowerShell](#tab/powershell)
-  ```azurecli
-  az group delete --resource-group $RESOURCE_GROUP
-  ```
+# [Bash](#tab/bash)
+```azurecli
+az group delete --resource-group $RESOURCE_GROUP
+```
+# [PowerShell](#tab/powershell)
+```azurecli
+az group delete --resource-group $RESOURCE_GROUP
+```
 
 ---
 
