@@ -107,7 +107,7 @@ The service principal of the Contoso application in the Fabrikam tenant is creat
 You can see that the status of the Communication Services Teams.ManageCalls and Teams.ManageChats permissions are *Granted for {Directory_name}*.
 
 
-If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Microsoft Entra tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your Microsoft Entra tenancy. 
+If you run into the issue "The app is trying to access a service '00001111-aaaa-2222-bbbb-3333cccc4444'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Microsoft Entra tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your Microsoft Entra tenancy. 
 
 You will require **Application.ReadWrite.All** as shown below.
 
@@ -125,7 +125,7 @@ Install-Module Microsoft.Graph
 Then execute the following command to add a service principal to your tenant. Do not modify the GUID of the App ID.
 
 ```script
-New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
+New-MgServicePrincipal -AppId "00001111-aaaa-2222-bbbb-3333cccc4444"
 ```
 
 

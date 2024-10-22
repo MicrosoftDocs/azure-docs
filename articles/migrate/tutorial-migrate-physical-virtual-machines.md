@@ -1,7 +1,7 @@
 ---
 title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
 description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize.
-author: vijain
+author: pingvishal-msft
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
@@ -199,7 +199,7 @@ Now, select machines for migration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-vms-inline.png" alt-text="Screenshot that shows selecting VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/select-vms-expanded.png":::
 
-1. In **Target settings**, select the subscription and target region to which you'll migrate. Specify the resource group in which the Azure VMs will reside after migration.
+1. In **Target settings**, select the subscription to which you'll migrate. (The region is set to your selection in the previous step and can't be modified.) Specify the resource group in which the Azure VMs will reside after migration.
 1. In **Virtual Network**, select the Azure virtual network/subnet to which the Azure VMs will be joined after migration.
 1. In **Cache storage account**, keep the default option to use the cache storage account that's automatically created for the project. Use the dropdown list if you want to specify a different storage account to use as the cache storage account for replication. <br/>
 

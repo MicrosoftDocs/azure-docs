@@ -22,7 +22,7 @@ Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentin
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
 - **Security and data privacy**, by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
 
-Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer in historical investigations, hunting, and compliance activities.
+Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer periods in historical investigations, hunting, and compliance activities.
 
 Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
 

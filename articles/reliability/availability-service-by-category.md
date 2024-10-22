@@ -7,7 +7,7 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Available services by region types and categories 

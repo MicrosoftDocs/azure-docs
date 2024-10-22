@@ -2,7 +2,7 @@
 title: Azure Orbital Ground Station - Mission Phases
 description: Points users to relevant resources, like secure access to communication products and services, depending on the phase of their mission.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023

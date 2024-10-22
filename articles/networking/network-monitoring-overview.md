@@ -118,7 +118,7 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 
 Traffic Analytics equips you with information that helps you audit your organization’s network activity, secure applications and data, and optimize workload performance and stay compliant.
 
-:::image type="content" source="../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
+:::image type="content" source="../network-watcher/media/traffic-analytics-usage-scenarios/geo-map-view-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
 
 Related links:
 

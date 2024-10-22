@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 10/18/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -28,25 +28,6 @@ Both share-level and file/directory-level permissions are enforced when a user a
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
-## Azure RBAC permissions
-
-The following table contains the Azure RBAC permissions related to this configuration. If you're using Azure Storage Explorer, you'll also need the [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role in order to read/access the file share.
-
-| Share-level permission (built-in role)  | NTFS permission  | Resulting access  |
-|---------|---------|---------|
-|Storage File Data SMB Share Reader | Full control, Modify, Read, Write, Execute | Read & execute  |
-|     |   Read |     Read  |
-|Storage File Data SMB Share Contributor  |  Full control    |  Modify, Read, Write, Execute |
-|     |  Modify         |  Modify    |
-|     |  Read & execute |  Read & execute |
-|     |  Read           |  Read    |
-|     |  Write          |  Write   |
-|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit (Change permissions), Execute |
-|     |  Modify          |  Modify |
-|     |  Read & execute  |  Read & execute |
-|     |  Read            |  Read   |
-|     |  Write           |  Write  |
 
 ## Supported Windows ACLs
 
@@ -80,7 +61,7 @@ There are two approaches you can take to configuring and editing Windows ACLs:
 
 - **One-time username/storage account key setup:**
 > [!NOTE]
-> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, or if you migrate any on premises file/directory with existing permissions in a new fileshare, this approach might not work because the migrated files don't inherit the configured root ACL.
+> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, or if you migrate any on premises file/directory with existing permissions in a new file share, this approach might not work because the migrated files don't inherit the configured root ACL.
 
   1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
@@ -88,7 +69,7 @@ There are two approaches you can take to configuring and editing Windows ACLs:
 
 ## Mount the file share using your storage account key
 
-Before you configure Windows ACLs, you must first mount the file share by using your storage account key. To do this, log into a domain-joined device, open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+Before you configure Windows ACLs, you must first mount the file share by using your storage account key. To do this, log into a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 It's important that you use the `net use` Windows command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
 
@@ -103,14 +84,14 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 
 You can configure the Windows ACLs using either [icacls](#configure-windows-acls-with-icacls) or [Windows File Explorer](#configure-windows-acls-with-windows-file-explorer). You can also use the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command.
 
-> [!IMPORTANT]
-> If your environment has multiple AD DS forests, don't use Windows Explorer to configure ACLs. Use icacls instead.
-
 If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
+
+> [!IMPORTANT]
+> **If you're using Microsoft Entra Kerberos as your AD source, identities must be synced to Microsoft Entra ID in order for ACLs to be enforced.** You can set file/directory level ACLs for identities that aren't synced to Microsoft Entra ID. However, these ACLs won't be enforced because the Kerberos ticket used for authentication/authorization won't contain the not-synced identities. If you're using on-premises AD DS as your AD source, you can have not-synced identities in the ACLs. AD DS will put those SIDs in the Kerberos ticket, and ACLs will be enforced.
 
 ### Configure Windows ACLs with icacls
 
-To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has line-of-sight to the AD domain controller. Remember to replace the placeholder values in the example with your own values.
+To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the AD domain controller. Remember to replace the placeholder values in the example with your own values. If your AD source is Microsoft Entra Domain Services, then `<user-upn>` will be `<user-email>`.
 
 ```
 icacls <mapped-drive-letter>: /grant <user-upn>:(f)
@@ -120,17 +101,22 @@ For more information on how to use icacls to set Windows ACLs and on the differe
 
 ### Configure Windows ACLs with Windows File Explorer
 
-If you're logged on to a domain-joined Windows client, you can use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If your client isn't domain-joined, [use icacls](#configure-windows-acls-with-icacls) for configuring Windows ACLs.
+If you're logged on to a domain-joined Windows client, you can use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. 
 
-1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
+> [!IMPORTANT]
+> If your client isn't domain joined, or if your environment has multiple AD forests, don't use Windows Explorer to configure ACLs. [Use icacls](#configure-windows-acls-with-icacls) instead. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the AD domain that the storage account is joined to.
+
+Follow these steps to configure ACLs using Windows File Explorer.
+
+1. Open Windows File Explorer, right click on the file/directory, and select **Properties**.
 1. Select the **Security** tab.
 1. Select **Edit..** to change permissions.
 1. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
-1. In the prompt window for adding new users, enter the target username you want to grant permissions to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user.
+1. In the prompt window for adding new users, enter the target username you want to grant permissions to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user. You might need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client.
 1. Select **OK**.
 1. In the **Security** tab, select all permissions you want to grant your new user.
 1. Select **Apply**.
 
 ## Next step
 
-Now that you've enabled and configured identity-based authentication with AD DS, you can [mount a file share](storage-files-identity-ad-ds-mount-file-share.md).
+Now that you've configured directory and file-level permissions, you can [mount the file share](storage-files-identity-ad-ds-mount-file-share.md).

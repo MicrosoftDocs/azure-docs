@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to create an Azure Modeling and S
 author: becha8
 ms.author: becha
 ms.reviewer: becha
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.date: 08/05/2024
 ms.topic: quickstart
 # Customer intent: As a Modeling and Simulation Workbench owner, I want to create and perform initial setup so that Modeling and Simulation Workbench chamber users can run EDA applications.
