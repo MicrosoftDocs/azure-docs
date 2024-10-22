@@ -1,19 +1,17 @@
 ---
-title: "Known issues: Azure IoT Operations Preview"
+title: "Known issues: Azure IoT Operations"
 description: Known issues for the MQTT broker, Layered Network Management, connector for OPC UA, OPC PLC simulator, dataflows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 09/19/2024
+ms.date: 10/22/2024
 ---
 
-# Known issues: Azure IoT Operations Preview
+# Known issues: Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-This article lists the known issues for Azure IoT Operations Preview.
+This article lists the known issues for Azure IoT Operations.
 
 ## Deploy and uninstall issues
 
@@ -44,7 +42,7 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
 
-## Azure IoT Layered Network Management Preview
+## Azure IoT Layered Network Management
 
 - If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
 

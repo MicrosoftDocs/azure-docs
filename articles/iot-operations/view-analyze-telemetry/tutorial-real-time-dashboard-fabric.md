@@ -5,7 +5,7 @@ author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker.
 ms.service: azure-iot-operations
@@ -13,11 +13,9 @@ ms.service: azure-iot-operations
 
 # Build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that's published to the MQTT broker. The architecture uses the MQTT broker's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
 
-Azure IoT Operation Preview - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
+Azure IoT Operations - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
 ## Prepare your Kubernetes cluster
 

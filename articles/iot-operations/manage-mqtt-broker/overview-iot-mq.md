@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use MQTT broker to publish and subscribe MQTT topics.
 ms.service: azure-iot-operations
@@ -15,9 +15,7 @@ ms.service: azure-iot-operations
 
 # Publish and subscribe MQTT messages using MQTT broker
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
@@ -87,4 +85,4 @@ The goals of the architecture are:
 
 ## Next steps
 
-[Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)

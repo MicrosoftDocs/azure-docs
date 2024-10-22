@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: azure-data-processor
 ms.custom:
   - ignite-2023
-ms.date: 04/19/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
@@ -15,16 +15,14 @@ ms.service: azure-iot-operations
 
 # Quickstart: Send asset telemetry to the cloud using a dataflow
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this quickstart, you use a dataflow to forward messages from the MQTT broker to an event hub in the Azure Event Hubs service. The event hub can deliver the data to other cloud services for storage and analysis. In the next quickstart, you use a Real-Time Dashboard to visualize the data.
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md)
-- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
+- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](quickstart-deploy.md)
+- [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 
 ## What problem will we solve?
 

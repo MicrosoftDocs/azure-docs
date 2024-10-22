@@ -5,14 +5,14 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
 
 # Deployment details
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+When you deploy Azure IoT Operations, you install a suite of services on an Azure Arc-enabled Kubernetes cluster. This article provides an overview of the different deployment options to consider for your scenario.
 
 ## Supported environments
 
@@ -32,7 +32,7 @@ A deployment with only test settings enabled:
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
 * Can be upgraded to use secure settings.
 
-To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
+To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
 
 If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
 
@@ -45,7 +45,7 @@ A deployment with secure settings enabled:
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
 1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
-1. Then, [Deploy Azure IoT Operations Preview](./howto-deploy-iot-operations.md).
+1. Then, [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
 
 ## Required permissions
 
@@ -88,7 +88,7 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 ## Domain allowlist for Azure IoT Operations
 
-If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
+If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations.
 
 Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
 

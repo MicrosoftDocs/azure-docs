@@ -1,17 +1,15 @@
 ---
 title: Enable secure settings
-description: Enable secure settings on your Azure IoT Operations Preview deployment by configuring an Azure Key Vault and enabling workload identities.
+description: Enable secure settings on your Azure IoT Operations deployment by configuring an Azure Key Vault and enabling workload identities.
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings for the quickstart scenario, now I want to enable secure settings to use the full feature set.
 ---
 
-# Enable secure settings in Azure IoT Operations Preview deployment
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Enable secure settings in Azure IoT Operations deployment
 
 The secure settings for Azure IoT Operations include the setup of Secrets Management and user-assigned managed identity for cloud connections, for example, an OPC UA server, or dataflow endpoints.
 

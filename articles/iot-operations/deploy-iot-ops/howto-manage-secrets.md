@@ -4,14 +4,12 @@ description: Create, update, and manage secrets that are required to give your A
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 ---
 
-# Manage secrets for your Azure IoT Operations Preview deployment
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Manage secrets for your Azure IoT Operations deployment
 
 Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 

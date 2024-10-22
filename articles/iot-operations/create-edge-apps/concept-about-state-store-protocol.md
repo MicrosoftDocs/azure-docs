@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
@@ -13,8 +13,6 @@ ms.service: azure-iot-operations
 ---
 
 # MQTT broker state store protocol
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
 

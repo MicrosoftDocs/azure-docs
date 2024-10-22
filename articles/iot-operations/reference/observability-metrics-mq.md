@@ -6,15 +6,13 @@ ms.author: kgremban
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 11/1/2023
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
 ---
 
 # Metrics for MQTT broker
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 MQTT broker provides a set of observability metrics that you can use to monitor and analyze the health of your solution. This article describes the available metrics for MQ and the MQ cloud connector.
 

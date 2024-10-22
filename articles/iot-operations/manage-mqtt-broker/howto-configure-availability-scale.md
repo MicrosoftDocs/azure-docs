@@ -7,15 +7,13 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
 ---
 
 # Configure core MQTT broker settings
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 The *Broker* resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
@@ -91,7 +89,7 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations Preview deploys a default Broker resource named `default`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations deploys a default Broker resource named `default`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml

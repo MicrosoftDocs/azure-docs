@@ -6,17 +6,15 @@ ms.author: kgremban
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 11/1/2023
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT Layered Network Management Preview
+# Metrics for Azure IoT Layered Network Management
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Azure IoT Layered Network Management Preview provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article lists the available metrics, and describes the meaning and usage details of each metric. 
+Azure IoT Layered Network Management provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article lists the available metrics, and describes the meaning and usage details of each metric. 
 
 ## General metrics
 
