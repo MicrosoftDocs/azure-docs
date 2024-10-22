@@ -11,12 +11,12 @@ ms.author: jaysoni
 ---
 
 # Setting HTTPOnly or Secure flag for Session Affinity cookie
-In this guide you will learn to create a Rewrite set for your Application Gateway and configure Secure and HttpOnly [ApplicationGatewayAffinity cookie](configuration-http-settings.md#cookie-based-affinity)
+In this guide you learn to create a Rewrite set for your Application Gateway and configure Secure and HttpOnly [ApplicationGatewayAffinity cookie](configuration-http-settings.md#cookie-based-affinity)
 
 
 ## Prerequisites
-* Before you begin, you must have an Azure subscription. If not, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* An existing Application Gateway resource configured with at least one Listener, Rule, Backend Setting and Backend Pool configuration. If you do not have one, you can create one by following the [QuickStart guide](quick-create-portal.md).
+* You must have an Azure subscription. You can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An existing Application Gateway resource configured with at least one Listener, Rule, Backend Setting and Backend Pool configuration. If you don't have one, you can create one by following the [QuickStart guide](quick-create-portal.md).
 
 ## Creating a Rewrite set
 
@@ -26,7 +26,7 @@ In this guide you will learn to create a Rewrite set for your Application Gatewa
 1. Select Rewrite set.
 1. Under the Name and Association tab
     1. Specify a name for this new rewrite set.
-    1. Select the routing rule(s) for which you wish to rewrite the ApplicationGatewayAffinity cookie's flag.
+    1. Select the routing rules for which you wish to rewrite the ApplicationGatewayAffinity cookie's flag.
     1. Select Next.
 1. Select "Add rewrite rule"
     1. Enter a name for the rewrite rule.
@@ -40,14 +40,14 @@ In this guide you will learn to create a Rewrite set for your Application Gatewa
     1. Case-sensitive - No
     1. Operator - equal (=)
     1. Pattern to match - (.*)
-    1. Select Ok to save these details.
-1. Go to the Then box to specify action details.
+    1. To save these details, select **OK**.
+1. Go to the **Then** box to specify action details.
     1. Rewrite type - Response header
     1. Action type - Set
     1. Header name - Common header
     1. Common header - Set-Cookie
-    1. Header value - {http_resp_Set-Cookie_1}; HttpOnly ; Secure
-    1. Select Ok
+    1. Header value - {http_resp_Set-Cookie_1}; HttpOnly; Secure
+    1. Select **OK**
 1. Select Update to save the rewrite set configurations.
 
 
