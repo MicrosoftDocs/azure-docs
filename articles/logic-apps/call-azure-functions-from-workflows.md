@@ -151,11 +151,13 @@ After you create your function in Azure, follow the steps to [add an Azure funct
 
 ### Pass URI parameters to a function
 
-If you have to pass a URI parameter to your function, you can use query parameters in the function's endpoint URL, for example:
+If you have to pass a URI parameter to your function, you can use query parameters in the function's endpoint URL.
 
-1. In the workflow designer with the function information pane open, open the **Advanced parameters** list, select **Queries**.
+1. With the workflow designer open for your logic app, and the function information pane open, from the **Advanced parameters** list, select **Queries**.
 
-   A row appears where you can enter parameter input as key-value pairs, for example:
+   A table appears where you can enter parameter input as key-value pairs.
+
+1. Enter the key-value pair for your parameter, for example:
 
    :::image type="content" source="media/call-azure-functions-from-workflows/queries-parameter.png" alt-text="Screenshot shows function information pane with Queries parameter and example key-value inputs.":::
 
@@ -340,7 +342,7 @@ Either run the PowerShell command named [**Get-AzureAccount**](/powershell/modul
 
 #### Find the object ID for your managed identity
 
-After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Entra tenant.
+After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Microosft Entra tenant.
 
 1. On the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
@@ -366,13 +368,13 @@ After you enable the managed identity for your Consumption logic app resource, f
 
 When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal) that has the same name. You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your Entra tenant.
+1. In the [Azure portal](https://portal.azure.com), find and open your Microsoft Entra tenant.
 
 1. On the tenant menu, under **Manage**, select **Enterprise applications**.
 
 1. On the **All applications** page, in the search box, enter the object ID for your managed identity. From the results, find the matching enterprise application, and copy the **Application ID**:
 
-   :::image type="content" source="media/call-azure-functions-from-workflows/find-enterprise-application-id.png" alt-text="Screenshot shows Entra tenant page named All applications, with enterprise application object ID in search box, and selected matching application ID." lightbox="media/call-azure-functions-from-workflows/find-enterprise-application-id.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/find-enterprise-application-id.png" alt-text="Screenshot shows Microsoft Entra tenant page named All applications, with enterprise application object ID in search box, and selected matching application ID." lightbox="media/call-azure-functions-from-workflows/find-enterprise-application-id.png":::
 
 1. Now, use the copied application ID to [add an identity provider to your function app](#create-app-registration).
 
@@ -396,7 +398,7 @@ Now that you have the tenant ID and the application ID, you can set up your func
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*application-ID*> | The unique identifier to use for this app registration. For this example, use the application ID that you copied for the Enterprise application associated with your managed identity. |
    | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. <br><br>- Make sure to regularly rotate secrets and store them securely. For example, manage your secrets in Azure Key Vault where you can use a managed identity to retrieve the key without exposing the value to an unauthorized user. You can update this setting to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the [OAuth 2.0 implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow). This method directly returns only an ID token or access token. These tokens are sent by the provider and stored in the EasyAuth token store. <br><br>**Important**: Due to security risks, the implicit grant flow is [no longer a suitable authentication method](/entra/identity-platform/v2-oauth2-implicit-grant-flow#prefer-the-auth-code-flow). Instead, use either [authorization code flow with Proof Key for Code Exchange (PKCE)](/entra/msal/dotnet/advanced/spa-authorization-code) or [single-page application (SPA) authorization codes](/entra/msal/dotnet/advanced/spa-authorization-code). |
-   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Entra-tenant-ID*>** |
+   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Microsoft-Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Microsoft-Entra-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <br><br>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
 
    At this point, your version looks similar to this example:
