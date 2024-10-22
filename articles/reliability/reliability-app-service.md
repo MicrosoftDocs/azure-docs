@@ -22,7 +22,7 @@ When you deploy Azure App Service, you can create multiple instances of an [App 
 
 > [!NOTE]
 > For production deployments, you should:
-> - Use premium App Service plans.
+> - Use premium v3 App Service plans.
 > - [Enable zone redundancy](#availability-zone-support), which requires a minimum of three instance of your plan.
 
 ::: zone-end
@@ -50,7 +50,7 @@ Additionally, because you host your own applications on Azure App Service, you n
 
 ## Availability zone support
 
-Azure App Service can be configured to be *zone redundant*, which means your resources are spread across three [availability zones](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your production workloads. Availability zone support is a property of the App Service plan.
+Azure App Service can be configured to be *zone redundant*, which means your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your production workloads. Availability zone support is a property of the App Service plan.
 
 Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
 
@@ -66,11 +66,13 @@ For App Service plans that aren't configured to be zone redundant, VM instances 
 
 ::: zone pivot="free-shared-basic,premium"
 
-**Plan type:** You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
+**Plan type:** You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans). We recommend using the Premium v3 plan.
 
 ::: zone-end
 
-- **Instance count:** You must deploy a minimum of three instances of your plan.
+**Instance count:** You must deploy a minimum of three instances of your plan.
+
+**Footprint:** Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 ### Regions supported
 
@@ -87,8 +89,6 @@ To see which regions support availability zones for App Service Environment v3, 
 ::: zone-end
 
 ### Considerations
-
-Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 Applications that are deployed in a zone-redundant App Service plan continues to run and serve traffic even if multiple zones in the region suffer an outage. However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted during an availability zone outage. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
@@ -116,7 +116,8 @@ To use zone redundancy, switch to a supported App Service plan type.
 
 ::: zone pivot="premium"
 
-To deploy a new zone-redundant Azure App Service plan, see TODO new guide for multitenant app services, within product docs.
+To deploy a new zone-redundant Azure App Service plan, select the *Zone redundant* checkbox in the Azure portal when you deploy by using the Azure portal.
+<!-- TODO CLI/PowerShell/Bicep? -->
 
 ::: zone-end
 
