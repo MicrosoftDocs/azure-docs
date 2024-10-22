@@ -6,7 +6,7 @@ author: kperla97
 manager: chrispalm
 services: azure-communication-services
 
-ms.author: kperla
+ms.author: kaperla
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
