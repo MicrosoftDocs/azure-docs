@@ -31,12 +31,12 @@ To enable the DNAT use case associate one or more Azure Public IP address resour
 
 ### Example
 
-In the following example, users access an application hosted in an Azure Virtual Network (Application IP 10.60.0.4) connect to a DNAT Public IP (4.4.4.4) assigned to the NVA on Port 443.
+In the following example, users access an application hosted in an Azure Virtual Network (Application IP 10.60.0.4) connect to a DNAT Public IP (198.51.100.4) assigned to the NVA on Port 443.
 
 The following configurations are performed: 
 
-* **Internet inbound** IP addresses assigned to the NVA are 4.4.4.4 and 5.5.5.5.
-* **NVA DNAT rule** is programmed to translate traffic with destination 4.4.4.4:443 to 10.60.0.4:443.
+* **Internet inbound** IP addresses assigned to the NVA are 198.51.100.4 and 192.0.2.4.
+* **NVA DNAT rule** is programmed to translate traffic with destination 198.51.100.4:443 to 10.60.0.4:443.
 * NVA orchestrator interfaces with Azure APIs to create **inbound security rules** and Virtual WAN control plane programs infrastructure appropriately to support traffic flow.
 
 #### Inbound traffic flow
