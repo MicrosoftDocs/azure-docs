@@ -74,7 +74,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
 * Autoscaling
 * Inbound connection using a private endpoint
-* Upgrade to v2 tiers from v1 tiers 
+* Upgrade to v2 tiers from classic tiers 
 * CA Certificates
 
 **Developer portal**
