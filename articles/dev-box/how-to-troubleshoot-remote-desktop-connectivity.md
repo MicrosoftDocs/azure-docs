@@ -25,7 +25,7 @@ Before you begin troubleshooting, ensure you have:
 ## Does your Remote Desktop session disconnect frequently?
 Organizations can set a policy that disconnects dev boxes after a specified length of time. 
 
-## You see a window pop-up with message "You were disconnected from <dev-box-name> because your session was locked." 
+## You see a window pop-up with message "You were disconnected from \<dev-box-name\> because your session was locked." 
 You might see this message if your organization sets a policy to disconnect idle dev boxes after a specified length of time, and has the single-sign on (SSO) feature enabled. Select **Reconnect** to access your dev box again. 
 
 ## My dev box is stuck at sign-in welcome screen when I try to reconnect after dev box is locked due to being idle. 
