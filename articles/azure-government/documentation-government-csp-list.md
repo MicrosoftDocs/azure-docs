@@ -215,7 +215,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
-|[i3 LLC](http://i3llc.net/)|
+|[i3 LLC](https://i3llc.us/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
 |[Illuminative Strategies Inc](https://illum-strat.com)|
 |[ImageSource](https://imagesourceinc.com/)|
