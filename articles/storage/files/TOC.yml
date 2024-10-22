@@ -88,7 +88,7 @@
       - name: On-premises AD DS authentication
         items:
         - name: AD DS overview
-          href: storage-files-identity-auth-active-directory-enable.md
+          href: storage-files-identity-ad-ds-overview.md
         - name: Enable AD DS authentication
           href: storage-files-identity-ad-ds-enable.md
         - name: Use Azure Files with multiple AD DS forests
@@ -108,11 +108,11 @@
     - name: Assign and manage permissions
       items:
       - name: Assign share-level permissions
-        href: storage-files-identity-ad-ds-assign-permissions.md
-      - name: Assign directory/file-level permissions
-        href: storage-files-identity-ad-ds-configure-permissions.md
+        href: storage-files-identity-assign-share-level-permissions.md
+      - name: Configure directory/file-level permissions
+        href: storage-files-identity-configure-file-level-permissions.md
     - name: Mount file share
-      href: storage-files-identity-ad-ds-mount-file-share.md
+      href: storage-files-identity-mount-file-share.md
   - name: Linux identity-based authentication
     href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize access to file data

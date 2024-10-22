@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to configure outbound connectivity for a dual stack network with a NAT gateway and a public load balancer.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 07/13/2023
 ms.custom: template-tutorial, devx-track-azurecli, linux-related-content
