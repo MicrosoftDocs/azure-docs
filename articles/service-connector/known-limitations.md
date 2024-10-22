@@ -4,7 +4,7 @@ description: Learn about current limitations in Service Connector.
 titleSuffix: Service Connector
 ms.service: service-connector
 ms.topic: troubleshooting
-ms.date: 03/02/2023
+ms.date: 10/22/2024
 ms.author: malev
 author: maud-lv
 ---
