@@ -26,9 +26,9 @@ We recommend you use Log Analytics to analyze diagnostics data in the Azure clie
 
 ## Before you get started
 
-Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](../../azure-monitor/logs/quick-create-workspace.md).
+Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace

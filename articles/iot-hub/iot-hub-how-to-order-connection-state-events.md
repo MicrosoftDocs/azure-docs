@@ -4,7 +4,7 @@ description: This article describes how to order and record device connection ev
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/11/2019

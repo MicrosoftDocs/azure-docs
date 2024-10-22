@@ -69,7 +69,7 @@ To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/a
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
-To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md). 
+To request a quota increase, [open an online customer support request](/azure/azure-portal/supportability/per-vm-quota-requests). 
 
 If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
 
@@ -86,34 +86,6 @@ For availability information, see which [VM products are available by Azure regi
 Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. 
 
 It's not possible to resize a non-confidential VM to a confidential VM.
-
-### Guest OS support
-
-OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
-
-- Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
-- Ubuntu 22.04 LTS
-- Red Hat Enterprise Linux 9.3 (AMD SEV-SNP supported only)
-- Windows Server 2019 Datacenter - x64 Gen 2 (AMD SEV-SNP supported only)
-- Windows Server 2019 Datacenter Server Core - x64 Gen 2 (AMD SEV-SNP supported only)
-- Windows Server 2022 Datacenter - x64 Gen 2
-- Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
-- Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
-- Windows Server 2022 Datacenter Server Core - x64 Gen 2
-- Windows 11 Enterprise N, version 22H2 -x64 Gen 2
-- Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
-- Windows 11 Pro, version 22H2 -x64 Gen 2
-- Windows 11 Pro N, version 22H2 -x64 Gen 2
-- Windows 11 Enterprise, version 22H2 -x64 Gen 2
-- Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
-
-As we work to onboard more OS images with confidential OS disk encryption, there are various images available in early preview that can be tested. You can sign up below:
-
-- [Red Hat Enterprise Linux 9.3 (Support for Intel TDX)](https://aka.ms/tdx-rhel-93-preview)
-- [SUSE Enterprise Linux 15 SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
-- [SUSE Enterprise Linux 15 SAP SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
-
-For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2). 
 
 ### High availability and disaster recovery
 

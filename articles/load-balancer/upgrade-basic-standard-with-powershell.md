@@ -21,7 +21,8 @@ ms.custom: template-how-to, engagement-fy23
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
 For an in-depth walk-through of the upgrade module and process, see the following video:
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
+
+> [!VIDEO 8e203b99-41ff-4454-9cbd-58856708f1c6]
 
 - 03:06 - <a href="https://learn-video.azurefd.net/vod/player?id=8e203b99-41ff-4454-9cbd-58856708f1c6?#time=0h3m06s" target="_blank">Step-by-step</a>
 - 32:54 - <a href="https://learn-video.azurefd.net/vod/player?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s" target="_blank">Recovery</a>
@@ -63,16 +64,13 @@ The PowerShell module performs the following functions:
 ### Prerequisites
 
 - **PowerShell**: A supported version of PowerShell version 7 or higher is recommended for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, PowerShell 5.1 on Windows is supported. 
-- **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
-  - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
-- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It is automatically added if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command. 
 
 ### Module Installation
 
-Install the module from [PowerShell gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
+Install the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
 
 ```powershell
-PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
+Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 ## Pre- and Post-migration Steps
@@ -95,10 +93,10 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 ## Use the module
 
-1. Use `Connect-AzAccount` to connect to Azure, specifying the Basic Load Balancer's subscription ID if you have more than one subscription.
+1. Ensure you have selected the Basic Load Balancer's subscription ID by running `Select-AzSubscription`.
 
     ```powershell
-    PS C:\> Connect-AzAccount -Subscription <SubscriptionId>
+    Select-AzSubscription -Subscription <SubscriptionId>
     ```
 
 2. Find the Load Balancer you wish to upgrade. Record its name and resource group name.
@@ -112,14 +110,14 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
     >[!TIP]
     >Additional parameters for advanced and recovery scenarios can be viewed by running `Get-Help Start-AzBasicLoadBalancerUpgrade -Detailed` 
 
-4. Run the Upgrade command.
+4. Run the `Start-AzBasicLoadBalancerUpgrade` command, using the following examples for guidance.
 
 ### Example: validate a scenario
 
 Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
 ```
 
 ### Example: upgrade by name
@@ -127,7 +125,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the same name, providing the Basic Load Balancer name and resource group name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
 ```
 
 ### Example: upgrade, change name, and show logs
@@ -135,7 +133,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
 ```
 
 ### Example: upgrade with alternate backup path
@@ -143,7 +141,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name and store the Basic Load Balancer backup file at the specified path
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
 ```
 
 ### Example: validate completed migration
@@ -151,7 +149,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: migrate multiple, related Load Balancers
@@ -160,7 +158,7 @@ Migrate multiple Load Balancers with shared backend members at the same time, us
 
 ```powershell
 # build array of multiple basic load balancers
-PS C:\> $multiLBConfig = @(
+$multiLBConfig = @(
     @{
         'standardLoadBalancerName' = 'myStandardInternalLB01' # specifying the standard load balancer name is optional
         'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicInternalLB01)
@@ -171,7 +169,7 @@ PS C:\> $multiLBConfig = @(
     }
 )
 # pass the array of load balancer configurations to the -MultiLBConfig parameter
-PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
+Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 ```
 
 ### Example: retry failed virtual machine scale set migration
@@ -179,7 +177,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 Retry a failed upgrade for a virtual machine scale set's load balancer (due to error or script termination) by providing the Basic Load Balancer and Virtual Machine Scale Set backup state file
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: retry failed virtual machine migration
@@ -187,7 +185,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 Retry a failed upgrade for a VM load balancer (due to error or script termination) by providing the Basic Load Balancer backup state file
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ## Common Questions
@@ -304,7 +302,8 @@ For internal Load Balancers, Outbound Rules are not an option because there is n
 The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerBackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. 
 
 Watch a video of the recovery process: 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
+
+> [!VIDEO 8e203b99-41ff-4454-9cbd-58856708f1c6]
 
 If your failed migration was targeting multiple load balancers at the same time, using the `-MultiLBConfig` parameter, recover each Load Balancer individually using the same process as below. 
 

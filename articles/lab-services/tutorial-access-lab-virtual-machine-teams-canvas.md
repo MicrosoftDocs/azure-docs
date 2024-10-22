@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: Learn how to access a VM (student view) in Azure Lab Services from Canvas. 
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: tutorial
 ms.date: 07/04/2023
 ---

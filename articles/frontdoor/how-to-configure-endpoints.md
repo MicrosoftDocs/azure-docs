@@ -31,8 +31,8 @@ Before you can create a new endpoint with Front Door manager, you must have an A
     :::image type="content" source="./media/how-to-configure-endpoints/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
 
    
-    * **Name** - Enter a unique name for the new Front Door endpoint. Azure Front Door generates a unique endpoint hostname based on the endpoint name in the form of `<endpointname>-hash.z01.azurefd.net`.
-    * **Endpoint hostname** - A deterministic DNS (domain name system) name that helps prevent subdomain takeover. This name is used to access your resources through your Azure Front Door at the domain `<endpointname>-hash.z01.azurefd.net`.
+    * **Name** - Enter a unique name for the new Front Door endpoint. Azure Front Door generates a unique endpoint hostname based on the endpoint name in the form of `<endpointname>-*.z01.azurefd.net`.
+    * **Endpoint hostname** - A deterministic DNS (domain name system) name that helps prevent subdomain takeover. This name is used to access your resources through your Azure Front Door at the domain `<endpointname>-*.z01.azurefd.net`.
     * **Status** - Set as checked to enable this endpoint.
 
 ### Add a route

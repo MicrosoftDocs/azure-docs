@@ -6,13 +6,13 @@ description: Learn how to enable JavaScript and use page layout versions in Azur
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 10/17/2023
 ms.custom: devx-track-js
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer customizing the user interface of an application in Azure Active Directory B2C, I want to enable JavaScript and page layout versions, so that I can create a more interactive and customized user experience for my users.

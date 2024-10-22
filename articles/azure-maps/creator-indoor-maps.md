@@ -4,7 +4,7 @@ titleSuffix: Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: faterceros
 ms.author: aterceros
-ms.date: 04/01/2022
+ms.date: 09/16/2024
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: creator
@@ -12,6 +12,12 @@ ms.subservice: creator
 ---
 
 # Creator for indoor maps
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
@@ -264,7 +270,7 @@ The Indoor Maps module also supports dynamic map styling for more information, s
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [Tutorial: Implement IoT spatial analytics by using Azure Maps].
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas.
 
 ### Data maintenance
 
@@ -328,7 +334,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Manage Azure Maps Creator]: how-to-manage-creator.md
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [style picker control]: choose-map-style.md#add-the-style-picker-control
-[Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 
 <!--- HTTP Links ------------>

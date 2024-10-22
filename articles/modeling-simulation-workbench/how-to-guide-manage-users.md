@@ -1,10 +1,10 @@
 ---
-title: Manage users in Azure Modeling and Simulation Workbench
-description: In this how-to guide, you learn how to manage users' access to Azure Modeling and Simulation Workbench.
+title: "Manage users: Azure Modeling and Simulation Workbench"
+description: Learn how to manage users' access to Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
 # Customer intent: As a Workbench Owner in Azure Modeling and Simulation Workbench, I want to manage users who can access a chamber.
@@ -18,16 +18,16 @@ This article describes how to grant or remove user access to your chamber.
 
 ## Prerequisites
 
-- To provision users in a chamber, make sure that those users exist in your company's Microsoft Entra tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra tenant.
+* Users to be added must already exist in your company's Microsoft Entra ID tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra ID tenant.
 
-- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set in the user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of jane.doe@contoso.com must also have email alias of jane.doe@contoso.com.
+* Email fields for users must be populated in the Microsoft Entra ID user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of <jane.doe@contoso.com> must also have email alias of <jane.doe@contoso.com>.
 
 ## Assign user roles
 
 You can assign user roles at either of these levels:
 
-- Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads in a chamber.
-- Users assigned at the *chamber level* can perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads.
+* Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads in a chamber.
+* Users assigned at the *chamber level* can perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads.
 
 ### Assign access to read and create workloads
 
@@ -90,8 +90,8 @@ When you want to remove user access to your chamber, you need to remove the Cham
 
 1. When you're prompted to confirm role assignment removal, select **Yes**.
 
-> [!NOTE]
-> This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, you must restart the connector. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
+   > [!NOTE]
+   > This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, you must restart the connector. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
 
 ## Next steps
 

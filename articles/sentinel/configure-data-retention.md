@@ -7,7 +7,10 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial 
 ms.date: 01/05/2023
 ms.custom: template-tutorial
-#Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
+
+
+#Customer intent: As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage Microsoft Sentinel storage costs and ensure compliance with data retention requirements.
+
 ---
 
 # Tutorial: Configure a data retention policy for a table in a Log Analytics workspace
@@ -80,4 +83,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md)
+> [Configure interactive and long-term data retention policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure)

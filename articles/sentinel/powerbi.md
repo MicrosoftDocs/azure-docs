@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 05/19/2024
+
+
+#Customer intent: As a security analyst, I want to create and share Power BI reports from Microsoft Sentinel data so that I can provide insights to stakeholders without granting them direct access to Microsoft Sentinel.
+
 ---
 
 # Create a Power BI report from Microsoft Sentinel data
@@ -206,6 +210,6 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 For more information, see:
 
-- [Azure Monitor service limits](../azure-monitor/service-limits.md)
-- [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md)
+- [Azure Monitor service limits](/azure/azure-monitor/service-limits)
+- [Import Azure Monitor log data into Power BI](/azure/azure-monitor/logs/log-powerbi)
 - [Power Query M formula language](/powerquery-m/)

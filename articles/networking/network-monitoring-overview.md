@@ -3,7 +3,7 @@ title: Network Monitoring in Azure Monitor logs
 description: Overview of network monitoring solutions, including network performance monitor, to manage networks across cloud, on-premises, and hybrid environments.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2023
 ms.author: allensu
 ---
@@ -43,8 +43,6 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 * Determine the specific segment on the network that is responsible for degraded performance
 
 * Monitor the health of the network, without the need for SNMP
-
-:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
 
 For more information, view the following articles:
 
@@ -120,7 +118,7 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 
 Traffic Analytics equips you with information that helps you audit your organization’s network activity, secure applications and data, and optimize workload performance and stay compliant.
 
-:::image type="content" source="../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
+:::image type="content" source="../network-watcher/media/traffic-analytics-usage-scenarios/geo-map-view-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
 
 Related links:
 

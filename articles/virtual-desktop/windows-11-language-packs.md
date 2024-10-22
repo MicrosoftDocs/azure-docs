@@ -3,7 +3,7 @@ title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desk
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 09/20/2024
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
@@ -25,11 +25,11 @@ Before you can add languages to a Windows 11 Enterprise VM, you'll need to have 
 - An Azure VM with Windows 11 Enterprise installed
 - A Language and Optional Features ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
   - Language and Optional Features ISO:
-    - [Windows 11, version 21H2 Language and Optional Features ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
     - [Windows 11, version 22H2 and 23H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+    - [Windows 11, version 24H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
   - Inbox Apps ISO:
-    - [Windows 11, version 21H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22000.2003.230512-1746.co_release_svc_prod3_amd64fre_InboxApps.iso)
     - [Windows 11, version 22H2 and 23H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2501.231009-1937.ni_release_svc_prod3_amd64fre_InboxApps.iso)
+    - [Windows 11, version 24H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240904-1906.ge_release_svc_prod1_amd64fre_InboxApps.iso)
 - An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]

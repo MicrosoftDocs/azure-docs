@@ -4,8 +4,7 @@ description: Describes Azure Data Box, a cloud solution that enables you to tran
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: overview
 ms.date: 05/06/2022
 ms.author: shaas
@@ -42,7 +41,22 @@ Here are the various scenarios where Data Box can be used to export data from Az
 
 - **Migrate back to on-premises or to another cloud service provider** - when you want to move all the data back to on-premises, or to another cloud service provider, export data via Data Box to migrate the workloads.
 
+### Ingestion of data from Data Box
 
+Azure providers and non-Azure providers can ingest data from Azure Data Box. The Azure services that provide data ingestion from Azure Data Box include:
+
+- **SharePoint Online** - use Azure Data Box and the SharePoint Migration Tool (SPMT) to migrate your file share content to SharePoint Online. Using Data Box, you remove the dependency on your WAN link to transfer the data. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
+
+- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
+
+- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-premises HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+
+- **Azure Backup** - allows you to move large backups of critical enterprise data through offline mechanisms to an Azure Recovery Services Vault. For more information, see [Azure Backup overview](../backup/backup-overview.md).
+
+You can use your Data Box data with many non-Azure service providers. For instance:
+
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
+  
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:

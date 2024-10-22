@@ -2,9 +2,8 @@
 title: Deployment Planner for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/13/2024
 ms.author: ankitadutta
 
@@ -61,9 +60,7 @@ The tool provides the following details:
 
 
 >[!IMPORTANT]
->
->Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30% growth factor in  workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about  percentile value, see the "Percentile value used for the calculation" section.
->
+>Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30% growth factor in workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about  percentile value, see the "Percentile value used for the calculation" section.
 
 ## Support matrix
 
@@ -130,13 +127,12 @@ If you have previous version of the deployment planner, do either of the followi
 
 
   >[!NOTE]
-  >
   >When you start profiling with the new version, pass the same output directory path so that the tool appends profile data on the existing files. A complete set of profiled data will be used to generate the report. If you pass a different output directory, new files are created, and old profiled data is not used to generate the report.
   >
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest Azure Site Recovery Deployment Planner tool version is 2.5.
+The latest Azure Site Recovery Deployment Planner tool version is 3.0.
 Refer to [Azure Site Recovery Deployment Planner Version History](/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 

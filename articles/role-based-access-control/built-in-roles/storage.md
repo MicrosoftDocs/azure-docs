@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -242,6 +242,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
@@ -254,6 +255,14 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -337,6 +346,7 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
         "Microsoft.DataProtection/backupVaults/write",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/backupVaults/operationResults/read",
@@ -348,7 +358,15 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/operations/read"
+        "Microsoft.DataProtection/operations/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -356,6 +374,142 @@ Lets you manage backup service, but can't create vaults and give access to other
     }
   ],
   "roleName": "Backup Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Backup MUA Admin
+
+Backup MultiUser-Authorization. Can create/delete ResourceGuard 
+
+[Learn more](/azure/backup/multi-user-authorization-concept)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/read |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/resourceGuards/write |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResouceGuard operation updates an Azure resource of type 'ResourceGuard' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Backup MultiUser-Authorization. Can create/delete ResourceGuard ",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8",
+  "name": "c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DataProtection/*/read",
+        "Microsoft.DataProtection/*/resourceGuards/write",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read",
+        "Microsoft.DataProtection/locations/operationResults/read",
+        "Microsoft.DataProtection/locations/operationStatus/read",
+        "Microsoft.DataProtection/locations/getBackupStatus/action",
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/operationStatus/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/subscriptions/providers/resourceGuards/read",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Backup MUA Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Backup MUA Operator
+
+Backup MultiUser-Authorization. Allows user to perform critical operation protected by resourceguard
+
+[Learn more](/azure/backup/multi-user-authorization-concept)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/action |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Backup MultiUser-Authorization. Allows user to perform critical operation protected by resourceguard",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f54b6d04-23c6-443e-b462-9c16ab7b4a52",
+  "name": "f54b6d04-23c6-443e-b462-9c16ab7b4a52",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DataProtection/*/action",
+        "Microsoft.DataProtection/*/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Backup MUA Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -438,6 +592,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
@@ -462,6 +618,14 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -548,6 +712,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.Support/*",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/write",
         "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
@@ -571,7 +737,15 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
-        "Microsoft.DataProtection/locations/checkFeatureSupport/action"
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -646,6 +820,7 @@ Can view backup services, but can't make changes
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
@@ -731,6 +906,7 @@ Can view backup services, but can't make changes
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/backupVaults/operationResults/read",
@@ -1084,6 +1260,55 @@ Grants access to read blobs and update index tags. This role is used by the data
     }
   ],
   "roleName": "Defender for Storage Data Scanner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Elastic SAN Network Admin
+
+Allows access to create Private Endpoints on SAN resources, and to read SAN resources
+
+[Learn more](/azure/storage/elastic-san/elastic-san-networking)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/*/read |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/PrivateEndpointConnectionsApproval/action |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/privateEndpointConnections/write |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/privateEndpointConnections/delete |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows access to create Private Endpoints on SAN resources, and to read SAN resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fa6cecf6-5db3-4c43-8470-c540bcb4eafa",
+  "name": "fa6cecf6-5db3-4c43-8470-c540bcb4eafa",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ElasticSan/elasticSans/*/read",
+        "Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.ElasticSan/elasticSans/privateEndpointConnections/write",
+        "Microsoft.ElasticSan/elasticSans/privateEndpointConnections/delete",
+        "Microsoft.ElasticSan/locations/asyncoperations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Elastic SAN Network Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1651,8 +1876,8 @@ Allows for read, write, delete, and modify ACLs on files/directories in Azure fi
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Sematics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1697,7 +1922,7 @@ Allows for read access on files/directories in Azure file shares by overriding e
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 

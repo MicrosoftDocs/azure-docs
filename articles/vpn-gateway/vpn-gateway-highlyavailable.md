@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about highly available configuration options for VPN Gateway.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/24/2024
 ms.author: cherylmc
 
