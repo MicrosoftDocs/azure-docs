@@ -19,61 +19,62 @@ This article shows the steps to access the FHIR&reg; service in Azure Health Dat
 - **Postman installed locally**. For more information, see [Get Started with Postman](https://www.getpostman.com/).
 - **User Access Administrator** role for role assignments on FHIR service.
 
-## Setup Steps
+## Setup steps
 
-To access **FHIR service** from **Postman** application, review the steps
+To access **FHIR service** from **Postman** application, review the steps:
 
-- #### Register a client application(App Registration) in Microsoft Entra ID.
+1. Register a client application(App Registration) in Microsoft Entra ID.
 
-- #### Assign **FHIR Data Contributor** role under the **FHIR service**.
+2. Assign **FHIR Data Contributor** role under the **FHIR service**.
 
-- #### Setup Postman - Create Workspace, collection and environment.
+3. Setup Postman - Create Workspace, collection and environment
 
 
 ## Register a client application in Microsoft Entra ID
 1. In the [Azure portal](https://ms.portal.azure.com), select **Microsoft Entra ID** tile.
-[![Screenshot shows the Azure portal's Microsoft Entra ID section](media/postman/Microsoft-Entra-Id.png)](media/postman/Microsoft-Entra-Id.png#lightbox)
+[![Screenshot shows the Azure portal's Microsoft Entra ID section.](media/postman/microsoft-entra-id.png)](media/postman/microsoft-entra-id.png#lightbox)
 
 2. Select **App registrations** under **Manage** section.
-[![Screenshot shows the App registrations menu under the Manage section of Microsoft Entra ID.](media/postman/app-registration-1.png)](media/postman/app-registration-1.png#lightbox)
+[![Screenshot shows the App registrations menu under the Manage section of Microsoft Entra ID.](media/postman/app-registration.png)](media/postman/app-registration.png#lightbox)
 3. Select **+ New registrations**.
 
 4. Enter a name for app registration.  Under Supported account types, select **Accounts in this organization directory only**. select **Register**.
-[![Screenshot that shows the form to enter a name for the new app registration](media/postman/app-registration-2.png)](media/postman/app-registration-2.png#lightbox)
+
+[![Screenshot that shows the form to enter a name for the new app registration.](media/postman/app-registration-configuration.png)](media/postman/app-registration-configuration.png#lightbox)
 
 ### Application ID (client ID)
 
 After registering a new application, you can find the Application (client) ID and Directory (tenant) ID in the Overview section. **Make a note of these values for later use, as you will need them when configuring your Postman environment**.
-[![Screenshot shows the Overview page of the registered application, showing the Application (client) ID and Directory (tenant) ID.](media/postman/App-Registration-Overview.png)](media/postman/App-Registration-Overview.png#lightbox)
+[![Screenshot shows the Overview page of the registered application, showing the Application (client) ID and Directory (tenant) ID.](media/postman/app-registration-overview.png)](media/postman/app-registration-overview.png#lightbox)
 
 ### Authentication setting: confidential vs. public
 * Select Authentication to review the settings. The default value for Allow public client flows is "No".
 
 * If you keep this default value, the application registration is a confidential client application and a certificate or secret is required.
-[![Screenshot that shows the Authentication settings where "Allow public client flows" is set to "No" for confidential client applications.](media/postman/Authentication-Settings.png)](media/postman/Authentication-Settings.png#lightbox)
+[![Screenshot that shows the Authentication settings where "Allow public client flows" is set to "No" for confidential client applications.](media/postman/authentication-settings.png)](media/postman/authentication-settings.png#lightbox)
 
 * If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a public client application and a certificate or secret isn't required.<br> 
 * The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you don't want to store any secrets.
 
 * For tools that require a redirect URL, select Add a platform to configure the platform.
-[![Screenshot that shows the "Add a platform" section](media/postman/Add-Platform.png)](media/postman/Add-Platform.png#lightbox)
+[![Screenshot that shows the "Add a platform" section.](media/postman/add-platform.png)](media/postman/add-platform.png#lightbox)
 
 * For Postman, select Mobile and desktop applications. Enter "https://www.getpostman.com/oauth2/callback" in the Custom redirect URIs section. Select the Configure button to save the setting.
-[![Screenshot that shows the "Add a platform" section with "Mobile and desktop applications" selected and a custom redirect URI added.](media/postman/Add-Platform-2.png)](media/postman/Add-Platform-2.png#lightbox)
+[![Screenshot that shows the "Add a platform" section with "Mobile and desktop applications" selected and a custom redirect URI added.](media/postman/add-platform-mobile-desktop-applications.png)](media/postman/add-platform-mobile-desktop-applications.png#lightbox)
 
 ### Certificates & secrets
 
 1. Click on **Certificates and secrets**. Click **+New client secret**.
 
-[![Screenshot that shows the form for creating a new client secret in the Certificates & Secrets section.](media/postman/Create-client-Secret.png)](media/postman/Create-client-Secret.png#lightbox)
+[![Screenshot that shows the form for creating a new client secret in the Certificates & Secrets section.](media/postman/create-client-secret.png)](media/postman/create-client-secret.png#lightbox)
 
 2. Under **Add a client secret**, enter a name for the secret in the **Description** field. The guidance is to set 6 months for secret expiration. Click **Add**.
 
-[![Screenshot that shows the "Add a client secret" form,to enter a name for the secret in the Description field,](media/postman/Add-Secret-Description.png)](media/postman/Add-Secret-Description.png#lightbox)
+[![Screenshot that shows the "Add a client secret" form,to enter a name for the secret in the Description field.](media/postman/add-secret-description.png)](media/postman/add-secret-description.png#lightbox)
 
 3. It is important that you save the **secret value**, not the secret ID.
 
-[![Screenshot that shows the newly created client secret's value.](media/postman/Client-secret-value.png)](media/postman/Client-secret-value.png#lightbox)
+[![Screenshot that shows the newly created client secret's value.](media/postman/client-secret-value.png)](media/postman/client-secret-value.png#lightbox)
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. 
 
@@ -82,19 +83,18 @@ This section shows the steps to assign **FHIR Data Contributor** role to a regis
 
 1. In the Azure portal, navigate to your FHIR service. 
 2. In the left-hand menu, select the **Access Control (IAM)** blade.Click on + Add and then select Add role assignment. If the option for adding a role assignment is unavailable, ask your Azure administrator to assign you permission to perform this step.
-[![Screenshot that shows the Azure portal's FHIR service Access Control (IAM) blade with the option to add a role assignment.](media/postman/FHIR-Service-Access-Control.png)](media/postman/FHIR-Service-Access-Control.png#lightbox)
+[![Screenshot that shows the Azure portal's FHIR service Access Control (IAM) blade with the option to add a role assignment.](media/postman/fhir-service-access-control.png)](media/postman/fhir-service-access-control.png#lightbox)
 3. In **Add** role assignment under the **Role** tab, scroll down in the list and select **FHIR Data Contributor**. Then click **Next**.
-[![Screenshot that shows the "Add role assignment" window, with the list of roles where the "FHIR Data Contributor" role is selected.](media/postman/Add-Role-Assignment.png)](media/postman/Add-Role-Assignment.png#lightbox)
+[![Screenshot that shows the "Add role assignment" window, with the list of roles where the "FHIR Data Contributor" role is selected.](media/postman/add-role-assignment.png)](media/postman/add-role-assignment.png#lightbox)
 
 4. Under the **Members** tab, click on **+Select members**. Type in the name of your Postman service client app in the **Select** field on the right. Select the app.
-[![Screenshot that shows the "Members" tab in the role assignment process, with the option to select Postman service client app](media/postman/Select-Members-Client-App.png)](media/postman/Select-Members-Client-App.png#lightbox)
+[![Screenshot that shows the "Members" tab in the role assignment process, with the option to select Postman service client app.](media/postman/select-members-client-app.png)](media/postman/select-members-client-app.png#lightbox)
 
 5. In same way, Type in the name of your username in the **Select**. Select your user so it is added to list along with app registration and click **Select**. Then click **Next**.
-
-[![Screenshot that shows the "Members" tab in the role assignment process, with the option to select user](media/postman/Select-Members-User.png)](media/postman/Select-Members-User.png#lightbox)
+[![Screenshot that shows the "Members" tab in the role assignment process, with the option to select user.](media/postman/select-members-user.png)](media/postman/select-members-user.png#lightbox)
 
 6. Under the **Review + assign** tab, click **Review + assign**.
-[![Screenshot that shows the final "Review + assign" tab with the button to complete the role assignment process ](media/postman/Review-and-Assign-Role.png)](media/postman/Review-and-Assign-Role.png#lightbox)
+[![Screenshot that shows the final "Review + assign" tab with the button to complete the role assignment process](media/postman/review-assign-role.png)](media/postman/review-assign-role.png#lightbox)
 
 ## Setup Postman - Create Workspace, collection and environment.
 
@@ -105,7 +105,7 @@ Postman introduces the workspace concept to enable you and your team to share AP
 [![Screenshot showing workspace creation.](media/postman/postman-create-new-workspace.png)](media/postman/postman-create-new-workspace.png#lightbox)
 
 Next, create a new collection where you can group all related REST API requests. In the workspace, select **Create Collections**. You can keep the default name **New collection** or rename it. The change is saved automatically.
-[![Screenshot showing creation of new collection](media/postman/postman-create-a-new-collection.png)](media/postman/postman-create-a-new-collection.png#lightbox)
+[![Screenshot showing creation of new collection.](media/postman/postman-create-a-new-collection.png)](media/postman/postman-create-a-new-collection.png#lightbox)
 
 You can also import and export Postman collections. For more information, see [the Postman documentation](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
 
@@ -137,7 +137,7 @@ To access the FHIR service, you need to create or update these variables:
 Enter `{{fhirurl}}/metadata` in the `GET` request, then choose `Send`. You should see the capability statement of the FHIR service.
 [![Screenshot showing capability request parameters.](media/postman/postman-capability-statement.png)](media/postman/postman-capability-statement.png#lightbox)
 
-[![Screenshot showing a save request](media/postman/postman-save-request.png)](media/postman/postman-save-request.png#lightbox)
+[![Screenshot showing a save request.](media/postman/postman-save-request.png)](media/postman/postman-save-request.png#lightbox)
 
 <a name='get-azure-ad-access-token'></a>
 
@@ -263,7 +263,7 @@ Select **Bearer Token** as the authorization type. Enter `{{bearerToken}}` in th
 }
 ```
 Select **Send**. You should see a new patient in the JSON response.
-[![Screenshot showing send button to create a new patient](media/postman/postman-send-create-new-patient.png)](media/postman/postman-send-create-new-patient.png#lightbox)
+[![Screenshot showing send button to create a new patient.](media/postman/postman-send-create-new-patient.png)](media/postman/postman-send-create-new-patient.png#lightbox)
 
 
 ## Export FHIR data
