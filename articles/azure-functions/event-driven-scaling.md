@@ -102,7 +102,7 @@ The following considerations apply for scale-in behaviors:
 
 ## Per-function scaling
 
-_Applies only to the Flex Consumption plan (preview)_.
+_Applies only to the Flex Consumption plan_.
 
 The [Flex Consumption plan] is unique in that it implements a _per-function scaling_ behavior. In per-function scaling, except for HTTP triggers, Blob (Event Grid) triggers, and Durable Functions, all other function trigger types in your app scale on independent instances. HTTP triggers in your app all scale together as a group on the same instances, as do all Blob (Event Grid), and all Durable Functions triggers, which have their own shared instances.
 
