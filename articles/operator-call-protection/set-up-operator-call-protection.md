@@ -1,8 +1,8 @@
 ---
 title: Set up Azure Operator Call Protection Preview
 description: Start using Azure Operator Call Protection to protect your customers against fraud.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure
 ms.topic: how-to
 ms.date: 01/31/2024

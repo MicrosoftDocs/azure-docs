@@ -1,23 +1,24 @@
 ---
-title: Assign RBAC roles to the Azure Virtual Desktop service principals - Azure Virtual Desktop
-description: Learn how to assign Azure RBAC roles to the Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell.
+title: Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals - Azure Virtual Desktop
+description: Learn how to assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/27/2023
+ms.date: 12/20/2023
 ---
 
-# Assign RBAC roles to the Azure Virtual Desktop service principals
+# Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals
 
-Several Azure Virtual Desktop features require you to assign Azure role-based access control (Azure RBAC) roles to one of the Azure Virtual Desktop service principals. Features that you need to assign a role to an Azure Virtual Desktop service principal include:
+Several Azure Virtual Desktop features require you to assign Azure role-based access control (Azure RBAC) roles or Microsoft Entra roles to one of the Azure Virtual Desktop service principals. Features that you need to assign a role to an Azure Virtual Desktop service principal include:
 
-- [Autoscale](autoscale-scaling-plan.md).
-- [Start VM on Connect](start-virtual-machine-connect.md).
 - [App attach](app-attach-setup.md) (when using Azure Files and your session hosts joined to Microsoft Entra ID).
+- [Autoscale](autoscale-scaling-plan.md).
+- [Session host update](session-host-update.md)
+- [Start VM on Connect](start-virtual-machine-connect.md).
 
 > [!TIP]
-> You can find which role you need to assign to which service principal in the article for each feature. For a list of all the available roles specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md) To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml).
+> You can find which role or roles you need to assign to which service principal in the article for each feature. For a list of all the available Azure RBAC roles created specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml) or for Microsoft Entra roles, see [Microsoft Entra roles documentation](/entra/identity/role-based-access-control/).
 
 Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
 
@@ -27,23 +28,25 @@ Depending on when you registered the *Microsoft.DesktopVirtualization* resource 
 | :::no-loc text="Azure Virtual Desktop Client":::<br />:::no-loc text="Windows Virtual Desktop Client"::: | a85cf173-4192-42f8-81fa-777a763e6e2c |
 | :::no-loc text="Azure Virtual Desktop ARM Provider":::<br />:::no-loc text="Windows Virtual Desktop ARM Provider"::: | 50e95039-b200-4007-bc97-8d5790743a63 |
 
-This article shows you how to assign a role to the correct Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell. 
+This article shows you how to assign Azure RBAC roles or Microsoft Entra roles to the correct Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell. 
 
 ## Prerequisites
 
 Before you can assign a role to an Azure Virtual Desktop service principal, you need to meet the following prerequisites:
 
-- You must have the `Microsoft.Authorization/roleAssignments/write` permission to an Azure subscription in order to assign roles on that subscription. This permission is part of the [Owner](../role-based-access-control/built-in-roles.md) or [User Access Administrator](../role-based-access-control/built-in-roles.md) built in roles.
+- To assign Azure RBAC roles, you must have the `Microsoft.Authorization/roleAssignments/write` permission to an Azure subscription in order to assign roles on that subscription. This permission is part of the [Owner](../role-based-access-control/built-in-roles.md) or [User Access Administrator](../role-based-access-control/built-in-roles.md) built in roles.
+
+- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role.
 
 - If you want to use Azure PowerShell or Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module or [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## Assign a role to an Azure Virtual Desktop service principal
+## Assign an Azure RBAC role to an Azure Virtual Desktop service principal
 
-To assign a role to an Azure Virtual Desktop service principal, select the relevant tab for your scenario and follow the steps. In these examples, the scope of the role assignment is an Azure subscription, but you need to use the scope and the role required by each feature.
+To assign an [Azure RBAC role](../role-based-access-control/overview.md) to an Azure Virtual Desktop service principal, select the relevant tab for your scenario and follow the steps. In these examples, the scope of the role assignment is an Azure subscription, but you need to use the scope and the role required by each feature.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
-Here's how to assign a role to an Azure Virtual Desktop service principal using the Azure portal.
+Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service principal scoped to a subscription using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -75,7 +78,7 @@ Here's how to assign a role to an Azure Virtual Desktop service principal using 
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to assign a role to an Azure Virtual Desktop service principal using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
+Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service principal scoped to a subscription using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -123,7 +126,7 @@ Here's how to assign a role to an Azure Virtual Desktop service principal using 
 
 # [Azure CLI](#tab/cli)
 
-Here's how to assign a role to an Azure Virtual Desktop service principal using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service principal scoped to a subscription using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -171,6 +174,26 @@ Here's how to assign a role to an Azure Virtual Desktop service principal using 
    ```
 
 ---
+
+## Assign a Microsoft Entra role to an Azure Virtual Desktop service principal
+
+To assign a Microsoft Entra role to an Azure Virtual Desktop service principal, select the relevant tab for your scenario and follow the steps. In these examples, the scope of the role assignment is an Azure subscription, but you need to use the scope and the role required by each feature.
+
+Here's how to assign a Microsoft Entra role to an Azure Virtual Desktop service principal scoped to a tenant using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search box, enter *Microsoft Entra ID* and select the matching service entry.
+
+1. Select **Roles and administrators**.
+
+1. Search for and select the name of the role you want to assign. If you want to assign a custom role, see [Create a custom role](/entra/identity/role-based-access-control/custom-create) to create it first.
+
+1. Select **Add assignments**.
+
+1. In the search box, enter the application ID for the service principal you want to assign from the earlier table, for example **9cdead84-a844-4324-93f2-b2e6bb768d07**.
+
+1. Check the box next to the matching entry, then select **Add** to complete the role assignment.
 
 ## Next steps
 
