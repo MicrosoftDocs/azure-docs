@@ -19,7 +19,7 @@ For the following API operations the DICOM service returns the fully qualified U
 4. Resolve QueryTag
 5. Resolve QueryTagError
 
-Here is an example of a fully qualified image location URL. The URL could be found in the standard response for a STOW operation for a DICOM service that has data partition enabled, with partition name "foo".
+Here's an example of a fully qualified image location URL. The URL could be found in the standard response for a STOW operation for a DICOM service that has data partition enabled, with partition name "foo".
 
 `https://localhost:63838/v2/partitions/foo/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
 
@@ -36,7 +36,7 @@ The modified URL is based on following two headers.
 
 2. X-Forwarded-Prefix:  the original URL path or prefix that was part of the client’s request before the proxy forwarded or changed the request. For example: `X-Forwarded-Prefix: /prefix`
 
-These headers are a part of [.net core standard forwarded headers](https://learn.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer). 
+These headers are a part of [.NET core standard forwarded headers](https://learn.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer). 
 
 If `x-forwarded-host` header is present in the request object, it replaces the host name with the value provided.
 
@@ -63,10 +63,9 @@ Here are the details of a request header for a STOW operation with the forwarded
     * Content-Type: application/DICOM for each file uploaded, separated by a boundary value
 
 ### Example:
-An example of a DICOM tag with VR = UR for a STOW operation when the forwarded headers are not provided is shown below.
+An example of a DICOM tag with VR = UR for a STOW operation when the forwarded headers aren't provided is shown below.
 
 `https://localhost:63838/v2/partitions/foo/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
-
 
 An example of a DICOM tag with VR = UR for a STOW operation when the forwarded headers are provided is shown below.
 
@@ -88,8 +87,7 @@ URL of image:
 
 
  ## Things to remember
- 1. Forwarded headers do not have to be used together. If there is a need to, simply replace hostname and not path. Only the forwarded host header can be used. Similarly, if there is a need to replace the path, only the forwarded prefix header can be used.
-
+ 1. Forwarded headers don't have to be used together. If there's a need to, replace hostname and not path. Only the forwarded host header can be used. Similarly, if there's a need to replace the path, only the forwarded prefix header can be used.
  2. The client is responsible for mapping the hostname and path provided in forwarded headers to the correct DICOM service hostname and pathbase.
 
  [!INCLUDE [DICOM trademark statement](../includes/healthcare-APIs-DICOM-trademark.md)]
