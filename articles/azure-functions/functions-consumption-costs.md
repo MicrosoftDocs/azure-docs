@@ -21,8 +21,6 @@ Azure Functions currently offers four different hosting plans for your function 
 | [**Premium**](functions-premium-plan.md) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and virtual network integration. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
 | [**Dedicated (App Service)**](dedicated-plan.md) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 You should always choose the plan that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
 This article focuses on Consumption and Flex Consumption plans because in these plans billing depends on active periods of executions inside each instance. 

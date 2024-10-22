@@ -11,8 +11,6 @@ ms.custom:
 
 In the Consumption, Flex Consumption, and Premium plans, Azure Functions scales resources by adding more instances based on the number of events that trigger a function. 
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 The way in which your function app scales depends on the hosting plan: 
 
 + **Consumption plan:** Each instance of the Functions host in the Consumption plan is limited, typically to 1.5 GB of memory and one CPU. An instance of the host supports the entire function app. As such, all functions within a function app share resource in an instance are scaled at the same time. When function apps share the same Consumption plan, they're still scaled independently. 

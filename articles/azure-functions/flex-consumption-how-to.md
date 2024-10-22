@@ -14,8 +14,6 @@ This article shows you how to create function apps hosted in the [Flex Consumpti
 
 Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 ## Prerequisites
 
 + An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
