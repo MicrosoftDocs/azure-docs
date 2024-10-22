@@ -63,7 +63,7 @@ The following cmdlet provides the ARP tables for Azure private peering:
 
 ```azurepowershell
 # Required variables
-$ckt = "<your Service Key here>
+$ckt = "<your Service Key here>"
 
 # ARP table for Azure private peering--primary path
 Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Primary
@@ -110,7 +110,7 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 * The ARP table has an entry for the on-premises side with a valid IP and MAC address, and a similar entry for the Microsoft side.
 * The last octet of the on-premises IP address is always an odd number.
 * The last octet of the Microsoft IP address is always an even number.
-* The same MAC address appears on the Microsoft side for all three peerings (primary/secondary).
+* The same MAC address appears on the Microsoft side for the peerings (Azure private and Microsoft).
 
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
