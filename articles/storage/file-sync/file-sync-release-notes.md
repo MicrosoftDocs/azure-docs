@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 10/21/2024
+ms.date: 10/22/2024
 ms.author: wgries
 ---
 
@@ -99,7 +99,7 @@ Azure File Sync support for system-assigned managed identities will be in previe
 Sync performance has significantly improved for file share migrations and when metadata-only is changed (for example, ACL changes). Performance numbers will be posted when they are available.
 
 **Support for Windows Server 2025**  
-The Azure File Sync agent is now supported on Windows Server 2025 (build 26100 or later).
+The Azure File Sync agent is now supported on Windows Server 2025 (build 26100).
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 
