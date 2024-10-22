@@ -3,7 +3,7 @@ title: Troubleshoot outbound connectivity with Azure services
 titleSuffix: Azure NAT Gateway
 description: Get started learning how to troubleshoot issues with Azure NAT Gateway and Azure resources and services.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/15/2024
 ms.author: allensu
