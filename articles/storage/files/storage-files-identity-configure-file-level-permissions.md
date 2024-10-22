@@ -12,7 +12,7 @@ recommendations: false
 
 # Configure directory and file-level permissions for Azure file shares
 
-Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
+Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 
 After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. While share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level.
 
@@ -119,4 +119,4 @@ Follow these steps to configure ACLs using Windows File Explorer.
 
 ## Next step
 
-Now that you've configured directory and file-level permissions, you can [mount the file share](storage-files-identity-ad-ds-mount-file-share.md).
+Now that you've configured directory and file-level permissions, you can [mount the file share](storage-files-identity-mount-file-share.md).

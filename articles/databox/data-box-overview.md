@@ -4,8 +4,7 @@ description: Describes Azure Data Box, a cloud solution that enables you to tran
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: overview
 ms.date: 05/06/2022
 ms.author: shaas

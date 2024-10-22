@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 09/16/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand how the OPC UA industrial edge Kubernetes environment should be configured to enable mutual trust between the connector for OPC UA and the downstream OPC UA servers.
+ms.service: azure-iot-operations
 ---
 
 # OPC UA certificates infrastructure for the connector for OPC UA
