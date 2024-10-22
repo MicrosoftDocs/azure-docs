@@ -1,13 +1,13 @@
 ---
 title: Platform code integrity - Azure Security
 description: Learn how Microsoft ensures that only authorized software is running.
-author: yosharm
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 11/10/2022
+ms.date: 10/20/2024
 ---
 
 # Platform code integrity

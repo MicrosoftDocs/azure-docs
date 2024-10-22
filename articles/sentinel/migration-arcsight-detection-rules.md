@@ -1,10 +1,14 @@
 ---
 title: Migrate ArcSight detection rules to Microsoft Sentinel | Microsoft Docs
 description: Identify, compare, and migrate your ArcSight detection rules to Microsoft Sentinel built-in rules.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to migrate ArcSight detection rules to Microsoft Sentinel so that analysts can leverage advanced analytics and machine learning for more effective threat detection and response.
+
 ---
 
 # Migrate ArcSight detection rules to Microsoft Sentinel

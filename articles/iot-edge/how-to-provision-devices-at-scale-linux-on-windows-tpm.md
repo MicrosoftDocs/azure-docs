@@ -6,7 +6,7 @@ ms.author: patricka
 ms.reviewer: fcabrera
 ms.date: 06/03/2024
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---

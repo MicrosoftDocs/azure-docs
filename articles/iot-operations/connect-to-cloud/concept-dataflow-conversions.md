@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
+ms.service: azure-iot-operations
 ---
 
 # Convert data by using dataflow conversions

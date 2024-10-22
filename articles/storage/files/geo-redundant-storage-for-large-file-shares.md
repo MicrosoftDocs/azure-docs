@@ -65,17 +65,17 @@ Perform the following steps to configure 100TiB shares and geo-redundancy for ne
 
 Perform the following steps to configure geo-redundancy for a new storage account and Azure file share.
 
-1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) and select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
-2. [Create an SMB Azure file share](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share). New file shares that are created default to 100 TiB.
+1. [Create a standard storage account](storage-how-to-create-file-share.md#create-a-storage-account) and select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
+2. [Create an SMB Azure file share](storage-how-to-create-file-share.md#create-a-file-share). New file shares that are created default to 100 TiB.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
 1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
-2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) default to 100 TiB.
+2. [Increase the file share quota](storage-how-to-create-file-share.md#change-the-cost-and-performance-characteristics-of-a-pay-as-you-go-file-share) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md#create-a-file-share) default to 100 TiB.
 
 #### Existing storage accounts with a redundancy option of GRS, GZRS, RA-GRS, or RA-GZRS
 
-1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) default to 100 TiB.
+1. [Increase the file share quota](storage-how-to-create-file-share.md#change-the-cost-and-performance-characteristics-of-a-pay-as-you-go-file-share) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md#create-a-file-share) default to 100 TiB.
 
 ## Snapshot and sync frequency
 

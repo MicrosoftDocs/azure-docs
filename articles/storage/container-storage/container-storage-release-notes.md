@@ -9,7 +9,7 @@ ms.author: dstan
 ---
 # Release notes for Azure Container Storage
 
-This article provides the release notes for Azure Container Storage. It's important to note that minor releases introduce new functionalities in a backward-compatible manner (for example, 1.1.0 GA). Patch releases focus on bug fixes, security updates, and smaller improvements (for example, 1.1.1).
+This article provides the release notes for Azure Container Storage. It's important to note that minor releases introduce new functionalities in a backward-compatible manner (for example, 1.1.0 GA). Patch releases focus on bug fixes, security updates, and smaller improvements (for example, 1.1.2).
 
 ## Supported versions
 
@@ -17,7 +17,8 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |----|----------------| 
-|1.1.1- Minor Release | Supported |
+|1.1.2- Patch Release | Supported |
+|1.1.1- Patch Release | Supported |
 |1.1.0- General Availability| Supported | 
 
 ## Unsupported versions
@@ -26,7 +27,15 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 
 ## Minor vs. patch versions
 
-Minor versions introduce small improvements, performance enhancements, or minor new features without breaking existing functionality. For example, version 1.1.0 would move to 1.2.0. Patch versions are released more frequently than minor versions. They focus solely on bug fixes and security updates. For example, version 1.1.1 would be updated to 1.1.2.
+Minor versions introduce small improvements, performance enhancements, or minor new features without breaking existing functionality. For example, version 1.1.0 would move to 1.2.0. Patch versions are released more frequently than minor versions. They focus solely on bug fixes and security updates. For example, version 1.1.2 would be updated to 1.1.3.
+
+## Version 1.1.2 
+
+### Improvements and issues that are fixed 
+- **Bug fixes and performance improvements**: We improved the overall system stability by fixing general bugs and optimizing performance.
+- **Security Enhancements**: This release improves security by updating package dependencies and Microsoft container images and improving container image builds to reduce dependencies.
+- **Volume attachment fixes**: We also resolved an issue where volumes remained in a published state on nodes that were no longer present in the cluster, causing volume mounts to fail. This fix ensures that volumes are properly detached and reattached, allowing workloads to continue without interruptions. 
+
 
 ## Version 1.1.1
 
