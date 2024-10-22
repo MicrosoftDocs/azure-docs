@@ -196,7 +196,7 @@ from automationassets import AutomationAssetNotFound
 
 # get a variable
 value = automationassets.get_automation_variable("test-variable")
-print value
+print(value)
 
 # set a variable (value can be int/bool/string)
 automationassets.set_automation_variable("test-variable", True)
@@ -207,7 +207,7 @@ automationassets.set_automation_variable("test-variable", "test-string")
 try:
     value = automationassets.get_automation_variable("nonexisting variable")
 except AutomationAssetNotFound:
-    print ("variable not found")
+    print("variable not found")
 ```
 
 ---
