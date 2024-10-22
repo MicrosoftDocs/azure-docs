@@ -289,7 +289,7 @@ Replace the values according to the explanation.
    > [!NOTE]
    > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
       
-1. Build the web UI.
+5. Build the web UI.
     ```bash
     ng build
     ```
