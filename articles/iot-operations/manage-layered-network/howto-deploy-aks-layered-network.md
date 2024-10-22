@@ -48,7 +48,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the installation was successful, run:
 
     ```bash
-    kubectl get pods -n azure-iot-operations
+    kubectl get pods
     ```
 
     You should see an output that looks like the following example:
@@ -65,7 +65,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     kind: Lnm
     metadata:
       name: level4
-      namespace: azure-iot-operations
+      namespace: default
     spec:
       image:
         pullPolicy: IfNotPresent
@@ -157,7 +157,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the config maps, run:
 
     ```bash
-    kubectl get cm -n azure-iot-operations
+    kubectl get cm
     ```
     The output should look like the following example:
     ```
@@ -177,7 +177,7 @@ In level 3, you create a K3S Kubernetes cluster on a Linux virtual machine. To s
 1. On the Linux VM, install and configure K3S using the following commands:
 
     ```bash
-    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
     ```
 1. Configure network isolation for level 3. Use the following steps to configure the level 3 cluster to only send traffic to Layered Network Management in level 4.
     - Browse to the **network security group** of the VM's network interface.

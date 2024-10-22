@@ -22,7 +22,9 @@ This walkthrough is an example of deploying Azure IoT Operations Preview to a sp
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.
 > - [Deploy Azure IoT Layered Network Management to an AKS cluster](howto-deploy-aks-layered-network.md)
-> - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+> - [Deployment overview - Azure IoT Operations Preview](../deploy-iot-ops/overview-deploy.md)
+> - [Prepare your Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-prepare-cluster.md)
+> - [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 >
 > You can't migrate a previously deployed Azure IoT Operations from its original network to an isolated network. For this scenario, follow the steps to begin with creating new clusters.
 
