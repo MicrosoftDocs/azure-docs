@@ -6,7 +6,7 @@ ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 09/26/2023
+ms.date: 10/23/2024
 zone_pivot_groups: app-service-sku
 ---
 
@@ -116,8 +116,7 @@ To use zone redundancy, switch to a supported App Service plan type.
 
 ::: zone pivot="premium"
 
-To deploy a new zone-redundant Azure App Service plan, select the *Zone redundant* checkbox in the Azure portal when you deploy by using the Azure portal.
-<!-- TODO CLI/PowerShell/Bicep? -->
+To deploy a new zone-redundant Azure App Service plan, select the *Zone redundant* option when you deploy the plan.
 
 ::: zone-end
 
@@ -145,12 +144,14 @@ During normal operations, traffic is routed between all of your available App Se
 
 **Detection and response:** The App Service platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 
+**Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an App Service plan instance in the faulty availability zone are terminated and need to be retried.
+
 **Traffic rerouting:** When a zone is unavailable, Azure App Service detects the lost instances from that zone. It automatically attempt to find new replacement instances. Then, it spreads traffic across the new instances as needed.
 
 If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](/azure/azure-monitor/autoscale/autoscale-overview) and that your autoscale instance count specification doesn't need to be a multiple of three. 
 
->[!NOTE] 
->There's no guarantee that requests for additional instances in a zone-down scenario will succeed. The back filling of lost instances occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your App Service plans to account for losing a zone. You can do that by [overprovisioning the capacity of your App Service plan](#capacity-planning-and-management).
+> [!NOTE] 
+> There's no guarantee that requests for additional instances in a zone-down scenario will succeed. The back filling of lost instances occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your App Service plans to account for losing a zone. You can do that by [overprovisioning the capacity of your App Service plan](#capacity-planning-and-management).
 
 ### Failback
 
@@ -172,8 +173,8 @@ If you need to use App Service in multiple regions, you need to deploy separate 
 
 For example approaches that illustrates this architecture, see:
 
-- TODO AAC article with the information from the previous version of this article
-- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region).
+- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service)
+- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
 - [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app)
 
 ::: zone-end
