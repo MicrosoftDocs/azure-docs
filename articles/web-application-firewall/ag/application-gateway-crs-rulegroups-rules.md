@@ -101,9 +101,10 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
-### Upgrading Rulesets
+### Changing Rulesets
 
-Note...
+When you change ruleset versions, it is important to be aware that all of your previous customizations to the managed rulesets will be reset. These customizations include disabling specific rules, adjusting rule actions and applying exclusions. To make sure that you do not lose any of these custom configurations to your rulesets you can save your current configurations as a template before changing ruleset versions. You can keep this template if you ever need to revert to a previous configuration. You can also clone this template, update the ruleset type, ruleset version, and rule group name to match the ruleset your changing to, then deploy this updated template in your test environment to change rulesets while still preserving your customizations.![image](https://github.com/user-attachments/assets/0f1d71a8-852c-4ecf-a2ad-8ec66b17e963)
+
 
 ### DRS 2.1 
 
