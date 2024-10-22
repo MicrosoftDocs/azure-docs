@@ -36,7 +36,7 @@ The modified URL is based on following two headers.
 
 2. X-Forwarded-Prefix:  the original URL path or prefix that was part of the client’s request before the proxy forwarded or changed the request. For example: `X-Forwarded-Prefix: /prefix`
 
-These headers are a part of [.NET core standard forwarded headers](https://learn.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer). 
+These headers are a part of .NET core standard forwarded headers.
 
 If `x-forwarded-host` header is present in the request object, it replaces the host name with the value provided.
 
