@@ -29,9 +29,9 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 There are two deployment options for the OSDU Admin UI:
 
-1. **[Quick-deploy using Azure Container Apps](#quick-deploy)**: One-click deploy using Azure Container Apps. This deployment is the easiest and quickest way to deploy the OSDU Admin UI. It supports both public and private deployments.
+1. **[Quick-deploy using Azure Container Apps](#quick-deploy-with-azure-container-apps)**: One-click deploy using Azure Container Apps. This deployment is the easiest and quickest way to deploy the OSDU Admin UI. It supports both public and private deployments.
 
-1. **[Custom deployment using Azure Storage Account Static Website](#custom-deployment)**: Build and deploy the OSDU Admin UI using Azure Storage Account. This deployment option is more customizable and allows you to configure the deployment to your needs.
+1. **[Custom deployment using Azure Storage Account Static Website](#custom-deployment-using-azure-storage-account-static-website)**: Build and deploy the OSDU Admin UI using Azure Storage Account. This deployment option is more customizable and allows you to configure the deployment to your needs.
 
 ## Quick-deploy with Azure Container Apps
 
@@ -205,7 +205,7 @@ There are two deployment options for the OSDU Admin UI:
 
 1. Modify the parameters in the config file located at `/src/config/config.json`.
     
-    [Code snippet](#tab/code)
+#### [Code snippet](#tab/code)
 
     Replace the values of the environment variables with your values.
 
@@ -253,7 +253,7 @@ There are two deployment options for the OSDU Admin UI:
     mv src/config/temp.json src/config/config.json
     ```
 
-    [Manual](#tab/manual)
+#### [Manual](#tab/manual)
     
     Replace the values according to the explanation.
 
