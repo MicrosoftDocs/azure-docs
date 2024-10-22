@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* The [migrate on-premises volumes](migrate-on-premises-volumes.md) feature is now generally available (GA)
+* The [migrate on-premises volumes](migrate-volumes.md) feature is now generally available (GA)
 
     <!-- What's new pending -->
 

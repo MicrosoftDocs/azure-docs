@@ -17,7 +17,6 @@ You can peer and migrate volumes from ONTAP or Cloud Volumes ONTAP to Azure NetA
 * On your on-premises storage cluster, you must be running ONTAP 9.8 or later.
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises cluster. Even if you already have the license, Work with your account team so they can get the Azure Technology Specialist involved in getting this license applied to the cluster. 
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
-<!--    * You must be using Standard network features to peer and migrate on-premises volumes to Azure NetApp Files. -->
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
 * After issuing the peering request, the request must be accepted within 60 minutes of making the request. If it's not accepted within 60 minutes, the request expires. 
 
@@ -83,18 +82,18 @@ You can peer and migrate volumes from ONTAP or Cloud Volumes ONTAP to Azure NetA
 
 1. Issue a cluster peering API request from each of the target Azure NetApp Files migration volumes to the on-premises cluster. Each call must provide a list of the on-premises cluster intercluster logical interfaces (LIFs).
 <!-- If you've already paired your on-premises cluster to Azure NetApp Files, skip to the next step. Otherwise,  -->
-    ```rest
-     
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-05-01
 
-    Body: {
-       "PeerAddresses":[
-          "<LIF address>",
-          "<LIF address>", 
-          "<LIF address>",
-          "<LIF address>"
-       ]
-    }
+    ```rest
+        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-05-01
+    
+        Body: {
+           "PeerAddresses":[
+              "<LIF address>",
+              "<LIF address>", 
+              "<LIF address>",
+              "<LIF address>"
+           ]
+        }
     ```
 
 1. View the result header. Copy the Azure-AsyncOperation ID.
