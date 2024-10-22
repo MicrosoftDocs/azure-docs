@@ -5,7 +5,7 @@ description: Learn how to migrate a chat product from Twilio Conversations to Az
 author: kperla97
 services: azure-communication-services
 
-ms.author: kperla
+ms.author: kaperla
 ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-communication-services
