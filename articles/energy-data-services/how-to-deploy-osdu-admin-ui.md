@@ -15,14 +15,6 @@ This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data M
 
 The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user and group management), legal tags, schemas, reference data, view, and visualize objects on a map.
 
-## Deployment options
-
-There are two deployment options for the OSDU Admin UI:
-
-1. **[Quick-deploy](#quick-deploy)**: One-select deploy using Azure Container Apps. This deployment is the easiest and quickest way to deploy the OSDU Admin UI. It supports both public and private deployments.
-
-1. **[Custom deployment](#custom-deployment)**: Build and deploy the OSDU Admin UI using Azure Storage Account. This deployment option is more customizable and allows you to configure the deployment to your needs.
-
 ## Prerequisites
 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
@@ -33,7 +25,15 @@ There are two deployment options for the OSDU Admin UI:
    
   Upon first sign-in to the Admin UI, it requests the necessary permissions. You can also grant the required permissions in advance. See [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 
-## Quick-deploy
+## Deployment options
+
+There are two deployment options for the OSDU Admin UI:
+
+1. **[Quick-deploy using Azure Container Apps](#quick-deploy)**: One-click deploy using Azure Container Apps. This deployment is the easiest and quickest way to deploy the OSDU Admin UI. It supports both public and private deployments.
+
+1. **[Custom deployment using Azure Storage Account Static Website](#custom-deployment)**: Build and deploy the OSDU Admin UI using Azure Storage Account. This deployment option is more customizable and allows you to configure the deployment to your needs.
+
+## Quick-deploy with Azure Container Apps
 
 1. Select the `Deploy to Azure` button to deploy the OSDU Admin UI using Azure Container Apps.
 
@@ -69,7 +69,7 @@ There are two deployment options for the OSDU Admin UI:
 | Enable Private Network | *Optional:* Enable private network access to the OSDU Admin UI. | No |
 | Enable Logging | *Optional:* Enable logging for the OSDU Admin UI. | No |
 
-## Custom deployment
+## Custom deployment using Azure Storage Account Static Website
 
 ### Prepare your computer
 
