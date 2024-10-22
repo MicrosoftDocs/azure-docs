@@ -71,7 +71,7 @@ For more information on how to Arc enable your inventory,
 - [Arc enable your servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) 
 - [Azure Arc-enabled Servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) 
 
-## Next Steps 
+## Next steps 
 
 - After successfully enabling Arc for the migration inventory, you can: 
 
