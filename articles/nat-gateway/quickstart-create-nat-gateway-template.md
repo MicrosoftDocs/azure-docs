@@ -3,7 +3,7 @@ title: 'Create a NAT gateway - Resource Manager Template'
 titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 07/21/2023
 ms.author: allensu
