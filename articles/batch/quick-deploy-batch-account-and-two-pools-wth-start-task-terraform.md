@@ -2,7 +2,7 @@
 title: 'Deploy an Azure Batch account and two pools with a start task - Terraform'
 description: In this article, you deploy an Azure Batch account and two pools with a start task using Terraform.
 ms.topic: quickstart
-ms.date: 10/18/2024
+ms.date: 10/22/2024
 ms.custom: devx-track-terraform
 ms.service: azure-batch
 author: Padmalathas
@@ -15,24 +15,24 @@ ai-usage: ai-assisted
 
 # Deploy an Azure Batch account and two pools with a start task - Terraform
 
-In this quickstart, you create an Azure Batch account, an Azure Storage account, and two Batch pools using Terraform. Batch is a cloud-based job scheduling service that parallelizes and distributes the processing of large volumes of data across many computers. It's typically used for tasks like rendering 3D graphics, analyzing large datasets, or processing video. In this case, the resources created include a Batch account (which is the central organizing entity for distributed processing tasks), a storage account for holding the data to be processed, and two Batch pools, which are groups of virtual machines that execute the tasks.
+In this quickstart, you create an Azure Batch account, an Azure Storage account, and two Batch pools using Terraform. Batch is a cloud-based job scheduling service that parallelizes and distributes the processing of large volumes of data across many computers. It's typically used for tasks like rendering 3D graphics, analyzing large datasets, or processing video. In this case, the resources created include a Batch account (which is the central organizing entity for distributed processing tasks), a Storage account for holding the data to be processed, and two Batch pools, which are groups of virtual machines that execute the tasks.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
+> * Specify the required version of Terraform and the required providers.
+> * Define the Azure provider with no additional features.
+> * Define variables for the resource group location and name prefix.
 > * Generate a random name for the Azure resource group.
 > * Create a resource group with the generated name at a specified location.
 > * Generate a random string for the Storage account name.
 > * Create a Storage account with the generated name in the created resource group.
 > * Generate a random string for the Batch account name.
-> * Create a Batch account with the generated name in the created resource group, linked to the created storage account.
+> * Create a Batch account with the generated name in the created resource group and linked to the created Storage account.
 > * Generate a random name for the Batch pool.
-> * Create a Batch pool with a fixed scale in the created resource group, linked to the created batch account.
-> * Create a Batch pool with autoscale in the created resource group, linked to the created batch account.
+> * Create a Batch pool with a fixed scale in the created resource group and linked to the created batch account.
+> * Create a Batch pool with autoscale in the created resource group and linked to the created batch account.
 > * Output the names of the created resource group, Storage account, Batch account, and both Batch pools.
-> * Specify the required version of Terraform and the required providers.
-> * Define the Azure provider with no additional features.
-> * Define variables for the resource group location and name prefix.
 
 ## Prerequisites
 
@@ -49,13 +49,13 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/main.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code:
+1. Create a file named `outputs.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/outputs.tf":::
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `providers.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/providers.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
