@@ -2,12 +2,13 @@
 title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
 author: mattreatMSFT
+ms.author: mareat
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 10/22/2024
-ms.author: mareat
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 ---
+
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
 > [!CAUTION]

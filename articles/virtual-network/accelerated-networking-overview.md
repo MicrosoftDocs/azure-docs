@@ -1,12 +1,12 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: EllieMelissa
+author: mattreatMSFT
+ms.author: mareat
 ms.service: azure-virtual-network
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/22/2024
-ms.author: ealume
+ms.custom: linux-related-content
 ---
 
 # Accelerated Networking overview
@@ -103,12 +103,12 @@ You can directly query the list of VM SKUs that support Accelerated Networking b
 If you use a custom image that supports Accelerated Networking, make sure you meet the following requirements.
 
 #### Device and driver support
-Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](/accelerated-networking-mana-overview).
+Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](accelerated-networking-mana-overview.md).
 
 #### Dynamic binding and revocation of virtual function
 Accelerated Networking requires guest OS images to properly handle the virtual function being removed or added dynamically. Scenarios such as host maintenance or live migration will result in dynamic revocation of the virtual function and restoration after the maintenance event. Additionally, applications must ensure that they bind to the synthetic device and not the virtual function in order to maintain network connectivity during these events. 
 
-For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](/create-vm-accelerated-networking-cli?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function). 
+For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](create-vm-accelerated-networking-cli.md?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function). 
 
 #### Configure drivers to be unmanaged
 Accelerated Networking requires network configurations that mark the NVIDIA drivers as unmanaged devices. Images with cloud-init version 19.4 or later have networking correctly configured to support Accelerated Networking during provisioning. We strongly advise that you don't run competing network interface software (such as ifupdown and networkd) on custom images, and that you don't run dhcpclient directly on multiple interfaces.
@@ -162,16 +162,16 @@ EOF
 #### Network traffic uses the Accelerated Networking data path
 
 For NVIDIA drivers: Verify that the packets are flowing over the VF interface
-- [Linux documentation](/accelerated-networking-how-it-works#application-usage)
-- [Windows documentation](/create-vm-accelerated-networking-cli?tabs=windows#confirm-that-accelerated-networking-is-enabled)
+- [Linux documentation](accelerated-networking-how-it-works.md#application-usage)
+- [Windows documentation](create-vm-accelerated-networking-cli.md?tabs=windows#confirm-that-accelerated-networking-is-enabled)
 
 For MANA driver: Verify that the traffic is flowing through MANA
-- [Linux documentation](/accelerated-networking-mana-linux#verify-that-traffic-is-flowing-through-mana)
-- [Windows documentation](/accelerated-networking-mana-windows#verify-that-traffic-is-flowing-through-mana)
+- [Linux documentation](accelerated-networking-mana-linux.md#verify-that-traffic-is-flowing-through-mana)
+- [Windows documentation](accelerated-networking-mana-windows.md#verify-that-traffic-is-flowing-through-mana)
 
 ---
 
-## Next steps
+## Related content
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
 - [Create a VM with Accelerated Networking by using PowerShell](./create-vm-accelerated-networking-powershell.md)
