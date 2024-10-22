@@ -11,9 +11,13 @@ ms.date: 10/22/2024
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). Because resiliency is a shared responsibility between you and Microsoft, this article also explains how Microsoft has built and supports resiliency in Azure Bastion, as well the tools you can use to build a resilient solution that meets your needs.
+This article describes reliability support in Azure Bastion and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
-Azure Bastion provides private, secure remote access to virtual machines hosted in your Azure virtual networks without exposing public IP addresses. You deploy Azure Bastion into a virtual network and can use it to access virtual machines within the virtual network or in peered virtual networks.
+> [!IMPORTANT]
+> Zone redundancy features for Azure Bastion resources are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via a private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly over TLS from the Azure portal, or via the native SSH or RDP client already installed on your local computer. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
 > [!NOTE]
 > For production deployments, you should:
@@ -28,7 +32,7 @@ The Azure Bastion service enables you to use the secure sockets host (SSH) and r
 
 ## Availability zone support
 
-Azure Bastion can be configured to be *zone-redundant*, which means your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your production workloads.
+You can configure Azure Bastion to be *zone-redundant*, so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones you can achieve resiliency and reliability for your production workloads.
 
 You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone will be replaced with another instance in a healthy zone.
 
@@ -37,13 +41,14 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 ### Requirements
 
-You can configure zone redundancy on Azure Bastion resources with the Basic, Standard, and Premium SKUs.
+To configure Azure Bastion resources with zone redundancy you must deploy with the Basic, Standard, or Premium SKUs.
 
-The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
+> [!NOTE]
+> The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
 
 ### Regions supported
 
-Azure Bastion support for availability zones is currently in preview. During preview, zone-redundant Azure Bastion reosurces can be deployed into the following regions:
+Zone-redundant Azure Bastion resources can be deployed into the following regions:
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
@@ -59,23 +64,24 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 ### Configure availability zone support
 
-**New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to. Select multiple zones for zone redundancy. You can't change the availability zone setting after your Bastion resource is deployed.
+- **New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to.  For zone redundancy, you must select multiple zones. 
 
-When you select the availability zones to use, you're selecting the logical availability zone. If you deploy other workload components in a different Azure subscription, they might use a different logical availability zone number to access the same physical availabilty zone. For more information, see [Physical and logical availability zones](./availability-zones-overview.md#physical-and-logical-availability-zones).
+   >[!IMPORTANT]
+   > You can't change the availability zone setting after you deploy your Bastion resource.
 
-**Migration:** Migration from non-availability zone support to availability zone support isn't possible. Instead, you need to create a Bastion resource in the new region and delete the old one.
+When you select which availability zones to use, you're actually selecting the *logical availability zone*. If you deploy other workload components in a different Azure subscription, they might use a different *logical availability zone* number to access the same physical availability zone. For more information, see [Physical and logical availability zones](./availability-zones-overview.md#physical-and-logical-availability-zones).
+
+- **Migration:** It's not possible to migrate from non-availability zone support to availability zone support. Instead, you need to create a Bastion resource in the new region and delete the old one.
 
 ### Traffic routing between zones
 
 When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
 
-It's possible that a session might be sent to an Azure Bastion instance in a different availabilty zone to the virtual machine you're connecting to. For most scenarios, the small amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your Azure Bastion workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. This configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
+It's possible that a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to.  In most scenarios, the small amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your Azure Bastion workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. However, this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
 
 ### Zone-down experience
 
-**Detection and response:** Azure Bastion detects a failure in an availability zone and responding. You don't need to do anything to initiate a availability zone failover.
-
-<!-- TODO any logs? -->
+**Detection and response:** Azure Bastion detects and responses to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
 
 **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
@@ -85,11 +91,15 @@ If the virtual machine you're connecting to isn't in the affected availability z
 
 ### Failback
 
-When the availability zone recovers, Azure Bastion automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
+When the availability zone recovers, Azure Bastion:
+
+- Automatically restores instances in the availability zone.
+- Removes any temporary instances created in the other availability zones
+- Reroutes traffic between your instances as normal.
 
 ### Testing for zone failures
 
-The Azure Bastion platform manages traffic routing, failover, and failback for zone-redundant Azure Bastion resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+The Azure Bastion platform manages traffic routing, failover, and failback for zone-redundant Azure Bastion resources. Because this feature is fully managed, you don't need to initiate anything or validate availability zone failure processes.
 
 ## Multi-region support
 
