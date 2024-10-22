@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/15/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -42,7 +42,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Install Azure CLI extensions for Metrics collection for ARC enabled cluster and Azure Managed Grafana.
+1. Install Azure CLI extensions for Metrics collection for Azure Arc-enabled clusters and Azure Managed Grafana.
 
    ```azurecli
    az extension add --name k8s-extension
@@ -65,7 +65,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
 
    Save the Grafana ID from the output of this command. You use the ID when you enable metrics collection in the next section.
 
-1. Create a Log Analytics workspace for Container Insights
+1. Create a Log Analytics workspace for Container Insights.
 
    ```azurecli
    az monitor log-analytics workspace create -g <RESOURCE_GROUP> -n <LOGS_WORKSPACE_NAME> --query id -o tsv
@@ -73,7 +73,7 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
 
    Save the Log Analytics workspace ID from the output of this command. You use the ID when you enable metrics collection in the next section.
 
-### Enable metrics collection for the cluster
+## Enable metrics collection for the cluster
 
 Update the Azure Arc cluster to collect metrics and send them to the previously created Azure Monitor workspace. You also link this workspace with the Grafana instance.
 
