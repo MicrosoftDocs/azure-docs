@@ -131,12 +131,8 @@ items:
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
     - name: Configure observability and monitoring
       items:
-      - name: Deploy observability resources with a script
+      - name: Deploy observability resources
         href: configure-observability-monitoring/howto-configure-observability.md
-      - name: Deploy observability resources manually
-        href: configure-observability-monitoring/howto-configure-observability-manual.md
-      - name: Add a cluster to observability infrastructure
-        href: configure-observability-monitoring/howto-add-cluster.md
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps

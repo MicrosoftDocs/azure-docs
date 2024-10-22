@@ -171,6 +171,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-add-cluster.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-configure-observability-manual.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/overview-iot-mq.md",
             "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
             "redirect_document_id": true
