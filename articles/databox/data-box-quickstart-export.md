@@ -3,8 +3,7 @@ title: "Quickstart: Export data for Microsoft Azure Data Box"
 description: Learn how to quickly export your Azure Data Box data in Azure portal
 services: databox
 author: stevenmatthew
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: shaas

@@ -4,7 +4,7 @@ description: Private Links and Public Access Restriction overview in Azure Time 
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 09/01/2021
 ---

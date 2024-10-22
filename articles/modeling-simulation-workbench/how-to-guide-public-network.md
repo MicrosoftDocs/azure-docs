@@ -3,7 +3,7 @@ title: "Create a public IP network connector: Azure Modeling and Simulation Work
 description: Learn how to deploy a public network connector for an Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 10/11/2024
 

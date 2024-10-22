@@ -30,7 +30,7 @@ To link a BrokerListener to a *BrokerAuthentication* resource, specify the `auth
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the *default* listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
@@ -49,7 +49,7 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-          - "aio-internal"
+          - aio-internal
 ```
 
 > [!IMPORTANT]
