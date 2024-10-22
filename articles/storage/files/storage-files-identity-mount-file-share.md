@@ -26,7 +26,7 @@ The process described in this article verifies that your SMB file share and acce
 
 Before you can mount the Azure file share, make sure you've gone through the following prerequisites:
 
-- Make sure you've [assigned share-level permissions](storage-files-identity-ad-ds-assign-permissions.md) and [configured directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md). Remember that share-level role assignment can take some time to take effect.
+- Make sure you've [assigned share-level permissions](storage-files-identity-assign-share-level-permissions.md) and [configured directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level role assignment can take some time to take effect.
 - If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share and removed the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with Active Directory Domain Services (AD DS) or Microsoft Entra credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
 - If your AD source is AD DS or Microsoft Entra Kerberos, your client must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
 - Sign in to the client using the credentials of the AD DS or Microsoft Entra identity that you granted permissions to.
