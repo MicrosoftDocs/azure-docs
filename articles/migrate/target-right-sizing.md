@@ -21,7 +21,7 @@ Azure Migrate supports two types of target sizing:
 | **Performance-based**  | Assessments that make target size recommendations based on collected performance data.  | The compute recommendation is based on CPU and memory utilization data. <br> <br> The storage recommendation is based on the input/output operations per second (IOPS) and the throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
 | **As-is on-premises**  | Assessments that don't use performance data to make target size recommendations. The targets are sized based on the configuration data available.  | The compute recommendation is based on the on-premises source workload size. <br> The recommended storage is based on the storage type selected for the assessment.|
 
-For identifying the right-sized Azure target that is not overprovisioned but still resilient, we recommend creating performance-based assessments. The performance-based assessments use resource utilization data (CPU & memory utilization etc.) and resource configuration data. The appliance collects the required performance data at regular intervals and modeled to perform the assessments.  
+For identifying the right-sized Azure target that isn't overprovisioned but still resilient, we recommend creating performance-based assessments. The performance-based assessments use resource utilization data (CPU & memory utilization etc.) and resource configuration data. The appliance collects the required performance data at regular intervals and modeled to perform the assessments.  
 
 ### How does the appliance aggregate and model performance data? 
 
@@ -38,7 +38,7 @@ If you use the appliance for discovery, it collects performance data directly fr
 
 ### How is performance data collected for import-based discovery?  
 
-If you import servers using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS, and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.  
+If you import servers using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS, and throughput) are used if you choose performance-based sizing. You won't be able to provide performance history and percentile information.  
 
 This method is especially helpful if you've over-allocated the on-premises server, its utilization is low, and you want to right-size the Azure VM to save costs.  
 
