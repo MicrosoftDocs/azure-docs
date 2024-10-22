@@ -13,7 +13,6 @@ ms.date: 10/22/2024
 
 This article describes reliability support in Azure Bastion and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
-
 > [!IMPORTANT]
 > Zone redundancy features for Azure Bastion resources are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -42,10 +41,10 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 ### Requirements
 
-To configure Azure Bastion resources with zone-redundancy you must deploy with the Basic, Standard, and Premium SKUs.
+To configure Azure Bastion resources with zone redundancy you must deploy with the Basic, Standard, or Premium SKUs.
 
->[!NOTE]
->The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
+> [!NOTE]
+> The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
 
 ### Regions supported
 
@@ -83,7 +82,6 @@ It's possible that a session might be sent to an Azure Bastion instance in an av
 ### Zone-down experience
 
 **Detection and response:** Azure Bastion detects and responses to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
-
 
 **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
