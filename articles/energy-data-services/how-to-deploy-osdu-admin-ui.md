@@ -41,7 +41,7 @@ There are two deployment options for the OSDU Admin UI:
 
 1. Fill in the required parameters in the Azure portal. For more information about the parameters, see the [parameters section](#parameters) for more information.
 
-   [![Screenshot that shows the Azure portal deployment form.](./media/how-to-deploy-osdu-admin-ui/quickdeploy.png)](./media/how-to-deploy-osdu-admin-ui/quickdeploy.png#lightbox)
+   [![Screenshot that shows the Azure portal deployment form.](./media/how-to-deploy-osdu-admin-ui/quick-deploy.png)](./media/how-to-deploy-osdu-admin-ui/quick-deploy.png#lightbox)
 
 1. Select **Review + create** and then **Create** to deploy the OSDU Admin UI.
 
