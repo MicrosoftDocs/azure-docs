@@ -5,7 +5,7 @@ services: iot-central
 ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 10/22/2024
 ms.topic: how-to
 ---
 
@@ -99,7 +99,7 @@ Then select the permissions for the role.
 
 ## Invite users
 
-After you've created your organization hierarchy and assigned devices to organizations, invite users to your application and assign them to organizations.
+After you create your organization hierarchy and assigned devices to organizations, invite users to your application and assign them to organizations.
 
 To invite a user, navigate to **Permissions > Users**. Enter their email address, the organization they're assigned to, and the role or roles they're a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
 
@@ -112,13 +112,13 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Custom app |
 | user1@contoso.com | Org Viewer | Custom app |
 
-When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
+When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user signs in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
 To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
 
 ## Use organizations
 
-After you've created your organization hierarchy, you can use organizations in areas of your application such as:
+After you create your organization hierarchy, you can use organizations in areas of your application such as:
 
 - [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
 - [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
@@ -139,7 +139,7 @@ To set the default organization, select **Settings** on the top menu bar:
 
 ## Add organizations to an existing application
 
-An application may contain devices, users, and experiences such as dashboards, device groups, and jobs before you add an organization hierarchy.
+An application might contain devices, users, and experiences such as dashboards, device groups, and jobs before you add an organization hierarchy.
 
 When you start adding organizations, all existing devices, users, and experiences remain associated with the root organization in the application:
 

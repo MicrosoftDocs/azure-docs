@@ -5,13 +5,15 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
-ms.date: 08/20/2024
+ms.date: 10/22/2024
 ms.topic: overview
 ---
 
 # Azure Automation State Configuration overview
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and
 compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**.
