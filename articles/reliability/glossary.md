@@ -2,8 +2,8 @@
 title: Azure resiliency terminology
 description: Understanding terms
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: anaharris

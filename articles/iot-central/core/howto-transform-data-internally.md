@@ -1,9 +1,9 @@
 ---
 title: Transform data inside Azure IoT Central
-description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
+description: IoT devices send data in various formats that you might need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -13,11 +13,11 @@ services: iot-central
 
 # Transform data inside your IoT Central application for export
 
-IoT devices send data in various formats. To use the device data in your IoT solution, you may need to transform your device data before it's exported to other services.
+IoT devices send data in various formats. To use the device data in your IoT solution, you might need to transform your device data before you export it to other services.
 
 This article shows you how to transform device data as part of a data export definition in an IoT Central application.
 
-Transformations in an IoT Central data export definition let you manipulate the format and structure of the device data before it's exported to a destination. You can specify a transformation for each destination in an export definition. Each message passes through the transformation to create an output record that's exported to the destination.
+Transformations in an IoT Central data export definition let you manipulate the format and structure of the device data before you export it to a destination. You can specify a transformation for each destination in an export definition. Each message passes through the transformation to create an output record to export to the destination.
 
 Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
@@ -27,7 +27,7 @@ The following video introduces you to IoT Central data transformations:
 
 ## Add a transformation
 
-To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
+To add a transformation for a destination in your data export definition, select **+ Transform** as shown in the following screenshot:
 
 :::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination." lightbox="media/howto-transform-data-internally/add-transformation.png":::
 
@@ -421,7 +421,7 @@ JSON output:
 
 ### Scenario 3: Power BI streaming
 
-The Power BI real-time streaming feature lets you view data in a dashboard that's updated in real time with  low latency. To learn more, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming).
+The Power BI real-time streaming feature lets you view data in a dashboard that updates in real time with low latency. To learn more, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming).
 
 To use IoT Central with Power BI Streaming, set up a webhook export that sends request bodies in a specific format. This example assumes you have a Power BI Streaming dataset with the following schema:
 
