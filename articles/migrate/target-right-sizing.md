@@ -25,7 +25,7 @@ For identifying the right-sized Azure target that isn't overprovisioned but stil
 
 ### How does the appliance aggregate and model performance data? 
 
-If you use the appliance for discovery, it collects performance data directly from the hypervisor your workloads are hosted on. This is how a typical performance data modeling process looks like: 
+If you use the appliance for discovery, it collects performance data directly from the hypervisor your workloads are hosted on. This is how a typical performance data modeling process looks: 
 
 1. The appliance collects a real-time sample point. 
    - VMware VMs: A sample point is collected every 20 seconds. 
