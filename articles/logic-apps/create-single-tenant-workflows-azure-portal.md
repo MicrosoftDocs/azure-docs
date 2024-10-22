@@ -414,14 +414,14 @@ For an existing stateful workflow run, you can rerun the entire workflow with th
 
 ## Set up managed identity access to your storage account
 
+By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
+
 > [!NOTE]
 >
 > Currently, you can't disable storage account key access for Standard logic apps that use the 
 > Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
 > v3 hosting option, you can disable storage account key access after you finish the steps 
 > to set up managed identity authentication.
-
-By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
 
 1. In the [Azure portal](https://portal.azure.com), [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
