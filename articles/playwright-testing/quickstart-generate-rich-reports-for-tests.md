@@ -111,7 +111,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     Make sure to replace the `{MY-REGION-ENDPOINT}` text placeholder with the value you copied earlier.
 
 
-## Set up Authentication
+## Set up authentication
 
 To publish test results and artifacts to your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. The client could be your local dev machine or CI machine. 
 

@@ -65,7 +65,7 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
     Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
 
-1. Add the following content to it:
+2. Add the following content to it:
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
@@ -73,9 +73,9 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
   - Simplify troubleshooting with easy access to test results and artifacts published to the service.
 
-  However, you can choose to use either of these feature or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
+  However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
 
-1. Save and commit the file to your source code repository.
+3. Save and commit the file to your source code repository.
 
 ## Update package.json file 
 

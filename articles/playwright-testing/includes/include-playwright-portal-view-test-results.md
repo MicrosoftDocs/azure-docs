@@ -19,11 +19,11 @@ ms.date: 09/23/2024
     - View detailed error logs, test steps, and attached artifacts such as screenshots or videos.
     - Navigate directly to the **Trace Viewer** for deeper analysis. 
 
-    :::image type="content" source="../media/include-playwright-portal-view-test-results/playwright-testing-open-test.png" alt-text="Screenshot that shows the preview of a test" lightbox="../media/include-playwright-portal-view-test-results/playwright-testing-open-test.png":::
+    :::image type="content" source="../media/include-playwright-portal-view-test-results/playwright-testing-open-test.png" alt-text="Screenshot that shows the preview of a test." lightbox="../media/include-playwright-portal-view-test-results/playwright-testing-open-test.png":::
 
 4. The Trace Viewer allows you to step through your test execution visually. You can:
     - Use the timeline to hover over individual steps, revealing the page state before and after each action.
     - Inspect detailed logs, DOM snapshots, network activity, errors, and console output for each step.
 
-    :::image type="content" source="../media/include-playwright-portal-view-test-results/playwright-testing-trace-viewer.png" alt-text="Screenshot that shows the trace viewer" lightbox="../media/include-playwright-portal-view-test-results/playwright-testing-trace-viewer.png":::
+    :::image type="content" source="../media/include-playwright-portal-view-test-results/playwright-testing-trace-viewer.png" alt-text="Screenshot that shows the trace viewer." lightbox="../media/include-playwright-portal-view-test-results/playwright-testing-trace-viewer.png":::
 
