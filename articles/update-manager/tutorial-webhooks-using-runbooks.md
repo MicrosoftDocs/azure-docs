@@ -76,7 +76,7 @@ In this tutorial, you learn how to:
         Connect-AzAccount -Identity   
         
         # Install the Resource Graph module from PowerShell Gallery   
-        # Install-Module -Name Az.ResourceGraph   
+        Install-Module -Name Az.ResourceGraph   
    
         $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody   
         $maintenanceRunId = $notificationPayload[0].data.CorrelationId   
@@ -124,7 +124,7 @@ param
 Connect-AzAccount -Identity 
 
 # Install the Resource Graph module from PowerShell Gallery 
-# Install-Module -Name Az.ResourceGraph 
+Install-Module -Name Az.ResourceGraph 
 
 $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody 
 $eventType = $notificationPayload[0].eventType 
@@ -220,7 +220,7 @@ param
 Connect-AzAccount -Identity 
 
 # Install the Resource Graph module from PowerShell Gallery 
-# Install-Module -Name Az.ResourceGraph 
+Install-Module -Name Az.ResourceGraph 
 $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody 
 $eventType = $notificationPayload[0].eventType 
 
@@ -316,7 +316,7 @@ param
 Connect-AzAccount -Identity 
 
 # Install the Resource Graph module from PowerShell Gallery 
-# Install-Module -Name Az.ResourceGraph
+Install-Module -Name Az.ResourceGraph
 $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody
 $maintenanceRunId = $notificationPayload[0].data.CorrelationId
 
