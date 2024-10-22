@@ -128,7 +128,8 @@ items:
         - name: Create an Azure VM assessment
         - name: Customize assessment settings
         - name: Azure VM Readiness criteria
-        - name: Performance-based assessment vs. As-on on-premises assessment
+        - name: Performance-based assessment vs. As-is on-premises assessment
+          href: target-right-sizing.md
         - name: Review assessment report
       - name: Azure SQL assessment
         items:
