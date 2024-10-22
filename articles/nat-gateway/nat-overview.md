@@ -4,7 +4,7 @@ title: What is Azure NAT Gateway?
 titlesuffix: Azure NAT Gateway
 description: Overview of Azure NAT Gateway features, resources, architecture, and implementation. Learn about what NAT gateway is and how to use it.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: conceptual
 ms.date: 08/12/2024
 ms.author: allensu

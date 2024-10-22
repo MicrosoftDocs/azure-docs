@@ -4,8 +4,7 @@ description: How to use your own certificates for accessing the local web UI and
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 08/31/2021
 ms.author: shaas

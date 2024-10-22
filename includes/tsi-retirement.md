@@ -1,7 +1,7 @@
 ---
 title: "Include file for Time Series Insights retirement" 
 description: "include file" 
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 ms.topic: conceptual
