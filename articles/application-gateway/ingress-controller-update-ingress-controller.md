@@ -1,6 +1,6 @@
 ---
 title: Upgrade ingress controller with Helm
-description: This article provides information on how to upgrade an Application Gateway Ingress using Helm.
+description: This article provides information on how to upgrade an Application Gateway Ingress Controller by using Helm.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -10,23 +10,24 @@ ms.date: 07/23/2023
 ms.author: greglin
 ---
 
-# How to upgrade Application Gateway Ingress Controller using Helm
+# Upgrade AGIC by using Helm
 
-The Azure Application Gateway Ingress Controller for Kubernetes (AGIC) can be upgraded
-using a Helm repository hosted on Azure Storage.
+You can upgrade the Azure Application Gateway Ingress Controller (AGIC) for Kubernetes by using a Helm repository hosted on Azure Storage.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
-Before beginning the upgrade procedure, ensure that you've added the required repository:
+## Add the repository
 
-- View your currently added Helm repositories with:
+Before you begin the upgrade procedure, ensure that you've added the required repository:
+
+1. View your currently added Helm repositories:
 
     ```bash
     helm repo list
     ```
 
-- Add the AGIC repo with:
+1. If necessary, add the AGIC repository:
 
     ```bash
     helm repo add \
@@ -56,9 +57,9 @@ Before beginning the upgrade procedure, ensure that you've added the required re
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    Latest available version from the list above is: `0.7.0-rc1`
+    The latest available version from the preceding list is `0.7.0-rc1`.
 
-1. View the Helm charts currently installed:
+1. View the currently installed Helm charts:
 
     ```bash
     helm list
@@ -71,7 +72,7 @@ Before beginning the upgrade procedure, ensure that you've added the required re
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    The Helm chart installation from the sample response above is named **odd-billygoat**. This name will be used for the commands. Your actual deployment name will be different.
+    The Helm chart installation from the preceding sample response is named `odd-billygoat`. This article uses that name for the commands. Your actual deployment name will be different.
 
 1. Upgrade the Helm deployment to a new version:
 
@@ -82,11 +83,11 @@ Before beginning the upgrade procedure, ensure that you've added the required re
         --version 0.9.0-rc2
     ```
 
-## Rollback
+## Roll back
 
-If the Helm deployment fails, you can roll back to a previous release.
+If the Helm deployment fails, you can roll back to a previous release:
 
-1. Get the last known healthy release number:
+1. Get the number of the last known healthy release:
 
     ```bash
     helm history odd-billygoat
@@ -100,10 +101,14 @@ If the Helm deployment fails, you can roll back to a previous release.
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Based on the sample output of the **helm history** command, the last successful deployment of our **odd-billygoat** was revision **1**.
+    Based on the sample output of the `helm history` command, the last successful deployment of the `odd-billygoat` example was revision `1`.
 
 1. Roll back to the last successful revision:
 
     ```bash
     helm rollback odd-billygoat 1
     ```
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

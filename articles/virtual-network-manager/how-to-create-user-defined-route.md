@@ -179,13 +179,10 @@ In this step, you define the UDRs for the network group by creating a routing co
     | ------- | ----- |
     | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
-    | **Local route setting** | Select **Direct routing within virtual network**. |
+    | **Enable BGP route propagation** | Leave **unchecked**. |
     | **Target network groups** | select **ng-spoke**. |
 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
-
-    > [!NOTE]
-    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet. For more information, see [Local route settings](concept-user-defined-route-management.md#local-routing-settings).
 
 1. Under **Routing rules**, select **+ add**.
 

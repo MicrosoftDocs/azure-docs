@@ -5,7 +5,7 @@ description: This article describes how to use device twins to synchronize state
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/22/2024
 ms.custom: [mqtt, 'Role: Cloud Development']

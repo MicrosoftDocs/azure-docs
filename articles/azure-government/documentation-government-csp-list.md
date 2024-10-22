@@ -51,7 +51,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|Applied Information Sciences, Inc.|
+|[Applied Information Sciences, Inc.](https://www.ais.com)|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
@@ -160,6 +160,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
+|[Enavate](https://www.enavate.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
 |[Enterprise Computing Services](https://thinkecs.com/)|

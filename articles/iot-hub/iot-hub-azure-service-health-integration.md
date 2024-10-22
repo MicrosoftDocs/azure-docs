@@ -4,7 +4,7 @@ description: Use Azure Service Health and Azure Resource Health to monitor your 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 04/21/2020
 ms.custom: [amqp, 'Role: Cloud Development', 'Role: Technical Support', devx-track-csharp]

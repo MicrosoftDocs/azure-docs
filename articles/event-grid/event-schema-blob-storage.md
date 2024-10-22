@@ -101,6 +101,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+		"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -208,6 +210,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+        	"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -1246,6 +1250,8 @@ The data object has the following properties:
 | `contentType` | string | The content type specified for the blob. |
 | `contentLength` | integer | The size of the blob in bytes. |
 | `blobType` | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
+| `accessTier`     | string    | The target tier of the blob. Appears only for the event BlobTierChanged.                                                                                                                                     |
+| `previousTier`   | string    | The source tier of the blob. Appears only for the event BlobTierChanged. If the blob is inferring the tier from the storage account, this field will not appear.                                          |
 | `contentOffset` | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `destinationUrl` |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `sourceUrl` |string | The url of the file that exists before the operation is done. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name before the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
