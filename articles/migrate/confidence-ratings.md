@@ -17,9 +17,7 @@ Each performance-based Azure VM assessment in Azure Migrate is associated with a
 - For performance-based sizing, the assessment needs: 
 
   - The utilization data for CPU and RAM. 
-
   - The disk IOPS and throughput data for every disk attached to the server. 
-
   - The network I/O to handle performance-based sizing for each network adapter attached to a server. 
 
 If any of these utilization numbers isn't available, the size recommendations might be unreliable. 
@@ -47,15 +45,13 @@ Here are a few reasons why an assessment could get a low confidence rating:
 
 - Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
 
-  - Servers are powered on for the duration of the assessment 
-
-  - Outbound connections on ports 443 are allowed 
-
-  - For Hyper-V servers, dynamic memory is enabled 
+  - Servers are powered on for the duration of the assessment.
+  - Outbound connections on ports 443 are allowed.
+  - For Hyper-V servers, dynamic memory is enabled.
 
 **Recalculate** the assessment to reflect the latest changes in confidence rating. 
 
-- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. 
+- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. 
 
 >[!Note]
 >If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
@@ -63,4 +59,4 @@ Here are a few reasons why an assessment could get a low confidence rating:
 ## Next steps 
 
 - [Review](./best-practices-assessment.md) best practices for creating assessments. 
-- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
+- Learn about discovering servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
