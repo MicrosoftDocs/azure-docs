@@ -329,7 +329,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
 
    > [!CAUTION]
-   > When upgrading to a new managed ruleset, all your previous customizations to the managed rulesets such as exclusions will be reset if you upgrade through the portal directly. However, any Custom Rules, Global Exclusions and Policy settings you’ve defined will remain unaffected during this transition. 
+   > When changing to a new managed ruleset, all your previous customizations to the managed rulesets such as disabling specific rules, adjusting rule actions and applying exclusions will be reset. However, any Custom Rules, Global Exclusions and Policy settings you’ve defined will remain unaffected during this transition. 
 
 ## Firewall Metrics (WAF_v1 only)
 
