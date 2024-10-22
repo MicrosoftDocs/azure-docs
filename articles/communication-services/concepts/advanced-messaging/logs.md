@@ -2,9 +2,9 @@
 title: Azure Communication Services Advanced Messaging logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Advanced Messaging.
-author: memontic-ms
+author: Shamkh
 services: azure-communication-services
-ms.author: memontic
+ms.author: shamkh
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
