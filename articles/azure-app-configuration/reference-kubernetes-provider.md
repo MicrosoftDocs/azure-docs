@@ -80,7 +80,7 @@ The `spec.configuration.refresh` property has the following child properties.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed.|false|object|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed. If this property is absent, all the selected key-values will be monitored for refresh. |false|object|
 |interval|The interval at which the key-values are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
