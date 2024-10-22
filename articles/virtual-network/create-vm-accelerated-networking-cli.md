@@ -1,11 +1,11 @@
 ---
 title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
-author: steveesp
+author: mattreatMSFT
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/18/2023
-ms.author: steveesp
+ms.date: 10/22/2024
+ms.author: mareat
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 ---
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
@@ -201,9 +201,9 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    ```powershell
    PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription –like "*Mellanox*Virtual*" | Get-NetAdapterStatistics
 
-   Name                             ReceivedBytes ReceivedUnicastPackets       SentBytes SentUnicastPackets
-   ----                             ------------- ----------------------       --------- ------------------
-   Ethernet 2                           492447549                 347643         7468446              34991
+   Name       ReceivedBytes ReceivedUnicastPackets SentBytes SentUnicastPackets
+   ----       ------------- ---------------------- --------- ------------------
+   Ethernet 2 492447549     347643                 7468446   34991
    ```
 
 > [!NOTE]
