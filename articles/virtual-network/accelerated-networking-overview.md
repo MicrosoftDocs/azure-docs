@@ -1,12 +1,12 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: EllieMelissa
+author: mattreatMSFT
+ms.author: mareat
 ms.service: azure-virtual-network
-ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/18/2023
-ms.author: ealume
+ms.date: 10/22/2024
+ms.custom: linux-related-content
 ---
 
 # Accelerated Networking overview
@@ -108,7 +108,7 @@ Any custom image supporting Accelerated Networking must include drivers that ena
 #### Dynamic binding and revocation of virtual function
 Accelerated Networking requires guest OS images to properly handle the virtual function being removed or added dynamically. Scenarios such as host maintenance or live migration will result in dynamic revocation of the virtual function and restoration after the maintenance event. Additionally, applications must ensure that they bind to the synthetic device and not the virtual function in order to maintain network connectivity during these events. 
 
-For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](/create-vm-accelerated-networking-cli?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function). 
+For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](create-vm-accelerated-networking-cli.md?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function). 
 
 #### Configure drivers to be unmanaged
 Accelerated Networking requires network configurations that mark the NVIDIA drivers as unmanaged devices. Images with cloud-init version 19.4 or later have networking correctly configured to support Accelerated Networking during provisioning. We strongly advise that you don't run competing network interface software (such as ifupdown and networkd) on custom images, and that you don't run dhcpclient directly on multiple interfaces.
@@ -171,7 +171,7 @@ For MANA driver: Verify that the traffic is flowing through MANA
 
 ---
 
-## Next steps
+## Related content
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
 - [Create a VM with Accelerated Networking by using PowerShell](./create-vm-accelerated-networking-powershell.md)
