@@ -75,7 +75,9 @@ This tutorial targets devices that are running IoT Edge with Linux containers. Y
 
 ## Set up the Docker CLI and Docker engine for remote connection
 
-IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. The IoT Edge for Linux on Windows VM already contains an instance of Docker engine, so this tutorial shows you how to remotely connect from the Windows developer machine to the IoT Edge for Linux on Windows VM Docker instance. By using this remote connection, you remove the dependency on Docker Desktop for Windows.
+IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them.
+
+The IoT Edge for Linux on Windows VM already contains an instance of the Docker engine. This tutorial shows you how to remotely connect from the Windows developer machine to the IoT Edge for Linux on Windows VM Docker instance. By using this remote connection, you remove the dependency on Docker Desktop for Windows.
 
 ### Configure the Docker CLI
 
@@ -261,7 +263,7 @@ The deployment template includes:
 
 ### Set the IoT Edge runtime version
 
-Currently, the latest stable runtime version is 1.4. You should update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices.
+Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
 
 ::: zone pivot="iotedge-dev-ext"
 
