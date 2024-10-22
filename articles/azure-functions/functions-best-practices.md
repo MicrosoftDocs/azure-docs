@@ -25,8 +25,6 @@ When you create a function app in Azure, you must choose a hosting plan for your
 + [Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 In the context of the App Service platform, the _Premium_ plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. To learn more, see the [Premium plan](functions-premium-plan.md) article.
 
 The hosting plan you choose determines the following behaviors:
