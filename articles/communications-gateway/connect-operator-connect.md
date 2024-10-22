@@ -1,8 +1,8 @@
 ---
 title: Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Operator Connect and Teams Phone Mobile environments.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: integration
 ms.date: 03/22/2024
@@ -90,7 +90,7 @@ To add the Project Synergy application:
 1. Run the following cmdlet, replacing *`<TenantID>`* with the tenant ID you noted down in step 5.
     ```powershell
     Connect-AzureAD -TenantId "<TenantID>"
-    New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+    New-AzureADServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "Operator Connect"
     ```
 
 ## Assign an Admin user to the Project Synergy application
@@ -161,7 +161,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
 1. Run the following PowerShell commands. These commands add the following roles for Azure Communications Gateway: `TrunkManagement.Read`, `TrunkManagement.Write`, `partnerSettings.Read`, `NumberManagement.Read`, `NumberManagement.Write`, `Data.Read`, `Data.Write`.
     ```powershell
     # Get the Service Principal ID for Project Synergy (Operator Connect)
-    $projectSynergyApplicationId = "eb63d611-525e-4a31-abd7-0cb33f679599"
+    $projectSynergyApplicationId = "00001111-aaaa-2222-bbbb-3333cccc4444"
     $projectSynergyEnterpriseApplication = Get-MgServicePrincipal -Filter "AppId eq '$projectSynergyApplicationId'" # "Application.Read.All"
     
     # Required Operator Connect - Project Synergy Roles
@@ -170,7 +170,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
     $partnerSettingsRead = "d6b0de4a-aab5-4261-be1b-0e1800746fb2"
     $numberManagementRead = "130ecbe2-d1e6-4bbd-9a8d-9a7a909b876e"
     $numberManagementWrite = "752b4e79-4b85-4e33-a6ef-5949f0d7d553"
-    $dataRead = "eb63d611-525e-4a31-abd7-0cb33f679599"
+    $dataRead = "00001111-aaaa-2222-bbbb-3333cccc4444"
     $dataWrite = "98d32f93-eaa7-4657-b443-090c23e69f27"
     $requiredRoles = $trunkManagementRead, $trunkManagementWrite, $partnerSettingsRead, $numberManagementRead, $numberManagementWrite, $dataRead, $dataWrite
 
@@ -223,13 +223,13 @@ Go to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) an
 
 You must enable Azure Communications Gateway within the Operator Connect or Teams Phone Mobile environment. This process requires configuring your environment with two Application IDs:
 -  The Application ID of the system-assigned managed identity that you found in  [Find the Application ID for your Azure Communication Gateway resource](#find-the-application-id-for-your-azure-communication-gateway-resource). This Application ID allows Azure Communications Gateway to use the roles that you set up in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway).
-- A standard Application ID for an automatically created AzureCommunicationsGateway enterprise application. This ID is always `8502a0ec-c76d-412f-836c-398018e2312b`.
+- A standard Application ID for an automatically created AzureCommunicationsGateway enterprise application. This ID is always `11112222-bbbb-3333-cccc-4444dddd5555`.
 
 To add the Application IDs:
 
 1. Log into the [Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Add a new **Application Id** for the Application ID that you found for the managed identity.
-1. Add a second **Application Id** for the value `8502a0ec-c76d-412f-836c-398018e2312b`.
+1. Add a second **Application Id** for the value `11112222-bbbb-3333-cccc-4444dddd5555`.
 
 ## Register your deployment's domain name in Microsoft Entra
 

@@ -6,8 +6,9 @@ metadata:
   ms.author: kgremban
   ms.date: 02/06/2023
   ms.topic: faq
-  ms.service: iot-dps
+  ms.service: azure-iot-hub
   services: iot-dps
+  ms.subservice: azure-iot-hub-dps
 title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
 summary: |
   This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:

@@ -1,7 +1,7 @@
 ---
 title: 'Migrating to Real-Time Intelligence in Microsoft Fabric | Microsoft Docs'
 description: How to migrate Azure Time Series Insights environments to Real-Time Intelligence in Microsoft Fabric.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: cosh
 ms.author: herauch
 ms.topic: conceptual

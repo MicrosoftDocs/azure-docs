@@ -4,8 +4,7 @@ description: Describes Azure Stack Edge Pro with GPU, a storage solution that us
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/09/2024
 ms.author: alkohli

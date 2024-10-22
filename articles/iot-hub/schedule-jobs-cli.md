@@ -5,7 +5,7 @@ description: Use the Azure CLI to schedule jobs that invoke a direct method and 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 01/23/2023

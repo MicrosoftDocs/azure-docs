@@ -134,6 +134,8 @@
       href: fabric-capacity.md
     - name: Microsoft Sentinel - Pre-Purchase
       href: /azure/sentinel/billing-pre-purchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Nutanix on Azure BareMetal
+      href: nutanix-bare-metal.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans

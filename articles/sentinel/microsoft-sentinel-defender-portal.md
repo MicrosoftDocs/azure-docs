@@ -8,6 +8,10 @@ ms.date: 08/16/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security operations analyst, I want to understand the integration of Microsoft Sentinel within the Microsoft Defender portal so that I can effectively navigate and utilize the new and improved security capabilities.
+
 ---
 
 # Microsoft Sentinel in the Microsoft Defender portal

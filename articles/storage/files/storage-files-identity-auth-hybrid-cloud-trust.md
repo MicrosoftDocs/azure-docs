@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication for hyb
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/18/2024
 ms.author: kendownie
 recommendations: false
 ---
@@ -16,6 +16,14 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 In such scenarios, customers can enable Microsoft Entra Kerberos authentication for hybrid user identities and then establish a cloud trust between their on-premises AD DS and Microsoft Entra ID to access SMB file shares using their on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Microsoft Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
 This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). **Cloud-only identities aren't currently supported for Azure Files**.
+
+## Applies to
+
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Scenarios
 
@@ -160,28 +168,15 @@ For guidance on disabling MFA, see the following:
 
 ### Assign share-level permissions
 
-When you enable identity-based access, you can set for each share which users and groups have access to that particular share. Once a user is allowed into a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
+When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ### Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**. To use Windows File Explorer, the device also needs to be domain-joined.  
+Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**.
 
-There are two options for configuring directory and file-level permissions with Microsoft Entra Kerberos authentication:
-
-- **Windows File Explorer:** If you choose this option, then the client must be domain-joined to the on-premises AD.
-- **icacls utility:** If you choose this option, then the client doesn't need to be domain-joined, but needs unimpeded network connectivity to the on-premises AD.
-
-To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step isn't required.
-
-> [!IMPORTANT]
-> You can set file/directory level ACLs for identities which aren't synced to Microsoft Entra ID. However, these ACLs won't be enforced because the Kerberos ticket used for authentication/authorization won't contain these not-synced identities. In order to enforce set ACLs, identities must be synced to Microsoft Entra ID.
-
-> [!TIP]
-> If Microsoft Entra hybrid joined users from two different forests will be accessing the share, it's best to use icacls to configure directory and file-level permissions. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the Active Directory domain that the storage account is joined to.
-
-To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
 ## Create and configure the Microsoft Entra Kerberos Trusted Domain Object
 
@@ -399,4 +394,4 @@ Remove-AzureAdKerberosServer -Domain $domain `
 
 ## Next step
 
-- [Mount an Azure file share](storage-files-identity-ad-ds-mount-file-share.md)
+- [Mount an Azure file share](storage-files-identity-mount-file-share.md)
