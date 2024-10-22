@@ -12,7 +12,7 @@ ms.custom: linux-related-content
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
-[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
+[!INCLUDE [automation-dsc-linux-retirement-announcement](../includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article provides information on troubleshooting and resolving issues that occur while you
 compile or deploy configurations in Azure Automation State Configuration. For general information
