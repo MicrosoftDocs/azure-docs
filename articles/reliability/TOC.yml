@@ -23,7 +23,7 @@
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure App Service
-        href: reliability-app-service.md#availability-zone-migration
+        href: reliability-app-service.md#configure-availability-zone-support
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Cache for Redis
