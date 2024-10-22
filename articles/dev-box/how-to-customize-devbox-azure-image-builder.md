@@ -7,27 +7,25 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/02/2024
+ms.date: 10/22/2024
 ms.topic: how-to
+ai-usage: ai-assisted
 ---
 
 # Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box
 
 In this article, you use Azure VM Image Builder to create a customized dev box in Microsoft Dev Box by using a template. The template includes a customization step to install Visual Studio Code (VS Code).
 
-When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
+Using standardized virtual machine (VM) images helps you ensure consistent deployments as you migrate to the cloud. These images can include predefined security, configuration settings, and necessary software. Setting up an imaging pipeline can be time-consuming and complex. Azure VM Image Builder simplifies this process by allowing you to create a configuration for your image, which the service then builds and submits to a dev box project.
 
-Although it's possible to create custom VM images by hand or by using other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service.
+Creating custom VM images manually or with other tools can be difficult and unreliable. VM Image Builder, which is built on HashiCorp Packer, offers the advantages of a managed service.
 
-To reduce the complexity of creating VM images, VM Image Builder:
+To simplify VM image creation, VM Image Builder:
 
-- Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). And it gives more advanced users the ability to override such requirements.
-
-- Works with existing image build pipelines for a click-and-go experience. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service DevOps task.
-
-- Fetches customization data from various sources, which removes the need to collect them all from one place.
-
-- Integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
+- Eliminates the need for complex tools, processes, and manual steps. It abstracts these details and hides Azure-specific needs, like generalizing the image (Sysprep), while allowing advanced users to override if necessary.
+- Works with existing image build pipelines. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service DevOps task.
+- Gathers customization data from various sources, so you don't have to collect it all in one place.
+- Integrates with Azure Compute Gallery, creating an image management system for global distribution, replication, versioning, and scaling. You can distribute the same image as a virtual hard disk or managed images without rebuilding them.
 
 > [!IMPORTANT]
 > Microsoft Dev Box supports only images that use the security type [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) enabled.
