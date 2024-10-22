@@ -342,7 +342,7 @@ Either run the PowerShell command named [**Get-AzureAccount**](/powershell/modul
 
 #### Find the object ID for your managed identity
 
-After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Microosft Entra tenant.
+After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Microsoft Entra tenant.
 
 1. On the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
