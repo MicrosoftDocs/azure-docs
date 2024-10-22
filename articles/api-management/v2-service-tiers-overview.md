@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/15/2024
+ms.date: 10/22/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -25,13 +25,13 @@ The following v2 tiers are generally available:
 
 The following v2 tier is in preview:
 
-* **Premium v2** (preview) - Premium v2 offers enterprise features including support for full virtual network isolation and greater scaling. The underlying infrastructure and dependencies in Premium v2 are distributed by default across two availability zones in a region.
+* **Premium v2** (preview) - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
 
 ## Key capabilities
 
 * **Faster deployment, configuration, and scaling** - Deploy a production-ready API Management instance in minutes. Quickly apply configurations such as certificate and hostname updates. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads. Scale a Premium v2 instance to up to 30 units.
 
-* **Simplified networking** - The Standard v2 and Premium v2 tiers support [options](#networking-options) for isolating inbound and outbound network traffic.
+* **Simplified networking** - The Standard v2 and Premium v2 tiers options [networking options](#networking-options) to isolate inbound and outbound traffic to API Management.
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. Upgrade from Basic v2 to Standard v2 to Premium v2 to add more production options.
 
@@ -48,7 +48,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-* **Premium v2** supports **virtual network injection** for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](inject-vnet-v2.md).
+* **Premium v2** supports simplified **virtual network injection** for complete isolation of inbound and outbound traffic without imposing dependencies on the customer's virtual network. [Learn more](inject-vnet-v2.md).
 
 ### Supported regions
 

@@ -15,7 +15,7 @@ ms.date: 10/16/2024
 This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
 
 > [!NOTE]
-> To inject a Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
+> To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
 
 When an API Management Premium v2 instance is injected in a virtual network: 
 
@@ -24,7 +24,7 @@ When an API Management Premium v2 instance is injected in a virtual network:
 
 This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
 
-:::image type="content" source="./media/inject-vnet-v2/vnet-integration.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
+:::image type="content" source="./media/inject-vnet-v2/vnet-injection.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
 
 If you want to enable *public* inbound access to an API Management instance in the Standard v2 or Premium v2 tier, but limit outbound access to network-isolated backends, see [Integrate with a virtual network for outbound connections](integrate-vnet-outbound.md).
 
