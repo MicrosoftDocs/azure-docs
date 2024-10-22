@@ -1,7 +1,7 @@
 ---
 title: 'Time Series Insights Gen1 migration to Real-Time Intelligence in Microsoft Fabric | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 1 environments to Real-Time Intelligence in Microsoft Fabric.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 ms.topic: conceptual

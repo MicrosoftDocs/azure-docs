@@ -908,7 +908,7 @@
         "articles/governance/*.md": "azure-policy",
         "articles/governance/blueprints/**/*.md": "azure-blueprints",
         "articles/governance/machine-configuration/**/*.md": "machine-configuration",
-        "articles/governance/management-groups/**/*.md": "governance",
+        "articles/governance/management-groups/**/*.md": "azure",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "azure-resource-graph",
         "articles/hdinsight-aks/**/*.md": "azure-hdinsight-on-aks",
@@ -1000,7 +1000,8 @@
         "articles/partner-solutions/qumulo/**/*.md": "qumulo",
         "articles/partner-solutions/qumulo/**/*.yml": "qumulo",
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
-        "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation"
+        "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
+        "articles/governance/management-groups/**/*.md": "azure-governance"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4"
