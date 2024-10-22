@@ -49,7 +49,7 @@ Your upgrade path may vary depending on the connector:
 
 1. **Review the differences** – Upgrading your connector may or may not be straightforward. We recommend first reviewing our connector [documentation](connector-deprecation-plan.md#overview), which highlights the differences between the legacy and new versions and offers detailed upgrade guidance.
 2. **Migrate to the new connector** – For legacy connectors with updated versions, we strongly recommend migrating to the new connector.
-3. **If you're blocked from upgrading** – If you're unable to upgrade to the new connector, determine whether it's due to a feature gap or an error/bug with the new connector. Then follow the instructions outlined under [question 6](#6-what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors) to contact us.
+3. **If you're blocked from upgrading** – If you're unable to upgrade to the new connector, determine whether it's due to a feature gap or an error/bug with the new connector. Then follow the instructions outlined under [question 6](#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors) to contact us.
 
 ## What will happen after the migration deadline?
 
