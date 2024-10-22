@@ -722,7 +722,7 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
       "puid": "1003000000098FE48CE",
       "scp": "user_impersonation",
       "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "tid": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "unique_name": "SophiaOwen@fabrikam.com",
       "upn": "SophiaOwen@fabrikam.com",
       "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
@@ -805,7 +805,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
 
    * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
 
-   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
+   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "aaaabbbb-0000-cccc-1111-dddd2222eeee"`. 
 
 1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
 
