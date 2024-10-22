@@ -64,14 +64,14 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 ### Configure availability zone support
 
-- **New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to.  For zone redundancy, you must select multiple zones. 
+**New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to.  For zone redundancy, you must select multiple zones.
 
    >[!IMPORTANT]
    > You can't change the availability zone setting after you deploy your Bastion resource.
 
 When you select which availability zones to use, you're actually selecting the *logical availability zone*. If you deploy other workload components in a different Azure subscription, they might use a different *logical availability zone* number to access the same physical availability zone. For more information, see [Physical and logical availability zones](./availability-zones-overview.md#physical-and-logical-availability-zones).
 
-- **Migration:** It's not possible to migrate from non-availability zone support to availability zone support. Instead, you need to create a Bastion resource in the new region and delete the old one.
+**Migration:** It's not possible to migrate from non-availability zone support to availability zone support. Instead, you need to create a Bastion resource in the new region and delete the old one.
 
 ### Traffic routing between zones
 
