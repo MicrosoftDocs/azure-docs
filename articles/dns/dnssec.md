@@ -5,7 +5,7 @@ author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 10/09/2024
+ms.date: 10/22/2024
 ms.author: greglin
 ---
 
@@ -47,7 +47,11 @@ Resource Record Signatures (RRSIGs) and other cryptographic records are added to
 
 ## Why sign a zone with DNSSEC?
 
-DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks, also known as DNS redirection. DNS hijacking occurs when a client device is redirected to a malicious server by using incorrect (spoofed) DNS responses. An example of how DNS hijacking works is shown in the following figure.
+Signing a zone with DNSSEC is required for compliance with some security guidelines, such as SC-20: Secure Name/Address Resolution Service. 
+
+DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks, also known as DNS redirection. DNS hijacking occurs when a client device is redirected to a malicious server by using incorrect (spoofed) DNS responses. DNS cache poisoning is a common method used to spoof DNS responses.
+
+An example of how DNS hijacking works is shown in the following figure.
 
   ![A diagram showing how DNS hijacking works.](media/dnssec/dns-hijacking.png)
 
@@ -67,6 +71,8 @@ The type of DNS resource record that is spoofed depends on the type of DNS hijac
 
 DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. In the DNS hijacking scenario pictured here, the client device can reject non-validated DNS responses if the contoso.com domain is signed with DNSSEC. To reject non-validated DNS responses, the client device must enforce [DNSSEC validation](#dnssec-validation) for contoso.com.
 
+DNSSEC also includes Next Secure 3 (NSEC3) to prevent zone enumeration. Zone enumeration, also known as zone walking, is an attack whereby the attacker establishes a list of all names in a zone, including child zones. 
+
 Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
 ## DNSSEC validation
@@ -84,7 +90,7 @@ Windows 10 and Windows 11 client devices are [nonvalidating security-aware stub 
 ### Trust anchors and DNSSEC validation
 
 > [!NOTE] 
-> DNSSEC validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issues.
+> DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issues.
 
 Trust anchors operate based on the DNS namespace hierarchy. A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single child DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. 
 
@@ -112,6 +118,14 @@ Recursive DNS servers (also called resolving or caching DNS servers) maintain a 
 - The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. 
 - Trust anchors must be manually installed on recursive DNS servers. 
 - If a trust anchor for a parent zone is present, a recursive server can validate all child zones in the hierarchical namespace. This includes forwarded queries. To support DNSSEC validation of all DNSSEC-signed DNS zones, you can install a trust anchor for the root (.) zone.
+
+## Key rollover
+
+The zone signing key (ZSK) in a DNSSEC-signed zone is periodically rolled over (replaced) automatically by Azure. It should not be necessary to replace your key signing key (KSK), but this option is available by contacting Microsoft support. Replacing the KSK requires that you also update your DS record in the parent zone.
+
+## Zone signing Algorithm
+
+Zones are DNSSEC signed using Elliptic Curve Digital Signature Algorithm (ECDSAP256SHA256).
 
 ## DNSSEC-related resource records
 
