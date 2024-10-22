@@ -151,7 +151,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|[DOT Personable Inc](http://solutions.personable.com/)|
+|[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
 |Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
