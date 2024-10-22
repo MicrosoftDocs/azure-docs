@@ -58,7 +58,7 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 1. Create a file named `providers.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/providers.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+1. Create a file named `variables.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/variables.tf":::
 
 ## Initialize Terraform
