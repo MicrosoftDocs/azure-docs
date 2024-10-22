@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 10/24/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -608,7 +608,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 <a name="test-sending-idocs-from-sap"></a>
 
-### Set up and test sending IDocs to your workflow from SAP
+### Set up and test sending IDocs from SAP to your workflow
 
 Follow these steps only for testing your SAP configuration with your logic app workflow. Production environments require additional configuration. 
 
@@ -688,18 +688,6 @@ This destination identifies your SAP system as the sender port.
 
 1. To test your connection, select **Connection Test**.
 
-#### Create receiver port
-
-1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
-
-1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
-
-1. Save your changes.
-
 #### Create sender port
 
 1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
@@ -713,6 +701,18 @@ This destination identifies your SAP system as the sender port.
    All sender port names must start with the letters **SAP**, for example, **SAPTEST**.
 
 1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
+
+1. Save your changes.
+
+#### Create receiver port
+
+1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
+
+1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
 
 1. Save your changes.
 
@@ -732,7 +732,10 @@ This destination identifies your SAP system as the sender port.
 
 #### Create partner profiles
 
-For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app resource and workflow.
+For production environments, you must create two partner profiles:
+
+- One profile for the sender, which is your organization and SAP system.
+- One profile for the receiver, which is your logic app resource and workflow.
 
 1. In SAP, open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
 
@@ -748,7 +751,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. Save your changes.
 
-   If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
+   If you didn't [create the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
 
 1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
 
