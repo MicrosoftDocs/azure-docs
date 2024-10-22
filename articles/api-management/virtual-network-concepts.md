@@ -68,7 +68,7 @@ In this configuration:
 
 This configuration is recommended for scenarios where you want to isolate both the API Management instance and the backend APIs. Virtual network injection in the Premium v2 tier automatically manages network connectivity to most service dependencies for Azure API Management.
 
-:::image type="content" source="./media/inject-vnet-v2/vnet-integration.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
+:::image type="content" source="./media/inject-vnet-v2/vnet-injection.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
 
 For more information, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
 
