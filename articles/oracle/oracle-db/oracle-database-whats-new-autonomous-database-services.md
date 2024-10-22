@@ -18,12 +18,12 @@ The following table lists only changes made in Oracle Autonomous Database@Azure
 
 | Month and year | Feature | Description |
 | ---------- | ------- | ----------- |
-| July 2024 | Added a section for quickstart Terraform templates and modules. | This section will grow as the templates and modules are revised and new content is added. |
+| July 2024 | Added a section for quickstart Terraform templates and modules. | This section will expand as the templates and modules are revised and new content is added. |
 
-For information about changes to the Oracle Autonomous Database Serverless product, see the following links:
+For information about changes to Oracle Autonomous Database, see the following Oracle links:
 
-* For new features that are added in the current year, see [What's new for Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/whats-new-adwc.html).
-* For previous features that were added to Oracle Autonomous Database Serverless, see [the Oracle previous feature announcements](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/previous-feature-announcements.html).
+* For new features that are added in the current year, see [What's new for Oracle Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/whats-new-adwc.html).
+* For previous features that were added to Oracle Autonomous Database, see [the Oracle previous feature announcements](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/previous-feature-announcements.html).
 
 ## Related content
 
