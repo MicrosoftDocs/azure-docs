@@ -115,8 +115,10 @@ items:
     href: how-to-skip-delay-stop.md
 - name: Troubleshooting
   items: 
-  - name: Troubleshoot dev box connectivity issues
+  - name: Automatically repair connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-remote-desktop-connectivity.md
   - name: Troubleshoot Task view issues
     href: how-to-troubleshoot-dev-box-task-view.md    
 - name: Reference
