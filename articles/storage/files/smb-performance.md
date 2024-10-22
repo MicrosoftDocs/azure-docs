@@ -227,6 +227,7 @@ Currently the metadata caching preview is only available in the following Azure 
 - Switzerland North
 - UAE North
 - UK West
+- UK South
 - US South Central
 - US West Central
 - US West 3
