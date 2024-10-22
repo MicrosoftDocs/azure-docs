@@ -256,7 +256,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Kosh Solutions, LLC](https://www.koshsolutions.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[Ladlas Prince LLC](https://www.ladlasprince.com)|
-|[Lear360.com](https://www.lear360.com)|
+|[Learn360.com](http://www.learn360.com/index.aspx)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
