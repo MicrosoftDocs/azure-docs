@@ -72,7 +72,8 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
   1. Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you're running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you might have issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/). Issues can happen when using lookahead and lookbehind (negative or positive) assertions.
 
-## Pattern matching and Capturing 
+## Pattern matching and capturing 
+
 Patten matching and capturing are supported under Condition and Action (under Action, it is supported only for a specific header).
 
 ### Pattern matching
@@ -280,24 +281,6 @@ In that case, Application Gateway can capture parameters from the URL and add qu
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL rewrite scenario 2-2.":::
 
 For a step-by-step guide to achieve the scenario described above, see [Rewrite URL with Application Gateway using Azure portal](rewrite-url-portal.md)
-
-
-## Rewrite configuration common pitfalls
-
-* Enabling 'Re-evaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
-
-* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
-
-* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
-
-### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
-
-When you configure URL rewrite or host header rewrite, the WAF evaluation will happen after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation will be done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
-
-For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
-
-Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
-
 
 ## URL rewrite vs URL redirect
 

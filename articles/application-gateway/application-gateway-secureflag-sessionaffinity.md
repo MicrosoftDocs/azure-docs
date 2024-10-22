@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: Learn how to set HTTPOnly or Secure flag for Session Affinity cookie
 services: application-gateway
 author: jaesoni
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 10/22/2024
 ms.author: jaysoni 
 ---
 
