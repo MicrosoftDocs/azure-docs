@@ -2,8 +2,8 @@
 title: Azure availability zone migration baseline
 description: Learn how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support.
 author: sonmitt
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 04/06/2023
 ms.author: anaharris

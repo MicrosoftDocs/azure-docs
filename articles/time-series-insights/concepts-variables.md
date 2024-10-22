@@ -3,7 +3,7 @@ title: 'Model variables - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Model variables'
 author: shreyasharmamsft
 ms.author: shresha
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ---
