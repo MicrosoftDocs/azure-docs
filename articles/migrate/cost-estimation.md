@@ -1,6 +1,6 @@
 --- 
-title: Azure VM assessments in Azure Migrate  
-description: Learn about assessments in Azure Migrate  
+title: Cost estimation of assessments in Azure Migrate  
+description: Learn about cost estimation in assessments in Azure Migrate  
 author: v-sreedevank
 ms.service: azure-migrate 
 ms.topic: conceptual 
@@ -15,6 +15,7 @@ Azure Migrate assessments provide you with an estimated cost of hosting the reco
 ## Pricing settings 
 
 The following assessment attributes affect your cost estimates: 
+
 | **Setting** | **Details** |
 | --- | ---  |
 | **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. </br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (One year or three years reserved) are a good option for the most consistently running resources. </br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (One year or three years savings plan) provide additional flexibility and automated cost optimization. </br> When you select **None**, the Azure compute cost is based on the Pay as you go rate considering 730 hours as VM uptime, unless specified otherwise in VM uptime attribute. |
@@ -23,4 +24,8 @@ The following assessment attributes affect your cost estimates:
 |**Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. | 
 | **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration. The default values are 31 days per month and 24 hours per day. | 
 | Azure Hybrid Benefit| Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) to use your existing OS licenses. For Azure VM assessments you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing. | 
+
+## Next steps 
+
+- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
  
