@@ -556,7 +556,7 @@ Before deployment, you need to update your Azure Container Registry credentials,
    | **Private Key File**    | Full path to the `id_rsa` value that you created in a previous step       |
    | **Passphrase**          | Passphrase used for the key that you created in a previous step        |
 
-1. After you successfully connect to the module by using SSH, you can choose the process and select **Attach**. For the C# module, you need to choose **process dotnet** and **Attach to** for **Managed (CoreCLR)**. It might take 10 to 20 seconds the first time.
+1. After you successfully connect to the module by using SSH, you can choose the process and select **Attach**. For the C# module, you need to choose process **dotnet** and **Attach** to **Managed (CoreCLR)**. It might take 10 to 20 seconds the first time.
 
 1. Set a breakpoint to inspect the module:
 
