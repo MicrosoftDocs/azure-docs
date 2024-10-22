@@ -12,6 +12,8 @@ ms.date: 10/22/2024
 
 # Deployment details
 
+When you deploy Azure IoT Operations, you install a suite of services on an Azure Arc-enabled Kubernetes cluster. This article provides an overview of the different deployment options to consider for your scenario.
+
 ## Supported environments
 
 Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
