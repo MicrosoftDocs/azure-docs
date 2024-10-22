@@ -18,7 +18,7 @@ This article describes reliability support in Azure Bastion and covers both intr
 > Zone redundancy features for Azure Bastion resources are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Bastion provides private, secure remote access to virtual machines hosted in your Azure virtual networks without exposing public IP addresses. You deploy Azure Bastion into a virtual network and can use it to access virtual machines within the virtual network or in peered virtual networks.
+Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via a private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly over TLS from the Azure portal, or via the native SSH or RDP client already installed on your local computer. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
 > [!NOTE]
 > For production deployments, you should:
@@ -42,7 +42,7 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 ### Requirements
 
-You can configure zone redundancy on Azure Bastion resources with the Basic, Standard, and Premium SKUs.
+To configure Azure Bastion resources with zone-redundancy you must deploy with the Basic, Standard, and Premium SKUs.
 
 >[!NOTE]
 >The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
@@ -82,7 +82,7 @@ It's possible that a session might be sent to an Azure Bastion instance in an av
 
 ### Zone-down experience
 
-**Detection and response:** Azure Bastion detects a failure in an availability zone and responding. You don't need to do anything to initiate a availability zone failover.
+**Detection and response:** Azure Bastion detects and responses to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
 
 
 **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
