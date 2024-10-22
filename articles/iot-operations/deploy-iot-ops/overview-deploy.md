@@ -16,7 +16,7 @@ ms.date: 10/02/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster except for those on Arm64 architectures. For more information, review the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
@@ -90,7 +90,7 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
 
-Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+Additionally, review the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
 ```text
 nw-umwatson.events.data.microsoft.com 
