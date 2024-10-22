@@ -12,7 +12,7 @@ ms.date: 01/29/2024
 
 This article explains how to use the Azure CLI to upload firmware images to Firmware analysis.
 
-[Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images. 
 
 ## Prerequisites
 
