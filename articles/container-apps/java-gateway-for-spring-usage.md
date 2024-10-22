@@ -29,7 +29,7 @@ az containerapp env java-component gateway-for-spring show \
 ## Update
 
 You can update the configuration and routes of Gateway for Spring component using the `update` command.
-Before you run the following command, replace placeholders surrounded by `<>` with your values.
+Before you run the following command, replace placeholders surrounded by `<>` with your values. Please refer to the [Route file format](#route-file-format) section to see how to write the route file.
 
 ```azurecli
 az containerapp env java-component gateway-for-spring update \
@@ -54,7 +54,7 @@ az containerapp env java-component list \
 
 ## Route file format
 
-The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. Following is an example YAML file that demonstrates how to configure these properties.
+The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. For more details, refer to the [Spring Cloud Gateway documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#configuring-route-predicate-factories-and-gateway-filter-factories). Following is an example YAML file that demonstrates how to configure these properties.
 
   ```yaml
     springCloudGatewayRoutes:

@@ -48,7 +48,7 @@ Before you begin to work with the Gateway for Spring, you first need to create t
 
 Execute the following commands to create your resource group and Container Apps environment.
 
-1. Create variables to support your application configuration. These values are provided for you for the purposes of this lesson.
+1. Create variables to support your application configuration. These values are provided for you for the purposes of this lesson. We will use the actuator endpoint of admin for spring sample app in this lesson.
 
     ```bash
     export LOCATION=eastus
@@ -120,7 +120,7 @@ Now that you have a Container Apps environment, you can create your container ap
 
 ## Update the Gateway Routes to route requests
 
-1. Create a YAML file with the following content. Replace <MYAPP_URL> with the container app fqdn from the previous step.
+1. Create a YAML file with the following content. Replace `<MYAPP_URL>` with the container app fqdn from the previous step.
 
     ```yaml
     springCloudGatewayRoutes:
