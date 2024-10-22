@@ -31,7 +31,7 @@ The following v2 tier is in preview:
 
 * **Faster deployment, configuration, and scaling** - Deploy a production-ready API Management instance in minutes. Quickly apply configurations such as certificate and hostname updates. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads. Scale a Premium v2 instance to up to 30 units.
 
-* **Simplified networking** - The Standard v2 and Premium v2 tiers options [networking options](#networking-options) to isolate inbound and outbound traffic to API Management.
+* **Simplified networking** - The Standard v2 and Premium v2 tiers provide [networking options](#networking-options) to isolate inbound and outbound traffic to API Management.
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. Upgrade from Basic v2 to Standard v2 to Premium v2 to add more production options.
 
