@@ -17,7 +17,7 @@ The Azure Communication Services audio effects *noise suppression* abilities can
 ## Use audio effects: Install the calling effects npm package
 
 > [!IMPORTANT]
-> This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.1` or newer. The general availability (GA) stable version `1.28.4` and above of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and higher also support noise suppression.
+> This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.1` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 > 
 > Current browser support for adding audio noise suppression effects is available only on Chrome and Edge desktop browsers.
 
@@ -47,7 +47,7 @@ To use noise suppression audio effects within the Azure Communication Services C
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects'; 
 
-// Get the LocalAudioStream from the localAudioStream collection on the call object.
+// Get LocalAudioStream from the localAudioStream collection on the call object.
 // 'call' here represents the call object.
 const localAudioStreamInCall = call.localAudioStreams[0];
 
@@ -77,10 +77,10 @@ To check what noise suppression effects are currently active, you can use the `a
 The `activeEffects` property returns an object with the names of the current active effects.
 
 ```js
-// Using the audio effects feature api
+// Use the audio effects feature API.
 const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
 
-// Create the noise suppression instance 
+// Create the noise suppression instance.
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
 // We recommend that you check support for the effect in the current environment by using the isSupported API 
 // method. Remember that noise supression is only supported on desktop browsers for Chrome and Edge.
@@ -90,12 +90,12 @@ if (isDeepNoiseSuppressionSupported) {
     console.log('Noise supression is supported in local browser environment');
 }
 
-// To start ACS Deep Noise Suppression
+// To start Communication Services Deep Noise Suppression
 await audioEffectsFeatureApi.startEffects({
     noiseSuppression: deepNoiseSuppression
 });
 
-// To stop ACS Deep Noise Suppression
+// To stop Communication Services Deep Noise Suppression
 await audioEffectsFeatureApi.stopEffects({
     noiseSuppression: true
 });
@@ -104,10 +104,10 @@ await audioEffectsFeatureApi.stopEffects({
 
 ## Start a call with noise suppression automatically enabled
 
-You can start a call with noise suppression turned on. Create a new `LocalAudioStream` with `AudioDeviceInfo` (the `LocalAudioStream` source *shouldn't* be a raw `MediaStream` to use audio effects), and pass it in the `CallStartOptions.audioOptions`:
+You can start a call with noise suppression turned on. Create a new `LocalAudioStream` property with `AudioDeviceInfo` (the `LocalAudioStream` source *shouldn't* be a raw `MediaStream` property to use audio effects), and pass it in `CallStartOptions.audioOptions`:
 
 ```js
-// As an example, here we're simply creating a LocalAudioStream by using the current selected mic on the DeviceManager
+// As an example, here we're simply creating LocalAudioStream by using the current selected mic on DeviceManager.
 const audioDevice = deviceManager.selectedMicrophone;
 const localAudioStreamWithEffects = new AzureCommunicationCallingSDK.LocalAudioStream(audioDevice);
 const audioEffectsFeatureApi = localAudioStreamWithEffects.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
@@ -117,7 +117,7 @@ await audioEffectsFeatureApi.startEffects({
     noiseSuppression: deepNoiseSuppression
 });
 
-// Pass the LocalAudioStream in audioOptions in call start/accept options.
+// Pass LocalAudioStream in audioOptions in call start/accept options.
 await call.startCall({
     audioOptions: {
         muted: false,
@@ -134,7 +134,7 @@ You might start a call and not have noise suppression turned on. The environment
 // Create the noise supression instance 
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
 
-// Get the LocalAudioStream from the localAudioStream collection on the call object
+// Get LocalAudioStream from the localAudioStream collection on the call object
 // 'call' here represents the call object.
 const localAudioStreamInCall = call.localAudioStreams[0];
 
@@ -147,12 +147,12 @@ if (isDeepNoiseSuppressionSupported) {
     console.log('Noise supression is supported in the current browser environment');
 }
 
-// To start ACS Deep Noise Suppression
+// To start Communication Services Deep Noise Suppression
 await audioEffectsFeatureApi.startEffects({
     noiseSuppression: deepNoiseSuppression
 });
 
-// To stop ACS Deep Noise Suppression
+// To stop Communication Services Deep Noise Suppression
 await audioEffectsFeatureApi.stopEffects({
     noiseSuppression: true
 });
