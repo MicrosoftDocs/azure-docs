@@ -207,82 +207,82 @@ There are two deployment options for the OSDU Admin UI:
     
 #### [Code snippet](#tab/code)
 
-    Replace the values of the environment variables with your values.
+Replace the values of the environment variables with your values.
 
-    ```bash
-    export OSDU_ENDPOINT="" # Endpoint of the Azure Data Manager for Energy or OSDU instance to connect to
-    export DATA_PARTITION_ID="" # ADME Data Partition ID (i.e. opendes)
-    export DOMAIN_NAME=".dataservices.energy" # Domain name to use for the entitlements service. Use .dataservices.energy for any ADME deployment.
-    export TENANT_ID="" # Entra ID tenant ID
-    export CLIENT_ID="" # App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID
-    export SCOPE="" # Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
-    export GRAPH_ENDPOINT="https://graph.microsoft.com/v1.0/" # Microsoft Graph API endpoint
-    export APPINSIGHTS_INSTRUMENTATIONKEY="" # Optional. Application Insights instrumentation key
-    export OSDU_CONNECTOR_API_ENDPOINT="" # Optional. API endpoint of the OSDU Connector API
+```bash
+export OSDU_ENDPOINT="" # Endpoint of the Azure Data Manager for Energy or OSDU instance to connect to
+export DATA_PARTITION_ID="" # ADME Data Partition ID (i.e. opendes)
+export DOMAIN_NAME=".dataservices.energy" # Domain name to use for the entitlements service. Use .dataservices.energy for any ADME deployment.
+export TENANT_ID="" # Entra ID tenant ID
+export CLIENT_ID="" # App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID
+export SCOPE="" # Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
+export GRAPH_ENDPOINT="https://graph.microsoft.com/v1.0/" # Microsoft Graph API endpoint
+export APPINSIGHTS_INSTRUMENTATIONKEY="" # Optional. Application Insights instrumentation key
+export OSDU_CONNECTOR_API_ENDPOINT="" # Optional. API endpoint of the OSDU Connector API
 
 
-    jq --arg data "$DATA_PARTITION_ID" \
-    --arg domain "$DOMAIN_NAME" \
-    --arg tenant "$TENANT_ID" \
-    --arg client "$CLIENT_ID" \
-    --arg redirect "$REDIRECT_URI" \
-    --arg scope "$SCOPE" \
-    --arg endpoint "$OSDU_ENDPOINT" \
-    --arg graph "$GRAPH_ENDPOINT" \
-    --arg appinnsights "$APPINSIGHTS_INSTRUMENTATIONKEY" \
-    --arg connectorapi "$OSDU_CONNECTOR_API_ENDPOINT" \
-    '.settings.appInsights.instrumentationKey = $appinnsights |
-     .settings.data_partition = $data | 
-     .settings.domain_name = $domain | 
-     .settings.idp.tenant_id = $tenant | 
-     .settings.idp.client_id = $client | 
-     .settings.idp.redirect_uri = $redirect | 
-     .settings.idp.scope = $scope | 
-     .settings.api_endpoints.entitlement_endpoint = $endpoint | 
-     .settings.api_endpoints.storage_endpoint = $endpoint | 
-     .settings.api_endpoints.search_endpoint = $endpoint | 
-     .settings.api_endpoints.legal_endpoint = $endpoint | 
-     .settings.api_endpoints.schema_endpoint = $endpoint | 
-     .settings.api_endpoints.file_endpoint = $endpoint | 
-     .settings.api_endpoints.secrets_endpoint = $connectorapi | 
-     .settings.api_endpoints.graphAPI_endpoint = $graph | 
-     .settings.api_endpoints.workflow_endpoint = $endpoint | 
-     .settings.api_endpoints.secrets_endpoint = $endpoint | 
-     .settings.api_endpoints.wddms_endpoint = $endpoint' \
-    src/config/config.json > src/config/temp.json
-    mv src/config/temp.json src/config/config.json
-    ```
+jq --arg data "$DATA_PARTITION_ID" \
+--arg domain "$DOMAIN_NAME" \
+--arg tenant "$TENANT_ID" \
+--arg client "$CLIENT_ID" \
+--arg redirect "$REDIRECT_URI" \
+--arg scope "$SCOPE" \
+--arg endpoint "$OSDU_ENDPOINT" \
+--arg graph "$GRAPH_ENDPOINT" \
+--arg appinnsights "$APPINSIGHTS_INSTRUMENTATIONKEY" \
+--arg connectorapi "$OSDU_CONNECTOR_API_ENDPOINT" \
+'.settings.appInsights.instrumentationKey = $appinnsights |
+    .settings.data_partition = $data | 
+    .settings.domain_name = $domain | 
+    .settings.idp.tenant_id = $tenant | 
+    .settings.idp.client_id = $client | 
+    .settings.idp.redirect_uri = $redirect | 
+    .settings.idp.scope = $scope | 
+    .settings.api_endpoints.entitlement_endpoint = $endpoint | 
+    .settings.api_endpoints.storage_endpoint = $endpoint | 
+    .settings.api_endpoints.search_endpoint = $endpoint | 
+    .settings.api_endpoints.legal_endpoint = $endpoint | 
+    .settings.api_endpoints.schema_endpoint = $endpoint | 
+    .settings.api_endpoints.file_endpoint = $endpoint | 
+    .settings.api_endpoints.secrets_endpoint = $connectorapi | 
+    .settings.api_endpoints.graphAPI_endpoint = $graph | 
+    .settings.api_endpoints.workflow_endpoint = $endpoint | 
+    .settings.api_endpoints.secrets_endpoint = $endpoint | 
+    .settings.api_endpoints.wddms_endpoint = $endpoint' \
+src/config/config.json > src/config/temp.json
+mv src/config/temp.json src/config/config.json
+```
 
 #### [Manual](#tab/manual)
     
-    Replace the values according to the explanation.
+Replace the values according to the explanation.
 
-    ```json
-    {
+```json
+{
+    ...
+    "domain_name": ".dataservices.energy", // Domain name to use for the entitlements service. Use .dataservices.energy for any ADME deployment.
+    "data_partition": "<adme_data_partition>", // ADME Data Partition ID (i.e. opendes)
+    "idp": {
         ...
-        "domain_name": ".dataservices.energy", // Domain name to use for the entitlements service. Use .dataservices.energy for any ADME deployment.
-        "data_partition": "<adme_data_partition>", // ADME Data Partition ID (i.e. opendes)
-        "idp": {
-            ...
-            "tenant_id": "<tenant_id>", // Entra ID tenant ID
-            "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
-            "redirect_uri": "<redirect_uri>", // This is the website URL ($REDIRECT_URI), i.e. "https://contoso.z1.web.core.windows.net"
-            "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
-        },
-        "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
-            "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
-            "storage_endpoint": "https://contoso.energy.azure.com/api/",
-            "search_endpoint": "https://contoso.energy.azure.com/api/",
-            "legal_endpoint": "https://contoso.energy.azure.com/api/",
-            "schema_endpoint": "https://contoso.energy.azure.com/api/",
-            "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
-            "file_endpoint": "https://contoso.energy.azure.com/api/",
-            "graphAPI_endpoint": "https://graph.microsoft.com/v1.0/",
-            "workflow_endpoint": "https://contoso.energy.azure.com/api/"
-        }
-      ...
+        "tenant_id": "<tenant_id>", // Entra ID tenant ID
+        "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
+        "redirect_uri": "<redirect_uri>", // This is the website URL ($REDIRECT_URI), i.e. "https://contoso.z1.web.core.windows.net"
+        "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
+    },
+    "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
+        "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
+        "storage_endpoint": "https://contoso.energy.azure.com/api/",
+        "search_endpoint": "https://contoso.energy.azure.com/api/",
+        "legal_endpoint": "https://contoso.energy.azure.com/api/",
+        "schema_endpoint": "https://contoso.energy.azure.com/api/",
+        "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
+        "file_endpoint": "https://contoso.energy.azure.com/api/",
+        "graphAPI_endpoint": "https://graph.microsoft.com/v1.0/",
+        "workflow_endpoint": "https://contoso.energy.azure.com/api/"
     }
-    ```
+    ...
+}
+```
 
 ---
 
