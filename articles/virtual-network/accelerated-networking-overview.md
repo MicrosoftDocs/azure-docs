@@ -103,7 +103,7 @@ You can directly query the list of VM SKUs that support Accelerated Networking b
 If you use a custom image that supports Accelerated Networking, make sure you meet the following requirements.
 
 #### Device and driver support
-Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](/accelerated-networking-mana-overview).
+Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](accelerated-networking-mana-overview.md).
 
 #### Dynamic binding and revocation of virtual function
 Accelerated Networking requires guest OS images to properly handle the virtual function being removed or added dynamically. Scenarios such as host maintenance or live migration will result in dynamic revocation of the virtual function and restoration after the maintenance event. Additionally, applications must ensure that they bind to the synthetic device and not the virtual function in order to maintain network connectivity during these events. 
@@ -162,12 +162,12 @@ EOF
 #### Network traffic uses the Accelerated Networking data path
 
 For NVIDIA drivers: Verify that the packets are flowing over the VF interface
-- [Linux documentation](/accelerated-networking-how-it-works#application-usage)
-- [Windows documentation](/create-vm-accelerated-networking-cli?tabs=windows#confirm-that-accelerated-networking-is-enabled)
+- [Linux documentation](accelerated-networking-how-it-works.md#application-usage)
+- [Windows documentation](create-vm-accelerated-networking-cli.md?tabs=windows#confirm-that-accelerated-networking-is-enabled)
 
 For MANA driver: Verify that the traffic is flowing through MANA
-- [Linux documentation](/accelerated-networking-mana-linux#verify-that-traffic-is-flowing-through-mana)
-- [Windows documentation](/accelerated-networking-mana-windows#verify-that-traffic-is-flowing-through-mana)
+- [Linux documentation](accelerated-networking-mana-linux.md#verify-that-traffic-is-flowing-through-mana)
+- [Windows documentation](accelerated-networking-mana-windows.md#verify-that-traffic-is-flowing-through-mana)
 
 ---
 
