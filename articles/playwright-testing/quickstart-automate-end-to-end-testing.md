@@ -69,11 +69,11 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
-  By default, the service configuration enables you to:
-  - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
-  - Simplify troubleshooting with easy access to test results and artifacts published to the service.
+   By default, the service configuration enables you to:
+   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+   - Simplify troubleshooting with easy access to test results and artifacts published to the service.
 
-  However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
+   However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
 
 3. Save and commit the file to your source code repository.
 
