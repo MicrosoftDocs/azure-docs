@@ -222,6 +222,8 @@ items:
       href: set-discovery-scope.md
     - name: Create least privilege credentials for SQL Server discovery
       href: least-privilege-credentials.md  
+    - name: Enable Arc on discovered items
+      href: how-to-arc-enable-inventory.md
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
