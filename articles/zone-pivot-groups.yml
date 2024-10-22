@@ -1694,6 +1694,6 @@ groups:
   - id: free-shared-basic
     title: Free, Shared, Basic
   - id: premium
-    title: Premium
+    title: Premium v2 and Premium v3
   - id: isolated
-    title: Isolated (App Service Environment)
+    title: Isolated v2 (App Service Environment)
