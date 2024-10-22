@@ -30,7 +30,7 @@ The Azure Bastion service enables you to use the secure sockets host (SSH) and r
 
 Azure Bastion can be configured to be *zone-redundant*, which means your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your production workloads.
 
-You can specify which availability zone or zones an Azure Bastion resource should be deployed in. If you deploy into three availability zones but only configure two instances for your Bastion resource, the instances will be split across two availability zones, and if an availability zone is unavailable, the instance in the faulty zone will be replaced with another instance in a healthy zone.
+You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone will be replaced with another instance in a healthy zone.
 
 > [!NOTE]
 > Azure Bastion support for zone redundancy is currently in preview.
