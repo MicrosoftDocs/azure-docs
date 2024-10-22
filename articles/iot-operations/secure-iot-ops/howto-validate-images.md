@@ -15,7 +15,7 @@ ms.date: 09/24/2024
 
 Azure IoT Operations signs its docker and helm images to allow users to verify the integrity and origin of the images they use. Signing utilizes a public/private key pair to prove that Microsoft built a container image by creating a digital signature and adding it to the image. This article provides the steps to verify that an image was signed by Microsoft.
 
-1. Download notation
+1. Download Notation.
 
    ```sh
    export NOTATION_VERSION=1.1.0
