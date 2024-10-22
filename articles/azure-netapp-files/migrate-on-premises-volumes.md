@@ -1,6 +1,6 @@
 ---
 title: Migrate on-premises volumes to Azure NetApp Files 
-description: Learn how to peer and migrate on-premises volumes to Azure NetApp Files and establish SnapMirror relationships. 
+description: Learn how to peer and migrate on-premises or Cloud Volumes ONTAP volumes to Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Migrate on-premises volumes to Azure NetApp Files 
 
-You can peer and migrate on-premises volumes from NetApp's ONTAP software to Azure NetApp Files. The feature is only available in the REST API. 
+You can peer and migrate volumes from ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is only available in the REST API. 
 
 ## Considerations 
 
@@ -27,11 +27,11 @@ You can peer and migrate on-premises volumes from NetApp's ONTAP software to Azu
 
 ## Migrate volumes to Azure NetApp Files 
 
-
-1. Create a migration API request to create Azure NetApp Files volumes each on-premises volume you intend to migrate. 
+1. Establish network connectivity from the ONTAP or Cloud Volumes ONTAP cluster to Azure NetApp Files. Work with the site reliability engineering team to create Express Route resources. 
+1. Create a migration API request to create Azure NetApp Files volumes each on-premises volume you intend to migrate. The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
     ```rest
-    PUT: https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>?api-version=2024-05-01
+    PUT: https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2024-05-01
     Body: {
        "type":"Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
        "location":"<LOCATION>",
@@ -81,8 +81,8 @@ You can peer and migrate on-premises volumes from NetApp's ONTAP software to Azu
     }
     ```
 
-1. If you've already paired your on-premises cluster to Azure NetApp Files, skip to the next step. Otherwise, issue a cluster peering API request from each of the target Azure NetApp Files migration volumes to the on-premises cluster. Each call must provide a list of the on-premises cluster intercluster logical interfaces (LIFs).
-
+1. Issue a cluster peering API request from each of the target Azure NetApp Files migration volumes to the on-premises cluster. Each call must provide a list of the on-premises cluster intercluster logical interfaces (LIFs).
+<!-- If you've already paired your on-premises cluster to Azure NetApp Files, skip to the next step. Otherwise,  -->
     ```rest
      
     POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-05-01
@@ -102,13 +102,13 @@ You can peer and migrate on-premises volumes from NetApp's ONTAP software to Azu
 
     ```rest
 
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-05-01
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-05-01...
     ```
     
     >[!NOTE]
-    > This operation can take time. Check on the request status. It is complete when that status is "Succeeded."
+    > This operation can take time. Check on the request status. It's complete when that status reads "Succeeded."
 
-    ```rest
+    ```json
     {
         "id": "/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/southcentralus/operationResults/62215c87-50a9-455f-b3e3-5162c31def52",
         "name": "<name>",
@@ -125,35 +125,59 @@ You can peer and migrate on-premises volumes from NetApp's ONTAP software to Azu
     }
     ```
 
-1. Once you receive the succeeded status, copy and paste the `peerAcceptCommand` string into the ONTAP CLI followed by the passphrase string. 
+1. Once you receive the succeeded status, copy and paste the `peerAcceptCommand` string into the command line for your on-premises volumes followed by the passphrase string. 
 
     >[!NOTE]
-    >If the `peerAcceptCommand` string is empty in the response body, peering is already established. Skip this step for the corresponding migration volume. 
+    >If the `peerAcceptCommand` string in the response body is empty, peering is already established. Skip this step for the corresponding migration volume. 
 
-1. Issue an `authorizeExternalReplication` API request for your migration volumes. This step must be repeated for each migration volume. 
+1. Issue an `authorizeExternalReplication` API request for your migration volumes. Repeat this request for each migration volume. 
 
     ```rest
     POST: https://southcentralus.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-05-01
     ```
-1. Accept the storage virtual machine (SVM) peer request from A
- The customer needs to accept the SVM Peer Request from ANF to their On-Prem system, by running the accept command on their ONTAP. To get the ONTAP command to accept the SVM peer request they need to GET the Operations Result.
+1. Accept the storage virtual machine (SVM) peer request from Azure NetApp Files by sending a GET request using the Azure-AsyncOperation ID in step 3. 
 
-This is done by using the Azure-AsyncOperation ID copied from step 1.3 in a GET request (see example below). Since this is a long-running operation the customer needs to poll the request a few times until the status is "Succeeded".
     ```rest
-    GET : https://southcentralus.management.azure.com/subscriptions/<subscription>/providers/Microsoft.NetApp/locations/<location>/operationResults/<result>?api-version=2024-05-01
+    GET https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2024-05-01&...
     ```
-1. Accept the SVM 
 
-The customer needs to accept the SVM Peer Request from ANF to their On-Prem system, by running the accept command on their ONTAP. To get the ONTAP command to accept the SVM peer request they need to GET the Operations Result.
+    An example response: 
 
-This is done by using the Azure-AsyncOperation ID copied from step 1.3 in a GET request (see example below). Since this is a long-running operation the customer needs to poll the request a few times until the status is "Succeeded".
+    ```json
+    {
+        "id": "/subscriptions/00000000-aaaa-0000-aaaa-0000000000000/providers/Microsoft.NetApp/locations/southcentralus/operationResults/00000000-aaaa-000-aaaa-000000000000"
+        "name": "00000000-aaaa-000-aaaa-000000000000",
+        "status": "Succeeded",
+        "name": "00000000-aaaa-0000-aaaa-0000000000000",
+        "status": "Succeeded",
+        "startTime": "2023-11-02T07:48:53.6563893Z",
+        "endTime": "2023-11-02T07:53:25.3253982Z",
+        "percentComplete": 100.0,
+        "properties": {
+            "svmPeeringCommand": "vserver peer accept -vserver on-prem-svm-name -peer-vserver destination-svm-name",
+        }
+    }
+    ```
 
+1. Once baseline transfers have completed, select a time to take the on-premises volumes offline to prevent new data writes. 
+1. Send a "Perform Replication Transfer" request to capture any incremental data written after the baseline transfer was completed. Repeat this operation for _each_ migration volume. 
 
-1. Navigate to your Azure NetApp Files account. 
-1. Select **Migrate ONTAP volumes**. 
-1. 
-1. To view the status of your migration or peer clusters, navigate to the **Migration Assistant** sidebar item. You can view the replication state, schedule, and transfer status, among other details, of peered volumes. 
+    ```rest
+        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-07-01 
+    ```
 
-## Next steps 
+1. Break the replication relationship. You can accomplish this in the Azure portal by navigating to each volume's **Replication** menu then selecting **Break peering**. You can alternately submit an API request: 
+
+    ```rest
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-05-01
+    ```
+
+1. Finalize the replication by deleting the migration replication. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
+
+    ```rest
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-05-01
+    ```
+ 
+## More information 
 
 * [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md)
