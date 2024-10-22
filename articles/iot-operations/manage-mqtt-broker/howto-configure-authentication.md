@@ -112,7 +112,7 @@ For testing, you can disable authentication by omitting `authenticationRef` in t
 
 To learn more about each of the authentication options, see the next sections for each method. 
 
-For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../secure-iot-ops/howto-enable-secure-settings.md).
+For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 

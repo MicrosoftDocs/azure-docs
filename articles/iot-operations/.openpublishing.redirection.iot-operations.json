@@ -191,11 +191,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-enable-secure-settings.md",
-            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-enable-secure-settings",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-manual.md",
             "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-manual",
             "redirect_document_id": true
