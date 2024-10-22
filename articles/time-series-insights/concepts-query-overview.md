@@ -5,7 +5,7 @@ author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak
 ms.reviewer: orspodek
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ---

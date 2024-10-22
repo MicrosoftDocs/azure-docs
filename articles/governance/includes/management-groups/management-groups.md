@@ -1,10 +1,11 @@
 ---
-ms.service: governance
+ms.service: azure
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/07/2022
 author: rthorn17
 ms.author: rithorn
+ms.subservice: azure-governance
 ---
 
 ### Count of subscriptions per management group
