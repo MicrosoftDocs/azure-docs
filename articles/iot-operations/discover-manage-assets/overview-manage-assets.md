@@ -4,17 +4,15 @@ description: Understand concepts and options needed to manage the assets that ar
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 08/27/2024
+ms.date: 10/22/2024
 ai-usage: ai-assisted
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing assets, so that I can effectively manage the assets in my solution. 
 ---
 
-# What is asset management in Azure IoT Operations Preview
+# What is asset management in Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article:
+In Azure IoT Operations, a key task is to manage the assets that are part of your solution. This article:
 
 - Defines what assets are in the context of Azure IoT Operations.
 - Provides an overview of the services that you use to manage your assets.
@@ -35,7 +33,7 @@ The following diagram shows the high-level architecture of Azure IoT Operations.
 :::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png":::
 
 - The **operations experience** is a web UI that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets and is the recommended service to manage assets.
-- **Azure Device Registry Preview** is a backend service that enables the cloud and edge management of assets. Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
+- **Azure Device Registry** is a backend service that enables the cloud and edge management of assets. Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
 - The schema registry is a service that lets you define and manage the schema for your assets. Dataflows use schemas to deserialize and serialize messages.
 - The **connector for OPC UA** is a data ingress and protocol translation service that enables Azure IoT Operations to ingress data from your assets. The broker receives telemetry and events from your assets and publishes the data to topics in the MQTT broker. The broker is based on the widely used OPC UA standard.
 
@@ -57,7 +55,7 @@ The operations experience lets users create assets and subscribe to OPC UA tags 
 
 ## Store assets as Azure resources in a centralized registry
 
-When you create an asset in the operations experience or by using the Azure IoT Operations CLI extension, that asset is defined in Azure Device Registry Preview.
+When you create an asset in the operations experience or by using the Azure IoT Operations CLI extension, that asset is defined in Azure Device Registry.
 
 Device Registry provides a single registry for devices and assets across applications running in the cloud or on the edge. In the cloud, assets are created as Azure resources, which give you management capabilities over them like organizing assets with resource groups and tags. On the edge, Device Registry creates a Kubernetes custom resource for each asset and keeps the two asset representations in sync.
 

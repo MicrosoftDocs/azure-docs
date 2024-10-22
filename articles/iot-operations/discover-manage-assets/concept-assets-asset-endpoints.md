@@ -5,16 +5,14 @@ author: kgremban
 ms.author: kgremban
 #ms.subservice:
 ms.topic: conceptual
-ms.date: 08/27/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that are created by Azure Device Registry to manage assets.
 ---
 
 # Define assets and asset endpoints
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Azure IoT Operations Preview uses Azure resources called assets and asset endpoints to connect and manage components of your industrial edge environment.
+Azure IoT Operations uses Azure resources called assets and asset endpoints to connect and manage components of your industrial edge environment.
 
 Historically, in industrial edge environments the term *asset* refers to any item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a software component, an entire system, or a physical object of value such as a field of crops or a building. These assets are examples that exist in manufacturing, retail, energy, healthcare, and other sectors.
 
@@ -22,7 +20,7 @@ In Azure IoT Operations, you can create an *asset* in the cloud to represent an 
 
 ## Cloud and edge resources
 
-Azure Device Registry Preview registers assets and asset endpoints as Azure resources, enabled by Azure Arc. Device registry also syncs these cloud resources to the edge as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+Azure Device Registry registers assets and asset endpoints as Azure resources, enabled by Azure Arc. Device registry also syncs these cloud resources to the edge as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
 You can create, edit, and delete asset endpoints and assets by using the Azure IoT Operations CLI extension or the operations experience web UI. For more information, see [Manage asset configurations remotely](./howto-manage-assets-remotely.md).
 

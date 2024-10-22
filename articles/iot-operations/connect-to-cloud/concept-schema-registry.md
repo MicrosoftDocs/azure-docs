@@ -4,14 +4,14 @@ description: Learn how schema registry handles message schemas to work with Azur
 author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
-ms.date: 09/23/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
 ---
 
 # Understand message schemas
 
-Schema registry, a feature provided by Azure Device Registry Preview, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
+Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
 The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
 

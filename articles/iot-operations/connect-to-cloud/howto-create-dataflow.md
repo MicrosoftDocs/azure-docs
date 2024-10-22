@@ -6,15 +6,13 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 10/22/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
 
 # Configure dataflows in Azure IoT Operations
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource or using the Azure IoT Operations Studio portal. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
@@ -47,7 +45,7 @@ Continue reading to learn how to configure the source, transformation, and desti
 
 ## Prerequisites
 
-You can deploy dataflows as soon as you have an instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md) using the default dataflow profile and endpoint. However, you might want to configure dataflow profiles and endpoints to customize the dataflow.
+You can deploy dataflows as soon as you have an instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) using the default dataflow profile and endpoint. However, you might want to configure dataflow profiles and endpoints to customize the dataflow.
 
 ### Dataflow profile
 

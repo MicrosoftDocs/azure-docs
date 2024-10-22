@@ -7,15 +7,13 @@ ms.author: patricka
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ms.service: azure-iot-operations
 ---
 
 # Develop highly available applications with MQTT broker
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Creating a highly available application using MQTT broker involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. MQTT broker features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
 

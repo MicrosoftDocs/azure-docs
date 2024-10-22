@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/22/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
@@ -14,13 +14,11 @@ ai-usage: ai-assisted
 
 # Configure Azure Event Hubs and Kafka dataflow endpoints
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-To set up bi-directional communication between Azure IoT Operations Preview and Apache Kafka brokers, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
+To set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
 ## Create a Kafka dataflow endpoint
@@ -289,7 +287,7 @@ To customize the endpoint settings, see the following sections for more informat
 
 ### Available authentication methods
 
-The following authentication methods are available for Kafka broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+The following authentication methods are available for Kafka broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 #### SASL
 
@@ -474,7 +472,7 @@ kafkaSettings: {
 
 #### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 Then, specify the user-assigned managed identity authentication method in the Kafka settings along with the client ID, tenant ID, and scope of the managed identity.
 

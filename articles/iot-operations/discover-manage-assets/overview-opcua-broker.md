@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 05/14/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster.
 ms.service: azure-iot-operations
@@ -13,11 +13,9 @@ ms.service: azure-iot-operations
 
 # What is the connector for OPC UA?
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 OPC UA (OPC Unified Architecture) is a standard developed by the [OPC Foundation](https://opcfoundation.org/) to enable the exchange of data between industrial components at the edge and with the cloud. OPC UA provides a consistent, secure, documented standard based on widely used data formats. Industrial components can implement the OPC UA standard to enable universal data exchange.
 
-The connector for OPC UA is a part of Azure IoT Operations Preview. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
+The connector for OPC UA is a part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, and monitor data changes and events in connected assets. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 

@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ms.service: azure-iot-operations
@@ -15,13 +15,11 @@ ms.service: azure-iot-operations
 
 # Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](howto-configure-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
 ## Verify cert-manager installation
 
-With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
+With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 

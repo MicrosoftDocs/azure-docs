@@ -1,19 +1,17 @@
 ---
-title: Troubleshoot Azure IoT Operations Preview
+title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 01/22/2024
+ms.date: 10/22/2024
 ---
 
-# Troubleshoot Azure IoT Operations Preview
+# Troubleshoot Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-This article contains troubleshooting tips for Azure IoT Operations Preview.
+This article contains troubleshooting tips for Azure IoT Operations.
 
 ## General deployment troubleshooting
 
@@ -25,15 +23,15 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-## Azure IoT Layered Network Management Preview troubleshooting
+## Azure IoT Layered Network Management troubleshooting
 
-The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
+The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 
 ### Can't install Layered Network Management on the parent level
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
 
-1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
+1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.

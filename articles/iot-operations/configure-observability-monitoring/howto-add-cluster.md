@@ -4,15 +4,13 @@ description: How to add an Arc-enabled cluster to existing observability infrast
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to add more Arc-enabled clusters
 # to my existing observability infrastructure. 
 ---
 
 # Add an Arc-enabled cluster to existing observability infrastructure
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can share observability resources across multiple Arc-enabled clusters that run Azure IoT Operations. This article shows how to add another Arc-enabled cluster to the observability infrastructure that you created in [Deploy observability resources with a script](howto-configure-observability.md).
 

@@ -5,14 +5,12 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/23/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
 
 # Manage the lifecycle of an Azure IoT Operations instance
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Operations instances.
 

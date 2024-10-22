@@ -7,15 +7,13 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/29/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
 ---
 
 # Configure MQTT broker authentication
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperationsmq/broker-authentication) API reference.
 
@@ -30,7 +28,7 @@ To link a BrokerListener to a *BrokerAuthentication* resource, specify the `auth
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the *default* listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations deploys a default *BrokerAuthentication* resource named `authn` linked with the *default* listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
@@ -112,7 +110,7 @@ For testing, you can disable authentication by omitting `authenticationRef` in t
 
 To learn more about each of the authentication options, see the next sections for each method. 
 
-For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 

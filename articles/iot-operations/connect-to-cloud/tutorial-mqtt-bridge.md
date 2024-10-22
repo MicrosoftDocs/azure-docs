@@ -6,20 +6,18 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 10/01/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ---
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the Azure IoT Operations MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- **Azure IoT Operations**. See [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md).
 
 ## Set environment variables

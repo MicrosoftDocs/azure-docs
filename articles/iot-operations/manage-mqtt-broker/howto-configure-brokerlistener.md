@@ -7,15 +7,13 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ms.service: azure-iot-operations
 ---
 
 # Secure MQTT broker communication using BrokerListener
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 To customize the network access and security use the *BrokerListener* resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more *BrokerListener* resources for each *Broker* resource, and thus multiple ports with different access control each.
 
@@ -37,7 +35,7 @@ For a list of the available settings, see the [Broker Listener](/rest/api/iotope
 
 ## Default BrokerListener
 
-When you deploy Azure IoT Operations Preview, the deployment also creates a *BrokerListener* resource named `default` in the `azure-iot-operations` namespace. This listener is linked to the default *Broker* resource named `default` that's also created during deployment. The default listener exposes the broker on port 18883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](howto-configure-tls-auto.md) by cert-manager. Authorization is disabled by default.
+When you deploy Azure IoT Operations, the deployment also creates a *BrokerListener* resource named `default` in the `azure-iot-operations` namespace. This listener is linked to the default *Broker* resource named `default` that's also created during deployment. The default listener exposes the broker on port 18883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](howto-configure-tls-auto.md) by cert-manager. Authorization is disabled by default.
 
 To view or edit the listener:
 

@@ -1,18 +1,16 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
-description: "Quickstart: Deploy Azure IoT Operations Preview to a Kubernetes cluster running in GitHub Codespaces."
+description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
 author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s
 
 In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
@@ -20,8 +18,7 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
-> [!IMPORTANT]
-> If you're upgrading your public preview from version 0.6.0 to version 0.7.0, you must uninstall the previous version before deploying the new version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-manage-update-uninstall.md#update).
+
 
 ## Before you begin
 
@@ -165,7 +162,7 @@ Run the following CLI commands in your Codespaces terminal.
    az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
    ```
 
-## Deploy Azure IoT Operations Preview
+## Deploy Azure IoT Operations
 
 In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations.
 
@@ -225,4 +222,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)

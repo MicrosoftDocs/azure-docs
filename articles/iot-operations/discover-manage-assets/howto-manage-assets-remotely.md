@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 10/22/2024
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -14,9 +14,7 @@ ms.custom:
 
 # Manage asset configurations remotely
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-An _asset_ in Azure IoT Operations Preview is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
+An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 

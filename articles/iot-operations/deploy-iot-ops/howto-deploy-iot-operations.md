@@ -5,16 +5,14 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
+# Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI or Azure portal.
+Learn how to deploy Azure IoT Operations to a Kubernetes cluster using the Azure CLI or Azure portal.
 
 In this article, we discuss Azure IoT Operations *deployments* and *instances*, which are two different concepts:
 
@@ -25,7 +23,7 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
   * Resource sync rules
   * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
-* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
+* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
 
 When we talk about deploying Azure IoT Operations, we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
@@ -326,4 +324,4 @@ You can also check the configurations of topic maps, QoS, and message routes by 
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md).

@@ -6,14 +6,12 @@ ms.author: kgremban
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 09/26/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
 
-# Get started: configure observability with a script in Azure IoT Operations Preview
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Get started: configure observability with a script in Azure IoT Operations
 
 Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability.
 

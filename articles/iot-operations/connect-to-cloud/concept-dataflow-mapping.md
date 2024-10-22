@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 09/24/2024
+ms.date: 10/22/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
@@ -13,8 +13,6 @@ ms.service: azure-iot-operations
 ---
 
 # Map data by using dataflows
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Use the dataflow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the dataflow mapping language and key concepts.
 

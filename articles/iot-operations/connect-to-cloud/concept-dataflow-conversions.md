@@ -5,15 +5,13 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
 ms.service: azure-iot-operations
 ---
 
 # Convert data by using dataflow conversions
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can use dataflow conversions to transform data in Azure IoT Operations. The *conversion* element in a dataflow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in dataflow conversions.
 

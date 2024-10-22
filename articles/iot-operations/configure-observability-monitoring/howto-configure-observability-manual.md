@@ -4,15 +4,13 @@ description: How to configure observability features manually in Azure IoT Opera
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to monitor and visualize data
 # on the health of my industrial assets and edge environment.
 ---
 
 # Deploy observability resources manually
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 This article shows how to install and configure Azure IoT Operations observability components manually. This approach provides more options and control over your environment. For a simplified setup process that installs all the components you need to get started, see [Deploy observability resources with a script](howto-configure-observability.md).
 
