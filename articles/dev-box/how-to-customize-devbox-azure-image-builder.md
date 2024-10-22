@@ -41,7 +41,9 @@ To provision a custom image that you created by using VM Image Builder, you need
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The first step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this task by using the Azure CLI.
+The first step is to use Azure VM Image Builder and Azure PowerShell to create an image in Azure Compute Gallery and distribute it globally. 
+
+The following example uses PowerShell. You can also use the Azure Command-Line Interface (CLI).
 
 1. To use VM Image Builder, you need to register the features.
 
@@ -99,7 +101,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 1. Create a user-assigned identity and set permissions on the resource group by running the following code in PowerShell.
 
-   VM Image Builder uses the provided user identity to inject the image into Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
+   VM Image Builder uses the user identity you provide to store the image in Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
 
    ```powershell
    # Set up role definition names, which need to be unique 
@@ -119,7 +121,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 1. Assign permissions for the identity to distribute the images.
 
-   Use this command to download an Azure role definition template, and then update it with the previously specified parameters:
+   Use this command to download an Azure role definition template, and update it with the previously specified parameters:
 
    ```powershell
    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json" 
@@ -140,7 +142,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 ## Create a gallery
 
-To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
+To use VM Image Builder with Azure Compute Gallery, make sure you have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
 
 1. Run the following commands to create a new gallery and image definition.
 
@@ -308,11 +310,11 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
 
 ## Configure the gallery
 
-After your custom image is provisioned in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
+When your custom image is stored in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
 
 ## Set up Microsoft Dev Box with a custom image
 
-After the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
+When the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 
 ## Related content
 
