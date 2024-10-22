@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/15/2024
+ms.date: 10/22/2024
 ai-usage: ai-assisted
 ---
 
@@ -764,16 +764,6 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
 | Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
-
-To determine the version of the Snowflake connector used in your existing Snowflake linked service, check the ```type``` property. The legacy version is identified by ```"type": "Snowflake"```, while the latest V2 version is identified by ```"type": "SnowflakeV2"```.
-
-The V2 version offers several enhancements over the legacy version, including:
-
-Autoscaling: Automatically adjusts resources based on traffic load.<br/>
-
-Multi-Availability Zone Operation: Provides resilience by operating across multiple availability zones.<br/>
-
-Static IP Support: Enhances security by allowing the use of static IP addresses.
 
 ## Related content
 
