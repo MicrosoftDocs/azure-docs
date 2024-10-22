@@ -13,28 +13,28 @@ ms.author: buchvarun
 Using URL manipulation allows you to customize the URL of the image location that is in the response object.
 
 For the following API operations the DICOM service returns the fully qualified URL of the image location in the response object under a DICOM tag (UR) in the response object.
-1. Retrieve Instance 
-2. Retrieve WorkItems
-3. Retrieve OperationStatus
-4. Resolve QueryTag
-5. Resolve QueryTagError
+- Retrieve Instance 
+- Retrieve WorkItems
+- Retrieve OperationStatus
+- Resolve QueryTag
+- Resolve QueryTagError
 
 Here's an example of a fully qualified image location URL. The URL could be found in the standard response for a STOW operation for a DICOM service that has data partition enabled, with partition name "foo".
 
 `https://localhost:63838/v2/partitions/foo/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
 
  The preceding URL consists of three parts:
- 1. hostname -> `https://localhost:63838` (the hostname of DICOM service)
- 2. path -> `v2/partitions/foo` (the path that represents the version of DICOM service being used and the datapartition name, if enabled)
- 3. The DICOM web standard path -> `studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
+ - hostname -> `https://localhost:63838` (the hostname of DICOM service)
+ - path -> `v2/partitions/foo` (the path that represents the version of DICOM service being used and the datapartition name, if enabled)
+ - The DICOM web standard path -> `studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
 
  This feature allows you to customize the path of the image URL, if directed by the client, based on the request headers provided.
 
 ## How it works
 The modified URL is based on following two headers.
-1. X-Forwarded-Host: The domain name of the original host (the one the client requested before the proxy or load balancer handled the request). For example: `X-Forwarded-Host: www.example.com`
+- X-Forwarded-Host: The domain name of the original host (the one the client requested before the proxy or load balancer handled the request). For example: `X-Forwarded-Host: www.example.com`
 
-2. X-Forwarded-Prefix:  the original URL path or prefix that was part of the client’s request before the proxy forwarded or changed the request. For example: `X-Forwarded-Prefix: /prefix`
+- X-Forwarded-Prefix:  the original URL path or prefix that was part of the client’s request before the proxy forwarded or changed the request. For example: `X-Forwarded-Prefix: /prefix`
 
 These headers are a part of .NET core standard forwarded headers.
 
@@ -44,11 +44,11 @@ If `x-forwarded-prefix` header is present in the request object, it replaces the
 
 ## List of services that can use forwarded headers for URL manipulation
 
- 1. Store(STOW-RS): Upload DICOM objects to the server.
- 2. Retrieve(WADO-RS): Download DICOM objects from the server.
- 3. Worklist Service (UPS Push and Pull SOPs): Manage and track medical imaging workflows.
- 4. Extended query tags: Define custom tags for querying DICOM data.
- 3. Operation Status
+ - Store(STOW-RS): Upload DICOM objects to the server.
+ - Retrieve(WADO-RS): Download DICOM objects from the server.
+ - Worklist Service (UPS Push and Pull SOPs): Manage and track medical imaging workflows.
+ - Extended query tags: Define custom tags for querying DICOM data.
+ - Operation Status
 
 Here are the details of a request header for a STOW operation with the forwarded headers:
 * Path: ../studies/{study}
@@ -87,7 +87,7 @@ URL of image:
 
 
  ## Things to remember
- 1. Forwarded headers don't have to be used together. If there's a need to, replace hostname and not path. Only the forwarded host header can be used. Similarly, if there's a need to replace the path, only the forwarded prefix header can be used.
- 2. The client is responsible for mapping the hostname and path provided in forwarded headers to the correct DICOM service hostname and pathbase.
+ - Forwarded headers don't have to be used together. If there's a need to, replace hostname and not path. Only the forwarded host header can be used. Similarly, if there's a need to replace the path, only the forwarded prefix header can be used.
+ - The client is responsible for mapping the hostname and path provided in forwarded headers to the correct DICOM service hostname and pathbase.
 
  [!INCLUDE [DICOM trademark statement](../includes/healthcare-APIs-DICOM-trademark.md)]
