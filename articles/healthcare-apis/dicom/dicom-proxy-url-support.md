@@ -12,14 +12,14 @@ ms.author: buchvarun
 # What is URL manipulation
 Using URL manipulation allows you to customize the URL of the image location that is in the response object.
 
-For the following API operations the DICOM service returns the fully qualified URL of the image location in the response object, under a DICOM tag (UR) in the response object.
+For the following API operations the DICOM service returns the fully qualified URL of the image location in the response object under a DICOM tag (UR) in the response object.
 1. Retrieve Instance 
 2. Retrieve WorkItems
 3. Retrieve OperationStatus
 4. Resolve QueryTag
 5. Resolve QueryTagError
 
-The following is an example of a fully qualified image location URL. This could be found in the standard response for a STOW operation for a DICOM service that has data partition enabled, with partition name "foo".
+Here is an example of a fully qualified image location URL. The URL could be found in the standard response for a STOW operation for a DICOM service that has data partition enabled, with partition name "foo".
 
 `https://localhost:63838/v2/partitions/foo/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
 
@@ -30,21 +30,25 @@ The following is an example of a fully qualified image location URL. This could 
 
  This feature allows you to customize the path of the image URL, if directed by the client, based on the request headers provided.
 
- # How it works
-The modified URL will be based on following two headers.
+## How it works
+The modified URL is based on following two headers.
 1. X-Forwarded-Host: The domain name of the original host (the one the client requested before the proxy or load balancer handled the request). For example: `X-Forwarded-Host: www.example.com`
 
 2. X-Forwarded-Prefix:  the original URL path or prefix that was part of the client’s request before the proxy forwarded or changed the request. For example: `X-Forwarded-Prefix: /prefix`
 
-These headers are a part of [.net core standard forwarded headers](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-8.0#forwarded-headers). 
+These headers are a part of [.net core standard forwarded headers](https://learn.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer). 
 
 If `x-forwarded-host` header is present in the request object, it replaces the host name with the value provided.
 
 If `x-forwarded-prefix` header is present in the request object, it replaces the path with the value provided.
 
- # List of API's that can use forwarded headers for URL manipulation
+## List of services that can use forwarded headers for URL manipulation
 
- ### STOW, WADO, worklist, operation status, querytag and querytagerror APIs
+ 1. Store(STOW-RS): Upload DICOM objects to the server.
+ 2. Retrieve(WADO-RS): Download DICOM objects from the server.
+ 3. Worklist Service (UPS Push and Pull SOPs): Manage and track medical imaging workflows.
+ 4. Extended query tags: Define custom tags for querying DICOM data.
+ 3. Operation Status
 
 Here are the details of a request header for a STOW operation with the forwarded headers:
 * Path: ../studies/{study}
@@ -58,13 +62,13 @@ Here are the details of a request header for a STOW operation with the forwarded
 * Body:
     * Content-Type: application/DICOM for each file uploaded, separated by a boundary value
 
-## Example:
-The following is an example of a DICOM tag with VR = UR for a STOW operation when the above headers are not provided:
+### Example:
+An example of a DICOM tag with VR = UR for a STOW operation when the forwarded headers are not provided is shown below.
 
 `https://localhost:63838/v2/partitions/foo/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207/instances/1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114`
 
 
-The following is an example of a DICOM tag with VR = UR for a STOW operation when the above headers are provided:
+An example of a DICOM tag with VR = UR for a STOW operation when the forwarded headers are provided is shown below.
 
 Sample Request object:
 * Path: https://localhost:63838/v2/partitions/foo/studies/studies/{study}
@@ -83,7 +87,7 @@ URL of image:
  `https://API.powershare.com/newbasePath/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.12714725698140337137334606354172323212`
 
 
- # Things to remember
+ ## Things to remember
  1. Forwarded headers do not have to be used together. If there is a need to, simply replace hostname and not path. Only the forwarded host header can be used. Similarly, if there is a need to replace the path, only the forwarded prefix header can be used.
 
  2. The client is responsible for mapping the hostname and path provided in forwarded headers to the correct DICOM service hostname and pathbase.
