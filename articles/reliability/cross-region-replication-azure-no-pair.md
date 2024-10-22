@@ -2,12 +2,12 @@
 title: Cross-region replication for nonpaired regions
 description: Learn about cross-region replication for nonpaired regions
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 09/10/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Cross-region replication solutions for nonpaired regions
@@ -128,7 +128,7 @@ To achieve geo-replication in nonpaired regions:
 
 
 ## Azure Virtual Machines
-To achieve geo-replication in nonpaired regions, [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery) service can be sued. Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a nonpaired region if supported by Azure Site Recovery.
+To achieve geo-replication in nonpaired regions, use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery) service. Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a nonpaired region if supported by Azure Site Recovery.
 
 
 

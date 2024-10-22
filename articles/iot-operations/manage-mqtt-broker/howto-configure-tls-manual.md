@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
+ms.service: azure-iot-operations
 ---
 
 # Configure TLS with manual certificate management to secure MQTT communication in MQTT broker
@@ -62,7 +63,7 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 1. Create a full server certificate chain, where the order of the certificates matters: the server certificate is the first one in the file, the intermediate is the second.
 
     ```bash
-    cat  mqtts-endpoint.crt intermediate_ca.crt  > server_chain.pem
+    cat  mqtts-endpoint.crt intermediate_ca.crt  > server_chain.crt
     ```
 
 1. Create a Kubernetes secret with the server certificate chain and server key using kubectl.
@@ -84,15 +85,15 @@ metadata:
   name: manual-tls-listener
   namespace: azure-iot-operations
 spec:
-  brokerRef: broker
+  brokerRef: default
   serviceType: loadBalancer # Optional, defaults to clusterIP
   serviceName: mqtts-endpoint # Match the SAN in the server certificate
   ports:
-    port: 8885 # Avoid port conflict with default listener at 8883
+  - port: 8885 # Avoid port conflict with default listener at 18883
     tls:
-      manual:
       mode: Manual
-        secretName: server-cert-secret
+      manual:
+        secretRef: server-cert-secret
 ```
 
 Once the BrokerListener resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.

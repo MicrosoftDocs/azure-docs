@@ -1,5 +1,10 @@
 {
   "redirections": [
+    {
+      "source_path": "send-and-receive-events-using-data-generator.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-data-explorer",
+      "redirect_document_id": false
+  },
   {
       "source_path": "event-hubs-event-processor-host.md",
       "redirect_url": "/azure/event-hubs/event-processor-balance-partition-load",

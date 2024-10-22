@@ -10,7 +10,7 @@ zone_pivot_groups: functions-hosting-plan
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation help's you with these scenarios:
+You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation helps you with these scenarios:
 
 + Integrating your resource deployments with your source code in Azure Pipelines and GitHub Actions-based deployments.
 + Restoring a function app and related resources from a backup.

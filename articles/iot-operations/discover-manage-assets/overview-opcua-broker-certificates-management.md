@@ -5,9 +5,10 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: concept-article
-ms.date: 05/15/2024
+ms.date: 09/16/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand how the OPC UA industrial edge Kubernetes environment should be configured to enable mutual trust between the connector for OPC UA and the downstream OPC UA servers.
+ms.service: azure-iot-operations
 ---
 
 # OPC UA certificates infrastructure for the connector for OPC UA
@@ -45,23 +46,22 @@ Mutual trust validation between the OPC UA server and the connector for OPC UA i
 You need to maintain a trusted certificate list that contains the certificates of all the OPC UA servers that the connector for OPC UA trusts. To create a session with an OPC UA server:
 
 - The connector for OPC UA sends its certificate's public key.
-- The OPC UA server validates against its trusted certificates list.
-- A similar validation of the OPC UA server's certificate happens in the connector for OPC UA.
+- The OPC UA server validates the connector's certificate against its trusted certificates list.
+- The connector validates the OPC UA server's certificate against its trusted certificates list.
 
 By default, the connector for OPC UA stores its trusted certificate list in Azure Key Vault and uses the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to project the trusted certificates into the connector for OPC UA pods. Azure Key Vault stores the certificates encoded in DER or PEM format.
 
 If the connector for OPC UA trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
-To project the trusted certificates from Azure Key Vault into the Kubernetes cluster, you must configure a `SecretProviderClass` custom resource. This custom resource contains a list of all the secret references associated with the trusted certificates. The connector for OPC UA uses the custom resource to map the trusted certificates into connector for OPC UA containers and make them available for validation. The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
+To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
-> [!NOTE]
-> The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
+The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 
 ## The connector for OPC UA issuer certificates list
 
-If your OPC UA server's application instance certificate is signed by an intermediate certificate authority, but you don't want to automatically trust all the certificates issued by the certificate authority, you can use an issuer certificate list to manage the trust relationship.
+If your OPC UA server's application instance certificate is signed by an intermediate certificate authority, but you don't want to automatically trust all the certificates issued by the certificate authority, you can use an issuer certificate list to manage the trust relationship. This _issuer certificate list_ stores the certificate authority certificates that the connector for OPC UA trusts.
 
-An _issuer certificate list_ stores the certificate authority certificates that the connector for OPC UA trusts. If the application certificate of an OPC UA server is signed by an intermediate certificate authority, the connector for OPC UA validates the full chain of certificate authorities up to the root. The issuer certificate list should contain the certificates of all the certificate authorities in the chain to ensure that the connector for OPC UA can validate the OPC UA servers.
+If the application certificate of an OPC UA server is signed by an intermediate certificate authority, the connector for OPC UA validates the full chain of certificate authorities up to the root. The issuer certificate list should contain the certificates of all the certificate authorities in the chain to ensure that the connector for OPC UA can validate the OPC UA servers.
 
 You manage the issuer certificate list in the same way you manage the trusted certificates list. The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
 
@@ -76,4 +76,4 @@ The following table shows the feature support level for authentication in the cu
 | Handling of OPC UA issuer certificates lists                                  | Supported   |   ✅     |
 | Configuration of OPC UA enterprise grade application instance certificate     | Supported   |   ✅     |
 | Handling of OPC UA untrusted certificates                                     | Unsupported |   ❌     |
-| Handling of OPC UA Global Discovery Service (GDS)                             | Unsupported |   ❌     |
+| Handling of OPC UA Global Discovery Service                             | Unsupported |   ❌     |

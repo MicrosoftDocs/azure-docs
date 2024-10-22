@@ -6,16 +6,16 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/17/2024
+ms.date: 10/21/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
 
 # Flow logging for network security groups
 
-Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
-:::image type="content" source="./media/nsg-flow-logs-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
+Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 ## Why use flow logs?
 
@@ -123,7 +123,7 @@ Here's an example format of a version 1 NSG flow log:
             "time": "2017-02-16T22:00:32.8950000Z",
             "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -160,7 +160,7 @@ Here's an example format of a version 1 NSG flow log:
             "time": "2017-02-16T22:01:32.8960000Z",
             "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -198,7 +198,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:00:32.8950000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -235,7 +235,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:01:32.8960000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -271,7 +271,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:02:32.9040000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -321,7 +321,7 @@ Here's an example format of a version 2 NSG flow log:
             "time": "2018-11-13T12:00:35.3899262Z",
             "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,
@@ -360,7 +360,7 @@ Here's an example format of a version 2 NSG flow log:
             "time": "2018-11-13T12:01:35.3918317Z",
             "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,
@@ -389,13 +389,13 @@ Here's an example format of a version 2 NSG flow log:
 
 ### Log tuple and bandwidth calculation
 
-![Screenshot that shows an example of a flow log tuple.](./media/nsg-flow-logs-overview/tuple.png)
+:::image type="content" source="./media/nsg-flow-logs-overview/flow-log-format.png" alt-text="Screenshot that shows an example of a flow log tuple." lightbox="./media/nsg-flow-logs-overview/flow-log-format.png":::
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
+Here's an example of bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:443`:
 
-`1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,,`
-`1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880`
-`1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,B,,,,`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,C,1021,588096,8005,4610880`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,E,52,29952,47,27072`
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 

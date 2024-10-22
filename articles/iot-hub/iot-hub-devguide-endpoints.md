@@ -4,7 +4,7 @@ description: This article provides information about IoT Hub device-facing and s
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/23/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']

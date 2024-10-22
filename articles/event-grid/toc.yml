@@ -2,6 +2,7 @@ items:
   - name: Azure Event Grid Documentation
     href: index.yml
   - name: Overview
+    expanded: true
     items:
     - name: What is Event Grid?
       href: overview.md
@@ -10,6 +11,7 @@ items:
     - name: Choose the right tier
       href: choose-right-tier.md
   - name: Event Grid namespaces  
+    expanded: true
     items:
     - name: MQTT broker
       items:
@@ -43,6 +45,8 @@ items:
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
+        - name: Support for CloudEvents schema
+          href: namespaces-cloud-events.md
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
@@ -483,8 +487,12 @@ items:
           href: event-filtering.md
         - name: Delivery and retry
           href: delivery-and-retry.md
-        - name: Webhook event delivery
-          href: webhook-event-delivery.md
+        - name: Endpoint validation with CloudEvents 1.0 schema
+          href: end-point-validation-cloud-events-schema.md
+        - name: Endpoint validation with Event Grid event schema
+          href: end-point-validation-event-grid-events-schema.md
+        - name: Event schema compatibility
+          href: event-schema-compatibility.md
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
@@ -529,7 +537,7 @@ items:
         - name: Azure Resource Manager template
           href: create-view-manage-system-topics-arm.md
       - name: Use CloudEvents schema
-        href: cloudevents-schema.md
+        href: cloud-event-schema.md
       - name: Create and manage custom topics
         items:
         - name: Create a custom topic or a domain

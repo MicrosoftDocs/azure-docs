@@ -31,7 +31,7 @@ The following graph shows the cool tier performance for this test using a variet
 
 :::image type="content" source="./media/performance-considerations-cool-access/cool-tier-block-sizes.png" alt-text="Chart of cool tier throughput at varying block sizes." lightbox="./media/performance-considerations-cool-access/cool-tier-block-sizes.png":::
 
-Hot tier performance was around 2.75x better, capping out at approximately 11,180 MiB/s.
+Hot tier performance was around 2.75x better, capping out at approximately 1,180 MiB/s.
 
 :::image type="content" source="./media/performance-considerations-cool-access/hot-tier-block-sizes.png" alt-text="Chart of hot tier throughput at varying block sizes." lightbox="./media/performance-considerations-cool-access/hot-tier-block-sizes.png":::
 

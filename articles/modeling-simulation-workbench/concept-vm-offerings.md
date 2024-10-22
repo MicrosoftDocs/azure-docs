@@ -3,7 +3,7 @@ title: "VM offerings: Azure Modeling and Simulation Workbench"
 description: VM offerings available in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: concept-article
 ms.date: 08/12/2024
 
@@ -43,7 +43,7 @@ The Dv4 run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel® Xeon® P
 
 ## Compute optimized
 
-Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers.
+Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, application servers, and Electronic Design Automation (EDA) workloads.
 
 ### Fsv2-series
 
@@ -60,6 +60,20 @@ Fsv2-series have fixed-sized local storage.
 | Standard_F48s_v2 | 48 | 96 | 384 | 21000 |
 | Standard_F64s_v2 | 64 | 128 | 512 | 28000 |
 | Standard_F72s_v2 | 72 | 144 | 576 | 30000 |
+
+### FX-series
+
+The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. It features an all-core-turbo frequency of 4.0 GHz, 21 GB RAM per vCPU, up to 1 TB total RAM, and local temporary storage. The FX-series will benefit workloads that require a high CPU clock speed and high memory to CPU ratio, workloads with high per-core licensing costs, and applications requiring a high single-core performance. A typical use case for FX-series is the Electronic Design Automation (EDA) workload. FX-series VMs feature Intel® Turbo Boost Technology 2.0, Intel® Hyper-Threading Technology, and Intel® Advanced Vector Extensions 512 (Intel® AVX-512).
+
+| Size Name | vCPUs (Qty.) | Memory (GB) | Temp Disk Size (GiB) | Temp Disk Random Read (RR) IOPS | Temp Disk Random Read (RR) Speed (MBps) |
+| --- | --- | --- |
+| Standard_FX4mds | 4 | 84 | 168 | 40000 | 343 |
+| Standard_FX12mds | 12 | 252 | 504 | 100000 | 1029 |
+| Standard_FX24mds | 24 | 504 | 1008 | 200000 | 2057 |
+| Standard_FX36mds | 36 | 756 | 1512 | 300000 | 3086 |
+| Standard_FX48mds | 48 | 1008 | 2016 | 400000 | 3871 |
+
+[View the FX-series family page](/azure/virtual-machines/sizes/compute-optimized/fx-series)
 
 ## Memory optimized
 

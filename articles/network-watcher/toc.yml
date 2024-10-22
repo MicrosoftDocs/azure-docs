@@ -25,8 +25,6 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: monitor-vm-communication.md
-  - name: Monitor communication with virtual machine scale set
-    href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
@@ -66,7 +64,7 @@
     - name: Supported regions
       href: supported-region-traffic-analytics.md
     - name: Usage scenarios
-      href: usage-scenarios-traffic-analytics.md
+      href: traffic-analytics-usage-scenarios.md
     - name: Schema and data aggregation
       href: traffic-analytics-schema.md
     - name: Schema update (March 2020)
@@ -75,12 +73,8 @@
       href: traffic-analytics-faq.yml
   - name: RBAC permissions
     href: required-rbac-permissions.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
-  - name: Data residency
-    href: data-residency.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
 - name: How-to guides
   items:
   - name: Enable Network Watcher

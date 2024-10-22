@@ -5,7 +5,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: abnarain
 ms.topic: how-to
-ms.date: 10/01/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Delete files in Workflow Orchestration Manager

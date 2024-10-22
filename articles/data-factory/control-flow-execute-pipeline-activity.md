@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Execute Pipeline activity in Azure Data Factory and Synapse Analytics

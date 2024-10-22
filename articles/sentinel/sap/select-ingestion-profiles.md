@@ -1,11 +1,15 @@
 ---
 title: Select the SAP ingestion profile for your Microsoft Sentinel for SAP solution
 description: This article shows you how to select the profile for your Microsoft Sentinel for SAP solution.
-author: kobymon
-ms.author: kobymin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-extended-java
 ms.date: 01/03/2023
+
+
+#Customer intent: As an SAP administrator, I want to select the appropriate log ingestion profile for my SAP solution so that I can balance security coverage and budget requirements effectively.
+
 ---
 
 # Select SAP ingestion profile

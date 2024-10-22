@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 10/15/2024
 ms.author: duau
 ---
 
@@ -111,7 +111,7 @@ Your new Front Door profile with the configuration has been successfully created
     ProvisioningState             : Succeeded
     Sku                           : Classic_AzureFrontDoor
     Tags                          : 
-    Id                            : /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF
+    Id                            : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF
     Name                          : myFrontDoorWAF
     Type                          :
     ```
@@ -120,7 +120,7 @@ Your new Front Door profile with the configuration has been successfully created
 
 
     ```powershell-interactive
-    $wafMapping = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF -MigratedToId  /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF
+    $wafMapping = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF -MigratedToId  /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF
 
 1. Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
 
@@ -155,7 +155,7 @@ Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/
 For *IdentityType* use **SystemAssigned**.
 
 ```powershell-interactive
-Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/Frontdoors/myAzureFrontDoorClassic -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType SystemAssigned
+Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/Frontdoors/myAzureFrontDoorClassic -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType SystemAssigned
 ```
 
 ### User assigned
@@ -170,7 +170,7 @@ Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGrou
     The output looks similar to the following:
 
     ```
-    /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity
+    /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity
     ```
 
 1. For IdentityType use UserAssigned and for IdentityUserAssignedIdentity,* use the resource ID from the previous step.
@@ -182,7 +182,7 @@ Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGrou
     * `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
 
     ```powershell-interactive
-    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType UserAssigned -IdentityUserAssignedIdentity @{"/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity" = @{}}
+    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType UserAssigned -IdentityUserAssignedIdentity @{"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity" = @{}}
     ```
 
     The output looks similar to the following:
@@ -219,7 +219,7 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
     ProvisioningState             : Succeeded
     Sku                           : Classic_AzureFrontDoor
     Tags                          : 
-    Id                            : /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF
+    Id                            : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF
     Name                          : myFrontDoorWAF
     Type                          :
     ```
@@ -227,9 +227,9 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
 1. Run the [New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject](/powershell/module/az.cdn/new-azfrontdoorcdnmigrationwebapplicationfirewallmappingobject) command to create an in-memory object for WAF policy migration. Use the WAF ID in the last step for `MigratedFromId`. To use an existing WAF policy, replace the value for `MigratedToId` with a resource ID of a WAF policy that matches the Front Door tier you're migrating to. If you're creating a new WAF policy copy, you can change the name of the WAF policy in the resource ID.
 
     ```powershell-interactive
-    $wafMapping1 = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF1 -MigratedToId  /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF1
+    $wafMapping1 = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF1 -MigratedToId  /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF1
 
-    $wafMapping2 = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF2 -MigratedToId  /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF2
+    $wafMapping2 = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF2 -MigratedToId  /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF2
     ```
 
 1. Specify both managed identity types in a variable.
@@ -250,16 +250,16 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
     The output looks similar to the following:
 
     ```
-    /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity1
-    /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity2
+    /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity1
+    /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity2
     ```
 
 1.  Specify the user assigned identity resource ID in a variable.
 
     ```powershell-interactive
     $userInfo = @{
-        "subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity1" = @{}}
-        "subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity2" = @{}}
+        "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity1" = @{}}
+        "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity2" = @{}}
     }
     ```
 

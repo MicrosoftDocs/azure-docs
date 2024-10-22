@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Describes the conditions and limitations for using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 09/26/2024
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
@@ -43,9 +43,9 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 
 There are two ways to get the required access to tag resources.
 
-- You can have write access to the `Microsoft.Resources/tags` resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. The tag contributor role, for example, can't apply tags to resources or resource groups through the portal. It can, however, apply tags to subscriptions through the portal. It supports all tag operations through Azure PowerShell and REST API.
+* You can have write access to the `Microsoft.Resources/tags` resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. The tag contributor role, for example, can't apply tags to resources or resource groups through the portal. It can, however, apply tags to subscriptions through the portal. It supports all tag operations through Azure PowerShell and REST API.
 
-- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. To apply tags to virtual machines, for example, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+* You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. To apply tags to virtual machines, for example, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## Inherit tags
 
@@ -61,9 +61,9 @@ You can retrieve information about tags by downloading the usage file available 
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
-## Unique tags pagination 
+## Unique tags pagination
 
-When calling the [Unique Tags API](/rest/api/resources/tags/list) there is a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
+When calling the [Unique Tags API](/rest/api/resources/tags/list) there's a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
 
 This can result in some tools, like the Azure portal, to show the tag key twice.  
 

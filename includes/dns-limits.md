@@ -2,7 +2,7 @@
 author: greg-lindsay
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 09/23/2024
+ms.date: 10/08/2024
 ms.author: greglin
 ---
 #### Public DNS
@@ -63,12 +63,11 @@ ms.author: greglin
 | Get |200/min<sup> (per zone)|
 | List by subscription |60/min|
 | List by resource group |100/min (per resource group)|
-| Update |20/min|
-| Move |20/min|
+| Update |40/min|
 
 ##### Private DNS resource record operations
 
-| Operation | Limit |
+| Operation | Limit (per zone)|
 | --- | --- |
 | Create |60/min|
 | Delete |60/min|
@@ -78,10 +77,10 @@ ms.author: greglin
 
 #### Virtual network links operations
 
-| Operation | Limit |
+| Operation | Limit (per zone) |
 | --- | --- |
 | Create |60/min|
-| Delete |40/min|
+| Delete |60/min|
 | Get |100/min|
 | List by virtual network |20/min|
 | Update |60/min|

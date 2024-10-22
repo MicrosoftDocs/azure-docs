@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 09/22/2024
+ms.date: 10/03/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -63,7 +63,7 @@ The following table shows locations by service provider. If you want to view ava
 | **BSNL** | &check; | &check; | Chennai<br/>Mumbai |
 | **[C3ntro](https://www.c3ntro.com/)** | &check; | &check; | Miami |
 | **Cello** | &check; | &check; | Sydney |
-| **CDC** | &check; | &check; | Canberra<br/>Canberra2 |
+| **[CDC](https://cdc.com/services/network-services/)** | &check; | &check; | Canberra<br/>Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** | &check; | &check; | Amsterdam2<br/>Chicago<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/)** |&check; |&check; | Hong Kong<br/>Taipei |
 | **China Mobile International** |&check; |&check; | Hong Kong<br/>Hong Kong2<br/>Singapore<br/>Singapore2 |
@@ -104,6 +104,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** | &check; | &check; | Taipei |
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | &check; |&check; | Milan |
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** | &check; | &check; | Montreal<br/>Quebec City<br/>Toronto2 |
+| **[Flo Networks](https://flo.net/)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neurtrona Networks and Transtelco as providers for circuit creation* |
 | **[GBI](https://www.gbiinc.com/microsoft-azure/)** | &check; | &check; | Dubai2<br/>Frankfurt |
 | **[GÉANT](https://www.geant.org/Networks)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Madrid2<br/>Marseille |
 | **[GlobalConnect](https://www.globalconnect.no/)** | &check; | &check; | Amsterdam<br/>Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
@@ -153,7 +154,6 @@ The following table shows locations by service provider. If you want to view ava
 | **[National Telecom](https://www.nc.ntplc.co.th/cat/category/264/855/CAT+Direct+Cloud+Connect+for+Microsoft+ExpressRoute?lang=en_EN)** | &check; | &check; | Bangkok |
 | **NEC** | &check; | &check; | Tokyo3 |
 | **[NETSG](https://www.netsg.co/dc-cloud/cloud-and-dc-interconnect/)** | &check; | &check; | Melbourne<br/>Sydney2 |
-| **[Neutrona Networks](https://flo.net/)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Sao Paulo<br/>Washington DC |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** | &check; | &check; | Newport(Wales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 | **NL-IX** | &check; | &check; | Amsterdam2<br/>Dublin2 |
@@ -214,7 +214,6 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tivit](https://tivit.com/en/home-ingles/)** |&check; |&check; | Sao Paulo2 |
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | &check; | &check; | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| &check; | &check; | Melbourne<br/>Sydney |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** | &check; | &check; | Dallas<br/>Queretaro(Mexico City)|
 | **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |&check; |&check; | Warsaw |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; | &check; | Frankfurt |

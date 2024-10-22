@@ -6,12 +6,12 @@ description: Validate claims by using a validation technical profile in a custom
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define a validation technical profile, so that I can validate the output claims of a self-asserted technical profile and control the execution of subsequent validation technical profiles based on the success or failure of the validation.

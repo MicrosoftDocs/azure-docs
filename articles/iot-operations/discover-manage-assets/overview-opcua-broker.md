@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 05/14/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster.
+ms.service: azure-iot-operations
 ---
 
 # What is the connector for OPC UA?
@@ -28,8 +29,6 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 - Publishes JSON-encoded telemetry data from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Connects to Azure Arc-enabled services in the cloud.
 
-The connector for OPC UA includes an OPC UA simulation server that you can use to test your applications. To learn more, see [Configure an OPC PLC simulator to work with the connector for OPC UA](howto-configure-opc-plc-simulator.md).
-
 ### Other features
 
 The connector for OPC UA supports the following features as part of Azure IoT Operations:
@@ -43,9 +42,8 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 - Automatic reconnection to OPC UA servers.
 - Integrated [OpenTelemetry](https://opentelemetry.io/) compatible observability.
 - OPC UA transport encryption.
-- Anonymous authentication and authentication based on username and password.
+- Anonymous authentication and authorization based on username and password.
 - `AssetEndpointProfile` and `Asset` CRs configurable by using Azure REST API and the operations experience web UI.
-- Akri-supported asset detection of OPC UA assets. The assets must be [OPC UA Companion Specifications](https://opcfoundation.org/about/opc-technologies/opc-ua/ua-companion-specifications/) compliant.
 
 ## How it works
 
@@ -58,13 +56,3 @@ The connector for OPC UA application:
 - Creates a separate subscription in the session for each 1,000 tags.
 - Creates a separate subscription for each event defined in the asset.
 - Implements retry logic to establish connections to endpoints that don't respond after a specified number of keep-alive requests. For example, there could be a nonresponsive endpoint in your environment when an OPC UA server stops responding because of a power outage.
-
-The OPC UA discovery handler:
-
-- Uses the Akri configuration to connect to an OPC UA server. After the connection is made, the discovery handler inspects the OPC UA address space, and tries to detect assets that  comply with the [OPC UA Companion Specifications](https://opcfoundation.org/about/opc-technologies/opc-ua/ua-companion-specifications/).
-- Creates `Asset` and `AssetEndpointProfile` CRs in the cluster.
-
-> [!NOTE]
-> Asset detection by Akri only works for OPC UA servers that don't require user or transport authentication.
-
-To learn more about Akri, see [What are the Akri services?](overview-akri.md).

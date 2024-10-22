@@ -7,9 +7,10 @@ title: Understand Device Update for Azure IoT Hub TLS download capabilities
 description: Key concepts to understand for TLS download of update content from Device Update for IoT Hub.
 author:      andrewbrownmsft # GitHub alias
 ms.author: andbrown
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date:     06/07/2024
+ms.subservice: device-update
 ---
 
 # How to understand and use the Transport Layer Security (TLS) download feature in Device Update for IoT Hub (Preview)
@@ -50,6 +51,10 @@ The azure_iot_http_port.h can be modified to use the core http library for TLS -
 The Device Update for IoT Hub samples also have functions to parse the URL that need to be revised: [iot-middleware-freertos-samples/demos/sample_azure_iot_adu/sample_azure_iot_adu.c at main - Azure-Samples/iot-middleware-freertos-samples (github.com)](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/sample_azure_iot_adu/sample_azure_iot_adu.c#L396).
 
 Finally, you may also need to make changes to your own implementation, such as changing the HTTPS header buffer to manage the update URL format that your device will receive from Device Update.
+
+## Certificate information
+
+The certificate used to enable the TLS connection is issued by: **Microsoft Azure RSA TLS Issuing CA 03**. Devices that download content over TLS from the Device Update service will need to be provisioned with one or more certificates that have Microsoft Azure RSA TLS Issuing CA 03 as their root.
 
 ## Next steps
 

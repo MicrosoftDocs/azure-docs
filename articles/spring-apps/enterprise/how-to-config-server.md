@@ -13,8 +13,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 # Configure a managed Spring Cloud Config Server in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -65,13 +64,13 @@ Use the following steps to enable Spring Cloud Config Server:
 
 1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then, select **Next: Managed components**.
 
-1. On the **Managed components** tab, select **Enable Spring Cloud Config Server (preview)**.
+1. On the **Managed components** tab, select **Enable Spring Cloud Config Server**.
 
    :::image type="content" source="media/how-to-config-server/create-instance.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu settings tab with the Enable Spring Cloud Config Server checkbox highlighted." lightbox="media/how-to-config-server/create-instance.png":::
 
 1. Specify other settings, and then select **Review and Create**.
 
-1. On the **Review an create** tab, make sure that **Enable Spring Cloud Config Server (preview)** is set to **Yes**. Select **Create** to create the Enterprise plan instance.
+1. On the **Review an create** tab, make sure that **Enable Spring Cloud Config Server** is set to **Yes**. Select **Create** to create the Enterprise plan instance.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

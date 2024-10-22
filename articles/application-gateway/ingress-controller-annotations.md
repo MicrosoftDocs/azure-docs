@@ -477,7 +477,7 @@ Use the following annotation to attach an existing web application firewall (WAF
 ### Usage
 
 ```yaml
-appgw.ingress.kubernetes.io/waf-policy-for-path: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SampleRG/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/AGICWAFPolcy"
+appgw.ingress.kubernetes.io/waf-policy-for-path: "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/SampleRG/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/AGICWAFPolcy"
 
 ```
 

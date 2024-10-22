@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 11/14/2022
+
+
+#Customer intent: As a security operations manager, I want to standardize incident response tasks using automation rules and playbooks so that my team can handle incidents consistently and efficiently.
+
 ---
 
 # Use tasks to manage incidents in Microsoft Sentinel
