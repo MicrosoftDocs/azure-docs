@@ -201,7 +201,7 @@ The experience for domain joining an Azure storage account has been improved to 
 For more information, see:
 
 - [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md)
-- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
+- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md)
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane

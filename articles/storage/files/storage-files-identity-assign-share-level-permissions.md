@@ -49,9 +49,9 @@ There are five built-in Azure role-based access control (RBAC) roles for Azure F
 
 |**Built-in Azure RBAC role**  |**Description**  |
 |---------|---------|
-|[Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader)     |Allows for read access to files and directories in Azure file shares. This role is analogous to a file share ACL of read on Windows File servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
-|[Storage File Data SMB Share Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-contributor)     |Allows for read, write, and delete access on files and directories in Azure file shares. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
-|[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
+|[Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader)     |Allows for read access to files and directories in Azure file shares. This role is analogous to a file share ACL of read on Windows File servers. |
+|[Storage File Data SMB Share Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-contributor)     |Allows for read, write, and delete access on files and directories in Azure file shares.         |
+|[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers.         |
 |[Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-contributor) |Allows read, write, delete, and modify ACLs in Azure file shares by overriding existing ACLs. |
 |[Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-reader) |Allows read access in Azure file shares by overriding existing ACLs. |
 
@@ -129,7 +129,7 @@ To configure default share-level permissions on your storage account using the [
 1. You must enable an AD source on your storage account before assigning default share-level permissions. If you've already done this, select **Active Directory** and proceed to the next step. Otherwise, select **Active Directory: Not configured**, select **Set up** under the desired AD source, and enable the AD source.
 1. After you've enabled an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
 
-   :::image type="content" source="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" alt-text="Screenshot showing how to set a default share-level permission using the Azure portal." lightbox="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-assign-share-level-permissions/set-default-share-level-permission.png" alt-text="Screenshot showing how to set a default share-level permission using the Azure portal." lightbox="media/storage-files-identity-assign-share-level-permissions/set-default-share-level-permission.png" border="true":::
 
 1. Select the appropriate role to be enabled as the default [share permission](#azure-rbac-roles-for-azure-files) from the dropdown list.
 1. Select **Save**.
@@ -170,4 +170,4 @@ You could also assign permissions to all authenticated Microsoft Entra users and
 
 ## Next step
 
-Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md). Remember that share-level permissions can take up to three hours to take effect.
+Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level permissions can take up to three hours to take effect.

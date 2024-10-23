@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.subservice:
-ms.date: 10/17/2022
+ms.date: 10/22/2024
 ms.topic: troubleshooting
 ms.custom: linux-related-content
 ---
@@ -11,6 +11,8 @@ ms.custom: linux-related-content
 # Troubleshoot Azure Automation State Configuration issues
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](../includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article provides information on troubleshooting and resolving issues that occur while you
 compile or deploy configurations in Azure Automation State Configuration. For general information
