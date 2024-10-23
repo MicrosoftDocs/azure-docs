@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure APM integration for Java applications with Java agent and init-container"
-description: Learn to configure APM integration for Java applications with Java agent and init-container
+title: "Tutorial: Configure APM Java agent with init-container"
+description: Learn to configure APM Java agent with init-container
 services: container-apps
 author: croffz
 ms.service: azure-container-apps
@@ -10,7 +10,7 @@ ms.date: 09/26/2024
 ms.author: kuzhong
 ---
 
-# Tutorial: Configure APM integration for Java applications with Java agent and init-container
+# Tutorial: Configure APM Java agent with init-container
 
 APM (Application Performance Management) is useful when it comes to observability for your applications running online. You can package the APM plugin in the same image or Dockerfile with your app, but it binds the management efforts together, like release and CVE (Common Vulnerabilities and Exposures) mitigation. Alternatively, you can apply Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
 
