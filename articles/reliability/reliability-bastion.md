@@ -28,7 +28,7 @@ Azure Bastion is a fully managed PaaS service that you provision to securely con
 
 Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
 
-The Azure Bastion service enables you to use the secure sockets host (SSH) and remote desktop connection (RDP) protocols. If transient faults affect your virtual machine or Azure Bastion host, clients using these protocols typically retry automatically.
+If transient faults affect your virtual machine or Azure Bastion host, clients using the secure sockets host (SSH) and remote desktop connection (RDP) protocols typically retry automatically.
 
 ## Availability zone support
 
