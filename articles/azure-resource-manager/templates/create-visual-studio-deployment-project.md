@@ -2,7 +2,7 @@
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 10/22/2024
 ---
 
 # Creating and deploying Azure resource groups through Visual Studio
@@ -22,9 +22,9 @@ This article shows how to use [Visual Studio 2019 or later with the Azure develo
 In this section, you create an Azure Resource Group project with a **Web app** template.
 
 1. In Visual Studio, choose **File**>**New**>**Project**.
-1. Select the **Azure Resource Group** project template and **Next**.
+1. Search **resource group**, and then select the **Azure Resource Group (extended support)** project template and **Next**.
 
-    :::image type="content" source="./media/create-visual-studio-deployment-project/create-project.png" alt-text="Screenshot of Create a new project window highlighting Azure Resource Group and Next button.":::
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-app.png" alt-text="Screenshot of Create a new project window highlighting Azure Resource Group and Next button.":::
 
 1. Give your project a name. The other default settings are probably fine, but review them to make they work for your environment. When done, select **Create**.
 
@@ -64,7 +64,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
    :::image type="content" source="./media/create-visual-studio-deployment-project/navigate-json.png" alt-text="Screenshot of the Visual Studio editor with a selected element in the JSON Outline window.":::
 
-1. You can add a resource by either selecting the **Add Resource** button at the top of the JSON Outline window, or by right-clicking **resources** and selecting **Add New Resource**.
+1. You can add a resource by right-clicking **resources** and selecting **Add New Resource**.
 
    :::image type="content" source="./media/create-visual-studio-deployment-project/add-resource.png" alt-text="Screenshot of the JSON Outline window highlighting the Add New Resource option.":::
 
@@ -92,35 +92,15 @@ You can customize a deployment project by modifying the Resource Manager templat
    }
    ```
 
-1. Navigate to the **HostingPlan** resource, and add a value for the **properties** with some properties.
-
-   ```json
-   "properties": {
-     "name": "[parameters('hostingPlanName')]",
-     "numberOfWorkers": 1
-   }
-   ```
-
-  You also need to define the `hostingPlanName` parameter:
-
-   ```json
-   "hostingPlanName": {
-     "type": "string",
-     "metadata": {
-       "description": "Hosting paln name."
-     }
-   }
-   ```
-
-1. Open the **WebSite.parameters.json** file. You use the parameters file to pass in values during deployment that customize the resource being deployed. Give the hosting plan a name, and save the file.
+1. Open the **WebSite.parameters.json** file from Solution Explorer. You use the parameters file to pass in values during deployment that customize the resource being deployed. Give the hosting plan a name, and save the file.
 
    ```json
    {
      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
-       "hostingPlanName": {
-         "value": "demoHostPlan"
+       "webAppName": {
+         "value": "demoWebApp"
        }
      }
    }
