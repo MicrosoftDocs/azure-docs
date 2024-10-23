@@ -1,11 +1,11 @@
 ---
 title: Request access to Azure Extended Zones
-description: Learn how to request and gain access to Azure Extended Zone using PowerShell or Azure CLI.
+description: Learn how to request and gain access to an Azure Extended Zone by using Azure PowerShell or Azure CLI.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 10/21/2024
 ---
 
 # Request access to an Azure Extended Zone
@@ -22,7 +22,7 @@ In this article, you learn how to request and gain access to an Azure Extended Z
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A billable Azure account.
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -32,7 +32,7 @@ In this article, you learn how to request and gain access to an Azure Extended Z
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A billable Azure account.
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -51,7 +51,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 1. Use [Select-AzContext](/powershell/module/az.accounts/select-azcontext) cmdlet to select the subscription that you want to register Azure Extended Zones for.
 
     ```azurepowershell-interactive
-    Set-AzContext -SubscriptionId '00000000-0000-0000-0000-000000000000'
+    Set-AzContext -SubscriptionId 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 1. Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) cmdlet to register Microsoft.EdgeZones resource provider.
@@ -73,7 +73,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 1. Use [az account set](/cli/azure/account#az-account-set) command to select the subscription that you want to register Azure Extended Zones for.
 
     ```azurecli-interactive
-    az account set --subscription '00000000-0000-0000-0000-000000000000'
+    az account set --subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 1. Use [az provider register](/cli/azure/provider#az-provider-register) command to register Microsoft.EdgeZones resource provider.
@@ -95,6 +95,9 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 ## Register for an Azure Extended Zone
 
 To register for an Azure Extended Zone, you must select the subscription that you wish to register Azure Extended Zones for and specify the Extended Zone name.
+
+> [!NOTE]
+> The Azure account that you're using to register for Azure Extended Zones must be a billable account. To share your feedback or ask questions about Azure Extended Zones, contact [Azure Extended Zones support](mailto:aez-support@microsoft.com).
 
 # [**PowerShell**](#tab/powershell)
 

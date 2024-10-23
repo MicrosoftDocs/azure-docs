@@ -3,7 +3,7 @@ title: Azure NAT Gateway Resource Health
 titleSuffix: Azure NAT Gateway
 description: Get started learning how to use resource health to provide information about the health of your Azure NAT gateway.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 # Customer intent: As an IT administrator, I want to understand how to use resource health to monitor NAT gateway.
 ms.topic: how-to
 ms.date: 08/12/2024

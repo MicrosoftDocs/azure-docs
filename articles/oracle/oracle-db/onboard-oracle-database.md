@@ -4,7 +4,7 @@ description: Learn about onboarding with OracleOracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
@@ -26,11 +26,11 @@ Onboarding uses both the Azure portal and the OCI Console.
 
 ## Steps to onboard with Oracle Database@Azure
 
-- [Prerequisites](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/getting-started.htm#oaa_prerequisites)
-- [Accept Private Offer](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-2.htm#oaaonboard_task_2) (private offer purchases only)
-- [Purchase Offer](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-3.htm#oaaonboard_task_3)
-- [Link an OCI Account](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-4.htm#oaaonboard_task_4)
-- [Register with My Oracle Support](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-5.htm)
-- [Find the Azure Availability Zone Mapping](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-6.htm#oaaonboard_task_6) (optional)
-- [Set Up Role Based Access Control](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm#oaaonboard_task_7)
-- [Set Up Identity Federation](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-8.htm#oaaonboard_task_8) (optional)
+1. [Prerequisites](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/getting-started.htm#oaa_prerequisites)
+1. [Accept Private Offer](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-2.htm#oaaonboard_task_2) (private offer purchases only)
+1. [Purchase Offer](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-3.htm#oaaonboard_task_3)
+1. [Link an OCI Account](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-4.htm#oaaonboard_task_4)
+1. [Register with My Oracle Support](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-5.htm)
+1. [Find the Azure Availability Zone Mapping](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-6.htm#oaaonboard_task_6) (optional)
+1. [Set Up Role Based Access Control](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm#oaaonboard_task_7)
+1. [Set Up Identity Federation](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-8.htm#oaaonboard_task_8) (optional)

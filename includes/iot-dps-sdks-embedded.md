@@ -3,11 +3,12 @@
  description: include file
  services: iot-dps
  author: kgremban
- ms.service: iot-dps
+ ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 04/14/2023
  ms.author: kgremban
  ms.custom: include file
+ ms.subservice: azure-iot-hub-dps
 ---
 
 These SDKs were designed and created to run on devices with limited compute and memory resources and are implemented using the C language.

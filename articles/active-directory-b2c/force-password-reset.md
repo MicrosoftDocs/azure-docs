@@ -2,16 +2,13 @@
 title: Configure a force password reset flow in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to set up a forced password reset flow in Azure Active Directory B2C.
-
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
 
@@ -160,16 +157,13 @@ Connect-MgGraph  -Scopes 'Domain.ReadWrite.All'
 $domainId = "contoso.com"
 $params = @{
 	passwordValidityPeriodInDays = 90
-	passwordNotificationWindowInDays = 15
 }
 
 Update-MgDomain -DomainId $domainId -BodyParameter $params
 ```
 
-> [!NOTE] 
-> `passwordValidityPeriodInDays` indicates the length of time in days that a password remains valid before it must be changed. `passwordNotificationWindowInDays` indicates the length of time in days before the password expiration date when users receive their first notification to indicate that their password is about to expire.
+- `passwordValidityPeriodInDays` is the length of time in days that a password remains valid before it must be changed. 
 
-## Next steps
+## Related content
 
 Set up a [self-service password reset](add-password-reset-policy.md).
-

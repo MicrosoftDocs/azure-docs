@@ -17,7 +17,7 @@ ms.date: 10/02/2024
 An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu and Windows.
 
 > [!TIP]
-> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
+> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
 >
 > For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
@@ -37,10 +37,11 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the following extensions for Azure CLI:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:
@@ -50,18 +51,17 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
   * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
 
-* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
-
 ### [Ubuntu](#tab/ubuntu)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the following extensions for Azure CLI:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:
@@ -69,6 +69,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * Ensure that your machine has a minimum of 16-GB available RAM and 8 available vCPUs reserved for Azure IoT Operations.
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [K3s requirements](https://docs.k3s.io/installation/requirements).
+
+* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
 
 ---
 
@@ -84,7 +86,7 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
 1. Open an elevated PowerShell window and change the directory to a working folder.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant. Run the following command exactly as written, without changing the GUID value.
 
    ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
@@ -225,7 +227,75 @@ To connect your cluster to Azure Arc:
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
 
-[!INCLUDE [connect-cluster-k3s](../includes/connect-cluster-k3s.md)]
+1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
+
+1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+   ```azurecli
+   az provider register -n "Microsoft.ExtendedLocation"
+   az provider register -n "Microsoft.Kubernetes"
+   az provider register -n "Microsoft.KubernetesConfiguration"
+   az provider register -n "Microsoft.IoTOperations"
+   az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
+   ```
+
+1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
+
+   ```azurecli
+   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   ```
+
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
+
+   ```azurecli
+   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
+   ```
+
+1. Get the cluster's issuer URL.
+
+   ```azurecli
+   az connectedk8s show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query oidcIssuerProfile.issuerUrl --output tsv
+   ```
+
+   Save the output of this command to use in the next steps.
+
+1. Create a k3s config file.
+
+   ```bash
+   sudo nano /etc/rancher/k3s/config.yaml
+   ```
+
+1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with your cluster's issuer URL.
+
+   ```yml
+   kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h
+   ```
+
+1. Save the file and exit the nano editor.
+
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
+
+   ```azurecli
+   export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
+   ```
+
+1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
+
+    ```azurecli
+    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+    ```
+
+1. Restart K3s.
+
+   ```bash
+   systemctl restart k3s
+   ```
 
 ---
 

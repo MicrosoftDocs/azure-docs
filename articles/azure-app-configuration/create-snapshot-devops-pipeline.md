@@ -30,7 +30,7 @@ Assign the proper App Configuration role assignment to the credentials being use
 
 1. Go to your target App Configuration store.
 1. In the left menu, select **Access control (IAM)**.
-1. In the right pane, selecte **Add role assignment**.
+1. In the right pane, select **Add role assignment**.
 
     :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-button.png" alt-text="Screenshot shows the Add role assignments button.":::
 1. For the **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store.
@@ -56,13 +56,13 @@ In this section, learn how to use the Azure App Configuration snapshot task in a
 1. Configure the necessary parameters for the task to create a snapshot in an App Configuration store. Explanations of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the app configuration snapshot task parameters.](./media/azure-app-configuration-snapshot-parameters.png)
-1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
+1. Save and queue a build. The build log displays any failures that occurred during the execution of the task.
 
 ## Use in releases
 
 In this section, learn how to use the Azure App Configuration snapshot task in an Azure DevOps release pipeline.
 
-1. Navigate to the release pipeline page by selecting, **Pipelines** > **Releases**. For more information about release pipelines go to [Create your first pipeline](/azure/devops/pipelines/release).
+1. Navigate to the release pipeline page by selecting, **Pipelines** > **Releases**. For more information about release pipelines, go to [Create your first pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
@@ -73,7 +73,7 @@ In this section, learn how to use the Azure App Configuration snapshot task in a
     > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration snapshot** into the search box and select it.
 1. Configure the necessary parameters within the task to create a snapshot within your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
-1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
+1. Save and queue a release. The release log displays any failures encountered during the execution of the task.
 
 ## Parameters
 
@@ -102,5 +102,17 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 ## Next step
 
+For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
+
+> [!div class="nextstepaction"]
+> [Azure App Configuration Snapshot Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-snapshot-v1)
+
+To learn how to export key-values from your App Configuration store and set them as Azure pipeline variables, continue to the following document.
+
 > [!div class="nextstepaction"]
 > [Pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
+
+To learn how to import key-values from a configuration file into your App Configuration store, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Push settings to App Configuration with Azure pipelines](./push-kv-devops-pipeline.md)

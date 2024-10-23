@@ -4,8 +4,12 @@ description: Use the SentinelHealth data table and the Health Monitoring workboo
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 02/11/2024
+ms.date: 10/17/2024
 ms.service: microsoft-sentinel
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+
+#Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
+
 ---
 
 # Monitor the health of your data connectors
@@ -26,13 +30,15 @@ The following features allow you to perform this monitoring from within Microsof
 
 ## Use the health monitoring workbook
 
-1. From the Microsoft Sentinel portal, select **Content hub** from the **Content management** section of the navigation menu.
+To get started, install the **Data collection health monitoring** workbook from the **Content hub** and view or create a copy of the template from the **Workbooks** section of Microsoft Sentinel.
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. In the **Content hub**, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
 1. Select **Install** from the details pane. When you see a notification message that the workbook is installed, or if instead of *Install*, you see *Configuration*, proceed to the next step.
 
-1. Select **Workbooks** from the **Threat management** section of the navigation menu.
+1. In Microsoft Sentinel, under **Threat management**, select **Workbooks**.
 
 1. In the **Workbooks** page, select the **Templates** tab, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
@@ -55,17 +61,9 @@ There are three tabbed sections in this workbook:
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="data connector health monitoring workbook anomalies page" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
-- The **Agent info** tab shows you information about the health of the Log Analytics agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following:
+- The **Agent info** tab shows you information about the health of the agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. Monitor system location, heartbeat status and latency, available memory and disk space, and agent operations.
 
-   - System location
-
-   - Heartbeat status and latency
-
-   - Available memory and disk space
-
-   - Agent operations
-
-    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Log Analytics agent installed.
+    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Azure Monitor Agent installed.
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 

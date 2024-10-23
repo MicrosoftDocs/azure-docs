@@ -4,7 +4,7 @@ description: Connector implementation in Azure Modeling and Simulation Workbench
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 
@@ -12,7 +12,7 @@ ms.date: 01/01/2023
 ---
 # Connectors in Azure Modeling and Simulation Workbench
 
-Connectors define the network access method between users and the Azure Modeling and Simulation Workbench chamber. Connectors support connectivity through allowlisted public IPs, VPN, or Azure ExpressRoute. A chamber can have only one connector configured at a time. Connectors also configure copy-paste functionality into chamber VMs. Connector types are immutable and once created can't be changed to another access model. Connectors are part of the Idle mode setting to reduce cost.
+Connectors define the network access method between users and the Azure Modeling and Simulation Workbench chamber. Connectors support connectivity through allowlisted public IPs, VPN, or Azure ExpressRoute. A chamber can have only one connector configured at a time. Connectors also configure copy-paste functionality for all workload VMs in the chamber. Connector types are immutable and once created can't be changed to another access model. Connectors are part of the Idle mode setting that reduce cost.
 
 ## Public IP access via allowlist
 
@@ -30,7 +30,7 @@ A VPN connector can be created which deploys infrastructure specifically for VPN
 
 [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) provides secure, dedicated, encrypted connectivity from on-premises to an Azure landing zone. A Workbench Owner must create a connector expressly for ExpressRoute, providing the necessary virtual network, supporting network infrastructure, and peer the appropriate vnets.
 
-## Next step
+## Resources
 
-> [!div class="nextstepaction"]
-> [Create a connector](./how-to-guide-set-up-networking.md)
+* [Create a public connector](./how-to-guide-public-network.md)
+* [Create a private network connector](./how-to-guide-private-network.md)

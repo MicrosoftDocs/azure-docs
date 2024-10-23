@@ -4,12 +4,22 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/05/2024
+ms.date: 10/08/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## September 2024
+
+In September 2024, we made the following changes to the documentation:
+
+- Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) for the support of the High Efficiency Video Coding (HEVC), also known as H.265, which is in preview.
+
+- Updated [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md), which is generally available.
+
+- Published a new article where you can learn [What's new in the Azure Virtual Desktop SxS Network Stack](whats-new-sxs.md).
 
 ## August 2024
 
@@ -182,7 +192,7 @@ In July 2023, we made the following changes to the documentation:
 
 - Updated autoscale articles for the preview of autoscale for personal host pools. Learn more at [Autoscale scaling plans and example scenarios](autoscale-scenarios.md) and [Create an autoscale scaling plan](autoscale-scaling-plan.md).
 
-- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Understanding multimedia redirection](multimedia-redirection-intro.md).
+- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
 
 - Updated [Watermarking](watermarking.md) for general availability.
 
@@ -200,7 +210,7 @@ In June 2023, we made the following changes to the documentation:
 
 - Updated [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md) to include simulcast, mirror my video, manage breakout rooms, call health panel.
 
-- Published a new article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+- Published a new article to [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 - Added Intune to [Administrative template for Azure Virtual Desktop](administrative-template.md).
 
