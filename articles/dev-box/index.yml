@@ -45,6 +45,8 @@ landingContent:
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
+          - text: Use Team Customizations
+            url: quickstart-team-customizations.md
 
   # Card
   - title: Quota management
