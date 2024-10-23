@@ -132,105 +132,105 @@ When server-side encryption using customer-managed keys in customer-controlled h
 
 The Azure services that support each encryption model:
 
-| Product, Feature, or Service | Server-Side Using Service-Managed Key | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key |
-| --- | --- | --- | --- |
-| **AI and Machine Learning** | | | |
-| Azure AI Search | Yes | Yes | - |
-| Azure AI services | Yes | Yes, including Managed HSM | - |
-| Azure Machine Learning | Yes | Yes | - |
-| Content Moderator | Yes | Yes, including Managed HSM | - |
-| Face | Yes | Yes, including Managed HSM | - |
-| Language Understanding | Yes | Yes, including Managed HSM | - |
-| Azure OpenAI | Yes | Yes, including Managed HSM | - |
-| Personalizer | Yes | Yes, including Managed HSM | - |
-| QnA Maker | Yes | Yes, including Managed HSM | - |
-| Speech Services | Yes | Yes, including Managed HSM | - |
-| Translator Text | Yes | Yes, including Managed HSM | - |
-| [Power Platform](https://www.microsoft.com/power-platform) | Yes | Yes, including Managed HSM | - |
-| [Dataverse](https://www.microsoft.com/power-platform/dataverse) | Yes | Yes, including Managed HSM | - |
-| [Dynamics 365](https://www.microsoft.com/dynamics-365) | Yes | Yes, including Managed HSM | - |
-| **Analytics** | | | |
-| Azure Stream Analytics | Yes | Yes\*\*, including Managed HSM | - |
-| Event Hubs | Yes | Yes | - |
-| Functions | Yes | Yes | - |
-| Azure Analysis Services | Yes | - | - |
-| Azure Data Catalog | Yes | - | - |
-| Azure HDInsight | Yes | Yes | - |
-| Azure Monitor Application Insights | Yes | Yes | - |
-| Azure Monitor Log Analytics | Yes | Yes, including Managed HSM | - |
-| Azure Data Explorer | Yes | Yes | - |
-| Azure Data Factory | Yes | Yes, including Managed HSM | - |
-| Azure Data Lake Store | Yes | Yes, RSA 2048-bit | - |
-| **Containers** | | | |
-| Azure Kubernetes Service | Yes | Yes, including Managed HSM | - |
-| Container Instances | Yes | Yes | - |
-| Container Registry | Yes | Yes | - |
-| **Compute** | | | |
-| Virtual Machines | Yes | Yes, including Managed HSM | - |
-| Virtual Machine Scale Set | Yes | Yes, including Managed HSM | - |
-| SAP HANA | Yes | Yes | - |
-| App Service | Yes | Yes\*\*, including Managed HSM | - |
-| Automation | Yes | Yes | - |
-| Azure Functions | Yes | Yes\*\*, including Managed HSM | - |
-| Azure portal | Yes | Yes\*\*, including Managed HSM | - |
-| Azure VMware Solution | Yes | Yes, including Managed HSM | - |
-| Logic Apps | Yes | Yes | - |
-| Azure-managed applications | Yes | Yes\*\*, including Managed HSM | - |
-| Service Bus | Yes | Yes | - |
-| Site Recovery | Yes | Yes | - |
-| **Databases** | | | |
-| SQL Server on Virtual Machines | Yes | Yes | Yes |
-| Azure SQL Database | Yes | Yes, RSA 3072-bit, including Managed HSM | Yes |
-| Azure SQL Managed Instance | Yes | Yes, RSA 3072-bit, including Managed HSM | Yes |
-| Azure SQL Database for MariaDB | Yes | - | - |
-| Azure SQL Database for MySQL | Yes | Yes, including Managed HSM | - |
-| Azure SQL Database for PostgreSQL | Yes | Yes, including Managed HSM | - |
-| Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only) | Yes | Yes, RSA 3072-bit, including Managed HSM | - |
-| SQL Server Stretch Database | Yes | Yes, RSA 3072-bit | Yes |
-| Table Storage | Yes | Yes | Yes |
-| Azure Cosmos DB | Yes ([learn more](/azure/cosmos-db/database-security?tabs=sql-api)) | Yes, including Managed HSM ([learn more](/azure/cosmos-db/how-to-setup-cmk) and [learn more](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm)) | - |
-| Azure Databricks | Yes | Yes, including Managed HSM | - |
-| Azure Database Migration Service | Yes | N/A\* | - |
-| **Identity** | | | |
-| Microsoft Entra ID | Yes | - | - |
-| Microsoft Entra Domain Services | Yes | Yes | - |
-| **Integration** | | | |
-| Service Bus | Yes | Yes | - |
-| Event Grid | Yes | - | - |
-| API Management | Yes | - | - |
-| **IoT Services** | | | |
-| IoT Hub | Yes | Yes | Yes |
-| IoT Hub Device Provisioning | Yes | Yes | - |
-| **Management and Governance** | | | |
-| Azure Managed Grafana | Yes | - | N/A |
-| Azure Site Recovery | Yes | - | - |
-| Azure Migrate | Yes | Yes | - |
-| **Media** | | | |
-| Media Services | Yes | Yes | Yes |
-| **Security** | | | |
-| Microsoft Defender for IoT | Yes | Yes | - |
-| Microsoft Sentinel | Yes | Yes, including Managed HSM | - |
-| **Storage** | | | |
-| Blob Storage | Yes | Yes, including Managed HSM | Yes |
-| Premium Blob Storage | Yes | Yes, including Managed HSM | Yes |
-| Disk Storage | Yes | Yes, including Managed HSM | - |
-| Ultra Disk Storage | Yes | Yes, including Managed HSM | - |
-| Managed Disk Storage | Yes | Yes, including Managed HSM | - |
-| File Storage | Yes | Yes, including Managed HSM | - |
-| File Premium Storage | Yes | Yes, including Managed HSM | - |
-| File Sync | Yes | Yes, including Managed HSM | - |
-| Queue Storage | Yes | Yes, including Managed HSM | Yes |
-| Data Lake Storage Gen2 | Yes | Yes, including Managed HSM | Yes |
-| Avere vFXT | Yes | - | - |
-| Azure Cache for Redis | Yes | Yes\*\*\*, including Managed HSM | - |
-| Azure NetApp Files | Yes | Yes, including Managed HSM | Yes |
-| Archive Storage | Yes | Yes | - |
-| StorSimple | Yes | Yes | Yes |
-| Azure Backup | Yes | Yes, including Managed HSM | Yes |
-| Data Box | Yes | - | Yes |
-| Azure Stack Edge | Yes | Yes | - |
-| **Other** | | | |
-| Azure Data Manager for Energy | Yes | Yes | Yes |
+| Product, Feature, or Service | Server-Side Using Customer-Managed Key | Documentation |
+| --- | --- | --- |
+| **AI and Machine Learning** | | |
+| [Azure AI Search](/azure/search/) | Yes | |
+| [Azure AI services](/azure/cognitive-services/) | Yes, including Managed HSM | |
+| [Azure Machine Learning](/azure/machine-learning/) | Yes | |
+| [Content Moderator](/azure/cognitive-services/content-moderator/) | Yes, including Managed HSM | |
+| [Face](/azure/cognitive-services/face/) | Yes, including Managed HSM | |
+| [Language Understanding](/azure/cognitive-services/luis/) | Yes, including Managed HSM | |
+| [Azure OpenAI](/azure/ai-services/openai/) | Yes, including Managed HSM | |
+| [Personalizer](/azure/cognitive-services/personalizer/) | Yes, including Managed HSM | |
+| [QnA Maker](/azure/cognitive-services/qnamaker/) | Yes, including Managed HSM | |
+| [Speech Services](/azure/cognitive-services/speech-service/) | Yes, including Managed HSM | |
+| [Translator Text](/azure/cognitive-services/translator/) | Yes, including Managed HSM | |
+| [Power Platform](/power-platform/) | Yes, including Managed HSM | |
+| [Dataverse](/powerapps/maker/data-platform/) | Yes, including Managed HSM | |
+| [Dynamics 365](/dynamics365/) | Yes, including Managed HSM | |
+| **Analytics** | | |
+| [Azure Stream Analytics](/azure/stream-analytics/) | Yes\*\*, including Managed HSM | |
+| [Event Hubs](/azure/event-hubs/) | Yes | |
+| [Functions](/azure/azure-functions/) | Yes | |
+| [Azure Analysis Services](/azure/analysis-services/) | - | |
+| [Azure Data Catalog](/azure/data-catalog/) | - | |
+| [Azure HDInsight](/azure/hdinsight/) | Yes | |
+| [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | |
+| [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes, including Managed HSM | |
+| [Azure Data Explorer](/azure/data-explorer/) | Yes | |
+| [Azure Data Factory](/azure/data-factory/) | Yes, including Managed HSM | |
+| [Azure Data Lake Store](/azure/data-lake-store/) | Yes, RSA 2048-bit | |
+| **Containers** | | |
+| [Azure Kubernetes Service](/azure/aks/) | Yes, including Managed HSM | |
+| [Container Instances](/azure/container-instances/) | Yes | |
+| [Container Registry](/azure/container-registry/) | Yes | |
+| **Compute** | | |
+| [Virtual Machines](/azure/virtual-machines/) | Yes, including Managed HSM | |
+| [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/) | Yes, including Managed HSM | |
+| [SAP HANA](/azure/sap/large-instances/hana-overview-architecture) | Yes | |
+| [App Service](/azure/app-service/) | Yes\*\*, including Managed HSM | |
+| [Automation](/azure/automation/) | Yes | |
+| [Azure Functions](/azure/azure-functions/) | Yes\*\*, including Managed HSM | |
+| [Azure portal](/azure/azure-portal/) | Yes\*\*, including Managed HSM | |
+| [Azure VMware Solution](/azure/azure-vmware/) | Yes, including Managed HSM | |
+| [Logic Apps](/azure/logic-apps/) | Yes | |
+| [Azure-managed applications](/azure/azure-resource-manager/managed-applications/overview) | Yes\*\*, including Managed HSM | |
+| [Service Bus](/azure/service-bus-messaging/) | Yes | |
+| [Site Recovery](/azure/site-recovery/) | Yes | |
+| **Databases** | | |
+| [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | |
+| [Azure SQL Database](/azure/azure-sql/database/) | Yes, RSA 3072-bit, including Managed HSM | |
+| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes, RSA 3072-bit, including Managed HSM | |
+| [Azure Database for MariaDB](/azure/mariadb/) | - | |
+| [Azure Database for MySQL](/azure/mysql/) | Yes, including Managed HSM | |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | Yes, including Managed HSM | |
+| [Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only)](/azure/synapse-analytics/) | Yes, RSA 3072-bit, including Managed HSM | |
+| [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes, RSA 3072-bit | |
+| [Table Storage](/azure/storage/tables/) | Yes | |
+| [Azure Cosmos DB](/azure/cosmos-db/) | Yes, including Managed HSM | [Configure CMKs (Key Vault)](/azure/cosmos-db/how-to-setup-cmk) and [Configure CMKs (Managed HSM)](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
+| [Azure Databricks](/azure/databricks/) | Yes, including Managed HSM | |
+| [Azure Database Migration Service](/azure/dms/) | N/A\* | |
+| **Identity** | | |
+| [Microsoft Entra ID](/azure/active-directory/) | - | |
+| [Microsoft Entra Domain Services](/azure/active-directory-domain-services/) | Yes | |
+| **Integration** | | |
+| [Service Bus](/azure/service-bus-messaging/) | Yes | |
+| [Event Grid](/azure/event-grid/) | - | |
+| [API Management](/azure/api-management/) | - | |
+| **IoT Services** | | |
+| [IoT Hub](/azure/iot-hub/) | Yes | |
+| [IoT Hub Device Provisioning](/azure/iot-dps/) | Yes | |
+| **Management and Governance** | | |
+| [Azure Managed Grafana](/azure/managed-grafana/) | - | |
+| [Azure Site Recovery](/azure/site-recovery/) | - | |
+| [Azure Migrate](/azure/migrate/) | Yes | |
+| **Media** | | |
+| [Media Services](/azure/media-services/) | Yes | |
+| **Security** | | |
+| [Microsoft Defender for IoT](/azure/defender-for-iot/) | Yes | |
+| [Microsoft Sentinel](/azure/sentinel/) | Yes, including Managed HSM | |
+| **Storage** | | |
+| [Blob Storage](/azure/storage/blobs/) | Yes, including Managed HSM | |
+| [Premium Blob Storage](/azure/storage/blobs/) | Yes, including Managed HSM | |
+| [Disk Storage](/azure/virtual-machines/disks-types/) | Yes, including Managed HSM | |
+| [Ultra Disk Storage](/azure/virtual-machines/disks-types/) | Yes, including Managed HSM | |
+| [Managed Disk Storage](/azure/virtual-machines/disks-types/) | Yes, including Managed HSM | |
+| [File Storage](/azure/storage/files/) | Yes, including Managed HSM | |
+| [File Premium Storage](/azure/storage/files/) | Yes, including Managed HSM | |
+| [File Sync](/azure/storage/file-sync/file-sync-introduction) | Yes, including Managed HSM | |
+| [Queue Storage](/azure/storage/queues/) | Yes, including Managed HSM | |
+| [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction/) | Yes, including Managed HSM | |
+| [Avere vFXT](/azure/avere-vfxt/) | - | |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | Yes\*\*\*, including Managed HSM | |
+| [Azure NetApp Files](/azure/azure-netapp-files/) | Yes, including Managed HSM | |
+| [Archive Storage](/azure/storage/blobs/archive-blob) | Yes | |
+| [StorSimple](/azure/storsimple/) | Yes | |
+| [Azure Backup](/azure/backup/) | Yes, including Managed HSM | |
+| [Data Box](/azure/databox/) | - | |
+| [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview/) | Yes | |
+| **Other** | | |
+| [Azure Data Manager for Energy](/azure/energy-data-services/overview-microsoft-energy-data-services) | Yes | |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
