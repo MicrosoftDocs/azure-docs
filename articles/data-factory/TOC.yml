@@ -1307,8 +1307,8 @@ items:
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
     - name: Azure Data Factory known issues
-      href: knownissues-troubleshoot-guide.md
-      displayName: troubleshooting      
+      href: known-issues-troubleshoot-guide.md
+      displayName: troubleshooting
 - name: SAP knowledge center
   items:
   - name: Overview
