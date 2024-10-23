@@ -13,7 +13,7 @@ This article provides instructions for troubleshooting a private virtual network
 Cloud Shell. For best results, and to be supportable, following the deployment instructions in the
 [Deploy Azure Cloud Shell in a virtual network using quickstart templates][03] article.
 
-## Verify you have set the correct permissions
+## Verify you have the correct permissions
 
 To configure Azure Cloud Shell in a virtual network, you must have the **Owner** role assignment on
 the subscription. To view and assign roles, see [List owners of a subscription][01].
@@ -109,7 +109,7 @@ The following list provides a description of the resources created by the deploy
 - A **Relay** resource with the name of the relay namespace you provided in the deployment template.
 - A **Storage account** resource with the name you provided in the deployment template.
 
-Once you have removed the resources, you can redeploy Cloud Shell by following the steps in the
+After you remove the resources, you can redeploy Cloud Shell by following the steps in the
 [Deploy Azure Cloud Shell in a virtual network using quickstart templates][03] article.
 
 You can find these resources by viewing the resource group in the Azure portal.
