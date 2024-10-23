@@ -3,7 +3,7 @@ description: >
   This article provides instructions for troubleshooting a private virtual network deployment of
   Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 10/26/2023
+ms.date: 10/23/2024
 ms.topic: troubleshooting
 title: Troubleshoot Azure Cloud Shell in a private virtual network
 ---
@@ -79,28 +79,13 @@ permissions for your subscription:
 
    [![Screenshot showing the network relay role assignments.][ss04a]][ss04x]
 
-## Redeploy Cloud Shell for a private virtual network
+## When all else fails
 
 Verify the configurations described in this article. If you continue receive an error message when
 you try to use your deployment of Cloud Shell, you have two options:
 
-1. Open a support ticket
 1. Redeploy Cloud Shell for a private virtual network
-
-### Open a support ticket
-
-If you want to open a support ticket, you can do so from the Azure portal. Be sure to capture any
-error messages, including the **Correlation Id** and **Activity Id** values. Don't change any
-settings or delete any resources until instructed to by a support technician.
-
-Follow these steps to open a support ticket:
-
-1. Select the **Support & Troubleshooting** icon on the top navigation bar in the Azure portal.
-1. From the **Support & Troubleshooting** pane, select **Help + support**.
-1. Select **Create a support request** at the top of the center pane.
-1. Follow the instructions to create a support ticket.
-
-   [![Screenshot of creating a support ticket in the Azure portal.][ss05a]][ss05x]
+1. Open a support ticket
 
 ### Redeploy Cloud Shell for a private virtual network
 
@@ -130,6 +115,21 @@ Once you have removed the resources, you can redeploy Cloud Shell by following t
 You can find these resources by viewing the resource group in the Azure portal.
 
 [![Screenshot of resources created by the deployment.][ss02a]][ss02x]
+
+### Open a support ticket
+
+If you want to open a support ticket, you can do so from the Azure portal. Be sure to capture any
+error messages, including the **Correlation Id** and **Activity Id** values. Don't change any
+settings or delete any resources until instructed to by a support technician.
+
+Follow these steps to open a support ticket:
+
+1. Select the **Support & Troubleshooting** icon on the top navigation bar in the Azure portal.
+1. From the **Support & Troubleshooting** pane, select **Help + support**.
+1. Select **Create a support request** at the top of the center pane.
+1. Follow the instructions to create a support ticket.
+
+   [![Screenshot of creating a support ticket in the Azure portal.][ss05a]][ss05x]
 
 <!-- link references -->
 [01]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
