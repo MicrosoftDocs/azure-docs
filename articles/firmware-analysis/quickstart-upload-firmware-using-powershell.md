@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Upload firmware images to Firmware analysis using Azure PowerShell"
-description: "Learn how to upload firmware images for analysis using the Azure Powershell."
+description: "Learn how to upload firmware images for analysis using the Azure PowerShell."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
@@ -20,19 +20,19 @@ This quickstart assumes a basic understanding of Firmware analysis. For more inf
 
 ### Prepare your environment for Azure PowerShell
 
-* [Install Azure PowerShell](/powershell/azure/install-azure-powershell) or [Use Azure Cloud Shell](/azure/cloud-shell/get-started/classic).
+1. [Install Azure PowerShell](/powershell/azure/install-azure-powershell) or [Use Azure Cloud Shell](/azure/cloud-shell/get-started/classic).
 
-* Sign in to Azure PowerShell by running the command [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Skip this step if you're using Cloud Shell.
+2. Sign in to Azure PowerShell by running the command [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Skip this step if you're using Cloud Shell.
 
-* If this is your first use of Firmware analysis's Azure PowerShell, install the extension:
+3. If this is your first use of Firmware analysis's Azure PowerShell, install the extension:
 
     ```powershell
     Find-Module -Name Az.FirmwareAnalysis | Install-Module
     ```
 
-* [Onboard](tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
+4. [Onboard](tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
 
-* Run [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set your subscription to use in the current session. Select the subscription where you would like to upload your firmware images.
+5. Run [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set your subscription to use in the current session. Select the subscription where you would like to upload your firmware images.
 
 ## Upload a firmware image to the workspace
 

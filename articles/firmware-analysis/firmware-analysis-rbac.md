@@ -1,5 +1,5 @@
 ---
-title: Azure role-based access control for Firmware analysis
+title: Azure Role-Based Access Control for Firmware analysis
 description: Learn about how to use Azure Role-Based Access Control for Firmware Analysis.
 author: karengu0
 ms.author: karenguo
@@ -8,7 +8,7 @@ ms.date: 01/10/2024
 ---
 
 # Overview of Azure Role-Based Access Control for Firmware analysis
-As a user of Firmware analysis, you may want to manage access to your firmware image analysis results. Azure Role-Based Access Control (RBAC) is an authorization system that enables you to control who has access to your analysis results, what permissions they have, and at what level of the resource hierarchy. This article explains how to store firmware analysis results in Azure, manage access permissions, and use RBAC to share these results within your organization and with third parties. To learn more about Azure RBAC, visit [What is Azure role-based access control (Azure RBAC)?](./../role-based-access-control/overview.md).
+As a user of Firmware analysis, you may want to manage access to your firmware image analysis results. Azure Role-Based Access Control (RBAC) is an authorization system that enables you to control who has access to your analysis results, what permissions they have, and at what level of the resource hierarchy. This article explains how to store firmware analysis results in Azure, manage access permissions, and use RBAC to share these results within your organization and with third parties. To learn more about Azure RBAC, visit [What is Azure Role-Based Access Control (Azure RBAC)?](./../role-based-access-control/overview.md).
 
 ## Roles
 Roles are a collection of permissions packaged together. There are two types of roles:
@@ -43,7 +43,7 @@ Here's the resource hierarchy of Firmware Analysis:
 
 As a user of Firmware analysis, you may need to perform certain actions for your organization, such as uploading firmware images or sharing analysis results.
 
-Actions like these involve Role Based Access Control (RBAC). To effectively use RBAC for Firmware analysis, you must know what your role assignment is, and at what scope. Knowing this information will inform you about what permissions you have, and thus whether you can complete certain actions. To check your role assignment, refer to [Check access for a user to a single Azure resource - Azure RBAC](./../role-based-access-control/check-access.md). Next, see the following table to check what roles and scopes are necessary for certain actions.
+Actions like these involve Role-Based Access Control (RBAC). To effectively use RBAC for Firmware analysis, you must know what your role assignment is, and at what scope. Knowing this information will inform you about what permissions you have, and thus whether you can complete certain actions. To check your role assignment, refer to [Check access for a user to a single Azure resource - Azure RBAC](./../role-based-access-control/check-access.md). Next, see the following table to check what roles and scopes are necessary for certain actions.
 
 ### Common roles in Firmware analysis
 

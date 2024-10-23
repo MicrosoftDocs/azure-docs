@@ -20,16 +20,16 @@ This quickstart assumes a basic understanding of Firmware Analysis. For more inf
 
 ### Prepare your environment
 
-* Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version.
-* Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
-* Ensure that your Azure account has the necessary permissions to upload firmware images to Firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware Analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
-* Ensure that your firmware image is stored in the same directory as the Python script.
-* Install the packages needed to run this script:
+1. Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version.
+2. Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
+3. Ensure that your Azure account has the necessary permissions to upload firmware images to Firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware Analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
+4. Ensure that your firmware image is stored in the same directory as the Python script.
+5. Install the packages needed to run this script:
     ```python
     pip install azure-mgmt-iotfirmwaredefense
     pip install azure-identity
     ```
-* Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
+6. Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
 
 ## Run the following Python script
 
