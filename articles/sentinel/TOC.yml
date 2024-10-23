@@ -840,8 +840,6 @@
     items:
     - name: Overview
       href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Build hunting queries in guided mode
-      href: /defender-xdr/advanced-hunting-query-builder?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Generate queries with Security Copilot
       href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Use shared queries
