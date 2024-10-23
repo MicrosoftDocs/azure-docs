@@ -182,9 +182,9 @@ The Azure services that support each encryption model:
 | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes, RSA 3072-bit, including Managed HSM | |
 | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes, RSA 3072-bit, including Managed HSM | |
-| [Azure SQL Database for MariaDB](/azure/mariadb/) | - | |
-| [Azure SQL Database for MySQL](/azure/mysql/) | Yes, including Managed HSM | |
-| [Azure SQL Database for PostgreSQL](/azure/postgresql/) | Yes, including Managed HSM | |
+| [Azure Database for MariaDB](/azure/mariadb/) | - | |
+| [Azure Database for MySQL](/azure/mysql/) | Yes, including Managed HSM | |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | Yes, including Managed HSM | |
 | [Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only)](/azure/synapse-analytics/) | Yes, RSA 3072-bit, including Managed HSM | |
 | [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes, RSA 3072-bit | |
 | [Table Storage](/azure/storage/tables/) | Yes | |
@@ -231,6 +231,7 @@ The Azure services that support each encryption model:
 | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview/) | Yes | |
 | **Other** | | |
 | [Azure Data Manager for Energy](/azure/energy-data-services/overview-microsoft-energy-data-services) | Yes | |
+
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
 \*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
