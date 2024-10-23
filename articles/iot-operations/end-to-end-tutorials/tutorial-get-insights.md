@@ -97,7 +97,6 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     ```kql
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
-
     ```
 
 ### Add data table as a destination
@@ -174,7 +173,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
 
     :::image type="content" source="media/tutorial-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
 
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the timestamp, temperature and spike from the resulting records with their timestamp. It then adds a column for a spike marker that will be added to the line chart. 
+1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the timestamp, temperature and spike value from the resulting records with their timestamp. It then adds a column for a spike marker that will be added to the line chart. 
 
     ```kql
     OPCUA 
@@ -273,6 +272,7 @@ Below are some more queries that you can use to add additional tiles to your das
     ```kql
     OPCUA
     | where Timestamp between (_startTime .. _endTime)
+    | where AssetId == _asset
     | where Spike == true
     | summarize SpikeCount = count()
     ```
