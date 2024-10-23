@@ -188,7 +188,7 @@ The Azure services that support each encryption model:
 | [Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only)](/azure/synapse-analytics/) | Yes, RSA 3072-bit, including Managed HSM | |
 | [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes, RSA 3072-bit | |
 | [Table Storage](/azure/storage/tables/) | Yes | |
-| [Azure Cosmos DB](/azure/cosmos-db/) | Yes, including Managed HSM ([learn more](/azure/cosmos-db/how-to-setup-cmk) and [learn more](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm)) | |
+| [Azure Cosmos DB](/azure/cosmos-db/) | Yes, including Managed HSM | [Configure CMKs (Key Vault)](/azure/cosmos-db/how-to-setup-cmk) and [Configure CMKs (Managed HSM)](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
 | [Azure Databricks](/azure/databricks/) | Yes, including Managed HSM | |
 | [Azure Database Migration Service](/azure/dms/) | N/A\* | |
 | **Identity** | | |
