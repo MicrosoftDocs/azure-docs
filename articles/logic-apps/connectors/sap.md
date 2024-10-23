@@ -610,7 +610,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 ### Set up and test sending IDocs from SAP to your workflow
 
-Follow these steps only for testing your SAP configuration with your logic app workflow. Production environments require additional configuration. 
+To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing as production environments require additional configuration.
 
 To send IDocs from SAP to your workflow, you need the following minimum configuration:
 
@@ -645,7 +645,7 @@ This destination identifies your logic app workflow as the receiver port.
       > receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
       >
       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-      > * **Non-ABAP RFC client (partner type ) not supported**
+      > * **Non-ABAP RFC client (partner type) not supported**
       >
       > For more information from SAP, review the following notes (login required):
       >
@@ -732,7 +732,7 @@ This destination identifies your SAP system as the sender port.
 
 #### Create partner profiles
 
-For production environments, you must create two partner profiles:
+For production environments, you must create the following two partner profiles:
 
 - One profile for the sender, which is your organization and SAP system.
 - One profile for the receiver, which is your logic app resource and workflow.

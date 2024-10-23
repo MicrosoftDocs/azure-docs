@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 10/23/2024
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -21,6 +21,18 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 ## Prerequisites
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
+
+- To avoid workflow timeout when you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program**.
+
+  In scenarios where an SAP system is under load, for example, when you send a batch of IDocs all at the same time from your workflow to SAP, queued IDoc calls time out. The default setting causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To change the SAP processing mode, follow these steps:
+
+  1. In SAP, find the SAP partner profile, and open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
+
+  1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
+
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
 
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
@@ -679,13 +691,6 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. After you send your HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
@@ -707,14 +712,21 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 1. After you send the HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ---
+
+You've now created a workflow that can send IDocs and communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
+
+#### Workflow timeout issues
+
+Your workflow times out in any of the following scenarios:
+
+- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
+
+- Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing.
+
+  In scenarios where an SAP system is under load, for example, when you send a batch of IDocs all at the same time from your workflow to SAP, queued IDoc calls time out. The default setting causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](#prerequisites).
 
 <a name="safe-typing"></a>
 
