@@ -14,6 +14,9 @@ Azure Web Application Firewall on Azure Front Door protects web applications fro
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
+> [!NOTE]
+> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
+
 ## Default rule sets
 
 The Azure-managed DRS includes rules against the following threat categories:
@@ -65,9 +68,9 @@ When your WAF uses an older version of the Default Rule Set (before DRS 2.0), yo
 
 The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
-### Changing Rulesets
+### Upgrading or changing ruleset version
 
-When you change ruleset versions, it is important to be aware that all of your previous customizations to the managed rulesets will be reset. These customizations include disabling specific rules, adjusting rule actions and applying exclusions. To make sure that you do not lose any of these custom configurations to your rulesets you can save your current configurations as a template before changing ruleset versions. You can keep this template if you ever need to revert to a previous configuration. You can also clone this template, update the ruleset type, ruleset version, and rule group name to match the ruleset your changing to, then deploy this updated template in your test environment to change rulesets while still preserving your customizations.
+When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1
 
