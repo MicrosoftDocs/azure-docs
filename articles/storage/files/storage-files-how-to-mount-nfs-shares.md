@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ---
 
@@ -109,7 +109,7 @@ If your mount fails, it's possible that your private endpoint wasn't set up corr
 
 ## NFS file share snapshots
 
-Customers using NFS Azure file shares can create, list, and delete file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. See [Use share snapshots with Azure Files](storage-snapshots-files.md#nfs-file-share-snapshots).
+Customers using NFS Azure file shares can take file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. See [Use share snapshots with Azure Files](storage-snapshots-files.md#nfs-file-share-snapshots).
 
 ## Next step
 
