@@ -1,7 +1,7 @@
 ---
 title: Use Portable VMware Cloud Foundations (VCF) on Azure VMware Solution
 ms.author: saloniyadav
-description: Bring your own VMware Cloud Foundations (VCF) subscription on Azure VMware Solution
+description: Bring your own portable VMware Cloud Foundations (VCF) on Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 9/30/2024
