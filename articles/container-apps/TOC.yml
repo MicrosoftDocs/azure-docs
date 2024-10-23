@@ -247,6 +247,14 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
+    - name: GPUs
+      items:
+        - name: Overview
+          href: gpu-overview.md
+        - name: Tutorials
+          items:
+          - name: Run a small language model
+            href: gpu-small-language-model.md
 - name: Microservices
   items:
     - name: Developing with Dapr
