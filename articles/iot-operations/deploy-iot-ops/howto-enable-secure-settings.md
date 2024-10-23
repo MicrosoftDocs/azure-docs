@@ -58,7 +58,7 @@ If not already set up, use the following steps to enable workload identity on an
                           --enable-oidc-issuer --enable-workload-identity 
    ```
 
-1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to to get the cluster's issuer url. Take a note to add it later in K3s config file.
+1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to get the cluster's issuer url. Take a note to add it later in K3s config file.
 
    ```azurecli
    #!/bin/bash
