@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 09/09/2024
+ms.date: 10/23/2024
 ---
 
 # Default outbound access in Azure
