@@ -963,7 +963,7 @@ You can control this tracing capability at the application level by adding the f
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following :
+1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following files:
 
    * NCo trace logs: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
    
