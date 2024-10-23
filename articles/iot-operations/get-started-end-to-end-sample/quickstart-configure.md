@@ -161,6 +161,35 @@ az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RES
 
 ---
 
+## Review configuration
+
+The Bicep file configured the following resources:
+
+- An asset endpoint that connects to the OPC PLC simulator.
+- An asset that represents the oven and defines the data points that the oven exposes.
+- Two dataflows that process the messages from the simulated oven.
+- An Azure Event Hubs namespace that contains a destination hub for the dataflows.
+
+To view the asset endpoint, asset, and dataflows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+
+:::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
+
+The asset endpoint defines the connection to the OPC PLC simulator:
+
+:::image type="content" source="media/quickstart-configure/asset-endpoint-list.png" alt-text="Screenshot in the operations experience that shows a list of asset endpoints.":::
+
+The oven asset defines the data points that the oven exposes:
+
+:::image type="content" source="media/quickstart-configure/asset-list.png" alt-text="Screenshot in the operations experience that shows a list of assets.":::
+
+The dataflows define how the messages from the simulated oven are processed and routed to Event Hubs in the cloud:
+
+:::image type="content" source="media/quickstart-configure/dataflows-list.png" alt-text="Screenshot in the operations experience that shows a list of dataflows.":::
+
+The following screenshot shows how the temperature conversion dataflow is configured:
+
+:::image type="content" source="media/quickstart-configure/dataflow-compute.png" alt-text="Screenshot in the operations experience that shows the temperature conversion calculation.":::
+
 ## Verify data is flowing to MQTT broker
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
@@ -214,6 +243,8 @@ The sample tags you added in the previous quickstart generate messages from your
 ## Verify data is flowing to Event Hubs
 
 To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
+
+The Bicep configuration you applied previously created an Event Hubs namespace and hub that's used as a destination by the dataflow. To view the namespace and hub, navigate to the resource group in the Azure portal that contains your IoT Operations instance and then select the Event Hubs namespace.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
