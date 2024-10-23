@@ -18,8 +18,6 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
-
-
 ## Before you begin
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
@@ -222,4 +220,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-configure.md)
