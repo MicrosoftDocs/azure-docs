@@ -16,7 +16,7 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster except for those on Arm64 architectures. For more information, review the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
@@ -34,7 +34,7 @@ A deployment with only test settings enabled:
 
 To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
 
-If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
@@ -90,7 +90,7 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations.
 
-Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+Additionally, review the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
 ```text
 nw-umwatson.events.data.microsoft.com 

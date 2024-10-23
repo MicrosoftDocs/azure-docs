@@ -324,4 +324,4 @@ You can also check the configurations of topic maps, QoS, and message routes by 
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).

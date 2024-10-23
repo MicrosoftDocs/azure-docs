@@ -56,7 +56,7 @@ With extra configurations, the Layered Network Management service can also direc
 In a multi-layer network, the Azure IoT Operations components can be deployed across layers based on your architecture and dataflow needs. This example provides some general ideas of where individual components will be placed.
 - The **connector for OPC UA** may locate at the lower layer that is closer to your assets and OPC UA servers.
 - The data shall be transferred towards the cloud side through the **MQ** components in each layer.
-- The **Data Processor** is generally placed at the top layer as the most likely layer to have significant compute capacity and as a final stop for the data to get prepared before being sent to the cloud.
+- The **Dataflows** component is generally placed at the top layer as the most likely layer to have significant compute capacity and as a final stop for the data to get prepared before being sent to the cloud.
 
 ## Next steps
 
