@@ -75,7 +75,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
+1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
 
 1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
 
