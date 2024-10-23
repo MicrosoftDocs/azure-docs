@@ -54,7 +54,7 @@ To ensure your migration proceeds smoothly, identify [the best copy tool for you
 
 Users that leverage Active Directory Domain Services (AD DS) as their on-premises domain controller can natively access an Azure file share. So can users of Microsoft Entra Domain Services. Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
-Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Microsoft Entra Domain Services authentication](storage-files-identity-auth-domain-services-enable.md) for Azure file shares.
+Learn more about [identity-based authentication for Azure Files over SMB](storage-files-active-directory-overview.md).
 
 ## Supported metadata
 

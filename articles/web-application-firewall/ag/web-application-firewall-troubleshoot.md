@@ -34,7 +34,7 @@ The final two log entries show the request was blocked because the anomaly score
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "OWASP_CRS", 
@@ -54,12 +54,12 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "OWASP_CRS", 
@@ -79,7 +79,7 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
@@ -104,12 +104,12 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "", 
@@ -186,7 +186,7 @@ In this example, you can see that you have four rules with the same TransactionI
 
 ```json
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
@@ -211,12 +211,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "OWASP_CRS",
@@ -236,12 +236,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
@@ -261,12 +261,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
