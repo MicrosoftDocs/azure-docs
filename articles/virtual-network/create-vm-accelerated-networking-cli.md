@@ -202,9 +202,10 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    ```powershell
    PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription –like "*Mellanox*Virtual*" | Get-NetAdapterStatistics
 
-   Name       ReceivedBytes ReceivedUnicastPackets SentBytes SentUnicastPackets
-   ----       ------------- ---------------------- --------- ------------------
-   Ethernet 2 492447549     347643                 7468446   34991
+   Name                             ReceivedBytes ReceivedUnicastPackets       SentBytes SentUnicastPackets
+   ----                             ------------- ----------------------       --------- ------------------
+   Ethernet 2                           492447549                 347643         7468446              34991
+
    ```
 
 > [!NOTE]
