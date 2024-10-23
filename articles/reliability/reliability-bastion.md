@@ -19,10 +19,12 @@ This article describes reliability support in Azure Bastion and covers both intr
 
 Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via a private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly over TLS from the Azure portal, or via the native SSH or RDP client already installed on your local computer. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
-> [!NOTE]
-> For production deployments, you should:
-> - Use standard or premium Azure Bastion resources.
-> - [Enable zone redundancy](#availability-zone-support) (in preview), if your Azure Bastion resources are in a supported region.
+## Production deployment recommendations
+
+For production deployments, you should:
+
+ - Use standard or premium Azure Bastion resources. While the basic SKU supports zone redundancy, we don't recommend it for production use.
+ - [Enable zone redundancy](#availability-zone-support) (in preview), if your Azure Bastion resources are in a supported region.
 
 ## Transient faults
 
