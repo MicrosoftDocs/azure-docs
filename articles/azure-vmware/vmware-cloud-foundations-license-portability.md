@@ -45,7 +45,7 @@ To request quota for portable VCF offering, provide the following additional inf
 **"I acknowledge that I have procured portable VCF subscription from Broadcom for "N" cores to use with Azure VMware Solutions."**
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-license-portability.png" alt-text="Picture of the quota request description for VCF subscription portability offering on Azure VMware Solution.":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-license-portability.png" alt-text="Screenshot of the quota request description for VCF subscription portability offering on Azure VMware Solution.":::
 
 >[!NOTE]
 >
