@@ -30,7 +30,7 @@ For more information on the service's individual components, see [Azure Load Bal
 
 With Azure Load Balancer, you can scale your applications and create highly available services.
 
-The service supports both inbound and outbound scenarios. It provides low latency and high throughput, and it scales up to millions of flows for all Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) applications.
+The service supports both inbound and outbound scenarios. It provides low latency and high throughput, and it scales up to millions of flows for all TCP and UDP applications.
 
 Key scenarios that you can accomplish by using Azure Standard Load Balancer include:
 
