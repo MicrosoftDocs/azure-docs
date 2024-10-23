@@ -19,7 +19,7 @@ You also have the option of using rules that are defined based on the OWASP core
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When changing from one ruleset version to another all disabled and enabled rule settings will return to the default for the ruleset you're migrating to. This means that if you previously disabled or enabled a rule, you will need to disable or enable it again once you've moved to the new ruleset version.
+> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned.  See < link to  later section at the end>
 
 ## Default rule sets
 
@@ -101,10 +101,9 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
-### Changing Rulesets
+### Upgrading or changing ruleset version
 
-When you change ruleset versions, it is important to be aware that all of your previous customizations to the managed rulesets will be reset. These customizations include disabling specific rules, adjusting rule actions and applying exclusions. To make sure that you do not lose any of these custom configurations to your rulesets you can save your current configurations as a template before changing ruleset versions. You can keep this template if you ever need to revert to a previous configuration. You can also clone this template, update the ruleset type, ruleset version, and rule group name to match the ruleset your changing to, then deploy this updated template in your test environment to change rulesets while still preserving your customizations.
-
+When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions, rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1 
 
