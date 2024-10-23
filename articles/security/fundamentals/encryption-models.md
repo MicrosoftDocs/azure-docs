@@ -141,7 +141,7 @@ The Azure services that support each encryption model:
 | [Content Moderator](/azure/cognitive-services/content-moderator/) | Yes, including Managed HSM | |
 | [Face](/azure/cognitive-services/face/) | Yes, including Managed HSM | |
 | [Language Understanding](/azure/cognitive-services/luis/) | Yes, including Managed HSM | |
-| [Azure OpenAI](/azure/cognitive-services/openai-service/) | Yes, including Managed HSM | |
+| [Azure OpenAI](/azure/ai-services/openai/) | Yes, including Managed HSM | |
 | [Personalizer](/azure/cognitive-services/personalizer/) | Yes, including Managed HSM | |
 | [QnA Maker](/azure/cognitive-services/qnamaker/) | Yes, including Managed HSM | |
 | [Speech Services](/azure/cognitive-services/speech-service/) | Yes, including Managed HSM | |
@@ -156,8 +156,8 @@ The Azure services that support each encryption model:
 | [Azure Analysis Services](/azure/analysis-services/) | - | |
 | [Azure Data Catalog](/azure/data-catalog/) | - | |
 | [Azure HDInsight](/azure/hdinsight/) | Yes | |
-| [Azure Monitor Application Insights](/azure/azure-monitor/app/) | Yes | |
-| [Azure Monitor Log Analytics](/azure/azure-monitor/logs/) | Yes, including Managed HSM | |
+| [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | |
+| [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes, including Managed HSM | |
 | [Azure Data Explorer](/azure/data-explorer/) | Yes | |
 | [Azure Data Factory](/azure/data-factory/) | Yes, including Managed HSM | |
 | [Azure Data Lake Store](/azure/data-lake-store/) | Yes, RSA 2048-bit | |
@@ -168,14 +168,14 @@ The Azure services that support each encryption model:
 | **Compute** | | |
 | [Virtual Machines](/azure/virtual-machines/) | Yes, including Managed HSM | |
 | [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/) | Yes, including Managed HSM | |
-| [SAP HANA](/azure/sap-hana/) | Yes | |
+| [SAP HANA](/azure/sap/large-instances/hana-overview-architecture) | Yes | |
 | [App Service](/azure/app-service/) | Yes\*\*, including Managed HSM | |
 | [Automation](/azure/automation/) | Yes | |
 | [Azure Functions](/azure/azure-functions/) | Yes\*\*, including Managed HSM | |
 | [Azure portal](/azure/azure-portal/) | Yes\*\*, including Managed HSM | |
 | [Azure VMware Solution](/azure/azure-vmware/) | Yes, including Managed HSM | |
 | [Logic Apps](/azure/logic-apps/) | Yes | |
-| [Azure-managed applications](/azure/azure-managed-applications/) | Yes\*\*, including Managed HSM | |
+| [Azure-managed applications](/azure/azure-resource-manager/managed-applications/overview) | Yes\*\*, including Managed HSM | |
 | [Service Bus](/azure/service-bus-messaging/) | Yes | |
 | [Site Recovery](/azure/site-recovery/) | Yes | |
 | **Databases** | | |
@@ -202,7 +202,7 @@ The Azure services that support each encryption model:
 | [IoT Hub](/azure/iot-hub/) | Yes | |
 | [IoT Hub Device Provisioning](/azure/iot-dps/) | Yes | |
 | **Management and Governance** | | |
-| [Azure Managed Grafana](/azure/azure-managed-grafana/) | - | |
+| [Azure Managed Grafana](/azure/managed-grafana/) | - | |
 | [Azure Site Recovery](/azure/site-recovery/) | - | |
 | [Azure Migrate](/azure/migrate/) | Yes | |
 | **Media** | | |
@@ -218,19 +218,19 @@ The Azure services that support each encryption model:
 | [Managed Disk Storage](/azure/virtual-machines/disks-types/) | Yes, including Managed HSM | |
 | [File Storage](/azure/storage/files/) | Yes, including Managed HSM | |
 | [File Premium Storage](/azure/storage/files/) | Yes, including Managed HSM | |
-| [File Sync](/azure/storage/files/storage-sync-files/) | Yes, including Managed HSM | |
+| [File Sync](/azure/storage/file-sync/file-sync-introduction) | Yes, including Managed HSM | |
 | [Queue Storage](/azure/storage/queues/) | Yes, including Managed HSM | |
 | [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction/) | Yes, including Managed HSM | |
 | [Avere vFXT](/azure/avere-vfxt/) | - | |
 | [Azure Cache for Redis](/azure/azure-cache-for-redis/) | Yes\*\*\*, including Managed HSM | |
 | [Azure NetApp Files](/azure/azure-netapp-files/) | Yes, including Managed HSM | |
-| [Archive Storage](/azure/storage/blobs/archive-blob-storage/) | Yes | |
+| [Archive Storage](/azure/storage/blobs/archive-blob) | Yes | |
 | [StorSimple](/azure/storsimple/) | Yes | |
 | [Azure Backup](/azure/backup/) | Yes, including Managed HSM | |
 | [Data Box](/azure/databox/) | - | |
 | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview/) | Yes | |
 | **Other** | | |
-| [Azure Data Manager for Energy](/azure/energy/) | Yes | |
+| [Azure Data Manager for Energy](/azure/energy-data-services/overview-microsoft-energy-data-services) | Yes | |
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
 \*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
