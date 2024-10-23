@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/21/2024
+ms.date: 10/23/2024
 ms.author: banders
 ---
 
@@ -259,7 +259,7 @@ Close the Exchange savings plan page and then select the **I have viewed and agr
 
 ### Azure Marketplace products
 
-Any Azure Marketplace products in your Enterprise agreement enrollment are moved along with the subscriptions. There are no changes to the service access of the Marketplace products during the transition.
+Any Azure Marketplace consumption-based products in your Enterprise agreement enrollment are moved along with the subscriptions. There are no changes to the service access of the Marketplace products during the transition. Purchases continue to remain in the source agreement.
 
 ### Support plan
 
