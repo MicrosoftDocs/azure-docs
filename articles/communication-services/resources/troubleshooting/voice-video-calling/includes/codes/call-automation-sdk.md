@@ -59,6 +59,7 @@ A 2xx code represents a successful response. The subcode for successful response
 
 #### 4xx codes 
 A 4xx Code represents a client error.
+
 | Status Code | Meaning |
 | --- | --- |
 | 400 | Bad request |
@@ -78,6 +79,7 @@ A 4xx Code represents a client error.
 
 #### 5xx codes
 A 5xx code represents a server error.
+
 | Status Code | Meaning |
 | --- | --- |
 | 500 | Internal server error |
@@ -88,6 +90,7 @@ A 5xx code represents a server error.
 
 #### 6xx codes
 A 6xx code represents a global error.
+
 | Status Code | Meaning |
 | --- | --- |
 | 603 | Declined |
