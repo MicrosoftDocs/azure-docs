@@ -14,7 +14,7 @@ ms.author: slpavkov
 ---
 ## Understanding calling codes and subcodes 
 ### When are error codes received?
-If an API call is made and it isn't accepted, an error code is given by ACS describing why the API call was rejected. If an API call is made and is accepted but something still goes wrong, both a callback event and an error code are received. An example of a common callback event for call failures would be the `callDisconnected` event that is surfaced whenever a call is disconnected. Once the `callDisconneted` event is received, there won't be any more callback events for that given call. For a list of call signaling callback events see ([this page](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation)), and for a list of callback events for media actions see ([this page](https://learn.microsoft.com/azure/communication-services/how-tos/call-automation/control-mid-call-media-actions?tabs=csharp)). 
+If an API call is made and it isn't accepted, an error code is given by ACS describing why the API call was rejected. If an API call is made and is accepted but something still goes wrong, both a callback event and an error code are received. An example of a common callback event for call failures would be the `callDisconnected` event that is surfaced whenever a call is disconnected. Once the `callDisconnected` event is received, there won't be any more callback events for that given call. For a list of call signaling callback events see ([this page](../../../../../concepts/call-automation/call-automation.md)), and for a list of callback events for media actions see ([this page](../../../../../how-tos/call-automation/control-mid-call-media-actions.md)). 
 
 ### Error Code Syntax 
 Error codes, subcodes, and corresponding result categories help developers identify and diagnose errors. Error code details include: 
@@ -29,7 +29,7 @@ Error codes, subcodes, and corresponding result categories help developers ident
 
 **Message** - Describes the outcome and provides hints how to mitigate the problem if an outcome is a failure. 
 
-In addition to the code and subcode, more detailed troubleshooting information can be found in the call logs. To learn more about how to enable and access calling logs, see [this page](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging) for detailed guidance. 
+In addition to the code and subcode, more detailed troubleshooting information can be found in the call logs. To learn more about how to enable and access calling logs, see [this page](../../../../../concepts/analytics/enable-logging.md) for detailed guidance. 
 
 ## Call Automation SDK error codes
 
