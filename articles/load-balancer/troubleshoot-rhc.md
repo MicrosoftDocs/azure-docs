@@ -59,7 +59,7 @@ You can take the same steps to investigate the failure that you see in any Healt
 
 1. Go to the tab for frontend and backend availability, and review a 30-minute window of the time period when the degraded or unavailable state occurred. If the Data Path Availability value is 0%, you know that something is preventing traffic for all of your load-balancing rules. You can also see how long this problem has lasted.
 
-1. Check your Health Probe Status metric to determine whether your data path is unavailable because you have no healthy backend instances to serve traffic. If you have at least one healthy backend instance for all of your load-balancing and inbound rules, you know it isn't your configuration that's causing your data paths to be unavailable. This scenario indicates an Azure platform problem. Although platform problems are rare, they trigger an automated alert to our team for rapid resolution.
+1. Check your Health Probe Status metric to determine whether your data path is unavailable because you have no healthy backend instances to serve traffic. If you have at least one healthy backend instance for all of your load-balancing and inbound rules, you know that your configuration isn't what's causing your data paths to be unavailable. This scenario indicates an Azure platform problem. Although platform problems are rare, they trigger an automated alert to our team for rapid resolution.
 
 ## Diagnose health probe failures
 
@@ -71,7 +71,7 @@ If your Health Probe Status metric indicates that your backend instances are unh
 * If you're using an HTTP or HTTPS probe, check if the application is healthy and responsive.
 
   Validate that your application is functional by directly accessing it through the private IP address or instance-level public IP address that's associated with your backend instance.
-* Review the network security groups applied to your backend resources. Ensure that no rules have a higher priority than `AllowAzureLoadBalancerInBound` that block the health probe.
+* Review the network security groups (NSGs) applied to your backend resources. Ensure that no rules have a higher priority than `AllowAzureLoadBalancerInBound` that block the health probe.
 
   You can do this task by visiting the network settings of your backend VMs or virtual machine scale sets. If you find that this NSG problem is the case, move the existing `Allow` rule or create a new high-priority rule to allow Azure Load Balancer traffic.
 * Check your OS. Ensure that your VMs are listening on the probe port. Also review the OS firewall rules for the VMs to ensure that they aren't blocking the probe traffic originating from IP address `168.63.129.16`.

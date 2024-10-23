@@ -16,9 +16,9 @@ ms.custom: template-overview, engagement-fy23
 
 *Load balancing* refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
 
-Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or instances in a virtual machine scale set.
+Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or virtual machine scale sets.
 
-A [public load balancer](./components.md#frontend-ip-configurations) can provide outbound connections for VMs inside your virtual network. The service accomplishes these connections by translating the VMs' private IP addresses to public IP addresses. It uses public load balancers to load balance internet traffic to your VMs.
+A [public load balancer](./components.md#frontend-ip-configurations) can provide outbound connections for VMs inside your virtual network. Azure Load Balancer accomplishes these connections by translating the VMs' private IP addresses to public IP addresses. The service uses public load balancers to load balance internet traffic to your VMs.
 
 Azure Load Balancer uses an [internal (or private) load balancer](./components.md#frontend-ip-configurations) in scenarios where private IPs are needed at the frontend only. The service uses internal load balancers to load balance traffic inside a virtual network. Users can access a load balancer frontend from an on-premises network in a hybrid scenario.
 
@@ -48,7 +48,9 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 - Enable support for [load balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) of [IPv6](../virtual-network/ip-services/ipv6-overview.md).
 
-- Use multidimensional metrics through [Azure Monitor](/azure/azure-monitor/overview). You can filter, group, and break out these metrics for a particular dimension. They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offer a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. For more details, review [Standard load balancer diagnostics](load-balancer-standard-diagnostics.md).
+- Use multidimensional metrics through [Azure Monitor](/azure/azure-monitor/overview). You can filter, group, and break out these metrics for a particular dimension. They provide current and historic insights into performance and health of your service.
+
+  [Insights for Azure Load Balancer](./load-balancer-insights.md) offer a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. For more details, review [Standard load balancer diagnostics](load-balancer-standard-diagnostics.md).
 
 - Load balance services on [multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md).
 
@@ -72,7 +74,7 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 ## Pricing and SLA
 
-For Standard Load Balancer pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements, see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
+For Standard Load Balancer pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements (SLAs), see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
 
 Basic Load Balancer is offered at no charge and has no SLA.
 
@@ -82,5 +84,5 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer updates on the
 
 ## Related content
 
-- [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md)
+- [Create a public load balancer](quickstart-load-balancer-standard-public-portal.md)
 - [Azure Load Balancer components](./components.md)

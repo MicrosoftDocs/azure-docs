@@ -26,7 +26,7 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 ### Validation and resolution
 
-Standard internal load balancers (ILBs) have default security features. Basic ILBs allow connecting to the internet via a hidden public IP address called the *default outbound access IP*. Connecting via default outbound access IP isn't recommended for production workloads, because the IP address isn't static or locked down via network security groups that you own.
+Standard internal load balancers (ILBs) have default security features. Basic ILBs allow connecting to the internet via a hidden public IP address called the *default outbound access IP*. We don't recommend connecting via default outbound access IP for production workloads, because the IP address isn't static or locked down via network security groups that you own.
 
 If you recently moved from a Basic ILB to a Standard ILB, you should create a public IP explicitly by using an [outbound only](egress-only.md) configuration. This configuration locks down the IP via network security groups. You can also use [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. We recommend NAT Gateway as the solution for outbound access.
 
@@ -34,7 +34,7 @@ If you recently moved from a Basic ILB to a Standard ILB, you should create a pu
 
 ### Cause
 
-Standard load balancers and standard public IP addresses are closed to inbound connections unless network security groups open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your virtual machine resource, traffic isn't allowed to reach the resource.
+Standard load balancers and standard public IP addresses are closed to inbound connections unless network security groups open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your VM resource, traffic isn't allowed to reach the resource.
 
 ### Resolution
 
@@ -64,10 +64,10 @@ To verify, you can conduct a network trace. The properties of each storage accou
 
 ### Resolution
 
-- Go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource that's in a failed state.
-- Update the toggle in the upper-right corner to **Read/Write**.
-- Select **Edit** for the resource in failed state.
-- Select **PUT** followed by **GET** to ensure that the provisioning state changed to **Succeeded**.
+1. Go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource that's in a failed state.
+1. Update the toggle in the upper-right corner to **Read/Write**.
+1. Select **Edit** for the resource in failed state.
+1. Select **PUT** followed by **GET** to ensure that the provisioning state changed to **Succeeded**.
 
 You can then proceed with other actions, because the resource is out of a failed state.
 
