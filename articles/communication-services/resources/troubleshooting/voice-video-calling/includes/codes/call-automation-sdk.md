@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting call end response codes for Call Automation SDK
-description: include file
+description: Include file
 services: azure-communication-services
 author: slpavkov
 manager: aakanmu
@@ -73,7 +73,7 @@ A 4xx Code represents a client error.
 | 413 | Request entity too large |
 | 426 | Upgrade requried |
 | 429 | Too many requests |
-| 481 | Transaction does not exist |
+| 481 | Transaction doesn't exist |
 | 487 | Cancelled |
 
 #### 5xx codes
@@ -97,26 +97,26 @@ A 6xx code represents a global error.
 | --- | --- |
 | 0 | Success |
 | 7000 | Graceful |
-| 7500 | Unsupported Aad Identity |
+| 7500 | Unsupported AAD Identity |
 | 7501 | Invalid Token |
 | 7502 | Access Not Enabled |
 | 7504 | Insufficient Application Permissions |
 | 7505 | Enterprise Tenant Mismatch |
 | 7506 | Untrusted Certificate |
 | 7507 | Call Source Identity Invalid |
-| 7508 | Unsupported Acs Identity |
+| 7508 | Unsupported ACS Identity |
 | 7509 | Hmac Validation Error |
 | 7510 | Managed Identity Validation Error |
 | 7600 | Resource Access Not Enabled |
-| 7601 | Invalid Acs Source Identity |
-| 7602 | Invalid Acs Target Identity |
-| 7603 | Invalid Acs Identity |
+| 7601 | Invalid ACS Source Identity |
+| 7602 | Invalid ACS Target Identity |
+| 7603 | Invalid ACS Identity |
 | 7604 | Unauthorized Teams Interop Scenario |
 | 7605 | Unauthorized Teams Recording Interop Scenario |
-| 7606 | Unauthorized Acs Resource For Cognitive Actions |
+| 7606 | Unauthorized ACS Resource For Cognitive Actions |
 | 8500 | Invalid Media Mode |
 | 8501 | Call Not Established |
-| 8502 | My Participant Id Not Available |
+| 8502 | My Participant ID Not Available |
 | 8503 | Call Media State Audio Inactive |
 | 8504 | Media Streams Unavailable |
 | 8505 | Multiple Participants With Replacement |
@@ -130,7 +130,7 @@ A 6xx code represents a global error.
 | 8514 | Stop Tone Detected |
 | 8515 | Max Record Duration Reached |
 | 8516 | Call Throttled |
-| 8517 | Call Tenant Id Mis Match |
+| 8517 | Call Tenant ID Mis Match |
 | 8518 | Call Exception |
 | 8519 | Conflict |
 | 8520 | Not Implemented |
@@ -156,7 +156,7 @@ A 6xx code represents a global error.
 | 8540 | Callee Busy Everywhere |
 | 8541 | Callee Unavailable |
 | 8542 | Call Canceled |
-| 8543 | Call Does Not Exist |
+| 8543 | Call Doesn't Exist |
 | 8544 | Callee Unreachable |
 | 8545 | Speech Option Matched |
 | 8546 | Callee Sent Invalid Request |
@@ -174,13 +174,13 @@ A 6xx code represents a global error.
 | 8558 | Participant Not Present |
 | 8559 | Duplicate Single Dialout |
 | 8560 | Join Conversation Blocked Due To Locked Meeting |
-| 8561 | Invalid Join Meeting Id |
+| 8561 | Invalid Join Meeting ID |
 | 8562 | Recording Mode Not Supported |
 | 8563 | Speech Not Recognized |
 | 8564 | Speech Service Connection Error |
 | 8565 | Cognitive Services Error |
 | 8566 | Unmute Operation Not Allowed |
-| 8567 | Acs Resource Service Principal Not Enabled |
+| 8567 | ACS Resource Service Principal Not Enabled |
 | 8568 | Managed Identity For Cognitive Service Request Failed |
 | 8571 | Recording Operation Conflict |
 | 8569 | Speech Recognized |
