@@ -139,6 +139,8 @@ In this step, you delegate permissions to other users to manage IP address pools
 
 In this step, you create a virtual network with a nonoverlapping CIDR range by allowing IP address manager to automatically provide a nonoverlapping CIDR.
 
+# [Azure Portal](#tab/azureportal)
+
 1. In the Azure portal, search for and select **Virtual networks**.
 2. Select **+ Create**.
 3. On the **Basics** tab, enter the following information:
@@ -165,6 +167,57 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
 
 8. Optionally create subnets referring to the selected pool.
 9.  Select **Review + create** and then **Create** to create the virtual network.
+
+# [Azure Resource Manager Template](#tab/armtemplate)
+
+1. Sign in to Azure and search for **Deploy a custom template**.
+2. In the **Custom deployment** window, select **Build your own template in the editor**.
+3. Copy the following template into the editor:
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "metadata": {},
+        "parameters": {
+            "vnetName": {
+            "type": "string",
+            "defaultValue": "VNet1",
+            "metadata": {
+                "description": "VNet name"
+            }
+            },
+            "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+            }
+        },
+        "resources": [
+            {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2024-01-01",
+            "name": "[parameters('vnetName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "ipamPoolPrefixAllocations": [
+                        {
+                            "pool": {
+                                "id": "/subscriptions/XXX/resourceGroups/ipam-test/providers/Microsoft.Network/networkManagers/IPAM-test/ipamPools/ALZ-app1"
+                            },
+                            "numberOfIpAddresses": "65536"
+                        }
+                    ]
+                }
+            }
+            }
+        ]
+    }
+```
+
 
 ## Next steps
 
