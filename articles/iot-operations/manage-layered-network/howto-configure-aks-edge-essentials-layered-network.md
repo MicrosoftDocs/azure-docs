@@ -53,17 +53,28 @@ After you complete this section, the Layered Network Management service is ready
 ### Configure the custom DNS
 
 In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns). In the article: 
-- If you choose the *CoreDNS* approach, you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
+- If you choose the *CoreDNS* approach (only applicable for K3s cluster in L3), you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
 - If you choose to use a *DNS server*, follow the steps to set up the DNS server before you move to the next section in this article.
 
 ### Configure and Arc enable level 3 cluster
 
-The next step is to set up an Arc-enabled cluster in level 3 that's compatible for deploying Azure IoT Operations. Follow the steps in [Configure level 3 cluster in an isolated network](./howto-configure-l3-cluster-layered-network.md). You can choose either the AKS Edge Essentials or K3S as the Kubernetes platform.
+The next step is to set up an Arc-enabled cluster in level 3 that's compatible for deploying Azure IoT Operations. You can choose either the AKS Edge Essentials or K3S as the Kubernetes platform.
 
-When completing the steps, you need to:
-- Install all the optional software.
-- For the DNS setting, provide the local network IP of the DNS server that you configured in the earlier step.
-- Complete the steps to connect the cluster to Azure Arc.
+# [K3S Cluster](#tab/k3s)
+
+- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md&tabs=ubuntu) to setup and Arc-enable your K3s cluster.
+  1. In addition, you need to configure the custom DNS for this cluster.
+      - If you choose to use a local DNS server, and have completed the steps in previous section. You can proceed the cluster setup.
+      - If you choose to use CoreDNS, you need to completet the **Create a cluster** section with internet access, then configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) for this cluster.
+  1. Proceed to Arc-enable the cluster.
+
+# [AKS Edge Essentials](#tab/aksee)
+
+- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md&tabs=aks-edge-essentials) to setup and Arc-enable your AKS Edge Essentials cluster.
+  1. You will have to complete the **DNS server** configuration from previous section before start.
+  1. For the step of **Get the `objectID`** you shall run the command on a different machine that have internet access.
+
+---
 
 ### Verification
 
@@ -78,13 +89,10 @@ For more information, see [Access Kubernetes resources from Azure portal](/azure
 
 Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the cluster. All IoT Operations components are deployed to the level 3 cluster and connect to Arc through the Layered Network Management service. The data pipeline also routes through the Layered Network Management service.
 
+You can now follow the steps in [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster.
+
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
 
-Follow the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
-
-- In earlier steps, you completed the [prerequisites](../get-started-end-to-end-sample/quickstart-deploy.md#prerequisites) and [connected your cluster to Azure Arc](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc) for Azure IoT Operations. You can review these steps to make sure nothing is missing. 
-
-- Start from the [Run Azure IoT Operations in Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md#deploy-azure-iot-operations-preview) and complete all the further steps.
 
 ## Next steps
 
