@@ -4,7 +4,6 @@ description: "Learn about supported SDKs for Azure NetApp Files and their publis
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/30/2022

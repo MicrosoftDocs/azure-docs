@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.date: 08/21/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy25
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
 
@@ -56,9 +56,6 @@ Run an assessment as follows:
    ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
-
-    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
-
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
@@ -104,7 +101,7 @@ Run an assessment as follows:
      - Cost estimates are based on the duration specified.
     - Default is 31 days per month/24 hours per day.
    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
-   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription (RHEL and SLES). If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions (RHEL and SLES), you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
 1. Select **Save** if you make changes.
 
@@ -119,7 +116,7 @@ Run an assessment as follows:
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
 1. Select **Export assessment**, to download it as an Excel file.
     
@@ -195,3 +192,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Migrate [physical servers](tutorial-migrate-physical-virtual-machines.md).

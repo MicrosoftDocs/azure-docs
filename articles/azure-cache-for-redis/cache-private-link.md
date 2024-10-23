@@ -1,10 +1,10 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 01/12/2024
@@ -43,8 +43,8 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using [managed identity to autenticate to the storage account](cache-managed-identity.md).
-> For more information, see [How to export if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to autenticate to the storage account](cache-managed-identity.md).
+> For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance

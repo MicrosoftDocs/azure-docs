@@ -362,7 +362,7 @@ hangUpCallButton.addEventListener("click", async () => {
 Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Manual steps to setup the call:

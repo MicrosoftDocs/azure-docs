@@ -1,7 +1,7 @@
 ---
 title: 'API authentication and authorization - Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak
@@ -62,7 +62,7 @@ The steps you'll use to create a managed identity will vary depending on where y
 
 - [Azure VMs](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
 - [App Service and Azure Functions](../app-service/overview-managed-identity.md)
-- [Azure Container Instances](../container-instances/container-instances-managed-identity.md)
+- [Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 - and more ...
 
 ### Application registration

@@ -5,8 +5,7 @@ author: sethmanheim
 manager: femila
 services: notification-hubs
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article

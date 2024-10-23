@@ -13,9 +13,9 @@ ms.date: 01/31/2024
 
 # Exchange RosettaNet messages for B2B integration using workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://resources.gs1us.org).
+To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
 The connector is based on the RosettaNet Implementation Framework (RNIF) version 2.0.01 and supports all PIPs defined by this version. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet PIPs. This framework defines the message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature. Communication with the partner can be synchronous or asynchronous. The connector provides the following capabilities:
 
@@ -38,7 +38,7 @@ The following concepts and terms are unique to the RosettaNet specification and 
 
   The RosettaNet organization creates and maintains PIPs, which provide common business process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, these files provide a complete definition of the business process.
 
-   PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, visit the [RosettaNet site](https://resources.gs1us.org).
+   PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
 * **Action**
 
@@ -59,7 +59,6 @@ The RosettaNet connector is available only for Consumption logic app workflows.
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | Built-in connector, which appears in the designer with the **CORE** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 
 <a name="rosettanet-operations"></a>
 

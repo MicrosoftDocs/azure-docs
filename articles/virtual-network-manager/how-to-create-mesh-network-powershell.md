@@ -3,17 +3,15 @@ title: 'Create a mesh network topology with Azure Virtual Network Manager - Azur
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/22/2024
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create a mesh network topology with Azure Virtual Network Manager - Azure PowerShell
 
 In this article, you'll learn how to create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell. With this configuration, all the virtual networks of the same region in the same network group can communicate with one another. You can enable cross region connectivity by enabling the global mesh setting in the connectivity configuration.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

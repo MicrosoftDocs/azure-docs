@@ -5,7 +5,8 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 10/30/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Create Device Update for IoT Hub resources
@@ -28,7 +29,7 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-    [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
   * Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 

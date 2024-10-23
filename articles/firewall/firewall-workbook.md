@@ -3,7 +3,7 @@ title: Using Azure Firewall Workbooks
 description: Azure Firewall Workbooks provide a flexible canvas for Azure Firewall data analysis and the creation of rich visual reports within the Azure portal.
 services: firewall
 author: gopimsft
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 12/06/2023
 ms.author: victorh

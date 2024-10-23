@@ -1,11 +1,12 @@
 ---
 title: Error codes for Device Update for Azure IoT Hub
 description: This document provides a table of error codes for various Device Update components.
-author: chrisjlin
-ms.author: lichris
+author: eshashah-msft
+ms.author: eshashah
 ms.date: 06/28/2022
 ms.topic: troubleshooting
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub error codes

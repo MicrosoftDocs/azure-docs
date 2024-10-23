@@ -4,7 +4,7 @@ description: Learn to create an Azure Managed Confidential Consortium Framework 
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/09/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -13,11 +13,11 @@ ms.custom: devx-track-azurecli, mode-api
 
 Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Managed CCF, see [About Azure Managed Confidential Consortium Framework](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 Azure CLI is used to create and manage Azure resources using commands or scripts.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.51.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux is also required.

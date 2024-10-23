@@ -47,7 +47,7 @@ Microsoft Entra authorizes access rights to secured resources through [Azure rol
 
 Before assigning an Azure RBAC role to a security principal, it's important to identify the appropriate level of access that the principal should have. It's recommended to grant the role with the narrowest possible scope. Resources located underneath inherit Azure RBAC roles with broader scopes.
 
-You can scope access to Azure SignalR resources at the following levels, beginning with the narrowest scope:
+You can scope access to Azure Web PubSub resources at the following levels, beginning with the narrowest scope:
 
 - **An individual resource.**
 

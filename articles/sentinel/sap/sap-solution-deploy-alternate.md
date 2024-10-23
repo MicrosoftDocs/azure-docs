@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/19/2023
+
+
+#Customer intent: As an SAP BASIS team member, I want to deploy and configure a custom Microsoft Sentinel for SAP applications data connector so that I can securely integrate SAP logs into my cloud-based SIEM for enhanced monitoring and analysis.
+
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
@@ -49,7 +53,7 @@ az keyvault create \
 az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
-For more information, see [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md).
+For more information, see [Quickstart: Create a key vault using the Azure CLI](/azure/key-vault/general/quick-create-cli).
 
 ## Add Azure Key Vault secrets
 
@@ -94,13 +98,13 @@ az keyvault secret set \
 
 #Add Azure Log ws ID
 az keyvault secret set \
-  --name <SID>-LOG_WS_ID \
+  --name <SID>-LOGWSID \
   --value "<logwsod>" \
   --description SECRET_AZURE_LOG_WS_ID --vault-name $kvname
 
 #Add Azure Log ws public key
 az keyvault secret set \
-  --name <SID>-LOG_WS_PUBLICKEY \
+  --name <SID>-LOGWSPUBLICKEY \
   --value "<loswspubkey>" \
   --description SECRET_AZURE_LOG_WS_PUBLIC_KEY --vault-name $kvname
 ```

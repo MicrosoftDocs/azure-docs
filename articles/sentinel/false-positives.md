@@ -5,11 +5,15 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
+
 ---
 
 # Handle false positives in Microsoft Sentinel
 
-[Microsoft Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
+[Microsoft Sentinel analytics rules](threat-detection.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 

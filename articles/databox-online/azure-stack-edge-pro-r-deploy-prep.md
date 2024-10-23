@@ -4,8 +4,7 @@ description: The first tutorial about deploying Azure Stack Edge Pro R involves 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022
@@ -107,7 +106,7 @@ After a device is shipped, a **Configure hardware** link is added to the order i
 
 If necessary, prepare your environment for Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 

@@ -3,9 +3,9 @@ title: Deploy a cross-region load balancer with Azure Resource Manager templates
 description: Deploy a cross-region load balancer with Azure Resource Manager templates
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial 
-ms.date: 04/12/2023
+ms.date: 07/22/2024
 ms.custom: template-tutorial, devx-track-arm-template
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
@@ -16,11 +16,11 @@ A cross-region load balancer ensures a service is available globally across mult
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-cross-region%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-cross-region%2Fazuredeploy.json":::
 
 In this tutorial, you learn how to:
 
@@ -31,8 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
--  An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+-  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the cross-region load balancer. 
@@ -60,7 +59,7 @@ Multiple Azure resources have been defined in the template:
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 

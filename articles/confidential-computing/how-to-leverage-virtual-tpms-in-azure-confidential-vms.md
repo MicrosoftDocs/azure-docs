@@ -2,10 +2,9 @@
 title: Leverage virtual TPMs in Azure confidential VMs
 description: Learn how to use the vTPM benefits after building trust in a confidential VM.
 author: simranparkhe
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 08/02/2023
 ms.author: simranparkhe
 ms.custom:

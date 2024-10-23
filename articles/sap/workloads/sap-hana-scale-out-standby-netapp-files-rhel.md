@@ -3,13 +3,12 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on RHEL| Microsof
 description: High-availability guide for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 07/11/2023
 ms.author: radeltch
 ---
@@ -169,7 +168,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
    Each virtual machine has three network interfaces, which correspond to the three Azure virtual network subnets (`client`, `storage` and `hana`). 
 
-   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](../../virtual-machines/linux/multiple-nics.md).  
+   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. To achieve low latency, work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity. When you're [onboarding new SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) that's using SAP HANA Azure NetApp Files, submit the necessary information. 

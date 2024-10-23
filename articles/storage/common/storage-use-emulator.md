@@ -95,7 +95,7 @@ For more information on connection strings, see [Configure Azure Storage connect
 
 ### Authorize with a shared access signature
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
 

@@ -4,7 +4,7 @@ description: This article provides guidance on when to use direct methods, devic
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/29/2018
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
@@ -20,7 +20,7 @@ IoT Hub provides three options for device apps to expose functionality to a back
 
 * [Cloud-to-device messages](iot-hub-devguide-messages-c2d.md) for one-way notifications to the device app.
 
-To learn how [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot-develop/concepts-developer-guide-service.md).
+To learn how [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

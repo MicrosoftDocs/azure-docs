@@ -3,8 +3,8 @@ title: sys.external_streams (Transact-SQL) - Azure SQL Edge
 description: sys.external_streams returns a row for each external stream object created within the scope of the database.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: reference
 keywords:
   - sys.external_streams
@@ -12,7 +12,9 @@ keywords:
 ---
 # sys.external_streams (Transact-SQL)
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Returns a row for each external stream object created within the scope of the database.
@@ -43,7 +45,7 @@ Returns a row for each external stream object created within the scope of the da
 
 The visibility of the metadata in catalog views is limited to securables that a user either owns, or on which the user has been granted some permission. For more information, see [Metadata Visibility Configuration](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## See also
+## Related content
 
 - [Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [System Views (Transact-SQL)](/sql/t-sql/language-reference/)

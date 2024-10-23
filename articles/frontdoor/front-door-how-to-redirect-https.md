@@ -4,13 +4,15 @@ titleSuffix: Azure Front Door
 description: This article shows you how to redirect traffic from HTTP to HTTPS for an Azure Front Door (classic) profile using the Azure portal.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: duau
 ---
 
 # Configure HTTP to HTTPS redirection using the Azure portal
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This article shows you how to redirect traffic from HTTP to HTTPS for an Azure Front Door (classic) profile using the Azure portal. This configuration is useful if you want to redirect traffic from HTTP to HTTPS for your domain.
 

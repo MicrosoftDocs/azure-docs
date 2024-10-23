@@ -4,14 +4,15 @@ description: The second tutorial about installing Azure Stack Edge Pro FPGA invo
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 01/17/2020
+ms.date: 02/27/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro FPGA in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This tutorial describes how to install a Azure Stack Edge Pro FPGA physical device. The installation procedure involves unpacking, rack mounting, and cabling the device. 
 

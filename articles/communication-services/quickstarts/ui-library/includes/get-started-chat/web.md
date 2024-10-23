@@ -1,7 +1,6 @@
 ---
 description: In this tutorial, you learn how to use the Chat composite on Web
-author: jorgegarc
-
+author: garchiro7
 ms.author: jorgegarc
 ms.date: 5/1/2023
 ms.topic: include
@@ -9,7 +8,7 @@ ms.service: azure-communication-services
 ---
 
 > [!NOTE]
-> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library).
+> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://aka.ms/acsstorybook).
 
 ## Prerequisites
 
@@ -19,6 +18,12 @@ ms.service: azure-communication-services
 
 ### You can access the following quickstarts
 
-- [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
-- [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
-- [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/story/composites-chat-basicexample--basic-example)
+- [UI Components](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-ui-components)
+- [Composites](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-composites)
+- [Stateful Client (Chat)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-starting-with-chat-stateful)
+
+### You can access the following storybooks
+
+- [UI Components](https://azure.github.io/communication-ui-library/?path=/docs/components-get-started--docs)
+- [Composites](https://azure.github.io/communication-ui-library/?path=/docs/composites-get-started--docs)
+- [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-get-started-chat--docs)

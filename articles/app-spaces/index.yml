@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: App Spaces documentation
-summary: Azure App Spaces is an intelligent service for developers that reduces the complexity of creating and managing web apps.
+summary: App Spaces is an intelligent service for developers that reduces the complexity of creating and managing web apps.
 
 metadata:
-  title: Azure App Spaces documentation
+  title: App Spaces documentation
   description: App Spaces offers all the benefits of deploying an app via existing Azure services, like Container Apps, Static Web Apps, and App Service, with an experience that's focused on making you develop and deploy faster.
   ms.topic: landing-page
   ms.author: msangapu
   ms.service: app-spaces
-  ms.date: 06/07/2023
+  ms.date: 05/22/2024
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -21,9 +21,13 @@ landingContent:
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Deploy a web app
-            url: quickstart-deploy-web-app.md
+          - text: Deploy a starter app
+            url: quickstart-deploy-starter-app.md
+          - text: Deploy your app
+            url: quickstart-deploy-your-app.md            
       - linkListType: how-to-guide
         links:
-          - text: Deploy a sample web app
-            url: deploy-app-spaces-template.md
+          - text: Add App Spaces components
+            url: how-to-add-components.md
+          - text: Manage App Spaces components
+            url: how-to-manage-components.md

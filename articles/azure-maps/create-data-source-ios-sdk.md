@@ -6,10 +6,16 @@ ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Create a data source in the iOS SDK (Preview)
+
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 The Azure Maps iOS SDK stores data in data sources. Using data sources optimizes the data operations for querying and rendering. Currently there are two types of data sources:
 

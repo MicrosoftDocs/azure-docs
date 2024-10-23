@@ -2,17 +2,16 @@
 title: How to enable your own persistent storage in Azure Spring Apps | Microsoft Docs
 description: Learn how to bring your own storage as persistent storages in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 2/18/2022
+ms.date: 06/27/2024
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to enable your own persistent storage in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -61,7 +60,7 @@ Use the following steps to bind an Azure Storage account as a storage resource i
 
 1. Go to the **Apps** page, and then select an application to mount the persistent storage.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of Azure portal Apps page." lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of the Azure portal Apps page with spr-apps-1 highlighted." lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
 
 1. Select **Configuration**, and then select **Persistent Storage**.
 
@@ -123,7 +122,7 @@ Use the following steps to enable your own storage with the Azure CLI.
                      "uid=0",
                      "gid=0"
                   ],
-                  "readOnly": false 
+                  "readOnly": false
                }
          },
          {

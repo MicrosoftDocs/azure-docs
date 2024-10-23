@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2023
+
+
+#Customer intent: As a security analyst, I want to efficiently investigate security incidents using a comprehensive case management platform so that I can reduce the mean time to resolve (MTTR) and ensure effective incident response.
+
 ---
 
 # Navigate and investigate incidents in Microsoft Sentinel
@@ -95,7 +99,7 @@ As you're setting up to investigate an incident, assemble the things you'll need
 
 :::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
-1.  Select **Tasks (Preview)** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
+1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
 
     Learn more about [using incident tasks](incident-tasks.md) to improve process standardization in your SOC.
 

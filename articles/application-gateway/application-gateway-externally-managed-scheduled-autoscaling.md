@@ -4,7 +4,7 @@ title: Externally managed scheduled autoscaling for Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU scheduled autoscaling feature.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: greglin
@@ -18,7 +18,7 @@ For those experiencing predictable daily traffic patterns and who have a reliabl
 
 While autoscaling is commonly utilized, it’s important to note that Application Gateway doesn't currently support prescheduled capacity adjustments natively.
 
-The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
+The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands during peak vs non peak hours.
 
 ## Set up scheduled autoscaling 
 
@@ -28,7 +28,7 @@ To implement scheduled autoscaling:
 3.	Create PowerShell runbooks for increasing and decreasing min autoscaling capacity for the Application Gateway resource.
 4.	Create the schedules during which the runbooks need to be implemented.
 5.	Associate the runbooks with their respective schedules.
-6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway resource.
+6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway and Application Gateway VNET resource.
 
 ## Configure automation
 
@@ -56,6 +56,7 @@ Next, create the following two schedules:
 - WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
 - WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
 
+
 ## FAQs
 
 - What is the SLA for timely job executions?  
@@ -73,9 +74,15 @@ Next, create the following two schedules:
    | --- | --- |  
    |IncreaseMin |	Falls back on native autoscaling. Next run of DecreaseMin should be no-op as the count doesn’t need to be adjusted. | 
    |DecreaseMin |	Additional cost to the customer for the (unintended) capacity that is provisioned for those hours. Next run of IncreaseMin should be no-op because the count doesn’t need to be adjusted. | 
+
+- Can the autoscale configurations be changed multiple times per day?
   
+  Frequent adjustments to autoscale configurations are not advised. For optimal balance, consider scheduling updates twice 
+  daily to coincide with peak and non-peak usage pattern.
+   
 > [!NOTE]
-> Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. 
+> Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. If you run into some issue while setting up runbook please refer to [Troubleshoot Runbook Issues](../automation/troubleshoot/runbooks.md). You can setup runbook related alerts by following [Monitoring Azure Automation runbooks with metric alerts](../automation/automation-alert-metric.md).
+
 
 ## Next steps
 

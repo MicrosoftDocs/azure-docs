@@ -2,8 +2,8 @@
 title: Create an Azure Nexus Kubernetes cluster by using Azure PowerShell
 description: Learn how to create an Azure Nexus Kubernetes cluster by using Azure PowerShell.
 ms.service: azure-operator-nexus
-author: rashirg
-ms.author: rajeshwarig
+author: dramasamy
+ms.author: dramasamy
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 09/26/2023
@@ -117,6 +117,11 @@ New-AzNetworkCloudKubernetesCluster -KubernetesClusterName $CLUSTER_NAME `
 -NetworkConfigurationDnsServiceIP $SERVICE_CIDR `
 -NetworkConfigurationServiceCidr $DNS_SERVICE_IP
 ```
+
+If there isn't enough capacity to deploy requested cluster nodes, an error message appears. However, this message doesn't provide any details about the available capacity. It states that the cluster creation can't proceed due to insufficient capacity.
+
+> [!NOTE]
+> The capacity calculation takes into account the entire platform cluster, rather than being limited to individual racks. Therefore, if an agent pool is created in a zone (where a rack equals a zone) with insufficient capacity, but another zone has enough capacity, the cluster creation continues but will eventually time out. This approach to capacity checking only makes sense if a specific zone isn't specified during the creation of the cluster or agent pool.
 
 After a few minutes, the command completes and returns information about the cluster. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 

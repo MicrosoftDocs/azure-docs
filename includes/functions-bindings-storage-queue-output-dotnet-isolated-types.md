@@ -20,6 +20,7 @@ When you want the function to write multiple messages, the queue output binding 
 | --- | --- |
 | `T[]` where `T` is one of the single message types | An array containing content for multiple messages. Each entry represents one message. | 
 
-For other output scenarios, create and use types from [Azure.Storage.Queues] directly.
+For other output scenarios, create and use a [QueueClient] with other types from [Azure.Storage.Queues] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
 [Azure.Storage.Queues]: /dotnet/api/azure.storage.queues
+[QueueClient]: /dotnet/api/azure.storage.queues.queueclient

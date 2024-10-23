@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 01/06/2023
+ms.date: 03/21/2024
 ---
 
 # Troubleshoot Azure reservation recommendations
@@ -34,7 +34,7 @@ Azure classic compute resources such as classic VMs are explicitly excluded from
 
 If you want to understand why Azure recommends a specific resource size and quantity, select **\<Quantity\> See details** for an in-depth, visualization showing potential savings over time.
 
-:::image type="content" source="./media/troubleshoot-reservation-recommendation/see-details-link.png" alt-text="Example showing the reservation recommendation See details link" lightbox="./media/troubleshoot-reservation-recommendation/see-details-link.png" :::
+:::image type="content" source="./media/troubleshoot-reservation-recommendation/see-details-link.png" alt-text="Screenshot showing the reservation recommendation See details link." lightbox="./media/troubleshoot-reservation-recommendation/see-details-link.png" :::
 
 ## Solution
 

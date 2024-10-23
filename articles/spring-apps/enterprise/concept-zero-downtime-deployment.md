@@ -2,17 +2,16 @@
 title: Zero downtime deployment in Azure Spring Apps
 description: Learn about zero downtime deployment with blue-green deployment strategies in Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 08/29/2024
 ms.author: haital
 ms.custom: devx-track-java
 ---
 
 # Zero downtime deployment in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

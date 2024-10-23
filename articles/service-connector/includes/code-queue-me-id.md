@@ -21,7 +21,7 @@ ms.author: wchi
     using Azure.Storage.Queues;
     using Azure.Identity;    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -61,7 +61,7 @@ ms.author: wchi
     import com.azure.storage.queue.*;
     import com.azure.storage.queue.models.*;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -86,7 +86,7 @@ ms.author: wchi
     ```
 
 ### [SpringBoot](#tab/springBoot)
-The authentication type is not supported by Spring Boot client type.
+Refer to [Spring Cloud Azure Storage Queue Operation Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client) to set up your Spring application. The configuration properties (of Spring Cloud Azure 4.0 and above) are added to Spring Apps by Service Connector. For more information about configuration properties, check [Azure Storage Queue Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_queue_proeprties).
 
 ### [Python](#tab/python)
 1. Install dependencies.
@@ -100,7 +100,7 @@ The authentication type is not supported by Spring Boot client type.
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.storage.queue import QueueServiceClient, QueueClient
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -130,7 +130,7 @@ The authentication type is not supported by Spring Boot client type.
     const { QueueServiceClient } = require("@azure/storage-queue");
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

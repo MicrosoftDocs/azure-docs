@@ -4,12 +4,11 @@ description: Learn how Application Gateway integrates with Azure App Service.
 services: app-service
 author: madsd
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
-ms.service: app-service
-ms.workload: web
+ms.service: azure-app-service
 ms.topic: article
 ms.date: 09/29/2023
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

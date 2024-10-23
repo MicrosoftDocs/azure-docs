@@ -2,7 +2,7 @@
 title: 'Migration approaches: BizTalk Server to Azure Integration Services'
 description: Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Integration Services.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear
@@ -210,7 +210,7 @@ Consider the following testing recommendations for your migration project:
     - Mock testing capabilities for HTTP actions and Azure connectors.
     - Configure tests to use different setting values from production.
     
-  - [Integration Playbook: Logic Apps Standard Testing](https://www.mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
+  - [Integration Playbook: Logic Apps Standard Testing](https://mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
 
     The [Integration Playbook testing framework](https://github.com/michaelstephensonuk/IntegrationPlaybook-LogicApp-Standard-Testing) builds on the Microsoft-provided test framework and supports additional scenarios:
 
@@ -389,7 +389,7 @@ Again, having a naming convention is critical, although the format isn't overly 
 
 `CN-<*connector-name*>-<*logic-app-or-workflow-name*>`
 
-As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Serverless360 blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.serverless360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
+As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Turbo360 (Formerly Serverless360) blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.turbo360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
 
 ### Handle exceptions with scopes and "Run after" options
 

@@ -1,10 +1,10 @@
 ---
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
-ms.topic: conceptual
-ms.date: 08/14/2023
+ms.topic: overview
+ms.date: 10/01/2024
 ms.custom:
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -39,6 +39,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent, DPM server. | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
+| **Changed Vnet for Private endpoint in the Vault and Virtual Machine** | Stop backup protection and configure backup protection in a new vault with Private Endpoints enabled. |
 
 >[!NOTE]
 >Private endpoints are supported with only DPM server 2022, MABS v4, and later.
@@ -55,7 +56,7 @@ In addition to these connections when the workload extension or MARS agent is in
 | --- | --- | --- |
 | Azure Backup | `*.backup.windowsazure.com` | 443 |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` <br><br> `*.storage.azure.net` | 443 |
-| Microsoft Entra ID | `*.australiacentral.r.login.microsoft.com` <br><br>  [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
+| Microsoft Entra ID | `*.login.microsoft.com` <br><br>  [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 When the workload extension or MARS agent is installed for Recovery Services vault with private endpoint, the following endpoints are hit:
 
@@ -63,7 +64,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 | --- | --- | --- |
 | Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 443 |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net`   <br><br> `*.storage.azure.net` | 443 | 
-| Microsoft Entra ID |`*.australiacentral.r.login.microsoft.com` <br><br> [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
+| Microsoft Entra ID |`*.login.microsoft.com` <br><br> [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 >[!Note]
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:

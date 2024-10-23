@@ -3,7 +3,7 @@ title: 'Quickstart: Route to shared services using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn about how to set up routes to access a shared service VNet with a workload that you want every VNet and Branch to access using an Azure Resource Manager template (ARM template).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: quickstart
 ms.date: 03/03/2023
 ms.author: cherylmc
@@ -14,11 +14,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to set up routes to access a shared service VNet with workloads that you want every VNet and Branch (VPN/ER/P2S) to access. Examples of these shared workloads might include virtual machines with services like domain controllers or file shares, or Azure services exposed internally through [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ To deploy this template properly, you must use the button to Deploy to Azure but
 
 1. Click **Deploy to Azure**.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json":::
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
 1. On the template page, enter the values. For this template, the P2S public certificate data is required. The following example shows the certificate data. You can use the same certificate data for both hubs. Note that while it may be possible to use this example data to run the steps for this exercise, in order to connect properly, you must supply your own certificate data for your hubs. For more information, see [certificate data](certificates-point-to-site.md#cer).
 

@@ -2,7 +2,7 @@
 title: Azure Kubernetes network policies
 description: Learn about Kubernetes network policies to secure your Kubernetes cluster.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 03/25/2023
 ms.author: allensu
@@ -28,7 +28,7 @@ Azure Network Policy Manager can be used in the following ways to provide micro-
 
 Network Policy Manager is available natively in AKS and can be enabled at the time of cluster creation. 
 
-For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](../aks/use-network-policies.md).
+For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](/azure/aks/use-network-policies).
 
 ### Do it yourself (DIY) Kubernetes clusters in Azure
 
@@ -108,7 +108,7 @@ The metrics can be scraped through Azure Monitor for containers or through Prome
 
 ### Set up for Azure Monitor
 
-The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable Network Policy Manager integration and collection of Prometheus Network Policy Manager metrics. 
+The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](/azure/azure-monitor/containers/container-insights-overview). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable Network Policy Manager integration and collection of Prometheus Network Policy Manager metrics. 
 
 Azure Monitor for containers ConfigMap has an ```integrations``` section with settings to collect Network Policy Manager metrics. 
 
@@ -129,7 +129,7 @@ integrations: |-
 
 Advanced metrics are optional, and turning them on automatically turns on basic metrics collection. Advanced metrics currently include only `Network Policy Manager_ipset_counts`.
 
-Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-data-collection-configmap.md).
+Learn more about [Azure Monitor for containers collection settings in config map](/azure/azure-monitor/containers/container-insights-data-collection-configmap).
 
 ### Visualization options for Azure Monitor
 
@@ -146,7 +146,7 @@ Besides viewing the workbook, you can also directly query the Prometheus metrics
 | where Name contains "npm_"
 ```
 
-You can also query log analytics directly for the metrics. For more information, see [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md).
+You can also query log analytics directly for the metrics. For more information, see [Getting Started with Log Analytics Queries](/azure/azure-monitor/containers/container-insights-log-query).
 
 #### Viewing in Grafana dashboard
 
@@ -302,7 +302,7 @@ Following are some sample dashboard for Network Policy Manager metrics in contai
 
 ## Next steps
 
-- Learn about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+- Learn about [Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 - Learn about [container networking](container-networking-overview.md).
 

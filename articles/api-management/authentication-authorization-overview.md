@@ -4,13 +4,15 @@ titleSuffix: Azure API Management
 description: Learn about authentication and authorization features in Azure API Management to secure access to APIs, including options for OAuth 2.0 authorization.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 11/08/2023
 ms.author: danlep
 ---
 
 # Authentication and authorization to APIs in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article is an introduction to a rich, flexible set of features in API Management that help you secure users' access to managed APIs.
 
@@ -152,3 +154,4 @@ While authorization is preferred, and OAuth 2.0 has become the dominant method o
 ## Next steps
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.
 * Learn how to [mitigate OWASP API security threats](mitigate-owasp-api-threats.md) using API Management.
+* Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)   

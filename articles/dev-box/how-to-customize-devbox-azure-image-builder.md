@@ -7,27 +7,25 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/02/2024
+ms.date: 10/22/2024
 ms.topic: how-to
+ai-usage: ai-assisted
 ---
 
 # Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box
 
 In this article, you use Azure VM Image Builder to create a customized dev box in Microsoft Dev Box by using a template. The template includes a customization step to install Visual Studio Code (VS Code).
 
-When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
+Using standardized virtual machine (VM) images helps you ensure consistent deployments as you migrate to the cloud. These images can include predefined security, configuration settings, and necessary software. Setting up an imaging pipeline can be time-consuming and complex. Azure VM Image Builder simplifies this process by allowing you to create a configuration for your image, which the service then builds and submits to a dev box project.
 
-Although it's possible to create custom VM images by hand or by using other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service.
+Creating custom VM images manually or with other tools can be difficult and unreliable. VM Image Builder, which is built on HashiCorp Packer, offers the advantages of a managed service.
 
-To reduce the complexity of creating VM images, VM Image Builder:
+To simplify VM image creation, VM Image Builder:
 
-- Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). And it gives more advanced users the ability to override such requirements.
-
-- Works with existing image build pipelines for a click-and-go experience. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service DevOps task.
-
-- Fetches customization data from various sources, which removes the need to collect them all from one place.
-
-- Integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
+- Eliminates the need for complex tools, processes, and manual steps. It abstracts these details and hides Azure-specific needs, like generalizing the image (Sysprep), while allowing advanced users to override if necessary.
+- Works with existing image build pipelines. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service DevOps task.
+- Gathers customization data from various sources, so you don't have to collect it all in one place.
+- Integrates with Azure Compute Gallery, creating an image management system for global distribution, replication, versioning, and scaling. You can distribute the same image as a virtual hard disk or managed images without rebuilding them.
 
 > [!IMPORTANT]
 > Microsoft Dev Box supports only images that use the security type [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) enabled.
@@ -43,7 +41,9 @@ To provision a custom image that you created by using VM Image Builder, you need
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The first step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this task by using the Azure CLI.
+The first step is to use Azure VM Image Builder and Azure PowerShell to create an image in Azure Compute Gallery and distribute it globally. 
+
+The following example uses PowerShell. You can also use the Azure Command-Line Interface (CLI).
 
 1. To use VM Image Builder, you need to register the features.
 
@@ -101,7 +101,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 1. Create a user-assigned identity and set permissions on the resource group by running the following code in PowerShell.
 
-   VM Image Builder uses the provided user identity to inject the image into Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
+   VM Image Builder uses the user identity you provide to store the image in Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
 
    ```powershell
    # Set up role definition names, which need to be unique 
@@ -121,7 +121,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 1. Assign permissions for the identity to distribute the images.
 
-   Use this command to download an Azure role definition template, and then update it with the previously specified parameters:
+   Use this command to download an Azure role definition template, and update it with the previously specified parameters:
 
    ```powershell
    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json" 
@@ -142,7 +142,7 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 
 ## Create a gallery
 
-To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
+To use VM Image Builder with Azure Compute Gallery, make sure you have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
 
 1. Run the following commands to create a new gallery and image definition.
 
@@ -217,7 +217,7 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
             "type": "PlatformImage",
             "publisher": "MicrosoftWindowsDesktop",
             "offer": "Windows-11",
-            "sku": "win11-21h2-avd",
+            "sku": "win11-21h2-ent",
             "version": "latest"
          },
            "customize": [
@@ -310,11 +310,11 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
 
 ## Configure the gallery
 
-After your custom image is provisioned in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
+When your custom image is stored in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
 
 ## Set up Microsoft Dev Box with a custom image
 
-After the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
+When the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 
 ## Related content
 

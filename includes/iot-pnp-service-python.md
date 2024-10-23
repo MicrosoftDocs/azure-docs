@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -73,11 +73,11 @@ In this tutorial, you use a sample IoT solution in Python to interact with the s
 1. Open the *registry_manager_pnp_sample.py* file and review the code. This sample shows how to use the **IoTHubRegistryManager** class to interact with your IoT Plug and Play device.
 
 > [!NOTE]
-> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
+> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot/concepts-developer-guide-service.md).
 
 ### Get the device twin
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.

@@ -3,7 +3,7 @@ title: Set a default internet route or turn off internet access
 description: Learn how to set a default internet route or turn off internet access in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/11/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -41,6 +41,6 @@ If you don't have a default route from on-premises or from Azure, by completing 
 
 ## Related content
 
-- [Internet connectivity design considerations](concepts-design-public-internet-access.md)
+- [Internet connectivity design considerations](architecture-design-public-internet-access.md)
 - [Turn on Managed SNAT for Azure VMware Solution workloads](enable-managed-snat-for-workloads.md)
 - [Turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md)

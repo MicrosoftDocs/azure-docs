@@ -3,12 +3,12 @@ title: Serverless SQL pool
 description: Learn about serverless SQL pool in Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 12/06/2022
+ms.date: 09/12/2024
 ms.author: fipopovi
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 # Serverless SQL pool in Azure Synapse Analytics
 
@@ -23,13 +23,13 @@ Serverless SQL pool is a distributed data processing system, built for large-sca
 
 Serverless SQL pool is serverless, hence there's no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. 
 
-There is no charge for resources reserved, you are only being charged for the data processed by queries you run, hence this model is a true pay-per-use model.  
+There's no charge for resources reserved. You are only being charged for the data processed by queries you run, hence this model is a true pay-per-use model.  
 
-If you use Apache Spark for Azure Synapse in your data pipeline, for data preparation, cleansing or enrichment, you can [query external Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from serverless SQL pool. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your serverless SQL pool endpoint into your [managed workspace VNet](../security/synapse-workspace-managed-vnet.md).  
+If you use Apache Spark for Azure Synapse in your data pipeline, for data preparation, cleansing or enrichment, you can [query external Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from serverless SQL pool. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your serverless SQL pool endpoint into your [managed workspace virtual network](../security/synapse-workspace-managed-vnet.md).  
 
 ## Serverless SQL pool benefits
 
-If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using serverless SQL pool. It is suitable for the following scenarios:
+If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using serverless SQL pool. It's suitable for the following scenarios:
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
 - Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data. Learn more about [creating logical data warehouse](tutorial-logical-data-warehouse.md).
@@ -44,9 +44,9 @@ Different professional roles can benefit from serverless SQL pool:
 
 ## How to start using serverless SQL pool
 
-Serverless SQL pool endpoint is provided within every Azure Synapse workspace. You can create a workspace and start querying data instantly using tools you are familiar with.
+Serverless SQL pool endpoint is provided within every Azure Synapse workspace. You can create a workspace and start querying data instantly using tools you're familiar with.
 
-Make sure that you are applying [the best practices](best-practices-serverless-sql-pool.md) to get the best performance.
+Make sure that you're applying [the best practices](best-practices-serverless-sql-pool.md) to get the best performance.
 
 ## Client tools
 
@@ -116,9 +116,9 @@ Serverless SQL pool offers mechanisms to secure access to your data.
 
 <a name='azure-active-directory-integration-and-multi-factor-authentication'></a>
 
-### Microsoft Entra integration and multi-factor authentication
+### Microsoft Entra integration and multifactor authentication
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Microsoft Entra integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Microsoft Entra ID supports [multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Microsoft Entra integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Microsoft Entra ID supports [multifactor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 
@@ -130,7 +130,7 @@ Serverless SQL pool authentication refers to how users prove their identity when
 
 - **Microsoft Entra authentication**:
 
-  This authentication method uses identities managed by Microsoft Entra ID. For Microsoft Entra users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
+  This authentication method uses identities managed by Microsoft Entra ID. For Microsoft Entra users, multifactor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### Authorization
 
@@ -142,7 +142,7 @@ If Microsoft Entra authentication is used, a user can sign in to serverless SQL 
 
 ### Access to storage accounts
 
-A user that is logged into the serverless SQL pool service must be authorized to access and query the files in Azure Storage. serverless SQL pool supports the following authorization types:
+A user that is logged into the serverless SQL pool service must be authorized to access and query the files in Azure Storage. Serverless SQL pool supports the following authorization types:
 
 - **[Shared access signature (SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 

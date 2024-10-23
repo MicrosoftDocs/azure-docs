@@ -1,17 +1,17 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
-author: MaryMichael-MS
-ms.author: v-michaelar
+description: Provides an overview of known issues in the Azure Migrate service, and troubleshooting tips for common errors.
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/01/2021
 ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Migration and modernization.
+[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, and third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Migration and modernization.
 
 ## How do I create or find a project?
 

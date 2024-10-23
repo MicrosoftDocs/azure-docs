@@ -4,11 +4,13 @@ description: Learn how to set up labs to React development class.
 author: emaher
 ms.topic: how-to
 ms.date: 04/25/2022
-ms.custom: devdivchpfy22
-ms.service: lab-services
+ms.custom: devdivchpfy22, linux-related-content
+ms.service: azure-lab-services
 ---
 
 # Set up lab for React on Linux
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

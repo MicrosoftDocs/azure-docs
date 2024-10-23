@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 05/23/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Convert Map and Filled map visuals to an Azure Maps visual

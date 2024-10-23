@@ -1,8 +1,10 @@
 ---
 title: Manage authentication in Service Connector
-description: Learn how to select and manage authentication parameters in Service Connector. 
+description: Learn how to select and manage authentication parameters in Service Connector.
 author: maud-lv
 ms.service: service-connector
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 10/25/2023
 ms.author: malev
@@ -33,8 +35,9 @@ Select one of the four different authentication options offered by Service Conne
 
 Service Connector offers the following authentication options:
 
-| Target resource                               | System assigned managed identity | User assigned managed identity | Connection string | Service principal |
+| Target resource                               | System assigned managed identity | User assigned managed identity (Workload identity) | Connection string | Service principal |
 |-----------------------------------------------|----------------------------------|--------------------------------|-------------------|-------------------|
+| Azure AI services                             | Yes                              | Yes                            | Yes               | Yes               |
 | Azure App Configuration                       | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Blob Storage                            | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cache for Redis                         | No                               | No                             | Yes               | No                |

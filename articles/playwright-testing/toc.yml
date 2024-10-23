@@ -19,6 +19,9 @@ items:
     - name: Set up continuous end-to-end testing
       displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
       href: quickstart-automate-end-to-end-testing.md
+    - name: Troubleshoot using rich reports and atrifacts 
+      displayName: getting started, quickstart, reporting, cli, playwright, command-line
+      href: quickstart-generate-rich-reports-for-tests.md
 - name: Concepts
   expanded: true
   items:
@@ -46,7 +49,14 @@ items:
       href: how-to-configure-visual-comparisons.md   
     - name: Monitor Microsoft Playwright Testing
       href: monitor-playwright-testing.md
-
+    - name: Use Microsoft Playwright Testing with sharding
+      href: playwright-testing-reporting-with-sharding.md
+    - name: Manage authentication
+      href: how-to-manage-authentication.md
+    - name: Use service features
+      href: how-to-use-service-features.md
+    - name: Use service package options
+      href: how-to-use-service-config-file.md
 - name: Samples
   items:
     - name: Contoso Traders cloud testing demo

@@ -5,14 +5,20 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial
-ms.date: 01/05/2023
+ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
-#Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
+
+
+#Customer intent: As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
+
 ---
 
 # Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent
 
 In this tutorial, you configure a Linux virtual machine (VM) to forward Syslog data to your workspace by using Azure Monitor Agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
+
+> [!NOTE]
+> Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog).
 
 Configure your Linux-based device to send data to a Linux VM. Azure Monitor Agent on the VM forwards the Syslog data to the Log Analytics workspace. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
 
@@ -38,13 +44,13 @@ To complete the steps in this tutorial, you must have the following resources an
   |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription </br>- Resource group </br>- Existing data collection rule        | To create or edit data collection rules        |
 - A Log Analytics workspace.
 - A Linux server that's running an operating system that supports Azure Monitor Agent.
-   - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
-   - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+   - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
+   - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - A Linux-based device that generates event log data like a firewall network device.
 
-## Create a data collection rule
+## Configure Azure Monitor Agent to collect Syslog data
 
-See the step-by-step instructions in [Create a data collection rule](../azure-monitor/agents/data-collection-syslog.md#create-a-data-collection-rule).
+See the step-by-step instructions in [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
 
 ## Verify that Azure Monitor Agent is running
 
@@ -65,6 +71,15 @@ In Microsoft Sentinel or Azure Monitor, verify that Azure Monitor Agent is runni
 ## Enable log reception on port 514
 
 Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the Syslog source. Then configure the built-in Linux Syslog daemon on the VM to listen for Syslog messages from your devices. After you finish those steps, configure your Linux-based device to send logs to your VM.
+
+> [!NOTE]
+> If the firewall is running, a rule will need to be created to allow remote systems to reach the daemon’s syslog listener: `systemctl status firewalld.service`
+> 1. Add for tcp 514 (your zone/port/protocol may differ depending on your scenario)
+>      `firewall-cmd --zone=public --add-port=514/tcp --permanent`
+> 2. Add for udp 514 (your zone/port/protocol may differ depending on your scenario)
+>      `firewall-cmd --zone=public --add-port=514/udp --permanent`
+> 3. Restart the firewall service to ensure new rules take effect
+>      `systemctl restart firewalld.service`
 
 The following two sections cover how to add an inbound port rule for an Azure VM and configure the built-in Linux Syslog daemon.
 
@@ -91,17 +106,17 @@ If you're forwarding Syslog data to an Azure VM, follow these steps to allow rec
 
 ### Configure the Linux Syslog daemon
 
-> [!NOTE]
-> To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
-> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
-
-Connect to your Linux VM and run the following command to configure the Linux Syslog daemon:
+Connect to your Linux VM and configure the Linux Syslog daemon. For example, run the following command, adapting the command as needed for your network environment:
 
 ```bash
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py
 ```
 
 This script can make changes for both rsyslog.d and syslog-ng.
+
+> [!NOTE]
+> To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
+> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents).
 
 ## Verify Syslog data is forwarded to your Log Analytics workspace
 
@@ -123,10 +138,7 @@ After you configure your Linux-based device to send logs to your VM, verify that
 
 Evaluate whether you need the resources like the VM that you created. Resources you leave running can cost you money. Delete the resources you don't need individually. You can also delete the resource group to delete all the resources you created.
 
-## Next steps
+## Related content
 
-Learn more about:
-
-> [!div class="nextstepaction"]
-> [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-> [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md)
+- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+- [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog)

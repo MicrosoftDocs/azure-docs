@@ -5,7 +5,7 @@ summary: Quickly set up a development, test, hackathon, or a classroom lab for y
 metadata:
   title: Azure DevTest Labs documentation
   description: Use Azure DevTest Labs to quickly set up a lab in the cloud. Create a development, test, hackathon, or classroom lab for your team or students.
-  ms.service: devtest-lab
+  ms.service: azure-devtest-labs
   ms.topic: landing-page
   author: RoseHJM
   ms.author: rosemalcolm
@@ -27,6 +27,8 @@ landingContent:
             url: devtest-lab-concepts.md
           - text: Popular scenarios
             url: devtest-lab-guidance-get-started.md
+          - text: DevTest Labs Roadmap
+            url: devtest-labs-roadmap.md
       - linkListType: tutorial
         links:
           - text: Set up a lab
@@ -47,18 +49,6 @@ landingContent:
             url: devtest-lab-mandatory-artifacts.md 
           - text: Troubleshoot artifact failures
             url: devtest-lab-troubleshoot-artifact-failure.md
-  - title: Environments
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure & use public environments 
-            url: devtest-lab-configure-use-public-environments.md
-          - text: Create an environment
-            url: devtest-lab-create-environment-from-arm.md
-          - text: Use platform-as-a-service services
-            url: use-paas-services.md 
-          - text: Connect to lab's virtual network
-            url: connect-environment-lab-virtual-network.md  
   - title: Templates
     linkLists:
       - linkListType: concept

@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/01/2023
+
+
+#Customer intent: As a security analyst, I want to use Microsoft Sentinel for incident investigation so that I can efficiently manage and resolve security threats.
+
 ---
 
 # Understand Microsoft Sentinel's incident investigation and case management capabilities
@@ -69,8 +73,6 @@ The **Entities tab** contains a list of all the entities in the incident. When a
 - **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
 - **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it. These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
-
-    As of November 2023, the **Insights** panel includes the next generation of insights, available in **PREVIEW**, in the form of [enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview), alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
 
 Depending on the entity type, you can take a number of further actions from this side panel:
 - Pivot to the entity's full [entity page](entity-pages.md) to get even more details over a longer timespan or launch the graphical investigation tool centered on that entity.

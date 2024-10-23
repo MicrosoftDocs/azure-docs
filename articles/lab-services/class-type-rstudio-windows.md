@@ -3,14 +3,16 @@ title: Set up RStudio lab on Windows
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to teach R using RStudio on Windows.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 04/24/2023
 ---
 
 # Set up a lab to teach R on Windows with Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -18,8 +20,7 @@ This article shows you how to set up a class in Azure Lab Services for teaching 
 
 [R](https://www.r-project.org/about.html) is an open-source language used for statistical computing and graphics.  The R language is used in the statistical analysis of genetics to natural language processing to analyzing financial data.  R provides an [interactive command line](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) experience.  [RStudio](https://www.rstudio.com/products/rstudio/) is an interactive development environment (IDE) available for the R language.  The free version provides code-editing tools, an integrated debugging experience, and package development tools.
 
-This article focuses on using R and RStudio for statistical computing. The [deep learning] (class-type-deep-learning-natural-language-processing.md) and [Python and Jupyter Notebooks](class-type-jupyter-notebook.md)
-class types set up RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) marketplace image, which has many [data science related tools](../machine-learning/data-science-virtual-machine/tools-included.md), including RStudio, pre-installed.
+This article focuses on using R and RStudio for statistical computing. The [deep learning] (class-type-deep-learning-natural-language-processing.md) and [Python and Jupyter Notebooks](class-type-jupyter-notebook.md) class types set up RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) marketplace image, which has many [data science related tools](/azure/machine-learning/data-science-virtual-machine/tools-included), including RStudio, pre-installed.
 
 
 ## Prerequisites
@@ -30,7 +31,7 @@ class types set up RStudio differently.  Each article describes how to use the [
 
 ### External resource configuration
 
-Some classes require files, such as large data files, to be stored externally.  See [use external file storage in Azure Lab Services](how-to-attach-external-storage.md) for options and setup instructions.
+Some classes require files, such as large data files, to be stored externally.
 
 If you choose to have a shared R Server for the students, the server should be set up before the lab is created.  For more information on how to set up a shared server, see [how to create a lab with a shared resource in Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  For instructions to create an RStudio Server, see [Download RStudio Server for Debian & Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) and [Accessing RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
 

@@ -5,7 +5,7 @@ description: Learn about how you can choose how your traffic routes between Azur
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.topic: conceptual
@@ -52,7 +52,7 @@ Public IP with routing preference choice **Microsoft Global Network** can be ass
 
 * Azure Kubernetes Service (AKS)
 
-* Internet-facing load balancer
+* Public load balancer (NIC-based backend only)
 
 * Application Gateway
 
@@ -77,6 +77,8 @@ The price difference between both options is reflected in the internet egress da
 * Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address isn't supported.
 
 * Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.
+
+* Internet routing preference public IP addresses are not compatible with NAT Gateways or IP-based Public Load Balancers.
 
 ### Regional availability
 

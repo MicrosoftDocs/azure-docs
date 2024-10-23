@@ -1,11 +1,17 @@
 ---
 title: Update Visual Studio's template deployment script to use Az PowerShell
 description: Update the Visual Studio template deployment script from AzureRM to Az PowerShell
-ms.topic: conceptual
-ms.date: 06/23/2023
+ms.topic: how-to
+ms.date: 10/18/2024
 ---
 
 # Update Visual Studio template deployment script to use Az PowerShell module
+
+> [!NOTE]
+> The Azure Resource Group project is now in extended support, meaning we will continue to support existing features and capabilities but won't prioritize adding new features.
+
+> [!NOTE]
+> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio?view=vs-2022). Upgrading will improve both the reliability and overall performance of your Visual Studio environment.
 
 Visual Studio 16.4 supports using the Az PowerShell module in the template deployment script. However, Visual Studio doesn't automatically install that module. To use the Az module, you need to take four steps:
 

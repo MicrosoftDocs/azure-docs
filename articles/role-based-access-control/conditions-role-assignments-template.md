@@ -1,13 +1,11 @@
 ---
 title: Add Azure role assignment conditions using Azure Resource Manager templates - Azure ABAC
 description: Learn how to add attribute-based access control (ABAC) conditions in Azure role assignments using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-arm-template
 ms.date: 10/24/2022
 ms.author: rolyon

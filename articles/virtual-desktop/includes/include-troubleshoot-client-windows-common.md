@@ -73,7 +73,7 @@ To configure the policy to enable users to connect again depending on whether yo
 
 For Group Policy:
 
-1. Open the **Group Policy Management Console** (GPMC) for session hosts managed with Active Directory or the **Local Group Policy Editor console** and edit the policy that targets your session hosts.
+1. Open the **Group Policy Management Console (GPMC)** for session hosts managed with Active Directory or the **Local Group Policy Editor console** and edit the policy that targets your session hosts.
 
 1. Browse to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**
 

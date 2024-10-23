@@ -5,15 +5,11 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 03/15/2024
 # Customer intent: As a developer, I want to prevent access to and from other Microsoft Entra tenants.
 ---
 
-# Block connections to and from other tenants in Azure Logic Apps (Preview)
-
-> [!NOTE]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Block connections to and from other tenants in Azure Logic Apps
 
 Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Microsoft Entra ID to authenticate your credentials.
 

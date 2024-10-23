@@ -2,7 +2,7 @@
 title: Tutorial - View protectable resources
 description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity center.
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 07/22/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -18,7 +18,7 @@ This tutorial shows you how to view your resources that are currently not protec
 
 Before you start this tutorial:
 
-- Review supported regions for ABC Center.
+- Review [supported regions for ABC Center](business-continuity-center-support-matrix.md#supported-regions).
 - Ensure you have the required resource permissions to view them in the ABC center.
 
 ## View protectable resources
@@ -36,11 +36,16 @@ In this view, you can see a list of all the resources which are not protected by
 
 > [!NOTE]
 > Currently, you can only view the unprotected Azure resources under **Protectable resources**.
- 
+
+You can also query information on your protectable Azure resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
+
+To get started with querying your protectable Azure resources using ARG, you can use the sample query provided by selecting **Open query**.
+
+:::image type="content" source="./media/tutorial-view-protectable-resources/query-on-protectable-instance.png" alt-text="Screenshot showing how to query information on protectable instance." lightbox="./media/tutorial-view-protectable-resources/query-on-protectable-instance.png":::
 
 ## Customize the view
 
-By default, only Azure Virtual machines are shown in the **Protectable resources** list.You can change the filters to view other resources.
+By default, only Azure Virtual machines are shown in the **Protectable resources** list. You can change the filters to view other resources.
 
 - To look for specific resources, you can use various filters, such as subscriptions, resource groups, location, and resource type, and more. 
     :::image type="content" source="./media/tutorial-view-protectable-resources/filter.png" alt-text="Screenshot showing the filtering options." lightbox="./media/tutorial-view-protectable-resources/filter.png":::

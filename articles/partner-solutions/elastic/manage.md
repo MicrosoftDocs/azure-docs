@@ -3,8 +3,8 @@ title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
 ms.date: 10/06/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 ---
 
 # Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -30,7 +30,7 @@ You can filter the list by resource type, resource group name, location, and whe
 The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
 
 - Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 - An error is blocking the logs from being sent to Elastic.
 - Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
 - Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
@@ -69,6 +69,16 @@ To configure the diagnostic settings for a resource, select that resource. In th
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. The option is only available after an Elastic resource has been created.
 
 :::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Screenshot of configure diagnostic settings.":::
+
+## Configure Azure OpenAI Connector
+
+If not configured already while creating the resource, you can navigate to the **Azure OpenAI configuration** blade under the Elastic deployment configuration section. Click on **Add** to select the Azure OpenAI resource and a deployment of a text/chat completion model(like gpt4). This makes it seamless for you to have your connector ready without having to switch contexts between the AOAI resource(in Azure portal) and the Connectors page in Elastic portal, thus avoiding having to copy and paste urls and keys.
+
+:::image type="content" source="media/manage/add-aoai-config.png" alt-text="Screenshot of Configure Azure OpenAI Connector.":::
+
+Click on **Create**.
+
+Once the Connector is created, navigate to Kibana and search for Connectors under Stack Management. The newly created Azure OpenAI Connector should be visible there. This connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment. Learn more about Elastic OpenAI Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
 
 ## Private link management
 

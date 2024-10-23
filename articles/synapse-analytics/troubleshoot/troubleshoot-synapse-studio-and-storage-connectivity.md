@@ -3,11 +3,11 @@ title: Troubleshoot connectivity between Synapse Studio and storage
 description: Troubleshoot connectivity between Synapse Studio and storage  
 author: Danzhang-msft
 ms.author: danzhang
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Troubleshoot connectivity between Azure Synapse Analytics Synapse Studio and storage

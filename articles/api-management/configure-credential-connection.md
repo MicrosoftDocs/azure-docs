@@ -3,13 +3,15 @@ title: Set up multiple connections - Azure API Management
 description: Learn how to set up multiple connections to a configured API credential provider using the portal. 
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 11/08/2023
 ms.author: danlep
 ---
 
 # Configure multiple connections
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 You can configure multiple connections to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple connections for different scenarios and users.
 

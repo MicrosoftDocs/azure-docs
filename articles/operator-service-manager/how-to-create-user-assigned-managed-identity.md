@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 
 In this how-to guide, you learn how to:
 - Create a User Assigned Managed Identity (UAMI) for your Site Network Service (SNS).
-- Assign that User Assigned Managed Identity permissions. 
+- Assign that User Assigned Managed Identity permissions.
 
 The requirement for a User Assigned Managed Identity and the required permissions depend on the Network Service Design (NSD) and must have been communicated to you by the Network Service Designer.
 
@@ -38,7 +38,7 @@ The publisher resources that you need to assign the custom role to are:
 
 - The Network Function Definition Version(s)
 
-You must decide if you want to assign the custom role individually to this NFDV, or to a parent resource such as the publisher resource group or Network Function Definition Group. 
+You must decide if you want to assign the custom role individually to this NFDV, or to a parent resource such as the publisher resource group or Network Function Definition Group.
 
 Applying to a parent resource grants access over all child resources. For example, applying to the whole publisher resource group gives the managed identity access to:
 - All the Network Function Definition Groups and Versions.
@@ -70,15 +70,15 @@ The custom role permissions limit access to the list of the permissions shown he
 
 3. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page.":::
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page." lightbox="media/how-to-assign-custom-role-resource-group.png":::
 
-4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*. 
+4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*.
 
-    :::image type="content" source="media/how-to-assign-custom-role-add-assignment.png" alt-text="Screenshot showing the add role assignment screen.":::
+    :::image type="content" source="media/how-to-assign-custom-role-add-assignment.png" alt-text="Screenshot showing the add role assignment screen." lightbox="media/how-to-assign-custom-role-add-assignment.png":::
 
 5. Select **Managed Identity**, then Choose **+ Select Members** then find and choose your new managed identity. Choose **Select**.
 
-    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment and select managed identities.":::   
+    :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment and select managed identities." lightbox="media/how-to-custom-assign-user-access-managed-identity.png":::
 
 
 7. Select **Review and assign**.
@@ -93,16 +93,16 @@ Repeat the role assignment tasks for all of your chosen scopes.
 1. Select *identity-for-nginx-sns* from the list of **Managed Identities**.
 1. On the side menu, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
-:::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role add role assignment.":::
+:::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
 
 1. Select the **Managed Identity Operator** role.
 
-    :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role.":::
+    :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role." lightbox="media/managed-identity-operator-role-virtual-network-function.png":::
 
 1. Select **Managed identity**.
 1. Select **+ Select members** and navigate to the user-assigned managed identity and proceed with the assignment.
 
-    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
+    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
 
 Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 

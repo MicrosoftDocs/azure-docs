@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022
 ms.custom: template-concept
@@ -58,7 +58,7 @@ You can access the following packet core dashboards:
 > [!TIP]
 > Some packet core dashboards display different panels depending on whether the packet core instance supports 5G, 4G, or combined 4G and 5G user equipment (UEs).
 
-- The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
+- The **Overview dashboard** displays important *key performance indicators (KPIs)*, including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 

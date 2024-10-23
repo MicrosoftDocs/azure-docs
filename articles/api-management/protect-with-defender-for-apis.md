@@ -4,14 +4,18 @@ description: Learn how to enable advanced API security features in Azure API Man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ---
 # Enable advanced API security features using Microsoft Defender for Cloud 
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), offers full lifecycle protection, detection, and response coverage for APIs that are managed in Azure API Management. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 Capabilities of Defender for APIs include:
 
@@ -23,8 +27,6 @@ Capabilities of Defender for APIs include:
 * Integrate with SIEM systems and Defender Cloud Security Posture Management
 
 This article shows how to use the Azure portal to enable Defender for APIs from your API Management instance and view a summary of security recommendations and alerts for onboarded APIs. 
-
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Plan limitations
 
@@ -110,4 +112,5 @@ You can remove APIs from protection by Defender for APIs by using Defender for C
 
 * Learn more about [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 * Learn more about [API findings, recommendations, and alerts](/azure/defender-for-cloud/defender-for-apis-posture) in Defender for APIs
+Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)
 * Learn how to [upgrade and scale](upgrade-and-scale.md) an API Management instance

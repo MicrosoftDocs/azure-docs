@@ -3,7 +3,7 @@
  description: include file
  services: virtual-network
  author: asudbring
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
  ms.date: 06/06/2023
  ms.author: allensu
@@ -12,11 +12,11 @@
 
 ## Create virtual machines
 
-The following procedure creates two virtual machines (VMs) named **vm-1** and **vm-2** in the virtual network.
+The following procedure creates two VMs named **vm-1** and **vm-2** in the virtual network:
 
 1. In the portal, search for and select **Virtual machines**.
 
-1. In **Virtual machines**, select **+ Create**, then **Azure virtual machine**.
+1. In **Virtual machines**, select **+ Create**, and then select **Azure virtual machine**.
 
 1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
 
@@ -41,9 +41,7 @@ The following procedure creates two virtual machines (VMs) named **vm-1** and **
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
-1. Select the **Networking** tab at the top of the page.
-
-1. Enter or select the following information in the **Networking** tab:
+1. Select the **Networking** tab. Enter or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -58,18 +56,18 @@ The following procedure creates two virtual machines (VMs) named **vm-1** and **
 
 1. Review the settings and select **Create**.
 
-1. Repeat the previous steps to create a second virtual machine with the following settings:
+1. Wait for the first virtual machine to deploy then repeat the previous steps to create a second virtual machine with the following settings:
 
     | Setting | Value |
     |---|---|
     | Virtual machine name | Enter **vm-2**. |
     | Virtual network | Select **vnet-1**. |
-    | Subnet | Select **subnet-1 (10.0.0.0/24)** |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **nsg-1** |
+    | Configure network security group | Select **nsg-1**. |
 
->[!NOTE]
->Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
+> [!NOTE]
+> Virtual machines in a virtual network with an Azure Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
 
-[!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]

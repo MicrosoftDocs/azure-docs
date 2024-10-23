@@ -4,16 +4,17 @@ titleSuffix: Azure Front Door
 description: This article provides a tutorial on how to configure Rules engine in both the Azure portal and Azure CLI.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.date: 06/06/2023
-ms.author: duau 
+ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI.
 ---
 
 # Tutorial: Configure your rules engine
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI. 
 

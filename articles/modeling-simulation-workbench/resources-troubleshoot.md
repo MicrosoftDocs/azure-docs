@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Modeling and Simulation Workbench
-description: In this article, learn how to troubleshoot some issues with an Azure Modeling and Simulation Workbench
+description: Learn how to troubleshoot issues with an Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 07/19/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
@@ -13,6 +13,8 @@ ms.date: 07/19/2023
 # Troubleshoot Azure Modeling and Simulation Workbench
 
 This troubleshooting guide contains general troubleshooting steps and information for Azure Modeling and Simulation Workbench. The content is organized by topic type.
+
+Additional troubleshooting steps for transient issues can be found on the [Known Issues](./troubleshoot-known-issues.md) page.
 
 ## Remote desktop troubleshooting
 
@@ -30,8 +32,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 #### Failing for all users
 
-- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-azure-active-directory) article to verify your application registration is set up correctly.
-- Review the [Update the application in Microsoft Entra ID](./quickstart-create-portal.md#add-redirect-uris-for-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
+- Review the [Create an application in Microsoft Entra ID](./get-started-modeling-simulation-workbench.md#create-an-application-in-microsoft-entra-id) article and verify your application registration is set up correctly.
+- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, [re-register the redirect URIs](./how-to-guide-add-redirect-uris.md).
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**
@@ -44,8 +46,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 #### Failing for some users
 
 1. Ensure the user is provisioned as a Chamber User or a Chamber Admin on the **chamber** resource. They should be set up as an IAM role directly for that chamber, not as a parent resource with inherited permission.
-1. Ensure the user has a valid email set for their Microsoft Entra profile, and that their Microsoft Entra alias matches their email alias. For example, a Microsoft Entra sign-in alias of _jane.doe_ must also have an email alias of _jane.doe_. Jane Doe can't sign in to Microsoft Entra ID with jadoe or any other variation.
-1. Validate your /mount/sharehome folder has available space. The /mount/sharedhome directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/chamberstorages/\<storage name\> directory instead for all your data storage and tool installation needs.
+1. Ensure the user has a valid email set for their Microsoft Entra profile, and that their Microsoft Entra alias matches their email alias. For example, a Microsoft Entra sign-in alias of *jane.doe* must also have an email alias of *jane.doe*. Jane Doe can't sign in to Microsoft Entra ID with *jadoe* or any other variation.
+1. Validate your `/mount/sharehome` folder has available space. The`/mount/sharedhome` directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/chamberstorages/\<storage name\> directory instead for all your data storage and tool installation needs.
 1. Validate your folder permission settings are correct within your chamber. User provisioning may not work properly if the folder permission settings aren't correct. You can check folder permissions in a terminal session using the *ls -al* command for each /mount/sharedhome/\<useralias\>/.ssh folder, results should match below expectations:
 
      ```text
@@ -64,7 +66,7 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 ### License error
 
-An *all licenses are in use for the remote desktop error* means that all licenses are already being used for the remote desktop tool. Ask someone on your team to sign out of their session so that you can sign in.  Or contact your Microsoft account manager to get more remote desktop licenses.
+An *all licenses are in use for the remote desktop error* means that all licenses are already being used for the remote desktop tool. Ask someone on your team to sign out of their session so that you can sign in. Or contact your Microsoft account manager to get more remote desktop licenses.
 
 ## License server troubleshooting
 
@@ -128,8 +130,8 @@ An *all licenses are in use for the remote desktop error* means that all license
 
 ### Unable to approve data export request
 
-1. Confirm you're a Workbench Owner.  A Workbench Owner has a Subscription Owner or Subscription Contributor role assigned to them. It's the only role that can approve (or reject) a data export request.
-1. Confirm you didn't request the data export.  The user who requests the data export isn't allowed to also approve the data export.  For more information about data export, see [Export data from chamber.](./how-to-guide-download-data.md)
+1. Confirm you're a Workbench Owner. A Workbench Owner has a Subscription Owner or Subscription Contributor role assigned to them. It's the only role that can approve (or reject) a data export request.
+1. Confirm you didn't request the data export. The user who requests the data export isn't allowed to also approve the data export. For more information about data export, see [Export data from chamber.](./how-to-guide-download-data.md)
 
 ### Data export from chamber not working
 
@@ -145,7 +147,13 @@ Complete the following steps if you're unable to export data from the chamber us
 
 ## Quota/capacity troubleshooting
 
-For storage or computing quota issues, contact your Microsoft account manager.  They'll get you more allocation for your workbench subscription, subject to regional capacity limits/constraints.
+For storage or computing quota issues, contact your Microsoft account manager. They'll get you more allocation for your workbench subscription, subject to regional capacity limits/constraints.
+
+## Chamber or connector troubleshooting
+
+### Excessive time starting or stopping
+
+When starting a connector or chamber from stopped state, if the power state is in the 'Starting' status for longer than 25 minutes, then perform a Stop, wait for Power State to show Stopped, then perform a Start again. [Learn how to start and stop a chamber, connector, or VM.](how-to-guide-start-stop-restart.md)
 
 ## Issue not covered or addressed
 

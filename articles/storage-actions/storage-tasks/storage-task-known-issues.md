@@ -30,7 +30,7 @@ During the public preview, you can target only storage accounts that are in the 
 | Storage tasks per subscription | 100 |
 | Storage task assignments per storage task | 50 |
 | Storage task assignments per storage account | 50 |
-| Storage task definition versions | 50 |
+| Storage task nested grouping of clauses per condition | 10 |
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
@@ -69,10 +69,6 @@ You can't use string operators on container metadata, blob metadata and blob ind
 
 If you assign a storage task to a storage account that has a name, which starts with a digit, the storage task assignment fails.
 
-## Storage task assignments fail on some storage accounts in supported regions
-
-Storage tasks are supported on new storage accounts created after the subscription is allow-listed. They might not work on some existing storage accounts even thought those accounts are located in supported regions.
-
 ## Monitoring data doesn't appear unless the storage task and the storage account are in the same resource group
 
 If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task pane.
@@ -103,7 +99,16 @@ Storage accounts that have a hierarchical namespace display location information
 
 ## Slow performance when processing blobs in accounts that have a hierarchical namespace
 
-Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run. 
+Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run.
+
+## Operating on storage accounts in a private network is unsupported
+
+When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
+
+## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
+
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
+
 
 ## See Also
 

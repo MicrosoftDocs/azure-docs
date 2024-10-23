@@ -6,7 +6,7 @@ summary: FHIR service is a managed, standards-based, compliant API for clinical 
 metadata:
   title: Azure Health Data Services FHIR service
   description: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
-  ms.service: healthcare-apis
+  ms.service: azure-health-data-services
   ms.subservice: fhir
   ms.topic: landing-page 
 
@@ -68,7 +68,7 @@ landingContent:
             url: carin-implementation-guide-blue-button-tutorial.md
           - text: Da Vinci Drug Formulary
             url: davinci-drug-formulary-tutorial.md
-  - title: FHIR Operations
+  - title: FHIR operations
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -80,7 +80,7 @@ landingContent:
             url: validation-against-profiles.md
           - text: $purge-history operation
             url: purge-history.md     
-  - title: Export and Convert Data
+  - title: Export and convert data
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -89,7 +89,7 @@ landingContent:
           - text: Configure settings for bulk-import
             url: configure-import-data.md
           - text: Convert data
-            url: overview-of-convert-data.md
+            url: convert-data-overview.md
           - text: Copy data to Synapse
             url: copy-to-synapse.md
           - text: Export data

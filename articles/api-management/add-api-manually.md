@@ -4,7 +4,7 @@ description: This tutorial shows you how to use API Management to add an API man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: danlep
@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit, devdivchpfy22
 ---
 
 # Add an API manually
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows steps to add an API manually to the API Management instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 

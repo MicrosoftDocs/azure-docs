@@ -2,7 +2,7 @@
 title: Accelerated connections network performance optimization on NVAs and VMs
 description: Learn how Accelerated Connections improves networking performance for NVAs and VMs.
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 02/01/2023
 ms.author: steveesp
@@ -49,8 +49,7 @@ Network Virtual Appliances (NVAs) with the largest scale workloads requiring vir
 * Feature support may vary as per the NVAs available on Marketplace.
 * Detaching and attaching a network interface on a VM requires stop-deallocate first. 
 * Marketplace portal isn't supported for the limited GA. Other tools such as templates, CLI, Terraform and other multi-cloud tools are supported. 
-* This feature is free during the limited GA, but chargeable after limited GA. 
-
+  
 ## Prerequisites
 
 The following section lists the required prerequisites:
@@ -71,10 +70,18 @@ This list will be updated as more regions become available. The following region
 * Central US
 * South UK
 * West Europe
+* Central India
+* West US 2
+* West US 3
+* North Europe
+* Sweden Central
+* Southeast Asia
+* South Central US
+* Australia East
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by Accelerated Networking except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) except the Dv5 VM family, which isn't yet supported during limited GA.
 
 ## Supported enablement methods
 

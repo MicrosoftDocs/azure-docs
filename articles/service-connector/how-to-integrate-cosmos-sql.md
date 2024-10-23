@@ -6,9 +6,8 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/02/2024
-ms.custom: event-tier1-build-2022, ignite-2022
-
 ---
+
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for NoSQL to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for NoSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
@@ -18,8 +17,9 @@ This page shows supported authentication methods and clients, and shows sample c
 Service Connector can be used to connect the following compute services to Azure Cosmos DB for NoSQL:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types
@@ -94,6 +94,9 @@ Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using 
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### Connection string
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### SpringBoot client type
 

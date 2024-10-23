@@ -5,7 +5,7 @@ description: Learn how to create module identities and update module twins using
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/07/2019
@@ -33,7 +33,7 @@ At the end of this article, you have two .NET console apps:
 
 * Visual Studio.
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## Module authentication
 
@@ -49,6 +49,8 @@ openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 ## Update the module twin using .NET device SDK
@@ -57,7 +59,7 @@ Now let's communicate to the cloud from your simulated device. Once a module ide
 
 To retrieve your module connection string, navigate to your [IoT hub](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) then select **Devices**. Find and select **myFirstDevice** to open it and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** and save it for the console app.
 
-:::image type="content" source="./media/module-twins-dotnet/module-identity-detail.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/module-twins-dotnet/module-identity-detail.png":::
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. In Visual Studio, add a new project to your solution by selecting **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and select **Next**.
 

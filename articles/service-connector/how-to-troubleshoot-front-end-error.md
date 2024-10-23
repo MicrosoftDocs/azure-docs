@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: troubleshooting
 ms.date: 10/19/2023
-ms.custom: ignite-fall-2021, kr2b-contr-experiment, event-tier1-build-2022, devx-track-azurecli
+ms.custom: kr2b-contr-experiment, devx-track-azurecli
 ---
 
 # How to troubleshoot Service Connector

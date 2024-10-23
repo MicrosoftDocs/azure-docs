@@ -1,10 +1,9 @@
 ---
 title: Programmatically monitor an Azure Data Factory 
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-python, devx-track-dotnet
@@ -15,7 +14,7 @@ ms.custom: devx-track-python, devx-track-dotnet
 
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Data range
 

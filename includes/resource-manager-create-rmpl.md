@@ -19,7 +19,8 @@ Private link provides the following security benefits:
 
 ## Understand architecture
 
-For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 There are two resource types you'll use when implementing management through a private link.
 
@@ -50,6 +51,9 @@ After completing those steps, you can manage Azure resources that are within the
 You can monitor access to the private link. For more information, see [Logging and monitoring](../articles/private-link/private-link-overview.md#logging-and-monitoring).
 
 ## Required permissions
+
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 To set up the private link for resource management, you need the following access:
 

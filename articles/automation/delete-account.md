@@ -2,10 +2,10 @@
 title: Manage your Azure Automation account
 description: This article tells how to delete and your Automation account across the different configuration scenarios and restore a deleted Automation account
 services: automation
-ms.service: automation
+ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 06/04/2021
-ms.topic: conceptual 
+ms.date: 10/10/2024
+ms.topic: how-to 
 ---
 
 # Manage your Azure Automation account
@@ -77,7 +77,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Unlink workspace page](media/delete-account/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -103,11 +103,11 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
-2. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
+1. Navigate to your Automation account, and select **Linked workspace**.
 
-3. Select **Go to workspace**.
+1. Under **Related resources**, select **Linked workspace** and then select **Go to workspace**.
 
-4. Select **Solutions** under **General**.
+4. Under **Classic**, select **Legacy solutions**.
 
 5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 
@@ -141,7 +141,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Unlink workspace page](media/delete-account/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 

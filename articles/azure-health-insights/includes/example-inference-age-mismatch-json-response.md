@@ -20,12 +20,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "7fc4bd1a-9321-45ea-845e-158a3ab222de",
-  "createdDateTime": "2024-01-12T07:08:21.109402Z",
-  "expirationDateTime": "2024-01-12T07:25:01.109402Z",
-  "lastUpdateDateTime": "2024-01-12T07:08:26.8320889Z",
+  "id": "AgeMismatch",
+  "createdAt": "2024-05-14T15:18:40Z",
+  "expiresAt": "2024-05-15T15:18:40Z",
+  "updatedAt": "2024-05-14T15:18:43Z",
   "status": "succeeded"
 }
 ```

@@ -3,11 +3,10 @@ title: Copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy activity in Azure Data Factory and Azure Synapse Analytics. You can use it to copy data from a supported source data store to a supported sink data store.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/02/2024
 ms.author: jianleishen
 ---
 
@@ -26,6 +25,9 @@ The Copy activity is executed on an [integration runtime](concepts-integration-r
 * When you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.
 
 An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+
+> [!NOTE]
+> You cannot use more than one self-hosted integration runtime within the same Copy activity. The source and sink for the activity must be connected with the same self-hosted integration runtime.
 
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
@@ -165,6 +167,9 @@ Few points to note:
 - When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
 
 For other scenarios than binary file copy, copy activity rerun starts from the beginning.
+
+>[!Note]
+>Resuming from last failed run via self-hosted integration runtime is now only supported in the self-hosted integration runtime version 5.43.8935.2 or above.
 
 ## Preserve metadata along with data
 

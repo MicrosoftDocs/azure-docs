@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
-ms.date: 04/13/2023
+ms.date: 03/01/2024
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api
@@ -25,7 +25,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 
-- [Python](https://python.org/downloads) version 3.6 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
+- [Python](https://python.org/downloads) version 3.8 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
 
 ## Run the app
 

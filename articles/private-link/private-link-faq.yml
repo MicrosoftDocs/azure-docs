@@ -3,11 +3,11 @@ metadata:
   title: Azure Private Link frequently asked questions (FAQ)
   description: Learn about Azure Private Link.
   services: private-link
-  author: asudbring
-  ms.service: private-link
+  author: abell
+  ms.service: azure-private-link
   ms.topic: faq
-  ms.date: 01/17/2023
-  ms.author: allensu
+  ms.date: 03/18/2024
+  ms.author: abell
 title: Azure Private Link frequently asked questions (FAQ)
 summary: |
 
@@ -55,6 +55,11 @@ sections:
           Can I create multiple Private Endpoints in same VNet? Can they connect to different services? 
         answer: |
           Yes. You can have multiple Private Endpoints in same VNet or subnet. They can connect to different services.  
+
+      - question: |
+           Can we link multiple private DNS zones with the same name? 
+        answer: |
+           No, creating multiple zones with the same name for a single virtual network is not supported.  
 
       - question: |
           Do I require a dedicated subnet for Private Endpoints? 

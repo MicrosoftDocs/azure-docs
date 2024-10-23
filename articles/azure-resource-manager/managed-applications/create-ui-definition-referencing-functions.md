@@ -1,13 +1,13 @@
 ---
 title: Create UI definition referencing functions
 description: Describes the functions to use when constructing UI definitions for Azure portal that reference other objects.
-ms.topic: conceptual
-ms.date: 07/13/2020
+ms.topic: reference
+ms.date: 06/24/2024
 ---
 
 # CreateUiDefinition referencing functions
 
-The functions to use when referencing outputs from the properties or context of a CreateUiDefinition file.
+The functions to use when referencing outputs from the properties or context of a _createUiDefinition.json_ file.
 
 ## basics
 
@@ -47,9 +47,9 @@ Returns the following properties:
 
 ```json
 {
-    "mode": "New" or "Existing",
-    "name": "{resourceGroupName}",
-    "location": "{resourceGroupLocation}"
+  "mode": "New" or "Existing",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}"
 }
 ```
 
@@ -85,13 +85,13 @@ Returns the following properties:
 
 ```json
 {
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
+  "id": "/subscriptions/{subscription-id}",
+  "subscriptionId": "{subscription-id}",
+  "tenantId": "{tenant-id}",
+  "displayName": "{name-of-subscription}"
 }
 ```
 
 ## Next steps
 
-* For an introduction to developing the portal interface, see [CreateUiDefinition.json for Azure managed application's create experience](create-uidefinition-overview.md).
+- For an introduction to developing the portal interface, see [CreateUiDefinition.json for Azure managed application's create experience](create-uidefinition-overview.md).

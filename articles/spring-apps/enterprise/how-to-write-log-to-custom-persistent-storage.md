@@ -3,16 +3,15 @@ title: How to use Logback to write logs to custom persistent storage in Azure Sp
 description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to use Logback to write logs to custom persistent storage
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ❌ C#
 
@@ -87,7 +86,7 @@ You can set the path to where logs will be written by using the logback-spring.x
 </configuration>
 ```
 
-In the preceding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
+In the preceding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage.
 
 ## Use the Azure CLI to create and deploy a new app with Logback on persistent storage
 
@@ -103,8 +102,8 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
    ```
    > [!NOTE]
    > The value of the `LOGS` environment variable can be the same as, or a subdirectory of the `mountPath`.
-    
-    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example, the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
+
+    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example, the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below:
 
     ```json
     {
@@ -121,7 +120,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         ]
     }
     ```
-  
+
 1. Use the following command to deploy your application:
 
    ```azurecli

@@ -3,9 +3,9 @@ title: Use Azure IoT Central audit logs
 description: Learn how to use audit logs in IoT Central to track changes made by users or programmatically in an IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/14/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # CustomerIntent: As an administrator, I want to be able to track changes made to my IoT Central application so that I can understand who made what changes at what time.
@@ -52,7 +52,7 @@ The following screenshot shows the audit log view with the location of the sorti
 :::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted." lightbox="media/howto-use-audit-logs/audit-log.png":::
 
 > [!TIP]
-> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Customize the log
 
@@ -87,7 +87,7 @@ The built-in **App Administrator** role has access to the audit logs by default.
 
 You can export the audit log records to various destinations for long-term storage, detailed analysis, or integration with other logs. For more information, see [Export IoT data](howto-export-to-event-hubs.md).
 
-To send audit logs to [Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md), use IoT Central data export to send the audit logs to Event Hubs, and then use an Azure Function to add the audit log data to Log Analytics.
+To send audit logs to [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview), use IoT Central data export to send the audit logs to Event Hubs, and then use an Azure Function to add the audit log data to Log Analytics.
 
 ## Next steps
 

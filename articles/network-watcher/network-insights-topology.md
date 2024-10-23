@@ -1,113 +1,160 @@
 ---
-title: Network Insights topology (preview)
-description: An overview of topology, which provides a pictorial representation of the resources.
+title: View topology
+description: Learn how to use Network Insights topology to get a visual representation of Azure resources with connectivity and traffic insights for monitoring. 
 author: halkazwini
 ms.author: halkazwini
-ms.reviewer: saggupta
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 06/05/2024
 ms.custom: subject-monitoring
+
+#CustomerIntent: As an Azure administrator, I want to see my resources across multiple resource groups, regions, and subscriptions so that I can easily manage resource inventory and have connectivity and traffic insights.
 ---
 
-# Topology (preview)
+# View topology
 
-Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
+Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups. It helps you manage and monitor your cloud network infrastructure with interactive graphical interface that provides you with insights from Azure Network Watcher [connection monitor](connection-monitor-overview.md) and [traffic analytics](traffic-analytics.md). Topology helps you diagnose and troubleshoot network issues by providing contextual access to Network Watcher diagnostic tools such as [connection troubleshoot](connection-troubleshoot-overview.md), [packet capture](packet-capture-overview.md), and [next hop](next-hop-overview.md).
+
+In this article, you learn how to use topology to visualize virtual networks and connected resources.
+
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- An account with the necessary [RBAC permissions](required-rbac-permissions.md) to utilize the Network Watcher capabilities.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The necessary [role-based access control (RBAC) permissions](required-rbac-permissions.md) to use Azure Network Watcher capabilities.
 
 ## Supported resource types
 
-The following are the resource types supported by topology:
+Topology supports the following resource types:
 
-- Application gateways
+- Application Gateways
 - Azure Bastion hosts
+- Azure DDoS Protection plans
+- Azure DNS zones
+- Azure Firewalls
 - Azure Front Door profiles
+- Azure NAT Gateways
+- Connections
+- DNS Private Resolvers
 - ExpressRoute circuits
 - Load balancers
+- Local network gateways
 - Network interfaces
 - Network security groups
+- Private DNS zones
 - Private endpoints
 - Private Link services
 - Public IP addresses
+- Service endpoints
+- Traffic Manager profiles
+- Virtual hubs
+- Virtual machine scale sets
 - Virtual machines
-- Virtual network gateways
+- Virtual network gateways (VPN and ExpressRoute)
 - Virtual networks
+- Virtual WANs
+- Web Application Firewall policies
 
-## View Topology
+## Get started with topology
 
-To view a topology, follow these steps:
+In this section, you learn how to view a region's topology and insights.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter ***Monitor***. Select **Monitor** from the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
-1. Under **Insights**, select **Networks**. 
+   :::image type="content" source="./media/network-insights-topology/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-insights-topology/portal-search.png":::
+    
+1. Under **Monitoring**, select **Topology**. 
 
-1. In **Networks**, select **Topology**.
+    > [!NOTE]
+    > You can also get to the topology from:
+     > - **Monitor**: **Insights > Networks > Topology**.
+    > - **Virtual networks**: **Monitoring > Diagram**.
 
-1. Select **Scope** to define the scope of the Topology. 
+1. Select **Scope** to define the scope of the topology. 
 
-1. In the **Select scope** pane, select the list of **Subscriptions**, **Resource groups**, and **Locations** of the resources for which you want to view the topology. Select **Save**.
- 
-   :::image type="content" source="./media/network-insights-topology/topology-scope-inline.png" alt-text="Screenshot of selecting the scope of the topology." lightbox="./media/network-insights-topology/topology-scope-expanded.png":::
+1. In the **Select scope** pane, select the list of **Subscriptions**, **Resource groups**, and **Locations** of the resources for which you want to view the topology, then select **Save**.
 
-   The duration to render the topology may vary depending on the number of subscriptions selected.
+   :::image type="content" source="./media/network-insights-topology/select-topology-scope.png" alt-text="Screenshot shows how to select the scope of the topology." lightbox="./media/network-insights-topology/select-topology-scope.png":::
 
-1. Select the **Resource type** that you want to include in the topology and select **Apply**. See [supported resource types](#supported-resource-types).
+1. Select **Resource type** to choose the resource types that you want to include in the topology and select **Apply**. See [supported resource types](#supported-resource-types).
 
-The topology containing the resources according to the scope and resource type specified, appears.
+1. Use the mouse wheel to zoom in or out, or select the plus or minus sign. You can also use the mouse to drag the topology to move it around or use the arrows on the screen.
 
-   :::image type="content" source="./media/network-insights-topology/topology-start-screen-inline.png" alt-text="Screenshot of the generated resource topology." lightbox="./media/network-insights-topology/topology-start-screen-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/zoom.png" alt-text="Screenshot of topology zoomed in view." lightbox="./media/network-insights-topology/zoom.png":::
 
-Each edge of the topology represents an association between each of the resources. In the topology, similar types of resources are grouped together. 
+1. Select **Download topology** if you want to download the topology view to your computer. A file with the .svg extension is downloaded.
 
-## Add regions
+   :::image type="content" source="./media/network-insights-topology/download-topology.png" alt-text="Screenshot shows how to download the topology." lightbox="./media/network-insights-topology/download-topology.png":::
 
-You can add regions that aren't part of the existing topology. The number of regions that aren't part of the existing topology are displayed. To add a region, follow these steps:
+1. Select a region to see its information and insights. The **Insights** tab provides a snapshot of connectivity and traffic insights for the selected region.
 
-1. Hover on **Regions** under **Azure Regions**.
+   :::image type="content" source="./media/network-insights-topology/region-insights.png" alt-text="Screenshot of the Insights tab of topology." lightbox="./media/network-insights-topology/region-insights.png":::
 
-2. From the list of **Hidden Resources**, select the regions that you want to add and select **Add to View**.
+    > [!NOTE]
+    > - Connectivity insights are available when connection monitor is enabled. For more information, see [connection monitor](connection-monitor-overview.md). 
+    > - Traffic insights are available when Flow logs and traffic analytics are enabled. For more information, see [NSG flow logs](nsg-flow-logs-overview.md), [VNet flow logs](vnet-flow-logs-overview.md) and [traffic analytics](traffic-analytics.md).
 
-   :::image type="content" source="./media/network-insights-topology/add-resources-inline.png" alt-text="Screenshot of the add resources and regions pane." lightbox="./media/network-insights-topology/add-resources-expanded.png":::
+1. Select the **Traffic** tab to see detailed traffic information about the selected region. The insights presented in this tab are fetched from Network Watcher flow logs and traffic analytics. You see **Set up Traffic Analytics** with no insights if traffic analytics isn't enabled.
 
-You can view the resources in the added region as part of the topology.
+   :::image type="content" source="./media/network-insights-topology/region-traffic.png" alt-text="Screenshot of the Traffic tab of topology." lightbox="./media/network-insights-topology/region-traffic.png":::
+
+1. Select the **Connectivity** tab to see detailed connectivity information about the selected region. The insights presented in this tab are fetched from Network Watcher connection monitor. You see **Set up Connection Monitor** with no insights if connection monitor isn't enabled.
+
+   :::image type="content" source="./media/network-insights-topology/region-connectivity.png" alt-text="Screenshot of the Connectivity tab of topology." lightbox="./media/network-insights-topology/region-connectivity.png":::
 
 ## Drilldown resources
 
-To drill down to the basic unit of each network, select the plus sign on each resource. When you hover on the resource, you can see the details of that resource. Selecting a resource displays a pane on the right with a summary of the resource. 
+In this section, you learn how to navigate the topology view from regions to the individual Azure resource such as a virtual machine (VM). Once you drill down to the VM, you can see its traffic and connectivity insights. From the VM view, you have access to Network Watcher diagnostic tools such as connection troubleshoot, packet capture and next hop to help in troubleshooting any issues you have with the VM.
 
-   :::image type="content" source="./media/network-insights-topology/resource-details-inline.png" alt-text="Screenshot of the details of each resource." lightbox="./media/network-insights-topology/resource-details-expanded.png":::
-   
+1. Select **Scope** to choose the subscriptions and regions of the resources that you want to navigate to. The following example shows one subscription and region selected.
 
-Drilling down into Azure resources such as Application Gateways and Firewalls displays the resource view diagram of that resource. 
+   :::image type="content" source="./media/network-insights-topology/scope.png" alt-text="Screenshot of the topology scope selected." lightbox="./media/network-insights-topology/scope.png":::
 
-   :::image type="content" source="./media/network-insights-topology/drill-down-inline.png" alt-text="Screenshot of drilling down a resource." lightbox="./media/network-insights-topology/drill-down-expanded.png":::
+1. Select the plus sign of the region that has the resource that you want to see to navigate to the region view.
 
-## Integration with diagnostic tools
+   :::image type="content" source="./media/network-insights-topology/region-view.png" alt-text="Screenshot of the region view." lightbox="./media/network-insights-topology/region-view.png":::
 
-When you drill down to a VM within the topology, you can see details about the VM in the summary tab. 
+    In the region view, you see virtual networks and other Azure resources in the region. You see any virtual network peerings in the region so you can understand the traffic flow from and to resources within the region. You can navigate to the virtual network view to see its subnets.
 
-:::image type="content" source="./media/network-insights-topology/resource-summary.png" alt-text="Screenshot of the Summary tab of a virtual machine in the Topology page." lightbox="./media/network-insights-topology/resource-summary.png":::
+1. Select the plus sign of the virtual network that has the resource that you want to see to navigate to the virtual network view. If the region has multiple virtual networks, you might see **Virtual Networks**. Select the plus sign of **Virtual Networks** to drill down to the virtual networks in your region and then select the plus sign of the virtual network that has the resource that you want to see.   
 
-Follow these steps to find the next hop:
+   :::image type="content" source="./media/network-insights-topology/virtual-network-view.png" alt-text="Screenshot of the virtual network view." lightbox="./media/network-insights-topology/virtual-network-view.png":::
 
-1. Select **Insights + Diagnostics** tab, and then select **Next Hop**.
+    In the virtual network view of **myVNet**, you see all five subnets that **myVNet** has.
 
-   :::image type="content" source="./media/network-insights-topology/resource-insights-diagnostics.png" alt-text="Screenshot of the Insights and Diagnostics tab of a virtual machine in the Topology page." lightbox="./media/network-insights-topology/resource-insights-diagnostics.png":::
+1. Select the plus sign of a subnet to see all the resources that exist in it and their relationships.
 
-1. Enter the destination IP address and then select **Check Next Hop**.
+   :::image type="content" source="./media/network-insights-topology/subnet-view.png" alt-text="Screenshot of the subnet view." lightbox="./media/network-insights-topology/subnet-view.png":::
 
-   :::image type="content" source="./media/network-insights-topology/next-hop-check.png" alt-text="Screenshot of using Next hop check from withing the Insights and Diagnostics tab of a virtual machine in the Topology page." lightbox="./media/network-insights-topology/next-hop-check.png":::
+    In the subnet view of **mySubnet**, you see Azure resources that exist in it and their relationships. For example, you see **myVM** and its network interface **myvm36** and IP configuration **ipconfig1**.  
 
-1. The Next hop capability of Network Watcher checks if the destination IP address is reachable from the source VM. The result shows the Next hop type and route table used to route traffic from the VM. For more information, see [Next hop](network-watcher-next-hop-overview.md).
+1. Select the virtual machine that you want to see its insights. 
 
-   :::image type="content" source="./media/network-insights-topology/next-hop-result.png" alt-text="Screenshot of the next hop option in the summary and insights tab." lightbox="./media/network-insights-topology/next-hop-result.png":::
+   :::image type="content" source="./media/network-insights-topology/vm-insights.png" alt-text="Screenshot of the virtual machine's insights tab." lightbox="./media/network-insights-topology/vm-insights.png":::
 
-## Next steps
+    In insights tab, you see essential insights. Scroll down to see connectivity and traffic insights and resource metrics.
 
-To learn more about connectivity related metrics, see [Connection monitor](./connection-monitor-overview.md). 
+    > [!NOTE]
+    > - Connectivity insights are available when connection monitor is enabled. For more information, see [Connection monitor](connection-monitor-overview.md). 
+    > - Traffic insights are available when flow logs and traffic analytics are enabled. For more information, see [NSG flow logs](nsg-flow-logs-overview.md), [VNet flow logs](vnet-flow-logs-overview.md) and [traffic analytics](traffic-analytics.md).
+
+1. Select the **Traffic** tab to see detailed traffic information about the selected VM. The insights presented in this tab are fetched from Network Watcher flow logs and traffic analytics. You see **Set up Traffic Analytics** with no insights if traffic analytics isn't enabled.
+
+   :::image type="content" source="./media/network-insights-topology/vm-traffic.png" alt-text="Screenshot of the virtual machine's traffic tab." lightbox="./media/network-insights-topology/vm-traffic.png":::
+
+1. Select the **Connectivity** tab to see detailed connectivity information about the selected VM. The insights presented in this tab are fetched from Network Watcher connection monitor. You see **Set up Connection Monitor** with no insights if connection monitor isn't enabled.
+
+   :::image type="content" source="./media/network-insights-topology/vm-connectivity.png" alt-text="Screenshot of the virtual machine's connectivity tab." lightbox="./media/network-insights-topology/vm-connectivity.png":::
+
+1. Select the **Insights + Diagnostics** tab to see the summary of the VM and to use Network Watcher diagnostic tools such as connection troubleshoot, packet capture and next hop to help in troubleshooting any issues you have with the VM.
+
+   :::image type="content" source="./media/network-insights-topology/vm-insights-diagnostics.png" alt-text="Screenshot of the virtual machine's insights and diagnostics tab." lightbox="./media/network-insights-topology/vm-insights-diagnostics.png"::: 
+
+## Related content
+
+- [Connection monitor](connection-monitor-overview.md)
+- [NSG flow logs](nsg-flow-logs-overview.md) and [VNet flow logs](vnet-flow-logs-overview.md)
+- [Network Watcher diagnostic tools](network-watcher-overview.md#network-diagnostic-tools)

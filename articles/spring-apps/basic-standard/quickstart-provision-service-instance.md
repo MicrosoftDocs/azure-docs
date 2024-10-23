@@ -3,17 +3,16 @@ title: "Quickstart - Provision an Azure Spring Apps service"
 description: Describes creation of an Azure Spring Apps service instance for app deployment.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 7/28/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Provision an Azure Spring Apps service instance
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
@@ -40,8 +39,6 @@ Use the following steps to create an instance of Azure Spring Apps:
 1. Using the search box, search for *Azure Spring Apps*.
 
 1. Select **Azure Spring Apps** from the search results.
-
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 

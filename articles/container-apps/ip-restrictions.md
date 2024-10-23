@@ -3,7 +3,7 @@ title: Set up IP ingress restrictions in Azure Container Apps
 description: Enable IP restrictions to limit access to your app with Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/28/2023

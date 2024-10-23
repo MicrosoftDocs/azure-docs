@@ -1,8 +1,8 @@
 ---
 title: IdentitySelector UI element
 description: Describes the Microsoft.ManagedIdentity.IdentitySelector UI element for Azure portal. Use to assign managed identities to a resource.
-ms.topic: conceptual
-ms.date: 02/06/2020
+ms.topic: reference
+ms.date: 06/21/2024
 ---
 
 # Microsoft.ManagedIdentity.IdentitySelector UI element
@@ -62,14 +62,14 @@ The selected identities are displayed in the table. The user can add or delete i
 
 ## Remarks
 
-- Use **defaultValue.systemAssignedIdentity** to set an initial value for the system assigned identity options control. The default value is **Off**. The following values are allowed:
-  - **On** – A system assigned identity is assigned to the resource.
-  - **Off** – A system assigned identity isn't assigned to the resource.
-  -  **OnOnly** – A system assigned identity is assigned to the resource. Users can't edit this value during deployment.
-  - **OffOnly** – A system assigned identity isn't assigned to the resource. Users can't edit this value during deployment.
+- Use `defaultValue.systemAssignedIdentity` to set an initial value for the system assigned identity options control. The default value is `Off`. The following values are allowed:
+  - `On` – A system assigned identity is assigned to the resource.
+  - `Off` – A system assigned identity isn't assigned to the resource.
+  - `OnOnly` – A system assigned identity is assigned to the resource. Users can't edit this value during deployment.
+  - `OffOnly` – A system assigned identity isn't assigned to the resource. Users can't edit this value during deployment.
 
-- If **options.hideSystemAssignedIdentity** is set to **true**, the UI to configure the system assigned identity isn't displayed. The default value for this option is **false**.
-- If **options.hideUserAssignedIdentity** is set to **true**, the UI to configure the user assigned identity isn't displayed. The resource isn't assigned a user assigned identity. The default value for this option is **false**.
+- If `options.hideSystemAssignedIdentity` is set to `true`, the UI to configure the system assigned identity isn't displayed. The default value for this option is `false`.
+- If `options.hideUserAssignedIdentity` is set to `true`, the UI to configure the user assigned identity isn't displayed. The resource isn't assigned a user assigned identity. The default value for this option is `false`.
 
 ## Next steps
 

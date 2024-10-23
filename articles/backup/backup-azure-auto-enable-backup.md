@@ -2,13 +2,14 @@
 title: Auto-Enable Backup on VM Creation using Azure Policy
 description: 'An article describing how to use Azure Policy to auto-enable backup for all VMs created in a given scope'
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.service: backup
+ms.date: 06/29/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
-# Auto-Enable Backup on VM Creation using Azure Policy
+# Auto-enable backup on VM creation using Azure Policy
 
 One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
 
@@ -63,12 +64,9 @@ The below steps describe the end-to-end process of assigning Policy 1: **Configu
 
 > [!NOTE]
 >
-> Azure Policy can also be used on existing VMs, using [remediation](../governance/policy/how-to/remediate-resources.md).
+> - Azure Policy can also be used on existing VMs, using [remediation](../governance/policy/how-to/remediate-resources.md).
+> - It's recommended that this policy not be assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup being triggered a few hours later than that specified by the schedule.
 
-> [!NOTE]
->
-> It's recommended that this policy not be assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup being triggered a few hours later than that specified by the schedule.
-
-## Next Steps
+## Next step
 
 [Learn more about Azure Policy](../governance/policy/overview.md)

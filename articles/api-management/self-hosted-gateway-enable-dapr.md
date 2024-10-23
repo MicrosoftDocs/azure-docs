@@ -4,13 +4,15 @@ description: Learn now to enable Dapr support in the self-hosted gateway of Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/01/2023
 ms.author: danlep
 ---
 
 # Enable Dapr support in the self-hosted gateway
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 Dapr integration in API Management enables operations teams to directly expose Dapr microservices deployed on Kubernetes clusters as APIs, and make those APIs discoverable and easily consumable by developers with proper controls across multiple Dapr deployments—whether in the cloud, on-premises, or on the edge.
 
@@ -36,7 +38,7 @@ template:
 
 ## Dapr integration policies
 
-API Management provides specific [policies](api-management-policies.md#dapr-integration-policies) to interact with Dapr APIs exposed through the self-hosted gateway.
+API Management provides specific [policies](api-management-policies.md#integration-and-external-communication) to interact with Dapr APIs exposed through the self-hosted gateway.
 
 ## Next steps
 

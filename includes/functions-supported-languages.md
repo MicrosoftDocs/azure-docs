@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/23/2024
+ms.date: 02/05/2024
 ms.author: glenga
 ms.custom:
   - include file
@@ -19,6 +19,8 @@ Your function code runs in a separate .NET worker process. Use with [supported v
 
 ### [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
 ---
@@ -27,6 +29,7 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 10, 2026 |
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
@@ -43,15 +46,17 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level<sup>1</sup> | Expected community EOL date |
+| Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| .NET 9 | Preview | [See policy][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -80,12 +85,8 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April 2025|
-| [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
-| [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until June 30, 2024.
+| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
@@ -94,6 +95,7 @@ The following table shows the language version supported for PowerShell function
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 | [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
@@ -107,9 +109,6 @@ The following table shows the language versions supported for Python functions. 
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
 | Python 3.8 | GA | October 2024 |
-| Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until September 30, 2023.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

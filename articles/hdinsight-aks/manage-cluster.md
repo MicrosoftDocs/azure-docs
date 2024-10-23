@@ -1,14 +1,18 @@
 ---
 title: Manage clusters
 description: Manage clusters in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Manage clusters
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Clusters are individual compute workloads such as Apache Spark, Apache Flink, and Trino, which can be created rapidly in few minutes with preset configurations and few clicks.
 
@@ -38,7 +42,7 @@ You can view the cluster details in the "Overview" blade of your cluster. It pro
 |Resource group| The resource group in which cluster is created.|
 |Cluster pool name| Cluster pool name inside which the cluster is created.|
 |Cluster type| The type of the cluster such as Spark, Trino, or Flink.|
-|HDInsight on AKS version| HDInsight on AKS cluster version. For more information. see [versioning](./versions.md).|
+|HDInsight on AKS version| HDInsight on AKS cluster version. For more information, see [versioning](./versions.md).|
 |Cluster endpoint| The endpoint of the cluster.|
 |Cluster package| Component versions associated with the cluster.|
 |Subscription details| Subscription name and subscription ID.|

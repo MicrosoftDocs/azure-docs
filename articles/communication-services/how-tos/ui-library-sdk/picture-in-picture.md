@@ -22,7 +22,6 @@ While a user is on a call, a full-screen UI can prevent the user from multitaski
 
 This article shows you how to turn on picture-in-picture in the Azure Communication Services UI Library. The picture-in-picture feature is system provided and is subject to feature support on the device, including CPU load, RAM availability, and battery state.
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Prerequisites
 

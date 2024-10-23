@@ -5,7 +5,7 @@ description: Protect a serverless API with OAuth 2.0 by using Azure Active Direc
 services: api-management, azure-ad-b2c, app-service
 author: WillEastbury
 manager: alberts
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: wieastbu
@@ -13,6 +13,8 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
 
 # Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
@@ -197,7 +199,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    >
    > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
    >
-   > If you're using the API Management Consumption, Basic v2, and Standard v2 tiers then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-basic-v2-and-standard-v2-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management dedicated tiers [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the tiers that run on shared infrastructure, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for these tiers - steps 12-17 below do not apply.
+   > If you're using the API Management Consumption, Basic v2, and Standard v2 tiers then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-basic-v2-and-standard-v2-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management classic (dedicated) tiers [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the tiers that run on shared infrastructure, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for these tiers - steps 12-17 below do not apply.
 
 1. Close the 'Authentication' blade from the App Service / Functions portal.
 1. Open the *API Management blade of the portal*, then open *your instance*.

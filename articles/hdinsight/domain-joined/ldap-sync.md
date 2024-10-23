@@ -1,9 +1,9 @@
 ---
 title: LDAP sync in Ranger and Apache Ambari in Azure HDInsight
 description: Address the LDAP sync in Ranger and Ambari and provide general guidelines.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 06/15/2024
 ---
 
 # LDAP sync in Ranger and Apache Ambari in Azure HDInsight
@@ -32,7 +32,7 @@ From the head nodes, a cron job, `/opt/startup_scripts/start_ambari_ldap_sync.py
 
 The logs should be in `/var/log/ambari-server/ambari-server.log`. For more information, see [Configure Ambari logging level](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be setup correctly.
+In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be set up correctly.
 
 ## Ranger user sync and configuration
 
@@ -45,7 +45,7 @@ Ranger has a built-in sync engine that runs every hour to sync users. It doesn't
 
 ### Group or incremental sync
 
-Ranger supports a group sync option, but it works as an intersection with user filter, not as a union between group memberships and user filter. A typical use case for group sync filter in Ranger is - group filter: (dn=clusteradmingroup), user filter: (city=seattle).
+Ranger supports a group sync option, but it works as an intersection with user filter, not as a union between group memberships and user filter. A typical use case for group sync filter in Ranger is - group filter: `(dn=clusteradmingroup)`, user filter: `(city=seattle)`.
 
 Incremental sync works only for the users who are already synced (the first time). Incremental won't sync any new users added to the groups after the initial sync.
 

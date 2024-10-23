@@ -14,7 +14,7 @@ events. For an introduction to event schemas, see
 [Azure Event Grid event schema](./event-schema.md). It also gives you a list of quick starts and
 tutorials to use Azure Policy as an event source.
 
-[!INCLUDE [policy-events.md](../../includes/policy/policy-events.md)]
+[!INCLUDE [policy-events.md](../../articles/governance/includes/policy/policy-events.md)]
 
 ## Next steps
 

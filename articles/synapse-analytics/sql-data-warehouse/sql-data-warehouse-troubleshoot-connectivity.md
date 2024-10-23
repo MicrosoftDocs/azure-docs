@@ -4,7 +4,7 @@ description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 03/27/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -26,7 +26,7 @@ The status of your dedicated SQL pool (formerly SQL DW) will be shown here. If t
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-For more information, see [Resource Health](../../service-health/resource-health-overview.md).
+For more information, see [Resource Health](/azure/service-health/resource-health-overview).
 
 ## Check for paused or scaling operation
 

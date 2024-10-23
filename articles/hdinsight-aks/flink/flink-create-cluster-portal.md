@@ -1,14 +1,17 @@
 ---
 title: Create an Apache Flink® cluster in HDInsight on AKS using Azure portal
 description: Creating an Apache Flink cluster in HDInsight on AKS with Azure portal.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create an Apache Flink® cluster in HDInsight on AKS with Azure portal
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Complete the following steps to create an Apache Flink cluster on Azure portal.
 
@@ -21,7 +24,7 @@ Complete the prerequisites in the following sections:
 
 > [!IMPORTANT]
 > * For creating a cluster in new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisite. In case you have required permissions, this step is automated during creation.
-> * AKS agentpool managed identity gets created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**. Follow these steps to [assign the role](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
+> * AKS agentpool managed identity gets created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**. Follow these steps to [assign the role](../../role-based-access-control/role-assignments-portal.yml#step-2-open-the-add-role-assignment-page).
 
 ## Create an Apache Flink cluster
 
@@ -38,7 +41,7 @@ Flink clusters can be created once cluster pool deployment has been completed, l
    |Subscription | This field is autopopulated with the Azure subscription that was registered for the Cluster Pool.|
    |Resource Group|This field is autopopulated and shows the resource group on the cluster pool.|
    |Region|This field is autopopulated and shows the region selected on the cluster pool.|
-   |Cluster Pool|This field is autopopulated and shows the cluster pool name on which the cluster is now getting created.To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
+   |Cluster Pool|This field is autopopulated and shows the cluster pool name on which the cluster is now getting created. To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
    |HDInsight on AKS Pool Version|This field is autopopulated and shows the cluster pool version on which the cluster is now getting created.|
    |HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster.|
    |Cluster type | From the drop-down list, select Flink.|

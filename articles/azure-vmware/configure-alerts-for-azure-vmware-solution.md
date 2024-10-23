@@ -9,7 +9,7 @@ ms.date: 12/05/2023
 
 # Configure Azure Alerts in Azure VMware Solution 
 
-In this article, learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. Also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
+In this article, learn how to configure [Azure Action Groups](/azure/azure-monitor/alerts/action-groups) in [Microsoft Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) to receive notifications of triggered events that you define. Also learn about using [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to gain deeper insights into your Azure VMware Solution private cloud.
 
 >[!NOTE]
 >Incidents affecting the availability of an Azure VMware Solution host and its corresponding restoration are sent automatically to the Account Administrator, Service Administrator (Classic Permission), Co-Admins (Classic Permission), and Owners (RBAC Role) of the subscription(s) containing Azure VMware Solution private clouds.
@@ -70,7 +70,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    Our example is based on email notification.
 
-   :::image type="content" source="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png" alt-text="Screenshot showing email, SMS message, push, and voice settings for the alert." lightbox="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png":::    
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png" alt-text="Screenshot showing email, SMS message, push, and voice settings for the alert." lightbox="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png":::    
 
 1. (Optional) Configure the **Actions** if you want to take proactive actions and receive notification on the event. Select an available **Action type** and then select **Review + create**. 
 
@@ -117,8 +117,8 @@ The following metrics are visible through Azure Monitor Metrics.
 ## Next steps
 
 Now that you configured an alert rule for your Azure VMware Solution private cloud, you can learn more about:
-- [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md)
-- [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md)
-- [Azure Action Groups](../azure-monitor/alerts/action-groups.md)
+- [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics)
+- [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview)
+- [Azure Action Groups](/azure/azure-monitor/alerts/action-groups)
 
 You can also continue with one of the other [Azure VMware Solution](index.yml) how-to guides.

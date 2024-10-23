@@ -29,20 +29,20 @@ When you prepay for your virtual machine software usage (available in the Azure 
 You can buy a virtual machine software reservation in the Azure portal. To buy a reservation:
 
 - You must have the owner role for at least one Enterprise or individual subscription with pay-as-you-go pricing.
-- For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin for the subscription.
+- For Enterprise subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). If the setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
 ## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](save-compute-costs-reservations.md)
 - [Prepay for Azure virtual machine software reservations](buy-vm-software-reservation.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)

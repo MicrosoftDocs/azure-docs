@@ -1,0 +1,145 @@
+- name: Azure Operational Excellence documentation (Preview)
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Azure region relocation
+  items:
+  - name: Overview
+    href: overview-relocation.md
+  - name: Relocation guides by service
+    items:
+    - name: AI + Machine Learning
+      items:
+      - name: Azure AI Search
+        href: /azure/search/search-howto-move-across-regions?toc=/azure/operational-excellence/toc.json
+    - name: Analytics
+      items:
+      - name: Azure Event Hubs
+        href: relocation-event-hub.md
+      - name: Azure Event Hubs Cluster
+        href: relocation-event-hub-cluster.md
+      - name: Azure Stream Analytics
+        items:
+        - name: Move Stream Analytics jobs
+          href: ../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json
+        - name: Move Stream Analytics cluster
+          href: ../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json
+      - name: Power BI
+        href: /power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json
+    - name: Compute
+      items:
+      - name: Azure App Service
+        href: relocation-app-service.md
+      - name: Azure Backup
+        href: relocation-backup.md
+      - name: Azure Batch
+        href: ../batch/account-move.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Functions
+        href: relocation-functions.md
+      - name: Azure Static Web Apps
+        href: relocation-static-web-apps.md
+      - name: Azure Virtual Machines
+        items:
+        - name: Move Azure VMs to another region
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json
+        - name: Move encrypted Azure VMs to another region
+          href: ../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/operational-excellence/toc.json
+      - name: Virtual Machine Scale Sets
+        href: ./relocation-virtual-machine-scale-sets.md
+    - name: Containers
+      items:
+      - name: Azure Container Registry
+        href: relocation-container-registry.md
+      - name: Azure Functions
+        href: relocation-functions.md
+      - name: Azure Kubernetes Service
+        href: relocation-kubernetes-service.md
+    - name: Databases
+      items:
+      - name: Azure Cache for Redis
+        href: ../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Cosmos DB
+        href: relocation-cosmos-db.md
+      - name: Azure Database for MariaDB Server
+        href: /azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
+      - name: Azure Database for MySQL Server
+        href: /azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
+      - name: Azure Database for PostgreSQL
+        href: relocation-postgresql-flexible-server.md
+    - name: Integration
+      items:
+      - name: Azure API Management
+        href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Logic apps
+        href: ../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json
+    - name: Internet of Things
+      items:
+      - name: Azure API Management
+        href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Cosmos DB
+        href: relocation-cosmos-db.md 
+      - name: Azure Event Grid
+        items:
+        - name: Relocate Azure Event Grid domains
+          href: relocation-event-grid-domains.md
+        - name: Relocate Azure Event Grid custom topics
+          href: relocation-event-grid-custom-topics.md
+        - name: Relocate Azure Event Grid system topics
+          href: relocation-event-grid-system-topics.md
+        - name: Azure Functions
+          href: relocation-functions.md
+      - name: Azure IoT Hub
+        href: ../iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Stream Analytics
+        items:
+        - name: Move Stream Analytics jobs
+          href: ../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json
+        - name: Move Stream Analytics cluster
+          href: ../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json
+    - name: Management and governance
+      items:
+      - name: Azure Automation
+        href: relocation-automation.md
+      - name: Azure Backup
+        href: relocation-backup.md
+      - name: Azure Monitor - Log Analytics Workspace
+        href: relocation-log-analytics.md    
+      - name: Azure Site Recovery (Recovery Services vaults)
+        href: relocation-site-recovery.md  
+    - name: Networking
+      items:
+      - name: Azure Application Gateway and Web Application Firewall
+        href: relocation-app-gateway.md
+      - name: Azure Load Balancer
+        href: ../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Private Link Service
+        href: relocation-private-link.md 
+      - name: Azure Virtual Network
+        items:
+        - name: Virtual Network
+          href: relocation-virtual-network.md 
+        - name: Network Security Groups (NSG)
+          href: relocation-virtual-network-nsg.md
+    - name: Security
+      items:
+      - name: Azure Firewall
+        href: relocation-firewall.md
+      - name: Azure Key Vault
+        href: relocation-key-vault.md
+      - name: Managed identities for Azure resources
+        href: relocation-managed-identity.md
+    - name: Storage
+      items:
+      - name: Azure Backup
+        href: relocation-backup.md
+      - name: Azure NetApp Files
+        href: relocation-netapp.md
+      - name: Azure Storage Account
+        href: relocation-storage-account.md
+- name: Resources
+  items:
+  - name: Operational Excellence in Microsoft Azure Well-Architected Framework
+    href: /azure/well-architected/operational-excellence/principles
+  - name: Azure Resource Mover Documentation
+    href: /azure/resource-mover/overview
+

@@ -3,15 +3,14 @@ title: How to configure planned maintenance for Azure Spring Apps
 description: Describes how to configure planned maintenance for Azure Spring Apps.
 author: KarlErickson
 ms.author: haochuang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/07/2023
 ---
 
 # How to configure planned maintenance (preview)
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
@@ -80,10 +79,13 @@ Notifications and messages are sent out before and during the maintenance. The f
 
 Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every three months. For a detailed maintenance timeline, check the notifications on the [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health) page.
 
+> [!NOTE]
+> In compliance with Microsoft’s security standards, we perform additional security patching for underlying Azure Kubernetes Service (AKS) clusters during the second week of each month. Maintenance occurs within an 8-hour window during non-working hours. We do this work in a rolling fashion to ensure uninterrupted service.
+
 ## Best practices
 
 - When you configure planned maintenance for multiple service instances in the same region, the maintenance takes place within the same week. For example, if maintenance for cluster A is set on Monday and cluster B on Sunday, then cluster A is maintained before cluster B, in the same week.
-- If you have two service instances that span across [Azure paired regions](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
+- If you have two service instances that span across [Azure paired regions](../../reliability/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
 - The length of the time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 and 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
 - You can't exempt a maintenance job regardless of how or whether planned maintenance is configured. If you have special requests for a maintenance time that can't be met with this feature, open a support ticket.
 

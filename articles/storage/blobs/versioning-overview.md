@@ -45,7 +45,7 @@ Blob versions are immutable. You can't modify the content or metadata of an exis
 
 Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
-Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 aren't currently supported.
+Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage aren't currently supported.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
@@ -107,7 +107,7 @@ Writing new data to the blob creates a new current version of the blob. Any exis
 
 ### Access tiers
 
-You can move any version of a block blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+You can move any version of a block blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Hot, Cool, Cold, and Archive access tiers for blob data](access-tiers-overview.md).
 
 To automate the process of moving block blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage life cycle](./lifecycle-management-overview.md).
 
@@ -209,7 +209,7 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Enabling blob versioning can result in additional data storage charges to your account. When designing your application, it's important to be aware of how these charges might accrue so that you can minimize costs.
 
-Blob versions, like blob snapshots, are billed at the same rate as active data. How versions are billed depends on whether you have explicitly set the tier for the current or previous versions of a blob (or snapshots). For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Blob versions, like blob snapshots, are billed at the same rate as active data. How versions are billed depends on whether you have explicitly set the tier for the current or previous versions of a blob (or snapshots). For more information about blob tiers, see [Hot, Cool, Cold, and Archive access tiers for blob data](access-tiers-overview.md).
 
 If you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions, and any snapshots it may have. For more information, see [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
@@ -292,7 +292,7 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)] 
 
-Versioning is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+Versioning is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## See also
 

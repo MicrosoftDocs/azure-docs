@@ -5,10 +5,10 @@ description: Learn about what an Azure custom IP address prefix is and how it en
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 08/05/2024
 ---
 
 # Custom IP address prefix (BYOIP)
@@ -47,11 +47,12 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
-* A custom IPv4 prefix must be associated with a single Azure region.
+* By default, you can bring a maximum of five custom IP prefixes per region to Azure. This limit can be increased upon request. 
 
-* You can bring a maximum of five prefixes per region to Azure.
-
-* A custom IPv4 Prefix must be between /21 and /24; a global (parent) custom IPv6 prefix must be /48.
+* By default:
+    - A unified custom IPv4 Prefix must be between /21 and /24.
+    - A global (parent) custom IPv4 prefix must be between /21 and /24, a regional (child) custom IPv4 prefix must be between /22 and /26 (dependent on the size of their respective parent range, which they must be at least one level smaller than)
+    - A global (parent) custom IPv6 prefix must be /48, a regional (child) custom IPv6 prefix must be /64
 
 * Custom IP prefixes don't currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
@@ -59,7 +60,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
 
-* Custom IP prefixes don't support Reverse DNS lookup using Azure-owned zones; customers must onboard their own Reverse Zones to Azure DNS
+* Custom IP prefixes don't support Reverse DNS lookup using Azure-owned zones; customers must onboard their own Reverse Zones to Azure DNS.
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 

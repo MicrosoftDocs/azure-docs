@@ -4,16 +4,17 @@ description: Learn how to wipe the data and return your Azure Stack Edge device,
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 
 # Return your Azure Stack Edge device
 
 [!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device.
 

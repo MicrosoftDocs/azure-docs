@@ -2,8 +2,8 @@
 title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
-ms.service: backup
-ms.date: 06/20/2023
+ms.service: azure-backup
+ms.date: 02/27/2024
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
@@ -27,7 +27,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
-- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before initiating the backup configuration and restore operations.
+- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and `Microsoft.ContainerService` are registered for your subscription before initiating the backup configuration and restore operations.
 
 - Ensure to perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before initiating backup or restore operation for AKS backup.
 
@@ -197,15 +197,13 @@ Once the vault and policy creation are complete, you need to perform the followi
 
    ```azurecli
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
-	
    ```
 
-   As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Account Contributor** role. To assign the required role, run the following command:
+   As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Blob Data Contributor** role. To assign the required role, run the following command:
 
    ```azurecli
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $akscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $akscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
    ```
- 
 
 3. **Enable Trusted Access**
 
@@ -241,6 +239,7 @@ The configuration of backup is performed in two steps:
     "snapshot_volumes": true
    }
    ```
+The following namespaces are skipped from backup configuration and not cofigured for backups: kube-system, kube-node-lease, kube-public.
 
 2. Prepare the relevant request using the relevant vault, policy, AKS cluster, backup configuration, and snapshot resource group using the `az dataprotection backup-instance initialize` command.
 

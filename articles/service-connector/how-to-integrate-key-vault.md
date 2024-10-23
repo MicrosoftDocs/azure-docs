@@ -6,9 +6,8 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/02/2024
-ms.custom: event-tier1-build-2022
-
 ---
+
 # Integrate Azure Key Vault with Service Connector
 
 > [!NOTE]
@@ -21,8 +20,9 @@ This page shows supported authentication methods and clients, and shows sample c
 Service Connector can be used to connect the following compute services to Azure Key Vault:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types

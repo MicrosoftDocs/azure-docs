@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 10/02/2024
 ms.author: steveesp
 ---
 
@@ -36,7 +36,6 @@ The following distributions from the Azure Marketplace are supported:
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
 | SLES 15 SP1  | 4.12.14-8.19-azure+          |
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  |
-| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  |
 | Debian 10    | 4.19.0-1-cloud+              |
 
 The noted versions are the minimum requirements. Newer versions are supported too.
@@ -65,9 +64,9 @@ DPDK installation instructions for MANA VMs are available here: [Microsoft Azure
 
 ### Install build dependencies
 
-# [RHEL, CentOS](#tab/redhat)
+# [RHEL](#tab/redhat)
 
-#### RHEL7.5/CentOS 7.5
+#### RHEL7.5
 
 ```bash
 yum -y groupinstall "Infiniband Support"
@@ -270,7 +269,7 @@ When you're running the previous commands on a virtual machine, change *IP_SRC_A
 
 ## Install DPDK via system package (not recommended)
 
-# [RHEL, CentOS](#tab/redhat)
+# [RHEL](#tab/redhat)
 
 ```bash
 sudo yum install -y dpdk

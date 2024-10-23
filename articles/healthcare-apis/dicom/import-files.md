@@ -1,21 +1,21 @@
 ---
 title: Import DICOM files into the DICOM service
 description: Learn how to import DICOM files by using bulk import in Azure Health Data Services.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: quickstart
 ms.date: 10/05/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Import DICOM files (preview)
 
 Bulk import is a quick way to add data to the DICOM&reg; service. Importing DICOM files with the bulk import capability enables:
 
-- **Backup and migration**: For example, your organization might have many DICOM instances stored in local or on-premises systems that you want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
+- **Backup and migration**. For example, your organization might have many DICOM instances stored in local or on-premises systems, which you want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
 
-- **Machine learning development**: For example, your organization might have a large dataset of DICOM instances that you want to use for training machine learning models. With bulk import, you can upload the data to the DICOM service and then access it from [Microsoft Fabric](get-started-with-analytics-dicom.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), or other tools.
+- **Machine learning development**. For example, your organization might have a large dataset of DICOM instances that you want to use for training machine learning models. With bulk import, you can upload the data to the DICOM service and then access it from [Microsoft Fabric](get-started-with-analytics-dicom.md), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), or other tools.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Before you perform a bulk import, you need to enable a system-assigned managed i
 
 You need to enable bulk import before you import data.
 
-#### Use the Azure portal
+### Use the Azure portal
 
 1. In the Azure portal, go to the DICOM service and then select **Bulk Import** from the left pane.
 
@@ -48,11 +48,11 @@ You need to enable bulk import before you import data.
 
    :::image type="content" source="media/import-enable.png" alt-text="Screenshot that shows the Bulk Import page with the toggle set to Enabled." lightbox="media/import-enable.png":::
 
-#### Use an Azure Resource Manager template
+### Use an Azure Resource Manager template
 
 When you use an Azure Resource Manager template (ARM template), enable bulk import with the property named `bulkImportConfiguration`.
 
-Here's an example of how to configure bulk import in an ARM template:
+Following is an example of how to configure bulk import in an ARM template.
 
 ``` json
 { 
@@ -82,13 +82,13 @@ Within the new resource group, two resources are created:
 
 DICOM images are added to the DICOM service by copying them into the `import-container`. Bulk import monitors this container for new images and adds them to the DICOM service. If there are errors that prevent a file from being added successfully, the errors are copied to the `error-container` and an error message is written to the `error-queue`.
 
-#### Grant write access to the import container
+### Grant write access to the import container
 
-The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-#### Upload DICOM images to the import container
+### Upload DICOM images to the import container
 
-Data is uploaded to Azure Storage containers in many ways:
+Data is uploaded to Azure Storage containers in many ways.
 
 - [Upload a blob with Azure Storage Explorer](../../storage/blobs/quickstart-storage-explorer.md#upload-blobs-to-the-container)
 - [Upload a blob with AzCopy](../../storage/common/storage-use-azcopy-blobs-upload.md)

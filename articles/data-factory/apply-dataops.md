@@ -1,13 +1,12 @@
 ---
 title: Applying DataOps
 description: Learn how to apply DataOps to Azure Data Factory.
-ms.service: data-factory
-ms.subservice: concepts
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 01/05/2024
+ms.subservice: ci-cd
 ---
 
 # Applying DataOps to Azure Data Factory

@@ -1,26 +1,22 @@
 ---
-title: Bulk-delete operation for Azure Health Data Services FHIR service.
-description: This article describes the bulk-delete operation for the AHDS FHIR service.
+title: Bulk delete resources from the FHIR service in Azure Health Data Services
+description: Learn how to bulk delete resources from the FHIR service in Azure Health Data Services.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/22/2022
+ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-# Bulk Delete 
+# Bulk delete in the FHIR service
 
-[!INCLUDE [bulk-delete operation details](../includes/fhir-bulk-delete-operation.md)]
+[!INCLUDE [bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
 
-## Next steps
+## Related content
 
-In this article, you learned how to bulk delete resources in the FHIR service. For information about supported FHIR features, see
+[Supported FHIR features](fhir-features-supported.md)
 
->[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
+[FHIR REST API capabilities for Azure Health Data Services FHIR service](rest-api-capabilities.md)
 
->[!div class="nextstepaction"]
->[FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

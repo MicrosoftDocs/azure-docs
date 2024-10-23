@@ -4,7 +4,7 @@ description: This article describes how to use module twins to synchronize state
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/27/2022
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
@@ -141,7 +141,7 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
 > The preceding snippets are examples, optimized for readability, of one way to encode a module configuration and its status. IoT Hub does not impose a specific schema for the module twin desired and reported properties in the module twins.
 
 > [!IMPORTANT]
-> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot-develop/concepts-convention.md#writable-properties).
+> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot/concepts-convention.md#writable-properties).
 
 ## Back-end operations
 

@@ -4,16 +4,15 @@ titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Microsoft Entra role-based access control.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps
 ---
 
 # Access Config Server and Service Registry
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
@@ -35,7 +34,7 @@ Assign the role to the [user | group | service-principal | managed-identity] at 
 | Azure Spring Apps Service Registry Reader      | Allow read access to Azure Spring Apps Service Registry.                    |
 | Azure Spring Apps Service Registry Contributor | Allow read, write, and delete access to Azure Spring Apps Service Registry. |
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Access Config Server and Service Registry Endpoints
 

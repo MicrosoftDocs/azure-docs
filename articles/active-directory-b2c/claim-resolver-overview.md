@@ -6,12 +6,12 @@ description: Learn how to use claims resolvers in a custom policy in Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
@@ -108,6 +108,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
+| {OIDC:IdToken} | The `id token`  query string parameter. | N/A |
 
 Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
 

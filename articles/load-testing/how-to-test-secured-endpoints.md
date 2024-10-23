@@ -1,10 +1,10 @@
 ---
 title: Load test authenticated endpoints
 description: Learn how to load test authenticated endpoints with Azure Load Testing. Use shared secrets, credentials, or client certificates for load testing applications that require authentication.
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: how-to 
 ms.date: 09/18/2023
 ms.custom: template-how-to
@@ -192,8 +192,6 @@ To add a client certificate to your load test in the Azure portal:
     | ----- | ----- |
     | **Name** | Name of the certificate. |
     | **Value** | Matches the Azure Key Vault **Secret identifier** of the certificate. |
-
-    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-certificates.png" alt-text="Screenshot that shows how to add a certificate to a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-certificates.png":::
 
 1. Select **Apply**, to save the load test configuration changes.
 

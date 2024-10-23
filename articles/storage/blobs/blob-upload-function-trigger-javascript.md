@@ -1,28 +1,27 @@
 ---
-title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Storage
+title: Upload, analyze files with Azure Functions and Blob Storage
 description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
 author: diberry
 ms.author: diberry
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 07/06/2023
+ms.date: 08/20/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-azurecli, engagement
+#Customer intent: As a JavaScript developer, I want to know how to upload files to blob storage within an application, so that I can adopt this functionality into my own solution.
 ---
-
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 
-In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions, Computer Vision, and Cosmos DB. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
+In this tutorial, you learn how to upload an image to Azure Blob Storage and process it using Azure Functions, Computer Vision, and Cosmos DB. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
 Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md). 
 
 > [!WARNING]
-> This tutorial uses publicly accessible storage to simplify the process to finish this tutorial. Anonymous public access presents a security risk. [Learn how to remediate this risk.](/azure/storage/blobs/anonymous-read-access-overview)
+> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-considerations).
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. 
 
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
-
 
 In this tutorial, learn how to:
 
@@ -45,6 +44,7 @@ In this tutorial, learn how to:
 
 
 ## Create the storage account and container
+
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage only.
 
 ### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
@@ -158,7 +158,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ## Create the Azure AI Vision service
 
-Next, create the Azure AI Vision service account that will process our uploaded files. Vision is part of Azure AI services and offers various features for extracting data out of images.  You can learn more about Azure AI Vision on the [overview page](../../ai-services/computer-vision/overview.md).
+Next, create the Azure AI Vision service account that will process our uploaded files. Vision is part of Azure AI services and offers various features for extracting data out of images.  You can learn more about Azure AI Vision on the [overview page](/azure/ai-services/computer-vision/overview).
 
 ### [Azure portal](#tab/computer-vision-azure-portal)
 
@@ -299,9 +299,10 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 3. Get the connection string using the command below for later use in the tutorial.
 
     ```azurecli-interactive
-    az cosmosdb list-connection-strings 
-        --name msdocscosmosdb 
-        --resource-group msdocs-storage-function
+    az cosmosdb keys list \
+        --name msdocscosmosdb \
+        --resource-group msdocs-storage-function \
+        --type connection-strings
     ```
 
     This returns a JSON array of two read-write connection strings, and two read-only connection strings.
@@ -418,7 +419,7 @@ To run the project locally, enter the environment variables in the `./local.sett
 
 Although the Azure Function code runs locally, it connects to the cloud-based services for Storage, rather than using any local emulators.
 
-```
+```json
 {
   "IsEncrypted": false,
   "Values": {
@@ -554,6 +555,18 @@ Use the following table to help troubleshoot issues during this procedure.
 |--|--|
 |`await computerVisionClient.read(url);` errors with `Only absolute URLs are supported`|Make sure your `ComputerVisionEndPoint` endpoint is in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/`.|
 
+## Security considerations
+
+This solution, as a beginner tutorial, doesn't demonstrate secure-by-default practices. This is intentional to allow you to be successful in deploying the solution. The next step after that successful deployment is to secure the resources. This solution uses three Azure services, each has its own security features and considerations for secure-by-default configuration:
+
+* Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
+* Azure Storage - [Security recommendations for Blob storage](security-recommendations.md)
+* Azure Cognitive services - [Azure AI services security features](/azure/ai-services/security-features)
+
+## Sample code
+
+* [Azure Functions sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4)
+
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the resources you created by removing the resource group.
@@ -562,12 +575,7 @@ If you're not going to continue to use this application, you can delete the reso
 1. Find and right-click the `msdocs-storage-function` resource group from the list.
 1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
 
-
-## Sample code
-
-* [Azure Functions sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4)
-
-## Next steps
+## Related content
 
 * [Create a function app that connects to Azure services using identities instead of secrets](/azure/azure-functions/functions-identity-based-connections-tutorial)
 * [Remediating anonymous public read access for blob data](/azure/storage/blobs/anonymous-read-access-overview)

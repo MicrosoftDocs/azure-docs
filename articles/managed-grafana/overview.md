@@ -1,11 +1,12 @@
 ---
 title: What is Azure Managed Grafana? 
-description: Read an overview of Azure Managed Grafana. Understand why and how to use Managed Grafana. 
+description: Read an overview of Azure Managed Grafana. This article explains what Azure Managed Grafana is, its benefits and presents its service tiers.
+#customer intent: As a developer, devops or data professional, I want to learn about Grafana so that I understand how to use Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 11/17/2023
+ms.date: 04/25/2024
 --- 
 
 # What is Azure Managed Grafana?
@@ -14,7 +15,7 @@ Azure Managed Grafana is a data visualization platform built on top of the Grafa
 
 Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services and provides the following integration features:
 
-* Built-in support for [Azure Monitor](../azure-monitor/index.yml) and [Azure Data Explorer](/azure/data-explorer/)
+* Built-in support for [Azure Monitor](/azure/azure-monitor/) and [Azure Data Explorer](/azure/data-explorer/)
 * User authentication and access control using Microsoft Entra identities
 * Direct import of existing charts from the Azure portal
 

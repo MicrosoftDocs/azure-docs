@@ -1,10 +1,9 @@
 ---
 title: Benefits of using Azure NetApp Files with Oracle Database | Microsoft Docs
-description: Describes the technology and provides a performance comparison between Oracle Direct NFS (dNFS) and the traditional NFS client. Shows the advantages of using dNFS with Azure NetApp Files. 
+description: Describes the technology and provides a performance comparison between Oracle Direct NFS (dNFS) and the traditional NFS client. Shows the advantages of using dNFS with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/04/2022
 ms.author: anfdocs
@@ -52,4 +51,4 @@ You can enhance the performance of Oracle dNFS with the Azure NetApp Files servi
 ## Next steps
 
 - [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Overview of Oracle Applications and solutions on Azure](../virtual-machines/workloads/oracle/oracle-overview.md)
+- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview)

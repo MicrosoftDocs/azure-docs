@@ -3,16 +3,15 @@ title: Quickstart - Provision an Azure Spring Apps Standard consumption and dedi
 description: Learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
@@ -37,8 +36,6 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 1. Open the [Azure portal](https://portal.azure.com/).
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
-
-   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
@@ -65,7 +62,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and choose **Consumption and Dedicated workload profiles** for the **Plan**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps environment page with the Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal that shows the Create Container Apps environment page with the Consumption and Dedicated workload profiles selected." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
 
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. If you wish to add a dedicated workload profile to the same Azure Container Apps environment, you can select the **Workload profiles** tab and select **Add workload profile**.
 
@@ -145,7 +142,7 @@ You can create the Azure Container Apps environment in one of two ways:
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment by using the following command:
 
    ```azurecli
-   az containerapp env workload-profile set \
+   az containerapp env workload-profile add \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --workload-profile-name my-wlp \

@@ -43,9 +43,9 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | Area         | Azure Communication Services Chat                | Teams Interoperability Chat                 |
 | ------------ | ------------------------------------------------ | ------------------------------------------- |
 | Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat         |
-| Chat actions | Send and receive text messages                      | Send and receive text messages                 |
-|              | Receive rich text messages                          | Receive rich text messages                     |
-|              | -                                                | [Receive inline images\*](../../../tutorials/inline-image-tutorial-interop-chat.md)                        |
+| Chat actions | Send and receive text messages                   | Send and receive text messages              |
+|              | Send and receive rich text messages\*            | Send and receive rich text messages\*       |
+|              | -                                                | [Receive inline images](../../../tutorials/inline-image-tutorial-interop-chat.md)                        |
 |              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md)                   | [Receive file attachments\*](../../../tutorials/file-sharing-tutorial-interop-chat.md)                 |
 | Chat events  | Send and receive typing indicators                  | Send and receive typing indicators\*\*             |
 |              | Send and receive read receipts                      | Send and receive read receipts                 |
@@ -53,7 +53,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | Participants | Show a participant roster                        | Show a participant roster                   |
 
 
-\*Inline image and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+\*Send rich text messages and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 \*\*The display name of typing event from the Teams user might not be shown properly.
 
@@ -140,6 +140,11 @@ Accessibility by design is a principle across Microsoft products. UI Library fol
 ## Localization
 
 Localization is key to making products for users around the world and who speak different languages. UI Library provides default support for some languages and capabilities, including right-to-left languages. You can provide their own localization files to use with UI Library.
+
+## Known Issues
+
+* The UI library doesn't support updating message type when editing existing messages at this time. Adding rich text formatting to an existing message will add html styling to the text content. Since this does not change the message type, it may result in displaying html content as plain text in the message thread.
+
 
 > [!div class="nextstepaction"]
 > [Visit UI Library storybook](https://azure.github.io/communication-ui-library)

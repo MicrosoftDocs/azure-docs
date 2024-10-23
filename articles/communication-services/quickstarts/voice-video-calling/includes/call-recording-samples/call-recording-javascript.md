@@ -65,7 +65,45 @@ var options: StartRecordingOptions =
 var response = await callAutomationClient.getCallRecording().start(options);
 ```
 
-### 2.1. Only for Unmixed - Specify a user on channel 0
+### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+Start Recording with your own Azure Blob Storage defined to store the recording file once recording is complete.
+
+```javascript
+const recordingStorageKind: RecordingStorageKind = "azureBlobStorage"
+const recordingStorage: RecordingStorage = { 
+       recordingStorageKind: recordingStorageKind, 
+       recordingDestinationContainerUrl: "<YOUR_STORAGE_CONTAINER_URL>"
+   }
+var options: StartRecordingOptions = {
+       callLocator: callLocator,
+       recordingContent: "audio",
+       recordingChannel:"unmixed",
+       recordingFormat: "wav",
+       recordingStateCallbackEndpointUrl: "<CallbackUri>",
+       recordingStorage: recordingStorage
+   };
+var response = await callAutomationClient.getCallRecording().start(options);
+```
+## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
+```javascript
+var locator: CallLocator = { id: "<ServerCallId>", kind: "serverCallLocator" };
+
+var options: StartRecordingOptions =
+{
+  callLocator: locator,
+  recordingContent: "audio",
+  recordingChannel:"unmixed",
+  recordingFormat: "wav",
+  pauseOnStart: true
+  recordingStateCallbackEndpointUrl: "<CallbackUri>",
+  audioChannelParticipantOrdering:[{communicationUserId: "<ACS_USER_MRI>"}]
+};
+var response = await callAutomationClient.getCallRecording().start(options);
+```
+
+### 2.3. Only for Unmixed - Specify a user on channel 0
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking.
 
 ```javascript
@@ -83,7 +121,7 @@ var options: StartRecordingOptions =
 var response = await callAutomationClient.getCallRecording().start(options);
 ```
 
-### 2.2. Only for Unmixed - Specify channel affinity
+### 2.4. Only for Unmixed - Specify channel affinity
 
 ```javascript
 var options: StartRecordingOptions =

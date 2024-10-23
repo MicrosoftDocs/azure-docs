@@ -1,9 +1,8 @@
 ---
 title: Create and manage projects
 description: Find, create, manage, and delete projects in Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
-ms.manager: abhemraj
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/22/2023
@@ -91,7 +90,7 @@ Find a project as follows:
 
 ### Find a classic project
 
-If you created the project in the [previous version](migrate-services-overview.md#azure-migrate-versions) of Azure Migrate, find it as follows:
+If you created the project in the [previous version](migrate-services-overview.md) of Azure Migrate, find it as follows:
 
 1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
 2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
@@ -129,7 +128,7 @@ Note that:
        
     - If you've already deleted the project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](../azure-monitor/logs/delete-workspace.md) to delete the workspace.
+2. [Follow the instructions](/azure/azure-monitor/logs/delete-workspace) to delete the workspace.
 
 ## Next steps
 

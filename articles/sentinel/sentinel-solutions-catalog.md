@@ -1,10 +1,17 @@
 ---
 title: Microsoft Sentinel content hub catalog | Microsoft Docs
-description: This article lists the solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
+description: Learn about domain specific solutions available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/08/2023
+ms.date: 03/01/2024
 ms.author: cwatson
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: As a security operations analyst, I want to deploy domain-specific security solutions in Microsoft Sentinel so that I can enhance threat detection and compliance capabilities efficiently.
+
 ---
 
 # Microsoft Sentinel content hub catalog
@@ -14,6 +21,8 @@ Solutions in Microsoft Sentinel provide a consolidated way to acquire Microsoft 
 This article helps you find the full list of the solutions available in Microsoft Sentinel. This article also lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
 
 When you deploy a solution, the security content included with the solution, such as data connectors, playbooks, or workbooks, are available in the relevant views for the content. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## All solutions for Microsoft Sentinel
 

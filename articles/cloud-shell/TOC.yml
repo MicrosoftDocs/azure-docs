@@ -5,6 +5,8 @@ items:
         href: overview.md
       - name: Features & tools
         href: features.md
+      - name: Release notes
+        href: release-notes.md
   - name: Get started with Cloud Shell
     items:
       - name: Get started (Classic)
@@ -43,8 +45,10 @@ items:
         href: pricing.md
       - name: Pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
+  - name: Security
+    items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Reference
     items:
       - name: Azure CLI

@@ -6,8 +6,7 @@ author: sethmanheim
 manager: femila
 editor: thsomasu
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: article

@@ -17,16 +17,16 @@ When you use [SAP Deployment Automation Framework](deployment-framework.md), you
 
 | Filename                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |
-| `playbook_01_os_base_config.yaml`          | Base operating system (OS) configuration          |
-| `playbook_02_os_sap_specific_config.yaml`  | SAP-specific OS configuration                     |
-| `playbook_03_bom_processing.yaml`          | SAP Bill of Materials (SAP BoM) processing        |
+| `playbook_01_os_base_config.yaml`          | Base operating system configuration          |
+| `playbook_02_os_sap_specific_config.yaml`  | SAP-specific operating system configuration                     |
+| `playbook_03_bom_processing.yaml`          | SAP Bill of Materials processing        |
 | `playbook_04_00_00_hana_db_install`        | SAP HANA database installation                    |
-| `playbook_05_00_00_sap_scs_install.yaml`   | SAP central services (SCS) installation           |
+| `playbook_05_00_00_sap_scs_install.yaml`   | SAP central services installation           |
 | `playbook_05_01_sap_dbload.yaml`           | Database loader                                   |
 | `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA high-availability configuration                         |
-| `playbook_05_02_sap_pas_install.yaml`      | SAP primary application server (PAS) installation |
+| `playbook_05_02_sap_pas_install.yaml`      | SAP primary application server installation |
 | `playbook_05_03_sap_app_install.yaml`      | SAP application server installation               |
-| `playbook_05_04_sap_web_install.yaml`      | SAP web dispatcher installation                   |
+| `playbook_05_04_sap_web_install.yaml`      | SAP Web Dispatcher installation                   |
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ L00_WEB:
 
 Make sure that you [download the SAP software](software.md) to your Azure environment before you run this step.
 
-One way you can run the playbooks is to use the **Configuration** menu.
+One way you can run the playbooks is to use the configuration menu.
 
 Run the `configuration_menu` script.
 
@@ -165,7 +165,6 @@ ${HOME}/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configurati
 ```
 
 :::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu." lightbox="./media/tutorial/configuration-menu.png":::
-
 
 To run a playbook or multiple playbooks, use the following `ansible-playbook` command. This example runs the operating system configuration playbook.
 
@@ -216,27 +215,26 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The operating system configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Core Operating System Configuration.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Core Operating System Configuration`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
 The following tasks are executed on Linux virtual machines:
 
-- Enables logging for `sudo` operations
-- Ensures that the Azure virtual machine agent is configured correctly
-- Ensures that all the repositories are registered and enabled
-- Ensures that all the packages are installed
-- Creates volume groups and logical volumes
-- Configures the kernel parameters
-- Configures routing for more network interfaces (if necessary)
-- Creates the user accounts and groups
-- Configures the banners displayed when signed in
-- Configures the services required
-
+- Enable logging for `sudo` operations.
+- Ensure that the Azure virtual machine agent is configured correctly.
+- Ensure that all the repositories are registered and enabled.
+- Ensure that all the packages are installed.
+- Create volume groups and logical volumes.
+- Configure the kernel parameters.
+- Configure routing for more network interfaces (if necessary).
+- Create the user accounts and groups.
+- Configure the banners displayed when signed in.
+- Configure the services required.
 
 ```bash
 
@@ -263,20 +261,23 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 # [Windows](#tab/windows)
 
-- Ensures that all the components are installed:
-    - StorageDsc
-    - NetworkingDsc
-    - ComputerManagementDsc
-    - PSDesiredStateConfiguration
-    - WindowsDefender
-    - ServerManager
-    - SecurityPolicyDsc
+The following tasks are executed on Windows virtual machines:
+
+- Ensure that all the components are installed:
+
+    - `StorageDsc`
+    - `NetworkingDsc`
+    - `ComputerManagementDsc`
+    - `PSDesiredStateConfiguration`
+    - `WindowsDefender`
+    - `ServerManager`
+    - `SecurityPolicyDsc`
     - Visual C++ runtime libraries
     - ODBC drivers
-- Configures the swap file size
-- Initializes the disks
-- Configures Windows Firewall
-- Joins the virtual machine to the specified domain
+- Configure the swap file size.
+- Initialize the disks.
+- Configure Windows Firewall.
+- Join the virtual machine to the specified domain.
 
 ```bash
 
@@ -310,18 +311,18 @@ The SAP-specific operating system configuration playbook is used to configure th
 
 The following tasks are executed on Linux virtual machines:
 
-- Configures the hosts file
-- Ensures that all the SAP-specific repositories are registered and enabled
-- Ensures that all the SAP-specific packages are installed
-- Performs the disk mount operations
-- Configures the SAP-specific services
-- Implements configurations defined in the relevant SAP Notes
+- Configure the hosts file.
+- Ensure that all the SAP-specific repositories are registered and enabled.
+- Ensure that all the SAP-specific packages are installed.
+- Perform the disk mount operations.
+- Configure the SAP-specific services.
+- Implement configurations defined in the relevant SAP Notes.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'SAP Operating System Configuration.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `SAP Operating System Configuration`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 ```bash
 
@@ -349,9 +350,10 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 # [Windows](#tab/windows)
 
-- Adds local groups and permissions
-- Connects to the Windows file shares
+The following tasks are executed on Windows virtual machines:
 
+- Add local groups and permissions.
+- Connect to the Windows file shares.
 
 ```bash
 
@@ -387,11 +389,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 This playbook downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the central services instance or from Azure Files or Azure NetApp Files.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Local software download.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Local software download`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
@@ -423,7 +425,6 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
 The following tasks are executed on the central services instance virtual machine:
@@ -459,22 +460,22 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 ```
 ---
 
-## SAP Central Services & High Availability Configuration
+## SAP Central Services and high-availability configuration
 
-This playbook performs the Central Services installation. For High availability scenarios, the playbook also configures the Pacemaker cluster needed for SAP Central Services for high availability on Linux and Windows Failover Clustering for Windows.
+This playbook performs the Central Services installation. For high-availability scenarios, the playbook also configures the Pacemaker cluster needed for SAP Central Services for high availability on Linux and Windows Failover Clustering for Windows.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'SCS Installation & High Availability Configuration.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `SCS Installation & High Availability Configuration`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
 The playbook performs the following tasks:
 
-- Central Services Installation.
-- Pacemaker cluster configuration.
+- Central Services installation
+- Pacemaker cluster configuration
 
 ```bash
 
@@ -500,13 +501,12 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
 The playbook performs the following tasks:
 
-- Central Services Installation.
-- Windows failover cluster configuration.
+- Central Services installation
+- Windows failover cluster configuration
 
 ```bash
 
@@ -538,21 +538,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-## Database Installation
+## Database installation
 
-This playbook performs the Database server installation.
+This playbook performs the database server installation.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Database Installation.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Database installation`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Database instance installation.
+- Database instance installation
 
 ```bash
 
@@ -578,12 +578,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Database instance installation.
+- Database instance installation
 
 ```bash
 
@@ -615,21 +614,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-## Database Load
+## Database load
 
 This playbook performs the Database load.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Database Load.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Database Load`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Database load.
+- Database load
 
 ```bash
 
@@ -655,12 +654,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Database load.
+- Database load
 
 ```bash
 
@@ -692,22 +690,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-## Database High Availability Configuration
+## Database high-availability configuration
 
-This playbook performs the Database server high availability configuration.
+This playbook performs the database server high-availability configuration.
 
+You can run the playbook by using either:
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Database High Availability Configuration.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
-
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Database High Availability Configuration`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
 The playbook performs the following tasks:
 
-- Database high availability configuration.
+- Database high-availability configuration.
 - For HANA, the playbook also configures the Pacemaker cluster needed for SAP HANA for high availability on Linux and configures HANA System replication.
 - For Oracle, the playbook also configures Oracle Data Guard.
 
@@ -735,13 +732,12 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
 The playbook performs the following tasks:
 
-- Database high availability configuration.
-- SQL Server Always On Availability Group configuration.
+- Database high-availability configuration
+- SQL Server Always On availability group configuration
 
 ```bash
 
@@ -771,24 +767,23 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 ---
 
-## Primary Application Server Installation
+## Primary application server installation
 
 This playbook performs the installation of the primary application server.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Primary Application Server Installation.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Primary Application Server Installation`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Primary Application Server Installation.
+- Primary application server installation
 
 ```bash
 
@@ -814,12 +809,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Primary Application Server Installation.
+- Primary application server installation
 
 ```bash
 
@@ -851,22 +845,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-
-## Additional Application Server Installation
+## Additional application server installation
 
 This playbook performs the installation of the application servers.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Application Server Installation.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Application Server Installation`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Application Server Installation.
+- Application server installation
 
 ```bash
 
@@ -892,12 +885,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Application Server Installation.
+- Application server installation
 
 ```bash
 
@@ -929,21 +921,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-## Web Dispatcher Installation
+## Web Dispatcher installation
 
 This playbook performs the installation of the Web Dispatchers.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Web Dispatcher Installation.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Web Dispatcher Installation`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Web Dispatcher Installation.
+- Web Dispatcher installation
 
 ```bash
 
@@ -969,12 +961,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- Web Dispatcher Installation.
+- Web Dispatcher installation
 
 ```bash
 
@@ -1007,21 +998,21 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-## ACSS Registration
+## ACSS registration
 
-This playbook performs the ACSS registration.
+This playbook performs the Azure Center for SAP Solutions (ACSS) registration.
 
-You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Register System in ACSS.'
-- the configuration menu script 'configuration_menu.sh.'
-- directly from the command line.
+You can run the playbook by using either:
 
+- The DevOps pipeline `Configuration and SAP installation` by choosing `Register System in ACSS`.
+- The configuration menu script `configuration_menu.sh`.
+- The command line.
 
 # [Linux](#tab/linux)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- ACSS registration.
+- ACSS registration
 
 ```bash
 
@@ -1047,12 +1038,11 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-
 # [Windows](#tab/windows)
 
-The playbook performs the following tasks:
+The playbook performs the following task:
 
-- ACSS registration.
+- ACSS registration
 
 ```bash
 

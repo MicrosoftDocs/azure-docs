@@ -2,9 +2,9 @@
 title: Azure PowerShell - Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Microsoft Entra user using Azure Event Grid
 ms.devlang: powershell
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done, devx-track-azurepowershell
 ms.topic: sample
-ms.date: 09/29/2021
+ms.date: 02/02/2024
 ---
 
 # Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
@@ -15,10 +15,10 @@ Here are the high level steps from the script:
 
 1. Create a service principal for **Microsoft.EventGrid** if it doesn't already exist.
 1. Create a role named **AzureEventGridSecureWebhookSubscriber** in the **Microsoft Entra app for your Webhook**.
-1. Add service principal of user who will be creating the subscription to the AzureEventGridSecureWebhookSubscriber role.
+1. Add service principal of user who is creating the subscription to the AzureEventGridSecureWebhookSubscriber role.
 1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber.
 
-## Sample script - stable
+## Sample script
 
 ```azurepowershell
 # NOTE: Before run this script ensure you are logged in Azure by using "az login" command.
@@ -33,10 +33,10 @@ try {
 
     Function CreateAppRole([string] $Name, [string] $Description)
     {
-        $appRole = New-Object Microsoft.Open.AzureAD.Model.AppRole
+        $appRole = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAppRole
         $appRole.AllowedMemberTypes = New-Object System.Collections.Generic.List[string]
-        $appRole.AllowedMemberTypes.Add("Application");
-        $appRole.AllowedMemberTypes.Add("User");
+        $appRole.AllowedMemberTypes += "Application";
+        $appRole.AllowedMemberTypes += "User";
         $appRole.DisplayName = $Name
         $appRole.Id = New-Guid
         $appRole.IsEnabled = $true
@@ -46,59 +46,59 @@ try {
         return $appRole
     }
 
-    # Creates Azure Event Grid Azure AD Application if not exists
+    # Creates Azure Event Grid Microsoft Entra Application if not exists
     # You don't need to modify this id
-    # But Azure Event Grid Azure AD Application Id is different for different clouds
+    # But Azure Event Grid Microsoft Entra Application Id is different for different clouds
    
     $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
     # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
-    $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
-    $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
-    if ($eventGridSP -match "Microsoft.EventGrid")
+    $eventGridSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
+    if ($eventGridSP.DisplayName -match "Microsoft.EventGrid")
     {
-        Write-Host "The Azure AD Application is already defined.`n"
+        Write-Host "The Event Grid Microsoft Entra Application is already defined.`n"
     } else {
-        Write-Host "Creating the Azure Event Grid Azure AD Application"
-        $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
+        Write-Host "Creating the Azure Event Grid Microsoft Entra Application"
+        $eventGridSP = New-MgServicePrincipal -AppId $eventGridAppId
     }
 
-    # Creates the Azure app role for the webhook Azure AD application
+    # Creates the Azure app role for the webhook Microsoft Entra application
+    $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
 
-    $app = Get-AzureADApplication -ObjectId $webhookAppObjectId
+    $app = Get-MgApplication -ApplicationId $webhookAppObjectId 
     $appRoles = $app.AppRoles
 
-    Write-Host "Azure AD App roles before addition of the new role..."
-    Write-Host $appRoles
+    Write-Host "Microsoft Entra App roles before addition of the new role..."
+    Write-Host $appRoles.DisplayName
     
-    if ($appRoles -match $eventGridRoleName)
+    if ($appRoles.DisplayName -match $eventGridRoleName)
     {
         Write-Host "The Azure Event Grid role is already defined.`n"
     } else {      
-        Write-Host "Creating the Azure Event Grid role in Azure AD Application: " $webhookAppObjectId
+        Write-Host "Creating the Azure Event Grid role in Microsoft Entra Application: " $webhookAppObjectId
         $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
-        $appRoles.Add($newRole)
-        Set-AzureADApplication -ObjectId $app.ObjectId -AppRoles $appRoles
+        $appRoles += $newRole
+        Update-MgApplication -ApplicationId $webhookAppObjectId -AppRoles $appRoles
     }
 
-    Write-Host "Azure AD App roles after addition of the new role..."
-    Write-Host $appRoles
+    Write-Host "Microsoft Entra App roles after addition of the new role..."
+    Write-Host $appRoles.DisplayName
 
     # Creates the user role assignment for the user who will create event subscription
 
-    $servicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
+    $servicePrincipal = Get-MgServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
 
     try
     {
-        Write-Host "Creating the Azure Ad App Role assignment for user: " $eventSubscriptionWriterUserPrincipalName
-        $eventSubscriptionWriterUser = Get-AzureAdUser -ObjectId $eventSubscriptionWriterUserPrincipalName
+        Write-Host "Creating the Microsoft Entra App Role assignment for user: " $eventSubscriptionWriterUserPrincipalName
+        $eventSubscriptionWriterUser = Get-MgUser -UserId $eventSubscriptionWriterUserPrincipalName
         $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-        New-AzureADUserAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId        
+        New-MgUserAppRoleAssignment -UserId $eventSubscriptionWriterUser.Id -PrincipalId $eventSubscriptionWriterUser.Id -ResourceId $servicePrincipal.Id  -AppRoleId $eventGridAppRole.Id 
     }
     catch
     {
         if( $_.Exception.Message -like '*Permission being assigned already exists on the object*')
         {
-            Write-Host "The Azure AD User Application role is already defined.`n"
+            Write-Host "The Microsoft Entra User Application role is already defined.`n"
         }
         else
         {
@@ -107,15 +107,15 @@ try {
         Break
     }
 
-    # Creates the service app role assignment for Event Grid Azure AD Application
+    # Creates the service app role assignment for Event Grid Microsoft Entra Application
 
     $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-    New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
+    New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $eventGridSP.Id -PrincipalId $eventGridSP.Id  -ResourceId $servicePrincipal.Id -AppRoleId $eventGridAppRole.Id
     
     # Print output references for backup
 
-    Write-Host ">> Webhook's Azure AD Application Id: $($app.AppId)"
-    Write-Host ">> Webhook's Azure AD Application ObjectId Id: $($app.ObjectId)"
+    Write-Host ">> Webhook's Microsoft Entra Application Id: $($app.AppId)"
+    Write-Host ">> Webhook's Microsoft Entra Application Object Id: $($app.Id)"
 }
 catch {
   Write-Host ">> Exception:"
@@ -127,4 +127,4 @@ catch {
 
 ## Script explanation
 
-For more details refer to [Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid](../secure-webhook-delivery.md)
+For more information, see [Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid](../secure-webhook-delivery.md).

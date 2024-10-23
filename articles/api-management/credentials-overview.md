@@ -2,7 +2,7 @@
 title: About credential manager in Azure API Management
 description: Learn about using credential manager in Azure API Management to create and manage connections to backend SaaS APIs
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: danlep
@@ -11,11 +11,15 @@ ms.custom: references_regions
 
 # About API credentials and credential manager
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]
 > * Currently, you can use credential manager to configure and manage connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. 
 > * No breaking changes are introduced with credential manager. OAuth 2.0 credential providers and connections use the existing API Management [authorization](/rest/api/apimanagement/authorization) APIs and resource provider.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## Managed connections for OAuth 2.0 APIs
 
@@ -137,7 +141,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the classic and v2 service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 

@@ -5,13 +5,13 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/12/2022
+ms.date: 11/17/2023
 ms.custom: engagement-fy23
 ---
 
 # Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
 
-In this article, you'll learn how to configure the [Migration and modernization](./migrate-services-overview.md#migration-and-modernization-tool) tool to replicate data over an Azure ExpressRoute circuit while you migrate servers to Azure. This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity. To use private endpoint support, create a new Azure Migrate project with private endpoint connectivity. See [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
+In this article, you'll learn how to configure the [Migration and modernization](./migrate-services-overview.md) tool to replicate data over an Azure ExpressRoute circuit while you migrate servers to Azure. This document is to be referenced if you want to use ExpressRoute for your replications when using an Azure Migrate project with public endpoint connectivity. To use private endpoint support, create a new Azure Migrate project with private endpoint connectivity. See [Using Azure Migrate with private endpoints](./how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Understand Azure ExpressRoute circuits
 

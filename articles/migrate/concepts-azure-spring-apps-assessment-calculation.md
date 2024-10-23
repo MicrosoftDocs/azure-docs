@@ -5,13 +5,13 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 09/05/2023
-ms.custom: engagement-fy23
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment overview (migrate to Azure Spring Apps) (preview)
 
-This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.
@@ -24,7 +24,7 @@ The Azure Migrate: Discovery and assessment tool supports the following four typ
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Web apps on Azure** | Assessments to migrate your on-premises Spring Boot apps to Azure Spring Apps or ASP.NET web apps to Azure App Service.
+**Web apps on Azure** | Assessments to migrate your on-premises Spring Boot apps to Azure Spring Apps or ASP.NET/Java web apps to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 An Azure Spring Apps assessment provides the following sizing criteria:
@@ -55,15 +55,15 @@ After the appliance begins discovery, you can gather servers (hosting Spring Boo
 
 The following are included in Azure Spring Apps assessment properties:
 
-| **Setting** | **Details** |
-| --- | --- |
-| **Target location** | The Azure region to which you want to migrate. Azure Spring Apps configuration and cost recommendations are based on the location that you specify. |
-| **Environment type** | Specifies the environment to apply pricing applicable to Production or Dev/Test. |
-| **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer. |
-| **Currency** | The billing currency for your account. |
-| **Discount (%)** | Any subscription-specific discounts that you receive on top of the Azure offer. The default setting is 0%. |
-| **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties. |
-| **Savings options (compute)** | Specify the savings option that you want the assessment to consider. This helps to optimize your Azure Compute cost. <br><br> We recommend [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or 3 years reserved) for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or 3 years savings plan) provide more flexibility and automated cost optimization. Ideally post-migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. <br><br> When you select **None**, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.<br><br> You need to select **Pay-as-you-go** in **Offer/licensing program** to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than **None**, the **Discount (%)** setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
+**Setting** | **Details**
+--- | --- 
+**Target location** | The Azure region to which you want to migrate. Azure Spring Apps configuration and cost recommendations are based on the location that you specify.
+**Environment type** | Specifies the environment to apply pricing applicable to Production or Dev/Test.
+**Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
+**Currency** | The billing currency for your account.
+**Discount (%)** | Any subscription-specific discounts that you receive on top of the Azure offer. The default setting is 0%.
+**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
+**Savings options (compute)** | Specify the savings option that you want the assessment to consider. This helps to optimize your Azure Compute cost. <br><br> We recommend [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or 3 years reserved) for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or 3 years savings plan) provide more flexibility and automated cost optimization. Ideally post-migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. <br><br> When you select **None**, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.<br><br> You need to select **Pay-as-you-go** in **Offer/licensing program** to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than **None**, the **Discount (%)** setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
 
 ## Calculate readiness
 

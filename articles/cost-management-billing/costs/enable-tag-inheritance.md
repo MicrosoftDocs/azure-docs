@@ -111,12 +111,10 @@ Let's look at another example where a resource tag gets overridden. In the follo
 
 ## Usage record updates
 
-After the tag inheritance setting is enabled, it takes about 8-24 hours for the child resource usage records to get updated with subscription and resource group tags. The usage records are updated for the current month using the existing subscription and resource group tags.
+After the tag inheritance setting is updated, it takes about 8-24 hours for the child resource usage records to get updated. Any update to the setting or the tags being inherited takes effect for the current month.
 
-For example, if the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20.
-
-Similarly, if the tag inheritance setting is disabled, the inherited tags are removed from the usage records for the current month.
-
+For example, if the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20. 
+ 
 > [!NOTE]
 > If there are purchases or resources that don’t emit usage at a subscription scope, they will not have the subscription tags applied even if the setting is enabled.
 
@@ -131,9 +129,7 @@ You can use Cost analysis to view the costs grouped by tags.
 
 Here's an example showing costs for the *org* tag.
 
-:::image type="content" source="./media/enable-tag-inheritance/cost-analysis-view-tag.png" alt-text="Screenshot showing costs for the org example tag." lightbox="./media/enable-tag-inheritance/cost-analysis-view-tag.png" :::
-
-You can also view the inherited tags by downloading your Azure usage. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
+:::image type="content" source="./media/enable-tag-inheritance/cost-analysis-view-tag.png" alt-text="Screenshot showing costs for the org example tag." lightbox="./media/enable-tag-inheritance/cost-analysis-view-tag.png" :::You can create Budgets with filters on the inherited tags, 24 hours after enabling tag inheritance. You can also view the inherited tags by downloading your Azure usage. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## Next steps
 

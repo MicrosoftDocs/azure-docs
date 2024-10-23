@@ -16,9 +16,9 @@ The diagram shows the deployment of VMware HCX from on-premises VMware vSphere t
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png" alt-text="Diagram shows the VMware HCX manual disaster recovery solution in Azure VMware Solution with on-premises VMware vSphere." border="true" lightbox="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png":::
 
 >[!IMPORTANT]
->Although part of VMware HCX, VMware HCX Disaster Recovery (DR) is not recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual VMware HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware business continuity and disaster recovery (BCDR) solutions.
+>Although part of VMware HCX, VMware HCX Disaster Recovery (DR) is not recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual VMware HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware Business Continuity and Disaster Recovery (BCDR) solutions.
 
-VMware HCX provides various operations that provide fine control and granularity in replication policies. Available Operations include:
+VMware HCX provides various operations for fine control and granularity in replication policies. Available Operations include:
 
 - **Reverse** – After a disaster occurs, reverse helps make Site B the source site and Site A, where the protected VM now lives.
 

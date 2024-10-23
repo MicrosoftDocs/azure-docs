@@ -1,9 +1,9 @@
 ---
 title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Modernized
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 08/01/2023
+ms.date: 05/23/2024
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -61,7 +61,7 @@ Use the following steps to assign the required permissions:
 
 1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Microsoft Entra App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The tenant/global admin must assign the Application Registration role to an account to allow the registration of Microsoft Entra App.
 
 ## Grant required permissions to the vault
 
@@ -151,7 +151,7 @@ Follow these steps to enable replication:
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
     -  Managed disks
 
-       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](/azure/virtual-machines/disks-types#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Else, by default, one managed disk type can be chosen at a machine level
@@ -184,6 +184,5 @@ Follow these steps to enable replication:
 - Same replication appliance can be used both for forward and backward protection operations, if it is in a non-critical state. It should not impact the performance of the replications.
 
 ## Next steps
-After enabling replication, run a drill to make sure everything's working as expected.
-> [!div class="nextstepaction"]
-> [Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
+After enabling replication, [run a disaster recovery drill](site-recovery-test-failover-to-azure.md) to make sure everything's working as expected.
+

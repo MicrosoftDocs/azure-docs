@@ -1,8 +1,8 @@
 ---
 title: KeyVaultCertificateSelector UI element
 description: Describes the Microsoft.KeyVault.KeyVaultCertificateSelector UI element for Azure portal.
-ms.topic: conceptual
-ms.date: 10/27/2020
+ms.topic: reference
+ms.date: 06/21/2024
 ---
 
 # Microsoft.KeyVault.KeyVaultCertificateSelector UI element
@@ -49,5 +49,5 @@ The control is updated to display the selected key vault and certificate name.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

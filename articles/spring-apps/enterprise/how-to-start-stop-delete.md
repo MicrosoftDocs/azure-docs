@@ -2,17 +2,16 @@
 title: Start, stop, and delete an application in Azure Spring Apps
 description: Need to start, stop, or delete your Azure Spring Apps application? Learn how to manage the state of an Azure Spring Apps application.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 04/18/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
 ---
 
 # Start, stop, and delete an application in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -28,9 +27,9 @@ This guide explains how to change an application's state in Azure Spring Apps by
 
 ## Application state
 
-Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not always need to run if it's only used during business hours.
+Your applications running in Azure Spring Apps might not need to run continuously. For example, an application might not always need to run if it's used only during business hours.
 
-There may be times where you wish to stop or start an application. You can also restart an application as part of general troubleshooting steps or delete an application you no longer require.
+There might be times where you wish to stop or start an application. You can also restart an application as part of general troubleshooting steps or delete an application you no longer require.
 
 ## Manage application state
 
@@ -40,7 +39,7 @@ After you deploy an application, you can start, stop, and delete it by using the
 
 1. Go to your Azure Spring Apps service instance in the [Azure portal](https://portal.azure.com).
 
-1. Select **Application Dashboard**.
+1. Go to **Settings** and select **Apps**.
 
 1. Select the application whose state you want to change.
 

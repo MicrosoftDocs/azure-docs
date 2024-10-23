@@ -4,13 +4,15 @@ description: Reference for the sql-data-source resolver policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 06/07/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Azure SQL data source for a resolver
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
@@ -117,7 +119,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2
 
 ### Usage notes
 
@@ -300,6 +302,6 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

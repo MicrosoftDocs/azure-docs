@@ -1,10 +1,9 @@
 ---
 title: Understand NFSv4.x access control lists in Azure NetApp Files
-description: Learn about using NFSv4.x access control lists in Azure NetApp Files.  
+description: Learn about using NFSv4.x access control lists in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs
@@ -234,7 +233,7 @@ Azure NetApp Files defaults the NFSv4.x ID domain to the DNS domain settings for
 When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors similar to:
  
 ```bash
-August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
+August 19 13:14:29 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
 ```
 
 The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.

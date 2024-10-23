@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 10/26/2023
 
@@ -15,7 +15,7 @@ ms.date: 10/26/2023
 
 In this tutorial, you use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a VM routing problem that's preventing it from correctly communicating with other resources. Next hop shows you that a [custom route](../virtual-network/virtual-networks-udr-overview.md?toc=/azure/network-watcher/toc.json#custom-routes) caused the routing problem.
 
-:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png":::
 
 In this tutorial, you learn how to:
 
@@ -76,7 +76,7 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 ### Create first virtual machine
 
-1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -139,7 +139,7 @@ Follow the previous steps (1-6) and use ***myNVA*** for the virtual machine name
 
 Use the next hop capability of Network Watcher to determine which route Azure is using to route traffic from **myVM**, which has one network interface with one IP configuration
 
-1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
 1. Under **Network diagnostic tools**, select **Next hop**. Enter or select the following values:
 
@@ -168,7 +168,7 @@ Use the next hop capability of Network Watcher to determine which route Azure is
 
 To further analyze routing, review the effective routes for **myVM** network interface.
 
-1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
 1. Under **Settings**, select **Networking**, then select the network interface.
 
@@ -192,7 +192,7 @@ Next, you create a static custom route to override Azure default system routes a
 
 In this section, you create a static custom route (user-defined route) in a route table that forces all traffic destined outside the virtual network to a specific IP address. Forcing traffic to a virtual network appliance is a common scenario.
 
-1. In the search box at the top of the portal, enter ***route tables***. Select **Route tables** in the search results.
+1. In the search box at the top of the portal, enter ***route tables***. Select **Route tables** from the search results.
 
 1. Select **+ Create** to create a new route table. In the **Create Route table** page, enter or select the following values:
 

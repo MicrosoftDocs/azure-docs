@@ -2,9 +2,9 @@
 title: Move Azure external Load Balancer to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure external Load Balancer from one Azure region to another using Azure PowerShell.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template, engagment-fy23
 ---
@@ -35,7 +35,7 @@ Azure external load balancers can't be moved from one region to another. You can
 The following steps show how to prepare the external load balancer for the move using a Resource Manager template, and move the external load balancer configuration to the target region using Azure PowerShell.  As part of this process, the public IP configuration of the external load balancer must be included and must me done first before moving the external load balancer.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Export the public IP template and deploy from Azure PowerShell
 
@@ -256,7 +256,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```powershell
     PS C:\> $targetPubIPID
-    /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
+    /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
 7.  In the **\<resource-group-name>.json** file, paste the **Resource ID** from the variable in place of the **defaultValue** in the second parameter for the public IP external ID, ensure you enclose the path in quotes:

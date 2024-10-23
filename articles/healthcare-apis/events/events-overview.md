@@ -2,17 +2,15 @@
 title: What are events in Azure Health Data Services?
 description: Learn how to use events in Azure Health Data Services to subscribe to and receive notifications of changes to health data in the FHIR and DICOM services, and trigger other actions or services based on health data changes.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: overview
 ms.date: 01/29/2024
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # What are events?
-
-**Applies to:** [!INCLUDE [Yes icon](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
 
 Events in Azure Health Data Services allow you to subscribe to and receive notifications of changes to health data in the FHIR&reg; service or the DICOM&reg; service. Events also enable you to trigger other actions or services based changes to health data, such as starting workflows, sending email, text messages, or alerts. 
 
@@ -41,14 +39,14 @@ Events support these operations:
 | DicomImageDeleted   | A DICOM image was deleted.        |
 | DicomImageUpdated   | A DICOM image was updated.        |
 
-For more information about delete types in the FHIR service, see [FHIR REST API capabilities in Azure Health Data Services](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
+For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
 
 > [!IMPORTANT] 
 > Event notifications are sent only when the capability is turned on. The events capability doesn't send messages for past changes or when the capability is turned off.
 
 ## Next steps
 
-[Deploy events using the Azure portal](events-deploy-portal.md)
+[Deploy events by using the Azure portal](events-deploy-portal.md)
 
 [Troubleshoot events](events-troubleshooting-guide.md)
 

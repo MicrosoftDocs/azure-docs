@@ -5,11 +5,11 @@ description: Learn to configure Azure AD B2C with Saviynt for cross-application 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As a security manager, I want to integrate Azure Active Directory B2C with Saviynt. I need visibility, security, and governance over user life-cycle management and access control.
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with the Saviynt Security Manager platform, which has visibility, security, and governance. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
-Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/integrations/old-version-azure-ad/for-b2c/)
+Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/fr/integrations/entra-id/for-b2c)
 
 Use the following instructions to set up access control delegated administration for Azure AD B2C users. Saviynt determines if a user is authorized to manage Azure AD B2C users with:
 
@@ -46,7 +46,7 @@ The Saviynt integration includes the following components:
 * **Azure AD B2C** – identity as a service for custom control of customer sign-up, sign-in, and profile management
   * See, [Azure AD B2C, Get started](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) 
 * **Saviynt for Azure AD B2C** – identity governance for delegated administration of user life-cycle management and access governance
-  * See, [Saviynt for Azure AD B2C](https://saviynt.com/integrations/old-version-azure-ad/for-b2c/)
+  * See, [Saviynt for Azure AD B2C](https://saviynt.com/fr/integrations/entra-id/for-b2c)
 * **Microsoft Graph API** – interface for Saviynt to manage Azure AD B2C users and their access
   * See, [Use the Microsoft Graph API](/graph/use-the-api)
     
@@ -69,6 +69,9 @@ The following architecture diagram illustrates the implementation.
 1. Create a Saviynt account. To get started, go to saviynt.com [Contact Us](https://saviynt.com/contact-us/).
 2. Create delegated administration policies.
 3. Assign users the delegated administrator role.
+
+>[!NOTE]
+>User administrator role will be required for a Service Principal Name (SPN) to integrate with Saviynt EIC system. 
 
 ## Configure Azure AD B2C with Saviynt
 

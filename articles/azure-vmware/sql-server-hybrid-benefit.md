@@ -6,7 +6,7 @@ description: Learn about Azure Hybrid Benefit for Windows Server, SQL Server, or
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 12/19/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Azure Hybrid Benefit for Windows Server, SQL Server, and Linux subscriptions

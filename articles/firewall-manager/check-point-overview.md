@@ -2,7 +2,7 @@
 title: Secure Azure virtual hubs using Check Point Harmony Connect
 description: Learn about Check Point Harmony Connect to secure Azure virtual hubs
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2020

@@ -3,8 +3,9 @@ title: Move your Azure Automation account to another subscription
 description: This article tells how to move your Automation account to another subscription.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
+ms.service: azure-automation
 ---
 
 # Move your Azure Automation account to another subscription
@@ -128,5 +129,8 @@ When the move is complete, verify that the capabilities listed below are enabled
 |Shared resources|Verify that you see all your shared resources, such as [credentials](../shared-resources/credentials.md) and [variables](../shared-resources/variables.md).|
 
 ## Next steps
+
+
+To learn how to move Automation to a new region, see [Move Automation account to another region](../../operational-excellence/relocation-automation.md).
 
 To learn about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).

@@ -2,19 +2,19 @@
 title: Data exfiltration protection for Azure Synapse Analytics workspaces
 description: This article will explain data exfiltration protection in Azure Synapse Analytics
 author: WilliamDAssafMSFT 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: security 
 ms.date: 10/17/2022
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 # Data exfiltration protection for Azure Synapse Analytics workspaces
 This article will explain data exfiltration protection in Azure Synapse Analytics
 
 ## Securing data egress from Synapse workspaces
 Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, you can guard against malicious insiders accessing your Azure resources and exfiltrating sensitive data to locations outside of your organization’s scope. 
-At the time of workspace creation, you can choose to configure the workspace with a managed virtual network and additional protection against data exfiltration. When a workspace is created with a [managed virtual network](./synapse-workspace-managed-vnet.md), Data integration and Spark resources are deployed in the managed virtual network. The workspace’s dedicated SQL pools and serverless SQL pools have multi-tenant capabilities and as such, need to exist outside the managed virtual network. For workspaces with data exfiltration protection, resources within the managed virtual network always communicate over [managed private endpoints](./synapse-workspace-managed-private-endpoints.md) and the Synapse SQL resources can only connect to authorized Azure resources (targets of approved managed private endpoint connections from the workspace). 
+At the time of workspace creation, you can choose to configure the workspace with a managed virtual network and additional protection against data exfiltration. When a workspace is created with a [managed virtual network](./synapse-workspace-managed-vnet.md), Data integration and Spark resources are deployed in the managed virtual network. The workspace’s dedicated SQL pools and serverless SQL pools have multi-tenant capabilities and as such, need to exist outside the managed virtual network. For workspaces with data exfiltration protection, resources within the managed virtual network always communicate over [managed private endpoints](./synapse-workspace-managed-private-endpoints.md). When data exfiltration protection is enabled, Synapse SQL resources can connect to and query any authorized Azure Storage using OPENROWSETS or EXTERNAL TABLE, since the ingress traffic is not controlled by the data exfiltration protection. However, the egress traffic via [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) will be controlled by the data exfiltration protection.
 
 > [!Note]
 > You cannot change the workspace configuration for managed virtual network and data exfiltration protection after the workspace is created.

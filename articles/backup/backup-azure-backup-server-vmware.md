@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 11/07/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.service: backup
+ms.service: azure-backup
 ---
 # Back up VMware VMs with Azure Backup Server
 
@@ -427,8 +427,10 @@ With earlier versions of MABS, parallel backups were performed only across prote
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
-**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
-**Key Type**: DWORD (32-bit) value.
+**Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs`<BR>
+**Key Type**: DWORD (32-bit) VMware.
+**Data**: number
+The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
 > You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.

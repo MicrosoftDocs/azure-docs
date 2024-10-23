@@ -1,9 +1,9 @@
 ---
 title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 06/14/2024
 ---
 # Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local
 
@@ -13,7 +13,7 @@ ms.date: 06/12/2023
 
 ### From an SSH session
 
-When connecting from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
+When you connect from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -21,17 +21,17 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 
 ### Over an Azure Virtual Network
 
-When connecting from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Since this connection is made directly to the cluster nodes, the connection uses port `10001`:
+When you connect from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Since this connection is made directly to the cluster nodes, the connection uses port `10001`:
 
 ```bash
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
+Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. To find the fully qualified domain name of a headnode, use the information in the [Managed HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
 
 ### To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
 
-When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Microsoft Entra Domain Services on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+When you connect from a client to an Enterprise Security Package (ESP) cluster joined to Microsoft Entra Domain Services on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
 
 ```bash
 kinit <username>
@@ -48,7 +48,7 @@ To find the JDBC URL from Ambari:
 
 ### Over public or private endpoints
 
-When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using TLS/SSL.
+When you connect to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using TLS/SSL.
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
 
@@ -56,7 +56,7 @@ Replace `clustername` with the name of your HDInsight cluster. Replace `admin` w
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
-or for private endpoint:
+Or for private endpoint:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
@@ -78,7 +78,7 @@ The connection string used  is slightly different. Instead of containing `httpPa
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
-or for private endpoint:
+Or for private endpoint:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
@@ -88,7 +88,7 @@ Private endpoints point to a basic load balancer, which can only be accessed fro
 
 #### From cluster head node or inside Azure Virtual Network with Apache Spark
 
-When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
+When you connect directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
 
 ```bash
 /usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -150,7 +150,7 @@ Although Beeline is included on the head nodes, you may want to install it local
 
     1. Then press **Ctrl+X**, then **Y**, then enter.
 
-1. Close and then reopen you bash session.
+1. Close and then reopen your bash session.
 
 1. Test your connection. Use the connection format from [Over public or private endpoints](#over-public-or-private-endpoints), above.
 

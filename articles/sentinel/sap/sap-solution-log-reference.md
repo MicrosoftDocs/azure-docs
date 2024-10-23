@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: reference
 ms.custom: mvc
 ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
+
 ---
 
 # Microsoft Sentinel solution for SAP® applications data reference
@@ -19,7 +23,7 @@ This article describes the functions, logs, and tables available as part of the 
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](/azure/azure-monitor/logs/functions) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -296,7 +300,7 @@ The **SAPAuditLogConfigRecommend** is a helper function designed to offer recomm
 
 ### SAPUsersGetVIP
 
-The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function to exclude users from triggering alerts by specifying SAP user roles, SAP user functions, or tags that represent those users.
+The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function to exclude users from triggering alerts by specifying SAP user roles, SAP user functions, or tags that represent those users. For more information, see [Handle false positives in Microsoft Sentinel](../false-positives.md#example-manage-exceptions-for-the-microsoft-sentinel-solution-for-sap-applications).
 
 Tags specified as input for the *SAPUsersGetVIP* function exclude all users with a tag listed in the *SAP_User_Config* watchlist. The same functionality is extended to work with wildcards, allowing you to assign a single tag to a group of users with the same naming syntax.
 

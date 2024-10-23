@@ -68,7 +68,7 @@ on the Key Vault prior to blueprint assignment.
 > deployment](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 For more information about Azure Key Vault, see [Key Vault
-Overview](../../../key-vault/general/overview.md).
+Overview](/azure/key-vault/general/overview).
 
 ## Parameter types
 

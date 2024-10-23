@@ -3,9 +3,9 @@ title: Quickstart - Back up an SAP HANA database with Azure CLI
 description: In this quickstart, learn how to create a Recovery Services vault, enable protection on an SAP HANA System Replication database, and create the initial recovery point with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/20/2023
-ms.custom: mvc, devx-track-azurecli, mode-api
-ms.service: backup
+ms.date: 06/17/2024
+ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -16,7 +16,9 @@ This quickstart describes how to protect SAP HANA System Replication (HSR) using
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using Azure Backup.
 
-For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
+## Prerequisites
+
+Before you configure SAP HANA System Replication database backup, review the [supported configurations and scenarios](sap-hana-backup-support-matrix.md).
 
 ## Create a Recovery Services vault
 
@@ -116,7 +118,7 @@ Name                                  Operation      Status      Item Name      
 591f1840-4d6a-4464-8f3a-18e586f11bfc  Backup (Full)  InProgress  ARV [hsr-primary]  AzureWorkload             2023-04
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Quickstart: Restore SAP HANA System Replication databases on Azure VMs using Azure CLI](quick-restore-hana-cli.md)

@@ -3,11 +3,10 @@ title: Self-hosted integration runtime diagnostic tool
 description: Diagnostic tool for self-hosted integration runtime
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Diagnostic tool for self-hosted integration runtime

@@ -3,9 +3,9 @@ title: Client negotiation in Azure SignalR Service
 description: This article provides information about client negotiation in Azure SignalR Service.
 author: JialinXin
 ms.author: jixin
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 04/02/2024
 ---
 
 # Client negotiation
@@ -20,8 +20,9 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
 
   ```json
   {
+    "connectionToken":"05265228-1e2c-46c5-82a1-6a5bcc3f0143",
     "connectionId":"807809a5-31bf-470d-9e23-afaee35d8a0d",
-    "negotiateVersion":0,
+    "negotiateVersion":1,
     "availableTransports":[
       {
         "transport": "WebSockets",
@@ -42,11 +43,10 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
   The payload that this endpoint returns provides the following data:
 
   * The `connectionId` value is required by the `LongPolling` and `ServerSentEvents` transports to correlate sending and receiving.
-  * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client.
+  * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client, see [Transport Protocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md).
+    * `negotiateVersion: 0` only returns `connectionId`, and client should use the value of `connectionId` as `id` in connect requests.
+    * `negotiateVersion: 1` returns `connectionId` and `connectionToken`, and client should use the value of `connectionToken` as `id` in connect requests.
   * The `availableTransports` list describes the transports that the server supports. For each transport, the payload lists the name of the transport (`transport`) and a list of transfer formats that the transport supports (`transferFormats`).
-
-  > [!NOTE]
-  > Azure SignalR Service supports only `Version 0` for the negotiation protocol. A client that has a `negotiateVersion` value greater than zero will get a response with `negotiateVersion=0` by design. For protocol details, see [Transport Protocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md).
 
 * A redirect response that tells the client which URL and (optionally) access token to use as a result:
 
@@ -113,7 +113,7 @@ services.AddSignalR().AddAzureSignalR(options =>
             new Claim(ClaimTypes.NameIdentifier, context.Request.Query["username"]),
             new Claim("<Custom Claim Name>", "<Custom Claim Value>")
         };
-        options.AccessTokenLifetime = TimeSapn.FromMinutes(5);
+        options.AccessTokenLifetime = TimeSpan.FromMinutes(5);
     });
 ```
 

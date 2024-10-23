@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-azurecli]
 ms.date: 02/01/2023
 ms.topic: tutorial
-ms.service: iot-hub
+ms.service: azure-iot-hub
 #Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 * This tutorial uses the Azure CLI to create cloud resources. There are two ways to run CLI commands:
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). For more information, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md).
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
   * If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.

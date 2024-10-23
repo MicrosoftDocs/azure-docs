@@ -8,10 +8,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 06/25/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 # Set up SMT server for SUSE Linux
 

@@ -1,7 +1,7 @@
 ---
 title: Add a synthetic GraphQL API to Azure API Management | Microsoft Docs
 description: Add a synthetic GraphQL API by importing a GraphQL schema to API Management and configuring field resolvers that use HTTP-based data sources.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
@@ -10,8 +10,11 @@ ms.date: 05/31/2023
 
 # Add a synthetic GraphQL API and set up field resolvers
  
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this article, you'll:
 > [!div class="checklist"]
@@ -112,7 +115,7 @@ type User {
 
 ## Secure your GraphQL API
 
-Secure your GraphQL API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
+Secure your GraphQL API by applying both existing [authentication and authorization policies](api-management-policies.md#authentication-and-authorization) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a webapp privately.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
@@ -20,6 +20,7 @@ This article guides you through how to configure Azure Front Door Premium tier t
 
 > [!NOTE]
 > Private endpoints requires your App Service plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
+> This feature is not supported with App Service Slots
 
 ## Sign in to Azure
 

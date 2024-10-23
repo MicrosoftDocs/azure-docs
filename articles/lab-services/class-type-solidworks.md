@@ -3,14 +3,16 @@ title: Set up a SOLIDWORKS lab for engineering
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to teach engineering courses using SOLIDWORKS.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/07/2023
 ---
 
 # Set up a lab to teach engineering classes using SOLIDWORKS
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

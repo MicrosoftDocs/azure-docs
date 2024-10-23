@@ -10,7 +10,7 @@ ms.custom:
 
 # Get service access tokens
 
-Access to the ARR REST APIs is only granted for authorized users. To prove your authorization, you must send an *access token* along with REST requests. These tokens are issued by the *Secure Token Service* (STS) in exchange for an account key. Tokens have a **lifetime of 24 hours** and thus can be issued to users without giving them full access to the service.
+Access to the ARR REST APIs is only granted for authorized users. To prove your authorization, you must send an *access token* along with REST requests. These tokens are issued by the *Secure Token Service (STS)* in exchange for an account key. Tokens have a **lifetime of 24 hours** and thus can be issued to users without giving them full access to the service.
 
 This article describes how to create such access token.
 

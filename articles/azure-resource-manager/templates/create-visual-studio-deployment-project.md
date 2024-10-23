@@ -1,10 +1,17 @@
 ---
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
-ms.topic: conceptual
-ms.date: 05/22/2023
+ms.topic: how-to
+ms.date: 03/20/2024
 ---
+
 # Creating and deploying Azure resource groups through Visual Studio
+
+> [!NOTE]
+> The Azure Resource Group project is now in extended support, meaning we will continue to support existing features and capabilities but won't prioritize adding new features.
+
+> [!NOTE]
+> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio?view=vs-2022). Upgrading will improve both the reliability and overall performance of your Visual Studio environment.
 
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
@@ -72,23 +79,20 @@ You can customize a deployment project by modifying the Resource Manager templat
 1. The parameter for the type of storage account is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you don't want anyone to deploy a **Premium_LRS** storage account through this template, remove it from the allowed types.
 
    ```json
-   "demoaccountType": {
+   "demoAccountType": {
      "type": "string",
      "defaultValue": "Standard_LRS",
      "allowedValues": [
        "Standard_LRS",
        "Standard_ZRS",
        "Standard_GRS",
-       "Standard_RAGRS"
+       "Standard_RAGRS",
+       "Premium_LRS"
      ]
    }
    ```
 
-1. Visual Studio also provides intellisense to help you understand the properties that are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the **HostingPlan** resource, and add a value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
-
-   :::image type="content" source="./media/create-visual-studio-deployment-project/show-intellisense.png" alt-text="Screenshot of Visual Studio editor showing intellisense suggestions for Resource Manager template.":::
-
-   You can set **numberOfWorkers** to 1, and save the file.
+1. Navigate to the **HostingPlan** resource, and add a value for the **properties** with some properties.
 
    ```json
    "properties": {
@@ -97,11 +101,22 @@ You can customize a deployment project by modifying the Resource Manager templat
    }
    ```
 
+  You also need to define the `hostingPlanName` parameter:
+
+   ```json
+   "hostingPlanName": {
+     "type": "string",
+     "metadata": {
+       "description": "Hosting paln name."
+     }
+   }
+   ```
+
 1. Open the **WebSite.parameters.json** file. You use the parameters file to pass in values during deployment that customize the resource being deployed. Give the hosting plan a name, and save the file.
 
    ```json
    {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "hostingPlanName": {
@@ -209,7 +224,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
    ```json
    {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "hostingPlanName": {
@@ -364,7 +379,7 @@ You aren't limited to only the resources that are available through the Visual S
 
    :::image type="content" source="./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png" alt-text="Screenshot of the customized operational dashboard in the Azure portal.":::
 
-You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 ## Clean up resources
 

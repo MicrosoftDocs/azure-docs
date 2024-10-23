@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 11/29/2023
+ms.date: 06/28/2024
 ms.custom: template-tutorial, engagement-fy23
 ---
 
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
  > [!IMPORTANT]
 
- > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+ > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
  >
 
@@ -54,7 +54,7 @@ In this section, you create two virtual machines to host the IIS websites.
 
 3. In **Create virtual machine**, enter or select the following information:
 
-    | Setting | Value                                          |
+    | Setting | Value |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
@@ -85,7 +85,7 @@ In this section, you create two virtual machines to host the IIS websites.
     | Subnet | Select **backend-subnet(10.1.0.0/24)** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In **Create network security group**, enter **myNSG** in **Name**. </br> In **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> In **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**.</br> In **Create network security group**, enter **myNSG** in **Name**.</br> In **Inbound rules**, select **+Add an inbound rule**.</br> In **Service**, select **HTTP**.</br> In **Priority**, enter **100**.</br> In **Name**, enter **myNSGrule**.</br> Select **Add**.</br> Select **OK**. |
    
 6. Select **Review + create**. 
   
@@ -99,7 +99,7 @@ In this section, you create two virtual machines to host the IIS websites.
     | Availability zone | **2** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create secondary network configurations
 
@@ -180,7 +180,7 @@ You connect to **myVM1** and **myVM2** with Azure Bastion and configure the seco
 
 6. Select **Allow** for Bastion to use the clipboard.
 
-7. On the server desktop, navigate to Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell.
+7. On the server desktop, navigate to **Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell**.
 
 8. In the PowerShell window, execute the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
 
@@ -422,14 +422,14 @@ During the creation of the load balancer, you configure:
     | Name | Enter **Frontend-contoso**. |
     | IP version | Select **IPv4**. |
     | IP type | Select **IP address**. |
-    | Public IP address | Select **Create new**. </br> Enter **myPublicIP-contoso** for **Name** </br> Select **Zone-redundant** in **Availability zone**. </br> Leave the default of **Microsoft Network** for **Routing preference**. </br> Select **OK**. |
+    | Public IP address | Select **Create new**.</br> Enter **myPublicIP-contoso** for **Name** </br> Select **Zone-redundant** in **Availability zone**.</br> Leave the default of **Microsoft Network** for **Routing preference**.</br> Select **OK**. |
 
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
     >
     > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
     >
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 7. Select **Add**.
 
@@ -442,7 +442,7 @@ During the creation of the load balancer, you configure:
     | Name | Enter **Frontend-fabrikam**. |
     | IP version | Select **IPv4**. |
     | IP type | Select **IP address**. |
-    | Public IP address | Select **Create new**. </br> Enter **myPublicIP-fabrikam** for **Name** </br> Select **Zone-redundant** in **Availability zone**. </br> Leave the default of **Microsoft Network** for **Routing preference**. </br> Select **OK**. |
+    | Public IP address | Select **Create new**.</br> Enter **myPublicIP-fabrikam** for **Name** </br> Select **Zone-redundant** in **Availability zone**.</br> Leave the default of **Microsoft Network** for **Routing preference**.</br> Select **OK**. |
 
 10. Select **Add**.
 
@@ -499,7 +499,7 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-contoso**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **myHealthProbe-contoso**.</br> Select **TCP** in **Protocol**.</br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
@@ -521,7 +521,7 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe-fabrikam**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **myHealthProbe-fabrikam**.</br> Select **TCP** in **Protocol**.</br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |

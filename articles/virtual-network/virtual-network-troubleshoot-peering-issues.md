@@ -4,11 +4,9 @@ description: Steps to help resolve most virtual network peering issues.
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: allensu
 ---

@@ -1,18 +1,17 @@
 ---
 title: "Scale an application in Azure Spring Apps | Microsoft Docs"
 description: Learn how to scale an application with Azure Spring Apps in the Azure portal
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.author: karler
 author: KarlErickson
-ms.date: 10/06/2019
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
 # Scale an application in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -54,7 +53,7 @@ As you modify the scaling attributes, keep the following notes in mind:
 
 Be sure to select **Save** to apply your scaling settings.
 
-:::image type="content" source="media/how-to-scale-manual/scale-up-out.png" alt-text="Screenshot of the Azure portal showing the Scale up page for an app in an Azure Spring Apps instance, with Scale up highlighted in the navigation pane." lightbox="media/how-to-scale-manual/scale-up-out.png":::
+:::image type="content" source="media/how-to-scale-manual/scale-up-out.png" alt-text="Screenshot of the Azure portal that shows the Scale up page for an app with Scale up highlighted." lightbox="media/how-to-scale-manual/scale-up-out.png":::
 
 After a few seconds, the scaling changes you make are reflected on the **Overview** page of the app. Select **App instance** in the navigation pane for details about the instance of the app.
 

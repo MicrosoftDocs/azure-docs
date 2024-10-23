@@ -3,16 +3,15 @@ title:  "Customer responsibilities running Azure Spring Apps in a virtual networ
 description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 08/28/2024
 ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for running Azure Spring Apps in a virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -83,17 +82,17 @@ Azure Firewall provides the FQDN tag `AzureKubernetesService` to simplify the fo
 
 ## Azure Spring Apps optional FQDN for third-party application performance management
 
-| Destination FQDN                   | Port       | Use                                                                                                                                                                                                  |
-|------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <i>collector*.newrelic.com</i>     | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
-| <i>collector*.eu01.nr-data.net</i> | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
-| <i>*.live.dynatrace.com</i>        | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
-| <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
-| <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges).                                              |
+| Destination FQDN                   | Port       | Use                                                                                                                                                                                                          |
+|------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <i>collector*.newrelic.com</i>     | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).         |
+| <i>collector*.eu01.nr-data.net</i> | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).         |
+| <i>*.live.dynatrace.com</i>        | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                                    |
+| <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                                    |
+| <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/appd/24.x/latest/en/cisco-appdynamics-essentials/getting-started/saas-domains-and-ip-ranges). |
 
 ## Azure Spring Apps optional FQDN for Application Insights
 
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [Outgoing ports](../../azure-monitor/ip-addresses.md#outgoing-ports) section of [IP addresses used by Azure Monitor](../../azure-monitor/ip-addresses.md).
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [Outgoing ports](/azure/azure-monitor/ip-addresses#outgoing-ports) section of [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
 
 ## Next steps
 

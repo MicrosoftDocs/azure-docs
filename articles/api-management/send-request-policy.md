@@ -4,13 +4,15 @@ description: Reference for the send-request policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 08/02/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Send request
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `send-request` policy sends the provided request to the specified URL, waiting no longer than the set timeout value.
 
@@ -55,7 +57,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 - **[Policy sections:](./api-management-howto-policies.md#sections)** inbound, outbound, backend, on-error
 - **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, workspace, product, API, operation
-- **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted
+- **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -115,7 +117,7 @@ This example shows one way to verify a reference token with an authorization ser
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 

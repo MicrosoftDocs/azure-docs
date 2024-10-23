@@ -5,8 +5,7 @@ services: notification-hubs
 author: sethmanheim
 manager: femila
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article

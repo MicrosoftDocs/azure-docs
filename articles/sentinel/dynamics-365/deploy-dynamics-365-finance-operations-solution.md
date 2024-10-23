@@ -1,10 +1,14 @@
 ---
 title: Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
 description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 05/14/2023
+ms.date: 02/12/2024
+
+
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
+
 ---
 
 # Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
@@ -23,7 +27,7 @@ Before you begin, verify that:
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) is enabled and you have administrative access to the monitored environments.  
 - You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
-- You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
+- You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions:
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 
@@ -75,7 +79,7 @@ In the connector page, make sure that you meet the required prerequisites and co
 
 To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Microsoft Entra client ID of the Function App's system assigned managed identity.
 
-To collect the managed identity application ID from Microsoft Entra ID: 
+To collect the managed identity application ID from Microsoft Entra ID:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
@@ -104,42 +108,38 @@ To collect the managed identity application ID from Microsoft Entra ID:
 
 1. In the Finance and Operations portal, navigate to **System administration > Setup > Microsoft Entra ID** applications.
 
-1. Create a new entry in the table: 
+1. Create a new entry in the table:
     - For the **Client Id**, type the application ID of the managed identity.
     - For the **Name**, type a name for the application. 
     - For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
 
-### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
+### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables
 
 > [!NOTE]
 > Before you enable auditing on Dynamics 365 F&O, review the [database logging recommended practices](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#database-logging-and-performance).
 
-The analytics rules currently provided with this solution monitor and detect threats based on logs sourced from these tables:  
+The analytics rules provided with this solution monitor and detect threats based on logs generated in the System Database Log.
 
-- All tables under **System**
-- The **Bank accounts** table under **Bank** 
+If you're planning to use the analytics rules provided in this solution, enable auditing for the following tables:
 
-If you're planning to use the analytics rules provided in this solution, enable auditing for the **System** and **Bank accounts** tables.
+|Category  |Table  |
+|---------|---------|
+|System     |  `UserInfo`       |
+|Bank     |    `BankAccountTable`     |
+|Not specified     | `SysAADClientTable`        |
 
-This screenshot shows the **System** and **Bank accounts** tables under **logging database changes**. 
+Enable auditing on tables using the **Database log setup** wizard in the Finance and Operations portal. 
 
-:::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing.":::
+- In the **Tables and fields** page, you might want to select the **Show table names** checkbox to make it easier to find your tables.
+- To enable auditing of all fields in the selected tables, in the **Types of change** page, select all four check boxes for any relevant table names with empty field labels. Sort the table list by the **Field label** column in ascending order (A-Z).
+- Select **Yes** for all warning messages.
 
-To enable auditing on Finance and Operations tables you want to monitor: 
+For more information, see [Set up database logging](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#set-up-database-logging).
 
-1. In the Finance and Operations portal, Select **Modules > System Administration > Database log > Database log setup**.
-1. Select **New** > **Next**, and select the tables you want to monitor. 
-1. Select **Next**.  
-1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order (A to Z):
-
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes-new.png" alt-text="Screenshot of configuring the selected Finance and Operations database tables.":::
-
-1. Select **Next** and then **Finish**.
-1. Select **Yes** in all warning messages. 
 
 ### Verify that the data connector is ingesting logs to Microsoft Sentinel 
 
-To verify that log ingestion is working: 
+To verify that log ingestion is working:
 
 1. Run activities (create, update, delete) on any of the tables you enabled for monitoring in the [previous step](#enable-auditing-on-the-relevant-dynamics-365-finance-and-operations-data-tables). 
 1. Wait up to 15 minutes for Microsoft Sentinel to ingest the logs to the logs table in the workspace.

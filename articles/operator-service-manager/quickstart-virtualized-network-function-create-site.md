@@ -33,11 +33,11 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Prior to creating a site, navigate to the resource group you created in the [Quickstart: Design a Network Service Design (NSD) for Ubuntu Virtual Machine (VM) as a Virtualized Network Function (VNF)](quickstart-virtualized-network-function-network-design.md) and select **Network Service Design Version**.
 
-    :::image type="content" source="media/network-service-design-version.png" alt-text="Screenshot showing the network service design version used in creating your site.":::
+    :::image type="content" source="media/network-service-design-version.png" alt-text="Screenshot showing the network service design version used in creating your site." lightbox="media/network-service-design-version.png":::
 
-1. Select **NVFI from site**, select **View value as JSON**, and locate the "name" of the NFVI. Note this information. You'll need it in a later step. 
+1. Select **NVFI from site**, select **View value as JSON**, and locate the "name" of the NFVI. Note this information. You'll need it in a later step.
 
-    :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
+    :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs." lightbox="media/network-service-design-version-name.png":::
 
 1. Type Sites into the search and select **Sites** from the results.
 1. Select  **+Create**.
@@ -50,16 +50,16 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     |**Name**     |   Enter *ubuntu-vm-site*.  This name should be unique in your subscription to avoid confusion when you create the SNS later.     |
     |**Region**     |    Select the location you used for your prerequisite resource.     |
 
-   :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
+   :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site." lightbox="media/create-site-basic-virtual-network-function.png":::
 
 > [!NOTE]
- > The site must be located in the same region as the [prerequisite resources](quickstart-virtualized-network-function-prerequisites.md).  
+ > The site must be located in the same region as the [prerequisite resources](quickstart-virtualized-network-function-prerequisites.md).
 
 
 7. Navigate to the **Add NFVI** tab of the **Create site** screen and select **+ Add NFVI**.
 1. Enter the NFVI name you noted earlier.  Select **NFVI type** as "Azure Core", set **NFVI location** to the location of your resources, and select **Add NFVI**.
 
-    :::image type="content" source="media/create-site-add-ubuntu.png" alt-text="Screenshot showing the NFVI tab where you enter the name, type and location of the NFVI.":::
+    :::image type="content" source="media/create-site-add-ubuntu.png" alt-text="Screenshot showing the NFVI tab where you enter the name, type and location of the NFVI." lightbox="media/create-site-add-ubuntu.png":::
 
 1. Select **Review + create**, then select **Create**.
 

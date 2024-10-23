@@ -3,7 +3,7 @@ title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 09/26/2024
 ---
 
 # Parameters in ARM templates
@@ -28,7 +28,7 @@ In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [lan
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
 
-You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+You're limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -144,6 +144,8 @@ You can use another parameter value to build a default value. The following temp
   }
 }
 ```
+
+However, you can't reference a [variable](./variables.md) as the default value.
 
 ## Length constraints
 
@@ -419,7 +421,6 @@ If the value is true, elements of the array whose index is greater than the larg
 }
 ```
 
-
 ## nullable constraint
 
 The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#languageversion-20). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
@@ -543,6 +544,6 @@ The following examples demonstrate scenarios for using parameters.
 
 ## Next steps
 
-* To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
-* For recommendations about creating parameters, see [Best practices - parameters](./best-practices.md#parameters).
+- To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](./syntax.md).
+- To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
+- For recommendations about creating parameters, see [Best practices - parameters](./best-practices.md#parameters).

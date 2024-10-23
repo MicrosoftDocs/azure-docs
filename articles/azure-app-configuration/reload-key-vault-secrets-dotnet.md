@@ -18,7 +18,7 @@ ms.author: avgupta
 
 App Configuration and Key Vault are complementary services used side by side in many applications. App Configuration helps you use the services together by creating keys in your App Configuration store that reference secrets or certificates stored in Key Vault. Since Key Vault stores the public and private key pair of a certificate as a secret, your application can retrieve any certificate as a secret from Key Vault.
 
-As a good security practice, [secrets](../key-vault/secrets/tutorial-rotation.md) and [certificates](../key-vault/certificates/tutorial-rotate-certificates.md) should be rotated periodically. Once they have been rotated in Key Vault, you would want your application to pick up the latest secret and certificate values. There are two ways to achieve this without restarting your application:
+As a good security practice, [secrets](/azure/key-vault/secrets/tutorial-rotation) and [certificates](/azure/key-vault/certificates/tutorial-rotate-certificates) should be rotated periodically. Once they have been rotated in Key Vault, you would want your application to pick up the latest secret and certificate values. There are two ways to achieve this without restarting your application:
 - Update a sentinel key-value to trigger the refresh of your entire configuration, thereby reloading all Key Vault secrets and certificates. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
 - Periodically reload some or all secrets and certificates from Key Vault.
 
@@ -33,7 +33,7 @@ In the first option, you will have to update the sentinel key-value in App Confi
 
 ## Add an auto-rotating certificate to Key Vault
 
- Follow the [Tutorial: Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) to add an auto-rotating certificate called **ExampleCertificate** to the Key Vault created in the previous tutorial.
+ Follow the [Tutorial: Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) to add an auto-rotating certificate called **ExampleCertificate** to the Key Vault created in the previous tutorial.
 
 
 ## Add a reference to the Key Vault certificate in App Configuration
@@ -73,7 +73,7 @@ The first argument in `SetSecretRefreshInterval` method is the key of the Key Va
 
 Refresh interval defines the frequency at which your secrets and certificates will be reloaded from Key Vault, regardless of any changes to their values in Key Vault or App Configuration. If you want to reload secrets and certificates when their value changes in App Configuration, you can monitor them using the `ConfigureRefresh` method. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
 
-Choose the refresh interval according to your acceptable delay after your secrets and certificates have been updated in Key Vault. It's also important to consider the [Key Vault service limits](../key-vault/general/service-limits.md) to avoid being throttled.
+Choose the refresh interval according to your acceptable delay after your secrets and certificates have been updated in Key Vault. It's also important to consider the [Key Vault service limits](/azure/key-vault/general/service-limits) to avoid being throttled.
 
 
 ## Clean up resources
