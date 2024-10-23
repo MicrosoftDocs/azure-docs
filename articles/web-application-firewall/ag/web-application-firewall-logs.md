@@ -105,7 +105,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
@@ -152,7 +152,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "appgw_1",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
@@ -245,7 +245,7 @@ The firewall log is generated only if you have enabled it for each application g
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.147",
+      "clientIp": "203.0.113.147",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",
