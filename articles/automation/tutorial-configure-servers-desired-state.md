@@ -4,7 +4,7 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: desired-state-config
 ms.topic: tutorial
-ms.date: 09/10/2024
+ms.date: 10/22/2024
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ---
@@ -12,6 +12,8 @@ ms.service: azure-automation
 # Configure machines to a desired state
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 Azure Automation State Configuration allows you to specify configurations for your servers and
 ensure that those servers are in the specified state over time.
