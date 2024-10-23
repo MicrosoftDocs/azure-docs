@@ -22,14 +22,14 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 > * For information about APIs supported in the API Management gateway available in different tiers, see [API Management gateways overview](api-management-gateways-overview.md#backend-apis).
 
 
-| Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 |
+| Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 (preview) |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
-| Virtual Network (VNet) injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
+| Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
 | Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes       | No       | Yes  | No   |
 | Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
-| Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | Yes (built-in) |
+| Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | No  |
 | Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     | No |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | Built-in cache | No      | Yes                                            | Yes          | Yes       | Yes   | Yes      | Yes     | Yes |
