@@ -4,7 +4,7 @@ description: A share snapshot is a read-only, point-in-time copy of an Azure fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ---
 
@@ -12,7 +12,8 @@ ms.author: kendownie
 
 Azure Files provides the capability to take snapshots of SMB and NFS file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can use them to recover previous versions of files.
 
-Share snapshots provide only file-level protection. They don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
+> [!IMPORTANT]
+> Share snapshots provide only file-level protection. They don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletion, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
 ## Applies to
 
@@ -62,13 +63,13 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium and standard file shares. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit of 100 TiB. There's no limit to how much space share snapshots occupy in total, or that share snapshots of a particular file share can consume. Storage account limits still apply.
 
 ## Limits
 
 The maximum number of share snapshots that Azure Files allows is 200 per share. After 200 share snapshots, you must delete older share snapshots in order to create new ones. You can retain snapshots for up to 10 years.
 
-There's no limit to the simultaneous calls for creating share snapshots. There's no limit to the amount of space that share snapshots of a particular file share can consume.
+There's no limit to the simultaneous calls for creating share snapshots.
 
 Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file share snapshots. File data plane APIs (`AzStorageShare`) aren't supported.
 
@@ -92,7 +93,7 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 
 ## SMB file share snapshots
 
-Customers using SMB Azure file shares can create, list, and delete share snapshots.
+Customers using SMB Azure file shares can create, list, delete, and restore from share snapshots.
 
 ### Create an SMB file share snapshot
 
@@ -125,7 +126,7 @@ az storage share snapshot --name <file-share-name> --account-name <storage-accou
 ```
 ---
 
-### Browse SMB file share snapshots
+### List SMB file share snapshots
 
 You can list all the snapshots for a file share using the Azure portal, Azure PowerShell, or Azure CLI.
 
@@ -266,7 +267,7 @@ After you've created the file share snapshot, follow these instructions to mount
    :::image type="content" source="media/storage-snapshots-files/mount-smb-snapshot-on-linux.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
 
 4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
-5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
+5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share.
 
    ```bash
    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
@@ -278,7 +279,7 @@ If the mount fails, see [Troubleshoot Azure Files connectivity and access issues
 
 ## NFS file share snapshots
 
-Customers using NFS Azure file shares can create, list, and delete share snapshots.
+Customers using NFS Azure file shares can create, list, delete, and restore from share snapshots.
 
 > [!IMPORTANT]
 > You should mount your file share before creating snapshots. If you create a new NFS file share and take snapshots before mounting the share, attempting to list the snapshots for the share will return an empty list. We recommend deleting any snapshots taken before the first mount and re-creating them after you've mounted the share.
