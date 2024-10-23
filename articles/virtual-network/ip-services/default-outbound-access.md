@@ -43,7 +43,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Secure by default
     
-    * It's not recommended to open a virtual network to the Internet by default using the zero trust network security principle.
+    * It's not recommended to open a virtual network to the Internet by default using the Zero Trust network security principle.
 
 * Explicit vs. implicit
 
