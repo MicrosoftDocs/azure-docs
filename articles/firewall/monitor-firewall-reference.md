@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Firewall
 description: This article contains important reference material you need when you monitor Azure Firewall by using Azure Monitor.
-ms.date: 08/08/2024
+ms.date: 10/23/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: vhorne
