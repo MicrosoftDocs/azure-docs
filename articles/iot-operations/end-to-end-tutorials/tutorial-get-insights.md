@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/01/2024
+ms.date: 10/23/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -84,8 +84,9 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Column name | Data type |
     | --- | --- |
     | AssetId | string |
+    | Spike | boolean |
     | Temperature | decimal |
-    | Humidity | decimal |
+    | FillWeight | decimal |
     | Timestamp | datetime |
 
 1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
@@ -95,7 +96,8 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Temperature", "Properties":{"Path":"$.Temperature.Value"}},{"column":"Humidity", "Properties":{"Path":"$.Humidity.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+
     ```
 
 ### Add data table as a destination
