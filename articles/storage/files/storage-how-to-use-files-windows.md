@@ -134,30 +134,6 @@ For Azure Government Cloud, change the servername to:
 
 `\\storageaccountname.file.core.usgovcloudapi.net\myfileshare`
 
-### Accessing share snapshots from Windows
-
-If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare), or [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot).
-
-#### List previous versions
-
-Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.
-
-![Right-click menu for a selected directory](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
-
-Select **Previous Versions** to see the list of share snapshots for this directory. The list might take a few seconds to load, depending on the network speed and the number of share snapshots in the directory.
-
-![Previous Versions tab](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
-
-You can select **Open** to open a particular snapshot.
-
-![Opened snapshot](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
-
-#### Restore from a previous version
-
-Select **Restore** to copy the contents of the entire directory recursively at the share snapshot creation time to the original location.
-
- ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png)
-
 ## Enable SMB Multichannel
 
 Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that's newer than these three versions, no additional action is required.
