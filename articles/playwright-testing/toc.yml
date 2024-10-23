@@ -19,6 +19,9 @@ items:
     - name: Set up continuous end-to-end testing
       displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
       href: quickstart-automate-end-to-end-testing.md
+    - name: Troubleshoot using rich reports and atrifacts 
+      displayName: getting started, quickstart, reporting, cli, playwright, command-line
+      href: quickstart-generate-rich-reports-for-tests.md
 - name: Concepts
   expanded: true
   items:
