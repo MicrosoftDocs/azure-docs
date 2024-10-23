@@ -1,6 +1,6 @@
 ---
 author: alkohli
-ms.service: databox  
+ms.service: azure-databox
 ms.custom: linux-related-content
 ms.topic: include
 ms.date: 06/24/2021

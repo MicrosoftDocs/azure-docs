@@ -1,16 +1,17 @@
 ---
-title: Tutorial - Connect Azure services and store secrets in Key Vault
-description: Tutorial showing how to store your web app's secrets in Azure Key Vault using Service Connector
+title: 'Tutorial: Connect Azure services and store secrets in Key Vault'
+description: Tutorial showing how to store your web application's secrets in Azure Key Vault using Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/31/2023
+ms.date: 10/22/2024
+#customer intent: As a web developer, I want store my app's secrets in Azure Key Vault so they can be managed and protected by Azure's security features.
 ---
 
 # Quickstart: Connect Azure services and store secrets in Azure Key Vault
 
-Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. When you create a service connection, you can securely store access keys and secrets into connected Key Vault. In this tutorial, you'll complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
+Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. When you create a service connection, you can securely store access keys and secrets into connected Key Vault. In this tutorial, you complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > * Create a service connection to Azure Key Vault in Azure App Service
@@ -25,8 +26,8 @@ To create a service connection and store secrets in Key Vault with Service Conne
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
 * An Azure Key Vault. If you don't have one, [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-* Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
-* Read and write access to the App Service, Key Vault and the target service.
+* Another target service instance supported by Service Connector. In this tutorial, you use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
+* Read and write access to the App Service, Key Vault, and the target service.
 
 ## Create a Key Vault connection in App Service
 
@@ -52,7 +53,7 @@ To store your connection access keys and secrets into a key vault, start by conn
 
 ## Create a Blob Storage connection in App Service and store access keys into Key Vault
 
-Now you can create a service connection to another target service and directly store access keys into a connected Key Vault when using a connection string/access key or a Service Principal for authentication. We'll use Blob Storage as an example below. Follow the same process for other target services.
+Now you can create a service connection to another target service and directly store access keys into a connected Key Vault when using a connection string/access key or a service principal for authentication. We use Blob Storage as an example below. Follow the same process for other target services.
 
 1. In the Azure portal, type **App Service** in the search menu and select the name of the App Service you want to use from the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
@@ -83,11 +84,11 @@ Now you can create a service connection to another target service and directly s
 
     ### [Service principal](#tab/serviceprincipal)
 
-    Select **Next: Authentication** to select the authentication type and select **Service Principal** to use Service Principal to connect your storage account.
+    Select **Next: Authentication** to select the authentication type and select **Service Principal** to use a service principal to connect your storage account.
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Service Principal object ID or name** | Choose the Service Principal you want to use to connect to Blob Storage from the list | The Service Principal in your subscription that is used to connect to target service. |
+    | **Service Principal object ID or name** | Choose the service principal you want to use to connect to Blob Storage from the list | The service principal in your subscription that is used to connect to target service. |
     | **Store Secret to Key Vault** | Check | This option lets Service Connector store the service principal ID and secret into Key Vault. |
     | **Key Vault connection** | One of your key vault connections | Select the Key Vault in which you want to store your service principal ID and secret. |
 
@@ -103,7 +104,7 @@ Now you can create a service connection to another target service and directly s
 
 1. Expand the Blob Storage connection, select **Hidden value. Click to show value**. You can see that the value is a Key Vault reference.
 
-1. Select the **Key Vault** in the Service Type column of your Key Vault connection. You will be redirected to the Key Vault portal page.
+1. Select the **Key Vault** in the Service Type column of your Key Vault connection. You'll be redirected to the Key Vault portal page.
 
 1. Select **Secrets** in the Key Vault left ToC, and select the blob storage secret name.
 
