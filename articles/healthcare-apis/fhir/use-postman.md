@@ -94,7 +94,7 @@ This section shows the steps to assign **FHIR Data Contributor** role to a regis
 [![Screenshot that shows the "Members" tab in the role assignment process, with the option to select user.](media/postman/select-members-user.png)](media/postman/select-members-user.png#lightbox)
 
 6. Under the **Review + assign** tab, click **Review + assign**.
-[![Screenshot that shows the final "Review + assign" tab with the button to complete the role assignment process](media/postman/review-assign-role.png)](media/postman/review-assign-role.png#lightbox)
+[![Screenshot that shows the final "Review + assign" tab with the button to complete the role assignment process.](media/postman/review-assign-role.png)](media/postman/review-assign-role.png#lightbox)
 
 ## Setup Postman - Create Workspace, collection and environment.
 
