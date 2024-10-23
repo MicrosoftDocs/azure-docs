@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Connect Azure services and store secrets in Key Vault
+title: 'Tutorial: Connect Azure services and store secrets in Key Vault'
 description: Tutorial showing how to store your web application's secrets in Azure Key Vault using Service Connector.
 author: maud-lv
 ms.author: malev

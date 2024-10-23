@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a service connection in Container Apps.
+title: 'Quickstart: Create a service connection in Container Apps'
 description: This quickstart shows how to create a service connection in Azure Container Apps from the Azure portal
 author: maud-lv
 ms.author: malev
