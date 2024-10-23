@@ -23,10 +23,11 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest versions of the following extensions for Azure CLI:
 
   ```azurecli
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 ## Configure cluster for workload identity
@@ -45,18 +46,6 @@ az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --q
 >You can skip this section if workload identity is already set up.
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
-
-1. Remove the existing connected k8s cli if any
-   ```azurecli
-   az extension remove --name connectedk8s 
-   ```
-
-1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
-
-   ```azurecli
-   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
-   az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
-   ```
 
 1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to enable the workload identity feature on the cluster.
 

@@ -118,6 +118,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | Japan East | AN36P |
 | North Central US | AN36P |
 | Southeast Asia | AN36P |
+| UAE North | AN36P |
 | UK South | AN36P |
 | West Europe | AN36P |
 | West US 2 | AN36 |
@@ -182,7 +183,7 @@ The following table describes what’s supported for each network features confi
 |Delegated subnet per VNet |1|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
-[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| No|
+|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
 |Load balancers for NC2 on Azure traffic|No|

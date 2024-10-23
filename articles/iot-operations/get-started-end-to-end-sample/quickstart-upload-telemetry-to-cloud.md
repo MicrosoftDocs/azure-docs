@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 04/19/2024
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
+ms.service: azure-iot-operations
 ---
 
 # Quickstart: Send asset telemetry to the cloud using a dataflow
@@ -135,7 +136,7 @@ kubectl apply -f dataflow.yaml
 
 ## Verify data is flowing
 
-To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal.
+To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 

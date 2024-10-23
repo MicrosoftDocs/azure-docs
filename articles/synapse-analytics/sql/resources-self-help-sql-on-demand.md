@@ -723,7 +723,7 @@ There are several mitigation steps that you can do to avoid this:
 
 ### Missing column when using automatic schema inference
 
-You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don’t exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
+You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don't exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
 
 ## Configuration
 
@@ -884,7 +884,7 @@ There are some limitations that you might see in Delta Lake support in serverles
 
 ### Serverless support Delta 1.0 version
 
-Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn’t support the following features:
+Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn't support the following features:
 - Column mappings are ignored - serverless SQL pools will return original column names.
 - Delete vectors are ignored and the old version of deleted/updated rows will be returned (possibly wrong results).
 - The following Delta Lake features are not supported: [V2 checkpoints](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#v2-checkpoint-table-feature), [timestamp without timezone](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#timestamp-without-timezone-timestampntz), [VACUUM protocol check](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#vacuum-protocol-check)

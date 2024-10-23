@@ -9,6 +9,7 @@ ms.custom: ignite-2023
 ms.date: 09/16/2024
 
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
+ms.service: azure-iot-operations
 ---
 
 # Configure OPC UA user authentication options for the connector for OPC UA

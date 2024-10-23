@@ -9,6 +9,7 @@ ms.service: azure-health-insights
 ms.topic: reliability-article
 ms.date: 02/06/2024
 ms.author: adishachar
+ms.custom: subject-reliability
 ---
 
 

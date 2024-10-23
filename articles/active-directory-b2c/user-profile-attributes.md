@@ -3,11 +3,11 @@ title: User profile attributes in Azure Active Directory B2C
 description: Learn about the user resource type attributes that Azure AD B2C directory user profile supports. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-support
 
 

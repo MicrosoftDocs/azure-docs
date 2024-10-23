@@ -6,13 +6,13 @@ titleSuffix: Azure AD B2C
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to configure authentication in a Node.js web API using Azure Active Directory B2C, so that I can protect the web API with token-based authentication and ensure that requests are accompanied by a valid access token.
