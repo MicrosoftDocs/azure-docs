@@ -194,14 +194,14 @@ Learn how to [create dev box customizations](./how-to-customize-dev-box-setup-ta
 
 ### Step 8: Create dev box definitions
 
-A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs/GPUs, and storage.
+A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs, and storage.
 
 You configure dev box definitions at the level of a dev center. All dev center projects share the dev box definitions in the dev center.
 
 Consider creating one or more dev box definitions in the following cases:
 
 - Development teams require different VM images because they need another operating system version or other applications.
-- Development teams have different compute resource requirements. For example, data science teams might need a dev box with GPUs, and database administrators might need a machine with lots of storage and memory.
+- Development teams have different compute resource requirements. For example, database administrators might need a machine with lots of storage and memory.
 
 Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
 
