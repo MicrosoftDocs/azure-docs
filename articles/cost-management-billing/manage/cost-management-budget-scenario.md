@@ -32,6 +32,9 @@ These actions included in this tutorial allow you to:
 
 [Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that stops VMs. You use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
 
+> [!NOTE]
+> You can create a budget in Azure Cost Management and link it to an Azure Automation runbook to automatically stop resources when a specified threshold is reached.
+
 ### Create an Azure Automation account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.

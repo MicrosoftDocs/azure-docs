@@ -22,12 +22,12 @@ There are three components to GPU acceleration in Azure Virtual Desktop that wor
 
 - **Full-screen video encoding**: A full-screen video profile provides a higher frame rate and better user experience, but uses more network bandwidth and both session host and client resources. It benefits applications such as 3D modeling, CAD/CAM, or video playback and editing. You can choose to encode it with:
    - AVC/H.264.
-   - High Efficiency Video Coding (HEVC), also known as H.265. This allows for 25-50% data compression compared to AVC/H.264, at the same video quality or improved quality at the same bitrate.is encoded with AVC/H.264.
+   - High Efficiency Video Coding (HEVC), also known as H.265. This allows for 25-50% data compression compared to AVC/H.264, at the same video quality or improved quality at the same bitrate.
 
 > [!NOTE]
 > - If you enable both HEVC/H.265 and AVC/H.264 hardware acceleration, but HEVC/H.265 isn't available on the local device, AVC/H.264 is used instead.
 >
-> - You can enable full-screen video encoding even without GPU acceleration.
+> - You can enable full-screen video encoding with AVC/H.264 even without GPU acceleration, but HEVC/H.265 requires a compatible GPU-enabled remote virtual machine.
 >
 > - You can also increase the [default chroma value](configure-default-chroma-value.md) to improve the image quality.
 
