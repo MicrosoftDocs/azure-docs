@@ -72,7 +72,7 @@ A 4xx Code represents a client error.
 | 409 | Conflict |
 | 412 | Precondition failed |
 | 413 | Request entity too large |
-| 426 | Upgrade requried |
+| 426 | Upgrade required |
 | 429 | Too many requests |
 | 481 | Transaction doesn't exist |
 | 487 | Cancelled |
@@ -133,14 +133,14 @@ A 6xx code represents a global error.
 | 8514 | Stop Tone Detected |
 | 8515 | Max Record Duration Reached |
 | 8516 | Call Throttled |
-| 8517 | Call Tenant ID Mis Match |
+| 8517 | Call Tenant ID Mismatch |
 | 8518 | Call Exception |
 | 8519 | Conflict |
 | 8520 | Not Implemented |
 | 8521 | Too Many Hops |
 | 8522 | Not Found |
 | 8523 | Invalid Argument |
-| 8524 | Invalid Participants Count For CR |
+| 8524 | Invalid Participants Count For Compliance Recording |
 | 8525 | Non Recorded Party |
 | 8526 | Invalid Join Token |
 | 8527 | Invalid Join URL |
@@ -168,7 +168,7 @@ A 6xx code represents a global error.
 | 8549 | Retarget Conversation Creation Failed |
 | 8550 | Retarget Media Negotiation Failed |
 | 8551 | Retarget Not Supported |
-| 8552 | Cannot Remove Organizer |
+| 8552 | Can't Remove Organizer |
 | 8553 | Duplicate Recording |
 | 8554 | Participant Out Of Meeting Audio Mix |
 | 8555 | Retarget Already In Progress |
