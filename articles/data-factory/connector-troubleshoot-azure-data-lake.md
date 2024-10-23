@@ -28,9 +28,6 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Resolution**: As a workaround, use the staged copy to skip the Transport Layer Security (TLS) validation for Azure Data Lake Storage Gen1. You need to reproduce this issue and gather the network monitor (netmon) trace, and then engage your network team to check the local network configuration.
 
-    :::image type="content" source="./media/connector-troubleshoot-guide/adls-troubleshoot.png" alt-text="Diagram of Azure Data Lake Storage Gen1 connections for troubleshooting issues.":::
-
-
 ### Error message: The remote server returned an error: (403) Forbidden
 
 - **Symptoms**: Copy activity fail with the following error: 
