@@ -91,8 +91,8 @@ landingContent:
             url: how-to-customize-devbox-azure-image-builder.md
           - text: Configure Dev Box Hibernation
             url: how-to-configure-dev-box-hibernation.md
-          - text: Create reusable customizations
-            url: how-to-customize-dev-box-setup-tasks.md
+          - text: Create reusable Team Customizations
+            url: overview-what-is-team-customizations.md
 
    # Card
   - title: Support & Reference
