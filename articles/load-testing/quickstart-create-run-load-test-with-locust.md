@@ -87,6 +87,8 @@ To create a load test for a Locust-based test in the Azure portal:
     import subprocess
     subprocess.check_output("python3 -m pip install your_wheel.whl", shell=True)
     ```
+    > [!NOTE]
+    > Include the code snippets to install dependencies and supporting files in the import section of your Locust script. Do not include these in the load test section.
 
 1. On the **Load** tab, enter the details for the amount of load to generate:
 
