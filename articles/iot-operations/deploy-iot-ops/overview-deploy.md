@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/02/2024
+ms.date: 10/23/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
