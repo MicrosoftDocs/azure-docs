@@ -397,7 +397,7 @@ Resource specific table entry:
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
-Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
+Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
 
 ### Service Bus Microsoft.ServiceBus/namespaces
 
