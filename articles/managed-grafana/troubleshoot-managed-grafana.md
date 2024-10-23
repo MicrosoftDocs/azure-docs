@@ -153,7 +153,7 @@ Every Grafana instance comes pre-configured with an Azure Monitor data source. W
 1. If the data source uses an **App Registration** authentication:
    1. In your Grafana endpoint, go to **Configurations > Data Sources > Azure Monitor** and check if the information for **Directory (tenant) ID** and **Application (client) ID** is correct.
    1. Check if the service principal has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it from the Azure portal by opening your subscription in the Azure portal and going to **Access control (IAM)** > **Add** > **Add role assignment**.
-   1. If needed, reapply the client secret
+   1. If needed, reapply the client secret.
 
       :::image type="content" source="media/troubleshoot/troubleshoot-azure-monitor-app-registration.png" alt-text="Screenshot of the Managed Grafana workspace: Check app registration authentication details.":::
 
