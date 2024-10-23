@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -28,6 +28,8 @@ This video shows you how to mount an SMB Azure file share on Windows.
 The steps in the video are also described in the following sections.
 
 In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
+
+Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on premium file shares only.
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
@@ -133,34 +135,6 @@ You'll be asked to sign in with your network credentials. Sign in with the Azure
 For Azure Government Cloud, change the servername to:
 
 `\\storageaccountname.file.core.usgovcloudapi.net\myfileshare`
-
-## Enable SMB Multichannel
-
-Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that's newer than these three versions, no additional action is required.
-
-### Windows Server 2016 and Windows 10 version 1607
-
-To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
-
-```PowerShell
-Set-ItemProperty `
-    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
-    -Name "2291605642" `
-    -Value 1 `
-    -Force
-```
-
-### Windows 10 version 1507
-
-To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
-
-```PowerShell
-Set-ItemProperty `
-    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
-    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
-    -Value 1 `
-    -Force
-```
 
 ## Next steps
 
