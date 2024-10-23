@@ -67,7 +67,7 @@ dataPathAssignments | Dictionary used for changing datapaths in Azure Machine le
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 > [!NOTE]
-> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  
+> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  The discovery time for the dropdown items would be much longer when using Private Endpoints.
 
 ## Related content
 See the following articles that explain how to transform data in other ways:
