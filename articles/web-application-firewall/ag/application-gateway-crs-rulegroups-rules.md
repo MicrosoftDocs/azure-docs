@@ -1,11 +1,11 @@
 ---
-title: CRS rule groups and rules
+title: CRS and DRS rule groups and rules
 titleSuffix: Azure Web Application Firewall
-description: This page provides information on web application firewall CRS rule groups and rules.
+description: This page provides information on web application firewall CRS and DRS rule groups and rules.
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.date: 05/30/2024
+ms.date: 10/23/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -19,7 +19,7 @@ You also have the option of using rules that are defined based on the OWASP core
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned.  See < link to  later section at the end>
+> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](application-gateway-crs-rulegroups-rules#upgrading-or-changing-ruleset-version.md).
 
 ## Default rule sets
 
