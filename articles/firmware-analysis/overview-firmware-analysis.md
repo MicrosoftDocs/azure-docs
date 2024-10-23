@@ -1,6 +1,6 @@
 ---
-title: Firmware analysis for device builders
-description: Learn how firmware analysis helps device builders to market and deploy highly secure IoT/OT devices.
+title: Firmware analysis overview
+description: Learn how firmware analysis helps device builders and operators to evaluate the security of IoT, OT and network devices.
 ms.topic: conceptual
 ms.date: 06/15/2023
 author: karengu0
