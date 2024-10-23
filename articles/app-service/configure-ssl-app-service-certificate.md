@@ -209,7 +209,7 @@ The downloaded PFX file is a raw PKCS12 file that contains both the public and p
 
 ## Use Azure Advisor for App Service certificate
 
-App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview.md) to provide reliability recommendations for when your certificate requires domain verification. You must verify domain ownership for your certificate during renew, auto-renew, or rekey process if you haven't verified the domain in the last 395 days. To ensure you do not miss any certificate that requires verification or risk any certificate from expiring, you can utlize Azure Advisor to view and set up alerts for App Service certificate.
+App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. You must verify domain ownership for your certificate during renew, auto-renew, or rekey process if you haven't verified the domain in the last 395 days. To ensure you do not miss any certificate that requires verification or risk any certificate from expiring, you can utlize Azure Advisor to view and set up alerts for App Service certificate.
 
 ### View Advisor recommendation
 
@@ -233,8 +233,8 @@ You [create Azure Advisor alerts on new recommendations] using different configu
 
 1. Under **Condition** select the following:
 
-   |-|-|
    |Configured by| Recommendation Type|
+   |-|-|
    |Recommendation Type|Domain verification required to issue your App Service Certificate|
 
 1. Fill out the rest of the required fields, then select the **Create alert** button at the bottom.
