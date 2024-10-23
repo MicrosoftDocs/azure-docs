@@ -74,4 +74,5 @@ For the language levels currently supported by Azure Functions, see [Languages b
 To learn more about how to upgrade your functions apps language versions, see the following resources:
 
 
++ [Update language Stack versions](./update-language-versions.md)
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
