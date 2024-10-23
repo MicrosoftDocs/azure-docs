@@ -1407,7 +1407,7 @@ To enable persistance of targeting context in the current activity, you can use 
 app.UseMiddleware<TargetingHttpContextMiddleware>();
 ```
 
-An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/Azure/AppConfiguration/tree/main/docs/FeatureManagement) example.
+An example of its usage can be found in the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/VariantAndTelemetryDemo) example.
 
 #### Prerequisite
 
