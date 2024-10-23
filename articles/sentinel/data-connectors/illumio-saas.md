@@ -53,7 +53,7 @@ Illumio_Flow_Events_CL
 To integrate with Illumio SaaS (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required.  [See the documentation to learn more about data pulling](<Replace with an entry to documentation>). If you are using s3 bucket provided by Illumio, contact Illumio support. At your request they will provide you with the AWS S3 bucket name, AWS SQS url and AWS credentials to access them.
+- **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required. See the documentation to learn more about data pulling. If you are using s3 bucket provided by Illumio, contact Illumio support. At your request they will provide you with the AWS S3 bucket name, AWS SQS url and AWS credentials to access them.
 - **Illumio API key and secret**: **ILLUMIO_API_KEY**, **ILLUMIO_API_SECRET** is required for a workbook to make connection to SaaS PCE and fetch api responses.
 
 
@@ -111,7 +111,7 @@ Deployment via Visual Studio Code.
 
 **2. Configure the Function App**
 
-1. Follow documentation <insert link> to set up all required environment variables and click **Save**. Ensure you restart the function app once settings are saved.
+1. Follow documentation to set up all required environment variables and click **Save**. Ensure you restart the function app once settings are saved.
 
 
 

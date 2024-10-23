@@ -74,7 +74,7 @@ To integrate with ZeroFox CTI (using Azure Functions) make sure you have:
  Follow these instructions for set up logging and obtain credentials. 
 1. [Log into ZeroFox's website.](https://cloud.zerofox.com/login) using your username and password 
 2 - Click into the Settings button and go to the Data Connectors Section. 
-3 - Select the API DATA FEEDS tab and head to the bottom of the page, select <<Reset>> in the API Information box, to obtain a Personal Access Token to be used along with your username.
+3 - Select the API DATA FEEDS tab and head to the bottom of the page, select **Reset** in the API Information box, to obtain a Personal Access Token to be used along with your username.
 
 
 **STEP 2 - Deploy the Azure Function data connectors using the Azure Resource Manager template: **
