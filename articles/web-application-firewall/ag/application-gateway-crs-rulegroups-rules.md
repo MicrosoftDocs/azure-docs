@@ -19,7 +19,7 @@ You also have the option of using rules that are defined based on the OWASP core
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version.md).
+> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
