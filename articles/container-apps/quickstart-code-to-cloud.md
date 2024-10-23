@@ -178,7 +178,7 @@ If the `up` command doesn't find a Dockerfile, it automatically uses Buildpacks 
 ::: zone-end
 
 
-In the following code example, the `.` (dot) tells `containerapp up` to run in the `src` directory of the extracted sample API application.
+In the following code example, the `.` (dot) tells `containerapp up` to run in the current directory of the extracted sample API application.
 
 # [Bash](#tab/bash)
 
