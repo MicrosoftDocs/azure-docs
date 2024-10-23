@@ -22,23 +22,6 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-- To avoid workflow timeout when you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program**.
-
-  In scenarios where an SAP system is under load, for example, when you send a batch of IDocs all at the same time from your workflow to SAP, the queued IDoc calls time out. The default setting causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
-
-  To change the SAP processing mode, follow these steps:
-
-  1. In SAP, find the SAP partner profile, and open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
-
-  1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
-
-     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
-
-  For more information, see the following resources:
-
-  - [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://me.sap.com/notes/1845390/E)
-  - [SAP Support Note 1333417 - Performance problems when processing IDocs immediately - SAP for Me](https://me.sap.com/notes/1333417/E)
-
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receive-messages-sap"></a>
@@ -727,11 +710,11 @@ Your workflow times out in any of the following scenarios:
 
 - All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
 
-- Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing.
+- Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
 
-  In scenarios where an SAP system is under load, for example, when you send a batch of IDocs all at the same time from your workflow to SAP, the queued IDoc calls time out. The default setting causes your SAP system to block the inbound call for the IDoc transmission until the IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
 
-  To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](#prerequisites).
+  To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](sap.md#prerequisites).
 
 <a name="safe-typing"></a>
 

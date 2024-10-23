@@ -206,6 +206,23 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](sap-create-example-scenario-workflows.md#send-flat-file-idocs).
 
+* For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
+
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To change your SAP system's processing mode, follow these steps:
+
+  1. In SAP, find the SAP partner profile, and open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
+
+  1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
+
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
+
+  For more information, see the following resources:
+
+  - [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://me.sap.com/notes/1845390/E)
+  - [SAP Support Note 1333417 - Performance problems when processing IDocs immediately - SAP for Me](https://me.sap.com/notes/1333417/E)
+
 <a name="network-prerequisites"></a>
 
 ### Network connectivity prerequisites
