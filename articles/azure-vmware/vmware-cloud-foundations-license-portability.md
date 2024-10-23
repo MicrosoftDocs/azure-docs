@@ -136,5 +136,5 @@ If you're an existing Azure VMware Solution customer deploying using Azure VMwar
 "I am creating a new AVS private cloud with VCF BYOL." 
 
 1. Get portable VCF for Azure VMware Solution proof-of-purchase from Broadcom for all cores used in your AVS private cloud in that Azure subscription.
-2. [Request host quota](azure/azure-vmware/request-host-quota-azure-vmware-solution) for Azure VMware Solution.
+2. [Request host quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) for Azure VMware Solution.
 3. If you want to use the Reserved Instance (RI) pricing, purchase RI for the required node type with VCF BYOL. **NOTE:** If you register your portable VCF without this step, you will be charged BYOL pay-as-you-go pricing by default for your usage.
