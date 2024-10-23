@@ -2,7 +2,7 @@
 title: 'Deploy an Azure Batch account and two pools with a start task - Terraform'
 description: In this article, you deploy an Azure Batch account and two pools with a start task using Terraform.
 ms.topic: quickstart
-ms.date: 10/22/2024
+ms.date: 10/23/2024
 ms.custom: devx-track-terraform
 ms.service: azure-batch
 author: Padmalathas
@@ -37,7 +37,6 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 ## Prerequisites
 
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
@@ -47,7 +46,7 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 > 
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `main.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-start-task/main.tf":::
