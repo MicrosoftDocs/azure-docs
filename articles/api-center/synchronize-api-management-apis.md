@@ -46,7 +46,7 @@ Certain properties of synchronized APIs and other entities are configured automa
 | Deployment   | • server.runtimeUri<br/>• environmentId<br/>• definitionId |
 | Environment  | • server.type
 
-For property details, see the [API Center REST API reference](/rest/api/resource-manager/apicenter).
+For property details, see the [API Center REST API reference](/rest/api/apicenter).
 
 
 ## Prerequisites
