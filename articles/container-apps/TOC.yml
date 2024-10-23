@@ -237,7 +237,7 @@
   items:
   - name: Reliability in Azure Container Apps
     href: ../reliability/reliability-azure-container-apps.md
-- name: Dedicated hardware
+- name: Dedicated compute
   items:
     - name: Workload profiles
       href: workload-profiles-overview.md
