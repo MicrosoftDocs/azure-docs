@@ -66,7 +66,6 @@ To create a new *diagnostic setting*:
     - **Send to Log Analytics workspace**:  Select from existing Log Analytics workspaces.
     :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
     - **Archive to a storage account**: This option is deprecated.
-    :::image type="content" source="media/observability/diag-setting-storage-acct.png" alt-text="Screenshot Diagnostic settings storage destination.":::
     - **Stream to an event hub**:  Select from Azure event hubs.  
     :::image type="content" source="media/observability/diag-settings-event-hub.png" alt-text="Screenshot Diagnostic settings event hub destination.":::
     - **Send to a partner solution**: Select from Azure partner solutions.  
