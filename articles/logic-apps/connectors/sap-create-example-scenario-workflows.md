@@ -34,6 +34,11 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
      The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
 
+  For more information, see the following resources:
+
+  - [SAP Support Note 1845390 - Poor performance when posting idocs with report RBDAPP01 - SAP for Me](https://me.sap.com/notes/1845390/E)
+  - [SAP Support Note 1333417 - Performance problems when processing IDocs immediately - SAP for Me](https://me.sap.com/notes/1333417/E)
+
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receive-messages-sap"></a>
