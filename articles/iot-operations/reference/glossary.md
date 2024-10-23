@@ -3,7 +3,7 @@ title: "Glossary for Azure IoT Operations"
 description: "List of terms with definitions and usage guidance related to Azure IoT Operations - enabled by Azure Arc."
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-operations
+ms.service: azure-iot-operations
 ms.topic: glossary #Don't change
 ms.date: 01/10/2024
 
