@@ -103,7 +103,7 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 ### Upgrading or changing ruleset version
 
-When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions, rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1 
 
