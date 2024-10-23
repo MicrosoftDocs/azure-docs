@@ -201,7 +201,7 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2024-05-10T08:04:08Z`. 
 
 ```azurepowershell
 Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -SnapshotTime "<snapshot-time>"
@@ -210,12 +210,12 @@ Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccou
 To delete a file share and all its snapshots, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
 ```azurepowershell
-Remove-AzRmStorageShare "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Include Snapshots
+Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Include Snapshots
 ```
 
 # [Azure CLI](#tab/cli)
 
-To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2024-05-10T08:04:08Z`.
 
 ```azurecli
 az storage share delete --account-name <storage-account-name> --name <file-share-name> --snapshot <snapshot-time>
@@ -252,6 +252,29 @@ Just like with on-premises Volume Shadow Copy (VSS) snapshots, you can view the 
     
     > [!NOTE]
     > If your file hasn't changed, you won't see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
+
+### Mount an SMB file share snapshot on Linux
+
+If you want to mount a specific snapshot of an SMB Azure file share on Linux, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
+
+After you've created the file share snapshot, follow these instructions to mount it.
+
+1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
+2. Select **Data storage > File shares** and select the file share.
+3. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name will be a GMT timestamp, such as in the screenshot below.
+
+   :::image type="content" source="media/storage-snapshots-files/mount-smb-snapshot-on-linux.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
+
+4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
+5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
+
+   ```bash
+   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
+   ```
+
+6. If you're able to browse the snapshot under the path `/media/<file-share-name>/snapshot1`, then the mount succeeded.
+
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
 
 ## NFS file share snapshots
 
@@ -406,7 +429,7 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2024-05-10T08:04:08Z`.
 
 ```azurepowershell
 Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -SnapshotTime "<snapshot-time>"
@@ -415,12 +438,12 @@ Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccou
 To delete a file share and all its snapshots, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
 ```azurepowershell
-Remove-AzRmStorageShare "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Include Snapshots
+Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Include Snapshots
 ```
 
 # [Azure CLI](#tab/cli)
 
-To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
+To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2024-05-10T08:04:08Z`.
 
 ```azurecli
 az storage share delete --account-name <storage-account-name> --name <file-share-name> --snapshot <snapshot-time>
