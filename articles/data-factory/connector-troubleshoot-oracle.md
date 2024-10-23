@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Oracle connector in Azure
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/02/2024
+ms.date: 10/23/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -37,7 +37,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
 
 - **Recommendation**: Update your Oracle server settings to add these secure algorithms:
 
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
+    - For **SQLNET.ENCRYPTION_TYPES_SERVER**, add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
         - AES256 
         - AES192 
         - 3DES168 
@@ -45,7 +45,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - 3DES112 
         - DES
         
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. 
+    - For **SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER**, add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. 
         - SHA256 
         - SHA384 
         - SHA512
