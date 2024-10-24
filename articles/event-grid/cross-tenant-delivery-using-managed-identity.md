@@ -67,8 +67,8 @@ For more information, see the following articles:
 ## Create destination storage account (Tenant B)
 Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B).
 
-1. Create a storage account by following instructions from the [Create a storage account](/storage/common/storage-account-create#create-a-storage-account) article. 
-1. Using the **Access Control (IAM)** page, add the multitenant app to the appropriate role so that the app can send events to the storage account. For example: Storage Account Contributor, Storage Queue Data Contributor, Storage Queue Data Message Sender. For instructions, see [Assign an Azure role for an Azure queue](../storage/queues/assign-azure-role-data-access#assign-an-azure-role).
+1. Create a storage account by following instructions from the [Create a storage account](../storage/common/storage-account-create.md#create-a-storage-account) article. 
+1. Using the **Access Control (IAM)** page, add the multitenant app to the appropriate role so that the app can send events to the storage account. For example: Storage Account Contributor, Storage Queue Data Contributor, Storage Queue Data Message Sender. For instructions, see [Assign an Azure role for an Azure queue](../storage/queues/assign-azure-role-data-access.md#assign-an-azure-role).
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/storage-role.png" alt-text="Screenshot that shows the Access Control (IAM) page for the storage account." lightbox="./media/cross-tenant-delivery-using-managed-identity/storage-role.png":::
 
