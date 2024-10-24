@@ -7,7 +7,7 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 01/13/2024
 ---
 
 # Convert to the new App Configuration library for Spring Boot

@@ -1,5 +1,5 @@
 --- 
-title: Using Azure App Configuration in Python apps with the Azure SDK for Python | Microsoft Learn
+title: Using Azure App Configuration in Python apps with the Azure SDK for Python
 description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
 ms.custom: devx-track-python, mode-other, engagement-fy23, py-fresh-zinc
-ms.date: 11/17/2022
+ms.date: 11/20/2023
 ms.author: malev
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
@@ -149,14 +149,23 @@ The sample code snippets in this section show you how to perform common operatio
 
 Learn below how to:
 
-- [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
-- [Get a configuration setting](#get-a-configuration-setting)
-- [Add a configuration setting](#add-a-configuration-setting)
-- [Get a list of configuration settings](#get-a-list-of-configuration-settings)
-- [Lock a configuration setting](#lock-a-configuration-setting)
-- [Unlock a configuration setting](#unlock-a-configuration-setting)
-- [Update a configuration setting](#update-a-configuration-setting)
-- [Delete a configuration setting](#delete-a-configuration-setting)
+- [Create a Python app with the Azure SDK for Python](#create-a-python-app-with-the-azure-sdk-for-python)
+  - [Prerequisites](#prerequisites)
+  - [Create a key-value](#create-a-key-value)
+  - [Set up the Python app](#set-up-the-python-app)
+  - [Configure your App Configuration connection string](#configure-your-app-configuration-connection-string)
+  - [Code samples](#code-samples)
+    - [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
+    - [Get a configuration setting](#get-a-configuration-setting)
+    - [Add a configuration setting](#add-a-configuration-setting)
+    - [Get a list of configuration settings](#get-a-list-of-configuration-settings)
+    - [Lock a configuration setting](#lock-a-configuration-setting)
+    - [Unlock a configuration setting](#unlock-a-configuration-setting)
+    - [Update a configuration setting](#update-a-configuration-setting)
+    - [Delete a configuration setting](#delete-a-configuration-setting)
+  - [Run the app](#run-the-app)
+  - [Clean up resources](#clean-up-resources)
+  - [Next steps](#next-steps)
 
 ### Connect to an App Configuration store
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use dynamic configuration using push refresh in a single instance Java Spring app"
+title: "Use dynamic configuration using push refresh - Java Spring"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for a Java Spring app using push refresh
 services: azure-app-configuration
@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 09/27/2023
+ms.date: 03/07/2024
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---

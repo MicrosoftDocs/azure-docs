@@ -1,13 +1,13 @@
 ---
 title: Use dynamic configuration in a Spring Boot app
 titleSuffix: Azure App Configuration
-description: Learn how to dynamically update configuration data for Spring Boot apps
+description: Learn how to dynamically update configuration data for Spring Boot apps using Azure App Configuration.
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/11/2023
+ms.date: 03/07/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
