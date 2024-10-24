@@ -14,73 +14,38 @@ ms.custom: template-how-to
 
 This article describes the steps required to deploy Confidential Containers for an ARO cluster. This process involves two main parts and multiple steps:
 
-**Part 1: Deploy OpenShift Sandboxed Containers**
+First, you'll deploy OpenShift Sandboxed Containers, which involves the following steps:
 
-1. [Install the OpenShift Sandboxed Containers Operator](#install-the-openshift-sandboxed-containers-operator).    
+1. Install the OpenShift Sandboxed Containers Operator.    
     
-    Create manifest files and run commands to install and verify the Operator.
+1. Create the peer pods secret.
 
-1. [Create the peer pods secret](#create-the-peer-pods-secret).
-    1. Gather necessary Azure credentials.
-    1. Generate and record RBAC content.
-    1. Create peer pods secret manifest file.
+1. Create the peer pods config map.
 
-1. [Create the peer pods config map](#create-the-peer-pods-config-map).
-    1. Create the peer pods config file.
-    1. Create the ConfigMap.
+1. Create the Azure secret.
 
-1. [Create the Azure secret](#create-the-azure-secret).
-    1. Generate SSH keys.
-    1. Create a secret object.
-    1. Delete the generated keys. 
+After deploying OpenShift Sandboxed Containers, you'll deploy Confidential Containers. This involves the following steps:
 
+1.	Install the Trustee Operator.
 
-**Part 2: Deploy Confidential Containers**
+1.	Create the route for the Trustee. 
 
-1.	[Install the Trustee Operator](#install-the-trustee-operator).
+1.	Enable the Confidential Containers feature gate.
 
-    Create and apply manifests to install the operator.
+1.	Update the peer pods config map.
 
-1.	[Create the route for the Trustee](#create-the-route-for-the-trustee). 
-    1. Create a secure route with edge TLS termination for the Trustee service.
-    1. Set and record the TRUSTEE_HOST variable.
+1.	Create the KataConfig custom resource. 
 
-1.	[Enable the Confidential Containers feature gate](#enable-the-confidential-containers-feature-gate).
+1.	Create the Trustee authentication secret.
     
-    Create a config map to enable the Confidential Containers feature.
+1.	Create the Trustee config map. 
 
-1.	[Update the peer pods config map](#update-the-peer-pods-config-map).
-    1. Retrieve necessary Azure resource information (resource group, VNet name, subnet ID, NSG ID, region) using Azure CLI commands.
-    1. Create a YAML file containing the retrieved information and the TRUSTEE_HOST value.
-    1. Run a command to apply the updated configuration.
-    1. Restart the `peerpodconfig-ctrl-caa-daemon` daemon set.
+1.	Configure attestation policies (optional).
 
-1.	[Create the KataConfig custom resource](#create-the-kataconfig-custom-resource). 
-    1. Create a YAML file defining the KataConfig configuration.
-    1. Run a command to apply the configuration.
-    1. Monitor and verify the installation process.
+1.	Create the KbsConfig custom resource.
 
-1.	[Create the Trustee authentication secret](#create-the-trustee-authentication-secret).
-    1. Generate private and public keys
-    1. Create a secret object.
+1.	Verify the attestation process.
     
-1.	[Create the Trustee config map](#create-the-trustee-config-map). 
-    1. Create a YAML file containing the Trustee configuration.
-    1. Run a command to apply the configuration.
-
-1.	[Configure attestation policies (optional)](#configure-attestation-policies).
-
-    Additional configurations for reference values, client secrets, resource access policies, and attestation policies.
-
-1.	[Create the KbsConfig custom resource](#create-the-kbsconfig-custom-resource).
-
-    1. Create the KbsConfig custom resource to launch Trustee.
-    1. Check the Trustee pods and pod logs to verify the configuration.
-
-1.	[Verify the attestation process](#verify-the-attestation-process).
-    
-    Create a test pod and retrieve its secret to verify the attestation process.
-
 ## Before you begin
 
 Before beginning the deployment process, make sure the following prerequisites are met:
