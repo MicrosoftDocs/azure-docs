@@ -147,6 +147,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Diagnostic settings**: Diagnostic settings are not currently supported.
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
 + **Key Vault References**: Key Vault references in app settings do not work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
++ **Azure Files file share mount**: [Mounting an Azure Files file share](../scripts/functions-cli-mount-files-storage-linux.md) does not work when the function app has Virtual Network integration. 
 
 ## Related articles
 
