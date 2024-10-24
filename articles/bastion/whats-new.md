@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Bastion?
 description: Learn what's new with Azure Bastion such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-author: cherylmc
+author: aatsang
 ms.service: azure-bastion
 ms.topic: conceptual
-ms.date: 08/16/2024
-ms.author: cherylmc
+ms.date: 10/24/2024
+ms.author: aarontsang
 ---
 
 # What's new in Azure Bastion?
@@ -22,7 +22,7 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 
 | Type |  Name | Description | Date added | Limitations |
 |---|---|---|---|---|
-| Feature | [Microsoft Entra ID support for portal (SSH)](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication-preview)  |Microsoft Entra ID support for SSH connections in portal is now GA. | July 2024 | N/A|
+| Feature | [Microsoft Entra ID support for portal (SSH)](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication)  |Microsoft Entra ID support for SSH connections in portal is now GA. | July 2024 | N/A|
 |Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now in public preview in all regions that Bastion is available in. | June 2024 | Can't currently be used with native client.
 | Feature | [Private Only Bastion](private-only-deployment.md)| Private Only Bastion is now in public preview in all regions that Bastion is available in.| June 2024 | N/A|
 | SKU | [Bastion Premium SKU](bastion-overview.md#sku)| Bastion Premium SKU is now in public preview in all regions that Bastion is available in. | June 2024 | N/A|
