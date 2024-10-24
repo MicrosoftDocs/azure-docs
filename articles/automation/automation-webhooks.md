@@ -3,8 +3,8 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/21/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.service: azure-automation
 ---

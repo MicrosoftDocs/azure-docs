@@ -18,7 +18,7 @@ To meet the industry-wide push toward the exclusive use of Transport Layer Secur
 TLS versions 1.0 and 1.1 also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
 > [!IMPORTANT]
-> On November 1, 2024, the TLS 1.2 requirement will be enforced.
+> Starting November 1, 2024, the TLS 1.2 requirement will be enforced.
 >
 >
 
@@ -36,7 +36,7 @@ As a part of this effort, you can expect the following changes to Azure Cache fo
 | September 2023   | TLS 1.0/1.1 retirement announcement                                                                                                                                                                                                                                            |
 | March 1, 2024    | Beginning March 1, 2024, you can't create new caches with the Minimum TLS version set to 1.0 or 1.1 and you can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache. The minimum TLS version won't be updated automatically for existing caches at this point. |
 | October 31, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2.                                                                                                                          |
-| November 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1 at this point.                                                                                                               |
+| Starting November 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1 at this point.                                                                                                               |
   
   > [!IMPORTANT]
   > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
@@ -52,10 +52,6 @@ The following sections provide guidance about how to detect dependencies on thes
 ### Check whether your application is already compliant
 
 You can find out whether your application works with TLS 1.2 by setting the **Minimum TLS version** value to TLS 1.2 on a test or staging cache, then running tests. The **Minimum TLS version** setting is in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal. If the application continues to function as expected after this change, then your app is using TLS 1.2 or newer.
-
-> [!NOTE]
-> With your cache open in the portal, select **Advanced** in the resource menu. If the Minimum TLS version for your cache instance is set to **Default**, your Minimum TLS version is set to TLS 1.2. TLS 1.2 is the default value that is assigned to your cache instance when no explicit value is chosen.
->
 
 ### Configure your application to use TLS 1.2 or later
 

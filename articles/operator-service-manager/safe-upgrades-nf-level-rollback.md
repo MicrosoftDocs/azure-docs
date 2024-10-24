@@ -1,29 +1,31 @@
 ---
-title: Rollback on upgrade failure using Azure Operator Service Manager
-description: Revert all prior completed operations during safe upgrade failure.
+title: Control upgrade failure behavior with Azure Operator Service Manager
+description: Learn about recovery behaviors including pause on failure and rollback on failure.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/28/2024
+ms.date: 08/30/2024
 ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
 ---
 
-# Rollback on upgrade failure
-This guide describes the Azure Operator Service Manager (AOSM) optional rollback on failure feature for container network functions (CNFs). This feature, as part of the AOSM safe upgrade practices initiative, reduces the service impact of unexpected upgrade failures for network functions (NFs) where comprehensive forward and backward version network function application (NfApp) compatibility is not available.
+# Control upgrade failure behavior
+
+## Overview
+This guide describes the Azure Operator Service Manager (AOSM) upgrade failure behavior features for container network functions (CNFs). These features, as part of the AOSM safe upgrade practices initiative, offer a choice between faster retries, with pause on failure, versus return to starting point, with rollback on failure.
 
 ## Pause on failure
-In the case of an unexpected failure during an upgrade, historically AOSM supports the pause on failure approach. This method remains the default and implements the following workflow logic;
-* The NfApps are created or upgraded following either updateDependsOn ordering, if provided, or in the sequential order they appear.
-* NfApps with parameter "applicationEnabled" disabled are skipped.
-* NFApps present before upgrade, but not referenced by the new network function definition version (NFDV) are deleted.
-* The execution is paused if any of the NfApp upgrades fail.
+Any upgrade using AOSM starts with a site network service (SNS) reput opreation. The reput operation processes the network function applications (NfApps) found in the network function design version (NFDV). The reput operation implements the following default logic:
+* NfApps are processed following either updateDependsOn ordering, or in the sequential order they appear.
+* NfApps with parameter "applicationEnabled" set to disable are skipped.
+* NFApps present, but not referenced by the new NFDV are deleted.
+* The execution sequence is paused if any of the NfApp upgrades fail and a rollback is considered.
 * The failure leaves the NF resource in a failed state.
 
-With pause on failure, AOSM rolls back the failed NfApp, via the testOptions, installOptions, or upgradeOptions parameters. This method allows the end user to troubleshoot the failed NfApp and then restart the upgrade from that point forward. As the default behavior, this method is the most efficient upgrade method, but may cause network function (NF) inconsistencies while in a mixed version state. 
+With pause on failure, AOSM rolls back only the failed NfApp, via the testOptions, installOptions, or upgradeOptions parameters. No action is taken on any NfApps which proceed the failed NfApp.  This method allows the end user to troubleshoot the failed NfApp and then restart the upgrade from that point forward. As the default behavior, this method is the most efficient method, but may cause network function (NF) inconsistencies while in a mixed version state. 
 
 ## Rollback on failure
-To address risk of mismatched NfApp versions, AOSM now supports NF level rollback on failure. With this option enabled, if an NfApp upgrade fails, both the failed NfApp, and all prior completed NfApps, are rolled back to initial version state. This method minimizes, or eliminates, the amount of time the NF is exposed to NfApp version mismatches. The optional rollback on failure feature works as follows:
-* A user initiates an upgrade and enables the rollback on failure feature.
+To address risk of mismatched NfApp versions, AOSM now supports NF level rollback on failure. With this option enabled, if an NfApp operation fails, both the failed NfApp, and all prior completed NfApps, can be rolled back to initial version state. This method minimizes, or eliminates, the amount of time the NF is exposed to NfApp version mismatches. The optional rollback on failure feature works as follows:
+* A user initiates an sSNS reput operation and enables rollback on failure.
 * A snapshot of the current NfApp versions is captured and stored.
 * The snapshot is used to determine the individual NfApp actions taken to reverse actions that completed successfully.
   - "helm install" action on deleted components,
@@ -52,7 +54,6 @@ AOSM returns the following operational status and messages, given the respective
     - Provisioning State: Failed
     - Message: Application(<ComponentName>) : <Failure reason>; Rollback Failed (<RollbackComponentName>) : <Rollback Failure reason>
 ```
-
 ## How to configure rollback on failure
 The most flexible method to control failure behavior is to extend a new configuration group schema (CGS) parameter, rollbackEnabled, to allow for configuration group value (CGV) control via roleOverrideValues in the NF payload. First, define the CGS parameter: 
 ```

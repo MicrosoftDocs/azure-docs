@@ -3,8 +3,8 @@ title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
 ms.date: 10/06/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 ---
 
 # Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -30,7 +30,7 @@ You can filter the list by resource type, resource group name, location, and whe
 The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
 
 - Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 - An error is blocking the logs from being sent to Elastic.
 - Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
 - Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.

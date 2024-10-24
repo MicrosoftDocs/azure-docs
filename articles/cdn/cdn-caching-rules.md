@@ -12,6 +12,8 @@ ms.author: duau
 
 # Control Azure Content Delivery Network caching behavior with caching rules
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article describes how you can use content delivery network caching rules to set or modify default cache expiration behavior. These caching rules can either be global or with custom conditions, such as a URL path and file extension.
 
 > [!NOTE]

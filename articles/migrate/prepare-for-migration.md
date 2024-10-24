@@ -15,7 +15,7 @@ ms.custom: engagement-fy25
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
+This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md) tool.
 
 In this article, you:
 > [!div class="checklist"]

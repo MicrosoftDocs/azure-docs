@@ -22,7 +22,7 @@ This article shows you how to publish applications that are installed locally wi
 
 ## Prerequisites
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 In order to publish an application to a RemoteApp application group, you need the following things:
 
@@ -60,7 +60,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 To add applications to a RemoteApp application group, select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to add applications to a RemoteApp application group using the Azure portal.
 
@@ -256,13 +256,13 @@ Applications aren't assigned individually to users unless you're using app attac
 
 ## Publish Microsoft Store applications
 
-Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
+Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location as the path in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
 
 Using `shell:appsFolder` means the application icon isn't picked up automatically from the application. You should provide an icon file on a local drive on each session host in a path that doesn't change, unlike the application installation directory. 
 
 Select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to publish a Microsoft Store application using the Windows user interface and the Azure portal:
 

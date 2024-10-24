@@ -1,8 +1,8 @@
 ---
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
-ms.topic: conceptual
-ms.date: 07/24/2024
+ms.topic: release-notes
+ms.date: 10/17/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -17,6 +17,9 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- October 2024
+    - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
+    - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
 - July 2024
   - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
   - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
@@ -90,6 +93,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.
+
+Azure Backup now supports backup of Azure VMs using Premium SSD v2 and Ultra disk on GRS vaults and performs Cross-Region Restore (CRR). With Geo-redundant storage (GRS) and cross-region restore support, you can protect your virtual machines from data loss during a disaster and perform periodic audits by restoring data on demand in the secondary region.
+
+>[!Note]
+>Premium SSD v2 offering provides the most advanced block storage solution designed for a broad range of IO-intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput — at a low cost.
+
+For more information, see the [VM backup support matrix for the supported features and region availability](backup-support-matrix-iaas.md#vm-storage-support).
+
+
+## Back up Azure VMs with Extended Zones (preview)
+
+Azure Backup now enables you to back up your Azure virtual machines in the [Azure Extended Zones](../extended-zones/overview.md). Azure Extended Zones offer enhanced resiliency by distributing resources across multiple physical locations within an Azure region. You can back up multiple Azure virtual machines in Azure Extended Zones.
+
+For more information, see [Back up an Azure Virtual Machine in Azure Extended Zones](./backup-azure-vms-enhanced-policy.md).
 
 ## Azure Blob vaulted backup is now generally available
 
@@ -422,7 +441,7 @@ For more information, see [how to configure multiple backups per day via backup 
 
 ## Azure Backup metrics and metrics alerts (in preview)
 
-Azure Backup now provides a set of built-in metrics via [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
+Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
 
 Azure Backup offers the following key capabilities:
  

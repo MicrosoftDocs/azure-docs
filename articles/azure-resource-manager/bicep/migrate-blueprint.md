@@ -1,43 +1,34 @@
-
 ---
 title: Migrate blueprint to deployment stack
 description: Learn how to migrate blueprint to deployment stack
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/30/2024
+ms.date: 10/24/2024
 ---
 
 # Migrate blueprint to deployment stack
 
-## Introduction
+This document outlines the steps to re-author your Blueprint definitions and assignments as deployment stacks. Deplomyment stacks are new platform primitives within the `Microsoft.Resources` namespace, bringing Azure Blueprint capabilities into this space. Deployment stacks enable you to deploy ARM templates/Bicep files to a specified target scope.
 
 ## Migration steps
 
 1. Export the blueprint definitions into the blueprint definition JSON files which include the artifacts of Azure policies, Azure role assignments, and templates. For more information see [Export your blueprint defintion](../../governance/blueprints/how-to/import-export-ps#export-your-blueprint-definition).
 2. Convert the blueprint definitio JSON files into a single ARM template or Bicep file to be deployed via deployment stacks with the following considerations:
 
-    - **Role assingments**: Convert any [role assignments](/azure/templates/microsoft.authorization/policyassignments) (special user permissions ??? ) first.
+    - **Role assingments**: Convert any [role assignments](/azure/templates/microsoft.authorization/policyassignments).
     - **Policies**: Convert any [policy assignments](/azure/templates/microsoft.authorization/policyassignments) into the Bicep (or ARM JSON template) syntax, and then add them to your main template. You can also embedd the [`policyDefinitions`](/azure/templates/microsoft.authorization/policydefinitions) into the JSON template.
     - **Templates**: Convert any templates into a main template for submission to a deployment stack. You can use [modules](./modules.md) in Bicep, embed templates as nested templates or template links, and optionally use [template specs](./template-specs.md) to store your templates in Azure. Template Specs are not required to leverage deployment stacks.
-    - **Locks**: Deployment stack [DenySettingsMode](./deployment-stacks.md#protect-managed-resources) gives you the ability to block unwanted changes via `DenyDelete` and `DenyWriteAndDelete` (similar to [Blueprint locks](../../governance/blueprints/concepts/resource-locking.md). You can configure these via deployment stack commands. In order to leverage this, you need to corresponding roles to be able to set deny settings. For more information, see [Deployment stacks](./deployment-stacks.md).
+    - **Locks**: Deployment stack [DenySettingsMode](./deployment-stacks.md#protect-managed-resources) gives you the ability to block unwanted changes via `DenySettingsMode` (similar to [Blueprint locks](../../governance/blueprints/concepts/resource-locking.md). You can configure these via Azure CLI or Azure PowerShell. In order to leverage this, you need to corresponding roles to be able to set deny settings. For more information, see [Deployment stacks](./deployment-stacks.md).
 
       Define deny settings behavior (locks)
-      
+
       - Microsoft.Authorization/locks ~ Deny Settings via Stack, therefore NO BICEP/JSON needed
       - Blueprint Lock setting DontDelete ~ --deny-settings-mode DenyDelete in Deployment Stacks
       - Blueprint Lock setting DontDelete ~ --deny-settings-mode DenyWriteAndDelete in Deployment Stacks
-    
+
       Note: You can optionally control the excluded actions and principals to the deny assignment created by the specified deny setting mode.
-    
+
 ## Sample
-
-### Exported blueprint definition file
-
-```json
-
-```
-
-### Converted Bicep file to be deployed to a deployment stack
 
 ```bicep
 targetScope = 'subscription'

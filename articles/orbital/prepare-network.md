@@ -1,12 +1,12 @@
 ---
 title: Prepare network to send and receive data - Azure Orbital
-description: Learn how to deliver and receive data from  Azure Orbital.
+description: Learn how to deliver and receive data from  Azure Orbital. Ensure your subnet and Azure Orbital Ground Station resources are configured correctly
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: hrshelar
+ms.author: mosagie
 ---
 
 # Prepare the network for Azure Orbital Ground Station integration

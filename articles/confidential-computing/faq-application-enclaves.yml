@@ -46,7 +46,7 @@ sections:
           Based on the information bubble next to the VM, there are different actions to take:
              -	**UnsupportedGeneration**: Change the generation of the virtual machine image to “Gen2”.
              -	**NotAvailableForSubscription**: The region isn't yet available for your subscription. Select an available region.
-             -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs.
+             -	**InsufficientQuota**: [Create a support request to increase your quota](/azure/azure-portal/supportability/per-vm-quota-requests). Free trial subscriptions don't have quota for some confidential computing VMs.
 
       - question: |
           Intel SGX virtual machines don't show up when I try to search for them in the portal size selector
@@ -67,7 +67,7 @@ sections:
       - question: |
           I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DC Family Cores Quota"
         answer: |
-          [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for some confidential computing VMs.
+          [Create a support request to increase your quota](/azure/azure-portal/supportability/per-vm-quota-requests). Free trial subscriptions don't have quota for some confidential computing VMs.
 
       - question: |
           What’s the difference between DCsv2-Series, DC-Series, DCdsv3-Series and DCsv3-Series VMs?

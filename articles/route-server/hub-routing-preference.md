@@ -32,4 +32,4 @@ When Route Server has multiple routes to an on-premises destination prefix, Rout
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure routing preference](hub-routing-preference-portal.md)
+> [Configure routing preference](configure-route-server.md#configure-routing-preference)

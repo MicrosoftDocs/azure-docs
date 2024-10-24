@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 10/23/2024
 ---
 
 # Peering Service monitoring and telemetry walkthrough
@@ -63,6 +63,6 @@ All Peering Service prefix resources display the following metrics for their Pee
 
     :::image type="content" source="./media/walkthrough-monitoring-telemetry/peering-service-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view the peering service prefix latency under a specific peering service prefix in the Azure portal." lightbox="./media/walkthrough-monitoring-telemetry/peering-service-prefix-latency-telemetry.png":::
 
-- Peering service prefix events: shows various BGP events like route announcements, withdrawals and routes becoming active on the primary or backup links for each prefix in the **Prefix events** page of the Peering Service prefix.
+- Peering service prefix events: shows various BGP events like route announcements, withdrawals, and routes becoming active on the primary or backup links for each prefix in the **Prefix events** page of the Peering Service prefix.
 
     :::image type="content" source="./media/walkthrough-monitoring-telemetry/peering-service-prefix-events.png" alt-text="Screenshot shows how to view the prefix events under a specific peering service prefix in the Azure portal." lightbox="./media/walkthrough-monitoring-telemetry/peering-service-prefix-events.png":::

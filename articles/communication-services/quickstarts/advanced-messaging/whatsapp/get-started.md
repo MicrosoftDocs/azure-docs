@@ -2,13 +2,14 @@
 title: Add Advanced Messaging to your app
 titleSuffix: An Azure Communication Services Messages quickstart
 description: In this quickstart, you learn to set up the basic functionality of Azure Communication Services Messages.
-author: memontic-ms
+author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
-ms.author: memontic
+ms.author: shamkh
 ms.date: 07/15/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---

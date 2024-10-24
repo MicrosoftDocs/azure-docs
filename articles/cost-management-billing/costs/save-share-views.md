@@ -95,7 +95,7 @@ To view the dashboard after you've pinned it, from the Azure portal menu, select
 1. Select the **Pin** symbol to the right of the page header.
 1. From the dashboard, you can now remove the original tile.
 
-For more advanced dashboard customizations, you can also export the dashboard, customize the dashboard JSON, and upload a new dashboard. Dashboard creations can include other tile sizes or names without saving new views. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+For more advanced dashboard customizations, you can also export the dashboard, customize the dashboard JSON, and upload a new dashboard. Dashboard creations can include other tile sizes or names without saving new views. For more information, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 
 ## Download data or charts
 
@@ -114,7 +114,9 @@ In addition to saving and opening views repeatedly or sharing them with others m
 ### To subscribe to scheduled alerts
 
 1. In Cost analysis, select any chart view you want to subscribe to or create and save a new chart view.
-    - Built-in views (for example, Accumulated costs, Daily costs, or Cost by service) can't be changed. If you need to change the date range, currency, amortization, or any other setting, you need to save that as a private or shared view.
+    - Built-in views (for example, Accumulated costs, Daily costs, or Cost by service) can't be changed.
+    - The currency is displayed as USD on subscribed e-mail if creating email setting by using Built-in views.
+    - If you need to change the date range, currency, amortization, or any other setting, you need to save that as a private or shared view.
 1. Select **Subscribe** at the top of the page.
 1. Select **+ Add** at the top of the list of alerts.
 1. Specify the desired email settings and select **Save**.
@@ -177,5 +179,5 @@ If you selected 'Add a CSV download link' when creating the alert rule, you will
 
 ## Next steps
 
-- For more information about creating dashboards, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+- For more information about creating dashboards, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 - To learn more about Cost Management, see [Cost Management + Billing documentation](../index.yml).

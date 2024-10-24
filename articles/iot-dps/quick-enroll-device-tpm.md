@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 07/28/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.devlang: csharp
 # ms.devlang: csharp, java, nodejs
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
+ms.subservice: azure-iot-hub-dps
 ---
  
 # Programmatically create a Device Provisioning Service individual enrollment for TPM attestation
@@ -57,7 +58,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Maven 3](https://maven.apache.org/download.cgi).
 
-* Install [Git](https://git-scm.com/download/) and make sure that the path is added to the environment variable `PATH`.
+* Install [Git](https://git-scm.com/downloads) and make sure that the path is added to the environment variable `PATH`.
 
 * (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) up to the step where you get an endorsement key for the device. Note the **Endorsement key** and the **Registration ID**, as you use them later in this article.
 

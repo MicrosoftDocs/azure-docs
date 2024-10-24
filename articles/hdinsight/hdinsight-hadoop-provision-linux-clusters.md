@@ -221,7 +221,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 If you're just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]
-> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the limit.
+> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the limit.
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Configuration + pricing** tab. In the portal, you can also see the cost associated with the different node sizes.
 

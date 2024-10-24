@@ -23,13 +23,7 @@ Before you start to configure security admin rules, confirm that you've done the
 ## Create a SecurityAdmin configuration
 
 1. Select **Configurations** under *Settings* and then select **+ Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a security admin configuration.":::
-
 1. Select **Security configuration** from the drop-down menu.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/security-admin-dropdown.png" alt-text="Screenshot of add a configuration drop-down.":::
-
 1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/security-configuration-name.png" alt-text="Screenshot of security configuration name field.":::

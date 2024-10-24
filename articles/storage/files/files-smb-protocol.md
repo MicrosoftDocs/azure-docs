@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -154,6 +154,34 @@ az storage account file-service-properties update \
 ```
 ---
 
+### Enable SMB Multichannel on older operating systems
+
+Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that's newer than these three versions, no additional action is required.
+
+#### Windows Server 2016 and Windows 10 version 1607
+
+To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+#### Windows 10 version 1507
+
+To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
+
 ### SMB security settings
 
 Azure Files exposes settings that let you toggle the SMB protocol to be more compatible or more secure, depending on your organization's requirements. By default, Azure Files is configured to be maximally compatible, so keep in mind that restricting these settings may cause some clients not to be able to connect.
@@ -165,7 +193,7 @@ Azure Files exposes the following settings:
 - **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM. If you select only AES-256-GCM, you'll need to tell connecting clients to use it by opening a PowerShell terminal as administrator on each client and running `Set-SmbClientConfiguration -EncryptionCiphers "AES_256_GCM" -Confirm:$false`. Using AES-256-GCM isn't supported on Windows clients older than Windows 11/Windows Server 2022.
 
-You can view and change the SMB security settings using the Azure portal, PowerShell, or CLI. Select the desired tab to see the steps on how to get and set the SMB security settings.
+You can view and change the SMB security settings using the Azure portal, PowerShell, or CLI. Select the desired tab to see the steps on how to get and set the SMB security settings. Note that these settings are checked when an SMB session is established and if not met, the SMB session setup fails with the error "STATUS_ACCESS_DENIED". 
 
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings using the Azure portal, follow these steps:

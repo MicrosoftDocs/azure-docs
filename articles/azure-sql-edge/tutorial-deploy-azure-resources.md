@@ -4,7 +4,7 @@ description: In part one of this three-part Azure SQL Edge tutorial for predicti
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: tutorial
 ms.custom:
@@ -13,7 +13,9 @@ ms.custom:
 ---
 # Install software and set up resources for the tutorial
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this three-part tutorial, you'll create a machine learning model to predict iron ore impurities as a percentage of Silica, and then deploy the model in Azure SQL Edge. In part one, you'll install the required software and deploy Azure resources.
@@ -257,6 +259,6 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    az ml workspace create -w $MyWorkSpace -g $ResourceGroup
    ```
 
-## Next steps
+## Related content
 
 - [Set up IoT Edge modules and connections](tutorial-set-up-iot-edge-modules.md)

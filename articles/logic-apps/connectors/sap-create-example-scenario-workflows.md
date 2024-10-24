@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 10/23/2024
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -249,7 +249,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ## Filter received messages with SAP actions
 
-If you use the SAP managed connector or ISE-versioned SAP connector, under the trigger in your workflow, set up a way to explicitly filter out any unwanted actions from your SAP server, based on the root node namespace in the received XML payload. You can provide a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](sap.md#test-sending-idocs-from-sap).
+If you use the SAP managed connector under the trigger in your workflow, set up a way to explicitly filter out any unwanted actions from your SAP server, based on the root node namespace in the received XML payload. You can provide a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](sap.md#test-sending-idocs-from-sap).
 
 ## Set up asynchronous request-reply pattern for triggers
 
@@ -634,7 +634,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 ### Create a remote function call (RFC) request-response pattern
 
-For the Consumption workflows that use the SAP managed connector and ISE-versioned SAP connector, if you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow when you use the [**Request** trigger](../../connectors/connectors-native-reqres.md), make sure that the workflow's first action is a [Response action](../../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
+For the Consumption workflows that use the SAP managed connector, if you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow when you use the [**Request** trigger](../../connectors/connectors-native-reqres.md), make sure that the workflow's first action is a [Response action](../../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
 >
@@ -679,13 +679,6 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. After you send your HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
@@ -707,14 +700,21 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 1. After you send the HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ---
+
+You've now created a workflow that can send IDocs and communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
+
+#### Workflow timeout issues
+
+Your workflow times out in any of the following scenarios:
+
+- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
+
+- Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
+
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](sap.md#prerequisites).
 
 <a name="safe-typing"></a>
 
@@ -957,7 +957,7 @@ If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message
 }
 ```
 
-* **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+* **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`.
 
 * **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
 
@@ -965,7 +965,7 @@ If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message
   sapgw00  3300/tcp
   ```
 
-You might get a similar error when SAP Application server or Message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP Application server or Message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
+You might get a similar error when SAP Application server or Message server name resolves to the IP address. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
 
 ```text
 10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
@@ -986,11 +986,11 @@ To have these segments released by SAP, contact the ABAP engineer for your SAP s
 
 ### The RequestContext on the IReplyChannel was closed without a reply being sent
 
-For SAP managed connector and ISE-versioned SAP connector, this error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+For the SAP managed connector, this error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
 > [!NOTE]
 >
-> The SAP managed trigger and ISE-versioned SAP triggers are webhooks that use the SOAP-based SAP adapter. However, the SAP built-in trigger is an Azure Functions-based trigger that doesn't use a SOAP SAP adapter and doesn't get this error message.
+> The SAP managed trigger is a webhook trigger that uses the SOAP-based SAP adapter. However, the SAP built-in trigger is an Azure Functions-based trigger that doesn't use a SOAP SAP adapter and doesn't get this error message.
 
 - To acknowledge that your workflow received the IDoc, [add a Response action](../../connectors/connectors-native-reqres.md#add-a-response-action) that returns a **200 OK** status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 

@@ -19,6 +19,10 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 > * Build and deploy apps to Azure Spring Apps
 > * Integrate Azure Spring Apps with Azure Database for MySQL with Service Connector
 
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ## Prerequisites
 
 * [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)

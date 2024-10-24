@@ -6,7 +6,7 @@ ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/26/2024
+ms.date: 09/11/2024
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -33,7 +33,7 @@ Virtual network encryption has the following requirements:
     | Storage intensive workloads | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
     | Memory intensive workloads | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** </br> **[Msv2 and Mdsv2-series Medium Memory](/azure/virtual-machines/msv2-mdsv2-series)** </br> **[Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
 
-- Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
+- Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview)
 
 - Encryption is only applied to traffic between virtual machines in a virtual network. Traffic is encrypted from a private IP address to a private IP address.
 
@@ -43,7 +43,7 @@ Virtual network encryption has the following requirements:
 
 ## Availability
 
-Azure Virtual Network encryption is generally available in all Azure public regions.
+Azure Virtual Network encryption is generally available in all Azure public regions and is currently in public preview in Azure Government and Microsoft Azure operated by 21Vianet.
 
 ## Limitations
 
@@ -63,9 +63,9 @@ Virtual network encryption is supported in the following scenarios:
 
 | Scenario | Support |
 | --- | --- |
-| VMs in the same virtual network (including virtual machine scale sets and their internal load balancer) | Supported on traffic between VMs from these [SKUs](#requirements). |
-| Virtual network peering | Supported on traffic between VMs across regional peering. |
-| Global virtual network peering | Supported on traffic between VMs across global peering. |
+| Virtual machines in the same virtual network (including virtual machine scale sets and their internal load balancer) | Supported on traffic between virtual machines from these [SKUs](#requirements). |
+| Virtual network peering | Supported on traffic between virtual machines across regional peering. |
+| Global virtual network peering | Supported on traffic between virtual machines across global peering. |
 | Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic is encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic is encrypted, but pod traffic isn't encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
 
 > [!NOTE]

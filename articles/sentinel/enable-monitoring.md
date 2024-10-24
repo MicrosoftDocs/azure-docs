@@ -4,7 +4,11 @@ description: Monitor supported data connectors by using the SentinelHealth data 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 10/17/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+
+#Customer intent: As a security engineer, I want to configure auditing and health monitoring for my Microsoft Sentinel resources so that I can ensure the integrity and health of our security infrastructure.
+
 ---
 
 # Turn on auditing and health monitoring for Microsoft Sentinel (preview)
@@ -13,7 +17,7 @@ Monitor the health and audit the integrity of supported Microsoft Sentinel resou
 
 To get health data from the [*SentinelHealth*](health-table-reference.md) data table, or to get auditing information from the [*SentinelAudit*](audit-table-reference.md) data table, you must first turn on the Microsoft Sentinel auditing and health monitoring feature for your workspace. This article instructs you how to turn on these features.
 
-To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGER (ARM)/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
+To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGER (ARM)/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
 
 > [!IMPORTANT]
 >
@@ -26,17 +30,23 @@ To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGE
 
 ## Turn on auditing and health monitoring for your workspace
 
-1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings**.
+To get started, enable auditing and health monitoring from the Microsoft Sentinel settings.
 
-1. Select **Settings** from the banner.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Settings** > **Settings**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), under **System**, select **Settings** > **Microsoft Sentinel**.
 
-1. Scroll down to the **Auditing and health monitoring** section and select it to expand.
+1. Select **Auditing and health monitoring**.
 
 1. Select **Enable** to enable auditing and health monitoring across all resource types and to send the auditing and monitoring data to your Microsoft Sentinel workspace (and nowhere else). 
 
     Or, select the **Configure diagnostic settings** link to enable health monitoring only for the data collector and/or automation resources, or to configure advanced options, like more places to send the data.
 
+    #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
+
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="media/enable-monitoring/enable-health-monitoring-defender.png" alt-text="Screenshot shows how to get to the health monitoring settings in the Defender portal.":::
+
+    ---
 
     If you selected **Enable**, then the button will gray out and change to read **Enabling...** and then **Enabled**. At that point, auditing and health monitoring is enabled, and you're done! The appropriate diagnostic settings were added behind the scenes, and you can view and edit them by selecting the **Configure diagnostic settings** link.
 
@@ -60,12 +70,23 @@ The *SentinelHealth* and *SentinelAudit* data tables are created at the first ev
 
 ## Verify that the tables are receiving data
 
-In the Microsoft Sentinel **Logs** page, run a query on the  *SentinelHealth* table. For example:
+Run Kusto Query Language (KQL) queries in the Azure portal or the Defender portal to make sure you're getting health and auditing data.
 
-```kusto
-_SentinelHealth()
- | take 20
-```
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), under **Investigation & response**, select **Hunting** > **Advanced hunting**.
+
+1. Run a query on the  *SentinelHealth* table. For example:
+
+   ```kusto
+   _SentinelHealth()
+    | take 20
+   ```
+
+1. Run a query on the  *SentinelAudit* table. For example:
+
+   ```kusto
+   _SentinelAudit()
+    | take 20
+   ```
 
 ## Supported data tables and resource types
 

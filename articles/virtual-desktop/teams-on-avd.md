@@ -16,7 +16,7 @@ There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteam
 
 To redirect calling and meeting functionality to the local device, Azure Virtual Desktop uses an extra component. This component is either *SlimCore* or the *WebRTC Redirector Service*. The option you use depends on the following:
 
-- New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is available in preview and you need [to opt in to the preview](/microsoftteams/public-preview-doc-updates?tabs=new-teams-client) to use it. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2).
+- New Teams can use either SlimCore or the WebRTC Redirector Service. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore, see [New VDI solution for Teams](/microsoftteams/vdi-2).
 
 - Classic Teams uses the WebRTC Redirector Service.
 
@@ -123,7 +123,7 @@ After installing the WebRTC Redirector Service and the Teams desktop app, follow
 
 ## Publish Teams as a RemoteApp
 
-New Teams is installed as an `MSIX` package, which is a format used for applications from the Microsoft Store. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. To publish new Teams as a RemoteApp, follow the steps in [Publish Microsoft Store applications](publish-applications-stream-remoteapp.md#publish-microsoft-store-applications).
+New Teams is installed as an `MSIX` package, which is a format used for applications from the Microsoft Store. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. To publish new Teams as a RemoteApp, follow the steps in [Publish Microsoft Store applications](publish-applications-stream-remoteapp.md#publish-microsoft-store-applications), and for the path enter `shell:appsFolder\MSTeams_8wekyb3d8bbwe!MSTeams`.
 
 ## Enable registry keys for optional features
 

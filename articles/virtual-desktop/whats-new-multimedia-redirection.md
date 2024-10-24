@@ -1,5 +1,5 @@
 ---
-title: What's new in multimedia redirection MMR? - Azure Virtual Desktop
+title: What's new in multimedia redirection? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: release-notes
@@ -10,17 +10,17 @@ ms.custom: docs_inherited
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop.
+This article has the latest updates for host component of multimedia redirection for Azure Virtual Desktop.
 
 ## Latest available version
 
-The following table shows the latest available version of the MMR extension for Azure Virtual Desktop. For setup instructions, see [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md).
+The following table shows the latest available version of multimedia redirection for Azure Virtual Desktop. For setup instructions, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection.md).
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.0.2024.4003 | [MMR extension](https://aka.ms/avdmmr/msi) |
+| Public | 1.0.2404.4003 | [Multimedia redirection](https://aka.ms/avdmmr/msi) |
 
-## Updates for version 1.0.2024.4003
+## Updates for version 1.0.2404.4003
 
 *Published: July 23, 2024*
 
@@ -64,7 +64,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Released general availability-compatible MMR host.
+- Released general availability-compatible multimedia redirection host.
 - Fixed an issue where content can cause the service to stop working instead of just giving a playback error.
 
 ## Updates for version 0.3.2210.12012
@@ -78,4 +78,4 @@ In this release, we've made the following changes:
 
 ## Next steps
 
-Learn more about MMR at [Understanding multimedia direction for Azure Virtual Desktop](multimedia-redirection-intro.md) and [Use multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).
+Learn more about multimedia redirection at [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).

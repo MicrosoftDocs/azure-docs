@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Add a multitenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 11/16/2023
 ms.custom: project-no-code
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-in for multi-tenant Microsoft Entra ID, so that users from multiple Entra tenants can sign in without configuring an identity provider for each tenant.

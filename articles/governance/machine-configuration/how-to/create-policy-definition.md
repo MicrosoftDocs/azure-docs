@@ -4,6 +4,7 @@ description: Learn how to create a machine configuration policy.
 ms.date: 02/01/2024
 ms.topic: how-to
 ---
+
 # How to create custom machine configuration policy definitions
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01], and
@@ -105,18 +106,36 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in a hash table.
 - **PolicyVersion**: Policy version.
-- **Path**: Destination path where policy definitions are created.
+- **Path**: Destination path where policy definitions are created. Don't specify this parameter as
+  the path to a local copy of the package.
 - **Platform**: Target platform (Windows/Linux) for machine configuration policy and content
   package.
-- **Mode**: (case sensitive: `ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the policy should audit
-  or deploy the configuration. The default is `Audit`.
-- **Tag** adds one or more tag filters to the policy definition
-- **Category** sets the category metadata field in the policy definition
+- **Mode**: (case sensitive: `ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the
+  policy should audit or deploy the configuration. The default is `Audit`.
+- **Tag**: Adds one or more tag filters to the policy definition.
+- **Category**: Sets the category metadata field in the policy definition.
+- **LocalContentPath**: The path to the local copy of the `.zip` Machine Configuration package
+  file. This parameter is required if you're using a User Assigned Managed Identity to provide
+  access to an Azure Storge blob.
+- **ManagedIdentityResourceId**: The `resourceId` of the User Assigned Managed Identity that has
+  read access to the Azure Storage blob containing the `.zip` Machine Configuration package file.
+  This parameter is required if you're using a User Assigned Managed Identity to provide access to
+  an Azure Storge blob.
+- **ExcludeArcMachines**: Specifies that the Policy definition should exclude Arc machines. This
+  parameter is required if you are using a User Assigned Managed Identity to provide access to an
+  Azure Storge blob.
+
+> [!IMPORTANT]
+> Unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed
+> Identities. As a result, the `-ExcludeArcMachines` flag is required to ensure the exclusion of
+> those machines from the policy definition. For the Azure VM to download the assigned package and
+> apply the policy, the Guest Configuration Agent must be version `1.29.82.0` or higher for Windows
+> and version `1.26.76.0` or higher for Linux.
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
 
-Create a policy definition that audits using a custom configuration package, in a specified path:
+Create a policy definition that **audits** using a custom configuration package, in a specified path:
 
 ```powershell
 $PolicyConfig      = @{
@@ -132,8 +151,7 @@ $PolicyConfig      = @{
 New-GuestConfigurationPolicy @PolicyConfig
 ```
 
-Create a policy definition that deploys a configuration using a custom configuration package, in a
-specified path:
+Create a policy definition that **enforces** a custom configuration package, in a specified path:
 
 ```powershell
 $PolicyConfig2      = @{
@@ -149,6 +167,30 @@ $PolicyConfig2      = @{
 
 New-GuestConfigurationPolicy @PolicyConfig2
 ```
+
+Create a policy definition that **enforces** a custom configuration package using a User-Assigned
+Managed Identity:
+
+```powershell
+$PolicyConfig3      = @{
+  PolicyId                  = '_My GUID_'
+  ContentUri                = $contentUri
+  DisplayName               = 'My deployment policy'
+  Description               = 'My deployment policy'
+  Path                      = './policies/deployIfNotExists.json'
+  Platform                  = 'Windows'
+  PolicyVersion             = 1.0.0
+  Mode                      = 'ApplyAndAutoCorrect'
+  LocalContentPath          = "C:\Local\Path\To\Package"      # Required parameter for managed identity
+  ManagedIdentityResourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}" # Required parameter for managed identity
+}
+
+New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
+```
+
+> [!NOTE]
+> You can retrieve the resorceId of a managed identity using the `Get-AzUserAssignedIdentity`
+> PowerShell cmdlet.
 
 The cmdlet output returns an object containing the definition display name and path of the policy
 files. Definition JSON files that create audit policy definitions have the name

@@ -1,9 +1,9 @@
 ---
 title: Manage Azure file share backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure file shares backed up by Azure Backup.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/09/2022
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 

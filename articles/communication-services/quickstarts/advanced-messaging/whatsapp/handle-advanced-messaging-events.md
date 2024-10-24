@@ -4,8 +4,10 @@ titleSuffix: Azure Communication Services
 description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for WhatsApp events."
 author: shamkh
 manager: camilo.ramirez
+services: azure-communication-services
 ms.author: shamkh
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.topic: quickstart 
 ms.date: 02/12/2024
 ms.custom: template-quickstart

@@ -16,7 +16,7 @@ ms.custom: horz-monitor
 This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for how to collect and analyze monitoring data for App Configuration.
 
 ## Metrics 
-Resource Provider and Type: [App Configuration Platform Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores)
+Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores)
 
 | Metric | Unit | Description |
 |-------|-----| ----- |
@@ -28,7 +28,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](../azure-monito
 | Replication Latency | Milliseconds |	Represents the average time it takes for a replica to be consistent with current state. |
 | Snapshot Storage Size | Count | Represents the total storage usage of configuration snapshot(s) in bytes. |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 
 ## Metric Dimensions
@@ -44,16 +44,16 @@ App Configuration has the following dimensions associated with its metr
 | Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
 | Snapshot Storage Size | This metric does not have any dimensions.  |
 
- For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+ For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
 ## Resource logs
 This section lists the category types of resource log collected for App Configuration. 
 
 | Resource log type | Further information|
 |-------|-----|
-| HttpRequest | [App Configuration Resource Log Category Information](../azure-monitor/essentials/resource-logs-categories.md) |
+| HttpRequest | [App Configuration Resource Log Category Information](/azure/azure-monitor/essentials/resource-logs-categories) |
 
-For more information, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
+For more information, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/essentials/resource-logs-schema).
  
 ## Azure Monitor Logs tables
 
@@ -61,10 +61,11 @@ This section refers to all of the Azure Monitor Logs Kusto tables re
 
 |Resource type | Notes |
 |-------|-----|
-| [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
+| [AACAudit](/azure/azure-monitor/reference/tables/AACAudit) | Azure App Configuration audit logs. |
+| [AACHttpRequest](/azure/azure-monitor/reference/tables/AACHttpRequest) | Entries of every Http request sent to a selected app configuration resource. |
+| [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/microsoft-appconfiguration_configurationstores).
 
 ### Diagnostics tables
 
@@ -97,4 +98,4 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 ## See Also
 
 * See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

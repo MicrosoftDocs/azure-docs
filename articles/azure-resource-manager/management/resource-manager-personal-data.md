@@ -3,7 +3,7 @@ title: Personal data
 description: Learn how to manage personal data associated with Azure Resource Manager operations.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Manage personal data associated with Azure Resource Manager
@@ -61,4 +61,5 @@ To delete **tags**, use:
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## Next steps
+
 * For an overview of Azure Resource Manager, see the [What is Resource Manager?](overview.md)

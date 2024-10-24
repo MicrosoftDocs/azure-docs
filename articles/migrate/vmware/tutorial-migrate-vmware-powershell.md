@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
-In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool).
+In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md).
 
 You learn how to:
 
@@ -54,7 +54,7 @@ Connect-AzAccount
 Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription that has your Azure Migrate project to work with by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ## Retrieve the Azure Migrate project
@@ -109,7 +109,7 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 ## Initialize replication infrastructure
 
-[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
+[Migration and modernization](../migrate-services-overview.md) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
 
 - **Service bus**: Migration and modernization uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Migration and modernization uses the gateway storage account to store state information about the VMs being replicated.
@@ -323,7 +323,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## Update properties of a replicating VM
 
-[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
+[Migration and modernization](../migrate-services-overview.md) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 

@@ -39,7 +39,7 @@ To view Azure Route Server metrics, follow these steps:
 
 ## Aggregation types
 
-Metrics explorer supports Sum, Count, Average, Minimum, and Maximum as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each Route Server metric.
+Metrics explorer supports Sum, Count, Average, Minimum, and Maximum as [aggregation types](/azure/azure-monitor/essentials/metrics-charts#aggregation). You should use the recommended Aggregation type when reviewing the insights for each Route Server metric.
 
 - Sum: The sum of all values captured during the aggregation interval.
 - Count: The number of measurements captured during the aggregation interval.

@@ -65,13 +65,13 @@ Feature support depends on which backing storage option you select. The followin
 
 ## What's new in Azure Container Storage
 
-Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio has been expanded to include temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
+Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio now includes temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
 
 - Enhance the resiliency of your persistent volumes hosted on local NVMe storage (L-series ephemeral disks) with replication support.
 - Improved persistent volume recovery after a restart of an Azure Kubernetes Service (AKS) cluster.
 - Customize the performance of your local NVMe storage with new performance tier options.
 
-For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
+For more information on these features, email the Azure Container Storage team at containerstoragepm@microsoft.com.
 
 ## Why Azure Container Storage is useful
 
@@ -91,7 +91,7 @@ You can use Azure Container Storage to:
 
 - **Rapid scale out of stateful pods:** Azure Container Storage mounts persistent volumes over network block storage protocols (NVMe-oF or iSCSI), offering fast attach and detach of persistent volumes. You can start small and deploy resources as needed while making sure your applications aren't starved or disrupted, either during initialization or in production. Application resiliency is improved with pod respawns across the cluster, requiring rapid movement of persistent volumes. Leveraging remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
 
-- **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
+- **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over TCP. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
 
 - **Kubernetes-native volume orchestration:** Create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes using `kubectl` commands without switching between toolsets for different control plane operations.
 

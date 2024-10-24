@@ -159,6 +159,12 @@ items:
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
+  - name: Hybrid deployment for Azure Logic Apps
+    items:
+    - name: Set up requirements for hybrid deployment
+      href: set-up-standard-workflows-hybrid-deployment-requirements.md
+    - name: Create Standard workflows for hybrid deployment
+      href: create-standard-workflows-hybrid-deployment.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -235,14 +241,6 @@ items:
       href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
-  - name: Access Azure virtual networks
-    items:
-    - name: Access to Azure virtual networks
-      href: connect-virtual-network-vnet-isolated-environment-overview.md
-    - name: Set up access for multiple integration service environments
-      href: connect-virtual-network-vnet-set-up-single-ip-address.md
-    - name: Add resources to integration service environments
-      href: add-artifacts-integration-service-environment-ise.md
   - name: Access on-premises data sources
     items:
     - name: Install on-premises data gateway
@@ -334,7 +332,7 @@ items:
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
-      href: logic-apps-azure-functions.md
+      href: call-azure-functions-from-workflows.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Monitor Application Insights
@@ -439,8 +437,6 @@ items:
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-create-integration-account.md
-    - name: Manage integration service environments
-      href: ise-manage-integration-service-environment.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
     - name: Manage Azure resources with automation tasks

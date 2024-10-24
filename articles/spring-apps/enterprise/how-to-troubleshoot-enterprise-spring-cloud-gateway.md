@@ -11,8 +11,7 @@ ms.custom: devx-track-java
 
 # Troubleshoot VMware Spring Cloud Gateway
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
@@ -137,7 +136,7 @@ Use the following steps to adjust the log levels:
 
 ## Setup alert rules
 
-You can create alert rules based on logs and metrics. For more information, see [Create or edit a metric alert rule](../../azure-monitor/alerts/alerts-create-metric-alert-rule.yml).
+You can create alert rules based on logs and metrics. For more information, see [Create or edit a metric alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
 
 Use the following steps to directly create alert rules from the Azure portal for Azure Spring Apps:
 

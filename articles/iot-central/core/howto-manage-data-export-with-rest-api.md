@@ -1,11 +1,11 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
-description: How to use the IoT Central REST API to manage data export in an application. Export data to desinations such as blob storage, event hubs, and service bus.
+description: How to use the IoT Central REST API to manage data export in an application. Export data to destinations such as blob storage, event hubs, and service bus.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -41,10 +41,13 @@ The following example shows a request body that creates a blob storage destinati
 
 ```json
 {
-  "displayName": "Blob Storage Destination",
-  "type": "blobstorage@v1",
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-  "containerName": "central-data"
+  "displayName": "Blob Storage",
+    "type": "blobstorage@v1",
+    "authorization": {
+      "type": "systemAssignedManagedIdentity",
+      "endpointUri": "https://yourapplication.blob.core.windows.net/",
+      "containerName": "central-data"
+    }
 }
 ```
 
@@ -52,8 +55,7 @@ The request body has some required fields:
 
 * `displayName`: Display name of the destination.
 * `type`:  Type of destination object. One of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
-* `connectionString`: The connection string for accessing the destination resource.
-* `containerName`: For a blob storage destination, the name of the container where data should be written.
+* `authorization`: The authorization details for the destination. The supported authorization types are `systemAssignedManagedIdentity` and `connectionString`.
 
 The response to this request looks like the following example:
 
@@ -63,8 +65,8 @@ The response to this request looks like the following example:
     "displayName": "Blob Storage",
     "type": "blobstorage@v1",
     "authorization": {
-      "type": "connectionString",
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "type": "systemAssignedManagedIdentity",
+      "endpointUri": "https://yourapplication.blob.core.windows.net/",
       "containerName": "central-data"
     },
     "status": "waiting"
@@ -87,8 +89,8 @@ The response to this request looks like the following example:
     "displayName": "Blob Storage",
     "type": "blobstorage@v1",
     "authorization": {
-      "type": "connectionString",
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "type": "systemAssignedManagedIdentity",
+      "endpointUri": "https://yourapplication.blob.core.windows.net/",
       "containerName": "central-data"
     },
     "status": "waiting"
@@ -113,9 +115,9 @@ The response to this request looks like the following example:
             "displayName": "Blob Storage Destination",
             "type": "blobstorage@v1",
             "authorization": {
-                "type": "connectionString",
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-                "containerName": "central-data"
+              "type": "systemAssignedManagedIdentity",
+              "endpointUri": "https://yourapplication.blob.core.windows.net/",
+              "containerName": "central-data"
             },
             "status": "waiting"
         },
@@ -137,11 +139,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `connectionString` of a destination:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `containerName` of a destination:
 
 ```json
 {
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net"
+  "containerName": "central-data-analysis"
 }
 ```
 
@@ -153,9 +155,9 @@ The response to this request looks like the following example:
     "displayName": "Blob Storage",
     "type": "blobstorage@v1",
     "authorization": {
-      "type": "connectionString",
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
-      "containerName": "central-data"
+      "type": "systemAssignedManagedIdentity",
+      "endpointUri": "https://yourapplication.blob.core.windows.net/",
+      "containerName": "central-data-analysis"
     },
     "status": "waiting"
 }
@@ -206,7 +208,7 @@ The request body has some required fields:
 
 There are some optional fields you can use to add more details to the export.
 
-* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
+* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment to appear in the output message and the value identifies the data to send.
 * `filter`: Query defining which events from the source should be exported.
 
 The response to this request looks like the following example:
@@ -332,12 +334,21 @@ The response to this request looks like the following example:
 
 ```json
 {
-    "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
-    "displayName": "Blob Storage Destination",
-    "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
-    "status": "waiting"
+  "id": "802894c4-33bc-4f1e-ad64-e886f315cece",
+  "displayName": "Enriched Export",
+  "enabled": true,
+  "source": "telemetry",
+  "enrichments": {
+    "Custom data": {
+      "value": "My value"
+    }
+  },
+  "destinations": [
+    {
+      "id": "9742a8d9-c3ca-4d8d-8bc7-357bdc7f39d9"
+    }
+  ],
+  "status": "healthy"
 }
 ```
 
