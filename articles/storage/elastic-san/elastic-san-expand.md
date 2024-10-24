@@ -39,13 +39,13 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ## Autoscale (Preview)
 
-You can set up a policy to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. This means that your performance will not scale up with your storage. A sample autoscale policy would look like this:  
+You can set up a policy to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for capacity-only units. This means that your performance will not scale up with your storage. A sample autoscale policy would look like this:  
   
 **If spare capacity (unused capacity) is less than X TiB of space, increase capacity by Y TiB, up-to a maximum of Z Tib.** 
   
-Here X is the amount of storage capacity you require to be unused, Y is the increment by which you are increasing the capacity of the SAN (minimum increments of 1 TiB), and Z is the maximum capacity of the SAN. The policy will trigger when you have less than X TiB of unused space on your SAN. Space is consumed at the SAN level via provisioning volumes and taking snapshots, so if your usage exceeds the required value of unused space at the SAN level, the policy triggers and the SAN size increases by Y TiB. 
+Here, X is the amount of storage capacity you require to be unused. Y is the increment by which you are increasing the capacity of the SAN, with a minimum increment requirement of 1 TiB. Z is the maximum capacity up to which you want the SAN to scale up via autoscale. For example, if you have a SAN of 100 TiB and you want to scale up your storage in 5 TiB increments, you can set up a policy that says whenever the unused capacity is less than or equal to 20 TiB of space, increase capacity by 5 TiB up to a maximum of 150 TiB. The policy triggers when you have less than X TiB of unused space on your SAN. Space is consumed at the SAN level via provisioning volumes and taking snapshots. Therefore, if your usage exceeds the required value of unused space at the SAN level, the policy triggers and the SAN size increases by Y TiB.
   
-If you want to scale your SAN down, you will need to do it manually by following the process outlined earlier. Note that if you want to scale your SAN down and the amount by which you are scaling down your SAN is greater than the value of the unused capacity field set in the policy, the request will fail and you will have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the spare/unused capacity should be 2 TiB, you cannot reduce the total size of the SAN by 4 TiB as according to the policy, there must be at least 2 TiB of unused capacity at all times.
+If you want to scale down your SAN, you need to do it manually by following the process outlined earlier. Note that if you want to scale down your SAN and the amount by which you are scaling it down is greater than the value of the unused capacity field set in the policy, the request fails and you will have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the unused capacity should be 2 TiB, you cannot reduce the total size of the SAN by 4 TiB because it would leave less than 2 TiB of unused capacity.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -56,7 +56,7 @@ unusedSizeTiB = "<UnusedSizeTiB>" # Unused capacity on the SAN
 increaseCapacityUnit = "<IncreaseCapacityUnit>" # Amount by which the SAN will scale up if the policy is triggered
 capacityUnitScaleUpLimit = "<CapacityUnitScaleUpLimit>" # Maximum capacity until which scale up operations will occur
 
-Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoScalePolicyEnforcement $autoscalePolicyEnforcement -UnusedSizeTiB $unusedSizeTiB    -IncreaseCapacityUnitByTiB $increaseCapacityUnit -CapacityUnitScaleUpLimitTiB $capacityUnitScaleUpLimit  
+Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoScalePolicyEnforcement $autoscalePolicyEnforcement -UnusedSizeTiB $unusedSizeTiB -IncreaseCapacityUnitByTiB $increaseCapacityUnit -CapacityUnitScaleUpLimitTiB $capacityUnitScaleUpLimit  
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -75,7 +75,7 @@ az elastic-san update -n $sanName -g $resourceGroupName --auto-scale-policy-enfo
 
 ## Resize a volume
 
-Once you've expanded the size of your SAN, you can either create more volumes, or expand the size of an existing volume. You cannot decrease the size of your volumes.
+Once you expand the size of your SAN, you can either create more volumes, or expand the size of an existing volume. You cannot decrease the size of your volumes.
 
 # [PowerShell](#tab/azure-powershell)
 
