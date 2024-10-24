@@ -17,15 +17,13 @@ This article describes how to create a Network Fabric by using the Azure Command
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md)
+* Install the latest version of the CLI commands. For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md)
 * A Network Fabric controller manages multiple Network Fabrics on the same Azure region.
-* Physical Operator-Nexus instance with cabling as per BoM.
+* Physical Operator-Nexus instance with cabling as per BoM version.
 * Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
-* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**.
-    * M4-A400-A100-C16-ab - Up to four Compute Racks (BOM 1.7.3)
-    * M8-A400-A100-C16-ab - Up to eight Compute Racks (BOM 1.7.3)
+* Supported SKU information is [inventoried here](./reference-operator-nexus-fabric-skus.md)
 
 ## Steps to Provision a Fabric & Racks
 
@@ -47,7 +45,7 @@ The following table specifies parameters used to create Network Fabric,
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
-|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
+|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM version. | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
