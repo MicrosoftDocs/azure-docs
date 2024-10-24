@@ -19,7 +19,7 @@ You also have the option of using rules that are defined based on the OWASP core
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
+> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -103,7 +103,7 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 ### Upgrading or changing ruleset version
 
-When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+When a ruleset version is changed in a WAF Policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1 
 
