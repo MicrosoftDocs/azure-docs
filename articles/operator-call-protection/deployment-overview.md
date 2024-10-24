@@ -1,8 +1,8 @@
 ---
 title: Learn about deploying and setting up Azure Operator Call Protection Preview
 description: Understand how to get started with Azure Operator Call Protection Preview to protect your customers against fraud.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-operator-call-protection
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 

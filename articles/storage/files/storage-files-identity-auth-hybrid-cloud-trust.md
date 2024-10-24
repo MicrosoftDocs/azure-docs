@@ -170,13 +170,13 @@ For guidance on disabling MFA, see the following:
 
 When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ### Configure directory and file-level permissions
 
 Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**.
 
-To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
 ## Create and configure the Microsoft Entra Kerberos Trusted Domain Object
 
@@ -394,4 +394,4 @@ Remove-AzureAdKerberosServer -Domain $domain `
 
 ## Next step
 
-- [Mount an Azure file share](storage-files-identity-ad-ds-mount-file-share.md)
+- [Mount an Azure file share](storage-files-identity-mount-file-share.md)

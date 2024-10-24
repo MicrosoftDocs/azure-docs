@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to create and remove a NAT gateway resource from a virtual network subnet. Add and remove public IP addresses and prefixes used for outbound connectivity.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 09/17/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
