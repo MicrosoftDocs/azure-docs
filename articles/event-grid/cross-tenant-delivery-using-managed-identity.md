@@ -50,7 +50,7 @@ For more information, see the following articles:
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png" alt-text="Screenshot that shows the Microsoft Entra app authentication setting set to Multitenant." lightbox="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png":::
 1. Create the federated identity credential relationship between multitenant app and user assigned identity of the Event Grid topic using Graph API. 
 
-    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png" alt-text="Screenshot that shows the sample POST method to enable federated identity credential relationship between multitenant app and user-assigned identity." lighbox="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png":::   
+    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png" alt-text="Screenshot that shows the sample POST method to enable federated identity credential relationship between multitenant app and user-assigned identity." lightbox="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png":::   
 
     - In the URL, use the multitenant app object ID. 
     - For **Name**, provide a unique name for the federated client credential.
@@ -60,17 +60,17 @@ For more information, see the following articles:
     Verify and wait for the API call to succeed.     
 1. Once the API call succeeds, proceed to verify that the federated client credential is set up correctly on the multitenant app. 
 
-    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png" alt-text="Screenshot that shows the certificates and secrets page of the multitenant app." lighbox="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png":::
+    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png" alt-text="Screenshot that shows the certificates and secrets page of the multitenant app." lightbox="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png":::
 
     Notice that the subject identifier is the client ID of the user-assigned identity on the topic. 
 
 ## Create destination storage account (Tenant B)
 Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B).
 
-1. Create a storage account by following instructions from the [Create a storage account](../storage/common/storage-account-create.md#create-a-storage-account) article. 
+1. Create a storage account by following instructions from the [Create a storage account](/storage/common/storage-account-create#create-a-storage-account) article. 
 1. Using the **Access Control (IAM)** page, add the multitenant app to the appropriate role so that the app can send events to the storage account. For example: Storage Account Contributor, Storage Queue Data Contributor, Storage Queue Data Message Sender. For instructions, see [Assign an Azure role for an Azure queue](../storage/queues/assign-azure-role-data-access#assign-an-azure-role).
 
-    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/storage-role.png" alt-text="Screenshot that shows the Access Control (IAM) page for the storage account." lighbox="./media/cross-tenant-delivery-using-managed-identity/storage-role.png":::
+    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/storage-role.png" alt-text="Screenshot that shows the Access Control (IAM) page for the storage account." lightbox="./media/cross-tenant-delivery-using-managed-identity/storage-role.png":::
 
 
 ## Enable cross-tenant delivery and configure the endpoint
@@ -78,16 +78,16 @@ Create an event subscription on the topic with federated client credential infor
 
 1. While creating an event subscription, enable **cross-tenant delivery** and select **Configure an endpoint**.. 
 
-    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png" alt-text="Screenshot that shows the Create Event Subscription page with Cross-tenant delivery option enabled." lighbox="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png":::
+    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png" alt-text="Screenshot that shows the Create Event Subscription page with Cross-tenant delivery option enabled." lightbox="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png":::
 1. On the **Endpoint** page, specify the subscription ID, resource group, storage account name, and the queue name. 
 
-    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/endpoint.png" alt-text="Screenshot that shows the Endpoint page." lighbox="./media/cross-tenant-delivery-using-managed-identity/endpoint.png":::
+    :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/endpoint.png" alt-text="Screenshot that shows the Endpoint page." lightbox="./media/cross-tenant-delivery-using-managed-identity/endpoint.png":::
 1. Now, in the **Managed Identity for Delivery** section, do these steps:
     1. For **Managed identity type**, select **User Assigned**. 
     1. Select the **user-assigned identity** from the drop-down list. 
     1. For **Federated identity credentials**, enter the multitenant application ID. 
 
-        :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/managed-identity-for-delivery.png" alt-text="Screenshot that shows the Create Event Subscription page with the managed identity specified." lighbox="./media/cross-tenant-delivery-using-managed-identity/managed-identity-for-delivery.png":::
+        :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/managed-identity-for-delivery.png" alt-text="Screenshot that shows the Create Event Subscription page with the managed identity specified." lightbox="./media/cross-tenant-delivery-using-managed-identity/managed-identity-for-delivery.png":::
 1. Select **Create** at the bottom of the page to create the event subscription. 
 
     Now, publish event to topic and verify event is delivered successfully to destination storage account. 
