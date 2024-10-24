@@ -15,7 +15,7 @@ Azure Web Application Firewall on Azure Front Door protects web applications fro
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> When a new ruleset version is assigned to a WAF, existing customizations of the previously assigned ruleset version will be set to the default for the new ruleset that is being assigned. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
+> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -70,7 +70,7 @@ The version of the DRS that you use also determines which content types are supp
 
 ### Upgrading or changing ruleset version
 
-When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+When a ruleset version is changed in a WAF Policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1
 
