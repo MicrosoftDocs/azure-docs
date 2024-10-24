@@ -70,9 +70,7 @@ There are multiple ways to turn off default outbound access. The following secti
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
- 
-* The parameter to create a Private subnet can only be set during the creation of a subnet.
- 
+  
 * VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
  
     > [!NOTE]
@@ -90,13 +88,95 @@ There are multiple ways to turn off default outbound access. The following secti
  
 * Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
 
+#### Enable the Private subnet feature on existing subnets
+ 
+* From the Azure portal, select the subnet and select the checkbox to enable Private subnet as shown below:
+ 
+:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
+ 
+* Using Powershell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
+
+```
+$resourceGroupName = ""
+$vnetName = ""
+ 
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+ 
+foreach ($subnet in $vnet.Subnets) {
+    if ($subnet.DefaultOutboundAccess -eq $null) {
+        $subnet.DefaultOutboundAccess = $false
+        Write-Output "Set 'defaultoutboundaccess' to \$false for subnet: $($subnet.Name)"
+    } 
+    elseif ($subnet.DefaultOutboundAccess -eq $false) {
+        # Output message if the value is already $false
+        Write-Output "already private for subnet: $($subnet.Name)"
+    }
+}
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
+* Using CLI, update the subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) and set `--default-outbound` to "false"
+
+```
+az network vnet subnet update --resource-group rgname --name subnetname --vnet-name vnetname --default-outbound false
+```
+
+* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "testvm-vnet"
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "default"
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/24"
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/16"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-11-01",
+      "name": "[parameters('vnetName')]",
+      "location": "westus2",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPrefix')]",
+              "defaultoutboundaccess": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
 #### Private subnet limitations
  
 * In order to utilize to activate/update virtual machine operation systems, including Windows, it's a requirement to have an explicit outbound connectivity method.
 
 * Delegated subnets can't be marked as Private.
-
-* Existing subnets can't currently be converted to Private.
 
 * In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
  
