@@ -5,7 +5,7 @@ services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 10/24/2024
 ms.author: antchu
 ms.custom: references_regions
 ms.collection: ce-skilling-ai-copilot
