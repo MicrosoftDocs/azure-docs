@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 09/09/2024
+ms.date: 10/23/2024
 ---
 
 # Default outbound access in Azure
@@ -34,7 +34,7 @@ The public IPv4 address used for the access is called the default outbound acces
 
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
 
-:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.png"  alt-text="Diagram of decision tree for default outbound access.":::
+:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer-thumb.png"  alt-text="Diagram of decision tree for default outbound access." lightbox="./media/default-outbound-access/decision-tree-load-balancer.png":::
 
 >[!Important]
 >On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  We recommend that you use one of the explicit forms of connectivity discussed in the following section.
@@ -43,7 +43,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Secure by default
     
-    * It's not recommended to open a virtual network to the Internet by default using the zero trust network security principle.
+    * It's not recommended to open a virtual network to the Internet by default using the Zero Trust network security principle.
 
 * Explicit vs. implicit
 
