@@ -1,10 +1,10 @@
 ---
 title: Integrating SAP Cloud Appliance Library with SAP Deployment Automation Framework
-description: Learn how to integrate SAP Cloud Appliance Library with the SAP Deployment Automation Framework.
-author: nadeennoaman
-ms.author: nadeennoaman
+description: Learn how to integrate SAP Cloud Appliance Library with SAP Deployment Automation Framework.
+author: nnoaman
+ms.author: nnoaman
 ms.reviewer: kimforss
-ms.date: 24/10/2024
+ms.date: 10/24/2024
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -35,7 +35,7 @@ This integration brings together the best of Azure\'s infrastructure capabilitie
 
 -   Select one of the supported regions by SAP CAL \[West Europe, East US, and East US 2\] for the deployment.
 
--   An [S-User](https://help.sap.com/docs/help/3e7fe88850cf4ee39d151949a990d8ca/6a92e3ffb3ee43e59c1e394566b4c085.html?locale=en-US) is required.
+-   An [S-User](https://help.sap.com/docs/help/3e7fe88850cf4ee39d151949a990d8ca/6a92e3ffb3ee43e59c1e394566b4c085.html) is required.
 
 -   Set up Azure DevOps for the deployment framework, [Azure DevOps for SAP Deployment Automation Framework](configure-devops.md).
 
@@ -55,14 +55,14 @@ This integration brings together the best of Azure\'s infrastructure capabilitie
 
 -   Set up authentication with application certificate (recommended) or secret.
 
-    -   [About Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/key-vault/certificates/about-certificates)
+    -   [About Azure Key Vault certificates](/azure/key-vault/certificates/about-certificates)
 
-    -   [Certificate creation methods](https://learn.microsoft.com/en-us/azure/key-vault/certificates/create-certificate)
+    -   [Certificate creation methods](/azure/key-vault/certificates/create-certificate)
 
-    -   Create a certificate in Key Vault using [Portal](https://learn.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://learn.microsoft.com/en-us/azure/key-vault/certificates/quick-create-cli), [Azure
-        PowerShell](https://learn.microsoft.com/en-us/azure/key-vault/certificates/quick-create-powershell)
+    -   Create a certificate in Key Vault using [Portal](/azure/key-vault/certificates/quick-create-portal), [Azure CLI](/azure/key-vault/certificates/quick-create-cli), [Azure
+        PowerShell](/azure/key-vault/certificates/quick-create-powershell)
 
-    -   [Azure authentication with service principal](https://learn.microsoft.com/en-us/azure/developer/java/sdk/identity-service-principal-auth)
+    -   [Azure authentication with service principal](/azure/developer/java/sdk/identity-service-principal-auth)
 
 -   Collect the following information for the next step - Subscription ID, Entra Tenant ID, Application (Client) ID, and Client Secret or Certificate.
 
@@ -72,7 +72,7 @@ This integration brings together the best of Azure\'s infrastructure capabilitie
 
 -   Go to [CAL portal](https://cal.sap.com/catalog#/solutions) and log on using S-User.
 
--   [Create CAL account](https://help.sap.com/docs/SAP_CLOUD_APPLIANCE_LIBRARY/43df7ec18b5241f7bf9a8c9de5ba3361/042bb15ad2324c3c9b7974dbde389640.html?locale=en-US) with cloud provider as \"Microsoft Azure\" and Authorization Type as \"Authorization with Application\".
+-   [Create CAL account](https://help.sap.com/docs/SAP_CLOUD_APPLIANCE_LIBRARY/43df7ec18b5241f7bf9a8c9de5ba3361/042bb15ad2324c3c9b7974dbde389640.html) with cloud provider as \"Microsoft Azure\" and Authorization Type as \"Authorization with Application\".
 
 -   Provide Subscription ID, Entra Tenant ID, Application (Client) ID, and Certificate or Client Secret to create the CAL account.
 
@@ -98,7 +98,7 @@ Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installati
 
 1.  Deploy Infrastructure from SDAF:
 
-    -   Detailed instructions for Infrastructure creation for an SAP system with SDAF using Managed Identiry (MSI) are [here](https://learn.microsoft.com/en-us/azure/sap/automation/configure-devops?tabs=linux)
+    -   Detailed instructions for Infrastructure creation for an SAP system with SDAF using Managed Identiry (MSI) are [here](/azure/sap/automation/configure-devops?tabs=linux)
 
     -   Set parameter "enable_rbac_authorization_for_keyvault = true" in the Landscape tfvars file.
 
