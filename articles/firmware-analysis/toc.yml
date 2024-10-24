@@ -1,6 +1,5 @@
 items:
   - name: Firmware analysis
-    href: index.yml
     items:
     - name: Firmware analysis frequently asked questions
       href: firmware-analysis-faq.md
