@@ -26,7 +26,7 @@ This article focuses on **operations**. To learn more about **conditions**, see 
 An operation has a name along with zero, one, or multiple parameters. The following image shows how these elements appear for an operation in the JSON template of a storage task.
 
 > [!div class="mx-imgBorder"]
-> ![Format of an operation.](../media/storage-tasks/storage-task-operations/storage-task-operations-basic-structure.png)
+> ![Diagram that show the format of an operation.](../media/storage-tasks/storage-task-operations/storage-task-operations-basic-structure.png)
 
 The following table describes each element.
 
@@ -62,7 +62,7 @@ The following operation applies a time-based immutability policy to the object.
 Separate multiple operations by using a comma. The following image shows the position of two operations in list of operations.
 
 > [!div class="mx-imgBorder"]
-> ![Format of two operations.](../media/storage-tasks/storage-task-operations/storage-task-operations-mulitple-operations.png)
+> ![Diagram that shows the format of two operations.](../media/storage-tasks/storage-task-operations/storage-task-operations-mulitple-operations.png)
 
 The following JSON shows two operations separate by a comma. 
 
