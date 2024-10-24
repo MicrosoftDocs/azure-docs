@@ -1,36 +1,39 @@
 ---
-title: Cross-tenant delivery using managed identity
-description: Describes how to publish and deliver events across tenants using an Azure Event Grid topic with a user assigned identity. 
+title: Cross-tenant delivery in Azure Event Grid
+description: Describes how to publish and deliver events across tenants using an Azure Event Grid topic with a user-assigned identity. 
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/23/2024
 # Customer intent: As a developer, I want to know how to delivery events using managed identity to a destination in another tenant.
 ---
 
-# Cross-tenant event delivery using a managed identity (Preview) 
+# Cross-tenant event delivery using a managed identity 
 This article provides information on delivery of events where Azure Event Grid basic resources like topics, domains, system topics, and partner topics are in one tenant and the Azure destination resource is in another tenant. 
 
-The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here's the high-level steps:
+The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here's the high-level steps:
 
 1. Create an Azure Event Grid topic with an assigned user managed identity in Tenant A.
 1. Create a multitenant app with a federated client credential.
 1. Create an Azure Storage Queue destination in Tenant B. 
 1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
 
-## Create a topic with a user assigned identity (Tenant A) 
+> [!NOTE]
+> This feature is currently in preview. 
+
+## Create a topic with a user-assigned identity (Tenant A) 
 Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. Then, enable a user-assigned managed identity while creating a topic or updating an existing topic. 
 
 ### Enable user-assigned identity for a new topic
 1. On the **Security** page of the topic or domain creation wizard, select **Add user assigned identity**. 
 1. In the **Select user assigned identity** window, select the subscription that has the user-assigned identity, select the **user-assigned identity**, and then choose **Select**. 
 
-    :::image type="content" source="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png" alt-text="Screenshot showing the Enable user assigned identity option selected." lightbox="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png":::
+    :::image type="content" source="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png" alt-text="Screenshot showing the Enable user-assigned identity option selected." lightbox="./media/managed-service-identity/create-page-add-user-assigned-identity-link.png":::
 
 
 ### Enable user-assigned identity for an existing topic
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Screenshot showing the User Assigned Identity tab":::     
+    :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Screenshot showing the User Assigned Identity tab.":::     
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity. 
     1. Select the **user-assigned identity**. 
@@ -47,7 +50,7 @@ For more information, see the following articles:
 1. Create a Microsoft Entra app and update the registration to be multitenant. For details, see [Enable multitenant registration](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#update-registration-to-be-multitenant). 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png" alt-text="Screenshot that shows the Microsoft Entra app authentication setting set to Multitenant." lightbox="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png":::
-1. Create the federated identity credential relationship between multitenant app and the user assigned identity of the Event Grid topic using Graph API. 
+1. Create the federated identity credential relationship between multitenant app and the user-assigned identity of the Event Grid topic using Graph API. 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png" alt-text="Screenshot that shows the sample POST method to enable federated identity credential relationship between multitenant app and user-assigned identity." lightbox="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png":::   
 
@@ -64,7 +67,7 @@ For more information, see the following articles:
     Notice that the subject identifier is the client ID of the user-assigned identity on the topic. 
 
 ## Create destination storage account (Tenant B)
-Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B).
+Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user-assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B).
 
 1. Create a storage account by following instructions from the [Create a storage account](../storage/common/storage-account-create.md#create-a-storage-account) article. 
 1. Using the **Access Control (IAM)** page, add the multitenant app to the appropriate role so that the app can send events to the storage account. For example: Storage Account Contributor, Storage Queue Data Contributor, Storage Queue Data Message Sender. For instructions, see [Assign an Azure role for an Azure queue](../storage/queues/assign-azure-role-data-access.md#assign-an-azure-role).
