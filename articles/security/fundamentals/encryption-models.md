@@ -132,7 +132,6 @@ When server-side encryption using customer-managed keys in customer-controlled h
 
 Here are the services that support server-side encryption using customer managed keys:
 
-
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 | --- | --- | --- | --- |
 | **AI and Machine Learning** | | | |
@@ -164,7 +163,7 @@ Here are the services that support server-side encryption using customer managed
 | [Microsoft Fabric](/fabric) | Yes | | [CMK encryption](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
 | [Power BI Embedded](/power-bi) | Yes | | [BYOK for Power BI](/power-bi/enterprise/service-encryption-byok) |
 | **Containers** | | | |
-| [Azure Container Storage](https://learn.microsoft.com/en-us/azure/storage/container-storage) | Yes | | [Dynamic storage pool with CMKs](/azure/storage/container-storage/use-container-storage-with-managed-disks#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) |
+| [Azure Container Storage](/azure/storage/container-storage) | Yes | | [Dynamic storage pool with CMKs](/azure/storage/container-storage/use-container-storage-with-managed-disks#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) |
 | [Azure Kubernetes Service](/azure/aks/) | Yes | Yes | |
 | [Azure Red Hat OpenShift](/azure/openshift/) | Yes | | [CMK encryption](/azure/openshift/howto-byok) |
 | [Container Instances](/azure/container-instances/) | Yes | | |
