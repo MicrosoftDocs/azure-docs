@@ -32,7 +32,7 @@ To establish a Peering Service Exchange with Route Server peering, follow these 
 -   The Peer CANNOT apply rate limiting to their connection
 -   The Peer CANNOT configure a local redundant connection as a backup connection. Backup connections must be in a different location than primary connections.
 -   Primary, backup, and redundant sessions all must have the same bandwidth
--	It's recommended to create Peering Service peerings in multiple locations so geo-redundancy can be achieved.
+-	We recommend creating Peering Service peerings in multiple locations so geo-redundancy can be achieved.
 -	All origin ASNs are registered in Azure portal.
 -	Microsoft configures all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
@@ -140,7 +140,7 @@ When your customers onboard to Peering Service, customers must follow the steps 
 
 **A.** Microsoft announces roughly 280 prefixes on internet, and it may increase by 10-15% in future. So, a safe limit of 400-500 can be good to set as “Max prefix count”
 
-**Q.** Will Microsoft re-advertise the Peer prefixes to the Internet?
+**Q.** Will Microsoft readvertise the Peer prefixes to the Internet?
 
 **A.** No.
 
