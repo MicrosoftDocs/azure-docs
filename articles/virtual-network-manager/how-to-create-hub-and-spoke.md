@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date:10/23/2024
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -45,7 +45,7 @@ To manually add the desired virtual networks for your Mesh configuration to your
 
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
 
-    :::image type="content" source="../../includes/media/virtual-network-manager-define-azure-policy/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
 
 ## Create a hub and spoke connectivity configuration
 
@@ -104,7 +104,7 @@ To have this configuration take effect in your environment, you need to deploy t
 1. Select **Next** and then select **Deploy** to complete the deployment.
 1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-succeeded.png" alt-text="Screenshot of configuration deployment in progress status.":::
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/deployment-succeeded.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 > [!NOTE]
 > If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.

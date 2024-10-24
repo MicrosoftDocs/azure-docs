@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 10/23/2024
 ms.custom: engagement-fy23
 ---
 
@@ -44,7 +44,7 @@ To manually add the desired virtual networks for your Mesh configuration to your
 
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
 
-    :::image type="content" source="../../includes/media/virtual-network-manager-define-azure-policy/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
 
 ## Create a mesh connectivity configuration
 
