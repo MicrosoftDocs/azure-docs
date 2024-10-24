@@ -170,7 +170,9 @@ Azure App Service is a single-region service. If the region becomes unavailable,
 
 ### Alternative multi-region solutions
 
-If you need to use App Service in multiple regions, you need to deploy separate resources in each region. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster. When you follow this approach, you need to deploy your application to the instances in each region, and configure load balancing and failover policies. You also need to replicate your data across the regions so that you can recover your last application state.
+If you need to use App Service in multiple regions, you need to deploy separate resources in each region. By creating identical deployments in multple Azure regions, your application becomes less susceptible to a single-region failure.
+
+When you follow this approach, you need to deploy your application to the instances in each region, and configure load balancing and failover policies. You also need to replicate your data across the regions so that you can recover your last application state.
 
 ::: zone pivot="free-shared-basic,premium"
 
@@ -178,7 +180,8 @@ For example architectures that illustrates this approach, see:
 
 - [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region).
 - [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service) <!-- TODO Can't publish until this is ready -->
-- [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app)
+
+To follow along with a tutorial that creates a multi-region app, see [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app).
 
 ::: zone-end
 
@@ -192,9 +195,7 @@ For an example approach that illustrates this architecture, see [High availabili
 
 When you use the Basic tier or higher, you can back up your App Service app to a file by using the [App Service backup and restore capabilities](../app-service/manage-backup.md). This feature can be useful if it's hard to redeploy your code, or if you store state on disk. For most solutions, you shouldn't rely on App Service backups, and you should use the other capabilities described in this article to support your resiliency requirements.
 
-To learn more about backups and how they contribute to a resiliency strategy, see [new conceptual article].
-
-If you need to use consistent configuration for multiple Azure App Service resources, consider deploying infrastructure as code by using a tool like [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) or [Terraform](/azure/developer/terraform/overview).
+To learn more about backups and how they contribute to a resiliency strategy, see [new conceptual article]. <!-- TODO We should omit this until we've got the conceptual article ready -->
 
 ## Service-level agreement (SLA)
 
