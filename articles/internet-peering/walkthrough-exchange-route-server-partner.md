@@ -103,7 +103,7 @@ Before prefixes can be optimized for a customer, their ASN must be registered.
 
 1. Create a Registered ASN by entering the customer's Autonomous System Number (ASN) and a name.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/register-new-asn.png" alt-text="Screenshot shows how to register an ASN in the Azure portal." lightbox"./media/walkthrough-exchange-route-server-partner/register-new-asn.png":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/register-new-asn.png" alt-text="Screenshot shows how to register an ASN in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/register-new-asn.png":::
 
     After your ASN is registered, a unique peering service prefix key used for activation will be generated.
 
