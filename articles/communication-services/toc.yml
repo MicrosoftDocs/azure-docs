@@ -485,6 +485,8 @@ items:
       - name: Call Recording insights
         href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
+        href: tutorials/voice-video-calling/diagnostic-options-tag.md
+      - name: Add Diagnostic options tag to your calling logs
         href: concepts/analytics/query-call-logs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Rooms Insights
