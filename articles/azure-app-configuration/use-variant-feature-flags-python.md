@@ -544,12 +544,6 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 
     :::image type="content" source="media/use-variant-feature-flags-python/message.png" alt-text="Screenshot of the Quote of the day app, showing a message for the user.":::
 
-1. Selecting the heart icon will trigger a like event. This event is tracked in Azure Monitor.
-
-    :::image type="content" source="media/use-variant-feature-flags-python/heart.png" alt-text="Screenshot of the Quote of the day app, with a user selecting the heart icon.":::
-
-
-
 ## Next steps
 
 To learn more about the experimentation concepts, refer to the following document.
