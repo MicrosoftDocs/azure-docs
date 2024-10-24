@@ -43,7 +43,7 @@ One of the significant optimizations in TLS 1.3 is the reduction in the number o
 Disabling TLS 1.0 and TLS 1.1 in Azure Event Grid is a crucial step towards ensuring the security and integrity of data transmissions. By adopting TLS 1.2 and TLS 1.3, organizations can benefit from enhanced security features and improved performance, aligning with best practices and compliance requirements. As cybersecurity threats continue to evolve, it's imperative to stay ahead by using the most advanced and secure protocols available. 
 
 ## Related content
-If using Event Grid Basic, see the following articles:
+If you are using Event Grid Basic, see the following articles:
 
 - [Configure the minimum TLS version for an Event Grid topic or domain](transport-layer-security-configure-minimum-version.md)
 - [Enforce a minimum required version of Transport Layer Security (TLS) for an Event Grid topic, domain, or subscription](transport-layer-security-enforce-minimum-version.md)
