@@ -25,10 +25,20 @@ Storage Appliance. This implies a severe problem with the Storage Appliance. If 
 available, you should consider moving mission critical workloads to this alternative cluster until
 all critical alerts are resolved.
 
-You should find more details of the specific alert(s) by following the below steps. Once you have
-this information, you should be able to tell if you can fix the issue yourself, or if you need to
-raise a ticket with your Storage Appliance vendor or with us (see below section for instructions on
-raising a ticket with us).
+You should find more details of the specific alert(s) by running the below query in your Log Analytics
+Workspace (LAW).
+
+```
+StorageApplianceAlerts
+| where TIMESTAMP > <start time>
+```
+
+>[!NOTE]
+>You must have your Storage Appliance set up to send logs to your LAW by adding a diagnostic setting.
+
+Once you have this information, you should be able to tell if you can fix the issue yourself, or if
+you need to raise a ticket with your Storage Appliance vendor or with us (see below section for
+instructions on raising a ticket with us).
 
 ## Latency
 This will have an "Availability Impacting Reason" of:
@@ -62,7 +72,10 @@ If another cluster is available, and you see one of the 3 "Availability Impactin
 with "Unhealthy", you should consider moving mission critical workloads to this alternative cluster
 until the health event resolves.
 
-You can determine which hardware is unhealthy by running the following query.
+For the case of the `SAHardwareDegraded` "Availability Impacting Reason", you will need to determine
+which hardware is unhealthy by navigating to the Storage Appliance on the portal, and viewing the
+`Nexus Storage Hardware Component Status` metric. Split this by the `Component Name` dimension, and
+filter the `Component Status` to `critical` or `degraded`.
 
 Next, send an engineer to your site to check that the relevant pieces of hardware are in place. If
 the hardware is in place, and the health event persists, you should raise a ticket with your Storage
@@ -75,7 +88,8 @@ on one or more interfaces has exceeded 100/s, and is increasing with time. This 
 the network interface(s)
 
 To determine the unhealthy network interface(s), navigate to the Storage Appliance in the portal, and
-look at the `Nexus Storage Network Interface Performance Errors` metric series. Once you have
-identified the unhealthy network interface(s), you should send an engineer to the lab to ensure the
-relevant cables are correctly plugged in. If you determine the interfaces are correctly wired, and
-the health event has not cleared, you should raise a ticket with your Storage Appliance vendor.
+look at the `Nexus Storage Network Interface Performance Errors` metric series, and split it by
+`Dimension` and `Name`. Once you have identified the unhealthy network interface(s), you should send
+an engineer to the lab to ensure the relevant cables are correctly plugged in. If you determine the
+interfaces are correctly wired, and the health event has not cleared, you should raise a ticket with
+your Storage Appliance vendor.
