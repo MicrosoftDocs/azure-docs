@@ -35,9 +35,9 @@ This article provides suggestions to troubleshoot common problems with the Oracl
 
 - **Cause**: The secure algorithm is not added to your Oracle server. 
 
-- **Recommendation**: Update your Oracle server settings to add these secure algorithms:
+- **Recommendation**: Update your Oracle server settings to add these secure algorithms if they are not already included:
 
-    - For **SQLNET.ENCRYPTION_TYPES_SERVER**, add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
+    - For **SQLNET.ENCRYPTION_TYPES_SERVER**, need to add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
         - AES256 
         - AES192 
         - 3DES168 
@@ -45,7 +45,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - 3DES112 
         - DES
         
-    - For **SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER**, add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. 
+    - For **SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER**, need to add the following algorithms that are deemed as secure by OpenSSL and will be sent along to the server for OAS (Oracle Advanced Security) data integrity.
         - SHA256 
         - SHA384 
         - SHA512
