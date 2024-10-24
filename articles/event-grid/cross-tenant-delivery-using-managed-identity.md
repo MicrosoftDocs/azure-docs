@@ -75,7 +75,7 @@ Create a storage account in a tenant that's different from the tenant that has t
 ## Enable cross-tenant delivery and configure the endpoint
 Create an event subscription on the topic with federated client credential information passed to deliver to the destination storage account. 
 
-1. While creating an event subscription, enable **cross-tenant delivery** and select **Configure an endpoint**.. 
+1. While creating an event subscription, enable **cross-tenant delivery** and select **Configure an endpoint**. 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png" alt-text="Screenshot that shows the Create Event Subscription page with Cross-tenant delivery option enabled." lightbox="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png":::
 1. On the **Endpoint** page, specify the subscription ID, resource group, storage account name, and the queue name in Tenant B. 
