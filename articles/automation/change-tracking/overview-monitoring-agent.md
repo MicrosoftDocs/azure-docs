@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 09/27/2024
+ms.date: 10/23/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -13,7 +13,7 @@ ms.service: azure-automation
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024**. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
+> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will work on limited support till **01 February 2025**. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
 > - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
@@ -78,7 +78,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
-- For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
+- For [multiple Azure VMs](enable-vms-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
 
 ## Tracking file changes
 
