@@ -31,7 +31,6 @@ To opt your tenant into an Azure EU Data Boundary:
 
 To opt in a tenant to data boundary, use the following commands. Data boundary geo currently have two options:
 
-|------|-------------|
 |Data boundary geo | Description |
 |------|-------------|
 |Global| By default, all tenants have a global data boundary. |
@@ -88,11 +87,15 @@ For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ## Read data boundary
 
-To get data boundary.
+To get data boundary at specified scopes. The scopes include:
+
+| Scope | Value |
+|-------|-------|
+|Tenant | (empty) |
+|Subscription | subscriptions/{subscriptionId} |
+|Resource group | subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} |
 
 # [Azure CLI](#tab/azure-cli)
-
-To get data boundary at specified scope:
 
 ```azurecli
 az data-boundary show --scope <scope-path>
@@ -107,14 +110,6 @@ az data-boundary show-tenant
 For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
 # [PowerShell](#tab/azure-powershell)
-
-To get data boundary at specified scopes. The scopes include:
-
-| Scope | Value |
-|-------|-------|
-|Tenant | (empty) |
-|Subscription | subscriptions/{subscriptionId} |
-|Resource group | subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
 
 ```azurepowershell
 Get-AzDataBoundaryScope -Scope <scope-path>
