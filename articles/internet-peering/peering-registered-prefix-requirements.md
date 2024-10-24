@@ -51,7 +51,7 @@ For registered prefix validation, the AS path of the advertised routes must sati
 
 ### Internal server error
 
-For help with internal server errors, provide your Azure subscription and prefix to: (mailto:peeringservice@microsoft.com).
+For help with internal server errors, provide your Azure subscription and prefix to mailto:peeringservice@microsoft.com.
 
 ## Related content
 
