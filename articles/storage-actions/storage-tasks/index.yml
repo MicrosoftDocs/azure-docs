@@ -48,8 +48,10 @@ landingContent:
             url: storage-task-conditions-operations-edit.md
       - linkListType: concept
         links:
-          - text: Supported properties, operators, and operations
-            url: storage-task-properties-operators-operations.md
+          - text: Conditions
+            url: storage-task-conditions.md
+          - text: Operations
+            url: storage-task-operations.md
      # Card
   - title: Assign a task
     linkLists:

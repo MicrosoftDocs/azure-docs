@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 10/24/2024
 ms.author: normesta
 
 ---
@@ -112,7 +112,7 @@ The following table shows the operators that you can use in a clause to evaluate
 | contains | equals |equals | equals |
 | empty | greater | greater | not |
 | equals | greaterOrEquals |greaterOrEquals ||
-| endWith | less | less ||
+| endsWith | less | less ||
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
 | Matches |  | ||

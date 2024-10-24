@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: azure-storage-actions
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 10/24/2024
 ms.author: normesta
 
 ---
@@ -99,7 +99,7 @@ The following table shows the supported operations, parameters, and parameter va
 | DeleteBlob                  | None                 | None                                           |
 | UndeleteBlob                | None                 | None                                           |
 | SetBlobTags                | Tag name<sup>1</sup>               | Tag value |
-| SetBlobImmutabilityPolicy | untilDate, mode | (untilDate): DateTime of when policy ends<br<br>(mode): locked \| unlocked                                |
+| SetBlobImmutabilityPolicy | untilDate, mode | (untilDate): DateTime of when policy ends<br><br>(mode): locked \| unlocked                                |
 | SetBlobLegalHold          | legalHold | true \| false                           |
 
 <sup>1</sup>    The name of this parameter is the name of the tag. 

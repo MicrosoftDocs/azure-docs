@@ -45,7 +45,8 @@ See these articles to learn how to define a storage task:
 
 - [Create a storage task](storage-tasks/storage-task-create.md)
 - [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md)
-- [Properties, operators, and operations in storage task conditions](storage-tasks/storage-task-properties-operators-operations.md)
+- [Storage task conditions](storage-tasks/storage-task-conditions.md)
+- [Storage task operations](storage-tasks/storage-task-operations.md)
 
 ### Assign a storage task
 
