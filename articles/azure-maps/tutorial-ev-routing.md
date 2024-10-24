@@ -61,22 +61,6 @@ Download then open the Notebook used in this tutorial:
 
 1. Open the downloaded Notebook in Visual Studio Code by right-clicking on the file then selecting **Open with > Visual Studio Code**, or through the VS Code File Explorer.
 
-<!--------------------------------------------------------------------------------------------------------------------------------------------------------
-## Create Jupyter Notebook in Visual Studio Code
-
-You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette or by creating a new .ipynb file in your workspace.
-
-![A screenshot showing a new Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-1.png)
-
-Next, select a kernel using the kernel picker in the top right.
-
-![A screenshot showing the kernel picker in the top right of a Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-2.png)
-
-After selecting a kernel, the language picker located in the bottom right of each code cell will automatically update to the language supported by the kernel.
-
-![A screenshot showing python in the kernel picker in the top right of a Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-3.png)
--------------------------------------------------------------------------------------------------------------------------------------------------------->
-
 ## Load the required modules and frameworks
 
 Once your code is added, you can run a cell using the **Run** icon to the left of the cell and the output is displayed below the code cell.
