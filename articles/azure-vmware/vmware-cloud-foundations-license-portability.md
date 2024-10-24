@@ -126,7 +126,7 @@ If you're an existing Azure VMware Solution customer and wish to transition to t
 >
 >You need to purchase the portable VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a private cloud with 100 AV36P nodes, you must purchase portable VCF for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.
 
-## Onboarding to VCF portability checklist
+## "Onboarding to portable VCF on Azure VMware Solution" Checklist
 
 **Scenario 1:**
 "I am converting existing AVS private cloud to VCF BYOL." 
