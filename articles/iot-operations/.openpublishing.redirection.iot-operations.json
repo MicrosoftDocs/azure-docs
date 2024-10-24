@@ -187,13 +187,23 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-manual.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-manual",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-configure-tls-manual.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-auto.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-auto",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-configure-tls-auto.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-brokerlistener.md",
