@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azu
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 10/24/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
