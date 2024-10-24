@@ -346,7 +346,7 @@ Messages SDK allows Contoso to send media (Image, Video, Audio or Document) mess
 > [!IMPORTANT]
 > As of SDK version 2.0.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
 
-#### Sending an Image Message
+#### Sending image content
 
 To send an image message, provide a URL to an image. As an example,
 ```javascript
@@ -376,7 +376,7 @@ if (mediaMessageResult.status === "202") {
 }
 ```
 
-#### Sending a Video Message
+#### Sending video content
 
 To send a video message, provide a URL to a video. As an example,
 ```javascript
@@ -406,7 +406,7 @@ if (mediaMessageResult.status === "202") {
 }
 ```
 
-#### Sending an Audio Message
+#### Sending audio content
 
 To send an audio message, provide a URL to an audio file. As an example,
 ```javascript
@@ -436,7 +436,7 @@ if (mediaMessageResult.status === "202") {
 }
 ```
 
-#### Sending a Document Message
+#### Sending document content
 
 To send a document message, provide a URL to a document. As an example,
 ```javascript

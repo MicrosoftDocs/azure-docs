@@ -284,7 +284,7 @@ The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp user
 
 Below are example code snippets for sending different types of media messages, including images, documents, videos, and audio files.
 
-#### Sending an Image
+#### Sending an image content
 
 Assemble the image message:  
 ```csharp
@@ -300,9 +300,9 @@ Send the image message:
 var imageResponse = await notificationMessagesClient.SendAsync(imageNotificationContent);
 ```
 
-#### Sending a Document
+#### Sending a document 
 
-Assemble the document message:  
+Assemble the document content:  
 ```csharp
 var documentLink = new Uri("https://example.com/document.pdf");
 var documentNotificationContent = new DocumentNotificationContent(channelRegistrationId, recipientList, documentLink)  
@@ -317,7 +317,7 @@ Send the document message:
 var documentResponse = await notificationMessagesClient.SendAsync(documentNotificationContent);
 ```
 
-#### Sending a Video
+#### Sending a video content
 
 Assemble the video message:  
 ```csharp
@@ -333,7 +333,7 @@ Send the video message:
 var videoResponse = await notificationMessagesClient.SendAsync(videoNotificationContent);
 ```
 
-#### Sending an Audio File
+#### Sending an audio content
 
 Assemble the audio message:  
 ```csharp

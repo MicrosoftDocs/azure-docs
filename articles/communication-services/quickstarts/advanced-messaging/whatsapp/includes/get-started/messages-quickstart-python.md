@@ -383,7 +383,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_image_message()
 ```
 
-### Send a Document media message to a WhatsApp user
+### Send a document media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -430,7 +430,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_image_message()
 ```
 
-### Send an Audio media message to a WhatsApp user
+### Send an audio media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -475,7 +475,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_image_message()
 ```
 
-### Send a Video media message to a WhatsApp user
+### Send a video media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -700,7 +700,9 @@ if __name__ == '__main__':
     messages.send_audio_message()
     messages.send_video_message()
 ```
-**Note:- Please update all placeholder variables in the above code.**
+
+> [!NOTE]
+> Please update all placeholder variables in the above code.
 
 ### Other Samples
 
