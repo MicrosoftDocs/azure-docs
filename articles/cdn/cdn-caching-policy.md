@@ -5,7 +5,7 @@ services: media-services,cdn
 author: juliako
 manager: erikre
 ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
-ms.service: media-services
+ms.service: azure-media-services
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: juliako
