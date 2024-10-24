@@ -2,14 +2,14 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 10/24/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
 
 # Configure data boundary
 
-Currently, the only supported data boundary configuration is for the European Union. The EU (European Union) Data Boundary is a geographically defined boundary within which Microsoft has committed to store and process personal data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+The only data boundary configuration currently supported, aside from the default Global configuration, is for the European Union (EU). The EU Data Boundary is a geographically defined boundary within which Microsoft has committed to store and process personal data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
 
 Azure Resource Manager is the deployment and management service for Azure. To provide maximum availability and performance, Azure Resource Manager was architected to distribute all data it stores and processes globally across the Azure cloud. As part of the EU Data Boundary and Microsoft's regional data residency commitments, Azure Resource Manager has been rearchitected to allow Customer Data and pseudonymized personal data to be stored and processed regionally. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.
 
@@ -29,16 +29,18 @@ To opt your tenant into an Azure EU Data Boundary:
 
 ## Create data boundary
 
-To opt in a tenant to data boundary.
+To opt in a tenant to data boundary, use the following commands. Data boundary geo currently have two options:
 
-# [Portal](#tab/azure-portal)
-
-(Pending Joy Shah)
+|------|-------------|
+|Data boundary geo | Description |
+|------|-------------|
+|Global| By default, all tenants have a global data boundary. |
+|EU    | Establish an EU data boundary. |
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az data-boundary create --data-boundary EU
+az data-boundary create --data-boundary <data-boundary-geo>
 ```
 
 For more information, see [Azure CLI Reference](/cli/azure/reference-index).
@@ -46,7 +48,7 @@ For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzDataBoundary -DataBoundary DataBoundaryName
+Set-AzDataBoundary -DataBoundary <data-boundary-geo>
 ```
 
 For more information, see [Azure PowerShell Reference](/powershell/module/az.resources).
@@ -62,7 +64,7 @@ Request body:
 ```json
 { 
   "properties": { 
-    "dataBoundary": "EU" 
+    "dataBoundary": "<data-boundary-geo>" 
   } 
 } 
 ```
@@ -88,16 +90,12 @@ For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 To get data boundary.
 
-# [Portal](#tab/azure-portal)
-
-(Pending Joy Shah)
-
 # [Azure CLI](#tab/azure-cli)
 
 To get data boundary at specified scope:
 
 ```azurecli
-az data-boundary show --scope scopePath
+az data-boundary show --scope <scope-path>
 ```
 
 Get data boundary of tenant:
@@ -110,10 +108,16 @@ For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
 # [PowerShell](#tab/azure-powershell)
 
-To get data boundary at specified scope:
+To get data boundary at specified scopes. The scopes include:
+
+| Scope | Value |
+|-------|-------|
+|Tenant | (empty) |
+|Subscription | subscriptions/{subscriptionId} |
+|Resource group | subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
 
 ```azurepowershell
-Get-AzDataBoundaryScope -Scope ScopePath
+Get-AzDataBoundaryScope -Scope <scope-path>
 ```
 
 Get data boundary of tenant:
@@ -149,5 +153,4 @@ For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ## Next steps
 
-- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/syntax.md).
-- To view the resource provider template schemas, see [Template reference](/azure/templates/).
+For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
