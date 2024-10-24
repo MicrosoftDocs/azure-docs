@@ -22,10 +22,6 @@ You can rewrite all headers in requests and responses, except for the `Connectio
 
 ![A diagram showing headers in request and response packets.](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
-**Supported headers**
-
-You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
-
 
 ### URL path and query string
 
