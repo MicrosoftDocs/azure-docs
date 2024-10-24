@@ -19,6 +19,8 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
     
 - Routing configuration to create UDRs for the network group
 
+[!INCLUDE virtual-network-manager-udr-preview]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -95,7 +97,7 @@ In this step, you create two virtual networks to become members of a network gro
     | **Subscription** | Select the same subscription that you selected in step 2. |
     | **Resource group** | Select **resource-group**. |
     | **Virtual network name** | Enter **vnet-spoke-002**. |
-    | **Region** | Select **(US) West US 2)**. |
+    | **Region** | Select **(US) West US 2**. |
     | **Edit subnet window** | |
     | **Subnet purpose** | Leave as **Default**. |
     | **Name** | Leave as **default**. |
@@ -118,21 +120,18 @@ In this step, you create a network group containing your virtual networks using 
    
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter **ng-spoke**. |
+    | **Name** | Enter **network-group**. |
     | **Description** | *(Optional)* Provide a description about this network group. |
     | **Member type** | Select **Virtual network**. |
 
 1. Select **Create**.
 
-1. Select **ng-spoke** and choose **Create Azure Policy**.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/network-group-page.png" alt-text="Screenshot of network group page with options for group creation and membership view.":::
-
+1. Select **network-group** and choose **Create Azure Policy**.
 1. In **Create Azure Policy**, enter or select the following information:
    
     | Setting | Value |
     | ------- | ----- |
-    | **Policy name** | Enter **ng-azure-policy**. |
+    | **Policy name** | Enter **azure-policy**. |
     | **Scope** | Select **Select Scope** and choose your subscription, if not already selected. |
 
 1. Under **Criteria**, enter a conditional statement to define the network group membership. Enter or select the following information:
@@ -177,7 +176,7 @@ In this step, you define the UDRs for the network group by creating a routing co
     | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
     | **Enable BGP route propagation** | Leave **unchecked**. |
-    | **Target network groups** | select **ng-spoke**. |
+    | **Target network groups** | select **network-group**. |
 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
 
