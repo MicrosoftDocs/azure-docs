@@ -247,4 +247,17 @@ dataExplorerSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+dataExplorerSettings:
+  batching:
+    latencySeconds: 100
+    maxMessages: 1000
+```
+
 ---
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

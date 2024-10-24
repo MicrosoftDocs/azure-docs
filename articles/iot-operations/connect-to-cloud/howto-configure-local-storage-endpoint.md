@@ -96,3 +96,7 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 ## Supported serialization formats
 
 The only supported serialization format is Parquet.
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

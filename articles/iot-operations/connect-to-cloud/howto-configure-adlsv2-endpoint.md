@@ -355,4 +355,17 @@ dataLakeStorageSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  batching:
+    latencySeconds: 100
+    maxMessages: 1000
+```
+
 ---
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

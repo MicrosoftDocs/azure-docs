@@ -937,3 +937,11 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 ```
 
 ---
+
+## Next steps
+
+- [Map data by using dataflows](concept-dataflow-mapping.md)
+- [Convert data by using dataflows](concept-dataflow-conversions.md)
+- [Enrich data by using dataflows](concept-dataflow-enrich.md)
+- [Understand message schemas](concept-schema-registry.md)
+- [Manage dataflow profiles](howto-configure-dataflow-profile.md)
