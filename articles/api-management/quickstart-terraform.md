@@ -82,8 +82,8 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
-    > [!NOTE]
-    > It can take 30 to 40 minutes to create and activate an API Management service.
+> [!NOTE]
+> It can take 30 to 40 minutes to create and activate an API Management service.
 
 ## Verify the results
 
