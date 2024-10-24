@@ -328,6 +328,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
    > [!NOTE]
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
 
+   > [!WARNING]
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment.
+
 ## Firewall Metrics (WAF_v1 only)
 
 For v1 Web Application Firewalls, the following metrics are now available in the portal: 
