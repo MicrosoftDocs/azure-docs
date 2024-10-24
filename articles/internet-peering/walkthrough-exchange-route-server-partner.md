@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 10/24/2024
 ---
 
 # Internet peering for Peering Service Exchange with Route Server partner walkthrough
@@ -18,7 +18,7 @@ Internet peering provides highly reliable and QoS (Quality of Service) enabled i
 
 The following flowchart summarizes the process to onboard to Peering Service Exchange with Route Server:
 
-:::image type="content" source="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Diagram shows a flowchart of the onboarding process for Exchange with Route Server partners.":::
+:::image type="content" source="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Diagram shows a flowchart of the onboarding process for Exchange with Route Server partners." lightbox="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png":::
 
 ## Technical requirements
 
@@ -48,18 +48,18 @@ See [Associate peer ASN to Azure subscription using the Azure portal](howto-subs
 
 1.  To create a Peering Service Exchange with Route Server peering resource, search for **Peerings** in the Azure portal.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/internet-peering-portal-search.png" alt-text="Screenshot shows how to search for Peering resources in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/internet-peering-portal-search.png" alt-text="Screenshot shows how to search for Peering resources in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/internet-peering-portal-search.png":::
 
 1. Select **+ Create**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering.png" alt-text="Screenshot shows how to create a Peering resource in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering.png" alt-text="Screenshot shows how to create a Peering resource in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering.png":::
 
-1. In the **Basics** tab, enter or select your Azure subscription, resource group, name, and ASN of the peering:
+1. On the **Basics** tab, enter or select your Azure subscription, resource group, name, and ASN of the peering:
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png" alt-text="Screenshot of the Basics tab of creating a peering in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png" alt-text="Screenshot of the Basics tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png":::
 
     > [!NOTE] 
-    > These details you select CAN'T be changed after the peering is created. confirm they are correct before creating the peering.
+    > The details you select CAN'T be changed after the peering is created. confirm they are correct before creating the peering.
 
 1. In the **Configuration** tab, you MUST choose the following required configurations to create a peering for Peering Service Exchange with Route Server:
 
@@ -69,11 +69,11 @@ See [Associate peer ASN to Azure subscription using the Azure portal](howto-subs
 
 1. Select your **Metro**, then select **Create new** to add a connection to your peering.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png" alt-text="Screenshot of the Configuration tab of creating a peering in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png" alt-text="Screenshot of the Configuration tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png":::
 
 1. In **Direct Peering Connection**, enter or select your peering facility details then select **Save**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png" alt-text="Screenshot of creating a direct peering connection.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png" alt-text="Screenshot of creating a direct peering connection." lightbox="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png":::
 
     Peering connections for Peering Service Exchange with Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
 
@@ -99,11 +99,11 @@ Before prefixes can be optimized for a customer, their ASN must be registered.
 
 1. Open your Peering Service Exchange with Route Server peering in the Azure portal, and select **Registered ASNs**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/registered-asn.png" alt-text="Screenshot shows how to go to Registered ASNs from the Peering Overview page in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/registered-asn.png" alt-text="Screenshot shows how to go to Registered ASNs from the Peering Overview page in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/registered-asn.png":::
 
 1. Create a Registered ASN by entering the customer's Autonomous System Number (ASN) and a name.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/register-new-asn.png" alt-text="Screenshot shows how to register an ASN in the Azure portal.":::
+    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/register-new-asn.png" alt-text="Screenshot shows how to register an ASN in the Azure portal." lightbox"./media/walkthrough-exchange-route-server-partner/register-new-asn.png":::
 
     After your ASN is registered, a unique peering service prefix key used for activation will be generated.
 
