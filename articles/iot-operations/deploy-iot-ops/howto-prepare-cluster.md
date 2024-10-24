@@ -14,12 +14,9 @@ ms.date: 10/23/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu and Windows.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows.
 
-> [!TIP]
-> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
->
-> For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
+The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead. For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
 ## Prerequisites
 
@@ -192,7 +189,7 @@ To connect your cluster to Azure Arc:
 
    If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
+1. After you sign in, the Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
 1. Register the required resource providers in your subscription.
 
@@ -274,45 +271,9 @@ To verify that your cluster is ready for Azure IoT Operations deployment, you ca
 az iot ops verify-host
 ```
 
-To verify that your Kubernetes cluster is Azure Arc-enabled, run the following command:
-
-```console
-kubectl get deployments,pods -n azure-arc
-```
-
-The output looks like the following example:
-
-```output
-NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/clusterconnect-agent         1/1     1            1           10m
-deployment.apps/extension-manager            1/1     1            1           10m
-deployment.apps/clusteridentityoperator      1/1     1            1           10m
-deployment.apps/controller-manager           1/1     1            1           10m
-deployment.apps/flux-logs-agent              1/1     1            1           10m
-deployment.apps/cluster-metadata-operator    1/1     1            1           10m
-deployment.apps/extension-events-collector   1/1     1            1           10m
-deployment.apps/config-agent                 1/1     1            1           10m
-deployment.apps/kube-aad-proxy               1/1     1            1           10m
-deployment.apps/resource-sync-agent          1/1     1            1           10m
-deployment.apps/metrics-agent                1/1     1            1           10m
-
-NAME                                              READY   STATUS    RESTARTS        AGE
-pod/clusterconnect-agent-5948cdfb4c-vzfst         3/3     Running   0               10m
-pod/extension-manager-65b8f7f4cb-tp7pp            3/3     Running   0               10m
-pod/clusteridentityoperator-6d64fdb886-p5m25      2/2     Running   0               10m
-pod/controller-manager-567c9647db-qkprs           2/2     Running   0               10m
-pod/flux-logs-agent-7bf6f4bf8c-mr5df              1/1     Running   0               10m
-pod/cluster-metadata-operator-7cc4c554d4-nck9z    2/2     Running   0               10m
-pod/extension-events-collector-58dfb78cb5-vxbzq   2/2     Running   0               10m
-pod/config-agent-7579f558d9-5jnwq                 2/2     Running   0               10m
-pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0               10m
-pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
-pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
-```
-
 ## Advanced configuration
 
-At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you may want to configure your cluster for advanced scenarios.
+At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
 
 * If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
 * If you want to bring your own certificate authority, follow the steps in [Certificate management](../secure-iot-ops/concept-default-root-ca.md).

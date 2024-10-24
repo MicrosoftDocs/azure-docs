@@ -55,7 +55,7 @@ Development resources:
 
 A cluster host:
 
-* An Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
+* Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
 
   If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#update).
 
@@ -121,7 +121,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    Depending on your choice, follow the steps to either:
 
    * [Deploy with test settings](#deploy-with-test-settings), or
-   * [Deploy with secure settings](#deploy-with-secure-settings).
+   * [Deploy with secure settings](#deploy-with-secure-settings)
 
 ### Deploy with test settings
 
@@ -131,7 +131,7 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
 
 1. One at a time, run each Azure CLI command on the **Automation** tab in a terminal:
 
-   1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
+   1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource*.
 
       ```azurecli
       az login
@@ -174,9 +174,9 @@ If at any point in the future you want to prepare your instance for production s
 
 ### Deploy with secure settings
 
-Use these steps if you chose the **Secure settings** option on the **Dependency management** tab: 
+Use these steps if you chose the **Secure settings** option on the **Dependency management** tab.
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png" alt-text="A screenshot that shows selecting secure settings on the third tab for deploying Azure IoT Operations from the portal.":::
+   <!-- :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png" alt-text="A screenshot that shows selecting secure settings on the third tab for deploying Azure IoT Operations from the portal."::: -->
 
 1. In the **Deployment options** section, provide the following information:
 
