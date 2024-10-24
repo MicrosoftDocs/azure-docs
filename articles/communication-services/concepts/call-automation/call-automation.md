@@ -50,6 +50,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
