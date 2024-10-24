@@ -286,6 +286,8 @@
       href: data-connectors/armis-activities.md
     - name: Armis Alerts (using Azure Functions)
       href: data-connectors/armis-alerts.md
+    - name: Armis Alerts Activities (using Azure Functions)
+      href: data-connectors/armis-alerts-activities.md
     - name: Armis Devices (using Azure Functions)
       href: data-connectors/armis-devices.md
     - name: Armorblox (using Azure Functions)
@@ -304,6 +306,8 @@
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
       href: data-connectors/azure-batch-account.md
+    - name: Azure CloudNGFW By Palo Alto Networks
+      href: data-connectors/azure-cloudngfw-by-palo-alto-networks.md
     - name: Azure Cognitive Search
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
@@ -362,6 +366,8 @@
       href: data-connectors/corelight-connector-exporter.md
     - name: Cortex XDR - Incidents
       href: data-connectors/cortex-xdr-incidents.md
+    - name: Cribl
+      href: data-connectors/cribl.md
     - name: CrowdStrike Falcon Adversary Intelligence (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-adversary-intelligence.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
@@ -440,10 +446,22 @@
       href: data-connectors/greynoise-threat-intelligence.md
     - name: HackerView Intergration (using Azure Functions)
       href: data-connectors/hackerview-intergration.md
+    - name: HYAS Protect (using Azure Functions)
+      href: data-connectors/hyas-protect.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data.md
+    - name: Illumio SaaS (using Azure Functions)
+      href: data-connectors/illumio-saas.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
+    - name: Infoblox Data Connector via REST API (using Azure Functions)
+      href: data-connectors/infoblox-data-connector-via-rest-api.md
+    - name: Infoblox Cloud Data Connector via AMA
+      href: data-connectors/recommended-infoblox-cloud-data-connector-via-ama.md
+    - name: Infoblox SOC Insight Data Connector via AMA
+      href: data-connectors/recommended-infoblox-soc-insight-data-connector-via-ama.md
+    - name: Infoblox SOC Insight Data Connector via REST API
+      href: data-connectors/infoblox-soc-insight-data-connector-via-rest-api.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
     - name: IONIX Security Logs
@@ -546,8 +564,12 @@
       href: data-connectors/palo-alto-prisma-cloud-cspm.md
     - name: Perimeter 81 Activity Logs
       href: data-connectors/perimeter-81-activity-logs.md
+    - name: Phosphorus Devices
+      href: data-connectors/phosphorus-devices.md
     - name: Prancer Data Connector
       href: data-connectors/prancer-data-connector.md
+    - name: Premium Microsoft Defender Threat Intelligence (Preview)
+      href: data-connectors/premium-microsoft-defender-threat-intelligence.md
     - name: Proofpoint On Demand Email Security (using Azure Functions)
       href: data-connectors/proofpoint-on-demand-email-security.md
     - name: Proofpoint TAP (using Azure Functions)
@@ -556,6 +578,8 @@
       href: data-connectors/qualys-vm-knowledgebase.md
     - name: Qualys Vulnerability Management (using Azure Functions)
       href: data-connectors/qualys-vulnerability-management.md
+    - name: Radiflow iSID via AMA
+      href: data-connectors/radiflow-isid-via-ama.md
     - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)
       href: data-connectors/rapid7-insight-platform-vulnerability-management-reports.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
@@ -572,6 +596,8 @@
       href: data-connectors/sentinelone.md
     - name: Seraphic Web Security
       href: data-connectors/seraphic-web-security.md
+    - name: Silverfort Admin Console
+      href: data-connectors/silverfort-admin-console.md
     - name: Slack Audit (using Azure Functions)
       href: data-connectors/slack-audit.md
     - name: Snowflake (using Azure Functions)
@@ -634,6 +660,10 @@
       href: data-connectors/zero-networks-segment-audit.md
     - name: Zero Networks Segment Audit (Function) (using Azure Functions)
       href: data-connectors/zero-networks-segment-audit.md
+    - name: ZeroFox CTI (using Azure Functions)
+      href: data-connectors/zerofox-cti.md
+    - name: ZeroFox Enterprise - Alerts (Polling CCP)
+      href: data-connectors/zerofox-enterprise-alerts-polling-ccp.md
     - name: Zimperium Mobile Threat Defense
       href: data-connectors/zimperium-mobile-threat-defense.md
     - name: Zoom Reports (using Azure Functions)
