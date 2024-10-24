@@ -35,11 +35,11 @@ The following table describes each element.
 | `name` | The name of the operation.<sup>1</sup> |
 | `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value.<sup>1</sup> |
 | `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the preview. |
-| `onFailure` | The action to take when the operation fails for a object. `break` is the only allowable value during the preview. |
+| `onFailure` | The action to take when the operation fails for an object. `break` is the only allowable value during the preview. |
 
-<sup>1</sup>    For a complete list of operation names, operation parameters and parameter values, see the [Supported operations](#supported-operations) section of this article.
+<sup>1</sup>    For a complete list of operation names, operation parameters, and parameter values, see the [Supported operations](#supported-operations) section of this article.
  
-The following operations applies applies a time-based immutability policy to the object. 
+The following operation applies a time-based immutability policy to the object. 
 
 ```json
 {

@@ -29,7 +29,7 @@ A condition a collection of one or more _clauses_. Each clause contains a _prope
 > [!div class="mx-imgBorder"]
 > ![Format of a simple condition with an operator, property, and value.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-basic.png)
 
-The following clause allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
+The following clause allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, and the value is `.docx`. 
 
 ```json
 {
@@ -63,7 +63,7 @@ Grouped clauses operate as a single unit separate from the rest of the clauses. 
 > [!div class="mx-imgBorder"]
 > ![Format of a condition that contains two clauses grouped together.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-groups.png)
 
-The following condition allows operations only on Microsoft Word documents where the `readyForLegalHold` tag of the document is set to a value of `Yes`. Operations are also performed on objects that are greater than 100 bytes even if the other two conditions are not true.
+The following condition allows operations only on Microsoft Word documents where the `readyForLegalHold` tag of the document is set to a value of `Yes`. Operations are also performed on objects that are greater than 100 bytes even if the other two conditions aren't true.
 
 ```json
 {
@@ -82,7 +82,7 @@ To learn more about the visual editor, see [Define storage task conditions and o
 
 ## Supported properties
 
-The following table shows the properties that you can use to compose each clause of a condition. A clause can contain string, boolean, numeric, as well as date and time properties.
+The following table shows the properties that you can use to compose each clause of a condition. A clause can contain string, boolean, numeric, and date and time properties.
 
 | String                         | Date and time<sup>3</sup> | Numeric        | Boolean          |
 |--------------------------------|---------------------------|----------------|------------------|
