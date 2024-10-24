@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Route network traffic with a route table - Azure portal'
+title: 'Tutorial: Route network traffic with a route table'
 titlesuffix: Azure Virtual Network
-description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
+description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 09/12/2024
+ms.date: 10/24/2024
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: template-tutorial
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
-# Tutorial: Route network traffic with a route table using the Azure portal
+# Tutorial: Route network traffic with a route table
 
 Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA).
 
@@ -30,17 +30,37 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+### [Portal](#tab/portal)
+
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Sign in to Azure
+### [PowerShell](#tab/powershell)
 
-Sign in to the [Azure portal](https://portal.azure.com).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+### [CLI](#tab/cli)
+
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
+
+### [Portal](#tab/portal)
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 ## Create subnets
 
 A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subnet is where you deploy the NVA, and the **Private** subnet is where you deploy the virtual machines that you want to route traffic to. The **subnet-1** is the subnet created in the previous steps. Use **subnet-1** for the public virtual machine.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -82,9 +102,69 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
 1. Select **Add**.
 
+### [PowerShell](#tab/powershell)
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* for all resources created in this article.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+```
+
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVirtualNetwork* with the address prefix *10.0.0.0/16*.
+
+```azurepowershell-interactive
+$virtualNetwork = New-AzVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name myVirtualNetwork `
+  -AddressPrefix 10.0.0.0/16
+```
+
+Create three subnets by creating three subnet configurations with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates three subnet configurations for *Public*, *Private*, and *DMZ* subnets:
+
+```azurepowershell-interactive
+$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
+  -Name Public `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
+
+$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig `
+  -Name Private `
+  -AddressPrefix 10.0.1.0/24 `
+  -VirtualNetwork $virtualNetwork
+
+$subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig `
+  -Name DMZ `
+  -AddressPrefix 10.0.2.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
+
+Write the subnet configurations to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), which creates the subnets in the virtual network:
+
+```azurepowershell-interactive
+$virtualNetwork | Set-AzVirtualNetwork
+```
+
+Associate the *myRouteTablePublic* route table to the *Public* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+
+```azurepowershell-interactive
+Set-AzVirtualNetworkSubnetConfig `
+  -VirtualNetwork $virtualNetwork `
+  -Name 'Public' `
+  -AddressPrefix 10.0.0.0/24 `
+  -RouteTable $myRouteTablePublic | `
+Set-AzVirtualNetwork
+```
+
+### [CLI](#tab/cli)
+
+---
+
 ## Create an NVA virtual machine
 
 Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 24.04** virtual machine.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -130,6 +210,71 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 1. Select **Create**.
 
+### [PowerShell](#tab/powershell)
+
+### Create a network interface
+
+Before creating a network interface, you have to retrieve the virtual network Id with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), then the subnet Id with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) in the *DMZ* subnet with IP forwarding enabled:
+
+```azurepowershell-interactive
+# Retrieve the virtual network object into a variable.
+$virtualNetwork=Get-AzVirtualNetwork `
+  -Name myVirtualNetwork `
+  -ResourceGroupName myResourceGroup
+
+# Retrieve the subnet configuration into a variable.
+$subnetConfigDmz = Get-AzVirtualNetworkSubnetConfig `
+  -Name DMZ `
+  -VirtualNetwork $virtualNetwork
+
+# Create the network interface.
+$nic = New-AzNetworkInterface `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name 'myVmNva' `
+  -SubnetId $subnetConfigDmz.Id `
+  -EnableIPForwarding
+```
+
+### Create a VM
+
+To create a VM and attach an existing network interface to it, you must first create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the VM with.
+
+```azurepowershell-interactive
+# Create a credential object.
+$cred = Get-Credential -Message "Enter a username and password for the VM."
+
+# Create a VM configuration.
+$vmConfig = New-AzVMConfig `
+  -VMName 'myVmNva' `
+  -VMSize Standard_DS2 | `
+  Set-AzVMOperatingSystem -Windows `
+    -ComputerName 'myVmNva' `
+    -Credential $cred | `
+  Set-AzVMSourceImage `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest | `
+  Add-AzVMNetworkInterface -Id $nic.Id
+```
+
+Create the VM using the VM configuration with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmNva*.
+
+```azurepowershell-interactive
+$vmNva = New-AzVM `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -VM $vmConfig `
+  -AsJob
+```
+
+The `-AsJob` option creates the VM in the background, so you can continue to the next step.
+
+### [CLI](#tab/cli)
+
+---
+
 ## Create public and private virtual machines
 
 Create two virtual machines in the **vnet-1** virtual network. One virtual machine is in the **subnet-1** subnet, and the other virtual machine is in the **subnet-private** subnet. Use the same virtual machine image for both virtual machines.
@@ -137,6 +282,8 @@ Create two virtual machines in the **vnet-1** virtual network. One virtual machi
 ### Create public virtual machine
 
 The public virtual machine is used to simulate a machine in the public internet. The public and private virtual machine are used to test the routing of network traffic through the NVA virtual machine.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -226,6 +373,12 @@ The public virtual machine is used to simulate a machine in the public internet.
 
 1. Select **Create**.
 
+### [PowerShell](#tab/powershell)
+
+### [CLI](#tab/cli)
+
+---
+
 ## Enable IP forwarding
 
 To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of **vm-nva**. When IP forwarding is enabled, any traffic received by **vm-nva** that's destined for a different IP address, isn't dropped and is forwarded to the correct destination.
@@ -233,6 +386,8 @@ To route traffic through the NVA, turn on IP forwarding in Azure and in the oper
 ### Enable IP forwarding in Azure
 
 In this section, you turn on IP forwarding for the network interface of the **vm-nva** virtual machine.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -289,9 +444,17 @@ In this section, turn on IP forwarding for the operating system of the **vm-nva*
 
 1. Restart the virtual machine.
 
+### [PowerShell](#tab/powershell)
+
+### [CLI](#tab/cli)
+
+---
+
 ## Create a route table
 
 In this section, create a route table to define the route of the traffic through the NVA virtual machine. The route table is associated to the **subnet-1** subnet where the **vm-public** virtual machine is deployed.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -351,6 +514,12 @@ In this section, create a route in the route table that you created in the previ
     | Subnet | Select **subnet-1**. |
 
 1. Select **OK**.
+
+### [PowerShell](#tab/powershell)
+
+### [CLI](#tab/cli)
+
+---
 
 ## Test the routing of network traffic
 
@@ -425,7 +594,16 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. Close the Bastion session.
 
+
+### [Portal](#tab/portal)
+
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
+
+### [PowerShell](#tab/powershell)
+
+### [CLI](#tab/cli)
+
+---
 
 ## Next steps
 
