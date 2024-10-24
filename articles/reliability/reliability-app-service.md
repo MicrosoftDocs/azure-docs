@@ -6,31 +6,34 @@ ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 10/23/2024
+ms.date: 10/25/2024
 zone_pivot_groups: app-service-sku
 ---
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](../app-service/overview.md), including support for availability zones, multiple regions, and key capabilities that support a resilient solution. Because resiliency is a shared responsibility between you and Microsoft, this article also explains how Microsoft has built and supports resiliency in Azure App Service, as well the tools you can use to build a resilient solution that meets your needs.
+This article describes reliability support in [Azure App Service](../app-service/overview.md) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). 
+
+Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
 Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azyre App Service adds the power of Microsoft Azure to your application, with capabilities for security, load balancing, autoscaling, and automated management. To explore how Azure App Service can bolster the reliability and resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
 
 When you deploy Azure App Service, you can create multiple instances of an [App Service plan](/azure/app-service/overview-hosting-plans), which represents the compute workers that run your application code. The platform makes an effort to deploy the instances across different fault domains, but by default, the platform doesn't spread the instances across availability zones.
 
+## Production deployment recommendations
+
 ::: zone pivot="free-shared-basic"
 
-> [!NOTE]
-> For production deployments, you should:
-> - Use premium v3 App Service plans.
-> - [Enable zone redundancy](#availability-zone-support), which requires a minimum of three instance of your plan.
+For production deployments, you should:
+
+- Use premium v3 App Service plans.
+- [Enable zone redundancy](#availability-zone-support), which requires a minimum of three instance of your plan.
 
 ::: zone-end
 
 ::: zone pivot="premium,isolated"
 
-> [!NOTE]
-> For production deployments, you should [enable zone redundancy](#availability-zone-support), which requires a minimum of three instance of your plan.
+For production deployments, you should [enable zone redundancy](#availability-zone-support), which requires a minimum of three instance of your plan.
 
 ::: zone-end
 
@@ -66,13 +69,13 @@ For App Service plans that aren't configured to be zone redundant, VM instances 
 
 ::: zone pivot="free-shared-basic,premium"
 
-**Plan type:** You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans). We recommend using the Premium v3 plan.
+**Plan type:** You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
+
+**Footprint:** Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 ::: zone-end
 
 **Instance count:** You must deploy a minimum of three instances of your plan.
-
-**Footprint:** Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 ### Regions supported
 
@@ -171,10 +174,10 @@ If you need to use App Service in multiple regions, you need to deploy separate 
 
 ::: zone pivot="free-shared-basic,premium"
 
-For example approaches that illustrates this architecture, see:
+For example architectures that illustrates this approach, see:
 
-- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service)
-- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
+- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region).
+- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service) <!-- TODO Can't publish until this is ready -->
 - [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app)
 
 ::: zone-end
