@@ -83,7 +83,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price of a single read operation (price / 10,000)    | $0.000001  |
 | **Cost of read operations (1000 * operation price)** | **$0.001** |
 | Price of data retrieval (per GiB)                    | $0.01      |
-| **Cost of data retrieval (5 * price data retrieval)**     | **$0.05**  |
+| **Cost of data retrieval (5 * price of data retrieval)**     | **$0.05**  |
 | **Total cost (read + retrieval)**                    | **$0.051** |
 
 Utilities such as AzCopy also use list operations and operations to obtain blob properties. As a proportion of the overall bill, these charges are relatively small. For examples, see [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
