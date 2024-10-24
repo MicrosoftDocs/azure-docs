@@ -546,11 +546,6 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 
 ## Next steps
 
-To learn more about the experimentation concepts, refer to the following document.
-
-> [!div class="nextstepaction"]
-> [Experimentation](./concept-experimentation.md)
-
 For the full feature rundown of the Python feature management library, refer to the following document.
 
 > [!div class="nextstepaction"]
