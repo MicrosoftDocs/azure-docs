@@ -149,23 +149,14 @@ The sample code snippets in this section show you how to perform common operatio
 
 Learn below how to:
 
-- [Create a Python app with the Azure SDK for Python](#create-a-python-app-with-the-azure-sdk-for-python)
-  - [Prerequisites](#prerequisites)
-  - [Create a key-value](#create-a-key-value)
-  - [Set up the Python app](#set-up-the-python-app)
-  - [Configure your App Configuration connection string](#configure-your-app-configuration-connection-string)
-  - [Code samples](#code-samples)
-    - [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
-    - [Get a configuration setting](#get-a-configuration-setting)
-    - [Add a configuration setting](#add-a-configuration-setting)
-    - [Get a list of configuration settings](#get-a-list-of-configuration-settings)
-    - [Lock a configuration setting](#lock-a-configuration-setting)
-    - [Unlock a configuration setting](#unlock-a-configuration-setting)
-    - [Update a configuration setting](#update-a-configuration-setting)
-    - [Delete a configuration setting](#delete-a-configuration-setting)
-  - [Run the app](#run-the-app)
-  - [Clean up resources](#clean-up-resources)
-  - [Next steps](#next-steps)
+- [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
+- [Get a configuration setting](#get-a-configuration-setting)
+- [Add a configuration setting](#add-a-configuration-setting)
+- [Get a list of configuration settings](#get-a-list-of-configuration-settings)
+- [Lock a configuration setting](#lock-a-configuration-setting)
+- [Unlock a configuration setting](#unlock-a-configuration-setting)
+- [Update a configuration setting](#update-a-configuration-setting)
+- [Delete a configuration setting](#delete-a-configuration-setting)
 
 ### Connect to an App Configuration store
 
