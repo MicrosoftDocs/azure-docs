@@ -17,7 +17,7 @@ This article covers increasing or decreasing the size of an Elastic storage area
 
 To increase the size of your volumes, increase the size of your Elastic SAN first. To decrease the size of your SAN, make sure your volumes aren't using the extra size and then change the size of the SAN.
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell-basesize)
 
 ```azurepowershell
 
@@ -28,7 +28,7 @@ Update-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName -BaseSi
 
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli-basesize)
 
 ```azurecli
 # You can either update the base size or the additional size.
@@ -36,6 +36,7 @@ Update-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName -BaseSi
 
 az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBaseSizeTib
 ```
+---
 
 ## Autoscale (Preview)
 
@@ -47,7 +48,7 @@ Here, X is the amount of storage capacity you require to be unused. Y is the inc
   
 If you want to scale down your SAN, you need to do it manually by following the process outlined earlier. If you have configured an autoscaling policy and the amount in TiB by which you are scaling down the SAN is greater than the value of the unused capacity field set in the policy, the request fails and you'll have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the unused capacity should be 2 TiB, you can't reduce the total size of the SAN by 4 TiB because it would leave less than 2 TiB of unused capacity.
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell-autoscale)
 
 ```azurepowershell
 # Define some variables.
@@ -59,7 +60,7 @@ capacityUnitScaleUpLimit = "<CapacityUnitScaleUpLimit>" # Maximum capacity until
 Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoScalePolicyEnforcement $autoscalePolicyEnforcement -UnusedSizeTiB $unusedSizeTiB -IncreaseCapacityUnitByTiB $increaseCapacityUnit -CapacityUnitScaleUpLimitTiB $capacityUnitScaleUpLimit  
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli-autoscale)
 
 ```azurecli
 # Define some variables.
