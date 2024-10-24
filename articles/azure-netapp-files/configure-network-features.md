@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 10/24/2024
 ms.custom: references_regions
 ms.author: anfdocs
 ---

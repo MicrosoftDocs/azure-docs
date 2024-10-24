@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/22/2024
+ms.date: 10/24/2024
 ms.author: anfdocs
 ---
 
@@ -97,10 +97,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Total IOPS: a summation of all IOPS (read, write, and other)
     - Other throughput: any operations other than read or write.
     - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
-
-* [No downtime upgrade to Standard network features](configure-network-features.md#edit-network-features-option-for-existing-volumes)
-
-<!-- pending -->
 
 ## June 2024
 
