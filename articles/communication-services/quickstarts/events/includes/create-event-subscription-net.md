@@ -10,13 +10,13 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Get the latest version of the [.NET Microsoft Azure Event Grid Management SDK](/azure/event-grid/sdk-overview).
-- Get the latest version of the [Azure Identity](/dotnet/api/overview/azure/identity-readme) library.
+- The latest version of the [.NET Microsoft Azure Event Grid Management SDK](/azure/event-grid/sdk-overview).
+- The latest version of the [Azure Identity](/dotnet/api/overview/azure/identity-readme) library.
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 
 [!INCLUDE [register-event-grid-resource-provider.md](register-event-grid-resource-provider.md)]
 
-## Installing the SDK
+## Install the SDK
 
 First, install the Microsoft Azure Event Grid Management library for .NET with [NuGet](https://www.nuget.org/):
 
@@ -30,23 +30,25 @@ using Microsoft.Azure.Management.EventGrid;
 using Microsoft.Azure.Management.EventGrid.Models;
 ```
 
-## Authenticating with Azure Identity library
+## Authenticate with Azure Identity library
 
-### Prerequisites:
-1. Create a Microsoft Entra application and Service Principal and set up a client secret or trusted certificate issued by certificate authority by following the instructions [here](/entra/identity-platform/howto-create-service-principal-portal).
+### Prerequisites
+
+1. Create a Microsoft Entra application and Service Principal and set up a client secret or trusted certificate issued by certificate authority. Follow the instructions at [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 1. Store the secret or the certificate in the Azure Keyvault. 
-1. Give contributor or owner access to the subscription to that application following the instructions [here](/azure/role-based-access-control/quickstart-assign-role-user-portal).
-1. Read more about authorizing access to Event Grid resources [here](/azure/event-grid/security-authorization). 
+1. Give contributor or owner access to the subscription to that application following the instructions at [Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+1. Read more about [Authorizing access to Event Grid resources](/azure/event-grid/security-authorization).
 
-The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations, which can be used to construct Azure SDK clients that support Microsoft Entra token authentication. You can read more about it [here](/dotnet/api/overview/azure/identity-readme).
+The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations, which you can use to construct Azure SDK clients that support Microsoft Entra token authentication. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
-1. Include the Azure Identity client library for .NET with [NuGet](https://www.nuget.org/):
+1. Include the Azure Identity client library for .NET with [NuGet](https://www.nuget.org/).
 
 ```csharp
 dotnet add package Azure.Identity;
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
-2. Include the Azure Identity library in your C# project
+
+2. Include the Azure Identity library in your C# project.
 
 ```csharp
 using Microsoft.Azure.Identity;
@@ -57,7 +59,7 @@ using Azure.Security.KeyVault.Secrets
 
     * Get access token using secret credential
 
-        To get the secret credentials, you need to read it from the Keyvault you created in Prerequisite #2 using [SecretClient](/azure/key-vault/secrets/quick-create-net). 
+        To get the secret credentials, you need to read it from the Keyvault you created in Prerequisite **2** using [SecretClient](/azure/key-vault/secrets/quick-create-net). 
         
         ```csharp
         // Authenticate the Keyvault client with DefaultAzureCredential and get the secret.
@@ -78,11 +80,11 @@ using Azure.Security.KeyVault.Secrets
                         .ExecuteAsync();
         ```
 
-    * Get access token using certificate credential
+    * Get access token using certificate credential.
 
-        To get the certificate credentials, you need to read it from the Keyvault you created in Prerequisite #2 using [CertificateClient](/azure/key-vault/certificates/quick-create-net). 
+        To get the certificate credentials, you need to read it from the Keyvault you created in Prerequisite **2** using [CertificateClient](/azure/key-vault/certificates/quick-create-net). 
         
-        Read more about the Microsoft Entra application configuration authority [here](/entra/identity-platform/msal-client-application-configuration)
+        Read more about the Microsoft Entra application configuration authority in [Application configuration options](/entra/identity-platform/msal-client-application-configuration).
         
         ```csharp
         // Authenticate the certificate client with DefaultAzureCredential and get the certificate.
@@ -105,8 +107,7 @@ using Azure.Security.KeyVault.Secrets
                         .ExecuteAsync();
         ```
 
-4. Authenticate EventGridManagementClient with access token using secret or certificate credentials
-
+4. Authenticate `EventGridManagementClient` with access token using secret or certificate credentials.
 
 ```csharp
 // Authenticate EventGridManagementClient with Microsoft Entra ID access token credential
@@ -117,6 +118,7 @@ eventGridClient.SubscriptionId = 'your_subscripiton_id';
 ```
 
 ## Create Event Subscription
+
 This code sample shows how to create the event subscription for the webhook subscriber endpoint.
 
 ```csharp
@@ -140,7 +142,8 @@ await eventGridClient.EventSubscriptions.CreateOrUpdateAsync(
 ```
 
 ## Update event subscription
-This code sample shows how to update the event subscription to add more events, you want to receive on the webhook subscriber endpoint.
+
+This code sample shows how to update the event subscription to add more events that you want to receive on the webhook subscriber endpoint.
 
 ```csharp
 string webhookUri = $"<webhookUri>";
@@ -157,6 +160,7 @@ await eventGridClient.EventSubscriptions.UpdateAsync(
 ```
 
 ## Delete event Subscription
+
 This code sample shows how to delete the event subscription for the webhook subscriber endpoint.
 
 ```csharp
@@ -167,4 +171,3 @@ await eventGridClient.EventSubscriptions.DeleteAsync(
     scope: resourceId,
     eventSubscriptionName: "<eventSubscriptionName>");
 ```
-
