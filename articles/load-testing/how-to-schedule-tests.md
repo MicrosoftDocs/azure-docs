@@ -91,7 +91,7 @@ You can modify the schedule of a test after adding it. You can also pause or res
 > A schedule is disabled if three consecutive test runs of a schedule fail. You can resolve the issues with the test and enable the schedule again  from the Schedule pane of the test.
 
 [!div class="nextstepaction"]
-[Learn more about Azure Load Testing](https://docs.microsoft.com/azure/load-testing/?WT.mc_id=A261C142)
+[View performance trends over time](./how-to-compare-multiple-test-runs.md)
 
 
 
