@@ -315,6 +315,7 @@ To learn more about Azure Notebooks, see
 [Get Route Range]: /rest/api/maps/route/getrouterange
 [IPython]: https://ipython.readthedocs.io/en/stable/index.html
 [isochrone]: glossary.md#isochrone
+[Jupyter Notebook in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 [Jupyter Notebooks in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing]: /rest/api/maps/route/postroutematrix
