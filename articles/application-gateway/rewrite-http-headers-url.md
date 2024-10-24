@@ -39,7 +39,6 @@ To learn how to rewrite URL with Application Gateway using Azure portal, see [he
 
 
 ## Understanding Rewrites in Application Gateway
-Rewrite actions are used to specify the URL. Request headers or response headers that you want to rewrite and the new URL destination value. The value of a URL or a new or existing header can be set to the following types of values:
 
 A rewrite set is a collection of a Routing Rule, Condition and Action.
 
@@ -66,7 +65,7 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
   1. URL path: The new value to be set as the path.
   1. URL Query String: The new value to which the query string must be rewritten to.
   1. Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
-Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you're running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you might have issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/). Issues can happen when using lookahead and lookbehind (negative or positive) assertions.
+
 
 ## Pattern matching and capturing 
 
@@ -83,7 +82,6 @@ You can use pattern matching under both Condition and Action.
 
 > [!Note]
 > If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using Perl Compatible Regular Expressions (PCRE) while doing lookahead and lookbehind (negative or positive) assertions.
-> Use of */* to prefix and suffix the pattern shouldn't be specified in the pattern to match value. For example, (\d)(\d) matches two digits. /(\d)(\d)/ won't match two digits.
 
 ### Syntax for capturing
 
@@ -166,21 +164,6 @@ A rewrite rule set contains:
       * **URL Query String**: The value to which the query string is to be rewritten. 
       * **Reevaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path is used to match the path-pattern in the URL path map. If set to true, the URL path map is reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
-## Rewrite configuration common pitfalls
-
-* Enabling 'Reevaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
-
-* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Reevaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
-
-* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway continues to serve other requests without any degradation in such a scenario.
-
-### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
-
-When you configure URL rewrite or host header rewrite, the WAF evaluation happens after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation is done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
-
-For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
-
-Here, with only header rewrite configured, the WAF evaluation is done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation is done on `"Accept" : "image/png"`.
 
 ### Common scenarios for header rewrite
 
@@ -278,6 +261,22 @@ In that case, Application Gateway can capture parameters from the URL and add qu
 
 For a step-by-step guide to achieve the scenario described above, see [Rewrite URL with Application Gateway using Azure portal](rewrite-url-portal.md)
 
+## Rewrite configuration common pitfalls
+
+* Enabling 'Reevaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Reevaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+
+* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway continues to serve other requests without any degradation in such a scenario.
+
+### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
+
+When you configure URL rewrite or host header rewrite, the WAF evaluation happens after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation is done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
+
+For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
+
+Here, with only header rewrite configured, the WAF evaluation is done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation is done on `"Accept" : "image/png"`.
+
 ## URL rewrite vs URL redirect
 
 For a URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This won't change what users see in the browser because the changes are hidden from the user.
@@ -288,9 +287,8 @@ For a URL redirect, Application Gateway sends a redirect response to the client 
 
 ## Limitations
 
-- If a response has more than one header with the same name, rewriting the value of one of those headers results in dropping the other headers in the response. This can happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you're using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response contains two Set-Cookie headers. For example: one used by the app service, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites aren't supported when the application gateway is configured to redirect the requests or to show a custom error page.
-- Request header names can contain alphanumeric characters and hyphens. Header names containing other characters are discarded when a request is sent to the backend target.
+- Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters will be discarded when a request is sent to the backend target.
 - Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
 - Connection and upgrade headers cannot be rewritten
 - Rewrites aren't supported for 4xx and 5xx responses generated directly from Application Gateway
