@@ -4,7 +4,7 @@ description: Learn to configure connectivity settings in Azure Synapse Analytics
 author: danzhang-msft
 ms.author: danzhang
 ms.reviewer: wiassaf
-ms.date: 02/28/2024
+ms.date: 10/24/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
@@ -57,9 +57,9 @@ Selecting the **Disable** option will not apply any firewall rules that you migh
 The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. For more information, see [Connectivity architecture](/azure/azure-sql/database/connectivity-architecture#connection-policy).
 
 ## Minimal TLS version
-The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
+The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above. Starting November 2024, this requirement will also apply to the dedicated SQL endpoint in Synapse workspaces. For more information, see [TLS 1.0 and 1.1 deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/). 
 
-Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+Sign-in attempts from connections using a TLS version lower than 1.2 will fail. Customers can modify this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces to meet their security needs.
 
 ## Related content
 
