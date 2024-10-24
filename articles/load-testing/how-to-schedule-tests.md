@@ -27,7 +27,7 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
 
 3. Select the test you want to schedule.
 
-4. In the Schedule pane, click **Add schedule**.
+4. In the Schedule pane, select **Add schedule**.
 
 5. In the Add schedule pane, configure the following settings:
 
@@ -36,27 +36,27 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
     | **Schedule Name** | Enter a name for the schedule. |
     | **Start date** | Select the date and time when the test should start. |
     | **Time zone** | Select the time zone for the start date time above. |
-    | **Recurrence** | Select the frequency at which the test should run. You can choose to run the test once, hourly, daily, weekly, or monthly. Choose cron to specify a custom recurrence pattern. Refer to more settings for each recurrence in the below tables. |
+    | **Recurrence** | Select the frequency at which the test should run. You can choose to run the test once, hourly, daily, weekly, or monthly. Choose cron to specify a custom recurrence pattern. Refer to more settings for each recurrence in the following tables. |
     | **End**| Select how you want the schedule to end. You can choose to end the schedule after a certain number of occurrences or on a specific date. Alternatively, you can choose not to end the schedule. |
 
     For a hourly recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
-    | **Every** | Enter the number of hours between each test run. For example if you provide six, the schedule will run every six hours at the time specified in start time. |
+    | **Every** | Enter the number of hours between each test run. For example if you provide six, the schedule runs every six hours at the time specified in start time. |
 
     For a daily recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
-    | **Every** | Enter the number of days between each test run. For example if you provide two, the schedule will run every 2 days at the time specified in start time. |
+    | **Every** | Enter the number of days between each test run. For example if you provide two, the schedule runs every 2 days at the time specified in start time. |
 
     For a weekly recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of weeks between each test run. |
-    | **Days** | Select the days of the week when the test should run. If you provided 2 weeks and selected Monday, the schedule will start on the Monday after the start date and run every 2 weeks at the time specified in start time. |
+    | **Days** | Select the days of the week when the test should run. If you provided 2 weeks and selected Monday, the schedule starts on the Monday after the start date and runs every 2 weeks at the time specified in start time. |
 
     For a monthly recurrence, configure the following settings:
 
@@ -71,7 +71,7 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
     |-------|---------|
     | **Cron expression** | Enter a cron expression to specify the recurrence pattern. For example, `0 0 12 1/1 * ? *` runs the test every day at 12:00 PM. |
 
-6. Click **Add** to add the schedule to the test.
+6. Select **Add** to add the schedule to the test.
 
 > [!NOTE]
 > If a scheduled test run is in progress when the next scheduled run is due, the next run is skipped. The next run will be scheduled for the next recurrence time.
@@ -90,9 +90,10 @@ You can modify the schedule of a test after you've added it. You can also pause 
 > [!NOTE]
 > A schedule is disabled if three consecutive test runs of a schedule fail. You can resolve the issues with the test and enable the schedule again  from the Schedule pane of the test.
 
-## Next steps
+[!div class="nextstepaction"]
+[Learn more about Azure Load Testing](https://docs.microsoft.com/azure/load-testing/?WT.mc_id=A261C142)
 
-In this article, you learned how to schedule load tests with Azure Load Testing. To learn more about Azure Load Testing, see the [Azure Load Testing documentation](https://docs.microsoft.com/azure/load-testing/?WT.mc_id=A261C142F).
+
 
 
 
