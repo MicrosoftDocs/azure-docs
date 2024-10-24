@@ -58,7 +58,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 * Install [Maven 3](https://maven.apache.org/download.cgi).
 
-* Install [Git](https://git-scm.com/download/) and make sure that the path is added to the environment variable `PATH`.
+* Install [Git](https://git-scm.com/downloads) and make sure that the path is added to the environment variable `PATH`.
 
 * (Optional) If you want to enroll a simulated device at the end of this article, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivots=programming-language-java) up to the step where you get an endorsement key for the device. Note the **Endorsement key** and the **Registration ID**, as you use them later in this article.
 

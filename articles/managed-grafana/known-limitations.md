@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 09/25/2024
+ms.date: 10/08/2024
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -60,7 +60,11 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 * Refer to [Azure Monitor](/azure/azure-monitor/service-limits) to learn about Azure Monitor service limits including alerts, Prometheus metrics, data collection, logs and more.
 * Refer to [Azure Data Explorer](/azure/data-explorer/kusto/concepts/querylimits) to learn about Azure Data Explorer service limits.
 
-## Next steps
+## Managed identities
+
+Each Azure Managed Grafana instance can only have one user-assigned managed identity, or one user-assigned managed identity assigned.
+
+## Related links
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](./troubleshoot-managed-grafana.md)
