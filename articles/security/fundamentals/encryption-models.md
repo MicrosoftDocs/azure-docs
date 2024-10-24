@@ -163,7 +163,7 @@ Here are the services that support server-side encryption using customer managed
 | [Microsoft Fabric](/fabric) | Yes | | [CMK encryption](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
 | [Power BI Embedded](/power-bi) | Yes | | [BYOK for Power BI](/power-bi/enterprise/service-encryption-byok) |
 | **Containers** | | | |
-| [Azure Container Storage](/azure/storage/container-storage) | Yes | | [Dynamic storage pool with CMKs](/azure/storage/container-storage/use-container-storage-with-managed-disks#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) |
+| [App Configuration](/azure/azure-app-configuration/) | Yes | | [Use CMKs to encrypt App Configuration data](/azure/azure-app-configuration/concept-customer-managed-keys) |
 | [Azure Kubernetes Service](/azure/aks/) | Yes | Yes | |
 | [Azure Red Hat OpenShift](/azure/openshift/) | Yes | | [CMK encryption](/azure/openshift/howto-byok) |
 | [Container Instances](/azure/container-instances/) | Yes | | |
@@ -195,8 +195,9 @@ Here are the services that support server-side encryption using customer managed
 | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | | |
 | [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes, RSA 3072-bit | | |
 | [Table Storage](/azure/storage/tables/) | Yes | | |
+| **Hybrid + multicloud** | | | |
+| [Azure Stack Edge](/azure/databox-online/) | Yes | | [Azure Stack Edge: Security baseline](/security/benchmark/azure/baselines/azure-stack-edge-security-baseline#dp-5-use-customer-managed-key-option-in-data-at-rest-encryption-when-required) |
 | **Identity** | | | |
-| [Microsoft Entra ID](/azure/active-directory/) | - | | |
 | [Microsoft Entra Domain Services](/azure/active-directory-domain-services/) | Yes | | |
 | **Integration** | | | |
 | [Azure Health Data Services](/azure/healthcare-apis/) | Yes | | [Configure CMKs for DICOM](/azure/healthcare-apis/dicom/configure-customer-managed-keys), [Configure CMKs for FHIR](/azure/healthcare-apis/fhir/configure-customer-managed-keys) |
