@@ -351,7 +351,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
 
-For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`.
+For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`, and 8500 - 8599 if using OSS Cluster mode. If using Enterprise Cluster mode, only port 10000 is required.
 
 For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
