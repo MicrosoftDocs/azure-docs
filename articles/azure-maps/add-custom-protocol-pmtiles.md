@@ -20,45 +20,28 @@ By using the `addProtocol` function, which registers a callback triggered before
 The first step is to add a reference to the protocol. The following example references the `pmtiles` library:
 
 ```html
-  <script src="https://unpkg.com/pmtiles@3.0.5/dist/pmtiles.js"></script>
+  <script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
 ```
 
 Next, initialize the MapLibre PMTiles protocol.
 
 ```js
-//Initialize the plugin.
-      const protocol = new pmtiles.Protocol();
-      atlas.addProtocol("pmtiles", (request) => {
-        return new Promise((resolve, reject) => {
-          const callback = (err, data) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve({ data });
-            }
-          };
-          protocol.tile(request, callback);
-        });
-      });
-```
-
-## Add PMTiles protocol
-
-To add the PMTiles protocol, hook the data source with the specified protocol URI scheme. The following sample uses the [Overture] building dataset to add building data over the basemap.
-
-```js
-const PMTILES_URL = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-07-22/buildings.pmtiles";
-protocol.add(new pmtiles.PMTiles(PMTILES_URL));
+  //Initialize the plugin.
+  const protocol = new pmtiles.Protocol();
+  atlas.addProtocol("pmtiles", protocol.tile);
 ```
 
 ## Add PMTiles as a map source
 
+The following sample uses the [Overture] building dataset to add building data over the basemap.
+
 PMTiles are added as a map source during the map event. Once added, the specified URI scheme is available to the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
 
 ```js
+const PMTILES_URL = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-07-22/buildings.pmtiles";
 //Add the source to the map.
 map.sources.add(
-  new atlas.source.VectorTileSource("pmtiles", {
+  new atlas.source.VectorTileSource("my_source", {
     type: "vector",
     url: `pmtiles://${PMTILES_URL}`,
   })
@@ -77,7 +60,7 @@ The following sample uses the building theme's properties (for example, building
 ```js
 //Create a polygon extrusion layer.
 layer = new atlas.layer.PolygonExtrusionLayer(
-  "pmtiles",
+  "my_source",
   "building",
   {
     sourceLayer: "building",
