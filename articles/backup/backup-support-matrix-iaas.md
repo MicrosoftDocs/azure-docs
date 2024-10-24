@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 10/17/2024
+ms.date: 10/24/2024
 ms.custom: references_regions, linux-related-content
 ms.reviewer: nikhilsarode
 ms.service: azure-backup
@@ -204,7 +204,7 @@ Shared storage| Backing up VMs by using Cluster Shared Volumes (CSV) or Scale-Ou
 <a name="ultra-disk-backup">Ultra disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md).[Learn about the disk considerations for Azure VM](/azure/virtual-machines/disks-types#ultra-disk-limitations).      <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault and via virtual machine blade.        <br><br>    - File-level restore is currently not supported for machines using Ultra disks. <br><br>   - GRS vaults and Cross-Region Restore are currently supported in the following regions for machines using Ultra Disks: Southeast Asia, East Asia, North Europe, West Europe, East US, West US, and West US 3.
 <a name="premium-ssd-v2-backup">Premium SSD v2</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). [Learn about the disk considerations for Azure VM](/azure/virtual-machines/disks-types#regional-availability).     <br><br>    - Configuration of Premium SSD v2 disk protection is supported via Recovery Services vault and via virtual machine blade.       <br><br>    - File-level restore is currently not supported for machines using Premium SSD v2 disks.      <br><br>    - GRS vaults and Cross-Region Restore are currently supported in the following regions for machines using Premium SSDv2 Disks: Southeast Asia, East Asia, North Europe, West Europe, East US, West US, and West US 3. 
 [Temporary disks](/azure/virtual-machines/managed-disks-overview#temporary-disk) | Azure Backup doesn't back up temporary disks.
-NVMe/[ephemeral disks](/azure/virtual-machines/ephemeral-os-disks) | Not supported.
+NVMe/[ephemeral disks](/azure/virtual-machines/ephemeral-os-disks) | Supported.
 [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) restore | Supported. Volume Shadow Copy Service (VSS) supports app-consistent backups on ReFS.
 Dynamic disk with spanned or striped volumes | Supported, unless you enable the selective disk feature on an Azure VM.
 VMs with encryption at host | Supported
