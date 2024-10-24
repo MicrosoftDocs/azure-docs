@@ -84,7 +84,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
+1. Open a browser window, and go to the URL: `http://localhost:8080`.  You see the message associated with your key.
 
     You can also use *curl* to test your application, for example:
 
@@ -107,7 +107,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
 
 > [!NOTE]
-> The library only checks for changes on the after the refresh interval has passed, if the period hasn't passed then no change will be seen, you will have to wait for the period to pass then trigger the refresh check.
+> The library only checks for changes on the after the refresh interval has passed. If the period hasn't passed then no change is displayed. Wait for the period to pass, then trigger the refresh check.
 
 ## Use automated refresh
 
@@ -164,7 +164,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
+1. Open a browser window, and go to the URL: `http://localhost:8080`.  You now see the message associated with your key.
 
     You can also use *curl* to test your application, for example:
 
@@ -187,7 +187,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes, as the first request returns using the original scope.
 
 > [!NOTE]
-> The library only checks for changes on after the refresh interval has passed. If the refresh interval hasn't passed then it will not check for changes, you will have to wait for the interval to pass then trigger the refresh check.
+> The library only checks for changes on after the refresh interval has passed. If the refresh interval hasn't passed, then it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
 
 ## Next steps
 

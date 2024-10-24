@@ -174,7 +174,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 ## Set up an event subscription
 
-1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
+1. Open the App Configuration resource in the Azure portal, then select `+ Event Subscription` in the `Events` pane.
 
     :::image type="content" source="./media/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
 
@@ -188,9 +188,9 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
-1. Click on `Create` to create the event subscription. When `Create` is selected a registration request for the Web Hook will be sent to your application. This is received by the Azure App Configuration client library, verified, and returns a valid response.
+1. Select `Create` to create the event subscription. When `Create` is selected a registration request for the Web Hook will be sent to your application. This is received by the Azure App Configuration client library, verified, and returns a valid response.
 
-1. Click on `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
+1. Select `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
 
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
