@@ -10,16 +10,15 @@ ms.date: 10/23/2024
 # Cross-tenant event delivery using a managed identity (Preview) 
 This article provides information on delivery of events where Azure Event Grid basic resources like topics, domains, system topics, and partner topics are in one tenant and the Azure destination resource is in another tenant. 
 
-The following sections show you how to implement a scenario where an Azure Event Grid topic with a user assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here's the sample setup for this scenario:
+The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here's the high-level steps:
 
-1. An Azure Event Grid topic with an assigned user managed identity in Tenant A
-2. A multitenant app with a federated client credential
-3. An Azure Storage Queue destination in Tenant B. 
+1. Create an Azure Event Grid topic with an assigned user managed identity in Tenant A.
+1. Create a multitenant app with a federated client credential.
+1. Create an Azure Storage Queue destination in Tenant B. 
+1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
 
 ## Create a topic with a user assigned identity (Tenant A) 
-Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. 
-
-Then, assign a user-assigned managed identity while creating a topic or updating an existing topic. 
+Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. Then, enable a user-assigned managed identity while creating a topic or updating an existing topic. 
 
 ### Enable user-assigned identity for a new topic
 1. On the **Security** page of the topic or domain creation wizard, select **Add user assigned identity**. 
@@ -48,7 +47,7 @@ For more information, see the following articles:
 1. Create a Microsoft Entra app and update the registration to be multitenant. For details, see [Enable multitenant registration](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#update-registration-to-be-multitenant). 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png" alt-text="Screenshot that shows the Microsoft Entra app authentication setting set to Multitenant." lightbox="./media/cross-tenant-delivery-using-managed-identity/multi-tenant-app.png":::
-1. Create the federated identity credential relationship between multitenant app and user assigned identity of the Event Grid topic using Graph API. 
+1. Create the federated identity credential relationship between multitenant app and the user assigned identity of the Event Grid topic using Graph API. 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png" alt-text="Screenshot that shows the sample POST method to enable federated identity credential relationship between multitenant app and user-assigned identity." lightbox="./media/cross-tenant-delivery-using-managed-identity/federated-identity-credential-post-api.png":::   
 
@@ -79,7 +78,7 @@ Create an event subscription on the topic with federated client credential infor
 1. While creating an event subscription, enable **cross-tenant delivery** and select **Configure an endpoint**.. 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png" alt-text="Screenshot that shows the Create Event Subscription page with Cross-tenant delivery option enabled." lightbox="./media/cross-tenant-delivery-using-managed-identity/create-subscription-cross-tenant.png":::
-1. On the **Endpoint** page, specify the subscription ID, resource group, storage account name, and the queue name. 
+1. On the **Endpoint** page, specify the subscription ID, resource group, storage account name, and the queue name in Tenant B. 
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/endpoint.png" alt-text="Screenshot that shows the Endpoint page." lightbox="./media/cross-tenant-delivery-using-managed-identity/endpoint.png":::
 1. Now, in the **Managed Identity for Delivery** section, do these steps:
