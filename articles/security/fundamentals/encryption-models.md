@@ -194,7 +194,8 @@ Here are the services that support server-side encryption using customer managed
 | [Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only)](/azure/synapse-analytics/) | Yes, RSA 3072-bit | Yes | |
 | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | | |
 | [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes, RSA 3072-bit | | |
-| [Table Storage](/azure/storage/tables/) | Yes | | || **Identity** | | | |
+| [Table Storage](/azure/storage/tables/) | Yes | | |
+| **Identity** | | | |
 | [Microsoft Entra ID](/azure/active-directory/) | - | | |
 | [Microsoft Entra Domain Services](/azure/active-directory-domain-services/) | Yes | | |
 | **Integration** | | | |
