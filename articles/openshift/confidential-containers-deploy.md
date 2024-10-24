@@ -66,7 +66,7 @@ Before beginning the deployment process, make sure the following prerequisites a
 
 The OpenShift sandboxed containers operator can be installed through the CLI or the OpenShift web console.
 
-::: zone pivot="cli"
+### [CLI](#tab/cli)
 
 1. Create an `osc-namespace.yaml` manifest file:
 
@@ -136,9 +136,8 @@ The OpenShift sandboxed containers operator can be installed through the CLI or 
     openshift-sandboxed-containers   openshift-sandboxed-containers-operator  1.7.0      1.6.0        Succeeded
     ```
 
-::: zone-end
 
-::: zone pivot="web-console"
+### [Console](#tab/console)
 
 1. In the web console, navigate to **Operators → OperatorHub**.
 
@@ -160,7 +159,7 @@ The OpenShift sandboxed containers operator can be installed through the CLI or 
 
 1. Navigate to **Operators → Installed Operators** to verify that the Operator is installed.
 
-::: zone-end
+---
 
 ### Create the peer pods secret
 
