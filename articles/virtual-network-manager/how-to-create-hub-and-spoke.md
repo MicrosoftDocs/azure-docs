@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date:10/23/2024
+ms.date: 10/23/2024
 ms.custom: template-concept, engagement-fy23
 ---
 
