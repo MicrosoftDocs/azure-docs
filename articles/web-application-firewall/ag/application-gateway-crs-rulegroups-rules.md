@@ -103,7 +103,10 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 ### Upgrading or changing ruleset version
 
-When a ruleset version is changed in a WAF Policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+If you are upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it is recommended to use PowerShell, CLI, REST API, or a templates to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It is recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+
+> [!NOTE]
+> If you are using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.1 
 
