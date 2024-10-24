@@ -59,32 +59,6 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
 
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: DataExplorer
-  dataExplorerSettings:
-    host: 'https://<CLUSTER>.<region>.kusto.windows.net'
-    database: <DATABASE_NAME>
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
-
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -129,6 +103,32 @@ Then, deploy via Azure CLI.
 az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataExplorer
+  dataExplorerSettings:
+    host: 'https://<CLUSTER>.<region>.kusto.windows.net'
+    database: <DATABASE_NAME>
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
+
 ---
 
 ### Available authentication methods
@@ -143,15 +143,6 @@ Before you create the dataflow endpoint, assign a role to the managed identity t
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataExplorerSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings: {}
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -163,19 +154,18 @@ dataExplorerSettings: {
 }
 ```
 
----
-
-If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
   authentication:
     method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<AUDIENCE_URL>
+    systemAssignedManagedIdentitySettings: {}
 ```
+
+---
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 # [Bicep](#tab/bicep)
 
@@ -190,22 +180,21 @@ dataExplorerSettings: {
 }
 ```
 
----
-
-#### User-assigned managed identity
-
-To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
   authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://<AUDIENCE_URL>
 ```
+
+---
+
+#### User-assigned managed identity
+
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 # [Bicep](#tab/bicep)
 
@@ -219,6 +208,17 @@ dataExplorerSettings: {
     }
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+dataExplorerSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
 ---
@@ -235,15 +235,6 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataExplorerSettings:
-  batching:
-    latencySeconds: 100
-    maxMessages: 1000
-```
 
 # [Bicep](#tab/bicep)
 
