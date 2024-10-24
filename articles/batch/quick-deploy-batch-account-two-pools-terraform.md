@@ -2,7 +2,7 @@
 title: 'Deploy an Azure Batch account and two pools - Terraform'
 description: In this article, you deploy an Azure Batch account and two pools using Terraform.
 ms.topic: quickstart
-ms.date: 10/23/2024
+ms.date: 10/24/2024
 ms.custom: devx-track-terraform
 ms.service: azure-batch
 author: Padmalathas
@@ -49,16 +49,16 @@ In this quickstart, you create an Azure Batch account, an Azure Storage account,
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `main.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/main.tf":::
+   :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/main.tf":::
 
 1. Create a file named `outputs.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/outputs.tf":::
+   :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/outputs.tf":::
 
 1. Create a file named `providers.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/providers.tf":::
+   :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/providers.tf":::
 
 1. Create a file named `variables.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/variables.tf":::
+   :::code language="Terraform" source="~/terraform_samples/quickstart/101-batch-pools-with-job/variables.tf":::
 
 ## Initialize Terraform
 
