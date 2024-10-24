@@ -531,7 +531,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
 
-* Virtual Flea Drain (added in Nexus release 3.14)
+* Virtual Flea Drain
     * HWV attempts a virtual flea drain for most failing checks. Flea drain attempts are logged under `health_info` -> `result_log`.
 
     ```yaml
