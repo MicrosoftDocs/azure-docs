@@ -3,7 +3,7 @@ ms.service: azure-logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 10/15/2022
+ms.date: 10/23/2024
 ---
 
 In Visual Studio Code, your logic app project has either of the following types:
