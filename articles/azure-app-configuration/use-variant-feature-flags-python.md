@@ -557,7 +557,7 @@ To learn more about the experimentation concepts, refer to the following documen
 > [!div class="nextstepaction"]
 > [Experimentation](./concept-experimentation.md)
 
-For the full feature rundown of the .NET feature management library, refer to the following document.
+For the full feature rundown of the Python feature management library, refer to the following document.
 
 > [!div class="nextstepaction"]
-> [.NET Feature Management](./feature-management-dotnet-reference.md)
+> [Python Feature Management](./feature-management-python-reference.md)
