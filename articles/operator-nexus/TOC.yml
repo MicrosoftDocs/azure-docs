@@ -312,11 +312,20 @@
               href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
             - name: Troubleshoot ETCD Cluster Possible Quorum Lost
               href: troubleshoot-etcd-cluster-possible-quorum-lost.md
+            - name: Troubleshoot Remote Storage Problems On Cluster
+              href: troubleshoot-remote-storage-cluster.md
         - name: BareMetal Machines
           expanded: false
           items:
             - name: Troubleshoot BMM Not In Ready State
               href: troubleshoot-bmm-not-ready-state.md
+            - name: Troubleshoot Remote Storage Problems On BMM
+              href: troubleshoot-remote-storage-bmm.md
+        - name: Storage Appliances
+          expanded: false
+          items:
+            - name: Troubleshoot Unhealthy or Degraded Storage Appliance
+              href: troubleshoot-unhealthy-degraded-storage-appliance.md
 
 - name: FAQ
   href: azure-operator-nexus-faq.md
