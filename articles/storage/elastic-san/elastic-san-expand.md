@@ -4,7 +4,7 @@ description: Learn how to increase or decrease the size of an Azure Elastic SAN 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 05/31/2024
+ms.date: 10/24/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
