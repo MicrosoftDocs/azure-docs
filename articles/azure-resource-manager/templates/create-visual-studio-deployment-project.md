@@ -2,7 +2,7 @@
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 10/24/2024
 ---
 
 # Creating and deploying Azure resource groups through Visual Studio
@@ -11,7 +11,7 @@ ms.date: 10/22/2024
 > The Azure Resource Group project is now in extended support, meaning we will continue to support existing features and capabilities but won't prioritize adding new features.
 
 > [!NOTE]
-> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio?view=vs-2022). Upgrading will improve both the reliability and overall performance of your Visual Studio environment.
+> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio?view=vs-2022). Upgrading will improve both the reliability and overall performance of your Visual Studio environment. If you choose not to upgrade, you may encounter the issues documented in [Issues when creating and deploying Azure resource groups through Visual Studio](/troubleshoot/developer/visualstudio/ide/troubleshoot-create-deploy-resource-group.md).
 
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
@@ -92,20 +92,6 @@ You can customize a deployment project by modifying the Resource Manager templat
    }
    ```
 
-1. Open the **WebSite.parameters.json** file from Solution Explorer. You use the parameters file to pass in values during deployment that customize the resource being deployed. Give the hosting plan a name, and save the file.
-
-   ```json
-   {
-     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "webAppName": {
-         "value": "demoWebApp"
-       }
-     }
-   }
-   ```
-
 ## Deploy project to Azure
 
 You're now ready to deploy your project to a resource group.
@@ -162,7 +148,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 1. Add an **ASP.NET Core Web Application**.
 
-    :::image type="content" source="./media/create-visual-studio-deployment-project/add-app.png" alt-text="Screenshot of the New Project window with ASP.NET Core Web Application selected.":::
+    :::image type="content" source="./media/create-visual-studio-deployment-project/arm-vs-create-aspnet-core-web-app.png" alt-text="Screenshot of the New Project window with ASP.NET Core Web Application selected.":::
 
 1. Give your web app a name, and select **Create**.
 
@@ -198,8 +184,12 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
    Save your template.
 
-1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. The names of these parameters end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they're named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**.
+1. There are some new parameters added in the previous step. 
 
+    :::image type="content" source="./media/create-visual-studio-deployment-project/new-parameters.png" alt-text="Screenshot of the new parameters.":::
+
+   You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. The names of these parameters end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they're named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**.
+    
    Open **Website.parameters.json** and set those parameters to the values you saw in the reference properties. Set **ExampleAppPackageFolder** to the name of the folder. Set **ExampleAppPackageFileName** to the name of the zip file.
 
    ```json
@@ -207,9 +197,6 @@ At this point, you've deployed the infrastructure for your app, but there's no a
      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
-       "hostingPlanName": {
-         "value": "demoHostPlan"
-       },
        "ExampleAppPackageFolder": {
          "value": "ExampleApp"
        },
