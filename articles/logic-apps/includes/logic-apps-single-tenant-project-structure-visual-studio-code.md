@@ -11,7 +11,7 @@ In Visual Studio Code, your logic app project has either of the following types:
 * Extension bundle-based (Node.js), which is the default type
 * NuGet package-based (.NET), which you can convert from the default type
 
-Based on these types, your project includes slightly different folders and files. A NuGet-based project includes a .bin folder that contains packages and other library files. A bundle-based project doesn't include the .bin folder and other files. Some scenarios require a NuGet-based project for your app to run, for example, when you want to develop and run custom built-in operations. For more information about converting your project to use NuGet, review [Enable built-connector authoring](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+Based on these types, your project includes slightly different folders and files. A NuGet-based project includes a .bin folder that contains packages and other library files. A bundle-based project doesn't include the .bin folder and other files. Some scenarios require a NuGet-based project for your app to run, for example, when you want to develop and run custom built-in operations. For more information about converting your project to use NuGet, review [Enable built-connector authoring](../create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
 For the default bundle-based project, your project has a folder and file structure that is similar to the following example:
 
