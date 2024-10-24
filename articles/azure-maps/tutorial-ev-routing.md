@@ -17,13 +17,13 @@ Azure Maps is a portfolio of geospatial service APIs integrated into Azure, enab
 
 Azure Maps REST APIs support languages like Python and R for geospatial data analysis and machine learning, offering robust [routing APIs] for calculating routes based on conditions such as vehicle type or reachable area.
 
-This tutorial guides users through routing electric vehicles using Azure Maps APIs along with Azure Notebooks and Python to find the closest charging station when the battery is low.
+This tutorial guides users through routing electric vehicles using Azure Maps APIs along with [Jupyter Notebooks in VS Code] and Python to find the closest charging station when the battery is low.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
 >
-> * Create and run a Jupyter Notebook file on [Azure Notebooks] in the cloud.
+> * Create and run a [Jupyter Notebooks in VS Code].
 > * Call Azure Maps REST APIs in Python.
 > * Search for a reachable range based on the electric vehicle's consumption model.
 > * Search for electric vehicle charging stations within the reachable range, or [isochrone].
@@ -34,61 +34,52 @@ In this tutorial, you will:
 
 * An [Azure Maps account]
 * A [subscription key]
+* [Visual Studio Code]
+* A working knowledge of [Jupyter Notebooks in VS Code]
+* Environment setup to work with Python in Jupyter Notebooks. For more information, see [Setting up your environment].
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
-## Create an Azure Notebooks project
-
-To proceed with this tutorial, it's necessary to create an Azure Notebooks project and download and execute the Jupyter Notebook file. This file contains Python code that demonstrates the scenario presented in this tutorial.
-
-Follow these steps to create an Azure Notebooks project and upload the Jupyter Notebook document:
-
-1. Go to [Azure Notebooks] and sign in.
-1. At the top of your public profile page, select **My Projects**.
-
-    ![The My Projects button](./media/tutorial-ev-routing/myproject.png)
-
-1. On the **My Projects** page, select **New Project**.
-
-   ![The New Project button](./media/tutorial-ev-routing/create-project.png)
-
-1. In the **Create New Project** pane, enter a project name and project ID.
-
-    ![The Create New Project pane](./media/tutorial-ev-routing/create-project-window.png)
-
-1. Select **Create**.
-
-1. After your project is created, download this [Jupyter Notebook document file] from the [Azure Maps Jupyter Notebook repository].
-
-1. In the projects list on the **My Projects** page, select your project, and then select **Upload** to upload the Jupyter Notebook document file.
-
-    ![upload Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
-
-1. Upload the file from your computer, and then select **Done**.
-
-1. Once uploaded successfully, your file is displayed on your project page. Double-click on the file to open it as a Jupyter Notebook.
-
-Familiarize yourself with the functionality implemented in the Jupyter Notebook file. Execute the code within the Jupyter Notebook one cell at a time by selecting the **Run** button located at the top of the Jupyter Notebook application.
-
-  ![The Run button](./media/tutorial-ev-routing/run.png)
-
 ## Install project level packages
 
-To run the code in Jupyter Notebook, install packages at the project level by following these steps:
+The _EV Routing and Reachable Range_ project has dependencies on the [aiohttp] and [IPython] python libraries. You can install these in the Visual Studio terminal using pip:
 
-1. Download the [*requirements.txt*] file from the [Azure Maps Jupyter Notebook repository], and then upload it to your project.
-1. On the project dashboard, select **Project Settings**.
-1. In the **Project Settings** pane, select the **Environment** tab, and then select **Add**.
-1. Under **Environment Setup Steps**, do the following:
-    a. In the first drop-down list, select **Requirements.txt**.  
-    b. In the second drop-down list, select your *requirements.txt* file.  
-    c. In the third drop-down list, select the version of Python. Version 3.11 was used when creating this tutorial.
-1. Select **Save**.
+```python
+pip install aiohttp
+pip install ipython
+```
 
-    ![Install packages](./media/tutorial-ev-routing/install-packages.png)
+## Open Jupyter Notebook in Visual Studio Code
+
+Download then open the Notebook used in this tutorial:
+
+1. Open the file [EVrouting.ipynb] in the [AzureMapsJupyterSamples] repository in GitHub.
+1. Select the **Download raw file** button in the upper-right corner of the screen to save the file locally.
+
+    ![A screenshot showing how to download the Notebook file named EVrouting.ipynb from the GitHub repository.](./media/tutorial-ev-routing/download-notebook.png)
+
+1. Open the downloaded Notebook in Visual Studio Code by right-clicking on the file then selecting **Open with > Visual Studio Code**, or through the VS Code File Explorer.
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------
+## Create Jupyter Notebook in Visual Studio Code
+
+You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette or by creating a new .ipynb file in your workspace.
+
+![A screenshot showing a new Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-1.png)
+
+Next, select a kernel using the kernel picker in the top right.
+
+![A screenshot showing the kernel picker in the top right of a Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-2.png)
+
+After selecting a kernel, the language picker located in the bottom right of each code cell will automatically update to the language supported by the kernel.
+
+![A screenshot showing python in the kernel picker in the top right of a Jupyter Notebook in VS Code.](./media/tutorial-ev-routing/ipynb-3.png)
+-------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 ## Load the required modules and frameworks
+
+Once your code is added, you can run a cell using the Run icon to the left of the cell and the output will be displayed below the code cell.
 
 Run the following script to load all the required modules and frameworks.
 
@@ -98,6 +89,8 @@ import aiohttp
 import urllib.parse
 from IPython.display import Image, display
 ```
+
+![A screenshot showing how to download the Notebook file named EVrouting.ipynb from the GitHub repository.](./media/tutorial-ev-routing/load-required-modules.png)
 
 ## Request the reachable range boundary
 
@@ -311,15 +304,19 @@ To learn more about Azure Notebooks, see
 > [!div class="nextstepaction"]
 > [Azure Notebooks]
 
+[aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
+[EVrouting.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range]: /rest/api/maps/route/getrouterange
+[IPython]: https://ipython.readthedocs.io/en/stable/index.html
 [isochrone]: glossary.md#isochrone
+[Jupyter Notebooks in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 [Jupyter Notebook document file]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing]: /rest/api/maps/route/postroutematrix
@@ -328,4 +325,6 @@ To learn more about Azure Notebooks, see
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
+[Setting up your environment]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Visual Studio Code]: https://code.visualstudio.com/
