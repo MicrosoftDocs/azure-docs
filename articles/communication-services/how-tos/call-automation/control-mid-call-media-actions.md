@@ -488,8 +488,8 @@ call_connection_client.unhold(target_participant=PhoneNumberIdentifier(TARGET_PH
 ```
 -----
 
-### Audio streaming
+### Audio streaming (public preview)
 Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see [this page](audio-streaming-quickstart.md).
 
-### Real-time transcription
+### Real-time transcription (public preview)
 Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see [this page](real-time-transcription-tutorial.md).
