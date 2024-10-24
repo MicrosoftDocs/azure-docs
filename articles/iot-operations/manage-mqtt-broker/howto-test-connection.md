@@ -72,7 +72,7 @@ The first option is to connect from within the cluster. This option uses the def
               expirationSeconds: 86400
       - name: trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only # Default root CA cert
+          name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
     ```
 
 1. Use `kubectl apply -f client.yaml` to deploy the configuration. It should only take a few seconds to start.

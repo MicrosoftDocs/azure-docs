@@ -10,7 +10,7 @@ ms.date: 08/01/2024
 
 # What's new in Oracle Autonomous Database@Azure
 
-This is the list of product enhancements and fixes for Oracle Autonomous Database@Azure.
+This article lists product enhancements and fixes for Oracle Autonomous Database@Azure.
 
 ## July 2024
 

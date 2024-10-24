@@ -1,6 +1,6 @@
 ---
 title: What's new in Oracle Database@Azure
-description: Learn about what's New in Oracle Database@Azure.
+description: Learn about what's new in Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux

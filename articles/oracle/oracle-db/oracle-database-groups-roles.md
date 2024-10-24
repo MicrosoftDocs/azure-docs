@@ -44,11 +44,11 @@ The following Oracle Cloud Infrastructure Identity and Access Management (IAM) p
 - `Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’`
 - `Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’`
 
-For information on working with policies, [get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
+For information on working with policies, see [Get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
 
 ## Related content
 
-- [Overview - Oracle Database@Azure](database-overview.md)
+- [Overview of Oracle Database@Azure](database-overview.md)
 - [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
