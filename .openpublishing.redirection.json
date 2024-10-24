@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/devtest-labs/devtest-lab-integrate-ci-cd.md",
+      "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-integrate-ci-cd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/integrate-environments-devops-pipeline.md",
+      "redirect_url": "/previous-versions/azure/devtest-labs/integrate-environments-devops-pipeline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/confidential-computing/virtual-machine-solutions.md",
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
