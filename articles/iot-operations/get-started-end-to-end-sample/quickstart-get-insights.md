@@ -58,7 +58,7 @@ Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real
 
 After completing this flow, the Azure event hub is visible in the eventstream live view as a source.
 
-:::image type="content" source="media/quickstart-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
+:::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
 #### Verify dataflow
 
@@ -68,7 +68,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
 
 1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the *AzureEventHub* source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
-    :::image type="content" source="media/quickstart-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
+    :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
 >If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
@@ -91,7 +91,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
 1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
 
-    :::image type="content" source="media/quickstart-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
+    :::image type="content" source="media/quickstart-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
 
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
@@ -109,7 +109,7 @@ Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/r
 - On the **Configure** step, select the *OPCUA* table that you created earlier.
 - On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
 
-    :::image type="content" source="media/quickstart-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
+    :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
     >[!TIP]
     >If no existing mappings are found, try refreshing the eventstream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
@@ -118,11 +118,11 @@ After completing this flow, the KQL table is visible in the eventstream live vie
 
 Wait a few minutes for data to propagate. Then, select the KQL destination and refresh the **Data preview** to see the processed JSON data from the eventstream appearing in the table.
 
-:::image type="content" source="media/quickstart-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
+:::image type="content" source="media/quickstart-get-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
 
 If you want, you can also view and query this data in your KQL database directly.
 
-:::image type="content" source="media/quickstart-insights/query-kql.png" alt-text="Screenshot of the same data being queried from the KQL database.":::
+:::image type="content" source="media/quickstart-get-insights/query-kql.png" alt-text="Screenshot of the same data being queried from the KQL database.":::
 
 ## Create a Real-Time Dashboard
 
@@ -145,7 +145,7 @@ Next, configure some parameters for your dashboard so that the visuals can be fi
 
 1. Switch to the **Manage** tab, and select **Parameters**. Select **+ Add** to add a new parameter.
 
-    :::image type="content" source="media/quickstart-insights/add-parameter.png" alt-text="Screenshot of adding a parameter to a dashboard.":::
+    :::image type="content" source="media/quickstart-get-insights/add-parameter.png" alt-text="Screenshot of adding a parameter to a dashboard.":::
 
 1. Create a new parameter with the following characteristics:
     * **Label**: *Asset*
@@ -171,7 +171,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
 
 1. Select either **+ Add tile** or **New tile** to add a new tile.
 
-    :::image type="content" source="media/quickstart-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
+    :::image type="content" source="media/quickstart-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
 
 1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the timestamp, temperature and spike value from the resulting records with their timestamp. It then adds a column for a spike marker that will be added to the line chart. 
 
@@ -184,7 +184,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
 
     **Run** the query to verify that data can be found.
 
-    :::image type="content" source="media/quickstart-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
+    :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
 
 1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
 
@@ -201,11 +201,11 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
 
     Select **Apply changes** to create the tile.
 
-    :::image type="content" source="media/quickstart-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
+    :::image type="content" source="media/quickstart-get-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
 
 View the finished tile on your dashboard.
 
-<!--:::image type="content" source="media/quickstart-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with one tile.":::-->
+<!--:::image type="content" source="media/quickstart-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with one tile.":::-->
 
 ### Create max value tile
 
@@ -233,17 +233,17 @@ Next, create a tile to display a real-time spike indicator for temperature.
         - **Conditions**: Use the entry form to enter the condition *Spike == true*.
         - **Color**: Select *Red* and choose an alert *Icon*.
 
-        :::image type="content" source="media/quickstart-insights/conditional-formatting.png" alt-text="Screenshot of the conditional formatting options.":::
+        :::image type="content" source="media/quickstart-get-insights/conditional-formatting.png" alt-text="Screenshot of the conditional formatting options.":::
         
         **Save** the conditional formatting.
 
     Select **Apply changes** to create the tile.
 
-    <!--:::image type="content" source="media/quickstart-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::-->
+    <!--:::image type="content" source="media/quickstart-get-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::-->
 
 1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible).
 
-    <!--:::image type="content" source="media/quickstart-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with two tiles.":::-->
+    <!--:::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with two tiles.":::-->
 
 1. **Save** your completed dashboard.
 
