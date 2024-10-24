@@ -205,8 +205,6 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
 
 View the finished tile on your dashboard.
 
-<!--:::image type="content" source="media/quickstart-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with one tile.":::-->
-
 ### Create max value tile
 
 Next, create a tile to display a real-time spike indicator for temperature.
@@ -239,11 +237,7 @@ Next, create a tile to display a real-time spike indicator for temperature.
 
     Select **Apply changes** to create the tile.
 
-    <!--:::image type="content" source="media/quickstart-get-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::-->
-
 1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible).
-
-    <!--:::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with two tiles.":::-->
 
 1. **Save** your completed dashboard.
 
