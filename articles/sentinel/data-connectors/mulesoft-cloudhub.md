@@ -3,7 +3,7 @@ title: "MuleSoft Cloudhub (using Azure Functions) connector for Microsoft Sentin
 description: "Learn how to install the connector MuleSoft Cloudhub (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -57,6 +57,9 @@ To integrate with MuleSoft Cloudhub (using Azure Functions) make sure you have:
 
 > [!NOTE]
    >  This data connector depends on a parser based on a Kusto Function to work as expected [**MuleSoftCloudhub**](https://aka.ms/sentinel-MuleSoftCloudhub-parser) which is deployed with the Microsoft Sentinel Solution.
+
+
+**Note: This data connector fetch only the logs of the CloudHub application using Platform API and not of CloudHub 2.0 application**
 
 
 **STEP 1 - Configuration steps for the MuleSoft Cloudhub API**
@@ -113,7 +116,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. MuleSoftXXXXX).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.11.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 

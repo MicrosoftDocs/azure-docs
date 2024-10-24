@@ -73,8 +73,8 @@ At a high level, to conduct calls in a Virtual Rooms you need to create and mana
 | Dial-out to a PSTN user  | ❌ | ✔️ | ✔️* |
 | Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️* |
 | Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️* |
-| Start/Stop call captions and change captions language | ❌ | ✔️* |  ❌ |
-| Manage call recording | ❌ | ❌ |  ✔️* |
+| Start/Stop call captions and change captions language | ❌ | ✔️ |  ❌ |
+| Manage call recording | ❌ | ❌ |  ✔️ |
 | Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
 | Play audio prompts to participants  | ❌ | ❌ | ✔️* |
 
@@ -145,9 +145,9 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 | Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
-| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2023-03-31 | Public Preview - retired |
 | Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
-| Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2021-04-07 | Public Preview - retired |
 
 ## Predefined participant roles and permissions in Virtual Rooms calls
 <a name="predefined-participant-roles-and-permissions"></a>
@@ -170,8 +170,8 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ |
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
-| - Start call captions ** | ✔️ | ✔️ | ✔️ |
-| - Change captions language ** | ✔️ | ✔️ | ❌ |
+| - Start call captions | ✔️ | ✔️ | ✔️ |
+| - Change captions language | ✔️ | ✔️ | ❌ |
 | - End meeting for all participants | ✔️ | ❌ | ❌ |
 | - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
