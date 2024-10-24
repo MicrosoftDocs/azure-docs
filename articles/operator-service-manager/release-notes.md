@@ -94,14 +94,14 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Is NFO update required: YES, UPDATE ONLY
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2763-119. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
+This release can be installed with as an update on top of release 2.0.2763-119. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
 
 ### Issues Resolved in This Release 
 
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO	- Adding taint tolerations to all NFO pods and scheduling them on system nodes. Daemonset pods will continue to run on all nodes of cluster).
+* NFO	- Adding taint tolerations to all NFO pods and scheduling them on system nodes. Daemonset pods continue to run on all nodes of cluster).
 
 #### Security Related Updates
 
@@ -139,7 +139,7 @@ kubectl delete crd orders.acme.cert-manager.io
 
 ### Release Highlights
 #### Cluster Registry & Webhook – High Availability 
-This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO will use custom methods of certificate management. High availability, along with changes to rotate certs will be restored in a future release.
+This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO uses custom methods of certificate management. High availability, along with changes to rotate certs will be restored in a future release.
 
 ### Issues Resolved in This Release 
 
@@ -166,11 +166,11 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4  Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2783-134. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
+This release can be installed with as an update on top of release 2.0.2783-134. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
 
 ### Release Highlights
 #### Cluster Registry – Garbage Collection 
-This release extends cluster registry functionality enabling a manual trigger to identify and purging of unused images in the repository. For proper operation, the user must install both this latest version and an additional helper script, which is provided by request only.
+This release extends cluster registry functionality enabling a manual trigger to identify and purging of unused images in the repository. For proper operation, the user must install both this latest version and a helper script, which is provided by request only.
 
 ### Issues Resolved in This Release 
 
@@ -198,7 +198,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2788-135. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
+This release can be installed with as an update on top of release 2.0.2788-135. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
 
 ### Release Highlights
 #### High availability for cluster registry and webhook.
@@ -208,7 +208,7 @@ This version restores the high availability features first introduced with relea
 This version implements internal certificate management using a new method which does not take dependency on cert-manager. Instead, a private internal service is used to handle requirements for certificate management and rotation within the AOSM namespace. 
 
 #### Safe Upgrades NF Level Rollback
-This version introduces new user options to control behavior when a failure occurs during an upgrade. While pause on failure remains the default, a user can now optionally enable rollback on failure. If a failure occure, with rollback on failure any prior completed NfApps will be reverted to prior state using helm rollback command. See [learn documentation](safe-upgrades-nf-level-rollback.md) for more details on usage.
+This version introduces new user options to control behavior when a failure occurs during an upgrade. While pause on failure remains the default, a user can now optionally enable rollback on failure. If a failure occurs, with rollback on failure any prior completed NfApps are reverted to prior state using helm rollback command. See [learn documentation](safe-upgrades-nf-level-rollback.md) for more details on usage.
 
 ### Issues Resolved in This Release 
 
@@ -226,7 +226,7 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 Document Revision 1.1
 
 ### Release Summary
-Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This Septemer 13, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2810-144, the details of which are further outlined in the remainder of this document.
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This September 13, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2810-144, the details of which are further outlined in the remainder of this document.
 
 ### Release Details
 * Release Version: Version 2.0.2810-144
@@ -235,7 +235,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2804-137. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
+This release can be installed with as an update on top of release 2.0.2804-137. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
 
 ### Issues Resolved in This Release 
 
@@ -262,16 +262,12 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2804-137. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
+This release can be installed with as an update on top of release 2.0.2804-137. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
   
-### Release Highlights
-#### Artifact-Controller Service & Improved Webhook Logs
-This version introduces the artifact-controller service, which helps to manage network function state when multiple network functions are deployed to the same namepsace.
-
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO	- Fixes webhook issues when trying to delete 2 network functions in same namespace.
+* NFO	- Fixes webhook and image secrets issues when trying to delete 2 network functions in same namespace.
 * NFO - Adds retries to fix intermittent image download failures from the cluster registry.
 
 #### Security Related Updates
