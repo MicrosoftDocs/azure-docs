@@ -35,12 +35,6 @@ Cloud resources:
 
 * An Azure subscription.
 
-* An Azure key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
-
-  ```azurecli
-  az keyvault create --enable-rbac-authorization --name "<NEW_KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
-  ```
-
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
