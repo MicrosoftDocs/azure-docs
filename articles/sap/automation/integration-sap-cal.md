@@ -2,7 +2,7 @@
 title: Integrating SAP Cloud Appliance Library with SAP Deployment Automation Framework
 description: Learn how to integrate SAP Cloud Appliance Library with SAP Deployment Automation Framework.
 author: nnoaman
-ms.author: nnoaman
+ms.author: nadeennoaman
 ms.reviewer: kimforss
 ms.date: 10/24/2024
 ms.topic: how-to
