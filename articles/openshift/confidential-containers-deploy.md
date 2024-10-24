@@ -101,8 +101,7 @@ Before beginning the deployment process, make sure the following prerequisites a
 
 The OpenShift sandboxed containers operator can be installed through the CLI or the OpenShift web console.
 
-
-::: zone pivot="aro-azurecli"
+::: zone pivot="CLI"
 
 1. Create an `osc-namespace.yaml` manifest file:
 
@@ -195,6 +194,8 @@ The OpenShift sandboxed containers operator can be installed through the CLI or 
 1. Click **Install**.
 
 1. Navigate to **Operators → Installed Operators** to verify that the Operator is installed.
+
+::: zone-end
 
 ### Create the peer pods secret
 
