@@ -10,7 +10,7 @@ ms.date: 10/23/2024
 # Cross-tenant event delivery using a managed identity 
 This article provides information on delivery of events where Azure Event Grid basic resources like topics, domains, system topics, and partner topics are in one tenant and the Azure destination resource is in another tenant. 
 
-The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here's the high-level steps:
+The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here are the high-level steps:
 
 1. Create an Azure Event Grid topic with an assigned user managed identity in Tenant A.
 1. Create a multitenant app with a federated client credential.
