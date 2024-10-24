@@ -23,15 +23,15 @@ Both libraries support manual triggering to check for refreshed configuration va
 
 Refresh allows you to update your configuration values without having to restart your application, though it causes all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
 
-`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh does not trigger a refresh even if the cache expiration time has expired.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` isn't triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh doesn't trigger a refresh even if the cache expiration time has expired.
 
 ## Use manual refresh
 
 To use manual refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-App Configuration exposes `AppConfigurationRefresh`, which can be used to check if the cache is expired and if it is expired a refresh is triggered.
+App Configuration exposes `AppConfigurationRefresh`, which can be used to check if the cache is expired. If it's expired, a refresh is triggered.
 
-1. Update HelloController to use `AppConfigurationRefresh`.
+1. To use `AppConfigurationRefresh`, update HelloController.
 
     ```java
     import com.azure.spring.cloud.config.AppConfigurationRefresh;
@@ -59,7 +59,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 
     `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
 
-1. Update `bootstrap.properties` to enable refresh
+1.  Update `bootstrap.properties` to enable refresh:
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
