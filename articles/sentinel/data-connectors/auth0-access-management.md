@@ -1,15 +1,15 @@
 ---
-title: "Auth0 Access Management(using Azure Function) (using Azure Functions) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Auth0 Access Management(using Azure Function) (using Azure Functions) to connect your data source to Microsoft Sentinel."
+title: "Auth0 Access Management(using Azure Function) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Auth0 Access Management(using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
-# Auth0 Access Management(using Azure Function) (using Azure Functions) connector for Microsoft Sentinel
+# Auth0 Access Management(using Azure Function) connector for Microsoft Sentinel
 
 The [Auth0 Access Management](https://auth0.com/access-management) data connector provides the capability to ingest [Auth0 log events](https://auth0.com/docs/api/management/v2/#!/Logs/get_logs) into Microsoft Sentinel
 
@@ -39,7 +39,7 @@ Auth0AM_CL
 
 ## Prerequisites
 
-To integrate with Auth0 Access Management(using Azure Function) (using Azure Functions) make sure you have: 
+To integrate with Auth0 Access Management(using Azure Function) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **REST API Credentials/permissions**: **API token** is required. [See the documentation to learn more about API token](https://auth0.com/docs/secure/tokens/access-tokens/get-management-api-access-tokens-for-production)
@@ -108,7 +108,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. Auth0AMXXXXX).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.11.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 
