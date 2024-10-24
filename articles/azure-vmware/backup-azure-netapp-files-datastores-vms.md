@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/22/2024
+ms.date: 10/24/2024
 ms.custom: engagement-fy23
 ---
 
@@ -59,7 +59,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 * **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters aren't supported. 
 1.	Specify the retention settings.
     The maximum retention value is 255 backups. If the **Backups to keep** option is selected during the backup operation, Cloud Backup for Virtual Machines retains backups within the specified retention count and deletes the backups that exceed the retention count.
-1.  Choose **Back up using Azure NetApp Files** if you want to use Azure NetApp Files as a backup.
+1. Choose **Back up using Azure NetApp Files** if you want to use Azure NetApp Files as a backup. Specify the retention settings. If the "Backups to keep" option is selected, Cloud Backup for Virtual Machines retains backups within the specified retention count and deletes the backups that exceed the retention count. The maximum retention value is 255 backups.
     If so, provide a maximum retention value. 
 1.	Specify the frequency settings.
     The policy specifies the backup frequency only. The specific protection schedule for backing up is defined in the resource group. Therefore, two or more resource groups can share the same policy and backup frequency but have different backup schedules.
