@@ -13,7 +13,8 @@ ms.custom: references_regions
 
 This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
 
-[!INCLUDE virtual-network-manager-udr-preview]
+> [!IMPORTANT]
+> User-defined routes management with Azure Virtual Network Manager is in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads. 
 
 ## What is UDR management?
 
