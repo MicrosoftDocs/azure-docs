@@ -12,7 +12,7 @@ items:
       - name: Configure your instance
         href: get-started-end-to-end-sample/quickstart-configure.md
       - name: Get insights from your data
-        href: get-started-end-to-end-sample/quickstart-get-insights.md
+        href: get-started-end-to-end-sample/quickstart-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
       - name: Deployment overview
