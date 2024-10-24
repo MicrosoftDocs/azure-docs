@@ -19,7 +19,7 @@ In the following steps, you add another authorized client application using the 
 
    :::image type="content" source="./media/vpn-gateway-custom-audience-change/change-add-client.png" alt-text="Screenshot shows the Expose an API page with Add a client application highlighted." lightbox="./media/vpn-gateway-custom-audience-change/change-add-client.png":::
 1. Select **+ Add a client application**.
-1. On the **Add a client application** pane, for **Client ID**, use the Azure Public Application ID for the Microsoft-registered Azure VPN Client app, `00001111-aaaa-2222-bbbb-3333cccc4444`.
+1. On the **Add a client application** pane, for **Client ID**, use the Azure Public Application ID for the Microsoft-registered Azure VPN Client app, `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`.
 1. Make sure **Authorized scopes** is selected. Then, click **Add application**.
 1. On the **Expose an API** page, you'll now see both Client ID values listed. If you want to delete the previous version, click the value to open the **Edit a client application** page, and click **Delete**.
 1. On the **Overview** page, notice that the values haven't changed. If you've already configured your gateway and clients using the custom Application (client) ID shown for the gateway **Audience ID** field and your clients are already configured to use this custom value, you don't need to make any additional changes.

@@ -30,7 +30,7 @@ Make sure that you can use the following steps to access the device from your cl
     ### [Az](#tab/Az)
 
     ```powershell
-    login-AzAccount -EnvironmentName <Environment Name> -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
+    login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
     ```
 
     To connect via Azure Resource Manager, provide the username *EdgeArmUser* and your password.
@@ -38,7 +38,7 @@ Make sure that you can use the following steps to access the device from your cl
     ### [AzureRM](#tab/AzureRM)
 
     ```powershell
-    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
+    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
     ```
 
     To connect via Azure Resource Manager, provide the username *EdgeArmUser* and your password.
