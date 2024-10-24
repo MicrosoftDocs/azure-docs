@@ -110,31 +110,36 @@ For example, you want to deploy 10 nodes of AV36P node type.
 
 ## Moving between the two VCF licensing methods
 
-If you're currently managing your own VCF subscription for Azure VMware Solution and wish to transition to Azure VMware Solution-owned VCF subscription, you can easily make the switch without any changes to your private cloud.    
+If you're currently managing your own VCF subscription for Azure VMware Solution and wish to transition to Azure VMware Solution-owned VCF subscription, you can easily make the switch without any changes to your private cloud. 
+
+If you're an existing Azure VMware Solution customer and wish to transition to the portable VCF (VCF BYOL) offering, you can also easily make the switch without any changes to your private cloud deployments by registering your portable VCF entitlements with Microsoft.
 
 **Steps:**
 
 1. Create a support request to inform us of your intent to convert.
-2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
+2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P or vice versa](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
-If you're an existing Azure VMware Solution customer deploying using Azure VMware Solution-owned VCF subscription and wish to transition to the portable VCF (VCF BYOL) offering, you can also easily make the switch without any changes to your private cloud deployments by registering your portable VCF entitlements with Microsoft. 
+**NOTE:** If you have RIs for your current deployments, ensure to exchange RI for the right Product Name to continue to get the discounted RI pricing. Without this step, you will incur the pay-as-you-go cost.
+
 
 >[!NOTE]
 >
 >You need to purchase the portable VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a private cloud with 100 AV36P nodes, you must purchase portable VCF for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.
 
-## Onboarding to VCF portability checklist
+## "Onboarding to portable VCF on Azure VMware Solution" Checklist
 
 **Scenario 1:**
 "I am converting existing AVS private cloud to VCF BYOL." 
 
-1. Get portable VCF for Azure VMware Solution proof-of-purchase from Broadcom for all cores used in your AVS private cloud in that Azure subscription.
-2. If you currently have Reserved Instance (RI) for the AVS node type, exchange RI for the corresponding VCF BYOL node type. For example, if you have 1 year RI for 10 AV36P nodes, you will need to place an exchange RI order for AV36P VCF BYOL node type. All the [Azure RI exchange rules](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) will apply. **NOTE:** If you register your portable VCF subscription without this step, you will be charged BYOL pay-as-you-go pricing by default for your usage.
-3. Register your portable VCF subscription with Azure VMware Solution.
+1. Get your portable VCF subscription from Broadcom.
+2. If you have an RI purchased, exchange the RI to the corresponding VCF BYOL RI.
+3. Register your portable VCF with Azure VMware Solution.
 
 **Scenario 2:**
 "I am creating a new AVS private cloud with VCF BYOL." 
 
-1. Get portable VCF for Azure VMware Solution proof-of-purchase from Broadcom for all cores used in your AVS private cloud in that Azure subscription.
+1. Get your portable VCF subscription from Broadcom.
 2. [Request host quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) for Azure VMware Solution.
-3. If you want to use the Reserved Instance (RI) pricing, purchase RI for the required node type with VCF BYOL. **NOTE:** If you register your portable VCF without this step, you will be charged BYOL pay-as-you-go pricing by default for your usage.
+3. If you intend to leverage the RI pricing, purchase the RI under the "VCF BYOL" product name.
+
+**NOTE:** If you register your portable VCF without this step, you will be charged BYOL pay-as-you-go pricing by default for your usage. To leverage the RI pricing, ensure the RI purchase under the right region, host count, and product name (VCF BYOL in this case).
