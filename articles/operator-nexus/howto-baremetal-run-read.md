@@ -370,7 +370,7 @@ When an optional argument `--output-directory` is provided, the output result is
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
    --limit-time-seconds 60 \
-   --commands "[{command:'kubectl get',arguments:[pods]}]" \
+   --commands "[{command:'kubectl get',arguments:['pods', '-n', 'nc-system']}]" \
    --resource-group "<cluster_MRG>" \
    --subscription "<subscription>"
 ```
