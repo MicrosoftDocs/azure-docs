@@ -1,9 +1,9 @@
 ---
-title: "Tutorial: Get insights from your processed data"
-description: "Tutorial: Use a Real-Time Dashboard to capture insights from the OPC UA data you sent to Event Hubs."
+title: "Quickstart: Get insights from your processed data"
+description: "Quickstart: Use a Real-Time Dashboard to capture insights from the OPC UA data you sent to Event Hubs."
 author: baanders
 ms.author: baanders
-ms.topic: tutorial
+ms.topic: quickstart
 ms.custom:
   - ignite-2023
 ms.date: 10/23/2024
@@ -11,17 +11,17 @@ ms.date: 10/23/2024
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
 
-# Tutorial: Get insights from your processed data
+# Quickstart: Get insights from your processed data
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this tutorial, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous tutorial. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
+In this quickstart, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
 
-These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md)
+Before you begin this quickstart, you must complete the previous Azure IoT Operations quickstarts.
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
 
@@ -29,7 +29,7 @@ Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards
 
 ## What problem will we solve?
 
-Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this tutorial illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
+Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
 
 ## Ingest data into Real-Time Intelligence
 
@@ -47,7 +47,7 @@ After the eventstream is created, you'll see the main editor where you can start
 
 ### Add event hub as a source
 
-Next, add your event hub from the previous tutorial as a data source for the eventstream.
+Next, add your event hub from the previous quickstart as a data source for the eventstream.
 
 Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=standard-capabilities#add-an-azure-event-hub-as-a-source) to add the event source. Keep the following notes in mind:
 
@@ -64,7 +64,7 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-1. Start your cluster where you deployed Azure IoT Operations in earlier tutorials. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data to the MQTT broker. You can verify this part of the flow using mqttui as described in [Verify data is flowing](tutorial-add-assets.md#verify-data-is-flowing).
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data to the MQTT broker. You can verify this part of the flow using mqttui as described in [Verify data is flowing](quickstart-add-assets.md#verify-data-is-flowing).
 
 1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the *AzureEventHub* source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
@@ -126,7 +126,7 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your tutorial data. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature and other data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature and other data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
@@ -247,7 +247,7 @@ Next, create a tile to display a real-time spike indicator for temperature.
 
 1. **Save** your completed dashboard.
 
-Now you have a dashboard that displays different types of visuals for the asset data in these tutorials. From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
+Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
 
 ### Experiment with dashboard queries
 
@@ -279,17 +279,17 @@ Below are some more queries that you can use to add additional tiles to your das
 
 ## How did we solve the problem?
 
-In this tutorial, you used an eventstream to ingest your Event Hubs data into a KQL database in Microsoft Fabric Real-Time Intelligence. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+In this quickstart, you used an eventstream to ingest your Event Hubs data into a KQL database in Microsoft Fabric Real-Time Intelligence. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 
-This completes the final step in the tutorial flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
+This completes the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources
 
-If you're continuing on to the next tutorial, keep all of your resources.
+If you're continuing on to the next quickstart, keep all of your resources.
 
 [!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
 
 > [!NOTE]
-> The resource group contains the Event Hubs namespace you created in this tutorial.
+> The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard.
