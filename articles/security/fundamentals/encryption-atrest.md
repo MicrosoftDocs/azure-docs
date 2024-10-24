@@ -93,7 +93,7 @@ Infrastructure as a Service (IaaS) customers can have a variety of services and 
 
 #### Encrypted storage
 
-Like PaaS, IaaS solutions can leverage other Azure services that store data encrypted at rest. In these cases, you can enable the Encryption at Rest support as provided by each consumed Azure service. The [Data encryption models: supporting services table](encryption-models.md#supporting-services) enumerates the major storage, services, and application platforms and the model of Encryption at Rest supported.
+Like PaaS, IaaS solutions can leverage other Azure services that store data encrypted at rest. In these cases, you can enable the Encryption at Rest support as provided by each consumed Azure service. The [Data encryption models](encryption-models.md) enumerates the major storage, services, and application platforms and the model of Encryption at Rest supported.
 
 #### Encrypted compute
 
