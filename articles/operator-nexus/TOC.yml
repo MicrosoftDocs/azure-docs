@@ -152,45 +152,45 @@
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
-        - name: Network Fabric
-          expanded: false
-          items:
-            - name: Isolation Domain
-              href: howto-configure-isolation-domain.md
-            - name: Isolation Domain Configuration Examples
-              href: reference-isolation-domain-configuration-examples.md
-            - name: Network Fabric Route Policy
-              href: how-to-route-policy.md
-            - name: IP Prefixes
-              href: how-to-ip-prefixes.md
-            - name: Network Packet Broker
-              href: howto-configure-network-packet-broker.md
-            - name: Validate cables for Nexus Network Fabric
-              href: how-to-validate-cables.md
-            - name: Creating Access Control Lists (ACLs)
-              href: howto-create-access-control-list-for-network-to-network-interconnects.md
-            - name: Apply ACLs to Network-to-Network Interconnects (NNI)
-              href: howto-apply-access-control-list-to-network-to-network-interconnects.md
-            - name: Updating ACL on Network-for-Network Interconnects (NNI)
-              href: howto-update-access-control-list-for-network-to-network-interconnects.md
-            - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
-              href: howto-delete-access-control-list-network-to-network-interconnect.md
-            - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
-              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
-            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
-              href: howto-delete-layer-3-isolation-domains.md
-            - name: How to monitor interface In and Out packet rate for network fabric devices
-              href: howto-monitor-interface-packet-rate.md
-            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
-              href: howto-delete-layer-3-isolation-domains.md
-            - name: Cross-subscription deployments and required RBAC for Network Fabric
-              href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
-            - name: How to replace network devices in Azure Operator Nexus Network Fabric
-              href: howto-replace-network-devices.md
-            - name: How to put a device into maintenance mode
-              href: howto-put-device-in-maintenance-mode.md
-            - name: How to upgrade Network Fabric
-              href: howto-upgrade-nexus-fabric.md
+    - name: Network Fabric
+      expanded: false
+      items:
+          - name: Isolation Domain
+            href: howto-configure-isolation-domain.md
+          - name: Isolation Domain Configuration Examples
+            href: reference-isolation-domain-configuration-examples.md
+          - name: Network Fabric Route Policy
+            href: how-to-route-policy.md
+          - name: IP Prefixes
+            href: how-to-ip-prefixes.md
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
+          - name: Validate cables for Nexus Network Fabric
+            href: how-to-validate-cables.md
+          - name: Creating Access Control Lists (ACLs)
+            href: howto-create-access-control-list-for-network-to-network-interconnects.md
+          - name: Apply ACLs to Network-to-Network Interconnects (NNI)
+            href: howto-apply-access-control-list-to-network-to-network-interconnects.md
+          - name: Updating ACL on Network-for-Network Interconnects (NNI)
+            href: howto-update-access-control-list-for-network-to-network-interconnects.md
+          - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
+            href: howto-delete-access-control-list-network-to-network-interconnect.md
+          - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+            href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+          - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+            href: howto-delete-layer-3-isolation-domains.md
+          - name: How to monitor interface In and Out packet rate for network fabric devices
+            href: howto-monitor-interface-packet-rate.md
+          - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+            href: howto-delete-layer-3-isolation-domains.md
+          - name: Cross-subscription deployments and required RBAC for Network Fabric
+            href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
+          - name: How to replace network devices in Azure Operator Nexus Network Fabric
+            href: howto-replace-network-devices.md
+          - name: How to put a device into maintenance mode
+            href: howto-put-device-in-maintenance-mode.md
+          - name: How to upgrade Network Fabric
+            href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

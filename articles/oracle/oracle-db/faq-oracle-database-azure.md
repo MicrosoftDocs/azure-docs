@@ -89,6 +89,10 @@ BCDR using the OCI managed offering (Backup and Data Guard) won't incur any more
 
 Ingress and Egress for managed services is via Azure OCI backbone and doesn't incur charges. Virtual network traffic is charged at the current price.
 
+### Can a Cloud Service Provider (CSP) or an Outsourcer (OCA) avail the Oracle Database@Azure Service?
+
+No, Oracle Database@Azure does not support Cloud Service Providers, Outsourcer Channel Agreements, or Multi-party private offers (MPPO).   
+
 ## Onboarding, Provisioning, and Migration
 In this section, we'll cover questions related to onboarding, provisioning, and migration to Oracle Database@Azure.
 ### To set up Oracle Database@Azure, what would be the role assignments needed for the Azure user?

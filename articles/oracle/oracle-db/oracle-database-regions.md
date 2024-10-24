@@ -19,7 +19,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
 | Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
-| Korea Central  | South Korea Central(Seoul)  | ✓  |          ✓                      |
+| Japan East     | Japan East(Tokyo)  | ✓  |          ✓                      |
 
 
 ## Europe, Middle East, Africa (EMEA) 
