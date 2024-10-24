@@ -14,7 +14,7 @@ ms.author: slpavkov
 ---
 ## Understanding calling codes and subcodes 
 ### When are error codes received?
-If an API call is made and it isn't accepted, an error code is given by ACS describing why the API call was rejected. If an API call is made and is accepted but something still goes wrong, both a callback event and an error code are received. An example of a common callback event for call failures would be the `callDisconnected` event that is surfaced whenever a call is disconnected. Once the `callDisconnected` event is received, there won't be any more callback events for that given call. For a list of call signaling callback events see ([this page](../../../../../concepts/call-automation/call-automation.md)), and for a list of callback events for media actions see ([this page](../../../../../how-tos/call-automation/control-mid-call-media-actions.md)). 
+Error codes for Call Automation can come either as synchronous responses to API calls or asynchronous responses via the provided callback URI. In the synchronous sitiation, if an API call is made and it isn't accepted, an error code is given by ACS describing why the API call was rejected. In asynchronous scenarios if an API call is made and is accepted but something still goes wrong, both a callback event and an error code are received. An example of a common callback event for call failures would be the `callDisconnected` event that is surfaced whenever a call is disconnected. Once the `callDisconnected` event is received, there won't be any more callback events for that given call. For a list of call signaling callback events see ([this page](../../../../../concepts/call-automation/call-automation.md)), and for a list of callback events for media actions see ([this page](../../../../../how-tos/call-automation/control-mid-call-media-actions.md)). 
 
 ### Error Code Syntax 
 Error codes, subcodes, and corresponding result categories help developers identify and diagnose errors. Error code details include: 
@@ -36,21 +36,21 @@ In addition to the code and subcode, more detailed troubleshooting information c
 The following table contains the most common codes and subcodes. If your error isn't in this table, refer to the generic codes and subcodes to get more information about your specific scenario.
 
 ### Most common Call Automation error codes
-| Code | Subcode | Meaning | Advice |
+| Code | Subcode | Description | Mitigation |
 | --- | --- | --- | --- |
 | 404 | 8522 | A generic error code that indicates that the resource isn't found. Resources can include calls and participants. | The call may have already ended, or the participant has left the call. |
 | 400 | 8523 | A generic error code that indicates that something in the request body is invalid. | Check to make sure all of the parameters are valid. |
-| 400 | 8501 | Action Not Supported Call Not Established | Double check to see if call is active. |
-| 400 | 8500 | Invalid Media Mode | Check the status of your media operations to see if it's already active. |
+| 400 | 8501 | Action Not Supported Call Not Established | Double check to see if call is active. If the call is active and you are still running into this issue, open a ticket with Microsoft support. |
+| 400 | 8500 | Invalid Media Mode | Check the status of your media operations to see if any of them are already active. |
 | 400 | 8559 | Action Not Supported Only One Single Dialout App Allowed | Duplicate start recording request, recording already initiated or in progress. |
-| 400 | 8528 | Action not supported call terminated | Double check to see if call is active. |
+| 400 | 8528 | Action not supported call terminated | Double check to see if call is active. If the call is active and you are still running into this issue, open a ticket with Microsoft support.|
 | 409 | 8519 | Conflict | Check to make sure multiple actions aren't being performed on the same resource in parallel. |
-| 403 | 7507 | Call Source Identity Invalid | Application identity from authorization token didn't match application identity in call source. |
+| 403 | 7507 | Call Source Identity Invalid | Application identity from authorization token didn't match application identity in call source. Check to make sure you're using the connection string from the ACS resource the incoming call webhook was configured in (the phone number has to be owned by the same ACS resource answering the call). |
 | 403 | 7504 | Insufficient Application Permissions | Generic code for insufficient permissions, check error message for context on what resource is lacking permissions. |
 | 400 | 8585 | Action Not Valid In Current Call State | Check to make sure that actions are compatible with current call state. |
-| 405 | 8520 | Functionality not supported at this time | Expected Error: Workflow not supported. |
-| 412 | 8583 | Precondition Failed | Check media streaming status and make sure actions are compatible. |
-| 400 | 8567 | ACS Resource Service Principal Not Enabled | Service principal for the Azure Communication Service Resource isn't configured. |
+| 405 | 8520 | Functionality not supported at this time | Expected Error: Workflow not supported. ACS currently does not support VoIP to PSTN transfer or audio streaming and real-time transcriptions using connect interface.  Check our release blog to see if there is a updated SDK that has enabled these functionalities. |
+| 412 | 8583 | Precondition Failed | Check media streaming status and make sure actions are compatible with current media streaming or transcription status (eg calling update transcription when stream is not active). |
+| 400 | 8567 | ACS Resource Service Principal Not Enabled | The Azure Cognitive Service Resource is not configured properly. See this [page](../../../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md) for a guide on setting up your Azure Cognitive Service Resource. |
 | 405 | 8522 | Missing configuration |Check error message for more context (ensure configuration is set during call setup) | 
 
 ### Generic error codes
@@ -60,7 +60,7 @@ A 2xx code represents a successful response. The subcode for successful response
 #### 4xx codes 
 A 4xx Code represents a client error.
 
-| Status Code | Meaning |
+| Status Code | Description |
 | --- | --- |
 | 400 | Bad request |
 | 401 | Unauthorized |
@@ -80,7 +80,7 @@ A 4xx Code represents a client error.
 #### 5xx codes
 A 5xx code represents a server error.
 
-| Status Code | Meaning |
+| Status Code | Decscription |
 | --- | --- |
 | 500 | Internal server error |
 | 501 | Not implemented |
@@ -91,12 +91,12 @@ A 5xx code represents a server error.
 #### 6xx codes
 A 6xx code represents a global error.
 
-| Status Code | Meaning |
+| Status Code | Description |
 | --- | --- |
 | 603 | Declined |
 
 ### Generic subcodes 
-| Subcode | Meaning |
+| Subcode | Description |
 | --- | --- |
 | 0 | Success |
 | 7000 | Graceful |
