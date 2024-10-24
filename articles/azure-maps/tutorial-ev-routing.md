@@ -23,7 +23,7 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 >
-> * Create and run a [Jupyter Notebooks in VS Code].
+> * Create and run a [Jupyter Notebook in VS Code].
 > * Call Azure Maps REST APIs in Python.
 > * Search for a reachable range based on the electric vehicle's consumption model.
 > * Search for electric vehicle charging stations within the reachable range, or [isochrone].
@@ -36,7 +36,7 @@ In this tutorial, you will:
 * A [subscription key]
 * [Visual Studio Code]
 * A working knowledge of [Jupyter Notebooks in VS Code]
-* Environment setup to work with Python in Jupyter Notebooks. For more information, see [Setting up your environment].
+* Environment set up to work with Python in Jupyter Notebooks. For more information, see [Setting up your environment].
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
@@ -79,7 +79,7 @@ After selecting a kernel, the language picker located in the bottom right of eac
 
 ## Load the required modules and frameworks
 
-Once your code is added, you can run a cell using the Run icon to the left of the cell and the output will be displayed below the code cell.
+Once your code is added, you can run a cell using the **Run** icon to the left of the cell and the output is displayed below the code cell.
 
 Run the following script to load all the required modules and frameworks.
 
@@ -288,7 +288,7 @@ display(Image(staticMapImage))
 
 In this tutorial, you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data by using Python.
 
-To explore the Azure Maps APIs that are used in this tutorial, see:
+For more information on the Azure Maps APIs used in this tutorial, see:
 
 * [Get Route Range]
 * [Post Search Inside Geometry]
@@ -306,7 +306,6 @@ To learn more about Azure Notebooks, see
 
 [aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
 [EVrouting.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
@@ -317,13 +316,11 @@ To learn more about Azure Notebooks, see
 [IPython]: https://ipython.readthedocs.io/en/stable/index.html
 [isochrone]: glossary.md#isochrone
 [Jupyter Notebooks in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
-[Jupyter Notebook document file]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing]: /rest/api/maps/route/postroutematrix
 [Post Route Matrix]: /rest/api/maps/route/postroutematrix
 [Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
-[*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
 [Setting up your environment]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
