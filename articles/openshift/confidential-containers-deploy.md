@@ -1,12 +1,12 @@
 ---
-title: Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster
+title: Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster (Preview)
 description: Discover how to deploy Confidential Containers in Azure Red Hat OpenShift (ARO)
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 10/24/2024
 ms.custom: template-how-to
 ---
 
@@ -85,20 +85,24 @@ This article describes the steps required to deploy Confidential Containers for 
 
 Before beginning the deployment process, make sure the following prerequisites are met:
 
-- An existing ARO cluster (version 1.14 or later) with at least one worker node
+- An existing ARO cluster (version 4.15 or later) with at least one worker node
 
 - Access to the cluster with the `cluster-admin` role
 
 - The [OpenShift CLI installed](howto-create-private-cluster-4x.md#install-the-openshift-cli)
 
+> [!IMPORTANT]
+> For each pod in an application, there is a one-to-one mapping with a corresponding Confidential Virtual Machine (CVM). This means that every new pod requires a separate CVM, ensuring isolation between pods.
+> 
 
 ## Part 1: Deploy OpenShift sandboxed containers
 
-> [!NOTE]
-> In order to deploy sandboxed containers, you must have access to the cluster with the cluster-admin role.
-> 
-
 ### Install the OpenShift sandboxed containers Operator
+
+The OpenShift sandboxed containers operator can be installed through the CLI or the OpenShift web console.
+
+
+::: zone pivot="aro-azurecli"
 
 1. Create an `osc-namespace.yaml` manifest file:
 
@@ -156,7 +160,7 @@ Before beginning the deployment process, make sure the following prerequisites a
     `$ oc get csv -n openshift-sandboxed-containers-operator`
 
     > [!NOTE]
-> This command can take several minutes to complete.
+    > This command can take several minutes to complete.
 
 1.	Watch the process by running the following command:
 
@@ -168,11 +172,35 @@ Before beginning the deployment process, make sure the following prerequisites a
     openshift-sandboxed-containers   openshift-sandboxed-containers-operator  1.7.0      1.6.0        Succeeded
     ```
 
+::: zone-end
+
+::: zone pivot="Web console"
+
+1. In the web console, navigate to **Operators → OperatorHub**.
+
+1. In the **Filter by keyword** field, type OpenShift sandboxed containers.
+
+1. Select the **OpenShift sandboxed containers Operator** tile and click **Install**.
+
+1. On the **Install Operator** page, select **stable** from the list of available **Update Channel** options.
+
+1. Verify that **Operator recommended Namespace** is selected for **Installed Namespace**. This installs the Operator in the mandatory `openshift-sandboxed-containers-operator` namespace. If this namespace does not yet exist, it's automatically created.
+
+    > [!NOTE]
+    > Attempting to install the OpenShift sandboxed containers Operator in a namespace other than openshift-sandboxed-containers-operator causes the installation to fail.
+    > 
+
+1. Verify that **Automatic** is selected for **Approval Strategy**. **Automatic** is the default value, and enables automatic updates to OpenShift sandboxed containers when a new z-stream release is available.
+
+1. Click **Install**.
+
+1. Navigate to **Operators → Installed Operators** to verify that the Operator is installed.
+
 ### Create the peer pods secret
 
 You must create the peer pods secret for OpenShift sandboxed containers. The secret stores credentials for creating the pod virtual machine (VM) image and peer pod instances.
 
-By default, the OpenShift sandboxed containers Operator creates the secret based on the credentials used to create the cluster. However, you can manually create a secret that uses different credentials.
+By default, the OpenShift sandboxed containers operator creates the secret based on the credentials used to create the cluster. However, you can manually create a secret that uses different credentials.
 
 
 1.	Retrieve the Azure subscription ID by running the following command:
@@ -323,10 +351,13 @@ You must create an SSH key secret, which Azure uses to create virtual machines.
 
 1. Create a trustee-namespace.yaml manifest file:
 
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: trustee-operator-system
+    ```
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+    name: trustee-operator-system
+    ```
+
 
 1.	Create the trustee-operator-system namespace by running the following command:
 
@@ -650,7 +681,8 @@ Do not confuse the Trustee policy engine with the Attestation Service policy eng
 **Attestation policy**
 
 Optional: You can overwrite the default attestation policy by creating your own attestation policy.
-Provisioning Certificate Caching Service for TDX
+
+**Provisioning Certificate Caching Service for TDX**
 
 If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provisioning Certificate Caching Service (PCCS). The PCCS retrieves Provisioning Certification Key (PCK) certificates and caches them in a local database.
 

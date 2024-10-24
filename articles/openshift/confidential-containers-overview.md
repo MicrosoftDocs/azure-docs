@@ -1,11 +1,11 @@
 ---
-title: Confidential Containers with Azure Red Hat OpenShift
+title: Confidential Containers with Azure Red Hat OpenShift (Preview)
 description: Discover how to utilize Confidential Containers with Azure Red Hat OpenShift to protect sensitive data.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/17/2024
+ms.date: 10/24/2024
 ---
 # Confidential Containers with Azure Red Hat OpenShift
 
@@ -49,7 +49,7 @@ Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of
 The diagram above shows the three main steps for using Confidential Containers on an ARO cluster:
 1. The OpenShift Sandboxed Containers Operator is deployed on the ARO cluster.
 1. Kata Runtime container on an ARO worker node uses the cloud-api-adapter to create a peer pod on a confidential VM.
-1. The remote attestation agent on the peer pod initiates the attestation of the container image before the data-agent deploys it, ensuring the integrity of the image.
+1. The remote attestation agent on the peer pod initiates the attestation of the container image before the kata-agent deploys it, ensuring the integrity of the image.
 
 ### Attestation
 
