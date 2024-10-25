@@ -85,18 +85,37 @@ For example, the following diagram shows the dependencies between a Standard log
 
 <a name="deploy-logic-app-resources"></a>  
 
-## Deploy logic app resources (zip deploy)
+## Build and deploy logic app (zip deploy)
 
 If you have a Standard logic app project, push that project and artifact files to your source repository. You can then set up build and release pipelines either inside or outside Azure that deploy Standard logic apps to your infrastructure.
 
 ### Build your project
 
-To set up a build pipeline based on your logic app project type, complete the corresponding actions in the following table:
+1. To set up a build pipeline based on your logic app project type, complete the corresponding actions in the following table:
 
-| Project type | Description and steps |
-|--------------|-----------------------|
-| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the documentation for [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild). |
-| Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <br><br>**Important**: Make sure that your zip file contains the actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, and any other related files. |
+   | Project type | Description and steps |
+   |--------------|-----------------------|
+   | Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the documentation for [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild). |
+   | Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. |
+
+1. Zip your project files using any method that you want.
+
+   > [!IMPORTANT]
+   >
+   > Make sure that your zip file contains your project's actual build artifacts at the root level, 
+   > including all workflow folders, configuration files such as **host.json**, **connections.json**, 
+   > **local.settings.json**, and any other related files. Don't add any extra folders nor put any 
+   > artifacts into folders that don't already exist in your project structure. 
+   >
+   > For example, the following list shows an example **MyBuildArtifacts.zip** file structure:
+   >
+   > ```
+   > MyStatefulWorkflow1-Folder
+   > MyStatefulWorkflow2-Folder
+   > connections.json
+   > host.json
+   > local.settings.json
+   > ```
 
 ### Before release to Azure
 
@@ -104,7 +123,7 @@ The managed API connections inside your logic app project's **connections.json**
 
 #### Update authentication type
 
-For each managed API connection that uses authentication, you have to update the **authentication** object from the local format in Visual Studio Code to the Azure portal format, as shown by the first and second code examples, respectively:
+For each managed API connection that uses authentication, you have to update the **`authentication`** object from the local format in Visual Studio Code to the Azure portal format, as shown by the first and second code examples, respectively:
 
 **Visual Studio Code format**
 
@@ -182,7 +201,7 @@ To find the required values for the **`properties`** object so that you can comp
 
 `GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
-In the response, find the **connectionParameters** object, which contains the necessary information to complete the resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
+In the response, find the **`connectionParameters`** object, which contains the necessary information to complete the resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
 
 ```json
 {
@@ -221,7 +240,7 @@ To set up a release pipeline that deploys to Azure, follow the associated steps 
 For GitHub deployments, you can deploy your logic app by using [GitHub Actions](https://docs.github.com/actions), for example, the GitHub Actions in Azure Functions. This action requires that you pass through the following information:
 
 - The logic app name to use for deployment
-- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, and any other related files.
+- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, **local.settings.json**, and any other related files.
 - Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
 
 ```yaml
@@ -241,7 +260,7 @@ For more information, review [Continuous delivery by using GitHub Action](../azu
 For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/azure/devops/pipelines/tasks/deploy/azure-function-app?view=azure-devops&preserve-view=true) in Azure Pipelines. This action requires that you pass through the following information:
 
 - The logic app name to use for deployment
-- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, and any other related files.
+- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, **local.settings.json**, and any other related files.
 - Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
 
 ```yaml
@@ -388,22 +407,6 @@ If your resource group is successfully created, the output shows the **`provisio
 
 Now, you can deploy your zipped artifacts to the Azure resource group that you created.
 
-> [!IMPORTANT]
->
-> Make sure that your zip file contains your project's artifacts at the root level. These artifacts 
-> include all workflow folders, configuration files such as **host.json**, **connections.json**, 
-> and any other related files. Don't add any extra folders nor put any artifacts into folders 
-> that don't already exist in your project structure. 
->
-> For example, this list shows an example **MyBuildArtifacts.zip** file structure:
->
-> ```output
-> MyStatefulWorkflow1-Folder
-> MyStatefulWorkflow2-Folder
-> connections.json
-> host.json
-> ```
-
 Run the command, **`az logicapp deployment`**, with the following required parameters:
 
 ```azurecli
@@ -416,7 +419,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ### After release to Azure
 
-Each API connection has access policies. After the zip deployment completes, you must open your Standard logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app. The zip deployment doesn't create app settings for you. After deployment, you must create these app settings based on the **local.settings.json** file in your local Visual Studio Code project.
+Each API connection has access policies. After the zip deployment completes, you must open your Standard logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app. The zip deployment doesn't create app settings for you. After deployment, you must create these app settings based on the **local.settings.json** file in your logic app project.
 
 ## Related content
 
