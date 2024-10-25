@@ -74,7 +74,7 @@ import urllib.parse
 from IPython.display import Image, display
 ```
 
-![A screenshot showing how to download the Notebook file named EVrouting.ipynb from the GitHub repository.](./media/tutorial-ev-routing/load-required-modules.png)
+![A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.](./media/tutorial-ev-routing/import-libraries.png)
 
 ## Request the reachable range boundary
 
@@ -291,7 +291,7 @@ To learn more about Azure Notebooks, see
 [aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps REST APIs]: /rest/api/maps
-[Azure Notebooks]: https://notebooks.azure.com
+[AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [EVrouting.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
