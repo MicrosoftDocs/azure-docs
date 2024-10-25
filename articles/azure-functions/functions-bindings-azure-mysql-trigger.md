@@ -18,9 +18,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure Database for MySQL trigger for Functions
 
 > [!NOTE]
-> In consumption plan functions, automatic scaling is not supported for Database for MySQL trigger. If the automatic scaling process stops the function, all processing of events will stop and it will need to be manually restarted.
->
-> Use premium or dedicated plans for [scaling benefits](functions-scale.md) with MySQL trigger.
+> While input and output bindings will be supported on all plans, the MySQL Trigger binding will be available only on [dedicated and premium plans](functions-scale.md) during the public preview. Support for Consumption plans in the MySQL Trigger binding will be introduced at general availability.
 > 
 
 The Azure Database for MySQL trigger creates a new column to monitor when a row is created, or deleted. The Trigger bindings monitor the user table for changes (inserts, updates) and invokes the function with updated row data.
@@ -35,8 +33,6 @@ CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
 The leases table contains all columns corresponding to the primary key from the user table and two additional columns _az_func_AttemptCount and _az_func_LeaseExpirationTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
-
-The Azure Database for MySQL trigger scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ## Functionality Overview
 

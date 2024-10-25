@@ -1320,7 +1320,7 @@ The following table explains the binding configuration properties that you set i
 >
 >It is on different programming language if special character is supported to define members attributes containing special characters. For example, C# have few limitations to define [variables](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names)
 >
->Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [github link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
+>Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [Github link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
 >
 
 ## Usage
