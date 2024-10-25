@@ -117,6 +117,13 @@ Now, you're ready to create an event subscription to the system topic for the so
 
     To test the scenario, create a container in the Azure blob storage and upload a file to it. Verify that the event handler or endpoint for your namespace topic receives the blob created event. 
 
+    When you upload a blob to a container in the Azure storage, here's what happens:
+
+    1. Azure Blob Storage sends a **Blob Created** event to your blob storage's system topic. 
+    1. The event is forwarded to your namespace topic as it's the event handler or endpoint for the system topic. 
+    1. The endpoint for the subscription to the namespace topic receives the forwarded event.
+    
+
 ## Related content
 
 See the following articles:
