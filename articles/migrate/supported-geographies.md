@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/22/2024
 ---
 
-## Supported geographies 
+# Supported geographies 
 
 #### [Azure Public cloud](#tab/public)
 
-### Public cloud
+## Public cloud
 
 You can create a project in many geographies in the public cloud.
 
@@ -46,7 +46,7 @@ United States | Central US or West US 2
 
 #### [Azure for US Government](#tab/gov)
 
-### Azure Government
+## Azure Government
 
 **Task** | **Geography** | **Details**
 --- | --- | ---
