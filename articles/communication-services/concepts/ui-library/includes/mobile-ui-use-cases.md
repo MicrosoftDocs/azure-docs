@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 09/14/2021
 ---
 
-Use the `CallComposite` and the `ChatComposite` in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
+Use `CallComposite` and `ChatComposite` in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
 
 ## Calling use cases
 
@@ -14,38 +14,40 @@ You can use the call composite in Communication Services to create these use cas
 
 | Area                                                                 | Use cases                                                       |
 | -------------------------------------------------------------------- | --------------------------------------------------------------- |
-| [Call types](#call-integration)                                                           | Join a Microsoft Teams meeting                                  |
-|                                                                      | Join a Microsoft Teams meeting using Meeting ID and Passcode    |
-|                                                                      | Join a call by using a group ID                                 |
-|                                                                      | Join a call by using a room  ID                                 |
-|                                                                      | [Make and Receive 1:1 Calls](#one-to-one-call-and-push-notification-support)                                     |
-| [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
-|                                                                                                 | Display a transcription and recording alert banner               |
-|                                                                                                 | Admit/Reject lobby participants                                 |
-| [Closed Captions](#closed-captions)                                                             | Teams interoperability                                      |
-|                                                                                                 | Group call, Rooms call, and 1:1 call                                       |
-| Participant gallery                                                                   | Show remote participants on a grid              |
-|                                                                                                 | Make video preview available throughout a call for a local user |
-|                                                                                                 | Make default avatars available when video is off            |
-|                                                                                                 | Show shared screen content in the participant gallery |
-|                                                                                                 | Enable participant avatar customization                |
-|                                                                                                 | Show a participant roster                                     |
-| Call management                                                                    | Manage the microphone device                           |
-|                                                                                                 | Manage the camera device                               |
-|                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
-|                                                                                                 | Make local preview available for a user to check video       |
-|                                                                                                 | [Subscribe events](#events)       |
-| Call controls                                                                            | Mute and unmute a call                                       |
-|                                                                                                 | Turn video on or off during a call                                   |
-|                                                                                                 | End a call                                               |
-|                                                                                                 | Hold and resume a call after audio interruption                 |
-|                                                                                                 | [CallKit and TelecomManager Support](#os-integrations)                 |
-| [Customize the experience](#customize-the-call-experience)                                      | Button bar customization                                        |
-|                                                                                                 | Title and subtitle configuration                                        |
-|                                                                                                 | Enable end call confirmation dialogue                 |
-|                                                                                                 | Skip setup screen                 |
+| [Call types](#call-integration)                                                           | Join a Microsoft Teams meeting.                                  |
+|                                                                      | Join a Microsoft Teams meeting by using a Meeting ID and Passcode.    |
+|                                                                      | Join a call by using a group ID.                                 |
+|                                                                      | Join a call by using a room  ID.                                 |
+|                                                                      | [Make and receive 1:1 calls](#one-to-one-call-and-push-notification-support).                                     |
+| [Teams interoperability](../../teams-interop.md)                     | Join the call lobby.                                             |
+|                                                                                                 | Display a transcription and recording alert banner.               |
+|                                                                                                 | Admit or reject lobby participants.                                 |
+| [Closed Captions](#closed-captions)                                                             | Teams interoperability.                                      |
+|                                                                                                 | Group call, rooms call, and 1:1 call.                                       |
+| Participant gallery                                                                   | Show remote participants on a grid.              |
+|                                                                                                 | Make video preview available throughout a call for a local user. |
+|                                                                                                 | Make default avatars available when video is off.            |
+|                                                                                                 | Show shared screen content in the participant gallery. |
+|                                                                                                 | Enable participant avatar customization.                |
+|                                                                                                 | Show a participant roster.                                     |
+| Call management                                                                    | Manage the microphone device.                           |
+|                                                                                                 | Manage the camera device.                               |
+|                                                                                                 | Manage the speaker device (wired or Bluetooth).                              |
+|                                                                                                 | Make local preview available for a user to check video.       |
+|                                                                                                 | [Subscribe events](#events).       |
+| Call controls                                                                            | Mute and unmute a call.                                       |
+|                                                                                                 | Turn video on or off during a call.                                   |
+|                                                                                                 | End a call.                                               |
+|                                                                                                 | Hold and resume a call after audio interruption.                 |
+|                                                                                                 | [CallKit and TelecomManager support](#os-integrations).                 |
+| [Customize the experience](#customize-the-call-experience)                                      | Button bar customization.                                        |
+|                                                                                                 | Title and subtitle configuration.                                        |
+|                                                                                                 | Enable end call confirmation dialogue.                 |
+|                                                                                                 | Skip setup screen.                 |
 
 ## Call integration
+
+This section discusses integration for calls.
 
 ### Teams interoperability
 
@@ -53,34 +55,36 @@ For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI L
 
 :::image type="content" source="../../media/mobile-ui/teams-interop-diagram.png" border="false" alt-text="Diagram that shows the Teams interoperability pattern for call and chat.":::
 
-The following figure shows an example of the user experience before a caller is added to a Teams meeting:
+The following figure shows an example of the user experience before a caller is added to a Teams meeting.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
 
 ### Rooms integration
 
-Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+Communication Services provides a concept of a room for developers who are building structured conversations, such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 
-A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../../rooms/room-concept.md).
+A room is a container that manages activity between Communication Services users. A room offers application developers better control over *who* can join a call, *when* they meet, and *how* they collaborate. To learn more about rooms, see the [conceptual documentation](../../rooms/room-concept.md).
 
-A user is invited to a room using the Rooms API as 1 of 3 following roles:
+A user is invited to a room by using the Rooms API in one of the three following roles:
 
-- Presenter(default)
+- Presenter (default)
 - Attendee
 - Consumer
 
-The distinction between each role lies in the capabilities they possess during a room call when utilizing the `CallComposite`. The specific capabilities associated with each role are detailed [here](../../rooms/room-concept.md#predefined-participant-roles-and-permissions).
+The distinction between each role lies in the capabilities they possess during a room call when using `CallComposite`. The specific capabilities associated with each role are described in [Virtual Rooms overview](../../rooms/room-concept.md#predefined-participant-roles-and-permissions).
 
-:::image type="content" source="../../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
+:::image type="content" source="../../media/rooms/rooms-join-call.png" alt-text="Diagram that shows Rooms Management.":::
 
 > [!NOTE]
-> The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. It is important to note that the Rooms API is a back-end service that is separate from the UI Library.
+> The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. The Rooms API is a back-end service that's separate from the UI Library.
 
 ### One-to-one call and PUSH notification support
 
-UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../how-tos/ui-library-sdk/one-to-one-calling.md)
+The UI Library supports one-to-one VoIP calls to dial users by communication identifier. To receive an incoming call, the UI Library also supports registering for `PUSH` notifications. To learn more about the integration for Android and iOS platforms and use of the API, see [Make a one-to-one call and receive PUSH notifications](../../../how-tos/ui-library-sdk/one-to-one-calling.md).
 
 ## Calling features
+
+Several features are available for calling.
 
 ### Accessibility
 
@@ -88,36 +92,38 @@ Accessibility is a key focus of the call libraries. You can use a screen reader 
 
 ### Closed captions
 
-Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services Group calls, Rooms calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, **enhancing accessibility** and user experience. However, it's important to note that users need to manually select the language for captions using the UI Library out of the box, as the system doesn't automatically detect the spoken language.
+Closed captions enable a wide range of scenarios, including interoperability with Teams, Communication Services group calls, room calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, enhancing accessibility and user experience.
+
+Users need to manually select the language for captions using the UI Library out of the box because the system doesn't automatically detect the spoken language.
 
 :::image type="content" source="../includes/media/mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
 
 > [!NOTE]
->Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
+> Closed captions won't be billed at the beginning of its public preview. This offer is for a limited time only. Use of captions will likely be billed starting from June.
 
-If you're looking more detailed information about closed captions, feel free to visit [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. Additionally, if you want to jump directly into the configuration of closed captions directly within the UI Library, you can follow our [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
+For more information about closed captions, see [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. If you want to configure closed captions directly within the UI Library, follow the [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
 ### Events
 
-Developers can now subscribe to events within the Call Composite, enabling them to attach listeners to specific events throughout the call lifecycle. This enhancement provides greater control and customization opportunities, allowing developers to trigger custom actions based on events like  participant join, or participants left the call. Whether it's for logging interactions, dynamically updating user interfaces, or enhancing overall functionality.
+Developers can now subscribe to events within the Call Composite. With this feature, they can attach listeners to specific events throughout the call lifecycle. This enhancement provides greater control and customization opportunities. Developers can trigger custom actions based on events like participant join or participants who left the call. They can also use events for logging interactions, dynamically updating user interfaces, or enhancing overall functionality.
 
-For more information, see [How to handle events](../../../how-tos/ui-library-sdk/events.md).
+For more information, see [Handle events in the UI Library](../../../how-tos/ui-library-sdk/events.md).
 
 ### Localization
 
 Localization is key to making products for users around the world and who speak different languages. UI Library supports 12 languages: English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish, and Chinese. It also supports right-to-left languages. For more information, see [How to add localization to your app](../../../how-tos/ui-library-sdk/localization.md).
 
-### Multitasking and Picture-in-Picture
+### Multitasking and picture-in-picture mode
 
-UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking, which takes the user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture.](../../../how-tos/ui-library-sdk/picture-in-picture.md)
+UI Library supports the picture-in-picture mode for the call screen. While in a call, users can select the back button on the call screen to enable multitasking to take the user back to the previous screen. If picture-in-picture mode is enabled, a system picture-in-picture appears for the call. To learn more about multitasking and the picture-in-picture mode for both the Android and iOS platforms and use of the API, see [Turn on picture-in-picture by using the UI Library](../../../how-tos/ui-library-sdk/picture-in-picture.md).
 
 ### Screen orientation
 
-UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience, which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature.](../../../how-tos/ui-library-sdk/orientation.md)
+UI Library supports screen orientation setup for each of the screens separately prior to start of the library experience. Application developers can set up a fixed orientation for the calling experience, which would align their application orientation. To learn more about the list of supported orientation for both the Android and iOS platforms and use of the API, see [Set screen orientation by using the UI Library](../../../how-tos/ui-library-sdk/orientation.md).
 
 ### Screen size
 
-You can adapt the Azure Communication Services call composite to adapt to screen sizes from 5 inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
+You can adapt the Communication Services call composite to adapt to screen sizes from five inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
 
 |Split mode | Tablet mode|
 |---------|---------|
@@ -125,7 +131,7 @@ You can adapt the Azure Communication Services call composite to adapt to screen
 
 ### View data injection
 
-Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation's title and subtitle on Setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
+Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, and navigation's title and subtitle on the setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [Inject a custom data model in the UI Library](../../../how-tos/ui-library-sdk/data-model.md).
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
@@ -135,19 +141,23 @@ Through the UI Library for mobile native platforms, call participants can view s
 
 ## OS integrations
 
+Integrate with your OS.
+
 ### CallKit support
 
-UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
+UI Library supports CallKit integration to handle interaction with CallKit for calls. To learn more about the integration for the iOS platform and use of the API, see [Integrate CallKit into the UI Library](../../../how-tos/ui-library-sdk/callkit.md).
 
 ### TelecomManager support
 
-The UI Library now supports integration with the TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecommanager.md)
+The UI Library now supports integration with TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for the Android platform and use of the API, see [Integrate TelecomManager into the UI Library](../../../how-tos/ui-library-sdk/telecommanager.md).
 
 ## Customize the call experience
 
-### Audio Only Mode
+You can customize your call experience.
 
-The Audio Only Mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio Only Mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the CallComposite configuration, more information available through the [Audio Only Quick Start.](../../../how-tos/ui-library-sdk/audio-only-mode.md)
+### Audio-only mode
+
+The Audio-only mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio-only mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the Call Composite configuration, For more information, see the [Audio-only quickstart](../../../how-tos/ui-library-sdk/audio-only-mode.md).
 
 ### Disable end call prompt
 
