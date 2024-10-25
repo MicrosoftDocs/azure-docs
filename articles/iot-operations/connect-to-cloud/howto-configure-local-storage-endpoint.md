@@ -28,28 +28,6 @@ To send data to local storage in Azure IoT Operations Preview, you can configure
 
 Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
 
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: localStorage
-  localStorageSettings:
-    persistentVolumeClaimRef: <PVC_NAME>
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
-
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -88,6 +66,28 @@ Then, deploy via Azure CLI.
 az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: localStorage
+  localStorageSettings:
+    persistentVolumeClaimRef: <PVC_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
+
 ---
 
 The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
@@ -96,3 +96,7 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 ## Supported serialization formats
 
 The only supported serialization format is Parquet.
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)
