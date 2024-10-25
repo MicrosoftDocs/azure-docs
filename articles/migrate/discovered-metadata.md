@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/24/2023
-ms.custom: engagement-fy23, devx-track-extended-java
+ms.date: 10/25/2024
+ms.custom: engagement-fy25, devx-track-extended-java
 ---
 
 # Metadata discovered by Azure Migrate appliance 
@@ -180,7 +180,7 @@ Here's the full list of Linux server metadata that the appliance collects and se
 **Data** | **Commands**
 --- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
-Processor core count |  cat/proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
+Processor core count |  cat /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
 BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
