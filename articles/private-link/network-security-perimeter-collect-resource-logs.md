@@ -56,7 +56,7 @@ You can enable resource logging for network security perimeter by using the Azur
 
 ## Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs with [Use the Azure Monitor activity log and activity log insights](/azure/azure-monitor/essentials/activity-log-insights).
 
 ## Next steps
 
