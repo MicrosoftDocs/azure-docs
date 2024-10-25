@@ -22,9 +22,11 @@ If you don't have a Standard logic app, you can still follow this guide using th
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- [Visual Studio Code, which is free, the Azure Logic Apps (Standard) extension for Visual Studio Code, and other related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+
 - The Standard logic app to use with your DevOps tools and processes.
 
-  You can either download the artifact files for your Standard logic app resource from the Azure portal, or you can use a Standard logic app project created with [Visual Studio Code and the **Azure Logic Apps (Standard)** extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+  You can either download the artifact files for your Standard logic app resource from the Azure portal, or you can use a Standard logic app project created with [Visual Studio Code and the Azure Logic Apps (Standard) extension for Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   - **Portal**: The downloaded zip file contains Standard logic app artifact files, such as **workflow.json**, **connections.json**, **host.json**, and **local.settings.json**. See [Download Standard logic app artifact files from portal](#download-artifacts).
  
@@ -99,9 +101,9 @@ You can set up build and release pipelines either inside or outside Azure that d
 
 ### Build your project
 
-1. Push your Standard logic app project and artifact files to your source repository. 
+1. Push your Standard logic app project and artifact files to your source repository, for example, either GitHub or Azure DevOps.
 
-1. To set up a build pipeline based on your logic app project type, complete the corresponding actions in the following table:
+1. Set up a build pipeline based on your logic app project type by completing the following corresponding actions:
 
    | Project type | Description and steps |
    |--------------|-----------------------|
