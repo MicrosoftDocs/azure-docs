@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 10/20/2024
+ms.date: 10/25/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -238,7 +238,7 @@ The following table outlines the support scope of flow logs.
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions.
+Virtual network flow logs are generally available in all Azure public regions and is currently in preview in Azure Government.
 
 ## Related content
 
