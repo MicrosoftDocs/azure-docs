@@ -30,19 +30,25 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 
 To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
-The `cardinality` field is a nested field that has these subfields:
+### Automatic deployment cardinality
+
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware. This is useful for non-production scenarios where you don't need high-availability or scale.
+
+However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
+
+### Configure cardinality directly
+
+To configure the cardinality settings directly, specify the `cardinality` field. The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
-  - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `replicas`: The number of frontend replicas pods to deploy. Increasing the number of frontend replicas increases the number of connections that the broker can handle, and it also provides high availability in case one of the frontend pods fails.
+  - `workers`: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica increases the number of connections that the frontend pod can handle.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
-  - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
-  - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `partitions`: The number of partitions to deploy. Increasing the number of partitions increases the number of messages that the broker can handle. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions.
+  - `redundancyFactor`: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
+  - `workers`: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle.
 
-If `cardinality` field is omitted, cardinality is determined by MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware.
-
-To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+Generally, increasing these values increases the broker's capacity to handle more connections and messages, and it also provides high availability in case one of the pods or nodes fails. However, increasing these values also increases the resource consumption of the broker. Combined with memory profile settings, carefully consider to tune the resource consumption of the broker when increasing these values.
 
 ## Configure memory profile
 
