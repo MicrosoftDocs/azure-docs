@@ -420,7 +420,7 @@ spec:
           expirationSeconds: 86400
   - name: trust-bundle
     configMap:
-      name: aio-ca-trust-bundle-test-only # Default root CA cert
+      name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
 ```
 
 Apply the deployment file with kubectl.
