@@ -64,7 +64,7 @@ To remove a cache instance from an active geo-replication group, you just delete
 
 ## Force-unlink if there's a region outage
 
-In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group.
+In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group. When you have force-unlinked a cache, there is no way to sync any data that is written to that cache after force-unlinking back to the replication group. 
 
 You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that hasn’t been shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
 
