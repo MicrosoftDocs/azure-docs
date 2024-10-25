@@ -417,7 +417,7 @@ This behavior can occur for one or more of the following reasons:
    Next hop: Azure Firewall private IP address
 
 > [!NOTE]
-> If the application gateway is not able to access the CRL endpoints, it may mark the backend health status as "unknown". To prevent these issues, check that your application gateway subnet is able to access `crl.microsoft.com` and `crl3.digicert.com`. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
+> If the application gateway is not able to access the CRL endpoints, it might mark the backend health status as "unknown". To prevent these issues, check that your application gateway subnet is able to access `crl.microsoft.com` and `crl3.digicert.com`. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
 
 ## Next steps
 
