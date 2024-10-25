@@ -40,19 +40,8 @@ Add the extension to your project by installing this [NuGet package](https://www
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.MySql --version 1.0.3-preview
 ```
-<!-- >
-To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
-```
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure Database for MySQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the mysql extension package. -->
 
 # [In-process model](#tab/in-process)
-<!-- >
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]-->
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -61,15 +50,6 @@ Add the extension to your project by installing this [NuGet package](https://www
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-preview
 ```
-<!-- >
-To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions MySQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
-``` 
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure Database for MySQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the MySQL extension package. -->
 
 ---
 
@@ -83,20 +63,6 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 
 The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
 
-<!-- >
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` -->
 
 # [Preview Bundle v4.x](#tab/extensionv4p)
 
@@ -111,11 +77,6 @@ You can use the preview extension bundle by adding or replacing the following co
   }
 }
 ```
-<!-- >
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases). 
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure Database for MySQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the MySQL extension package. -->
 
 ---
 
@@ -126,28 +87,11 @@ You can view preview functionality on the [Azure Functions SQL Extensions releas
 
 ## Functions runtime
 
-<!-- > [!NOTE]
-> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You might need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development. -->
-
 
 ## Install bundle
 
 The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
 
-<!-- >
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` -->
 
 # [Preview Bundle v4.x](#tab/extensionv4p)
 
@@ -162,11 +106,6 @@ You can use the preview extension bundle by adding or replacing the following co
   }
 }
 ```
-<!-- >
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases). 
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure Database for MySQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the MySQL extension package. -->
 
 ---
 
@@ -179,20 +118,6 @@ You can view preview functionality on the [Azure Functions SQL Extensions releas
 ## Install bundle
 
 The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-<!-- >
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` -->
 
 # [Preview Bundle v4.x](#tab/extensionv4p)
 
@@ -207,25 +132,10 @@ You can use the preview extension bundle by adding or replacing the following co
   }
 }
 ```
-<!-- >
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases). 
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure Database for MySQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the MySQL extension package. -->
 
 ---
 
 ## Update packages
-
-<!-->Add the Java library for MYSQL bindings to your functions project with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure.functions</groupId>
-    <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>2.1.0</version>
-</dependency>
-``` -->
 
 You can use the preview extension bundle with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
 
@@ -264,10 +174,5 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-- [Run a function when data is changed in a SQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
-<!-- >
-- [Learn how to connect Azure Function to Azure SQL with managed identity](./functions-identity-access-azure-sql-with-managed-identity.md) --https://github.com/Azure/azure-functions-sql-extension/tree/main/samples>
+- [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

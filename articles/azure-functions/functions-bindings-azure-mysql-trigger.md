@@ -56,14 +56,6 @@ Changes are processed in the order that they were made, with the oldest changes 
 >Trigger Binding with table name containing alphanuemric & _(underscore) are supported. Apart from that Trigger Binding doesn't support any other special characters like (-, * $).
 >
 
-<!-->Changes are processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about change processing:
-
-1. If changes to multiple rows are made at once the exact order that they are sent to the function is based on the order returned by the CHANGETABLE function
-2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop then only a single change entry exists for that row which will show the difference between the last processed state and the current state
-3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows, then the half of the rows that weren't changed a second time are processed first. This processing logic is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
-
-For more information on change tracking and how it's used by applications such as Azure Database for MySQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) . -->
-
 
 ::: zone pivot="programming-language-csharp"
 
@@ -78,7 +70,6 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 
 The example refers to a `Product` class and a corresponding database table:
 
-<!-- >:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16"::: -->
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 {
@@ -103,7 +94,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 ```
 
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -156,14 +146,12 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.TriggerBindingSamples
 
 # [In-process model](#tab/in-process)
 
-<!-- >[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)] -->
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-csharp).
 
 
 The example refers to a `Product` class and a corresponding database table:
 
-<!-- >:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16"::: --> 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 {
@@ -187,7 +175,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
     }
 ```
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -305,7 +292,6 @@ public enum MySqlChangeOperation {
 }
 ```
 
-<!--> :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -378,7 +364,6 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 
 The example refers to a `Product` database table:
 
-<!--> :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -446,7 +431,6 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 
 The example refers to a `Product` database table:
 
-<!-->:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -516,7 +500,6 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 The example refers to a `Product` database table:
 
 
-<!--> :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -610,14 +593,12 @@ def main(changes):
 
 ## Attributes
 
-<!-- >The [C# library](functions-dotnet-class-library.md) uses the [MySqlTrigger](https://github.com/Azure/azure-functions-mysql-extension/tree/main/src/TriggersBinding) attribute to declare the MySQL trigger on the function, which has the following properties: -->
 
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | Required. The name of the table monitored by the trigger.  |
 | **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
-<!-- > More information on how this is generated can be found [here](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/TriggerBinding.md#az_funcleasestablename). -->
 
 
 ::: zone-end
@@ -635,7 +616,6 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **tableName** | Required. The name of the table monitored by the trigger.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
-<!-- > More information on how this is generated can be found [here](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/TriggerBinding.md#az_funcleasestablename). -->
 
 ::: zone-end
 
@@ -653,7 +633,6 @@ The following table explains the binding configuration properties that you set i
 | **tableName** | Required. The name of the table monitored by the trigger.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
-<!-- > More information on how this is generated can be found [here](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/TriggerBinding.md#az_funcleasestablename). -->
 ::: zone-end
 
 ## Optional Configuration
@@ -743,22 +722,6 @@ The change tracking can be enabled on a table through following query. For examp
     ```
 The leases table contains all columns corresponding to the primary key from the user table and two additional columns _az_func_AttemptCount and _az_func_LeaseExpirationTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
-<!-- >The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the MySQL database might affect trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
-
-    The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. If a temporary problem that prevents the trigger from running, turning off auto cleanup can be useful to pause the removal of information older than the retention period until the problem is resolved.
-
-     More information on change tracking options is available in the [SQL documentation](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server). 
-
-2. Enable change tracking on the table, substituting `your table name` with the name of the table to be monitored (changing the schema if appropriate):
-
-    ```sql
-    ALTER TABLE [dbo].[your table name]
-    ENABLE CHANGE_TRACKING;
-    ```
-
-    The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger has an associated change tracking table and leases table in a schema `az_func`. These tables are created by the trigger if they don't yet exist.  
-    <!-- >More information on these data structures is available in the Azure MySQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#internal-state-tables). -->
-
 
 ## Enable runtime-driven scaling
 
@@ -768,15 +731,8 @@ Optionally, your functions can scale automatically based on the number of change
 
 ## Retry support
 
-<!-- >Further information on the MySQL trigger [retry support](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#retry-support-for-trigger-bindings) and [leases tables](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/TriggerBinding.md#internal-state-tables) is available in the GitHub repository. -->
-
 ### Startup retries
 If an exception occurs during startup then the host runtime automatically attempts to restart the trigger listener with an exponential backoff strategy. These retries continue until either the listener is successfully started or the startup is canceled.
-
-<!-- >### Broken connection retries
-If the function successfully starts but then an error causes the connection to break (such as the server going offline) then the function continues to try and reopen the connection until the function is either stopped or the connection succeeds. If the connection is successfully re-established then it picks up processing changes where it left off.
-
-Note that these retries are outside the built-in idle connection retry logic that MySqlClient has which can be configured with the `ConnectRetryCount` and `ConnectRetryInterval` [connection string options](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString). The built-in idle connection retries are attempted first and if those fail to reconnect then the trigger binding attempts to re-establish the connection itself. -->
 
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.

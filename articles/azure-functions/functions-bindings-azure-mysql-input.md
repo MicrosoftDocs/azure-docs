@@ -27,7 +27,6 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-<!-- >[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)] -->
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -41,7 +40,6 @@ This section contains the following examples:
 
 The examples refer to a `Product` class and a corresponding database table:
 
-<!-- >:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16"::: -->
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 {
@@ -58,7 +56,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 }
 ```
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -143,7 +140,6 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 The stored procedure `DeleteProductsCost` must be created on the MySQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -186,7 +182,6 @@ This section contains the following examples:
 
 The examples refer to a `Product` class and a corresponding database table:
 
-<!-- >:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16"::: -->
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 {
@@ -203,7 +198,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
 }
 ```
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -287,7 +281,6 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 The stored procedure `DeleteProductsCost` must be created on the MySQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -297,7 +290,6 @@ BEGIN
 END
 ```
 
-<!-- >:::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30"::: -->
 ```cs
 namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
 {
@@ -353,7 +345,6 @@ public class Product {
     }
 ```
 
-<!-- > :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -441,7 +432,6 @@ The following example shows a MySQL input binding in a Java function that is [tr
 
 The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -488,7 +478,6 @@ This section contains the following examples:
 
 The examples refer to a database table:
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -509,7 +498,6 @@ The following example shows a MYSQL input binding that is [triggered by an HTTP]
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput1.ts" ::: -->
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
 
@@ -547,7 +535,6 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput1.js" ::: -->
 ```javascript
 const { app, input } = require('@azure/functions');
 
@@ -641,7 +628,6 @@ The following example shows a MySQL input binding that is [triggered by an HTTP]
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput2.ts" ::: -->
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
 
@@ -679,7 +665,6 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput2.js" ::: -->
 ```javascript
 const { app, input } = require('@azure/functions');
 
@@ -770,7 +755,6 @@ The following example shows a MySQL input binding that is [triggered by an HTTP]
 
 The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -785,7 +769,6 @@ END
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput3.ts" ::: -->
 ```typescript
 import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
 
@@ -823,7 +806,6 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-<!-- >:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput3.js" ::: -->
 ```javascript
 const { app, input } = require('@azure/functions');
 
@@ -916,7 +898,6 @@ This section contains the following examples:
 
 The examples refer to a database table:
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -1046,7 +1027,6 @@ The following example shows a MySQL input binding in a function.json file and a 
 
 The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -1120,7 +1100,6 @@ This section contains the following examples:
 
 The examples refer to a database table:
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7"::: -->
 ```sql
 DROP TABLE IF EXISTS Products;
 
@@ -1320,7 +1299,6 @@ The following example shows a MySQL input binding in a function.json file and a 
 
 The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
-<!-- >:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25"::: -->
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
@@ -1505,12 +1483,11 @@ The following table explains the binding configuration properties that you set i
 
 The attribute's constructor takes the MySQL command text, the command type, parameters, and the connection string setting name. The command can be a MYSQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html#connecting-using-uri) to the Azure Database for MySQL.
 
-<!-- >Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding. -->
 
 If an exception occurs when a MySQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 
-- [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
-- [Run a function when data is changed in a SQL table (Trigger)](./functions-bindings-azure-sql-trigger.md)
+- [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
+- [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 - [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
