@@ -85,6 +85,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Create reusable Team Customizations
+            url: overview-what-is-team-customizations.md
           - text: Use Dev Home to manage dev boxes
             url: how-to-use-dev-home-customize-dev-box.md       
           - text: Configure Azure Compute Gallery
