@@ -153,7 +153,7 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](/azure/virtual-machines/linux/create-upload-generic), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12/11 SP4/11 SP3, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 9.x, 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12/11 SP4/11 SP3, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
