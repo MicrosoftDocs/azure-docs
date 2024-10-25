@@ -22,8 +22,8 @@ In this article, you learn how to use the features provided by Microsoft Playwri
 ## Background
 
 Microsoft Playwright Testing preview allows you to:
-- Run your Playwright tests on cloud-hosted browsers.
-- Publish test reports and artifacts to the service and view them in the service portal.
+- Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+- Simplify troubleshooting by publishing test results and artifacts to the service, making them easily accessible through the service portal.
 
 These features have their own pricing plans and are billed separately. You can choose to use either feature or both. These features can be enabled or disabled for the workspace or for any specific run. To know more about pricing, see [Microsoft Playwright Testing preview pricing](https://aka.ms/mpt/pricing)
 
