@@ -76,7 +76,7 @@ To help set up the environment for access to Virtual Machines, define these envi
 
 ## Creating Console Resource
 
-The Console custom resource provides the information about the Nexus VM. It provides the VM name, public SSH key, expiration date for the SSH session, and so on.
+The Console resource provides the information about the Nexus VM. It provides the VM name, public SSH key, expiration date for the SSH session, and so on.
 
 This section provides step-by-step guide to help you to create a Console resource using Azure CLI commands.
 
