@@ -94,7 +94,7 @@ items:
             href: ./policy-reference.md
           - name: Network security (MQTT)
             href: network-security-namespaces.md
-          - name: Transport Layer Security
+          - name: Transport Layer Security (TLS)
             href: transport-layer-security.md
         - name: Use cases
           items:
@@ -212,7 +212,7 @@ items:
             href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md
-          - name: Transport Layer Security
+          - name: Transport Layer Security (TLS)
             href: transport-layer-security.md
       - name: How-to
         items:
@@ -528,7 +528,7 @@ items:
           href: network-security.md
         - name: Enforce minimum required TLS version
           href: transport-layer-security-enforce-minimum-version.md
-        - name: Transport Layer Security
+        - name: Transport Layer Security (TLS)
           href: transport-layer-security.md
       - name: Use cases
         items:

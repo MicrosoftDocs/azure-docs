@@ -9,24 +9,21 @@ ms.date: 10/16/2024
 # Network security perimeter in Azure Event Grid (Preview) 
 Network security perimeter is a framework created to manage public traffic to Azure Platform-as-a-Service (PaaS) resources, and traffic between those PaaS resources. The basic building block is a **perimeter**, a group of PaaS resources that can communicate freely with each other. The perimeter defines a boundary with implicit trust access between each resource. This perimeter can have sets of inbound and outbound access rules. 
 
+This article shows you how to associate a network security perimeter with an Event Grid topic or a domain.
+
 > [!NOTE]
-> The network security perimeter is currently available only for topics and domains under the **Networking** setting. 
+> The Network security perimeter configuration is currently available only for topics and domains under the **Networking** setting. 
 
-:::image type="content" source="./media/configure-network-security-perimeter/networking-page.png" alt-text="Screenshot that shows the Networking page." lightbox="./media/configure-network-security-perimeter/networking-page.png":::
+## Prerequisites
+The following procedure assumes that you have the following Azure resources: 
 
-## Configure the network security perimeter
-To configure network security perimeter for a topic or a domain, use the **Networking** tab on **Event Grid Topic** or **Event Grid Domain** page. 
+- An Event Grid topic or a domain
+- An Event Hubs namespace with an event hub. The event hub is used as an event handler in the example. 
 
-1. On the **Event Grid Topic** or **Event Grid Domain** page, select **Networking** under **Settings** on the left navigation menu. The screenshots and steps in this article use an example Azure Event Grid domain. The steps for the topic are identical. 
-1. On the **Networking** page, select **Manage**. 
+## Create a network security perimeter
+First, you create a network security perimeter and add the Event Grid domain and the Event Hubs namespace resources to it. 
 
-    :::image type="content" source="./media/configure-network-security-perimeter/networking-page-manage-button.png" alt-text="Screenshot that shows the Networking page with the Manage button selected." lightbox="./media/configure-network-security-perimeter/networking-page-manage-button.png":::
-1. On the **Public network access** page, select **Secured by perimeter (Most restricted)**, and then select **Save**.  
-
-    :::image type="content" source="./media/configure-network-security-perimeter/secured-by-perimeter-setting.png" alt-text="Screenshot that shows the selection of Secured by perimeter setting." lightbox="./media/configure-network-security-perimeter/secured-by-perimeter-setting.png":::    
-
-    **Network security perimeter** restricts inbound and outbound access offering the greatest level of inbound and outbound restriction to secure the Azure Event Grid resource. 
-1. Now your resource is secured by the perimeter. It’s time to create a security perimeter resource and associate with the Event Grid resource. To create a security perimeter, search for and navigate to the **Network Security Perimeters** page in the Azure portal, and select **Create** on the toolbar or **Create network security perimeter** on the page. 
+1. In the [Azure portal](https://portal.azure.com), search for and navigate to the **Network Security Perimeters** page, and select **Create** on the toolbar or **Create network security perimeter** on the page. 
 
     :::image type="content" source="./media/configure-network-security-perimeter/create-network-security-perimeter-button.png" alt-text="Screenshot that shows Network Security Perimeters page with Create button selected." lightbox="./media/configure-network-security-perimeter/create-network-security-perimeter-button.png":::        
 1. On the **Create a network security perimeter** wizard, follow these steps:
@@ -36,7 +33,7 @@ To configure network security perimeter for a topic or a domain, use the **Netwo
     1. Select **Next** at the bottom of the page. 
     
         :::image type="content" source="./media/configure-network-security-perimeter/create-network-security-perimeter-page.png" alt-text="Screenshot that shows Create a network security perimeter page." lightbox="./media/configure-network-security-perimeter/create-network-security-perimeter-page.png":::             
-  1. On the **Resources** page, select **Add**. Then, on the **Select resources** page, select resources you want in your perimeter. For example, you can add an Azure Event Grid domain and an Azure Event Hubs name that's used as an event handler or destination. Then, select **Next**.
+  1. On the **Resources** page, select **Add**. Then, on the **Select resources** page, select resources you want in your perimeter. For example, you can add an Azure Event Grid domain and an Azure Event Hubs namespace that's used as an event handler or destination. Then, select **Next**.
   
         :::image type="content" source="./media/configure-network-security-perimeter/perimeter-resources.png" alt-text="Screenshot that shows Select resources page for a perimeter." lightbox="./media/configure-network-security-perimeter/perimeter-resources.png":::                 
   1. On the **Inbound access rules** page, select **Add inbound access rule**. 
@@ -54,6 +51,20 @@ To configure network security perimeter for a topic or a domain, use the **Netwo
 1. Once the network security perimeter resource is created, you find it in the resource group you specified. 
 
     :::image type="content" source="./media/configure-network-security-perimeter/resource-group-page.png" alt-text="Screenshot that shows the Resource group page with the network security perimeter resource." lightbox="./media/configure-network-security-perimeter/resource-group-page.png":::           
+
+
+## Configure the network security perimeter
+In this step, you associate the network security perimeter you created in the previous step with the Event Grid domain. To configure network security perimeter for a topic or a domain, use the **Networking** tab on **Event Grid Topic** or **Event Grid Domain** page. 
+
+1. On the **Event Grid Topic** or **Event Grid Domain** page, select **Networking** under **Settings** on the left navigation menu. The screenshots and steps in this article use an example Azure Event Grid domain. The steps for the topic are identical. 
+1. On the **Networking** page, select **Manage**. 
+
+    :::image type="content" source="./media/configure-network-security-perimeter/networking-page-manage-button.png" alt-text="Screenshot that shows the Networking page with the Manage button selected." lightbox="./media/configure-network-security-perimeter/networking-page-manage-button.png":::
+1. On the **Public network access** page, select **Secured by perimeter (Most restricted)**, and then select **Save**.  
+
+    :::image type="content" source="./media/configure-network-security-perimeter/secured-by-perimeter-setting.png" alt-text="Screenshot that shows the selection of Secured by perimeter setting." lightbox="./media/configure-network-security-perimeter/secured-by-perimeter-setting.png":::    
+
+    **Network security perimeter** restricts inbound and outbound access offering the greatest level of inbound and outbound restriction to secure the Azure Event Grid resource. 
 1. Now, it’s time to associate the network security perimeter with the Azure Event Grid domain or topic in the **Networking** settings by selecting **Associate**. 
 
     :::image type="content" source="./media/configure-network-security-perimeter/associate-button.png" alt-text="Screenshot that shows the Networking page with Associate button selected." lightbox="./media/configure-network-security-perimeter/associate-button.png":::               
