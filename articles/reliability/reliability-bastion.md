@@ -1,12 +1,12 @@
 ---
 title: Reliability in Azure Bastion
-description: Find out about reliability in Azure Bastion  
+description: Find out about reliability in Azure Bastion, including availability zones and mult-region deployments.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-bastion
-ms.date: 10/22/2024
+ms.date: 10/25/2024
 ---
 
 # Reliability in Azure Bastion
