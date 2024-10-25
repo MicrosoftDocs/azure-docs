@@ -194,7 +194,7 @@ If you're using Azure OpenAI, it's highly recommended to secure your application
 
 Follow the steps below to secure your application with managed identity:
 
-Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using Nuget package manager and add the using statement to the top of the OpenAI.razor file.
+Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using NuGet package manager and add the using statement to the top of the OpenAI.razor file.
 
 ```c#
 @using Azure.Identity
@@ -215,7 +215,7 @@ var kernel = Kernel.CreateBuilder()
 Once the credentials are added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
-2. Once System assigned identity is turned on, it register's the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
 3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
 4. Find the Grant access to this resource card and click on **Add role assignment**
 5. Search for the **Cognitive Services OpenAI User** role and click **Next**
