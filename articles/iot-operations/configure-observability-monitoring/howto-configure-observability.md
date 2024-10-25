@@ -123,6 +123,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
          endpoint: ':8889'
          resource_to_telemetry_conversion:
            enabled: true
+         add_metric_suffixes: false
      service:
        extensions:
          - health_check
@@ -158,7 +159,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
        enabled: false
    ```
 
-1. In the `otel-collector-values.yaml` file, make a note of the following values that you use in the `az iot ops init` command when you deploy Azure IoT Operations on the cluster:
+1. In the `otel-collector-values.yaml` file, make a note of the following values that you use in the `az iot ops create` command when you deploy Azure IoT Operations on the cluster:
 
    * **fullnameOverride**
    * **grpc.endpoint**
