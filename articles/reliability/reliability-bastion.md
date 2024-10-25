@@ -7,6 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-bastion
 ms.date: 10/25/2024
+ms.custom: references_regions
 ---
 
 # Reliability in Azure Bastion
@@ -71,7 +72,7 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 ### Configure availability zone support
 
-**New resources:** When you deploy a new Bastion resource in a [region that supports availabiilty zones](#regions-supported), you select the specific zones you want to deploy to.  For zone redundancy, you must select multiple zones.
+**New resources:** When you deploy a new Bastion resource in a [region that supports availability zones](#regions-supported), you select the specific zones you want to deploy to.  For zone redundancy, you must select multiple zones.
 
    >[!IMPORTANT]
    > You can't change the availability zone setting after you deploy your Bastion resource.
