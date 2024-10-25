@@ -14,9 +14,9 @@ ms.date: 10/24/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide primarily shows how to deploy a Standard logic app project from a Visual Studio Code to your infrastructure using DevOps tools and processes. If your Standard logic app already exists in the Azure portal, you can download your app's artifact files to use with DevOps deployment. Based on whether you prefer to use GitHub or Azure DevOps, choose the path and tools that work best for your deployment scenario.
+This guide primarily shows how to set up deployment for a Standard logic app project in Visual Studio Code to your infrastructure using DevOps tools and processes. If your Standard logic app exists in the Azure portal instead, you can download your logic app's artifact files for use with DevOps deployment. Based on whether you want to use GitHub or Azure DevOps, you then choose the path and tools that work best for your deployment scenario.
 
-If you don't have a Standard logic app, you can still use guide with the linked sample Standard logic app projects plus examples for Azure deployment through GitHub or Azure DevOps. For more information, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
+If you don't have a Standard logic app, you can still follow this guide using the linked sample Standard logic app projects plus examples for deployment to Azure through GitHub or Azure DevOps. For more information, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
 ## Prerequisites
 
@@ -24,19 +24,19 @@ If you don't have a Standard logic app, you can still use guide with the linked 
 
 - The Standard logic app to use with your DevOps tools and processes.
 
-  You can either download the artifact files for your Standard logic app resource in the Azure portal, or you can use your Standard logic app project created with [Visual Studio Code and the **Azure Logic Apps (Standard)** extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+  You can either download the artifact files for your Standard logic app resource from the Azure portal, or you can use a Standard logic app project created with [Visual Studio Code and the **Azure Logic Apps (Standard)** extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   - **Portal**: The downloaded zip file contains Standard logic app artifact files, such as **workflow.json**, **connections.json**, **host.json**, and **local.settings.json**. See [Download Standard logic app artifact files from portal](#download-artifacts).
  
-  - **Visual Studio Code**: You need an empty Standard logic app resource in the Azure portal as the deployment destination. To quickly create an empty Standard logic app resource, review [Create single-tenant based logic app workflows - Portal](create-single-tenant-workflows-azure-portal.md).
+  - **Visual Studio Code**: You need an empty Standard logic app resource in the Azure portal for your deployment destination. To quickly create an empty Standard logic app resource, review [Create single-tenant based logic app workflows - Portal](create-single-tenant-workflows-azure-portal.md).
 
-  If you don't have an existing logic app source or infrastructure, you can use the included sample projects to deploy an example logic app and infrastructure, based on the source and deployment options that you prefer to use. For more information about these sample projects and resources included to run the example logic app, review [Deploy infrastructure resources](#deploy-infrastructure).
+  If you don't have an existing logic app or infrastructure, you can use the linked sample Standard logic app projects to deploy an example logic app and infrastructure, based whether you want to use GitHub or Azure DevOps. For more information about the included sample projects and resources to run the example logic app, review [Deploy infrastructure resources](#deploy-infrastructure).
 
 <a name="deploy-infrastructure"></a>
 
 ## Deploy infrastructure resources
 
-To try out the DevOps deployment experience without any prior setup, use the following sample projects to deploy an example Standard logic app and infrastructure, based on the source and deployment options that you prefer for your scenario:
+To try the DevOps deployment experience without prior Standard logic app or infrastructure setup, use the following sample projects to deploy an example Standard logic app and infrastructure, based whether you want to use GitHub or Azure DevOps:
 
 - [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -45,7 +45,7 @@ To try out the DevOps deployment experience without any prior setup, use the fol
 - [Azure DevOps sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample)
 
   This sample includes an example Standard logic app project plus examples for Azure deployment and Azure Pipelines.
-  
+
 Both samples include the following resources that a Standard logic app uses to run:
 
 | Resource name | Required | Description |
@@ -69,7 +69,7 @@ If your Standard logic app is in the Azure portal, you can download and save a z
 
 1. On the **Overview** toolbar, select **Download app content**. In the confirmation box that appears, select **Download**.
 
-1. When the prompt appears, select **Save as**, browse to the location you want, and select **Save**.
+1. When the prompt appears, select **Save as**, browse to the local folder that you want, and select **Save**.
 
 1. Extract the zip file.
 
@@ -77,7 +77,7 @@ If your Standard logic app is in the Azure portal, you can download and save a z
 
 ## API connection resources and access policies
 
-In single-tenant Azure Logic Apps, every managed API connection resource in your workflows requires an associated access policy. This policy needs your logic app's identity to provide the correct permissions for accessing the managed connector infrastructure. The included sample projects include an ARM template that includes all the necessary infrastructure resources, including these access policies.
+In single-tenant Azure Logic Apps, every managed API connection resource in your workflow requires an associated access policy. This policy needs your logic app's identity to provide the correct permissions for accessing the managed connector infrastructure. The included sample projects include an ARM template that includes all the necessary infrastructure resources, including these access policies.
 
 For example, the following diagram shows the dependencies between a Standard logic app project and infrastructure resources:
 
@@ -178,7 +178,7 @@ The following example shows a SQL managed API connection resource definition in 
 }
 ```
 
-To find the required values for the **`properties`** object so you can complete the connection resource definition, you can use the following API for a specific connector:
+To find the required values for the **`properties`** object so that you can complete the connection resource definition, use the following API for a specific connector:
 
 `GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
@@ -234,7 +234,7 @@ For GitHub deployments, you can deploy your logic app by using [GitHub Actions](
    publish-profile: 'MyLogicAppPublishProfile'
 ```
 
-For more information, review the [Continuous delivery by using GitHub Action](../azure-functions/functions-how-to-github-actions.md) documentation.
+For more information, review [Continuous delivery by using GitHub Action](../azure-functions/functions-how-to-github-actions.md).
 
 #### [Azure DevOps](#tab/azure-devops)
 
@@ -255,37 +255,36 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
      deploymentMethod: 'zipDeploy'
 ```
 
-For more information, review the [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows) documentation.
+For more information, review [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows).
 
 #### [Azure CLI](#tab/azure-cli)
 
-If you use other deployment tools, you can deploy your single-tenant based logic app by using the Azure CLI. Before you start, you need to have the following items:
+If you use other deployment tools, you can deploy your Standard logic app by using the Azure CLI. Before you start, you need the following items:
 
 - The latest Azure CLI extension installed on your local computer.
 
-  - If you don't have this extension, review the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
+  - If you're not sure that you have the latest version, [check your environment and CLI version](#check-environment-cli-version).
 
-  - If you're not sure that you have the latest version, follow the [steps to check your environment and CLI version](#check-environment-cli-version).
+  - If you don't have the Azure CLI extension, [install the extension by following the installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
-  > [!NOTE]
-  > 
-  > If you get a **pip** error when you try to install the Azure CLI, 
-  > make sure that you have the standard package installer for Python (PIP). 
-  > This package manager is written in Python and is used to install software 
-  > packages. For more information, see 
-  > [Check "pip" installation and version](#check-pip-version).
+    > [!NOTE]
+    > 
+    > If you get a **pip** error when you try to install the Azure CLI, make sure that you 
+    > have the standard package installer for Python (PIP). This package manager is written 
+    > in Python and is used to install software packages. For more information, see 
+    > [Check "pip" installation and version](#check-pip-version).
 
 - The *preview* single-tenant **Azure Logic Apps (Standard)** extension for Azure CLI.
 
-  If you don't have this extension, follow the [steps to install the extension](#install-logic-apps-cli-extension). Although single-tenant Azure Logic Apps is generally available, the single-tenant Azure Logic Apps extension for Azure CLI is still in preview.
+  If you don't have this extension, [install the extension](#install-logic-apps-cli-extension). Although the single-tenant Azure Logic Apps service is already generally available, the single-tenant Azure Logic Apps extension for Azure CLI is still in preview.
 
-- An Azure resource group to use for deploying your logic app.
+- An Azure resource group to use for deploying your logic app project to Azure.
 
-  If you don't have this resource group, follow the [steps to create the resource group](#create-resource-group).
+  If you don't have this resource group, [create the resource group](#create-resource-group).
 
 - An Azure storage account to use with your logic app for data and run history retention.
 
-  If you don't have this storage account, follow the [steps to create a storage account](/cli/azure/storage/account#az-storage-account-create).
+  If you don't have this storage account, [create a storage account](/cli/azure/storage/account#az-storage-account-create).
 
 <a name="check-pip-version"></a>
 
