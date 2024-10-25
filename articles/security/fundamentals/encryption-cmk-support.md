@@ -17,23 +17,23 @@ The following services support server-side encryption with customer managed keys
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure AI Search](/azure/search/) | Yes | | [Manage encryption keys in Azure Cognitive Search](/azure/search/search-security-manage-encryption-keys) |
-| [Azure AI services](/azure/cognitive-services/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
+| [Azure AI Search](/azure/search/) | Yes | | [Configure customer-managed keys for data encryption in Azure AI Search](/azure/search/search-security-manage-encryption-keys) |
+| [Azure AI services](/azure/ai-services/) | Yes | Yes | [Customer-managed keys for encryption](/azure/ai-services/encryption/cognitive-services-encryption-keys-portal) |
 | [Azure AI Studio](/azure/ai-studio) | Yes | | [Encryption of data at rest in Azure AI services](/azure/ai-studio/concepts/encryption-keys-portal) |
 | [Azure Bot Service](/azure/bot-service/) | Yes | | [Encryption of bot data in Azure Bot Service](/azure/bot-service/bot-service-encryption) |
 | [Azure Health Bot](/azure/health-bot/) | Yes | | [Configure customer-managed keys (CMK) for Azure Health Bot](/azure/health-bot/cmk) |
 | [Azure Machine Learning](/azure/machine-learning/) | Yes | | [Customer-managed keys for workspace encryption in Azure Machine Learning](/azure/machine-learning/concept-customer-managed-keys) |
-| [Azure OpenAI](/azure/ai-services/openai/) | Yes | Yes | [Encryption of data at rest in Azure OpenAI](/azure/cognitive-services/openai/encrypt-data-at-rest) |
-| [Content Moderator](/azure/cognitive-services/content-moderator/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
+| [Azure OpenAI](/azure/ai-services/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/ai-services/openai/encrypt-data-at-rest) |
+| [Content Moderator](/azure/ai-services/content-moderator/) | Yes | Yes | [Content Moderator encryption of data at rest](/azure/ai-services/content-moderator/encrypt-data-at-rest) |
 | [Dataverse](/powerapps/maker/data-platform/) | Yes | Yes | [Customer-managed keys in Dataverse](/power-platform/admin/customer-managed-key) |
 | [Dynamics 365](/dynamics365/) | Yes | Yes | [Customer-managed keys for encryption](/dynamics365/fin-ops-core/dev-itpro/sysadmin/customer-managed-keys) |
-| [Face](/azure/cognitive-services/face/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Language Understanding](/azure/cognitive-services/luis/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Personalizer](/azure/cognitive-services/personalizer/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
+| [Face](/azure/ai-services/computer-vision/overview-identity) | Yes | Yes | [Face service encryption of data at rest](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest) |
+| [Language Understanding](/azure/ai-services/luis/what-is-luis) | Yes | Yes | [Customer-managed keys with Azure Key Vault](/azure/ai-services/luis/encrypt-data-at-rest) |
+| [Personalizer](/azure/ai-services/personalizer/) | Yes | Yes | [Encryption of data at rest in Personalizer](/azure/ai-services/personalizer/encrypt-data-at-rest) |
 | [Power Platform](/power-platform/) | Yes | Yes | [Customer-managed keys in Power Platform](/power-platform/admin/customer-managed-key) |
-| [QnA Maker](/azure/cognitive-services/qnamaker/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Speech Services](/azure/cognitive-services/speech-service/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Translator Text](/azure/cognitive-services/translator/) | Yes | Yes | [Use customer-managed keys for data encryption](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) |
+| [QnA Maker](/azure/ai-services/qnamaker/) | Yes | Yes | [QnA Maker encryption of data at rest](/azure/ai-services/qnamaker/encrypt-data-at-rest) |
+| [Speech Services](/azure/ai-services/speech-service/) | Yes | Yes | [Speech service encryption of data at rest](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest) |
+| [Translator Text](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/encrypt-data-at-rest) |
 
 ## Analytics
 
@@ -60,7 +60,6 @@ The following services support server-side encryption with customer managed keys
 | [Azure Red Hat OpenShift](/azure/openshift/) | Yes | | [Bring your own keys (BYOK) with Azure Red Hat OpenShift](/azure/openshift/howto-byok) |
 | [Container Instances](/azure/container-instances/) | Yes | | [Encrypt data with a customer-managed key](/azure/container-instances/container-instances-encrypt-data#encrypt-data-with-a-customer-managed-key) |
 | [Container Registry](/azure/container-registry/) | Yes | | [Encrypt container images with a customer-managed key](/azure/container-registry/container-registry-customer-managed-keys) |
-
 
 ## Compute
 
