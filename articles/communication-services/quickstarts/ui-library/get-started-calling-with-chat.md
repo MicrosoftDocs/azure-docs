@@ -2,7 +2,7 @@
 title: Add calling and chat functionality
 titleSuffix: An Azure Communication Services how-to guide
 description: Add calling and chat functionality using the Azure Communication Services UI Library.
-author: pprystinka
+author: pavelprystinka
 
 ms.author: pprystinka
 ms.service: azure-communication-services

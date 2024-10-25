@@ -142,8 +142,7 @@ In the *app/src/main/res/layout/activity_main.xml* layout file, add the followin
 
 To initialize the Call composite:
 
-1. Go to `MainActivity`.
-2. Add the following code to initialize your composite components for calling.
+1. Go to `MainActivity` and update connection settings:
     - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
     - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
     - Replace `DISPLAY_NAME` with your name.
@@ -151,7 +150,7 @@ To initialize the Call composite:
     - Replace `USER_ACCESS_TOKEN` with your token.
 
 ### Get a Teams meeting chat thread for a Communication Services user
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](https://learn.microsoft.com/en-us/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](https://learn.microsoft.com/en-us/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) property
+The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](../../../../graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](../../../../graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) property
 
 With the Graph APIs, you can also obtain the threadID. The response has a chatInfo object that contains the threadID.
 
