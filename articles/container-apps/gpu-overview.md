@@ -5,9 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 10/25/2024
 ms.author: cshoe
-zone_pivot_groups: azure-cli-or-portal
 ---
 
 ## Using serverless GPUs in Azure Container Apps (preview)
@@ -17,7 +16,7 @@ Azure Container Apps provides access to GPUs on-demand without you having to man
 Serverless GPUs work exclusively with both dedicated and consumption workload profiles in a Workload profiles environment. Serverless GPU support isn't available for Consumption-only environments.
 
 > [!NOTE]
-> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a customer support case.
+> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a customer support case. TODO: get link
 
 ## Common scenarios
 
@@ -45,23 +44,11 @@ The following items are required for you to use serverless GPUs in your workload
 
 ## Use consumption GPUs
 
-::: zone pivot="azure-portal"
-
 Select **enable GPU** checkbox.
-
-::: zone-end
-
-::: zone pivot="azure-cli"
-
-```azurecli
-TODO
-```
-
-::: zone-end
 
 ## Feedback
 
-Submit issue to the GitHub repo.
+Submit issue to the GitHub repo. TODO: get link
 
 ## Next steps
 
