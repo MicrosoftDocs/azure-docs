@@ -16,6 +16,8 @@ This guide demonstrates how to deploy the Spring PetClinic Microservices sample 
 
 The PetClinic sample illustrates the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app.":::
+
 - Builds the frontend app as a standalone web application on the API Gateway App with Node.js, exposing the URL of the API Gateway to route requests to backend service apps.
 - Builds the backend apps with Spring Boot, each utilizing HSQLDB as the persistent store.
 - Uses managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
@@ -24,8 +26,6 @@ The PetClinic sample illustrates the microservice architecture pattern. The foll
 - Exposes the URL of the Service Registry to discover backend apps.
 - Analyzes logs using the Log Analytics workspace.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app.":::
-
 By the end of this tutorial, you deploy one web application and three backend applications, and configure three Java components. These components can be managed through the Azure portal.
 
 ## Prerequisites
@@ -33,12 +33,8 @@ By the end of this tutorial, you deploy one web application and three backend ap
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 | Container Apps CLI extension | Use version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
-| Java | Install the [Java Development Kit](/java/openjdk/install). Use version 17 or later. |
-| Apache Maven | Download and install [Apache Maven](https://maven.apache.org/download.cgi).|
 
 ## Prepare Azure resources
 
@@ -48,7 +44,7 @@ Create a bash script to store the environment variables for your Azure resources
 touch setup-env-variables-azure.sh
 ```
 
-Copy the following environment variables to your script, and customize the top 3 variables `RESOURCE_GROUP`, `LOCATION`, and `CONTAINER_APP_ENVIRONMENT` as you need:
+Copy the following environment variables to your script, and customize the top three variables `RESOURCE_GROUP`, `LOCATION`, and `CONTAINER_APP_ENVIRONMENT` as you need:
 
 ```bash
 #!/usr/bin/env bash
@@ -129,7 +125,7 @@ az containerapp env java-component admin-for-spring create \
 
 ## Deploy Java microservice apps to Azure Container Apps
 
-Deploy the Java microservice apps to Azure Container Apps via our pre-built images, and bind the Java components to your apps.
+Deploy the Java microservice apps to Azure Container Apps via our prebuilt images, and bind the Java components to your apps.
 
 ```azurecli
 az containerapp create \
@@ -194,9 +190,9 @@ The dashboard of your Eureka and Admin servers should resemble the following scr
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin.":::
 
-## Optional: Customize the sample code and use your own images
+## Optional: Customize the code and use your own images
 
-In the above steps, you are using our [built images](https://github.com/orgs/Azure-Samples/packages?repo_name=azure-container-apps-java-samples) for the Java microservice apps. If you want to customize the sample code and use your own images, you can follow the steps below.
+In the above steps, you're using our [built images](https://github.com/orgs/Azure-Samples/packages?repo_name=azure-container-apps-java-samples) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). If you want to customize the sample code and use your own images, you can follow the steps.
 
 1. Fork your own copy of [Azure-samples/azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) by clicking the Fork button in the upper right corner of the repository.
 
@@ -204,7 +200,7 @@ In the above steps, you are using our [built images](https://github.com/orgs/Azu
 
 3. Modify the code in your forked repository and push to your forked repository.
 
-4. Go to your forked `azure-container-apps-java-samples` repository, navigate to the `GitHub Actions` tab, choose `Publish Petclinic images` workflow and click `Run workflow`, then fill in the repository url of Spring Petclinic microservices with your forked Petclinic repository url. 
+4. Go to your forked `azure-container-apps-java-samples` repository, navigate to the `GitHub Actions` tab, choose `Publish Petclinic images` workflow, and click `Run workflow`, then fill in the repository url of Spring Pet clinic microservices with your forked Petclinic repository url. 
 
    :::image type="content" source="media/java-deploy-war-file/build-your-own-images.png" alt-text="Screenshot of build customized images.":::
 
@@ -212,7 +208,7 @@ In the above steps, you are using our [built images](https://github.com/orgs/Azu
 
     :::image type="content" source="media/java-deploy-war-file/github-package-button.png" alt-text="Screenshot of packages.":::
 
-6. There should be 4 packages in the list, one for each of the Java microservice apps. Click on the package name to see the details of the package. We use [Artifact attestations](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds) to increase the security of the images, that's why you will see multiple images in the package details. Click the one named as your branch name (should be `main` by default) you shall see the image tag. Use these tags instead of the image environment variables `$CUSTOMERS_SERVICE_IMAGE`, `$VETS_SERVICE_IMAGE`, `$VISITS_SERVICE_IMAGE`, and `$API_GATEWAY_IMAGE` to update or create your container apps.  
+6. There should be four packages in the list, one for each of the Java microservice apps. Click on the package name to see the details of the package. We use [Artifact attestations](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds) to increase the security of the images, that's why you see multiple images in the package details. Click the one named as your branch name (should be `main` by default) you shall see the image tag. Update or create your container apps with these tags instead of the image environment variables `$CUSTOMERS_SERVICE_IMAGE`, `$VETS_SERVICE_IMAGE`, `$VISITS_SERVICE_IMAGE`, and `$API_GATEWAY_IMAGE`.  
 
 ## Clean up resources
 
