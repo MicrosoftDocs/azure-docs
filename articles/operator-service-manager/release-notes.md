@@ -262,7 +262,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2804-137. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
+This release can be installed with as an update on top of release 2.0.2804-144. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
   
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.

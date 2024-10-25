@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2024
+ms.date: 09/12/2024
 ms.author: jianleishen
 ---
 # Copy data from Concur using Azure Data Factory or Synapse Analytics(Preview)
@@ -30,6 +30,8 @@ This Concur connector is supported for the following capabilities:
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 > [!NOTE]
 > Partner account is currently not supported.
