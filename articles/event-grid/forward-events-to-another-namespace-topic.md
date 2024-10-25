@@ -18,12 +18,12 @@ You can also forward events from a topic in one namespace to a topic in another 
 
 :::image type="content" source="./media/forward-events-to-another-namespace-topic/forward-events-to-topic-in-different-namespace.png" alt-text="Diagram that illustrates forwarding of events from one namespace topic to another topic in a different namespace." lightbox="./media/forward-events-to-another-namespace-topic/forward-events-to-topic-in-different-namespace.png":::
 
-## Enable managed identity for the source topic's namespace
-Select the identity that fits better to your scenario. See [Best practice recommendations for managed system identities](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations). Here, we use system assigned identity for demo purposes. 
+## Enable managed identity for the source namespace
+In this step, you enable managed identity for the source namespace (namespace that contains the source topic). Select the identity that fits better to your scenario. See [Best practice recommendations for managed system identities](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations). Here, we use system assigned identity for demo purposes. 
 
 1. Navigate to the Azure portal page for the namespace that has the source topic. 
 1. Select **Identity** on the left navigation menu.
-1. On the **System assigned** tag, select **On** for **Status**.
+1. On the **System assigned** tab, select **On** for **Status**.
 1. Select **Save** on the command bar to save the setting. 
 
     :::image type="content" source="./media/forward-events-to-another-namespace-topic/identity-page.png" alt-text="Screenshot that shows the Identity page for a namespace with system-assigned managed identity enabled." lightbox="./media/forward-events-to-another-namespace-topic/identity-page.png":::   
@@ -36,7 +36,7 @@ Select the identity that fits better to your scenario. See [Best practice recomm
 
     
 ## Grant identity the permission to send events to the destination topic
-You enabled managed identity on the source namespace in the last step. In this step, you grant identity the permission to send events to the destination namespace by adding identity to the **Event Grid Data Sender** role on the destination namespace.
+In this step, you add the managed identity of the source namespace to the **Event Grid Data Sender** role on the destination namespace. This step enables the source namespace to be able to send or forward events to the destination namespace. 
 
 1. Navigate to the Azure portal page for the namespace that has the destination topic. 
 1. Select **Access Control (IAM)**, and then select **Add a role assignment**. 
@@ -59,11 +59,11 @@ You enabled managed identity on the source namespace in the last step. In this s
 1. On the **Review + assign** page, review settings, and select **Review + assign**. 
 
 ## Create an event subscription to the source topic with destination topic as the endpoint
-You enabled managed identity on the source namespace, and then granted identity the permission to send events to the destination namespace by adding identity to the **Event Grid Data Sender** role on the destination namespace. Now, you are ready to create an event subscription on the source namespace topic using the destination namespace topic so that the events are forwarded to the destination namespace topic. 
+In this step, you create an event subscription on the source namespace topic using the destination namespace topic so that the events are forwarded to the destination namespace topic. 
 
 1. Navigate to the source topic page in the Azure portal. On the **Event Grid Namespace Topic** page, select **+ Subscription** on the command bar.
 
-    :::image type="content" source="./media/forward-events-to-another-namespace-topic/create-subscription-button.png" alt-text="Screenshot that shows the Create Subscription window with Event Grid Namespace Topic endpoint selected." lightbox="./media/forward-events-to-another-namespace-topic/create-subscription-button.png":::
+    :::image type="content" source="./media/forward-events-to-another-namespace-topic/create-subscription-button.png" alt-text="Screenshot that shows the Create Subscription button selected." lightbox="./media/forward-events-to-another-namespace-topic/create-subscription-button.png":::
 1. On the **Create Subscription** page, enter a name for the event subscription.
 1. Select **Event Grid Namespace Topic** as an endpoint destination, and select **Configure an endpoint**.
 
