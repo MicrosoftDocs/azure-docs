@@ -16,11 +16,11 @@ This article provides details of the metadata discovered by Azure Migrate applia
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in your environment and send server configuration and performance metadata to Azure.
 
-Metadata discovered by the Azure Migrate appliance helps you to assess server readiness for migration to Azure, right-size servers and plans costs. Microsoft doesn't use this data in any license compliance audit.
+Metadata discovered by the Azure Migrate appliance helps you to assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
 ## Collected metadata for VMware servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure:
 
@@ -88,7 +88,7 @@ NIC writes throughput (MB per second) | net.transmitted.average  |Calculation fo
 
 ## Collected metadata for Hyper-V servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure.
 
@@ -100,7 +100,7 @@ Server type (Gen 1 or 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
 Server display name | Msvm_VirtualSystemSettingData | ElementName
 Server version | Msvm_ProcessorSettingData | VirtualQuantity
 Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
-Maximum memory that can be consumed by server | Msvm_MemorySettingData | Limit
+Maximum memory that the server can consume | Msvm_MemorySettingData | Limit
 Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
 Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
 Server power status | Msvm_ComputerSystem | EnabledState
@@ -136,7 +136,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for server siz
 
 ## Collected data for Physical servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
 
 ### Windows server metadata
 
@@ -210,7 +210,7 @@ Here's the Linux server performance data that the appliance collects and sends t
 
 ## Software inventory data
 
-The appliance collects data about installed applications, roles and features (software inventory) from servers running in VMware environment/Hyper-V environment/physical servers or servers running on other clouds like AWS, GCP etc.
+The appliance collects data about installed applications, roles, and features (software inventory) from servers running in VMware environment/Hyper-V environment/physical servers or servers running on other clouds like AWS, GCP etc.
 
 ### Windows server applications data
 
