@@ -46,14 +46,6 @@ To view or edit the default MQTT broker endpoint settings:
 
     :::image type="content" source="media/howto-configure-mqtt-endpoint/default-mqtt-endpoint.png" alt-text="Screenshot using operations experience to view the default MQTT dataflow endpoint.":::
 
-# [Kubernetes](#tab/kubernetes)
-
-You can view the default MQTT broker endpoint settings in the Kubernetes cluster. To view the settings, use the following command:
-
-```bash
-kubectl get dataflowendpoint default -n azure-iot-operations -o yaml
-```
-
 # [Bicep](#tab/bicep)
 
 To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
@@ -97,7 +89,15 @@ resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/da
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+You can view the default MQTT broker endpoint settings in the Kubernetes cluster. To view the settings, use the following command:
+
+```bash
+kubectl get dataflowendpoint default -n azure-iot-operations -o yaml
 ```
 
 ---
@@ -124,27 +124,6 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    host: "<HOSTNAME>:<PORT>"
-    tls:
-      mode: Enabled
-      trustedCaCertificateConfigMapRef: <TRUST_BUNDLE>
-    authentication:
-      method: ServiceAccountToken
-      serviceAccountTokenSettings:
-        audience: <SA_AUDIENCE>
-```
 
 # [Bicep](#tab/bicep)
 
@@ -185,6 +164,27 @@ resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowE
     }
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: Mqtt
+  mqttSettings:
+    host: "<HOSTNAME>:<PORT>"
+    tls:
+      mode: Enabled
+      trustedCaCertificateConfigMapRef: <TRUST_BUNDLE>
+    authentication:
+      method: ServiceAccountToken
+      serviceAccountTokenSettings:
+        audience: <SA_AUDIENCE>
 ```
 
 ---
@@ -243,34 +243,6 @@ Once the Event Grid namespace is configured, you can create a dataflow endpoint 
 
 1. Select **Apply** to provision the endpoint.
 
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    host: <NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings:
-        {}
-    tls:
-      mode: Enabled
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
-
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -307,7 +279,35 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: Mqtt
+  mqttSettings:
+    host: <NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings:
+        {}
+    tls:
+      mode: Enabled
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
 ```
 
 ---
@@ -358,20 +358,6 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 1. Select **Apply** to provision the endpoint.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    host: <HOST>:<PORT>
-    authentication:
-      # See available authentication methods below
-    tls:
-      mode: Enabled # or Disabled
-      trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE-CONFIG-MAP>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -385,6 +371,20 @@ mqttSettings: {
     trustedCaCertificateConfigMapRef: '<YOUR CA CERTIFICATE CONFIG MAP>'
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+spec:
+  endpointType: Mqtt
+  mqttSettings:
+    host: <HOST>:<PORT>
+    authentication:
+      # See available authentication methods below
+    tls:
+      mode: Enabled # or Disabled
+      trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE-CONFIG-MAP>
 ```
 
 ---
@@ -419,16 +419,6 @@ Enter the following settings for the endpoint:
 | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
 | X509 client key       | The private key corresponding to the X.509 client certificate. |
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <YOUR-X509-SECRET-NAME>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -439,6 +429,16 @@ mqttSettings: {
         secretRef: '<YOUR-X509-SECRET-NAME>'
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  authentication:
+    method: X509Certificate
+    x509CertificateSettings:
+      secretRef: <YOUR-X509-SECRET-NAME>
 ```
 
 ---
@@ -455,16 +455,6 @@ Then, configure the endpoint with system-assigned managed identity settings. In 
 
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      {}
-```
-
 # [Bicep](#tab/bicep)
 
 
@@ -477,14 +467,6 @@ mqttSettings: {
 }
 ```
 
----
-
-If you need to set a different audience, you can specify it in the settings.
-
-# [Portal](#tab/portal)
-
-Not supported.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -492,8 +474,16 @@ mqttSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://<AUDIENCE>
+      {}
 ```
+
+---
+
+If you need to set a different audience, you can specify it in the settings.
+
+# [Portal](#tab/portal)
+
+Not supported.
 
 # [Bicep](#tab/bicep)
 
@@ -506,6 +496,16 @@ mqttSettings: {
     }
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://<AUDIENCE>
 ```
 
 ---
@@ -522,18 +522,6 @@ In the operations experience dataflow endpoint settings page, select the **Basic
 
 Enter the user assigned managed identity client ID, tenant ID, and scope in the appropriate fields.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
-      scope: <SCOPE>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -549,6 +537,18 @@ mqttSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <ID>
+      tenantId: <ID>
+      scope: <SCOPE>
+```
+
 ---
 
 #### Kubernetes service account token (SAT)
@@ -560,16 +560,6 @@ To use Kubernetes service account token (SAT) for authentication, you don't need
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
 
 Enter the service audience.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: ServiceAccountToken
-    serviceAccountTokenSettings:
-      audience: <YOUR_SERVICE_ACCOUNT_AUDIENCE>
-```
 
 # [Bicep](#tab/bicep)
 
@@ -584,6 +574,16 @@ mqttSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  authentication:
+    method: ServiceAccountToken
+    serviceAccountTokenSettings:
+      audience: <YOUR_SERVICE_ACCOUNT_AUDIENCE>
+```
+
 ---
 
 If the audience isn't specified, the default audience for the Azure IoT Operations MQTT broker is used.
@@ -596,6 +596,10 @@ To use anonymous authentication, set the authentication method to `Anonymous`.
 
 Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
 
+# [Bicep](#tab/bicep)
+
+Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -605,10 +609,6 @@ mqttSettings:
     anonymousSettings:
       {}
 ```
-
-# [Bicep](#tab/bicep)
-
-Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
 
 ---
 
@@ -634,6 +634,21 @@ In the operations experience, select the **Advanced** tab for the dataflow endpo
 | Client ID prefix         | The client ID is generated by appending the dataflow instance name to the prefix. |
 | Cloud event attributes   | For *Propagate*, CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the message is passed through as is. For *Create or re-map*, CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the properties are generated. |
 
+# [Bicep](#tab/bicep)
+
+```bicep
+mqttSettings: {
+  qos: 1
+  retain: Keep
+  sessionExpirySeconds: 3600
+  keepAliveSeconds: 60
+  maxInflightMessages: 100
+  protocol: WebSockets
+  clientIdPrefix: 'dataflow'
+  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 You can set these settings in the dataflow endpoint manifest file.
@@ -650,21 +665,6 @@ mqttSettings:
   CloudEventAttributes: Propagate # or CreateOrRemap
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-mqttSettings: {
-  qos: 1
-  retain: Keep
-  sessionExpirySeconds: 3600
-  keepAliveSeconds: 60
-  maxInflightMessages: 100
-  protocol: WebSockets
-  clientIdPrefix: 'dataflow'
-  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
-}
-```
-
 ---
 
 
@@ -678,14 +678,6 @@ To enable or disable TLS for the Kafka endpoint, update the `mode` setting in th
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the checkbox next to **TLS mode enabled**.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  tls:
-    mode: Enabled # or Disabled
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -694,6 +686,14 @@ mqttSettings: {
     mode: 'Enabled' // or 'Disabled'
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  tls:
+    mode: Enabled # or Disabled
 ```
 
 ---
@@ -708,14 +708,6 @@ Configure the trusted CA certificate for the MQTT endpoint to establish a secure
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  tls:
-    trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -724,6 +716,14 @@ mqttSettings: {
     trustedCaCertificateConfigMapRef: '<YOUR_CA_CERTIFICATE>'
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  tls:
+    trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
 ```
 
 ---
@@ -746,19 +746,19 @@ You can set a client ID prefix for the MQTT client. The client ID is generated b
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Client ID prefix** field to specify the prefix.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  clientIdPrefix: <YOUR_PREFIX>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   clientIdPrefix: '<YOUR_PREFIX>'
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  clientIdPrefix: <YOUR_PREFIX>
 ```
 
 ---
@@ -771,19 +771,19 @@ You can set the Quality of Service (QoS) level for the MQTT messages to either 1
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Quality of service (QoS)** field to specify the QoS level.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  qos: 1 # Or 0
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   qos: 1 // Or 0
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  qos: 1 # Or 0
 ```
 
 ---
@@ -802,19 +802,19 @@ To configure retain settings:
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Retain** field to specify the retain setting.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  retain: Keep # or Never
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   retain: Keep // or Never
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  retain: Keep # or Never
 ```
 
 ---
@@ -829,19 +829,19 @@ You can set the session expiry interval for the dataflow MQTT client. The sessio
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Session expiry** field to specify the session expiry interval.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  sessionExpirySeconds: 3600
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   sessionExpirySeconds: 3600
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  sessionExpirySeconds: 3600
 ```
 
 ---
@@ -854,19 +854,19 @@ By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `prot
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Protocol** field to specify the protocol.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  protocol: WebSockets
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   protocol: 'WebSockets'
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  protocol: WebSockets
 ```
 
 ---
@@ -879,19 +879,19 @@ You can set the maximum number of inflight messages that the dataflow MQTT clien
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Maximum in-flight messages** field to specify the maximum number of inflight messages.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  maxInflightMessages: 100
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   maxInflightMessages: 100
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  maxInflightMessages: 100
 ```
 
 ---
@@ -906,19 +906,19 @@ You can set the keep alive interval for the dataflow MQTT client. The keep alive
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Keep alive** field to specify the keep alive interval.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  keepAliveSeconds: 60
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   keepAliveSeconds: 60
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  keepAliveSeconds: 60
 ```
 
 ---
@@ -933,19 +933,19 @@ The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. To configu
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Cloud event attributes** field to specify the CloudEvents setting.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  CloudEventAttributes: Propagate # or CreateOrRemap
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
   CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  CloudEventAttributes: Propagate # or CreateOrRemap
 ```
 
 ---
@@ -981,3 +981,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | Schema defined in the schema registry                                         |
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)
