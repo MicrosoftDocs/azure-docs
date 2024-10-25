@@ -28,11 +28,11 @@ This article shows how to delete containers with the [Azure Storage client libra
 
 ## Delete a container
 
-To delete a container, use the following method from the [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) class:
+To delete a container, use the following method from the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class:
 
 - [BlobServiceClient.deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer#@azure-storage-blob-blobserviceclient-deletecontainer)
 
-You can also delete a container using the following method from the [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) class:
+You can also delete a container using the following method from the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class:
 
 - [ContainerClient.delete](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer)
 - [ContainerClient.deleteIfExists](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-containerclient-deleteifexists)
@@ -65,11 +65,11 @@ The following example shows how to delete all containers that start with a speci
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object:
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object:
 
-- BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
+- [BlobServiceClient.undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
 
-The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the **undeleteContainer** method to restore the container.
+The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the `undeleteContainer` method to restore the container.
 
 ## [JavaScript](#tab/javascript)
 

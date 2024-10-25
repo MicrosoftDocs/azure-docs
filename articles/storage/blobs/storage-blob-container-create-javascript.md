@@ -32,7 +32,7 @@ To create a container, call the following method from the [BlobServiceClient](/j
 
 - [BlobServiceClient.createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
 
-You can also create a container using either of the following methods from the [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) class:
+You can also create a container using either of the following methods from the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) class:
 
 - [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient?#@azure-storage-blob-containerclient-create)
 - [ContainerClient.createIfNotExists](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-createifnotexists)
