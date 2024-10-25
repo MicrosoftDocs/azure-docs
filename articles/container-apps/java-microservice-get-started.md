@@ -1,6 +1,6 @@
 ---
 title: Launch your first Java microservice applications with managed Java components in Azure Container Apps
-description: Learn how to deploy a java project in Azure Container Apps.
+description: Learn how to deploy a java microservice project in Azure Container Apps with managed java components.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -206,7 +206,7 @@ In the above steps, you're using our [built images](https://github.com/orgs/Azur
 
 5. After the workflow finished, go to the `Code` tab of your `azure-container-apps-java-samples` repository, click the `Packages` button at the right bottom corner to see the built images.
 
-    :::image type="content" source="media/java-deploy-war-file/github-package-button.png" alt-text="Screenshot of packages.":::
+   :::image type="content" source="media/java-deploy-war-file/github-package-button.png" alt-text="Screenshot of GitHub packages.":::
 
 6. There should be four packages in the list, one for each of the Java microservice apps. Click on the package name to see the details of the package. We use [Artifact attestations](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds) to increase the security of the images, that's why you see multiple images in the package details. Click the one named as your branch name (should be `main` by default) you shall see the image tag. Update or create your container apps with these tags instead of the image environment variables `$CUSTOMERS_SERVICE_IMAGE`, `$VETS_SERVICE_IMAGE`, `$VISITS_SERVICE_IMAGE`, and `$API_GATEWAY_IMAGE`.  
 
