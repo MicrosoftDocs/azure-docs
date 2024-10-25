@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Bastion, including availability
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability
+ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
 ms.date: 10/25/2024
 ms.custom: references_regions
