@@ -191,7 +191,7 @@ When you configure or edit a lifecycle policy, it can take up to 24 hours for ch
 If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 
 ### Lifecycle policy completed event
-The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears each action included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
 
 ```json
