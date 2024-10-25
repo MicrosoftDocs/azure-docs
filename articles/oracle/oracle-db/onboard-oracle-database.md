@@ -1,5 +1,5 @@
 ---
-title: Onboard Oracle Database@Azure
+title: "Onboard Oracle Database@Azure"
 description: Learn about purchase and configuration steps to onboard Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure

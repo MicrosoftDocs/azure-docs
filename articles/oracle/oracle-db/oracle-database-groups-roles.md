@@ -49,6 +49,6 @@ For information on working with policies, see [Get started with policies](https:
 ## Related content
 
 - [Overview of Oracle Database@Azure](database-overview.md)
-- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
+- [Onboard Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Support for Oracle Database@Azure](oracle-database-support.md)

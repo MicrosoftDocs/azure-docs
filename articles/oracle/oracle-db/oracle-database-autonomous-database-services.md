@@ -20,8 +20,8 @@ For more information on Oracle Autonomous Database beyond implementation and use
 
 The following articles describe how to create and manage tasks associated with Autonomous Database services:
 
-* [What's new in Autonomous Database services](oracle-database-whats-new-autonomous-database-services.md)
+* [What's new in Oracle Autonomous Database](oracle-database-whats-new-autonomous-database-services.md)
 * [Provision an instance of Autonomous Database](oracle-database-provision-autonomous-database.md)
 * [Manage Autonomous Database resources](provision-manage-oracle-resources.md)
-* [Terraform/OpenTofu examples for Autonomous Database services](oracle-database-examples-autonomous-database-services.md)
-* [Troubleshoot Autonomous Database services](oracle-database-troubleshoot-autonomous-database-services.md)
+* [Terraform/OpenTofu examples for Autonomous Database](oracle-database-examples-autonomous-database-services.md)
+* [Troubleshoot Autonomous Database](oracle-database-troubleshoot-autonomous-database-services.md)

@@ -11,15 +11,15 @@ ms.author: jacobjaygbay
 
 # Plan IP address space for Oracle Database@Azure
 
-When you set up Oracle Database@Azure, it's important to plan your IP address space to ensure that you have enough IPs for your virtual machine clusters and networking services.
+A key part of designing an Oracle Database@Azure deployment is planning for IP address space. It's important to ensure that you have enough IPs for your virtual machine clusters and for networking services.
 
-This article provides tables you can use to find the minimum subnet Classless Inter-Domain Routing (CIDR) size for your instance of Oracle Exadata Database@Azure.
+This article provides tables you can use to find the minimum subnet Classless Inter-Domain Routing (CIDR) size for your instance of Oracle Database@Azure.
 
 When you set up your network, consider the following points:
 
-- For Oracle Exadata Database@Azure, the minimum CIDR size is /27.
-- IP ranges that are allocated to Oracle Exadata Database@Azure subnets and to Oracle Exadata Database@Azure virtual machine clusters can't overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle Database@Azure.
-- For Oracle Exadata Database Machine X9M, IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the interconnect and can't be allocated to client networks or backup networks.
+- For Oracle Autonomous Database, the minimum CIDR size is /27.
+- IP address ranges that are allocated to Oracle Autonomous Database subnets and to Oracle Exadata virtual machine clusters can't overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle Database@Azure.
+- For Oracle Exadata X9M, IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the interconnect and can't be allocated to client networks or backup networks.
 
 Other requirements that are specific to client subnets and backup subnets are described in the next sections.
 
@@ -35,7 +35,7 @@ The client subnet has the following IP address requirements:
 
 ### Scenarios: CIDR size required for a client subnet
 
-The following table shows scenarios of provisioned virtual machine clusters of varying sizes. How many instances of each scenario that can fit in a client subnet depends on the CIDR size of the subnet. This table doesn't show all possible scenarios.
+The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of instances of each scenario that can fit in a client subnet depends on the CIDR size of the subnet. This table doesn't show all possible scenarios.
 
 |Scenario|/27|/26|/25|/24|/23|/22|
 |--------|---|---|---|---|---|---|
@@ -45,15 +45,6 @@ The following table shows scenarios of provisioned virtual machine clusters of v
 |Two virtual machine clusters with two virtual machines each *(22 IPs + 17 IPs for networking services = 39 IPs)*| |2|5|10|22|45|
 |Two virtual machine clusters with three virtual machines each *(30 IPs + 17 IPs for networking services = 47 IPs)*| |1|3|7|16|33|
 |Two virtual machine clusters with four virtual machines each *(38 IPs + 17 IPs for networking services = 55 IPs)*| |1|2|6|13|26|
-
-|Scenario|/27|/26|/25|/24|/23|/22|
-|--------|---|---|---|---|---|---|
-|One virtual machine cluster with two virtual machines *(11 IPs + 17 IPs for networking services = 28 IPs)*|1|2|4|9|18|36|
-|One virtual machine cluster with three virtual machines *(15 IPs + 17 IPs for networking services = 32 IPs)*|1|2|4|8|16|32|
-|One virtual machine cluster with four virtual machines *(19 IPs + 17 IPs for networking services = 36 IPs)*| |1|3|7|14|28|
-|Two virtual machine clusters with two virtual machines each *(22 IPs + 17 IPs for networking services = 39 IPs)*| |1|3|6|13|26|
-|Two virtual machine clusters with three virtual machines each *(30 IPs + 17 IPs for networking services = 47 IPs)*| |1|2|5|10|21|
-|Two virtual machine clusters with four virtual machines each *(38 IPs + 17 IPs for networking services = 55 IPs)*| |1|2|4|9|18|
 
 ## Backup subnet requirements
 
@@ -66,18 +57,18 @@ A backup subnet has the following IP address requirements:
 
 ### Scenarios: CIDR size required for a backup subnet
 
-The following table shows scenarios of provisioned virtual machine clusters of different sizes. How many instances of each scenario that can fit in a backup subnet depends on the CIDR size of the subnet. The table doesn't display all possible scenarios.
+The following table shows scenarios of provisioned virtual machine clusters of different sizes. The number of instances of each scenario that can fit in a backup subnet depends on the CIDR size of the subnet. The table doesn't display all possible scenarios.
 
 |Scenario|/28|/27|/26|/25|/24|/23|
 |--------|---|---|---|---|---|---|
-|One virtual machine cluster that has two virtual machines *(6 IPs + 3 for networking services = 9 IPs)*|1|3|7|14|28|56|
-|One virtual machine cluster that has three virtual machines *(9 IPs + 3 for networking services = 12 IPs)*|1|2|5|10|21|42|
-|One virtual machine cluster that has four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
+|One virtual machine cluster with two virtual machines *(6 IPs + 3 for networking services = 9 IPs)*|1|3|7|14|28|56|
+|One virtual machine cluster with three virtual machines *(9 IPs + 3 for networking services = 12 IPs)*|1|2|5|10|21|42|
+|One virtual machine cluster with four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
 |Two virtual machine clusters with two virtual machines each *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
 |Two virtual machine clusters with three virtual machines each *(18 IPs + 3 for networking services = 21 IPs)*| |1|3|6|12|24|
 |Two virtual machine clusters with four virtual machines each *(24 IPs + 3 for networking services = 27 IPs)*| |1|2|4|9|18|
 
-## Usable IP addresses for client and backup subnets by CIDR size
+## Usable IPs for client and backup subnets by CIDR size
 
 The following table shows the number of IP addresses that are available for virtual machine clusters and SCANs for various CIDR sizes after you subtract the IP addresses that the networking services require.
 
@@ -86,7 +77,7 @@ The following table shows the number of IP addresses that are available for virt
 
 |Subnet CIDR|Reserved networking IPs for a client subnet|Usable IPs for a client subnet (virtual machines and SCANs)|Reserved networking IPs for a backup subnet|Usable IPs for a backup subnet (virtual machines and SCANs)|
 |-----------|-----------------------------------------|-----------------------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
-|/28|17|0 (2^4 - 17)|3|13 (2^4 - 3)|
+|/28|17|0 (2<4 - 17)|3|13 (2^4 - 3)|
 |/27|17|15 (2^5 - 17)|3|29 (2^5 - 3)|
 |/26|17|47 (2^6 - 17)|3|61 (2^6 - 3)|
 |/25|17|111 (2^7 - 17)|3|125 (2^7 - 3)|
@@ -97,6 +88,6 @@ The following table shows the number of IP addresses that are available for virt
 ## Related content
 
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Support for Oracle Database@Azure](oracle-database-support.md)
 - [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
 - [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)

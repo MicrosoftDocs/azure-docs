@@ -1,6 +1,6 @@
 ---
-title: Region availability in Oracle Database@Azure
-description: Learn about region availability in Oracle Database@Azure.
+title: Region availability for Oracle Database@Azure
+description: Learn about region availability for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -10,7 +10,7 @@ ms.custom: references-regions
 ms.author: jacobjaygbay
 ---
 
-# Region availability in Oracle Database@Azure
+# Region availability for Oracle Database@Azure
 
 Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 

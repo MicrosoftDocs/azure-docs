@@ -65,7 +65,7 @@ For more information about modules, see [Oracle multicloud landing zone for Azur
 ## Related content
 
 - [Quickstart: Oracle Database@Azure with Terraform or OpenTofu modules](https://docs.oracle.com/learn/dbazure-terraform/index.html)
-- [Terraform: Set up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
+- [Set up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
 - [Import OCI resources into a Terraform state file](https://docs.oracle.com/learn/terraform-statefile-oci-resources/index.html)
 - [Azure Verified Modules for a virtual network](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork)
 - [Quickstart: Install and configure Terraform for Azure](/azure/developer/terraform/quickstart-configure)

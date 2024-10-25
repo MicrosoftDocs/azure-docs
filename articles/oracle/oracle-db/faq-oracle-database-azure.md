@@ -194,6 +194,6 @@ For more information about Oracle Database@Azure, see the following resources:
 
 - [Overview of Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/iaas/Content/multicloud/oaaonboard.htm)
-- [Oracle Database@Azure support information](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
+- [Support for Oracle Database@Azure](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
 - [Network planning for Oracle Database@Azure](/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
