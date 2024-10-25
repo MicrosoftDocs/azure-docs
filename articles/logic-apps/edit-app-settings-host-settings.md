@@ -42,7 +42,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Visual Studio Code project structure
 
-[!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+[!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="reference-local-settings-json"></a>
 
