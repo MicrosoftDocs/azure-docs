@@ -238,7 +238,7 @@ The following table outlines the support scope of flow logs.
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions and is currently in preview in Azure Government.
+Virtual network flow logs are generally available in all Azure public regions and are currently in preview in Azure Government.
 
 ## Related content
 
