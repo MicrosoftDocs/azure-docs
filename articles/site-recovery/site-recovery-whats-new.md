@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
-ms.date: 09/06/2024
+ms.date: 10/24/2024
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -24,14 +24,28 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.62.7172.1 | 9.62.7172.1  | 9.56.6879.1 | 5.24.0814.2 | 2.0.9932.0
+[Rollup 76](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.63.7187.1 | 9.63.7187.1  | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
+[Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.62.7172.1 | 9.62.7172.1  | 9.62.7172.1 | 5.24.0814.2 | 2.0.9932.0
 [Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | 9.62.7096.1 | 9.62.7096.1 | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
 [Rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 9.61.7016.1 | 9.61.7016.1 | 9.61.7016.1 | 5.24.0317.5 | 2.0.9917.0 
 [Rollup 72](https://support.microsoft.com/topic/update-rollup-72-for-azure-site-recovery-kb5036010-aba602a9-8590-4afe-ac8a-599141ec99a5) | 9.60.6956.1 | NA | 9.60.6956.1 | 5.24.0117.5 | 2.0.9917.0 
 [Rollup 71](https://support.microsoft.com/topic/update-rollup-71-for-azure-site-recovery-kb5035688-4df258c7-7143-43e7-9aa5-afeef9c26e1a) | 9.59.6930.1 | NA | 9.59.6930.1 | NA | NA
-[Rollup 70](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 9.57.6920.1 | 9.57.6911.1 / NA  | 9.57.6911.1 | 5.23.1204.5 (VMware) | 2.0.9263.0 (VMware)
+
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (October 2024)
+
+### Update Rollup 76
+
+Update [rollup 76](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 22.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros. 
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 22.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros.
 
 
 ## Updates (August 2024)
@@ -46,7 +60,6 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Issue fixes/improvements** | Certificate renewal for VMware to Azure in Modernized Appliances.
 **Azure VM disaster recovery** | No improvements added. 
 **VMware VM/physical disaster recovery to Azure** | No improvements added. 
-
 
 
 ## Updates (July 2024)

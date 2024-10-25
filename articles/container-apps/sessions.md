@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 10/24/2024
 ms.author: cshoe
 ms.custom: references_regions
 ---
@@ -25,9 +25,6 @@ Sessions have the following attributes:
 * **Fast startup**: A new session is allocated in milliseconds. Rapid start-ups are achieved by automatically maintaining a pool of ready but unallocated sessions.
 
 * **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
-
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview.
 
 ## Session types
 
@@ -195,9 +192,9 @@ The Container Apps runtime automatically manages the lifecycle for each session 
 
 Azure Container Apps dynamic sessions are built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session. You should only configure or upload sensitive data to a session if you trust the users of the session.
 
-## Preview limitations
+## Limitations
 
-Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
+The following limitations apply to dynamic sessions:
 
 * It's only available in the following regions:
 
@@ -211,7 +208,7 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     | North Central US | ✔ | - |
     | North Europe | ✔ | ✔ |
     | West US 2 | ✔ | ✔ |
-    
+
 * Logging isn't supported. Your application can log requests to the session pool management API and its responses.
 
 ## Next steps
