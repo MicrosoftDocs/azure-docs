@@ -59,7 +59,10 @@ Select the tiles (except Backup Storage) to open the associated menu. In the ima
 
 ![Backup alerts menu filtered for critical alerts](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-The Backup Alerts menu, in the image above, is filtered by: Status is Active, Severity is Critical, and time is the previous 24 hours.
+You can see the details of classic alerts by selecting the **Backup Alerts** tile.
+
+>[!Important]
+>Classic alerts for Azure Backup and Azure Site Recovery will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](move-to-azure-monitor-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience.
 
 ### Backup Pre-Check Status
 
@@ -86,81 +89,6 @@ To access the Backup Alerts menu, in the Recovery Services vault menu, select **
 The Backup Alerts report lists the alerts for the vault.
 
 ![Backup alerts report](./media/backup-azure-manage-windows-server/backup-alerts.png)
-
-### Alerts
-
-The Backup Alerts list displays the selected information for the filtered alerts. In the Backup Alerts menu, you can filter for Critical or Warning alerts.
-
-| Alert Level | Events that generate alerts |
-| ----------- | ----------- |
-| Critical | You receive critical alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
-| Warning | You receive warning alerts when: Backup jobs complete with warnings. For example, when fewer than 100 files aren't backed up because of corruption issues, or when greater than 1,000,000 files are successfully backed up). |
-| Informational | currently, no informational alerts are in use. |
-
-### Viewing alert details
-
-The Backup Alerts report tracks eight details about each alert. Use the **Choose columns** button to edit the details in the report.
-
-![Backup alerts choose columns button](./media/backup-azure-manage-windows-server/backup-alerts.png)
-
-By default, all details, except **Latest Occurrence Time**, appear in the report.
-
-* Alert
-* Backup Item
-* Protected Server
-* Severity
-* Duration
-* Creation Time
-* Status
-* Latest Occurrence Time
-
-### Change the details in alerts report
-
-1. To change the report information, in the **Backup Alerts** menu, select **Choose columns**.
-
-   ![Select choose columns](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
-
-   The **Choose columns** menu opens.
-
-2. In the **Choose columns** menu, choose the details you want to appear in the report.
-
-    ![Choose columns menu](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
-
-3. Select **Done** to save your changes and close the Choose columns menu.
-
-   If you make changes, but don't want to keep the changes, select **Reset** to return the selected to the last saved configuration.
-
-### Change the filter in alerts report
-
-Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts.
-
-> [!NOTE]
-> Editing the Backup Alerts filter doesn't change the Critical or Warning alerts in the vault Overview dashboard.
->  
-
-1. To change the Backup Alerts filter, in the Backup Alerts menu, select **Filter**.
-
-   ![Choose filter menu](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
-
-   The Filter menu appears.
-
-   ![Filter alert menu](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
-
-2. Edit the Severity, Status, Start time, or End time, and select **Done** to save your changes.
-
-## Configuring notifications for alerts
-
-Configure notifications to generate emails when a Warning or Critical alert occurs. You can send email alerts each hour, or when a particular alert occurs.
-
-   ![Filter alerts](./media/backup-azure-manage-windows-server/configure-notification.png)
-
-By default, Email notifications are **On**. Select **Off** to stop the email notifications.
-
-On the **Notify** control, choose **Per Alert** if you don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
-
-If you select **Hourly Digest**, an email is sent to the recipients explaining the unresolved alerts generated in the last hour. A resolution email is sent out at the end of the hour.
-
-Choose the alert severity (Critical or Warning) used to generate email. Currently there are no Information alerts.
 
 ## Manage Backup items
 
