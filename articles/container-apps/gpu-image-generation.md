@@ -77,7 +77,7 @@ Once you create the container app, the app can take up to five minutes to provis
     Before you run the command, make sure to replace `<YOUR_BACKEND_URL>` with the value you copied from the portal.
 
     ```bash
-    BACKEND_URL=<YOU_BACKEND_URL>
+    BACKEND_URL=<YOUR_BACKEND_URL>
     ```
 
 1. To generate an image, run the following command to issue a `POST` request to the application.
