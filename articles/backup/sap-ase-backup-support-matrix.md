@@ -31,10 +31,10 @@ Azure Backup supports the backup of SAP ASE databases to Azure. This article sum
 Cross Subscription Restore to Paired Region |  Region of Choice isn't supported      |
 | **Number of full backups per day**     |   One scheduled backup. <br><br> Three on-demand backups. <br> <br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.   |
 | **ASE deployments** | Standalone |     HA, Multi SID on Single VM      |
-| **Compression** | You can enable ASE Native compression via the Backup policy and when you take Adhoc Backup/Backup Now. In Pre-registration Script – Compression Level is set to **Level 101** for Optimal results  |       |
-| **Striping Support** | You can increase your  backup throughput by enabling Striping configuration which needs to be set in **Pre-registration script** –  refer parameters **enable-striping** -Set to **true** and **stripesCount** set to 4 by Default and can be adjusted.  |      |
+| **Compression** | You can enable ASE Native compression via the Backup policy and when you take Adhoc Backup/Backup Now. In Preregistration Script – Compression Level is set to **Level 101** for Optimal results  |       |
+| **Striping Support** | You can increase your  backup throughput by enabling Striping configuration which needs to be set in **Preregistration script** –  refer parameters **enable-striping** -Set to **true** and **stripesCount** set to 4 by Default and can be adjusted.  |      |
 | **Azure CLI PowerShell** |  | Azure CLI/PowerShell support will be from GA release |
-| **Security Capabilities** | Immutability, Soft Delete, MUA ,Private Endpoint , Encryption at rest are supported  | |
+| **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, Encryption at rest are supported  | |
 ------
 
 >[!NOTE]
@@ -59,7 +59,7 @@ Cross Subscription Restore to Paired Region |  Region of Choice isn't supported 
 - **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
 - **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
 
-Learn more about SAP ASE Azure Virtual Machine storage and SAP ASE Azure virtual machine Premium SSD storage configurations configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
+Learn more about SAP ASE Azure Virtual Machine storage and SAP ASE Azure virtual machine Premium SSD storage configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
 
 ## Next steps
