@@ -73,11 +73,9 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: Overview
+      - name: What are dataflows?
         href: connect-to-cloud/overview-dataflow.md
-      - name: Create a dataflow
-        href: connect-to-cloud/howto-create-dataflow.md
-      - name: Endpoints
+      - name: Prepare endpoints
         items:
         - name: Overview
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
@@ -93,6 +91,8 @@ items:
           href: connect-to-cloud/howto-configure-adx-endpoint.md
         - name: Local storage
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
+      - name: Create dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
         - name: Map data
