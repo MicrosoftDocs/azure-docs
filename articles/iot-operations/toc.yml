@@ -89,7 +89,7 @@ items:
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
-        - name: Local storage
+        - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
       - name: Create dataflow
         href: connect-to-cloud/howto-create-dataflow.md
