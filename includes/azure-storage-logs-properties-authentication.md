@@ -2,7 +2,7 @@
  author: normesta
  ms.service: storage
  ms.topic: include
- ms.date: 05/26/2023
+ ms.date: 10/25/2024
  ms.author: normesta
 ---
 
@@ -28,3 +28,8 @@
 |**requester / tokenIssuer** | The OAuth token issuer. <br> For example: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
 |**requester / upn** | The User Principal Name (UPN) of requestor. <br> For example: `someone@contoso.com`. |
 |**requester / userName** | This field is reserved for internal use only.|
+|**requester / uniqueName** | The `unique_name` field of the access token. Provides a human readable value that identifies the subject of the token. For example: `someone@example.com`. |
+|**requester / delegatedTenantId**| The Microsoft Entra tenant ID of the Azure resource ID which accesses storage on-behalf-of the storage resource owner (For example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`). |
+|**requester / delegatedResourceId**|The Azure resource ID which accesses storage on behalf of the storage resource owner (For example: `/subscriptions/<sub>/resourcegroups/<rg>/providers/Microsoft.Compute/virtualMachines/<vm-name>`)|
+|**requester / delegatedObjectId**|The Microsoft Entra object ID of the Azure resource ID which accesses storage on behalf of the storage resource owner (For example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`).|
+

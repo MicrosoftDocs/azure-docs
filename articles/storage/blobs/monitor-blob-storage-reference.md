@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 08/27/2024
+ms.date: 10/25/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -67,7 +67,7 @@ The following sections describe the properties for Azure Storage resource logs w
 ```json
 {
     "time": "2019-02-28T19:10:21.2123117Z",
-    "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
+    "resourceId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
     "category": "StorageWrite",
     "operationName": "PutBlob",
     "operationVersion": "2017-04-17",
@@ -76,7 +76,7 @@ The following sections describe the properties for Azure Storage resource logs w
     "statusText": "Success",
     "durationMs": 5,
     "callerIpAddress": "192.168.0.1:11111",
-    "correlationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "location": "uswestcentral",
     "uri": "http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10"
 }
@@ -92,17 +92,17 @@ The following sections describe the properties for Azure Storage resource logs w
         "authorization": [
             {
                 "action": "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-                "denyAssignmentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "denyAssignmentId": "aaaa0000-bb11-2222-33cc-444444dddddd",
                 "principals": [
                     {
-                        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "id": "aaaaaaaa-bbbb-cccc-1111-222222222222",
                         "type": "User"
                     }
                 ],
                 "reason": "Policy",
                 "result": "Granted",
-                "roleAssignmentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-                "roleDefinitionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "roleAssignmentId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+                "roleDefinitionId": "11bb11bb-cc22-dd33-ee44-55ff55ff55ff",
                 "type": "RBAC"
             }
         ],
@@ -111,12 +111,18 @@ The following sections describe the properties for Azure Storage resource logs w
             "objectKey": "/samplestorageaccount/samplecontainer/sampleblob.png"
            },
         "requester": {
-            "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
             "audience": "https://storage.azure.com/",
-            "objectId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "tokenIssuer": "https://sts.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+            "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+            "tokenIssuer": "https://sts.windows.net/2c2c2c2c-3333-dddd-4444-5e5e5e5e5e5e",
+            "uniqueName": "someone@example.com"
            },
+        "delegatedResource": {
+            "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+            "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "objectId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"
+          },
         "type": "OAuth"
     },
 }
@@ -130,10 +136,10 @@ The following sections describe the properties for Azure Storage resource logs w
 ```json
 {
     "properties": {
-        "accountName": "testaccount1",
-        "requestUrl": "https://testaccount1.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=/&marker=&maxresults=30&include=metadata&_=1551405598426",
+        "accountName": "contoso",
+        "requestUrl": "https://contoso.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=/&marker=&maxresults=30&include=metadata&_=1551405598426",
         "userAgentHeader": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134",
-        "referrerHeader": "blob:https://portal.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "referrerHeader": "blob:https://portal.azure.com/00001111-aaaa-2222-bbbb-3333cccc4444",
         "clientRequestId": "",
         "etag": "",
         "serverLatencyMs": 63,
@@ -157,7 +163,11 @@ The following sections describe the properties for Azure Storage resource logs w
         "smbFileId" : " 0x9223442405598953",
         "smbSessionID" : "0x8530280128000049",
         "smbCommandMajor" : "0x6",
-        "smbCommandMinor" : "DirectoryCloseAndDelete"
+        "smbCommandMinor" : "DirectoryCloseAndDelete",
+        "downloadRange" : "bytes=4-4194307",
+        "accessTier": "None",
+        "sourceAccessTier": "Hot",
+        "rehydratePriority":"High"
     }
 }
 ```
