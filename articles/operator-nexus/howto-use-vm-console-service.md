@@ -49,11 +49,12 @@ To help set up the environment for access to Virtual Machines, define these envi
 ```bash
     # CM_HOSTED_RESOURCES_RESOURCE_GROUP: Cluster Manager resource group name
     export CM_HOSTED_RESOURCES_RESOURCE_GROUP="my-contoso-console-rg"
-    # CM_EXTENDED_LOCATION: Cluster Manager Extended Location, can be retrieved but you will need access rights to execute certain Azure CLI commands
-    export CM_EXTENDED_LOCATION="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
 
     # VIRTUAL_MACHINE_NAME: Virtual Machine name you want to access through VM Console service
     export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
+    # CM_EXTENDED_LOCATION: Cluster Manager Extended Location, can be retrieved but you will need access rights to execute certain Azure CLI commands
+    export CM_EXTENDED_LOCATION=$(az networkcloud virtualmachine show --name ${VIRTUAL_MACHINE_NAME} --resource-group ${VIRTUAL_MACHINE_RG}  --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name')
+
     # CONSOLE_PUBLIC_KEY: Public Key matching Private Key to be used when establish `ssh` session, e.g., `ssh -i $HOME/.ssh/id-rsa`
     export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
     # CONSOLE_EXPIRATION_TIME: Expiration date and time (RFC3339 format) for any `ssh` session with a virtual machine. 
