@@ -615,7 +615,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
-| `414 (URI Too Long)` | URI exceeded maximum supported length. |
+| `414 (URI Too Long)` | URI exceeded maximum supported length of 8192 characters. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
