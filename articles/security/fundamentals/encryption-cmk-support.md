@@ -72,19 +72,17 @@ The following services support server-side encryption with customer managed keys
 | [Azure Database Migration Service](/azure/dms/) | N/A\* | | [What is Azure Database Migration Service?](/azure/dms/dms-overview) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
-| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql) |
-| [SQL IaaS](/azure/virtual-machines/sql/) | Yes | | [Enable customer-managed keys using the Azure portal](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) |
+| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
+| [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/) | Yes | | [Configure Azure Key Vault integration for SQL Server on Azure VMs ](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure) |
 | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | | [Transparent data encryption for SQL Server on Azure VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-security#transparent-data-encryption) |
-| [SQL Server Stretch Database](/sql/sql-server/stretch-database/) | Yes (RSA 3072-bit) | | [Enable Transparent Data Encryption (TDE)](/sql/sql-server/stretch-database/stretch-database-encryption) |
+| [SQL Server Stretch Database](/azure/sql-server-stretch-database/) | Yes (RSA 3072-bit) | | |
 | [Table Storage](/azure/storage/tables/) | Yes | | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 | **Hybrid + Multicloud** | | | |
 | [Azure Stack Edge](/azure/databox-online/) | Yes | | [Protect data at rest on Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-security#protect-data-at-rest) |
-| **Identity** | | | |
-| [Microsoft Entra Domain Services](/azure/active-directory-domain-services/) | Yes | | [Encryption at rest for Azure Active Directory Domain Services](/azure/active-directory-domain-services/encryption-at-rest) |
 | **Integration** | | | |
 | [Azure Health Data Services](/azure/healthcare-apis/) | Yes | | [Configure customer-managed keys for Azure Health Data Services DICOM](/azure/healthcare-apis/dicom/configure-customer-managed-keys), [Configure customer-managed keys for Azure Health Data Services FHIR](/azure/healthcare-apis/fhir/configure-customer-managed-keys) |
 | [Event Hubs](/azure/event-hubs/) | Yes | | [Configure customer-managed keys for encryption](/azure/event-hubs/configure-customer-managed-key) |
-| [Logic Apps](/azure/logic-apps/) | Yes | | [Control your data with customer-managed keys](/azure/logic-apps/logic-apps-data-protection-customer-managed-keys) |
+| [Logic Apps](/azure/logic-apps/) | Yes | |  |
 | [Service Bus](/azure/service-bus-messaging/) | Yes | | [Configure customer-managed keys for encryption](/azure/service-bus-messaging/configure-customer-managed-key) |
 | **IoT Services** | | | |
 | [Device Update for IoT Hub](/azure/iot-hub-device-update/) | Yes | Yes | [Data encryption for Device Update for IoT Hub](/azure/iot-hub-device-update/device-update-data-encryption) |
@@ -113,7 +111,7 @@ The following services support server-side encryption with customer managed keys
 | [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction/) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 | [Disk Storage](/azure/virtual-machines/disks-types/) | Yes | Yes | [Azure Disk Encryption for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
 | [File Storage](/azure/storage/files/) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
-| [File Sync](/azure/storage/file-sync/file-sync-introduction) | Yes | Yes | [Encryption of Azure Files](/azure/storage/files/storage-files-security-guide#encryption) |
+| [File Sync](/azure/storage/file-sync/file-sync-introduction) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 | [Managed Disk Storage](/azure/virtual-machines/disks-types/) | Yes | Yes | [Azure Disk Encryption for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
 | [Premium Blob Storage](/azure/storage/blobs/) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 | [Queue Storage](/azure/storage/queues/) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
