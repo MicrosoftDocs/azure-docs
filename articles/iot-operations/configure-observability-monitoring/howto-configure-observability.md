@@ -235,11 +235,11 @@ Configure Prometheus metrics collection on your cluster.
 
 ## Deploy dashboards to Grafana
 
-Azure IoT Operations provides a [collection of dashboards](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
+Azure IoT Operations provides a [sample dashboard](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboard) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards.
 
-1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json files locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
+1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
 
 1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
 
@@ -251,7 +251,7 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 1. Select **Import dashboard**.
 
-1. Browse to the sample dashboards directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations** > **samples** > **grafana-dashboards**, then select a JSON dashboard file.
+1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations** > **samples** > **grafana-dashboard**, then select the  `aio.sample.json` dashboard file.
 
 1. When the application prompts, select your managed Prometheus data source.
 
