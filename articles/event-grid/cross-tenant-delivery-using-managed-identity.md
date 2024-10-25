@@ -12,16 +12,17 @@ This article provides information on delivery of events where Azure Event Grid b
 
 The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here are the high-level steps:
 
-1. Create an Azure Event Grid topic with an assigned user managed identity in Tenant A.
+1. Create an Azure Event Grid topic with a user-assigned managed identity in Tenant A.
 1. Create a multitenant app with a federated client credential.
 1. Create an Azure Storage Queue destination in Tenant B. 
 1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
 
 > [!NOTE]
-> This feature is currently in preview. 
+> - This feature is currently in preview. 
+> - Cross-tenant delivery is currently available for the following endpoints: Service Bus topics and queues, Event Hubs, and Storage queues. 
 
 ## Create a topic with a user-assigned identity (Tenant A) 
-Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. Then, enable a user-assigned managed identity while creating a topic or updating an existing topic. 
+Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. Then, enable a user-assigned managed identity while creating a topic or updating an existing topic by using steps in the following procedure. 
 
 ### Enable user-assigned identity for a new topic
 1. On the **Security** page of the topic or domain creation wizard, select **Add user assigned identity**. 
@@ -64,10 +65,11 @@ For more information, see the following articles:
 
     :::image type="content" source="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png" alt-text="Screenshot that shows the certificates and secrets page of the multitenant app." lightbox="./media/cross-tenant-delivery-using-managed-identity/certificates-secrets-federated-credential.png":::
 
-    Notice that the subject identifier is the client ID of the user-assigned identity on the topic. 
+    > [!NOTE]
+    > The subject identifier is the client ID of the user-assigned identity on the topic. 
 
 ## Create destination storage account (Tenant B)
-Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user-assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B).
+Create a storage account in a tenant that's different from the tenant that has the source Event Grid topic and user-assigned identity. You create an event subscription to the topic (in tenant A) using the storage account (in tenant B) later. 
 
 1. Create a storage account by following instructions from the [Create a storage account](../storage/common/storage-account-create.md#create-a-storage-account) article. 
 1. Using the **Access Control (IAM)** page, add the multitenant app to the appropriate role so that the app can send events to the storage account. For example: Storage Account Contributor, Storage Queue Data Contributor, Storage Queue Data Message Sender. For instructions, see [Assign an Azure role for an Azure queue](../storage/queues/assign-azure-role-data-access.md#assign-an-azure-role).
