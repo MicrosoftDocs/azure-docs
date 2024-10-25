@@ -38,11 +38,11 @@ The following table contains the most common codes and subcodes. If your error i
 ### Most common Call Automation error codes
 | Code | Subcode | Description | Mitigation |
 | --- | --- | --- | --- |
-| 404 | 8522 | A generic error code that indicates that the resource isn't found. Resources can include calls and participants. | The call may have already ended, or the participant has left the call. |
+| 404 | 8522 | A generic error code that indicates that the resource isn't found. Resources can include calls and participants. | Double check call status: the call may have already ended, or the participant has left the call. |
 | 400 | 8523 | A generic error code that indicates that something in the request body is invalid. | Check to make sure all of the parameters are valid. |
 | 400 | 8501 | Action Not Supported Call Not Established | Double check to see if call is active. If the call is active and you are still running into this issue, open a ticket with Microsoft support. |
 | 400 | 8500 | Invalid Media Mode | Check the status of your media operations to see if any of them are already active. |
-| 400 | 8559 | Action Not Supported Only One Single Dialout App Allowed | Duplicate start recording request, recording already initiated or in progress. |
+| 400 | 8559 | Action Not Supported Only One Single Dialout App Allowed | Duplicate start recording request, recording already initiated or in progress. Double check recording status to ensure it is inactive before submitting a new start recording call. |
 | 400 | 8528 | Action not supported call terminated | Double check to see if call is active. If the call is active and you are still running into this issue, open a ticket with Microsoft support.|
 | 409 | 8519 | Conflict | Check to make sure multiple actions aren't being performed on the same resource in parallel. |
 | 403 | 7507 | Call Source Identity Invalid | Application identity from authorization token didn't match application identity in call source. Check to make sure you're using the connection string from the ACS resource the incoming call webhook was configured in (the phone number has to be owned by the same ACS resource answering the call). |
