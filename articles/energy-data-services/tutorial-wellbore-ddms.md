@@ -41,7 +41,7 @@ The first step is to get the following information from your [Azure Data Manager
 | ------------------ | ------------------------ |-------------------------------------- |
 | `client_id`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `client_secret`      | Client secrets           |  `_fl******************`                |
-| `tenant_id`          | Directory (tenant) ID    | `aaaabbbb-0000-cccc-1111-dddd2222eeee`  |
+| `tenant_id`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
 | `base_url`           | URL                      | `https://<instance>.energy.azure.com` |
 | `data-partition-id`  | Data partitions        | `<data-partition-name>`               |
 
