@@ -494,6 +494,7 @@ CREATE TABLE Products (
 The following example shows a MYSQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -531,6 +532,7 @@ TypeScript samples aren't documented for model v3.
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -616,6 +618,7 @@ module.exports = async function (context, req, products) {
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
@@ -661,6 +664,7 @@ TypeScript samples aren't documented for model v3.
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -746,6 +750,7 @@ module.exports = async function (context, req, products) {
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 <a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
@@ -765,6 +770,7 @@ END
 ```
 
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -802,6 +808,7 @@ TypeScript samples aren't documented for model v3.
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -886,6 +893,7 @@ module.exports = async function (context, req, products) {
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-powershell"
 
 More samples for the Azure Database for MySQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-powershell).
@@ -1428,6 +1436,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end 
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
 ## Configuration
@@ -1460,6 +1469,7 @@ The following table explains the binding configuration properties that you set i
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 ## Configuration
 
@@ -1474,6 +1484,7 @@ The following table explains the binding configuration properties that you set i
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+
 ::: zone-end  
 
 
@@ -1491,3 +1502,4 @@ If an exception occurs when a MySQL input binding is executed then the function 
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
 - [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 - [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
+ 

@@ -292,6 +292,7 @@ CREATE TABLE Products (
 The following example shows a MySQL output binding that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
@@ -332,11 +333,11 @@ TypeScript samples aren't documented for model v3.
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlOutput1.js" :::
 ```javascript
 const { app, output } = require('@azure/functions');
 
@@ -656,6 +657,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |**name** |  Required. The unique name of the function binding. | 
 
 ::: zone-end  
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 ## Configuration
@@ -684,6 +686,7 @@ The following table explains the binding configuration properties that you set i
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-powershell,programming-language-python"
 ## Configuration
 
