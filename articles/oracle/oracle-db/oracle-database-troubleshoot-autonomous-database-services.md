@@ -20,7 +20,7 @@ Oracle recommends that you remove all Microsoft locks that are applied to Oracle
 
 ## IP address requirement differences between Oracle Database@Azure and OCI
 
-Oracle Database@Azure has different IP address requirements than OCI. As described in [Requirements for IP address space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA), the following differences in IP address requirements for Oracle Database@Azure must be considered:
+Oracle Database@Azure has different IP address requirements than Oracle Cloud Infrastructure (OCI). As described in [Requirements for IP address space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA), the following differences in IP address requirements for Oracle Database@Azure must be considered:
 
 - Oracle Database@Azure supports only Oracle Exadata X9M. All other shapes are unsupported.
 - Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 IP addresses for OCI requirements.

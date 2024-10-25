@@ -22,7 +22,7 @@ You must have the following prerequisites before you can provision Oracle Databa
   - No policies that prohibit the creation of resources without tags. The OracleSubscription resource is created automatically without tags during onboarding.
   - No policies that enforce naming conventions. The OracleSubscription resource is created automatically with a default resource name.
 - Oracle Database@Azure purchased in the Azure portal.
-- An OCI account.
+- An Oracle Cloud Infrastructure (OCI) account.
 
 For more information, including optional steps, see [Onboard Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
@@ -82,7 +82,7 @@ This section describes management functions that are available for all Oracle Da
 1. Under **Name**, select the link for the resource.
 1. On the service menu, select **Settings**, and then select **Resource allocation**.
 1. On the **Resource allocation** pane, select **Manage**.
-1. On the **Manage resource allocation** pane, you can set the ECPU count from 2 to 512. To set your Oracle Database@Azure instance to scale its computing allocation automatically up to 512, select the **Compute auto scaling** checkbox. For **Storage**, set storage allocation from 1 TB to 383 TB. To set your Oracle Database@Azure instance to scale storage allocation automatically up to 383 TB, select the **Storage auto scaling** checkbox.
+1. On the **Manage resource allocation** pane, you can set the Elastic Compute Processing Unit (ECPU) count from **2** to **512**. To set your Oracle Database@Azure instance to scale its computing allocation automatically up to 512, select the **Compute auto scaling** checkbox. For **Storage**, set storage allocation from 1 TB to 383 TB. To set your Oracle Database@Azure instance to scale storage allocation automatically up to 383 TB, select the **Storage auto scaling** checkbox.
 1. After you set or review settings, select **Apply** to apply changes, or select **Cancel** to leave the current settings.
 
 ### Test connectivity
@@ -127,7 +127,7 @@ This section describes management functions that are available for all Oracle Da
 
    If you need to create a support request, select that option.
 
-1. The support request page autopopulates with information that's needed by Oracle Support Services, including resource name, resource OCID, service group, service, and several other items depending on the specific Oracle Database@Azure resource.
+1. The support request page autopopulates with information that's needed by Oracle Support Services, including the resource name, the resource Oracle Cloud Identifier (OCID), the service group, the service, and several other items depending on the Oracle Database@Azure resource.
 
 1. Select the relevant support option from the following options:
 

@@ -19,7 +19,7 @@ This section answers general questions about Oracle Database@Azure.
 
 ### How does Oracle Database@Azure work?
 
-Oracle Database@Azure is enabled by hosting the Oracle Cloud Infrastructure (OCI) in Azure. In Oracle Database@Azure, OCI is natively integrated with Azure to offer low-latency, high-bandwidth connectivity from your mission-critical database tier to your application tier and other services in Azure. Enterprise-critical features like Oracle Real Application Clusters (Oracle RAC), Oracle Data Guard, Oracle GoldenGate, managed backups, self-managed Oracle Recovery Manager (RMAN) backups, Oracle Zero Downtime Migration, on-premises connectivity, and seamless integration with other Azure services are supported. For more information, see the [overview of Oracle Database@Azure](/azure/oracle/oracle-db/database-overview).
+Oracle Database@Azure is enabled by hosting the Oracle Cloud Infrastructure (OCI) in Azure. In Oracle Database@Azure, OCI is natively integrated with Azure to offer low-latency, high-bandwidth connectivity from your mission-critical database tier to your application tier and other services in Azure. Enterprise-critical features like Oracle Real Application Clusters (Oracle RAC), Oracle Data Guard, Oracle GoldenGate, managed backups, self-managed Oracle Recovery Manager (RMAN) backups, Oracle Zero Downtime Migration (Oracle ZDM), on-premises connectivity, and seamless integration with other Azure services are supported. For more information, see the [overview of Oracle Database@Azure](/azure/oracle/oracle-db/database-overview).
 
 ### How is Oracle Database@Azure different from OCI Interconnect and Oracle on Azure virtual machines?
 

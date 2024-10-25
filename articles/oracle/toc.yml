@@ -11,13 +11,13 @@ items:
   items:
   - name: What's new
     href: oracle-db/oracle-database-what-is-new.md
-  - name: Available regions
+  - name: Region availability
     href: oracle-db/oracle-database-regions.md
   - name: Get started
     href: oracle-db/oracle-database-get-started.md
   - name: Compliance information
     href: oracle-db/oracle-database-compliance.md
-  - name: Overview of Oracle Database@Azure
+  - name: Overview
     href: oracle-db/database-overview.md
   - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
@@ -27,7 +27,7 @@ items:
     href: oracle-db/oracle-database-troubleshoot.md
   - name: Known issues
     href: oracle-db/oracle-database-known-issues.md
-  - name: Onboard Oracle Database@Azure
+  - name: Onboarding
     items:
     - name: Onboard Oracle Database@Azure
       href: oracle-db/onboard-oracle-database.md
