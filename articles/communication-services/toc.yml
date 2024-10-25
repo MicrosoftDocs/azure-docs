@@ -341,8 +341,6 @@ items:
         href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
-      - name: Teams Meeting Audio Conferencing
-        href: how-tos/calling-sdk/audio-conferencing.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
@@ -486,6 +484,8 @@ items:
         href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
+      - name: Add Diagnostic options tag to your calling logs
+        href: tutorials/voice-video-calling/diagnostic-options-tag.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Rooms Insights
         href: concepts/analytics/insights/rooms-insights.md
@@ -493,6 +493,8 @@ items:
         href: quickstarts/telemetry-application-insights.md
     - name: Teams interoperability
       items:
+      - name: Audio Conferencing
+        href: how-tos/calling-sdk/audio-conferencing.md
       - name: Breakout rooms
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
