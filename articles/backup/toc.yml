@@ -817,6 +817,8 @@
       href: use-archive-tier-support.md
   - name: Troubleshoot
     items:
+    - name: Backup vault
+      href: backup-vault-troubleshoot.md
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
     - name: Azure VM file recovery
