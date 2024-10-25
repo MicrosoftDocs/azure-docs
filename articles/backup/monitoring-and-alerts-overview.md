@@ -28,4 +28,3 @@ The following sections provide an overview of the different monitoring and repor
 
 - [Learn about Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
 - [Learn how to monitor alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md#monitor-alerts).
-- [Learn how to view reports](../business-continuity-center/tutorial-monitor-alerts-metrics.md#view-reports).
