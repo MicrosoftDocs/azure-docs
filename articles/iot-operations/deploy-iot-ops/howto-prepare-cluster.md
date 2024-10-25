@@ -5,23 +5,18 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/22/2024
+ms.date: 10/23/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
 
 # Prepare your Azure Arc-enabled Kubernetes cluster
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu and Windows.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations. This article describes how to prepare a cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows.
 
-> [!TIP]
-> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
->
-> For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
+The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead. For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
 ## Prerequisites
-
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
@@ -136,16 +131,16 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 1. Create a K3s configuration yaml file in `.kube/config`:
 
-    ```bash
-    mkdir ~/.kube
-    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
-    mv ~/.kube/merged ~/.kube/config
-    chmod  0600 ~/.kube/config
-    export KUBECONFIG=~/.kube/config
-    #switch to k3s context
-    kubectl config use-context default
-    sudo chmod 644 /etc/rancher/k3s/k3s.yaml
-    ```
+   ```bash
+   mkdir ~/.kube
+   sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
+   mv ~/.kube/merged ~/.kube/config
+   chmod  0600 ~/.kube/config
+   export KUBECONFIG=~/.kube/config
+   #switch to k3s context
+   kubectl config use-context default
+   sudo chmod 644 /etc/rancher/k3s/k3s.yaml
+   ```
 
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
@@ -166,24 +161,9 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. 
 
-1. Install the required NVME over TCP module for your kernel using the following command:
-
-   ```bash
-   sudo apt install linux-modules-extra-`uname -r`
-   ```
-
-   > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
-
-1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
-
-   ```bash
-   HUGEPAGES_NR=512
-   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
-   ```
+If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=ubuntu).
 
 ---
 
@@ -207,27 +187,9 @@ To connect your cluster to Azure Arc:
 
    If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as you want it to show up in your resource group.
+1. After you sign in, the Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
-   For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
-
-   ```bash
-   # Id of the subscription where your resource group and Arc-enabled cluster will be created
-   export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
-
-   # Azure region where the created resource group will be located
-   export LOCATION=<REGION>
-
-   # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
-   export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
-
-   # Name of the Arc-enabled cluster to create in your resource group
-   export CLUSTER_NAME=<NEW_CLUSTER_NAME>
-   ```
-
-1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
-
-1. Register the required resource providers in your subscription:
+1. Register the required resource providers in your subscription.
 
    >[!NOTE]
    >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
@@ -243,20 +205,22 @@ To connect your cluster to Azure Arc:
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
 
+   For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
+
    ```azurecli
-   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
    ```
 
-1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group.
 
    ```azurecli
-   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity
    ```
 
 1. Get the cluster's issuer URL.
 
    ```azurecli
-   az connectedk8s show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query oidcIssuerProfile.issuerUrl --output tsv
+   az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
    ```
 
    Save the output of this command to use in the next steps.
@@ -285,9 +249,9 @@ To connect your cluster to Azure Arc:
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
 
-    ```azurecli
-    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
-    ```
+   ```azurecli
+   az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+   ```
 
 1. Restart K3s.
 
@@ -305,41 +269,12 @@ To verify that your cluster is ready for Azure IoT Operations deployment, you ca
 az iot ops verify-host
 ```
 
-To verify that your Kubernetes cluster is Azure Arc-enabled, run the following command:
+## Advanced configuration
 
-```console
-kubectl get deployments,pods -n azure-arc
-```
+At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
 
-The output looks like the following example:
-
-```output
-NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/clusterconnect-agent         1/1     1            1           10m
-deployment.apps/extension-manager            1/1     1            1           10m
-deployment.apps/clusteridentityoperator      1/1     1            1           10m
-deployment.apps/controller-manager           1/1     1            1           10m
-deployment.apps/flux-logs-agent              1/1     1            1           10m
-deployment.apps/cluster-metadata-operator    1/1     1            1           10m
-deployment.apps/extension-events-collector   1/1     1            1           10m
-deployment.apps/config-agent                 1/1     1            1           10m
-deployment.apps/kube-aad-proxy               1/1     1            1           10m
-deployment.apps/resource-sync-agent          1/1     1            1           10m
-deployment.apps/metrics-agent                1/1     1            1           10m
-
-NAME                                              READY   STATUS    RESTARTS        AGE
-pod/clusterconnect-agent-5948cdfb4c-vzfst         3/3     Running   0               10m
-pod/extension-manager-65b8f7f4cb-tp7pp            3/3     Running   0               10m
-pod/clusteridentityoperator-6d64fdb886-p5m25      2/2     Running   0               10m
-pod/controller-manager-567c9647db-qkprs           2/2     Running   0               10m
-pod/flux-logs-agent-7bf6f4bf8c-mr5df              1/1     Running   0               10m
-pod/cluster-metadata-operator-7cc4c554d4-nck9z    2/2     Running   0               10m
-pod/extension-events-collector-58dfb78cb5-vxbzq   2/2     Running   0               10m
-pod/config-agent-7579f558d9-5jnwq                 2/2     Running   0               10m
-pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0               10m
-pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
-pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
-```
+* If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
+* If you want to bring your own certificate authority, follow the steps in [Certificate management](../secure-iot-ops/concept-default-root-ca.md).
 
 ## Next steps
 

@@ -11,6 +11,8 @@ items:
         href: get-started-end-to-end-sample/quickstart-deploy.md
       - name: Configure your instance
         href: get-started-end-to-end-sample/quickstart-configure.md
+      - name: Get insights from your data
+        href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
       - name: Deployment overview
@@ -19,10 +21,10 @@ items:
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
-      - name: Enable secure settings
-        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
     - name: Secure your deployment
       items:
       - name: Certificate management
