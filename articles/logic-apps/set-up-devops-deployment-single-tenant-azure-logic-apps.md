@@ -16,7 +16,7 @@ ms.date: 10/24/2024
 
 This guide primarily shows how to deploy a Standard logic app project from a Visual Studio Code to your infrastructure using DevOps tools and processes. If your Standard logic app already exists in the Azure portal, you can download your app's artifact files to use with DevOps deployment. Based on whether you prefer to use GitHub or Azure DevOps, choose the path and tools that work best for your deployment scenario.
 
-If you don't have a Standard logic app, you can still try out this guide using the linked sample Standard logic app projects plus examples for Azure deployment through GitHub or Azure DevOps. For more information, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
+If you don't have a Standard logic app, you can still use guide with the linked sample Standard logic app projects plus examples for Azure deployment through GitHub or Azure DevOps. For more information, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ If you don't have a Standard logic app, you can still try out this guide using t
  
   - **Visual Studio Code**: You need an empty Standard logic app resource in the Azure portal as the deployment destination. To quickly create an empty Standard logic app resource, review [Create single-tenant based logic app workflows - Portal](create-single-tenant-workflows-azure-portal.md).
 
-  If you don't have either logic app source or existing infrastructure set up, you can use the included sample projects to deploy an example logic app and infrastructure, based on the source and deployment options that you prefer to use. For more information about these sample projects and resources included to run the example logic app, review [Deploy infrastructure resources](#deploy-infrastructure).
+  If you don't have an existing logic app source or infrastructure, you can use the included sample projects to deploy an example logic app and infrastructure, based on the source and deployment options that you prefer to use. For more information about these sample projects and resources included to run the example logic app, review [Deploy infrastructure resources](#deploy-infrastructure).
 
 <a name="deploy-infrastructure"></a>
 
@@ -178,7 +178,7 @@ The following example shows a SQL managed API connection resource definition in 
 }
 ```
 
-To find the values that you need to use in the **`properties`** object for completing the connection resource definition, you can use the following API for a specific connector:
+To find the required values for the **`properties`** object so you can complete the connection resource definition, you can use the following API for a specific connector:
 
 `GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
@@ -206,7 +206,7 @@ In the response, find the **connectionParameters** object, which contains the ne
 }
 ```
 
-As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the **`PUT`** call that's sent to the managed connector's API as previously described, and review the request body for all the necessary information.
+As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the **`PUT`** call that is sent to the managed connector's API as previously described, and review the request body for all the necessary information.
 
 #### On-premises data gateway resource definition
 
@@ -330,7 +330,7 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 ##### Install Azure Logic Apps (Standard) extension for Azure CLI
 
-Currently, only the *preview* version for this extension is available. If you haven't previously installed this extension, run the command, **`az extension add`**, with the following required parameters:
+Currently, only the *preview* version for this extension is available. If you didn't install this extension yet, run the command, **`az extension add`**, with the following required parameters:
 
 ```azurecli
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
