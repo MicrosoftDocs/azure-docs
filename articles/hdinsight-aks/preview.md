@@ -3,7 +3,8 @@ title: HDInsight on AKS preview information
 description: This article explains what public preview mean in HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: troubleshooting
-ms.date: 09/05/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Microsoft HDInsight on AKS preview information

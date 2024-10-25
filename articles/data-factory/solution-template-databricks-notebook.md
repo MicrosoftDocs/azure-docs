@@ -4,7 +4,8 @@ description:  Learn how to use a solution template to transform data by using a 
 ms.author: abnarain
 author: nabhishek
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transformation with Azure Databricks

@@ -6,6 +6,10 @@ ms.author: cwatson
 ms.topic: conceptual
 ms.date: 06/28/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a SOC architect, I want to deploy Microsoft Sentinel so that I can effectively monitor, detect, and respond to security threats across my organization.
+
 ---
 
 # Deployment guide for Microsoft Sentinel

@@ -397,7 +397,7 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: To a Tomcat server
   - id: java-jboss
@@ -407,7 +407,7 @@ groups:
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -779,6 +779,8 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+  - id: openai-node
+    title: Node
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1160,6 +1162,14 @@ groups:
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
+- id: front-door-dev-exp-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -1174,10 +1184,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 # Owner: karler
 - id: spring-apps-enterprise-or-consumption-plan-selection
   title: Azure Spring Apps plan
@@ -1192,10 +1202,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta
@@ -1424,6 +1434,14 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
+- id: azure-virtual-desktop-host-pool-management-approaches
+  title: Host pool management approaches
+  prompt: "Choose a host pool management approach:"
+  pivots:
+  - id: host-pool-standard
+    title: Standard
+  - id: host-pool-session-host-configuration
+    title: Session host configuration (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1656,3 +1674,32 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: rosemalcolm
+- id: ade-extensibility-iac-framework
+  title: IaC frameworks
+  prompt: Choose an IaC framework
+  pivots:
+  - id: arm-bicep
+    title: ARM and Bicep
+  - id: terraform
+    title: Terraform
+  - id: pulumi
+    title: Pulumi   
+# Owner: malev
+- id: grafana-cli-portal
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azcli
+    title: Azure CLI
+  - id: experience-gui
+    title: Grafana UI
+# Owner: danlep
+- id: api-management-howto-add-products
+  title: Interactive or Script
+  prompt: Choose Interactive for Azure CLI and Azure Portal instructions, or Terraform
+  pivots:
+  - id: interactive
+    title: Interactive
+  - id: terraform
+    title: Terraform

@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 07/23/2023
+ms.date: 10/08/2024
 ms.custom: references_regions
 ---
 
@@ -126,12 +126,10 @@ The following table provides information on the Peering Service connectivity par
 ---
 
 > [!NOTE]
-> For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> For more information about enlisting with the Peering Service Partner program, reach out to `peeringservice@microsoft.com`.
 
-## Next steps
+## Related content
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-

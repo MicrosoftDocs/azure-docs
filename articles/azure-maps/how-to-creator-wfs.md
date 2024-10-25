@@ -12,6 +12,12 @@ ms.subservice: creator
 
 # Query datasets using the Web Feature Service
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 This article describes how to query Azure Maps Creator [datasets] using [Web Feature Service (WFS)]. You can use the WFS API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level.
 
 ## Prerequisites

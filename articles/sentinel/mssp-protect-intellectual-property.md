@@ -1,10 +1,14 @@
 ---
 title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel
 description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Microsoft Sentinel.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: cwatson
+
+
+#Customer intent: As an MSSP, I want to understand how to protect my intellectual property in Microsoft Sentinel so that I can maintain control over my proprietary analytics rules, hunting queries, playbooks, and workbooks while providing managed security services to my customers.
+
 ---
 
 # Protecting MSSP intellectual property in Microsoft Sentinel

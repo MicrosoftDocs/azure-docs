@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 10/11/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As an Azure AD B2C administrator, I want to configure xID as an identity provider, so users can sign in using xID and authenticate with their digital identity on their device.
 ---
@@ -40,7 +40,7 @@ The following diagram shows the architecture.
 
 ![Diagram of the xID architecture.](./media/partner-xid/partner-xid-architecture-diagram.png)
 
-1. At the Azure AD B2C sign-in page user signs in or signs up.
+1. At the Azure AD B2C sign-in page, the user signs in or signs up.
 2. Azure AD B2C redirects the user to xID authorize API endpoint using an OpenID Connect (OIDC) request. An OIDC endpoint has endpoint information. xID identity provider (IdP) redirects the user to the xID authorization sign in page. User enters email address.
 3. xID IdP sends push notification to user mobile device.
 4. User opens the xID app, checks the request, enters a PIN, or uses biometrics. xID app activates the private key and creates an electronic signature.
@@ -56,7 +56,7 @@ The following diagram shows the architecture.
 
 ## Install xID
 
-1. To request API documents, fill out the request form.  Go to [Contact Us](https://xid.inc/contact-us). 
+1. To request API documents, fill out the request form. Go to [Contact Us](https://xid.inc/contact-us). 
 2. In the message, indicate you're using Azure AD B2C. 
 3. An xID sales representative contacts you. 
 4. Follow the instructions in the xID API document.
@@ -74,9 +74,9 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For testing, you register `https://jwt.ms`, a Microsoft web application with decoded token contents, which don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
 <a name='create-a-xid-policy-key'></a>
 
@@ -407,7 +407,7 @@ There are identity claims xID supports referenced as part of the policy. Claims 
 
 The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/main/LocalAccounts/SignUpOrSignin.xml), specifies the user journey the Azure AD B2C executes. 
 
-1. In the relying party,locate the **DefaultUserJourney** element. 
+1. In the relying party, locate the **DefaultUserJourney** element. 
 2. Update the **ReferenceId** to match the user journey ID you added to the identity provider.
 
 In the following example, for the xID user journey, the **ReferenceId** is set to `CombinedSignInAndSignUp`.

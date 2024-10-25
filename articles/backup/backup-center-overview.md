@@ -2,7 +2,7 @@
 title: Overview of Backup center for Azure Backup and Azure Site Recovery
 description: This article provides an overview of Backup center for Azure.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 09/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -10,6 +10,8 @@ ms.author: v-abhmallick
 ---
 
 # About Backup center for Azure Backup and Azure Site Recovery
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 Backup center provides a *single unified management experience* in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. It also provides at-scale monitoring and management capabilities for Azure Site Recovery. So, it's consistent with Azure's native management experiences.
 

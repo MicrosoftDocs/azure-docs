@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to config
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 04/18/2024
 ms.author: alkohli

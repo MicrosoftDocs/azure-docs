@@ -29,7 +29,7 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: Deploy from artifact
+      - name: Deploy from artifact (preview)
         items:
         - name: Command line
           href: deploy-artifact.md
@@ -146,8 +146,6 @@
             href: sessions-tutorial-semantic-kernel.md
     - name: Event-driven processing
       items:
-        - name: With an app
-          href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
@@ -239,7 +237,7 @@
   items:
   - name: Reliability in Azure Container Apps
     href: ../reliability/reliability-azure-container-apps.md
-- name: Dedicated hardware
+- name: Dedicated compute
   items:
     - name: Workload profiles
       href: workload-profiles-overview.md
@@ -343,16 +341,19 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Turn on Java features
+        href: java-feature-switch.md
+        displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
         displayName: java
       - name: Get started using IntelliJ
         href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
-      - name: Automatic memory fitting
+      - name: Automatic memory fitting (preview)
         href: java-memory-fit.md
         displayName: java
-      - name: Build environment variables
+      - name: Build environment variables (preview)
         href: java-build-environment-variables.md
         displayName: java
       - name: Metrics
@@ -410,8 +411,6 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
-    - name: Hardware reference
-      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/01/2024
 ms.topic: quickstart
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mvc, mode-other, devx-track-azurecli
 ms.devlang: azurecli
@@ -131,7 +131,7 @@ To configure the data export:
         "blocked": false
       },
       "component": "sensors",
-      "applicationId": "40a97c91-50cc-44f0-9f63-71386613facc",
+      "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "messageSource": "telemetry",
       "telemetry": [
         {

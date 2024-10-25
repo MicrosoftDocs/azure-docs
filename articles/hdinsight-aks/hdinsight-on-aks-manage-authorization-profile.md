@@ -3,7 +3,8 @@ title: Manage cluster access
 description: How to manage cluster access in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/4/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Manage cluster access

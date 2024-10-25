@@ -34,6 +34,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **Sep 24, 2024**
+The September 2024 Guest OS released. 
+
 ###### **Aug 27, 2024**
 The August 2024 Guest OS released. 
 
@@ -262,9 +265,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-7.45_202409-01 |  September 24, 2024  |  Post 7.48  |
 |  WA-GUEST-OS-7.44_202408-01 |  August 27, 2024  |  Post 7.47  |
 |  WA-GUEST-OS-7.43_202407-01 |  July 31, 2024  |  Post 7.46  |
-|  WA-GUEST-OS-7.42_202406-01 |  June 27, 2024  |  Post 7.45  |
+|~~WA-GUEST-OS-7.42_202406-01~~|  June 27, 2024  |  Post 7.45  |
 |~~WA-GUEST-OS-7.41_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-7.40_202404-01~~|  April 19, 2024  |  July 31, 2024  |
 |~~WA-GUEST-OS-7.39_202403-02~~|  April 9, 2024  |  June 27, 2024  |
@@ -311,9 +315,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.75_202409-01 |  September 24, 2024  |  Post 6.78  |
 |  WA-GUEST-OS-6.74_202408-01 |  August 27, 2024  |  Post 6.77  |
 |  WA-GUEST-OS-6.73_202407-01 |  July 31, 2024  |  Post 6.76  |
-|  WA-GUEST-OS-6.72_202406-01 |  June 27, 2024  |  Post 6.75  |
+|~~WA-GUEST-OS-6.72_202406-01~~|  June 27, 2024  |  Post 6.75  |
 |~~WA-GUEST-OS-6.71_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-6.70_202404-01~~|  April 19, 2024  |  July 31, 2024  |
 |~~WA-GUEST-OS-6.69_202403-02~~|  April 9, 2024  |  June 27, 2024  |
@@ -394,9 +399,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.99_202409-01 |  September 24, 2024  |  Post 5.102  |
 |  WA-GUEST-OS-5.98_202408-01 |  August 27, 2024  |  Post 5.101  |
 |  WA-GUEST-OS-5.97_202407-01 |  July 31, 2024  |  Post 5.100  |
-|  WA-GUEST-OS-5.96_202406-01 |  June 27, 2024  |  Post 5.99  |
+|~~WA-GUEST-OS-5.96_202406-01~~|  June 27, 2024  |  Post 5.99  |
 |~~WA-GUEST-OS-5.95_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-5.94_202404-01~~|  April 19, 2024  |  July 31, 2024  |
 |~~WA-GUEST-OS-5.93_202403-02~~|  April 9, 2024  |  June 27, 2024 |
@@ -474,9 +480,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.135_202409-01 |  September 24, 2024  |  Post 4.138  |
 |  WA-GUEST-OS-4.134_202408-01 |  August 27, 2024  |  Post 4.137  |
 |  WA-GUEST-OS-4.133_202407-01 |  July 31, 2024  |  Post 4.136  |
-|  WA-GUEST-OS-4.132_202406-01 |  June 27, 2024  |  Post 4.135  |
+|~~WA-GUEST-OS-4.132_202406-01~~|  June 27, 2024  |  Post 4.135  |
 |~~WA-GUEST-OS-4.131_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-4.130_202404-01~~|  April 19, 2024  |  July 31, 2024  |
 |~~WA-GUEST-OS-4.129_202403-02~~|  April 9, 2024  |  June 27, 2024  |
@@ -554,9 +561,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.143_202409-01 |  September 24, 2024  |  Post 3.146  |
 |  WA-GUEST-OS-3.142_202408-01 |  August 27, 2024  |  Post 3.145  |
 |  WA-GUEST-OS-3.141_202407-01 |  July 31, 2024  |  Post 3.144  |
-|  WA-GUEST-OS-3.140_202406-01 |  June 27, 2024  |  Post 3.143  |
+|~~WA-GUEST-OS-3.140_202406-01~~|  June 27, 2024  |  Post 3.143  |
 |~~WA-GUEST-OS-3.139_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-3.138_202404-01~~|  April 19, 2024  |  Post 3.141  |
 |~~WA-GUEST-OS-3.137_202403-02~~|  April 9, 2024  |  June 27, 2024  |
@@ -634,9 +642,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.154_202408-01 |  August 27, 2024  |  Post 2.156  |
+|  WA-GUEST-OS-2.155_202409-01 |  September 24, 2024  |  Post 2.158  |
+|  WA-GUEST-OS-2.154_202408-01 |  August 27, 2024  |  Post 2.157  |
 |  WA-GUEST-OS-2.153_202407-01 |  July 31, 2024  |  Post 2.156  |
-|  WA-GUEST-OS-2.152_202406-01 |  June 27, 2024  |  Post 2.155  |
+|~~WA-GUEST-OS-2.152_202406-01~~|  June 27, 2024  |  Post 2.155  |
 |~~WA-GUEST-OS-2.151_202405-01~~|  June 1, 2024  |  August 27, 2024  |
 |~~WA-GUEST-OS-2.150_202404-01~~|  April 19, 2024  |  July 31, 2024  |
 |~~WA-GUEST-OS-2.149_202403-02~~|  April 9, 2024  |  June 27, 2024  |

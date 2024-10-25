@@ -3,7 +3,7 @@ title: Data security and encryption in Microsoft Azure Data Manager for Energy
 description: Guide on security in Azure Data Manager for Energy and how to set up customer managed keys on Azure Data Manager for Energy
 author: NandiniMurali
 ms.author: Nandinim
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 10/06/2022
 ms.custom: template-how-to

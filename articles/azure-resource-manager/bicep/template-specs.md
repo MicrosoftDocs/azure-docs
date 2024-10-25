@@ -3,7 +3,7 @@ title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
-ms.date: 10/16/2023
+ms.date: 09/26/2024
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -32,7 +32,7 @@ To learn more about template specs, and for hands-on guidance, see [Publish libr
 
 ## Required permissions
 
-There are two Azure build-in roles defined for template spec:
+There are two Azure built-in roles defined for template spec:
 
 - [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
 - [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
@@ -159,7 +159,7 @@ The JSON template embedded in the Bicep file needs to make these changes:
 - To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
 - Use the Bicep syntax to call Bicep functions.  For example, **'location': resourceGroup().location**.
 
-The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you'll get the **TemplateSpecTooLarge** error code. The error message says:
+The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you get the **TemplateSpecTooLarge** error code. The error message says:
 
 ```error
 The size of the template spec content exceeds the maximum limit. For large template specs with many artifacts, the recommended course of action is to split it into multiple template specs and reference them modularly via TemplateLinks.
@@ -298,7 +298,7 @@ az deployment group create \
 
 - Use Bicep parameters file
 
-    To create a Bicep parameter file, you must specify the `using` statement. Here is an example:
+    To create a Bicep parameter file, you must specify the `using` statement. Here's an example:
 
     ```bicep
     using 'using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>'
@@ -438,7 +438,7 @@ Both the template and its versions can have tags. The tags are applied or inheri
 
 ## Link to template specs
 
-After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-module).
+After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-a-module).
 
 To create aliases for template specs intended for module linking, see [Aliases for modules](./bicep-config-modules.md#aliases-for-modules).
 

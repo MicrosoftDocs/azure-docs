@@ -6,12 +6,12 @@ description: JSON claims transformation examples for the Identity Experience Fra
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer working with Azure AD B2C, I want to understand how to use JSON claims transformations, so that I can manipulate and generate JSON data for my authentication and authorization processes.

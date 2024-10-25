@@ -136,7 +136,6 @@ Here are possible causes specific to this issue:
 Verify that the daemon for the Log Analytics agent for Linux (**omsagent**) is running on your machine. Run the following query in the Log Analytics workspace that's linked to your Automation account.
 
 ```loganalytics
-Copy
 Heartbeat
 | summarize by Computer, Solutions
 ```

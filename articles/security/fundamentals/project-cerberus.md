@@ -5,9 +5,9 @@ author: yosharm
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 11/10/2022
+ms.date: 08/29/2024
 ---
 
 # Project Cerberus

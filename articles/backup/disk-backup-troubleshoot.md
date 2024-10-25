@@ -181,6 +181,15 @@ Error Message: The subscription isn't registered to use namespace Microsoft.Comp
 
 Recommended Action: The required resource provider is not registered for your subscription. Register both the resource providers' namespace (_Microsoft.Compute_ and _Microsoft.Storage_) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
 
+
+
+
+### Error code: LinkedAuthorizationFailed
+
+Error Message: To perform a restore operation, user needs to have a **read** permission over the backed up Managed Disk. 
+
+Recommended Action:  Assign Reader role over the source Disk and then proceed to perform the restore operation. 
+
 ## Next steps
 
 [Azure Disk Backup support matrix](disk-backup-support-matrix.md)

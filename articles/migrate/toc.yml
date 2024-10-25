@@ -222,6 +222,8 @@ items:
       href: set-discovery-scope.md
     - name: Create least privilege credentials for SQL Server discovery
       href: least-privilege-credentials.md  
+    - name: Enable Arc on discovered items
+      href: how-to-arc-enable-inventory.md
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
@@ -298,8 +300,6 @@ items:
     items:
     - name: Delete an Azure Migrate project
       href: how-to-delete-project.md
-    - name: Work with previous version of Azure Migrate
-      href: migrate-v1.md
     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse

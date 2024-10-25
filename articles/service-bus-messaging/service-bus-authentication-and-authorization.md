@@ -45,8 +45,6 @@ Authorization rules configured at the namespace level can grant access to all en
 
 To access an entity, the client requires a SAS token generated using a specific shared access authorization rule. The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
 
-SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a shared access authorization rule. All APIs that accept a connection string as a parameter include support for SAS connection strings. 
-
 For detailed information on using SAS for authentication, see [Authentication with Shared Access Signatures](service-bus-sas.md).
 
 

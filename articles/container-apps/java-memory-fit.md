@@ -10,7 +10,7 @@ ms.date: 02/27/2024
 ms.author: cshoe
 ---
 
-# Use memory efficiently for Java apps in Azure Container Apps
+# Use memory efficiently for Java apps in Azure Container Apps (preview)
 
 The Java Virtual Machine (JVM) uses memory conservatively as it assumes OS memory must be shared among multiple applications. However, your container app can optimize memory usage and make the maximum amount of memory possible available to your application. This memory optimization is known as Java automatic memory fitting. When memory fitting is enabled, Java application performance is typically improved between 10% and 20% without any code changes.
 

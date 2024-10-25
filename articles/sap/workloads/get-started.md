@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 09/16/2024
+ms.date: 10/14/2024
 ms.author: juergent
 ---
 
@@ -55,6 +55,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- October 14, 2024: Change several database guides mentioning that with several Mv3 VM types, IOPS and throughput could be lower when using read cached Premium SSD v1 disks compared to using non-cached disks
+- October 7, 2024: Changes in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md), documenting new Mv3 SKUs that will not work with SQL Server because of NUMA nodes larger than 64 vCPUs
+- October 5, 2024: Changes in documenting active/active and active/passive application layer in [SAP workload configurations with Azure Availability Zones](./high-availability-zones.md). Eliminating the list of regions for each of the cases
 - September 16, 2024: Included section on supported clock sources in Azure VMs in [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md)
 - September 03, 2024: Included Mv3 High Memory and Very High Memory in HANA storage configuration in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
 - August 22, 2024: Added documentation option for SAPHanaSR-angi as separate tab in [High availability for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [High availability of SAP HANA scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md).

@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 09/04/2024
+ms.date: 10/19/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -249,19 +249,26 @@ py -m venv .venv
 
 1. Run this command from your app folder in a terminal or command prompt:
 
-    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     func start
     ``` 
     ::: zone-end  
-    ::: zone pivot="programming-language-java"
+    ::: zone pivot="programming-language-java"  
     ```console
     mvn clean package
     mvn azure-functions:run
     ```
     ::: zone-end  
-    ::: zone pivot="programming-language-typescript"
+    ::: zone pivot="programming-language-javascript"  
     ```console
+    npm install
+    func start  
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
+    ```console
+    npm install
     npm start  
     ```
     ::: zone-end  
@@ -273,11 +280,16 @@ py -m venv .venv
     <http://localhost:7071/api/httpget>
 
 1. From a new terminal or command prompt window, run this `curl` command to send a POST request with a JSON payload to the `httppost` endpoint: 
-
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d @testdata.json
     ```
-
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript,programming-language-typescript" 
+    ```console
+    curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d "@src/functions/testdata.json"
+    ```
+    ::: zone-end  
     This command reads JSON payload data from the `testdata.json` project file. You can find examples of both HTTP requests in the `test.http` project file. 
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.

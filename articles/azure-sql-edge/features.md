@@ -3,7 +3,7 @@ title: Supported features of Azure SQL Edge
 description: Learn about details of features supported by Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
@@ -13,7 +13,9 @@ keywords:
 ---
 # Supported features of Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is built on the latest version of the SQL Database Engine. It supports a subset of the features supported in SQL Server 2022 on Linux, in addition to some features that are currently not supported or available in SQL Server 2022 on Linux (or in SQL Server on Windows).
@@ -121,7 +123,7 @@ The following list includes the SQL Server 2022 on Linux features that aren't cu
 | | Distributed Replay |
 | **Manageability** | SQL Server Utility Control Point |
 
-## Next steps
+## Related content
 
 - [Deploy Azure SQL Edge](deploy-portal.md)
 - [Configure Azure SQL Edge](configure.md)

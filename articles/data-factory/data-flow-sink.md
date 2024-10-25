@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Sink transformation in mapping data flow

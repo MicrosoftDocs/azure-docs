@@ -4,8 +4,7 @@ description: Describes how to troubleshoot issues that occur when uploading, dow
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 05/13/2021
 ms.author: alkohli

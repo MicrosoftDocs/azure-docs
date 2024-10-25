@@ -5,9 +5,10 @@ description: Best practices, patterns, and sample code you can use to help with 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/26/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Best practices for large-scale IoT device deployments

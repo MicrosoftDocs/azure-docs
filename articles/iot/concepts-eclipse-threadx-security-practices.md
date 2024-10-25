@@ -3,7 +3,7 @@ title: Eclipse ThreadX security guidance for embedded devices
 description: Learn best practices for developing secure applications on embedded devices when you use Eclipse ThreadX.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: conceptual
 ms.date: 04/08/2024
 ---

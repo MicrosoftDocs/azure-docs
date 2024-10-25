@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 09/09/2024
+ms.date: 10/10/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -41,6 +41,8 @@ This section provides detailed procedure on how you can enable change tracking o
    
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
+> [!NOTE]
+> It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
 #### [Multiple Azure VMs - portal](#tab/multiplevms)
 
@@ -65,6 +67,22 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. Select **Enable** to initiate the deployment.
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
+
+
+#### [Single Azure Arc VM - portal](#tab/singlearcvm)
+
+1. Sign in to [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
+
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-arc-machines-portal.png":::
+
+1. Select the Azure-Arc machine for which you want to enable Change Tracking.
+1. Under **Operations**, select **Change tracking** to view the change tracking and inventory page.
+1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
+
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png":::
+
+   It will initiate the deployment and the notification appears on the top right corner of the screen.
+   
 
 #### [Arc-enabled VMs - portal/CLI](#tab/arcvms)
 
@@ -101,8 +119,6 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    ```   
 --- 
 
->[!NOTE]
->It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
 ## Enable Change Tracking at scale using Azure Monitoring Agent
 

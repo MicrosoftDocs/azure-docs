@@ -226,7 +226,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## New features
 
@@ -279,7 +278,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ### Fixed issues
 
@@ -317,7 +315,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## What's new
 
@@ -378,7 +375,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image **2308221128**. Customers are advised to plan accordingly. 
@@ -426,7 +422,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/whats-new.svg"::: What's new
 * HDInsight 5.1 is now supported with ESP cluster.  
@@ -484,7 +479,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 
@@ -553,7 +547,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 > [!IMPORTANT] 
 > Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
@@ -595,7 +588,6 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-end-of-support.png" alt-text="Icon showing end of support with text.":::
 
-End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md)
 
 ## What's next
 
@@ -624,8 +616,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 * HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-
-For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-feature.png" alt-text="Icon showing new features with text."::: 
 

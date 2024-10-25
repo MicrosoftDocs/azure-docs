@@ -12,6 +12,8 @@ ms.author: duau
 
 # Analyze Azure CDN usage patterns
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 After you enable CDN for your application, you can monitor CDN usage, check the health of your delivery, and troubleshoot potential issues. Azure CDN provides these capabilities in the following ways:
 
 ## Raw logs for Azure CDN from Microsoft

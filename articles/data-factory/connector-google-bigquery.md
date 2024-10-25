@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/12/2024
+ms.date: 10/09/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -224,9 +224,10 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google BigQuery linked service
 
-To upgrade the Google BigQuery linked service, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+## <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector
+
+To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Differences between Google BigQuery and Google BigQuery (legacy)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Explore the Gen2 demo environment - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Explore key features of the Azure Time Series Insights Gen2 demo environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak

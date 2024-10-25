@@ -12,8 +12,7 @@ ms.date: 08/28/2024
 
 # Quickstart: Provision Azure Spring Apps using Azure CLI
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
@@ -46,13 +45,13 @@ The Enterprise deployment plan includes the following Tanzu components:
 
 The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
 
 ---
 

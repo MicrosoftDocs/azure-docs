@@ -11,12 +11,39 @@ ms.date: 07/29/2024
 
 # What's new in Azure Spring Apps?
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
+
+## Q3 2024
+
+The following updates are now available:
+
+- **Conveniently access app logs in the Azure portal**: We now offer a more convenient and efficient way to query app logs and do log streaming on the Azure portal. This new approach supplements manually composing queries to fetch application logs from the Log Analytics workspace and accessing the log stream through the Azure CLI. For more information, see the [Stream logs](how-to-log-streaming.md?tabs=azure-portal#stream-logs) section of [Stream Azure Spring Apps application console logs in real time](how-to-log-streaming.md).
+
+- **Regular infrastructure maintenance in the Enterprise plan**:
+  - Regular upgrade to keep managed components up-to-date:
+    - Service Registry: upgraded to 1.3.1.
+    - Application Configuration Service: upgraded to 2.3.1, including a critical fix of missing content details in the logging for ConfigMap and secret creation.
+    - Spring Cloud Gateway: upgraded to 2.2.5, including a critical fix for a routing rule persistence issue.
+    - API Portal: upgraded to 1.5.0.
+    - App Live View: upgraded to 1.8.0.
+    - App Accelerator: upgraded to 1.8.1.
+    - Build service:
+      - Go buildpack: added support for Go 1.22, deprecated Go 1.20, changed default version from Go 1.20 to Go 1.21.
+      - NodeJS buildpack: changed default version from Node.js 19 to Node.js 20.
+      - Java Native Image buildpack: deprecated Java 20, added Java 21.
+      - PHP buildpack: added PHP 8.3
+  - Regular upgrade to keep Azure Kubernetes Service up-to-date: upgraded to 1.29.7.
+
+- **Regular infrastructure maintenance in the Basic and Standard plans**:
+  - Regular upgrade to keep managed components up-to-date:
+    - Config server image: upgraded to 1.0.20240930.
+    - Eureka server image: upgraded to 1.0.20240930.
+    - Base image for apps: upgraded to Azure Linux 2.0.20231130.
+  - Regular upgrade to keep Azure Kubernetes Service up-to-date: upgraded to 1.29.7.
 
 ## Q2 2024
 

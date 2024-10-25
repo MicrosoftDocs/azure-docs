@@ -31,6 +31,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/enable-enrichment-widgets.md",
+            "redirect_url": "/azure/sentinel/whats-new#third-party-enrichment-widgets-to-be-retired-in-february-2025",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
             "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
             "redirect_document_id": false
@@ -1646,8 +1651,143 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "source_path_from_root": "/articles/sentinel/data-connectors/security-events-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/security-events-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/securitybridge-threat-detection-for-sap.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/securitybridge-threat-detection-for-sap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ai-vectra-stream.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ai-vectra-stream-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-common-event-format.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-common-event-format",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-custom-logs.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-custom-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-log-forwarder.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-log-forwarder",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-logstash.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-logstash",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/troubleshooting-cef-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/troubleshooting-cef-syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/create-codeless-connector-legacy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/create-codeless-connector-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/common-event-format-cef.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/common-event-format-cef",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-trend-micro-apex-one-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-apex-one-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/rsa-securid-authentication-manager.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/rsa-securid-authentication-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sonicwall-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sonicwall-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sophos-xg-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sophos-xg-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/squid-proxy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/squid-proxy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-endpoint-protection.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-endpoint-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-proxysg.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-proxysg",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-vip.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-vip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-deep-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-deep-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-tippingpoint.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-tippingpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ubiquiti-unifi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ubiquiti-unifi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-esxi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-esxi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-vcenter.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-vcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/watchguard-firebox.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/watchguard-firebox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/withsecure-elements-via-connector.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/withsecure-elements-via-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/zscaler-private-access.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/zscaler-private-access",
             "redirect_document_id": false
         },
         {
@@ -2013,6 +2153,11 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyber-blind-spot-intergration.md",
             "redirect_url": "/azure/sentinel/data-connectors/cyber-blind-spot-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/awake-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/awake-security-via-legacy-agent",
             "redirect_document_id": false
         }
     ]
