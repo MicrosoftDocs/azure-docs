@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/05/2021
+ms.date: 10/22/2024
 ms.author: greglin
 ---
 
@@ -72,7 +72,7 @@ In the below example whenever the request URL contains */article*, the URL path 
     
     f. Enter a regular expression pattern. In this example, we'll use the pattern `.*article/(.*)/(.*)`
     
-      ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url.md#capturing).
+      ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [Pattern matching and capturing](rewrite-http-headers-url.md#pattern-matching-and-capturing).
 
     g. Select **OK**.
 
