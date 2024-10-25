@@ -54,40 +54,6 @@ The following snippet shows the YAML file that you applied:
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
-To establish mutual trust between the OPC PLC simulator and the OPC UA connector, run the following commands:
-
-# [Bash](#tab/bash)
-
-```bash
-# Extract the OPC UA connector application instance certificate and add it to the OPC PLC trust list
-kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcuabroker.crt
-data=$(kubectl create secret generic temp --from-file=opcuabroker.crt=./opcuabroker.crt --dry-run=client -o jsonpath='{.data}')
-kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{\"data\": $data}"
-rm ./opcuabroker.crt
-
-# Extract the OPC PLC application instance certificate and add it to the OPC UA connector trust list
-kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc.crt
-data=$(kubectl create secret generic temp --from-file=opcplc-000000.crt=./opcplc.crt --dry-run=client -o jsonpath='{.data}')
-kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{\"data\": $data}"
-rm ./opcplc.crt
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Extract the OPC UA connector application instance certificate and add it to the OPC PLC trust list
-kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcuabroker.crt
-$data = kubectl create secret generic temp --from-file=opcuabroker.crt=./opcuabroker.crt --dry-run=client -o jsonpath='{.data}'
-kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{`"data`": $data}"
-rm ./opcuabroker.crt
-
-# Extract the OPC PLC application instance certificate and add it to the OPC UA connector trust list
-kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcplc.crt
-$data = kubectl create secret generic temp --from-file=opcplc-000000.crt=./opcplc.crt --dry-run=client -o jsonpath='{.data}'
-kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
-rm ./opcplc.crt
-```
-
 ---
 
 ## Set your environment variables
@@ -133,12 +99,10 @@ Run the following commands to download and run the Bicep file that configures yo
 
 <!-- TODO: Fix download link -->
 
-Download the Bicep file to your local environment from [quickstart.bicep](https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=%2F.pipelines%2Fbicep%2Fquickstart.bicep)
-
 # [Bash](#tab/bash)
 
 ```bash
-# wget https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=/.pipelines/bicep/quickstart.bicep -O quickstart.bicep
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/quickstart.bicep -O quickstart.bicep
 
 AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv | awk -F'/' '{print $NF}')
 AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
