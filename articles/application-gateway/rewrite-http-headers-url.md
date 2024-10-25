@@ -149,24 +149,6 @@ Application Gateway supports the following server variables for mutual authentic
 
 ## Common scenarios for header rewrite
 
-### Remove port information from the X-Forwarded-For header
-A rewrite rule set contains:
-
-* **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
-
-* **Rewrite Condition**: This configuration is optional. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action occurs if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
-
-* **Rewrite type**: There are 3 types of rewrites available:
-   * Rewriting request headers 
-   * Rewriting response headers
-   * Rewriting URL components
-      * **URL path**: The value to which the path is to be rewritten. 
-      * **URL Query String**: The value to which the query string is to be rewritten. 
-      * **Reevaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path is used to match the path-pattern in the URL path map. If set to true, the URL path map is reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
-
-
-### Common scenarios for header rewrite
-
 #### Remove port information from the X-Forwarded-For header
 
 Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the backend servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
