@@ -23,7 +23,7 @@ MQTT dataflow endpoints are used for MQTT sources and destinations. You can conf
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-## Azure IoT Operations Local MQTT broker
+## Azure IoT Operations local MQTT broker
 
 ### Default endpoint
 
@@ -89,7 +89,7 @@ resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/da
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -279,7 +279,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
 ```
 
 # [Kubernetes](#tab/kubernetes)
