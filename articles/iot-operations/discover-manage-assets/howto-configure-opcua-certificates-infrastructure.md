@@ -28,7 +28,7 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 ## Configure a self-signed application instance certificate
 
-The default deployment of the connector for OPC UA installs all the resources needed by [cert-manager](https://cert-manager.io/) to create an OPC UA compliant certificate. A self-signed CA is used to sign this certificate. The application instance certificate is stored in the `aio-opc-opcuabroker-default-application-cert` secret while the CA certificate is stored in `aio-opc-opcuabroker-default-root-ca-cert` secret. The `aio-opc-opcuabroker-default-application-cert` secret is mapped into all the connector for OPC UA pods and acts as the OPC UA client application instance certificate. `cert-manager` handles the automatic renewal of both the application instance certificate and the self signed CA.
+The default deployment of the connector for OPC UA installs all the resources needed by [cert-manager](https://cert-manager.io/) to create an OPC UA compliant self-signed certificate. This certificate is stored in the `aio-opc-opcuabroker-default-application-cert` secret. This secret is mapped into all the connector for OPC UA pods and acts as the OPC UA client application instance certificate. `cert-manager` handles the automatic renewal of this application instance certificate.
 
 This configuration is typically sufficient for compliant and secure communication between your OPC UA servers and the connector for OPC UA in a demonstration or exploration environment. For a production environment, use enterprise grade application instance certificates in your deployment.
 
@@ -209,9 +209,9 @@ If your OPC UA server uses a certificate issued by a CA, but you don't want to t
 
 ## Configure your OPC UA server
 
-To complete the configuration of the application authentication mutual trust, you need to configure your OPC UA server to trust the connector for OPC UA application instance certificate together with its issuer trust chain:
+To complete the configuration of the application authentication mutual trust, you need to configure your OPC UA server to trust the connector for OPC UA application instance certificate:
 
-1. To extract the public key certificate for the OPC UA connector into a `opcuabroker.crt` file, run the following command:
+1. To extract the connector for OPC UA certificate into a `opcuabroker.crt` file, run the following command:
 
     # [Bash](#tab/bash)
 
@@ -227,30 +227,13 @@ To complete the configuration of the application authentication mutual trust, yo
 
     ---
 
-1. To extract the CA public key certificate for the OPC UA connector into a `opcuabroker-ca.crt` file, run the following command:
-
-    # [Bash](#tab/bash)
-
-    ```bash
-    kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.ca\.crt}' | base64 -d > opcuabroker-ca.crt
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.ca\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcuabroker-ca.crt
-    ```
-
-    ---
-
-1. Many OPC UA servers only support certificates in the DER format. If necessary, use the following command to convert the _opcuabroker.crt_ and _opcuabroker-ca.crt_ certificates to _opcuabroker.der_ and _opcuabroker-ca.der_:
+1. Many OPC UA servers only support certificates in the DER format. If necessary, use the following command to convert the _opcuabroker.crt_ certificate to _opcuabroker.der_:
 
     ```bash
     openssl x509 -outform der -in opcuabroker.crt -out opcuabroker.der
-    openssl x509 -outform der -in opcuabroker-ca.crt -out opcuabroker-ca.der
     ```
 
-1. Consult the documentation of your OPC UA server to learn how to add the `opcuabroker.crt` or `opcuabroker.der` certificate file to the server's trusted certificates list, and the `opcuabroker-ca.crt` or `opcuabroker-ca.der` CA certificate file into the server's trusted issuers list.
+1. Consult the documentation of your OPC UA server to learn how to add the `opcuabroker.crt` or `opcuabroker.der` certificate file to the server's trusted certificates list.
 
 ## Configure an enterprise grade application instance certificate
 
