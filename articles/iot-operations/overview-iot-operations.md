@@ -102,7 +102,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Supported regions
 
-In the 0.7.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
+In the 0.8.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
 
 | Region       | CLI value   |
 |--------------|-------------|

@@ -20,9 +20,6 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
-> [!IMPORTANT]
-> If you're upgrading your public preview from version 0.6.0 to version 0.7.0, you must uninstall the previous version before deploying the new version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-manage-update-uninstall.md#update).
-
 ## Before you begin
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
@@ -174,10 +171,10 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
 
    ```azurecli
-   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
+   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
@@ -185,7 +182,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
