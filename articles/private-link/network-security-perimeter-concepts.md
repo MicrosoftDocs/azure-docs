@@ -3,7 +3,7 @@ title: What is Azure Network Security Perimeter?
 description: Learn about the components of Azure Network Security Perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
 author: mbender-ms
 ms.author: mbender
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: overview
 ms.date: 09/16/2024
 ms.custom: references_regions
