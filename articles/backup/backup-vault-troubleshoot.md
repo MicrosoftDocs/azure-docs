@@ -50,7 +50,7 @@ This section provides the troubleshooting details for the issues you might encou
 
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](manage-backup-vault.md#supported-regions).
 
 ### UserErrorCrossTenantMSIMoveNotSupported 
 
