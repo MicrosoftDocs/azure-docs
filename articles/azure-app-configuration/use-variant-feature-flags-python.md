@@ -13,7 +13,7 @@ ms.date: 10/24/2024
 
 # Tutorial: Use variant feature flags in Azure App Configuration
 
-Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. These can be particularly useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
+Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. Variants can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
 
 > [!NOTE]
 > A quicker way to start your variant journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-python/)- This repository provides a comprehensive example, complete with variants and Azure resource provisioning.
@@ -41,7 +41,7 @@ Create a variant feature flag called *Greeting* with no label and three variants
 
 ## Set up an app to use the variants
 
-In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. Users who receive the _None_ variant will see no greeting. Users who receive the _Simple_ variant will get a simple greeting message. Users who receive the _Long_ variant will get a slightly longer greeting. 
+In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message increases the number of users who like the quote. Users who receive the _None_ variant see no greeting. Users who receive the _Simple_ variant get a simple greeting message. Users who receive the _Long_ variant get a slightly longer greeting. 
 
 ### Create an app and add user secrets
 
@@ -532,7 +532,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 
 1. Select the **Submit** button after entering user information.
 
-1. You are automatically logged in, you should see that usera@contoso.com sees the long message when viewing the app.
+1. You're automatically logged in. You should see that usera@contoso.com sees the long message when viewing the app.
 
     :::image type="content" source="media/use-variant-feature-flags-python/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
 
@@ -540,7 +540,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 
 1. Register a second user named *userb@contoso.com*.
 
-1. You are automatically logged in, you should see that userb@contoso.com sees the short message when viewing the app.
+1. You're' automatically logged in. You should see that userb@contoso.com sees the short message when viewing the app.
 
     :::image type="content" source="media/use-variant-feature-flags-python/message.png" alt-text="Screenshot of the Quote of the day app, showing a message for the user.":::
 
