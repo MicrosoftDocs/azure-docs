@@ -35,7 +35,7 @@ The following table outlines the various configurations of Operator Nexus Networ
 | 2.0.0   | Multi Rack Near-Edge Agg | VNearEdge4_Aggregator_x70r3  | Aggregation Rack with Pure x70r3. | - Pair of Customer Edge Devices required for SKU.<br> - Two Management switch per rack deployed.<br> - Network packet broker device.<br> - Terminal Server.<br> - Pure storage array.<br> - Cable and optics. |
 | 2.0.0   | Multi Rack Near-Edge Agg | VNearEdge4_Aggregator_x20r4  | Aggregation Rack with Pure x70r4. | - Pair of Customer Edge Devices required for SKU.<br> - Two Management switch per rack deployed.<br> - Network packet broker device.<br> - Terminal Server.<br> - Pure storage array.<br> - Cable and optics. |
 | 2.0.0   | Multi Rack Near-Edge Agg | VNearEdge4_Aggregator_x20r3  | Aggregation Rack with Pure x70r3. | - Pair of Customer Edge Devices required for SKU.<br> - Two Management switch per rack deployed.<br> - Network packet broker device.<br> - Terminal Server.<br> - Pure storage array.<br> - Cable and optics. |
-**Notes:**
 
-- Bill of materials (BOM) adheres to nexus network cloud specifications.
+**Notes:**
+- Bill of materials (BOM) adheres to Nexus Network Cloud specifications.
 - All subscribed customers have the privilege to request BOM details.
