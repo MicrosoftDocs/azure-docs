@@ -106,3 +106,9 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 - When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
 
 - Dataflow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because synchronizing dataflow resources from the edge to the cloud isn't currently supported.
+
+- If you have a dataflow that uses a Fabric OneLake endpoint and you disconnect the cluster from the internet for a duration between 24 and 72 hours, the dataflow might stop working with error "Authentication Failed with Access token validation failed." To resolve this issue, manually restart the dataflow pod by running the following command:
+
+  ```bash
+  kubectl delete pod -n azure-iot-operations $(kubectl get pod -n azure-iot-operations | grep dataflow | awk '{print $1}')
+  ```
