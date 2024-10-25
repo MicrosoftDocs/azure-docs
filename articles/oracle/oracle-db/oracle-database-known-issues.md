@@ -57,15 +57,15 @@ The failure occurs because the user performing the action doesn't have permissio
 
 ## Buy offer
 
-### Create OracleSubscription resource fails because of 'deny' policy action during offer purchase
+### Creating an OracleSubscription resource fails because of 'deny' policy action during offer purchase
 
 When you subscribe to Oracle Database@Azure, you must create a managed resource group in the background to contain the `OracleSubscription` object for billing purposes. The managed resource group must be in the EastUS region. It must have a specific name, and it must initially be created without tags.
 
 Any policy that blocks the creation of the managed resource group triggers the error. For example, a policy that has any of the following rules might cause the purchase to fail:
 
-- A rule that denies the creation of resources in the EastUS Azure region.
-- A rule that denies the creation of a resource without tags.
-- A rule that enforces specific naming patterns.
+- A rule that denies the creation of resources in the EastUS Azure region
+- A rule that denies the creation of a resource without tags
+- A rule that enforces specific naming patterns
 
 #### Message
 

@@ -20,7 +20,7 @@ Use the following groups in your Azure account:
 |Group name|Azure role assigned|description|
 |----------|-------------------|-----------|
 |odbaa-exa-infra-administrators| odbaa-exa-infra-administrator |This group is for administrators who need to manage all Oracle Exadata Database@Azure resources in Azure. |
-|odbaa-vm-cluster-administrators |odbaa-vm-cluster-administrator |User in this group can administer virtual machine (VM) cluster resources in Azure. |
+|odbaa-vm-cluster-administrators |odbaa-vm-cluster-administrator |Users in this group can administer virtual machine (VM) cluster resources in Azure. |
 |odbaa-db-family-administrators |*Not applicable* | This group is replicated in Oracle Cloud Infrastructure (OCI) during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-db-family-readers |*Not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-exa-cdb-administrators |*Not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
@@ -32,10 +32,10 @@ Use the following groups in your OCI tenancy:
 
 |Group name|Description|
 |----------|-----------|
-|odbaa-db-family-administrators | Users of this group are administrators who manage database family actions. |
-|odbaa-db-family-readers |Users of this group are administrators who read database family actions. |
-|odbaa-exa-cdb-administrators |Users of this group are administrators who manage Oracle Container Database (CDB) actions. |
-|odbaa-exa-pdb-administrators | Users of this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
+|odbaa-db-family-administrators | Users in this group are administrators who manage database family actions. |
+|odbaa-db-family-readers |Users in this group are administrators who read database family actions. |
+|odbaa-exa-cdb-administrators |Users in this group are administrators who manage Oracle Container Database (CDB) actions. |
+|odbaa-exa-pdb-administrators | Users in this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
 
 ## Required Identity and Access Management policies
 
@@ -44,7 +44,7 @@ The following Oracle Cloud Infrastructure Identity and Access Management (IAM) p
 - `Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’`
 - `Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’`
 
-For information on working with policies, see [Get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
+For information about working with policies, see [Get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
 
 ## Related content
 

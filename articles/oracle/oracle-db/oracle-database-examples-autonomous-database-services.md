@@ -19,11 +19,11 @@ For more information on reference implementations for Terraform or OpenTofu modu
 * [Azure Verified Modules](https://aka.ms/avm)
 
 > [!NOTE]
-> This article provides example code to demonstrate provisioning and managing Oracle Database@Azure resources by using the Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [AzAPI Provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) in the Terraform registry.
+> This article provides example code to demonstrate provisioning and managing Oracle Database@Azure resources by using the Terraform provider AzAPI. For detailed AzAPI provider resources and data sources documentation, see [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) in the Terraform registry.
 
-The samples use example values for illustration. Replace the placeholder example values with settings from your scenario.
+The samples use example values for illustration. Replace the placeholder example values with values from your scenario.
 
-The samples use [AzAPI dynamic properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
+The samples use [AzAPI dynamic properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of JSONEncode for more native Terraform behavior.
 
 ## Create a delegated subnet for Oracle Database@Azure
 

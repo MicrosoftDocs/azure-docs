@@ -24,7 +24,7 @@ The following figure illustrates where Terraform or OpenTofu can be introduced t
 - Steps 1 and 2 completed in [Onboard Oracle Database@Azure](https://docs.oracle.com/iaas/Content/multicloud/oaaonboard.htm), minimum
 - Terraform/OpenTofu, the OCI CLI, the Azure CLI, and Python (version 3.4 or later) installed in your environment
 
-  For more information, see [Oracle multicloud landing zone for Azure](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure?tab=readme-ov-file#prerequisites) on GitHub.
+For more information, see [Oracle multicloud landing zone for Azure](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure?tab=readme-ov-file#prerequisites) on GitHub.
 
 ## Dependencies
 

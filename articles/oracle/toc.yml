@@ -17,7 +17,7 @@ items:
     href: oracle-db/oracle-database-get-started.md
   - name: Compliance information
     href: oracle-db/oracle-database-compliance.md
-  - name: Overview
+  - name: Overview of Oracle Database@Azure
     href: oracle-db/database-overview.md
   - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
