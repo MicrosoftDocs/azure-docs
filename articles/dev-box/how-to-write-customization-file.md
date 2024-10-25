@@ -73,8 +73,9 @@ To invoke the Dev Box chat agent:
     You can select **Generate Workload.yaml File** to create a file with the custom task. You can then rename the *workload.yaml* file to *imagedefintion.yaml*for use in your team customizations.
 
 ## Dev Home
-You can use Dev Home to create a customization file for your dev box. Dev Home provides a guided experience to create a customization file that you can share with your team. Use the following steps to create a customization file in Dev Home:
-[Create reusable dev box customizations with Dev Home Preview](how-to-use-dev-home-customize-dev-box.md#customize-an-existing-dev-box)
+You can use Dev Home to create a customization file for your dev box. Dev Home provides a guided experience to create a customization file that you can use in Team Customizations. 
+
+For more information about using Dev Home to create a customization file, see: [Create reusable dev box customizations with Dev Home Preview](how-to-use-dev-home-customize-dev-box.md#customize-an-existing-dev-box).
 
 ## Use secrets from an Azure Key Vault
 You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token.
@@ -112,8 +113,10 @@ tasks:
 ```
 
 If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule.
+
+:::image type="content" source="media/how-to-write-customization-file/trusted-services-bypass-firewall.png" alt-text="text":::
  
-To learn how to allow trusted Microsoft services to bypass the firewall, see Configure Azure Key Vault networking settings.
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ## Share a customization file from a code repository
 Make your customization file seamlessly available to your developers by naming it *imagedefinition.yaml* and uploading it to a repository accessible to the developers, usually their coding repository.
