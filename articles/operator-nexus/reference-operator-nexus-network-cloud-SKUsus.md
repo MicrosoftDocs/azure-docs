@@ -8,7 +8,7 @@ ms.author: jamatson
 ms.service: azure-operator-nexus
 ---
 
-# Azure Operator Nexus Network Cloud SKUs
+# Azure Operator Nexus Network Cloud Stock Keeping Units (SKUs)
 
 Operator Nexus Network Cloud SKUs for Azure Operator Nexus are meticulously designed to streamline the procurement and deployment processes, offering standardized bill of materials (BOM), topologies, wiring, and workflows. Microsoft crafts and prevalidates each SKU in collaboration with OEM vendors, ensuring seamless integration and optimal performance for operators.
 
