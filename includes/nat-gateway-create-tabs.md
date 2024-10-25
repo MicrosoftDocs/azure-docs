@@ -3,7 +3,7 @@
  description: include file
  services: nat-gateway
  author: asudbring
- ms.service: azure-nat-gateway
+ ms.service: nat-gateway
  ms.topic: include
  ms.date: 07/12/2023
  ms.author: allensu
