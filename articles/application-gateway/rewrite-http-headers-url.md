@@ -44,27 +44,27 @@ A rewrite set is a collection of a Routing Rule, Condition and Action.
 
 * **Request routing rule association:** The rewrite configuration is associated to a source listener via its routing rule. When you use a routing rule of the type Basic, the rewrite configuration is associated with its listener and works as a global rewrite. When you use a Path-based routing rule, the rewrite configuration is defined as per the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules but a routing rule can have only one rewrite associated with it.
 
-* **Rewrite Condition:** This is an optional configuration. Based on the conditions that you define, the Application Gateway will evaluate the contents of the HTTP(S) requests and responses. The susequent "rewrite action" will occur if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
+* **Rewrite Condition:** This is an optional configuration. Based on the conditions that you define, the Application Gateway will evaluate the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" will occur if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
 You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This optional configuration enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
 
   You can choose the following types to look for a condition:
-  1. HTTP header (Request and Response)
-  1. Supported [Server variables](#server-variables)
+  - HTTP header (Request and Response)
+  - Supported [Server variables](#server-variables)
 
   A Condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Know more about [pattern and capturing](#pattern-matching-and-capturing).
 
 * **Rewrite Action:** Rewrite action set allows you to rewrite Headers (Request or Response) or the URL components.
 
   An action can have the following value types or their combinations:
-  1. Text.
-  1. Request header's value - To use a captured request header value, specify the syntax as `{http_req_headerName}`.
-  1. Response header's value - To use a captured response header value from the preceeding Condition, specify the syntax as `{http_resp_headerName}`. You can use `{capt_header_value_matcher}` when the value is captured from Action Set's "Set-Cookie" response header. Know more about [capture under Action set](#syntax-for-capturing).
-  1. Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
+  - Text.
+  - Request header's value - To use a captured request header value, specify the syntax as `{http_req_headerName}`.
+  - Response header's value - To use a captured response header value from the preceding Condition, specify the syntax as `{http_resp_headerName}`. You can use `{capt_header_value_matcher}` when the value is captured from Action Set's "Set-Cookie" response header. Know more about [capture under Action set](#syntax-for-capturing).
+  - Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
 
   When using an Action to rewrite a URL, the following operations are supported:
-  1. URL path: The new value to be set as the path.
-  1. URL Query String: The new value to which the query string must be rewritten to.
-  1. Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+  - URL path: The new value to be set as the path.
+  - URL Query String: The new value to which the query string must be rewritten.
+  - Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 
 ## Pattern matching and capturing 
@@ -75,8 +75,8 @@ Patten matching and capturing are supported under Condition and Action (under Ac
 Application Gateway uses regular expressions for pattern matching. You should use Regular Expression 2 (RE2) compatible expressions when writing your pattern matching syntax.
 
 You can use pattern matching under both Condition and Action.
-1. **Condition**: This is used to match the values for a Header or Server Variable. To match a pattern under "Conditions" use the "pattern" property.
-1. **Action**: Pattern matching under Action Set is only available for Response header "Set-Cookie". To match a pattern for Set-Cookie under an action, use the "HeaderValueMatcher" property. If captured, its value can be used as {capt_header_value_matcher}. As there can be multiple Set-Cookie, a pattern matching here allows you to look for a specific cookie. Example: For a certain version of user-agent, you want to rewrite the set-cookie response header for "cookie2" with max-age=3600 (one hour). In this case, you can use
+- **Condition**: This is used to match the values for a Header or Server Variable. To match a pattern under "Conditions" use the "pattern" property.
+- **Action**: Pattern matching under Action Set is only available for Response header "Set-Cookie". To match a pattern for Set-Cookie under an action, use the "HeaderValueMatcher" property. If captured, its value can be used as {capt_header_value_matcher}. As there can be multiple Set-Cookie, a pattern matching here allows you to look for a specific cookie. Example: For a certain version of user-agent, you want to rewrite the set-cookie response header for "cookie2" with max-age=3600 (one hour). In this case, you can use
    * Condition - Type: Request header, Header name: user-agent, Pattern to match: *2.0
    * Action - Rewrite type: Response header, Action type: Set, Header name: Set-Cookie, Header Value Matcher: cookie2=(.*), Header value: cookie2={capt_header_value_matcher_1};Max-Age=3600
 

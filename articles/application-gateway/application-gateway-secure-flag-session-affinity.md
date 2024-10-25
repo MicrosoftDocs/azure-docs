@@ -11,7 +11,7 @@ ms.author: jaysoni
 ---
 
 # Setting HTTPOnly or Secure flag for Session Affinity cookie
-In this guide you learn to create a Rewrite set for your Application Gateway and configure Secure and HttpOnly [ApplicationGatewayAffinity cookie](configuration-http-settings.md#cookie-based-affinity)
+In this guide you learn to create a Rewrite set for your Application Gateway and configure Secure and HttpOnly [ApplicationGatewayAffinity cookie](configuration-http-settings.md#cookie-based-affinity).
 
 
 ## Prerequisites

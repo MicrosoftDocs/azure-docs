@@ -268,7 +268,7 @@
         - name: Create and rewrite HTTP headers
           href: tutorial-http-header-rewrite-powershell.md
         - name: Add secure flag for cookies 
-          href: application-gateway-secureflag-sessionaffinity.md       
+          href: application-gateway-secure-flag-session-affinity.md       
     - name: URL rewrite
       items:
         - name: Azure portal
