@@ -422,6 +422,8 @@ $changesJson = $changes | ConvertTo-Json -Compress
 Write-Host "MySql Changes: $changesJson"
 ```
 ::: zone-end
+
+
 ::: zone pivot="programming-language-javascript"
 ## Example usage
 <a id="example"></a>
@@ -486,8 +488,6 @@ module.exports = async function (context, changes) {
 ```
 
 ::: zone-end
-
-
 
 
 ::: zone pivot="programming-language-python"
@@ -608,7 +608,7 @@ def main(changes):
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLTrigger` annotation (`com.microsoft.azure.functions.sql.annotation.SQLTrigger`) on parameters whose value would come from Azure Database for MySQL. This annotation supports the following elements:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLTrigger` annotation on parameters whose value would come from Azure Database for MySQL. This annotation supports the following elements:
 
 | Element |Description|
 |---------|---------|
@@ -633,6 +633,7 @@ The following table explains the binding configuration properties that you set i
 | **tableName** | Required. The name of the table monitored by the trigger.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
+
 ::: zone-end
 
 ## Optional Configuration
@@ -716,10 +717,13 @@ Azure Database for MySQL Trigger ndings use "az_func_updated_at" and column's da
 
 The change tracking can be enabled on a table through following query. For example, enable on ‘Products’ table:
 
-    ```sql
-    ALTER TABLE Products;
-    ADD az_func_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
-    ```
+```sql
+ALTER TABLE Products;
+ADD az_func_updated_at 
+TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+ON UPDATE CURRENT_TIMESTAMP;
+```
+
 The leases table contains all columns corresponding to the primary key from the user table and two additional columns _az_func_AttemptCount and _az_func_LeaseExpirationTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
 

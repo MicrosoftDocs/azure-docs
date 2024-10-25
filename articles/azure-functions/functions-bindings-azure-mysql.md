@@ -117,7 +117,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install bundle
 
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4p)
 
