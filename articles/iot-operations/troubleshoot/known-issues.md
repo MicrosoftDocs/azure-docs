@@ -44,6 +44,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
 
+- If you configured the MQTT broker to use disk backed message buffer with persistent volume option, the broker creates a persistent volume claim (PVC) in the same namespace as the broker. If you uninstall Azure IoT Operations, the PVC isn't deleted automatically. To delete the PVC, run the following command `kubectl delete pvc -n <namespace> <pvc-name>`.
+
 ## Azure IoT Layered Network Management Preview
 
 - If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
