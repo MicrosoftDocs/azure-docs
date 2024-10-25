@@ -253,8 +253,8 @@
           href: gpu-overview.md
         - name: Tutorials
           items:
-          - name: Run a small language model
-            href: gpu-small-language-model.md
+          - name: Generate images
+            href: gpu-image-generation.md
 - name: Microservices
   items:
     - name: Developing with Dapr

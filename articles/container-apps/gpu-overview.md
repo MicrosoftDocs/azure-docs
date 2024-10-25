@@ -66,4 +66,4 @@ Submit issue to the GitHub repo.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a small language model using serverless GPUs](gpu-small-language-model.md)
+> [Generate images using serverless GPUs](gpu-image-generation.md)
