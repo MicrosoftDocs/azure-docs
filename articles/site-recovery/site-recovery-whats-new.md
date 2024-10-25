@@ -24,9 +24,9 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 76](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.63.7187.1 | 9.63.7187.1  | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
-[Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.62.7172.1 | 9.62.7172.1  | 9.62.7172.1 | 5.24.0814.2 | 2.0.9932.0
-[Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | 9.62.7096.1 | 9.62.7096.1 | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
+[Rollup 76](https://support.microsoft.com/en-us/topic/update-rollup-76-for-azure-site-recovery-6ca6833a-5b0f-4bdf-9946-41cd0aa8d6e4) | NA | NA | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
+[Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | NA | NA | 9.62.7172.1 | 5.24.0814.2 | 2.0.9932.0
+[Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | NA | NA | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
 [Rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 9.61.7016.1 | 9.61.7016.1 | 9.61.7016.1 | 5.24.0317.5 | 2.0.9917.0 
 [Rollup 72](https://support.microsoft.com/topic/update-rollup-72-for-azure-site-recovery-kb5036010-aba602a9-8590-4afe-ac8a-599141ec99a5) | 9.60.6956.1 | NA | 9.60.6956.1 | 5.24.0117.5 | 2.0.9917.0 
 [Rollup 71](https://support.microsoft.com/topic/update-rollup-71-for-azure-site-recovery-kb5035688-4df258c7-7143-43e7-9aa5-afeef9c26e1a) | 9.59.6930.1 | NA | 9.59.6930.1 | NA | NA
@@ -38,7 +38,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 ### Update Rollup 76
 
-Update [rollup 76](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) provides the following updates:
+Update [rollup 76](https://support.microsoft.com/topic/update-rollup-76-for-azure-site-recovery-6ca6833a-5b0f-4bdf-9946-41cd0aa8d6e4) provides the following updates:
 
 **Update** | **Details**
 --- | ---
