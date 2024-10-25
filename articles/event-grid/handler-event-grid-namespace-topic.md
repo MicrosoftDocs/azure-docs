@@ -28,8 +28,8 @@ This article covers an example scenario where you forward Azure Storage events t
 
 1. Create an Event Grid namespace resource by following instructions from [Create, view, and manage namespaces](create-view-manage-namespaces.md).
 1. Create an Event Grid namespace topic by following instructions from [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md).
-1. Create an Azure storage account by following instructions from [create a storage account](blob-event-quickstart-portal.md#create-a-storage-account).
 1. Create an Event Grid event subscription in a namespace topic by following instructions from [Create, view, and manage event subscriptions in namespace topics](create-view-manage-event-subscriptions.md). This step is optional, but it's useful for testing the scenario. 
+1. Create an Azure storage account by following instructions from [create a storage account](blob-event-quickstart-portal.md#create-a-storage-account).
 
 ## Create a system topic and enable managed identity for the storage account
 If you have an existing system topic for the storage account, navigate to the system topic page. If you don't have one, create a system topic. Then, enable managed identity for the storage account. 
