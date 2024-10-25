@@ -147,6 +147,7 @@ To initialize the Call composite:
     - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
     - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
     - Replace `DISPLAY_NAME` with your name.
+    - Replace `USER_ID` with ACS user ID.
     - Replace `USER_ACCESS_TOKEN` with your token.
 
 ### Get a Teams meeting chat thread for a Communication Services user

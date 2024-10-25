@@ -17,13 +17,6 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Integrate Calling and Chat UI Libraries
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A deployed Communication Services resource. [Create a Communication Services resource](../create-communication-resource.md).
-- A user access token to enable the call and chat composites. [Get a user access token](../access-tokens.md).
-- Optional: Completion of the [quickstart for getting started with the UI Library composites](get-started-composites.md).
-
 ## Set up the feature
 
 ::: zone pivot="platform-android"
