@@ -427,7 +427,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ---
 
-### After deployment to Azure
+## After deployment to Azure
 
 Each API connection has access policies. After the zip deployment completes, you must open your Standard logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app. The zip deployment doesn't create app settings for you. After deployment, you must create these app settings based on the **local.settings.json** file in your logic app project.
 
