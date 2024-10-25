@@ -44,6 +44,7 @@ To help set up the environment for access to Virtual Machines, define these envi
 > These environment variable values do not reflect a real deployment and users MUST change them to match their environments.
 >
 > It should be noted that the first set of variables in the section below are for the **Cluster Manager** not the Cluster.
+> The CM_EXTENDED_LOCATION value can be found with the command `az networkcloud virtualmachine show --name <virtual machine name> --resource-group <virtual machine's resource group> --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name'`.
 
 ```bash
     # CM_HOSTED_RESOURCES_RESOURCE_GROUP: Cluster Manager resource group name
