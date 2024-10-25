@@ -17,7 +17,7 @@ ms.date: 09/17/2024
 
 To get started with dataflows, first create dataflow endpoints. A dataflow endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
 
-To get started, use the following table to choose the endpoint type to configure:
+Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination |
 |---------------|-------------|-------------------------|------------------------------|
@@ -39,35 +39,104 @@ For example, you can use the default MQTT broker dataflow endpoint. You can use 
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to MQTT.":::
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: <DEFAULT_PROFILE_RESOURCE>
+  name: 'broker-to-broker'
+  extendedLocation: {
+    name: <CUSTOM_LOCATION_RESOURCE>.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'default'
+          dataSources: [
+            'example/topic/1'
+          ]
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: 'default'
+          dataDestination: 'example/topic/2'
+        }
+      }
+    ]
+  }
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
-  name: mq-to-mq
+  name: broker-to-broker
   namespace: azure-iot-operations
 spec:
   profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        endpointRef: default
         dataSources:
         - example/topic/1
     - operationType: Destination
       destinationSettings:
-        endpointRef: mq
+        endpointRef: default
         dataDestination: example/topic/2
 ```
 
 ---
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to a Kafka endpoint.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to a Event Hub endpoint.
 
 # [Portal](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to Kafka.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: <DEFAULT_PROFILE_RESOURCE>
+  name: 'broker-to-eh'
+  extendedLocation: {
+    name: <CUSTOM_LOCATION_RESOURCE>.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'default'
+          dataSources: [
+            'example/topic/3'
+          ]
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // The endpoint needs to be created before you can reference it here
+          endpointRef: 'example-event-hub-endpoint'
+          dataDestination: 'example/topic/4'
+        }
+      }
+    ]
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -75,19 +144,20 @@ Similarly, you can create multiple dataflows that use the same MQTT endpoint for
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
-  name: mq-to-kafka
+  name: broker-to-eh
   namespace: azure-iot-operations
 spec:
   profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        endpointRef: default
         dataSources:
         - example/topic/3
     - operationType: Destination
       destinationSettings:
-        endpointRef: example-kafka-endpoint
+        # The endpoint needs to be created before you can reference it here
+        endpointRef: example-event-hub-endpoint
         dataDestination: example/topic/4
 ```
 
