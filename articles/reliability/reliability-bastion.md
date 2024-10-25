@@ -126,5 +126,4 @@ The service-level agreement (SLA) for Azure Bastion describes the expected avail
 
 ## Related content
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](./overview.md)
+- [Reliability in Azure](./overview.md)
