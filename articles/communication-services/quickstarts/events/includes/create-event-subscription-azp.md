@@ -37,7 +37,7 @@ To create an Event subscription for Azure Communication Services resource, first
 
    1. Select **Configure an Endpoint**
 
-    :::image type="content" source="../media/subscribe-through-portal/create-event-subscription.png" alt-text="Screenshot highlighting the create event page in the Azure portal." lightbox="../media/subscribe-through-portal/create-event-subscription.png":::
+       :::image type="content" source="../media/subscribe-through-portal/create-event-subscription.png" alt-text="Screenshot highlighting the create event page in the Azure portal." lightbox="../media/subscribe-through-portal/create-event-subscription.png":::
  
    1. Enter the link to the webhook and select **Confirm Selection**.
 
