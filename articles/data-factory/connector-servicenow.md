@@ -147,15 +147,12 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can use dynamic content to configure the expression, and the example format is the object under `expression` shown in the example JSON below.| No |
 | *Under `expression`* |  |  |
 | type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
-
-> [!TIP]
-> You can use dynamic content to configure the expression. The example format is provided in the JSON below under the expression property.
 
 **Example:**
 
