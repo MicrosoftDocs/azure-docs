@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 10/01/2024
+ms.date: 10/25/2024
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ms.service: azure-iot-operations
@@ -15,9 +15,9 @@ ms.service: azure-iot-operations
 
 All communication within Azure IoT Operations Preview is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution. 
 
-## Default root CA and issuer for TLS server certificates
+## Default self-signed issuer and root CA certificate for TLS server certificates
 
-To help you get started, Azure IoT Operations Preview is deployed with a default root CA and issuer for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
+To help you get started, Azure IoT Operations Preview is deployed with a default self-signed issuer and root CA certificate for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
 
 * The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager.
 
@@ -56,8 +56,8 @@ To help you get started, Azure IoT Operations Preview is deployed with a default
         Signature Algorithm: sha256WithRSAEncryption 
     [Signature] 
     ```
-    
-* By default, there's already a CA issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command: 
+
+* By default, there's already an issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate which is signed by the self-signed issuer to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command:
 
     ```bash
     kubectl get clusterissuer azure-iot-operations-aio-certificate-issuer -o yaml
@@ -84,3 +84,43 @@ To help you get started, Azure IoT Operations Preview is deployed with a default
         status: "True" 
         type: Ready 
     ```
+
+## Bring your own issuer
+
+For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates for internal communication.
+To set up Azure IoT Operations with your own issuer, use the following steps before deploying an instance to your cluster:
+
+1. Follow the steps in [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up your cluster.
+  
+1. Install [cert-manager](https://cert-manager.io/docs/installation/).
+  Cert-manager manages TLS certificates.
+
+1. Install [trust-manager](https://cert-manager.io/docs/trust/trust-manager/installation/).
+  Trust-manager is used to distribute a trust bundle to components.
+  
+1. Create the Azure IoT Operations namespace.
+  
+    ```bash
+    kubectl create namespace azure-iot-operations
+    ```
+
+1. Deploy an issuer that works with cert-manager. For a list of all supported issuers, see [cert-manager issuers](https://cert-manager.io/docs/configuration/issuers/).
+
+   The issuer can be of type `ClusterIssuer` or `Issuer`. If using `Issuer`, the issuer resource must be created in the Azure IoT Operations namespace.
+
+1. Set up trust bundle in the Azure IoT Operations namespace.
+
+   1. To set up trust bundle, create a ConfigMap in the Azure IoT Operations namespace. Place the public key portion of your CA certificate into the config map with a key name of your choice.
+   1. Get the public key portion of your CA certificate. The steps to acquire the public key depends on the issuer you have chosen.
+   1. Create the ConfigMap. For example:
+
+      ```bash
+      kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> --from-file=<CA_CERTIFICATE_FILENAME_PEM_OR_DER>
+      ```
+
+1. Follow steps in [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy. *Add the `--trust-settings` parameter while initializing Azure IoT Operations.* For example:
+
+   ```bash
+   az iot ops init --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP>  --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+   ```
+  
