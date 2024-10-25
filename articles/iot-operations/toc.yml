@@ -157,7 +157,7 @@ items:
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials
       items:
-      - name: MQTT bridge
+      - name: Bi-directional MQTT bridge to Azure Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
