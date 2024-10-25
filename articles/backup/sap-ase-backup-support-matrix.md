@@ -39,7 +39,7 @@ Cross Subscription Restore to Paired Region |  Region of Choice isn't supported 
 
 >[!NOTE]
 >- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP ASE database running in an Azure VM. We recommend you to modify the policy manually as needed.
->- You can now [monitor the backup and restore](./sap-ase-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
+>- You can now monitor the backup and restore jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
 
 ## Support for multistreaming data backups
 
@@ -59,12 +59,12 @@ Cross Subscription Restore to Paired Region |  Region of Choice isn't supported 
 - **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
 - **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
 
-Learn more about [SAP ASE Azure Virtual Machine storage](/azure/sap/workloads/ase-vm-operations-storage) and [SAP ASE Azure virtual machine Premium SSD storage configurations](/azure/sap/workloads/ase-vm-premium-ssd-v1) configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
+Learn more about SAP ASE Azure Virtual Machine storage and SAP ASE Azure virtual machine Premium SSD storage configurations configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
 
 ## Next steps
 
-* Learn how to [backup SAP ASE databases running on Azure VMs](./backup-azure-ase-database.md)
-* Learn how to [restore SAP ASE databases running on Azure VMs](./sap-ase-db-restore.md)
-* Learn how to [manage SAP ASE databases that are backed up using Azure Backup](sap-ase-db-manage.md)
-* Learn how to [troubleshoot common issues when backing up SAP ASE databases](./backup-azure-sap-ase-database-troubleshoot.md)
+* Learn how to backup SAP ASE databases running on Azure VMs.
+* Learn how to restore SAP ASE databases running on Azure VMs
+* Learn how to manage SAP ASE databases that are backed up using Azure Backup.
+* Learn how to troubleshoot common issues when backing up SAP ASE databases.
