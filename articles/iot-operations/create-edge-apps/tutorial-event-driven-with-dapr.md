@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
+ms.service: azure-iot-operations
 ---
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker

@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Use Dapr to develop distributed application workloads that talk with MQTT broker

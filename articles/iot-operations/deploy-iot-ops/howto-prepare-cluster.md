@@ -51,18 +51,17 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
   * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
 
-* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
-
 ### [Ubuntu](#tab/ubuntu)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the following extensions for Azure CLI:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:
@@ -70,6 +69,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * Ensure that your machine has a minimum of 16-GB available RAM and 8 available vCPUs reserved for Azure IoT Operations.
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [K3s requirements](https://docs.k3s.io/installation/requirements).
+
+* If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
 
 ---
 

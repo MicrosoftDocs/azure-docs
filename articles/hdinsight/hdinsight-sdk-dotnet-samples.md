@@ -4,7 +4,7 @@ description: Find C# .NET examples on GitHub for common tasks using the HDInsigh
 ms.service: azure-hdinsight
 ms.custom: devx-track-dotnet
 ms.topic: sample
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Azure HDInsight: .NET samples

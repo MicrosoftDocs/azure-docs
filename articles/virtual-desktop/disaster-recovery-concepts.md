@@ -53,7 +53,7 @@ We have further documentation that goes into much more detail about each of the 
 
 ## Related content
 
-For more in-depth information about disaster recovery in Azure, check out these articles:
+For more in-depth information about disaster recovery for Azure Virtual Desktop, check out these articles:
 
 - [Cloud Adoption Framework: Azure Virtual Desktop business continuity and disaster recovery documentation](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
 

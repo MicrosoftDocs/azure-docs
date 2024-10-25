@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 09/08/2023
 ms.author: anaharris
 ms.reviewer: cynthn
-ms.custom: references_regions, subject-reliability
+ms.custom: references_regions
 ---
 
 # Availability of services for Microsoft Azure operated by 21Vianet

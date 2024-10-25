@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 10/08/2024 
+ms.date: 10/16/2024 
 ---
 
 ## Supported client versions
@@ -12,7 +12,15 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5709  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5709 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Insider | 1.2.5799 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+
+## Updates for version 1.2.5799 (Insider) 
+
+*Date published: October 15, 2024*   
+
+- Added list of graphics codecs to the Connection Information dialog. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
+- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
 
 ## Updates for version 1.2.5709
 
@@ -411,8 +419,8 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.

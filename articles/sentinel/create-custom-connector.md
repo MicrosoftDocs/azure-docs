@@ -5,6 +5,8 @@ author: austinmccollum
 ms.topic: conceptual
 ms.date: 10/01/2024
 ms.author: austinmc
+#Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
+
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors

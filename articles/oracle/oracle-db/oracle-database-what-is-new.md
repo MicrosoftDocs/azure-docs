@@ -4,7 +4,7 @@ description: Learn about what's New in Oracle Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: whats-new
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---

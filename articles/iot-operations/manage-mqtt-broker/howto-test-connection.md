@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/08/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
+ms.service: azure-iot-operations
 ---
 
 # Test connectivity to MQTT broker with MQTT clients
@@ -71,7 +72,7 @@ The first option is to connect from within the cluster. This option uses the def
               expirationSeconds: 86400
       - name: trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only # Default root CA cert
+          name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
     ```
 
 1. Use `kubectl apply -f client.yaml` to deploy the configuration. It should only take a few seconds to start.
@@ -291,7 +292,7 @@ If you understand the risks and need to use an insecure port in a well-controlle
       name: non-tls-listener
       namespace: azure-iot-operations
     spec:
-      brokerRef: broker
+      brokerRef: default
       serviceType: loadBalancer
       serviceName: my-unique-service-name
       authenticationEnabled: false

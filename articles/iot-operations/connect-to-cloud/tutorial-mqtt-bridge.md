@@ -3,6 +3,7 @@ title: Bi-directional MQTT bridge to Azure Event Grid
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations dataflows.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
 ms.date: 10/01/2024
@@ -148,7 +149,7 @@ example.region-1.ts.eventgrid.azure.net
 
 # [Bicep](#tab/bicep)
 
-The dataflow and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow endpoints.
+The dataflow and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary dataflow and dataflow endpoints.
 
 Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName` with yours.
 
@@ -342,6 +343,7 @@ metadata:
   name: local-to-remote
   namespace: azure-iot-operations
 spec:
+  profileRef: default
   operations:
   - operationType: Source
     sourceSettings:
@@ -359,6 +361,7 @@ metadata:
   name: remote-to-local
   namespace: azure-iot-operations
 spec:
+  profileRef: default
   operations:
   - operationType: Source
     sourceSettings:

@@ -2,7 +2,7 @@
 title: Integrate CyberArk with Microsoft Defender for IoT
 description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with CyberArk.
 ms.topic: tutorial
-ms.date: 02/08/2022
+ms.date: 10/14/2024
 ms.custom: how-to
 ---
 
@@ -104,8 +104,6 @@ Whenever the Defender for IoT platform identifies remote sessions that haven't b
 1. Sign into your on-premises management console, then select **Alerts**.
 
 1. From the list of alerts, select the alert titled **Unauthorized Remote Session**.
-
-    :::image type="content" source="media/tutorial-cyberark/unauthorized.png" alt-text="The Unauthorized Remote Session alert." lightbox="media/tutorial-cyberark/unauthorized.png":::
 
 ### Event timeline
 

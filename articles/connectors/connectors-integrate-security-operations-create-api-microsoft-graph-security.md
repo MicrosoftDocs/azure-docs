@@ -37,7 +37,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
   | Property | Value |
   |----------|-------|
   | **Application Name** | `MicrosoftGraphSecurityConnector` |
-  | **Application ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+  | **Application ID** | `00001111-aaaa-2222-bbbb-3333cccc4444` |
   |||
 
   To grant consent for the connector, your Microsoft Entra tenant administrator can follow either these steps:

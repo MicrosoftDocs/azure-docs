@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Use MQTTnet to develop distributed application workloads that connect to MQTT broker

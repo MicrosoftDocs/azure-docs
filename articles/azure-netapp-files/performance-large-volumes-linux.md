@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 10/24/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
@@ -30,7 +30,8 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
     The Ultra service level was used in these tests. 
 
-* Sequential I/O: 100% sequential writes max out at 8,500 MiB/second, while a single large volume is capable of 10 GiB/second (12,800 MiB/second) throughput. 
+* Sequential writes: 100% sequential writes maxed out at ~8,500 MiB/second in these benchmarks. (A single large volume’s maximum throughput is capped at 12,800 MiB/second by the service, so more potential throughput is possible.)
+* Sequential reads: 100% sequential reads maxed out at ~12,761 MiB/second in these benchmarks. (A single large volume's throughput is capped at 12,800 MiB/second. This result is near the maximum achievable throughput at this time.)
 
 * Random I/O: The same single large volume delivers over 700,000 operations per second. 
 
@@ -55,7 +56,7 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 
 ### 256-KiB sequential workloads (MiB/s) 
 
-The graph represents a 256 KiB sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
+The graph represents a 256-KiB sequential workload using 12 virtual machines reading and writing to a single large volume using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 12,761 MiB/s pure sequential reads.
 
 :::image type="content" source="./media/performance-large-volumes-linux/256-kib-sequential-reads.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume." lightbox="./media/performance-large-volumes-linux/256-kib-sequential-reads.png":::
 

@@ -7,7 +7,7 @@ keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/20/2024
+ms.date: 10/14/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 ---
@@ -79,7 +79,9 @@ There are two recommended storage deployment patterns for SAP on Oracle on Azure
 
 Customers currently running Oracle databases on EXT4 or XFS file systems with Logical Volume Manager (LVM) are encouraged to move to ASM. There are considerable performance, administration, and reliability advantages to running on ASM compared to LVM. ASM reduces complexity, improves supportability, and makes administration tasks simpler. This documentation contains links for Oracle Database Administrators (DBAs) to learn how to install and manage ASM.
 
-Azure provides [multiple storage solutions](/azure/virtual-machines/disks-types). The table below details the support status 
+Azure provides [multiple storage solutions](/azure/virtual-machines/disks-types). 
+
+The table below details the support status 
 
 | Storage type  | Oracle support    | Sector Size     | Oracle Linux 8.x or higher | Windows Server 2019 |
 |--------|------------|--------| ------| -----|
@@ -214,7 +216,8 @@ Usually customers are using RMAN, Azure Backup for Oracle and/or disk snap techn
 
 
 > [!NOTE]
-> Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
+> Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. Consider that with some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
+
 
 ### Adding Space to ASM + Azure Disks
 
@@ -380,8 +383,6 @@ For more information about how you can use Azure Backup and Recovery services fo
 Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [<u>Implement Oracle Data Guard on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
 Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
-
-Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
 
 ## Huge Pages & Large Oracle SGA Configurations
 

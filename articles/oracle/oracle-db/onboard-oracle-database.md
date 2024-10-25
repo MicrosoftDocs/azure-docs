@@ -4,7 +4,7 @@ description: Learn about onboarding with OracleOracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay

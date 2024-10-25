@@ -4,7 +4,7 @@ description: Learn about how to plan your IP address space for Oracle Database@A
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---
