@@ -42,7 +42,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-During public preview, Azure IoT Operations supports upgrading instances from version 0.7.x to 0.8.x. For more information, see [Manage Azure IoT Operations](./deploy-iot-ops/howto-manage-update-uninstall.md#update).
+During public preview, Azure IoT Operations supports upgrading instances from version 0.7.x to 0.8.x. For more information, see [Manage Azure IoT Operations](./deploy-iot-ops/howto-manage-update-uninstall.md#upgrade).
 
 ## Manage devices and assets
 
