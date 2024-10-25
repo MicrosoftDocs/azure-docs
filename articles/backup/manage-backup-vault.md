@@ -77,7 +77,7 @@ The vault move across subscriptions and resource groups is supported in all publ
 Wait till the move operation is complete to perform any other operations on the vault. Any operations performed on the Backup vault will fail if performed while move is in progress. When the process is complete, the Backup vault should appear in the target resource group.
 
 >[!Important]
->If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](backup-vault-troubleshoot.md#error-codes-and-troubleshooting).  
+>If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](backup-vault-troubleshoot.md).
 
 ### Use Azure portal to move Backup vault to a different subscription
 
