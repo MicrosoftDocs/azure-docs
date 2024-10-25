@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/24/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -30,15 +30,13 @@ This article shows how to list blobs using the [Azure Storage client library for
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
-To list the blobs in a storage account, create a [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) then call one of these methods:
+To list the blobs in a container using a flat listing, call the following method:
 
-- ContainerClient.[listBlobsByHierarcy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
-- ContainerClient.[listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
+- [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
 
-Related functionality can be found in the following methods:
+To list the blobs in a container using a hierarchical listing, call the following method:
 
-- BlobServiceClient.[findBlobsByTag](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
-- ContainerClient.[findBlobsByTag](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-findblobsbytags)
+- ContainerClient.[listBlobsByHierarchy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
 
 ### Manage how many results are returned
 
@@ -46,26 +44,11 @@ By default, a listing operation returns up to 5000 results at a time, but you ca
 
 ### Filter results with a prefix
 
-To filter the list of blobs, specify a string for the `prefix` property in [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+To filter the list of blobs, specify a string for the `prefix` property in [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix. For example, passing the prefix string `sample-` returns only blobs whose names start with `sample-`.
 
-```javascript
-const listOptions = {
-    includeCopy: false,                 // include metadata from previous copies
-    includeDeleted: false,              // include deleted blobs 
-    includeDeletedWithVersions: false,  // include deleted blobs with versions
-    includeLegalHold: false,            // include legal hold
-    includeMetadata: true,              // include custom metadata
-    includeSnapshots: true,             // include snapshots
-    includeTags: true,                  // include indexable tags
-    includeUncommitedBlobs: false,      // include uncommitted blobs
-    includeVersions: false,             // include all blob version
-    prefix: ''                          // filter by blob name prefix
-};
-```
+### Include blob metadata or other information
 
-### Return metadata
-
-You can return blob metadata with the results by specifying the `includeMetadata` property in the [list options](/javascript/api/@azure/storage-blob/containerlistblobsoptions).
+To include blob metadata with the results, set the `includeMetadata` property to `true` as part of [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). You can also include snapshots, tags, or versions in the results by setting the appropriate property to `true`.
 
 ### Flat listing versus hierarchical listing
 
@@ -79,60 +62,31 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing.
+The following example lists the blobs in the specified container using a flat listing. This example includes blob snapshots and blob metadata, if they exist:
 
-```javascript
-async function listBlobsFlatWithPageMarker(containerClient) {
+### [JavaScript](#tab/javascript)
 
-  // page size - artificially low as example
-  const maxPageSize = 2;
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js" id="snippet_listBlobsFlatWithPageMarker":::
 
-  let i = 1;
-  let marker;
+### [TypeScript](#tab/typescript)
 
-  // some options for filtering list
-  const listOptions = {
-    includeMetadata: false,
-    includeSnapshots: false,
-    includeTags: false,
-    includeVersions: false,
-    prefix: ''
-  };
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blobs-list.ts" id="snippet_listBlobsFlatWithPageMarker" :::
 
-  let iterator = containerClient.listBlobsFlat(listOptions).byPage({ maxPageSize });
-  let response = (await iterator.next()).value;
-
-  // Prints blob names
-  for (const blob of response.segment.blobItems) {
-    console.log(`Flat listing: ${i++}: ${blob.name}`);
-  }
-
-  // Gets next marker
-  marker = response.continuationToken;
-
-  // Passing next marker as continuationToken    
-  iterator = containerClient.listBlobsFlat().byPage({ 
-      continuationToken: marker, 
-      maxPageSize: maxPageSize * 2 
-  });
-  response = (await iterator.next()).value;
-
-  // Prints next blob names
-  for (const blob of response.segment.blobItems) {
-    console.log(`Flat listing: ${i++}: ${blob.name}`);
-  }
-}
-```
+---
 
 The sample output is similar to:
 
 ```console
-Flat listing: 1: a1
-Flat listing: 2: a2
-Flat listing: 3: folder1/b1
-Flat listing: 4: folder1/b2
-Flat listing: 5: folder2/sub1/c
-Flat listing: 6: folder2/sub1/d
+Blobs flat list (by page):
+- Page:
+  - a1
+  - a2
+- Page:
+  - folder1/b1
+  - folder1/b2
+- Page:
+  - folder2/sub1/c
+  - folder2/sub1/d
 ```
 
 > [!NOTE]
@@ -142,55 +96,21 @@ Flat listing: 6: folder2/sub1/d
 
 When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
 
-To list blobs hierarchically, call the [BlobContainerClient.listBlobsByHierarchy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy) method.
+To list blobs hierarchically, use the following method:
 
-The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
+- [BlobContainerClient.listBlobsByHierarchy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
 
-```javascript
-// Recursively list virtual folders and blobs
-// Pass an empty string for prefixStr to list everything in the container
-async function listBlobHierarchical(containerClient, prefixStr) {
+The following example lists the blobs in the specified container using a hierarchical listing. In this example, the prefix parameter is initially set to an empty string to list all blobs in the container. The example then calls the listing operation recursively to traverse the virtual directory hierarchy and list blobs.
 
-  // page size - artificially low as example
-  const maxPageSize = 2;
+### [JavaScript](#tab/javascript)
 
-  // some options for filtering list
-  const listOptions = {
-    includeMetadata: false,
-    includeSnapshots: false,
-    includeTags: false,
-    includeVersions: false,
-    prefix: prefixStr
-  };
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js" id="snippet_listBlobsHierarchicalWithPageMarker":::
 
-  let delimiter = '/';
-  let i = 1;
-  console.log(`Folder ${delimiter}${prefixStr}`);
+### [TypeScript](#tab/typescript)
 
-  for await (const response of containerClient
-    .listBlobsByHierarchy(delimiter, listOptions)
-    .byPage({ maxPageSize })) {
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blobs-list.ts" id="snippet_listBlobsHierarchicalWithPageMarker" :::
 
-    console.log(`   Page ${i++}`);
-    const segment = response.segment;
-
-    if (segment.blobPrefixes) {
-
-      // Do something with each virtual folder
-      for await (const prefix of segment.blobPrefixes) {
-        // build new prefix from current virtual folder
-        await listBlobHierarchical(containerClient, prefix.name);
-      }
-    }
-
-    for (const blob of response.segment.blobItems) {
-
-      // Do something with each blob
-      console.log(`\tBlobItem: name - ${blob.name}`);
-    }
-  }
-}
-```
+---
 
 The sample output is similar to:
 
@@ -221,15 +141,15 @@ Folder /folder2/sub1/
 
 To learn more about how to list blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
 
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blobs-list.ts) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
