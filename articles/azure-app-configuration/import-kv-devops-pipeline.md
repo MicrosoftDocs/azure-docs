@@ -1,6 +1,6 @@
 ---
-title: Push settings to App Configuration with Azure Pipelines
-description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
+title: Import settings to App Configuration with Azure Pipelines
+description: Learn to use Azure Pipelines to import key-values to an App Configuration Store
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
@@ -9,17 +9,16 @@ ms.date: 02/23/2021
 ms.author: malev
 ---
 
-# Push settings to App Configuration with Azure Pipelines
+# Import settings to App Configuration with Azure Pipelines
 
-The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) task pushes key-values from a configuration file into your App Configuration store. This task enables full circle functionality within the pipeline as you're now able to pull settings from the App Configuration store as well as push settings to the App Configuration store.
+The Azure App Configuration Import task imports key-values from a configuration file into your App Configuration store. This task enables full circle functionality within the pipeline as you're now able to export settings from the App Configuration store as well as import settings to the App Configuration store.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - App Configuration store - [create one for free](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store)
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
-- [Azure Pipelines agent version 2.206.1](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.206.1) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.
+- [Azure Pipelines agent version 2.144.0](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.144.0) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.
 
 ## Create a service connection
 
@@ -42,43 +41,43 @@ Assign the proper App Configuration role assignments to the credentials being us
 
 ## Use in builds
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
+This section will cover how to use the Azure App Configuration Import task in an Azure DevOps build pipeline.
 
-1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
+1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For more information about build pipelines got to [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
         > [!div class="mx-imgBorder"]
         > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
         > [!div class="mx-imgBorder"]
         > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
-1. Search for the **Azure App Configuration Push** Task.
+1. Search for the **Azure App Configuration Import** Task.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
-1. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
+    > ![Screenshot shows the Add Task dialog with Azure App Configuration Import in the search box.](./media/add-azure-app-configuration-import-task.png)
+1. Configure the necessary parameters for the task to import key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
+    > ![Screenshot shows the app configuration import task parameters.](./media/azure-app-configuration-import-parameters.png)
 1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipeline.
+This section will cover how to use the Azure App Configuration Import task in an Azure DevOps release pipeline.
 
-1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release).
+1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For more information about release pipelines, go to [Create your first relase pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in[Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
-1. In the **Add tasks** dialog, type **Azure App Configuration Push** into the search box and select it.
-1. Configure the necessary parameters within the task to push your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
+1. In the **Add tasks** dialog, type **Azure App Configuration Import** into the search box and select it.
+1. Configure the necessary parameters within the task to import your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
 
 ## Parameters
 
-The following parameters are used by the App Configuration Push task:
+The following parameters are used by the App Configuration Import task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Endpoint**: A drop-down that loads your available configuration stores endpoint under the selected subscription. To update and refresh your list of available configuration stores endpoint, press the **Refresh App Configuration Endpoint** button to the right of the textbox. 
@@ -94,15 +93,15 @@ The following parameters are used by the App Configuration Push task:
    - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
 - **Separator**: The separator that's used to flatten .json and .yml files.
 - **Depth**: The depth that the .json and .yml files will be flattened to.
-- **Prefix**: A string that's appended to the beginning of each key pushed to the App Configuration store.
+- **Prefix**: A string that's appended to the beginning of each key imported to the App Configuration store.
 - **Label**: A string that's added to each key-value as the label within the App Configuration store.
 - **Content Type**: A string that's added to each key-value as the content type within the App Configuration store.
-- **Tags**: A JSON object in the format of `{"tag1":"val1", "tag2":"val2"}`, which defines tags that are added to each key-value pushed to your App Configuration store.
+- **Tags**: A JSON object in the format of `{"tag1":"val1", "tag2":"val2"}`, which defines tags that are added to each key-value imported to your App Configuration store.
 - **Delete key-values that are not included in the configuration file**: Default value is **Unchecked**. The behavior of this option depends on the configuration file content profile.
    - **Checked**:
-       - **Default content profile**: Removes all key-values in the App Configuration store that match both the specified prefix and label before pushing new key-values from the configuration file.
-       - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before pushing new key-values from the configuration file.
-   - **Unchecked**: Pushes all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
+       - **Default content profile**: Removes all key-values in the App Configuration store that match both the specified prefix and label before importing new key-values from the configuration file.
+       - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before importing new key-values from the configuration file.
+   - **Unchecked**: Imports all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
 
 
 
@@ -114,12 +113,29 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 **How can I upload multiple configuration files?**
 
-Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
+Create multiple instances of the Azure App Configuration Import task within the same pipeline to import multiple configuration files to the App Configuration store.
 
 **How can I create Key Vault references or feature flags using this task?**
 
 Depending on the file content profile you selected, please refer to examples in the [Azure App Configuration support for configuration file](./concept-config-file.md).
 
-**Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
+**Why am I receiving a 409 error when attempting to import key-values to my configuration store?**
 
 A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+
+## Next step
+
+For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
+
+> [!div class="nextstepaction"]
+> [Azure App Configuration Import Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-import-v10)
+
+To learn how to export key-values from your App Configuration store and set them as Azure pipeline variables, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Export settings from App Configuration with Azure pipelines](./export-key-value-devops-pipeline.md)
+
+To learn how to create snapshot in an App Configuration store, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Create snapshots in App Configuration with Azure Pipelines](./create-snapshot-devops-pipeline.md)
