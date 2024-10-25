@@ -35,31 +35,6 @@ Then, assign a role to the managed identity that grants permission to write to t
 
 Finally, create the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
 
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: DataLakeStorage
-  dataLakeStorageSettings:
-    host: https://<ACCOUNT>.blob.core.windows.net
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
-
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -102,16 +77,6 @@ Then, deploy via Azure CLI.
 az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
----
-
-If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
-
-### Use access token authentication
-
-Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret. 
-
-Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token as well as other placeholder values.
-
 # [Kubernetes](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
@@ -127,9 +92,8 @@ spec:
   dataLakeStorageSettings:
     host: https://<ACCOUNT>.blob.core.windows.net
     authentication:
-      method: AccessToken
-      accessTokenSettings:
-        secretRef: <SAS_SECRET_NAME>
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
 ```
 
 Then apply the manifest file to the Kubernetes cluster.
@@ -137,6 +101,16 @@ Then apply the manifest file to the Kubernetes cluster.
 ```bash
 kubectl apply -f <FILE>.yaml
 ```
+
+---
+
+If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
+
+### Use access token authentication
+
+Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret. 
+
+Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token as well as other placeholder values.
 
 # [Bicep](#tab/bicep)
 
@@ -181,6 +155,32 @@ Then, deploy via Azure CLI.
 az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataLakeStorage
+  dataLakeStorageSettings:
+    host: https://<ACCOUNT>.blob.core.windows.net
+    authentication:
+      method: AccessToken
+      accessTokenSettings:
+        secretRef: <SAS_SECRET_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
+```
+
 ---
 
 ### Available authentication methods
@@ -197,15 +197,6 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 
 To use system-assigned managed identity, specify the managed identity authentication method in the *DataflowEndpoint* resource. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataLakeStorageSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings: {}
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -217,19 +208,18 @@ dataLakeStorageSettings: {
 }
 ```
 
----
-
-If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<ACCOUNT>.blob.core.windows.net
+    systemAssignedManagedIdentitySettings: {}
 ```
+
+---
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 # [Bicep](#tab/bicep)
 
@@ -242,6 +232,16 @@ dataLakeStorageSettings: {
     }
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+dataLakeStorageSettings:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://<ACCOUNT>.blob.core.windows.net
 ```
 
 ---
@@ -272,16 +272,6 @@ You can also use the IoT Operations portal to create and manage the secret. To l
 
 Finally, create the *DataflowEndpoint* resource with the secret reference.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataLakeStorageSettings:
-  authentication:
-    method: AccessToken
-    accessTokenSettings:
-      secretRef: <SAS_SECRET_NAME>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -295,22 +285,21 @@ dataLakeStorageSettings: {
 }
 ```
 
----
-
-#### User-assigned managed identity
-
-To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
   authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
+    method: AccessToken
+    accessTokenSettings:
+      secretRef: <SAS_SECRET_NAME>
 ```
+
+---
+
+#### User-assigned managed identity
+
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 # [Bicep](#tab/bicep)
 
@@ -324,6 +313,17 @@ dataLakeStorageSettings: {
     }
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+dataLakeStorageSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
 ---
@@ -341,15 +341,6 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataLakeStorageSettings:
-  batching:
-    latencySeconds: 100
-    maxMessages: 1000
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -362,4 +353,17 @@ dataLakeStorageSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  batching:
+    latencySeconds: 100
+    maxMessages: 1000
+```
+
 ---
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

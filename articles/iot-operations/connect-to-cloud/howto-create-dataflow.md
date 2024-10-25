@@ -65,34 +65,6 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 
 :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a dataflow.":::
 
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: Dataflow
-metadata:
-  name: <DATAFLOW_NAME>
-  namespace: azure-iot-operations
-spec:
-  # Reference to the default dataflow profile
-  # This field is required when configuring via Kubernetes YAML
-  # The syntax is different when using Bicep
-  profileRef: default 
-  mode: Enabled
-  operations:
-    - operationType: Source
-      sourceSettings:
-        # See source configuration section
-    - operationType: BuiltInTransformation
-      builtInTransformationSettings:
-        # See transformation configuration section
-    - operationType: Destination
-      destinationSettings:
-        # See destination configuration section
-```
-
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
@@ -156,6 +128,34 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: <DATAFLOW_NAME>
+  namespace: azure-iot-operations
+spec:
+  # Reference to the default dataflow profile
+  # This field is required when configuring via Kubernetes YAML
+  # The syntax is different when using Bicep
+  profileRef: default 
+  mode: Enabled
+  operations:
+    - operationType: Source
+      sourceSettings:
+        # See source configuration section
+    - operationType: BuiltInTransformation
+      builtInTransformationSettings:
+        # See transformation configuration section
+    - operationType: Destination
+      destinationSettings:
+        # See destination configuration section
+```
+
 ---
 
 Review the following sections to learn how to configure the operation types of the dataflow.
@@ -180,11 +180,11 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
 1. Select **Apply** to use the asset as the source endpoint.
 
-# [Kubernetes](#tab/kubernetes)
+# [Bicep](#tab/bicep)
 
 Configuring an asset as a source is only available in the operations experience.
 
-# [Bicep](#tab/bicep)
+# [Kubernetes](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the operations experience.
 
@@ -207,20 +207,6 @@ Configuring an asset as a source is only available in the operations experience.
 
 1. Select **Apply**.
 
-# [Kubernetes](#tab/kubernetes)
-
-For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
-
-```yaml
-sourceSettings:
-  endpointRef: default
-  dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
-```
-
-Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple dataflows even if the topics are different. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
-
 # [Bicep](#tab/bicep)
 
 The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
@@ -237,6 +223,20 @@ sourceSettings: {
 
 Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
 
+# [Kubernetes](#tab/kubernetes)
+
+For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
+
+```yaml
+sourceSettings:
+  endpointRef: default
+  dataSources:
+    - thermostats/+/telemetry/temperature/#
+    - humidifiers/+/telemetry/humidity/#
+```
+
+Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple dataflows even if the topics are different. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
+
 ---
 
 For more information about the default MQTT endpoint and creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
@@ -251,17 +251,6 @@ To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your
 
 Using a custom MQTT or Kafka endpoint as a source is currently not supported in the operations experience.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-sourceSettings:
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
-  dataSources:
-  - <TOPIC_1>
-  - <TOPIC_2>
-  # See section on configuring MQTT or Kafka topics for more information
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -273,6 +262,17 @@ sourceSettings: {
     // See section on configuring MQTT or Kafka topics for more information
   ]
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+sourceSettings:
+  endpointRef: <CUSTOM_ENDPOINT_NAME>
+  dataSources:
+  - <TOPIC_1>
+  - <TOPIC_2>
+  # See section on configuring MQTT or Kafka topics for more information
 ```
 
 ---
@@ -291,29 +291,6 @@ In the operations experience dataflow **Source details**, select **MQTT**, then 
 
 > [!NOTE]
 > Only one MQTT topic filter can be specified in the operations experience. To use multiple MQTT topic filters, use Bicep or Kubernetes.
-
-# [Kubernetes](#tab/kubernetes)
-  
-```yaml
-sourceSettings:
-  endpointRef: <MQTT_ENDPOINT_NAME>
-  dataSources:
-    - <MQTT_TOPIC_FILTER_1>
-    - <MQTT_TOPIC_FILTER_2>
-    # Add more MQTT topic filters as needed
-```
-
-Example with multiple MQTT topic filters with wildcards:
-
-```yaml
-sourceSettings:
-  endpointRef: default
-  dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
-```
-
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
 
 # [Bicep](#tab/bicep)
 
@@ -342,6 +319,29 @@ sourceSettings: {
 
 Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
 
+# [Kubernetes](#tab/kubernetes)
+  
+```yaml
+sourceSettings:
+  endpointRef: <MQTT_ENDPOINT_NAME>
+  dataSources:
+    - <MQTT_TOPIC_FILTER_1>
+    - <MQTT_TOPIC_FILTER_2>
+    # Add more MQTT topic filters as needed
+```
+
+Example with multiple MQTT topic filters with wildcards:
+
+```yaml
+sourceSettings:
+  endpointRef: default
+  dataSources:
+    - thermostats/+/telemetry/temperature/#
+    - humidifiers/+/telemetry/humidity/#
+```
+
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+
 ---
 
 #### Kafka topics
@@ -357,17 +357,6 @@ To configure the Kafka topics:
 
 Using a Kafka endpoint as a source is currently not supported in the operations experience.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-sourceSettings:
-  endpointRef: <KAFKA_ENDPOINT_NAME>
-  dataSources:
-    - <KAFKA_TOPIC_1>
-    - <KAFKA_TOPIC_2>
-    # Add more Kafka topics as needed
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -379,6 +368,17 @@ sourceSettings: {
     // Add more Kafka topics as needed
   ]
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+sourceSettings:
+  endpointRef: <KAFKA_ENDPOINT_NAME>
+  dataSources:
+    - <KAFKA_TOPIC_1>
+    - <KAFKA_TOPIC_2>
+    # Add more Kafka topics as needed
 ```
 
 ---
@@ -395,16 +395,6 @@ To configure the schema used to deserialize the incoming messages from a source:
 
 In operations experience dataflow **Source details**, select **MQTT** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
 
-# [Kubernetes](#tab/kubernetes)
-
-Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the dataflow configuration.
-
-```yaml
-sourceSettings:
-  serializationFormat: Json
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>
-```
-
 # [Bicep](#tab/bicep)
 
 Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the dataflow configuration.
@@ -414,6 +404,16 @@ sourceSettings: {
   serializationFormat: Json
   schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the dataflow configuration.
+
+```yaml
+sourceSettings:
+  serializationFormat: Json
+  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>
 ```
 
 ---
@@ -429,14 +429,6 @@ To use shared subscriptions with MQTT sources, you can specify the shared subscr
 
 In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-sourceSettings:
-  dataSources:
-    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -445,6 +437,14 @@ sourceSettings: {
     '$shared/<GROUP_NAME>/<TOPIC_FILTER>'
   ]
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+sourceSettings:
+  dataSources:
+    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
 ```
 
 ---
@@ -468,18 +468,6 @@ In the operations experience, select **Dataflow** > **Add transform (optional)**
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a dataflow.":::
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-builtInTransformationSettings:
-  datasets:
-    # See section on enriching data
-  filter:
-    # See section on filtering data
-  map:
-    # See section on mapping data
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -496,6 +484,18 @@ builtInTransformationSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+builtInTransformationSettings:
+  datasets:
+    # See section on enriching data
+  filter:
+    # See section on filtering data
+  map:
+    # See section on mapping data
+```
+
 ---
 
 ### Enrich: Add reference data
@@ -507,32 +507,6 @@ You can load sample data into the DSS by using the [DSS set tool sample](https:/
 # [Portal](#tab/portal)
 
 Currently, the enrich operation isn't available in the operations experience.
-
-# [Kubernetes](#tab/kubernetes)
-
-For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
-
-```yaml
-builtInTransformationSettings:
-  datasets:
-  - key: assetDataset
-    inputs:
-      - $source.deviceId # ------------- $1
-      - $context(assetDataset).asset # - $2
-    expression: $1 == $2
-```
-
-If the dataset has a record with the `asset` field, similar to:
-
-```json
-{
-  "asset": "thermostat1",
-  "location": "room1",
-  "manufacturer": "Contoso"
-}
-```
-
-The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in filter and map stages.
 
 # [Bicep](#tab/bicep)
 
@@ -551,6 +525,32 @@ builtInTransformationSettings: {
     }
   ]
 }
+```
+
+If the dataset has a record with the `asset` field, similar to:
+
+```json
+{
+  "asset": "thermostat1",
+  "location": "room1",
+  "manufacturer": "Contoso"
+}
+```
+
+The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in filter and map stages.
+
+# [Kubernetes](#tab/kubernetes)
+
+For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
+
+```yaml
+builtInTransformationSettings:
+  datasets:
+  - key: assetDataset
+    inputs:
+      - $source.deviceId # ------------- $1
+      - $context(assetDataset).asset # - $2
+    expression: $1 == $2
 ```
 
 If the dataset has a record with the `asset` field, similar to:
@@ -603,20 +603,6 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 For example, you could use a filter condition like `temperature > 20` to filter data less than or equal to 20 based on the temperature field.
 
-# [Kubernetes](#tab/kubernetes)
-
-For example, you could use the `temperature` field in the source data to filter the data:
-
-```yaml
-builtInTransformationSettings:
-  filter:
-    - inputs:
-      - temperature ? $last # - $1
-      expression: "$1 > 20"
-```
-
-If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
-
 # [Bicep](#tab/bicep)
 
 For example, you could use the `temperature` field in the source data to filter the data:
@@ -632,6 +618,20 @@ builtInTransformationSettings: {
     }
   ]
 }
+```
+
+If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
+
+# [Kubernetes](#tab/kubernetes)
+
+For example, you could use the `temperature` field in the source data to filter the data:
+
+```yaml
+builtInTransformationSettings:
+  filter:
+    - inputs:
+      - temperature ? $last # - $1
+      expression: "$1 > 20"
 ```
 
 If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
@@ -652,22 +652,6 @@ In the operations experience, mapping is currently supported using **Compute** t
     :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
 1. Select **Apply**.
-
-# [Kubernetes](#tab/kubernetes)
-
-For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
-
-```yaml
-builtInTransformationSettings:
-  map:
-    - inputs:
-      - temperature # - $1
-      expression: "($1 - 32) * 5/9"
-      output: temperatureCelsius
-    - inputs:
-      - $context(assetDataset).location  
-      output: location
-```
 
 # [Bicep](#tab/bicep)
 
@@ -693,6 +677,22 @@ builtInTransformationSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
+
+```yaml
+builtInTransformationSettings:
+  map:
+    - inputs:
+      - temperature # - $1
+      expression: "($1 - 32) * 5/9"
+      output: temperatureCelsius
+    - inputs:
+      - $context(assetDataset).location  
+      output: location
+```
+
 ---
 
 To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
@@ -705,16 +705,6 @@ If you want to serialize the data before sending it to the destination, you need
 
 Currently, specifying the output schema and serialization isn't supported in the operations experience.
 
-# [Kubernetes](#tab/kubernetes)
-
-Once you [upload a schema to the schema registry](concept-schema-registry.md#upload-schema), you can reference it in the dataflow configuration.
-
-```yaml
-builtInTransformationSettings:
-  serializationFormat: Delta
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>
-```
-
 # [Bicep](#tab/bicep)
 
 Once you [upload a schema to the schema registry](concept-schema-registry.md#upload-schema), you can reference it in the dataflow configuration.
@@ -724,6 +714,16 @@ builtInTransformationSettings: {
   serializationFormat: Delta
   schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Once you [upload a schema to the schema registry](concept-schema-registry.md#upload-schema), you can reference it in the dataflow configuration.
+
+```yaml
+builtInTransformationSettings:
+  serializationFormat: Delta
+  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>
 ```
 
 ---
@@ -748,14 +748,6 @@ To send data to a destination other than the local MQTT broker, create a dataflo
 1. Select **Proceed** to configure the destination.
 1. Enter the required settings for the destination, including the topic or table to send the data to. See [Configure data destination (topic, container, or table)](#configure-data-destination-topic-container-or-table) for more information.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-destinationSettings:
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
-  dataDestination: <TOPIC_OR_TABLE> # See section on configuring data destination
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -763,6 +755,14 @@ destinationSettings: {
   endpointRef: <CUSTOM_ENDPOINT_NAME>
   dataDestination: <TOPIC_OR_TABLE> // See section on configuring data destination
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+destinationSettings:
+  endpointRef: <CUSTOM_ENDPOINT_NAME>
+  dataDestination: <TOPIC_OR_TABLE> # See section on configuring data destination
 ```
 
 ---
@@ -788,40 +788,6 @@ When using the operations experience, the data destination field is automaticall
 
 :::image type="content" source="media/howto-create-dataflow/data-destination.png" alt-text="Screenshot showing the operations experience prompting the user to enter an MQTT topic given the endpoint type.":::
 
-# [Kubernetes](#tab/kubernetes)
-
-The syntax is the same for all dataflow endpoints:
-
-```yaml
-destinationSettings:
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
-  dataDestination: <TOPIC_OR_TABLE>
-```
-
-For example, to send data back to the local MQTT broker a static MQTT topic, use the following configuration:
-
-```yaml
-destinationSettings:
-  endpointRef: default
-  dataDestination: example-topic
-```
-
-Or, if you have custom event hub endpoint, the configuration would look like:
-
-```yaml
-destinationSettings:
-  endpointRef: my-eh-endpoint
-  dataDestination: individual-event-hub
-```
-
-Another example using a storage endpoint as the destination:
-
-```yaml
-destinationSettings:
-  endpointRef: my-adls-endpoint
-  dataDestination: my-container
-```
-
 # [Bicep](#tab/bicep)
 
 The syntax is the same for all dataflow endpoints:
@@ -858,6 +824,40 @@ destinationSettings: {
   endpointRef: my-adls-endpoint
   dataDestination: my-container
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+The syntax is the same for all dataflow endpoints:
+
+```yaml
+destinationSettings:
+  endpointRef: <CUSTOM_ENDPOINT_NAME>
+  dataDestination: <TOPIC_OR_TABLE>
+```
+
+For example, to send data back to the local MQTT broker a static MQTT topic, use the following configuration:
+
+```yaml
+destinationSettings:
+  endpointRef: default
+  dataDestination: example-topic
+```
+
+Or, if you have custom event hub endpoint, the configuration would look like:
+
+```yaml
+destinationSettings:
+  endpointRef: my-eh-endpoint
+  dataDestination: individual-event-hub
+```
+
+Another example using a storage endpoint as the destination:
+
+```yaml
+destinationSettings:
+  endpointRef: my-adls-endpoint
+  dataDestination: my-container
 ```
 
 ---
@@ -924,14 +924,22 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a dataflow.":::
 
+# [Bicep](#tab/bicep)
+
+Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
+
 # [Kubernetes](#tab/kubernetes)
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 ```
 
-# [Bicep](#tab/bicep)
-
-Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
-
 ---
+
+## Next steps
+
+- [Map data by using dataflows](concept-dataflow-mapping.md)
+- [Convert data by using dataflows](concept-dataflow-conversions.md)
+- [Enrich data by using dataflows](concept-dataflow-enrich.md)
+- [Understand message schemas](concept-schema-registry.md)
+- [Manage dataflow profiles](howto-configure-dataflow-profile.md)

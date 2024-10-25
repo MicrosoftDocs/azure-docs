@@ -407,7 +407,8 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 
 1. Under **Settings**, select **Subnets**.
 
-1. Select **Disassociate** to remove the NAT gateway from the configured subnet.
+1. To remove NAT gateway from **all** subnets, select **Disassociate**.
+2. To remove NAT gateway from only one of multiple subnets, unselect the checkbox next to the subnet and select **Save**.
 
 You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
 
