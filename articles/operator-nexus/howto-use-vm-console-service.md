@@ -5,7 +5,7 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/25/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -101,7 +101,7 @@ This section provides step-by-step guide to help you to create a Console resourc
         [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
-    If you omit the `--expiration` parameter, the expiration will be defaulted to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** follow RFC3339 otherwise the creation of the Console resource fails.
+    If you omit the `--expiration` parameter, the expiration will be defaulted to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** follow RFC3339 (e.g., 2024-10-04T14:48:00Z) otherwise the creation of the Console resource fails.
 
     > [!NOTE]
     > For a complete synopsis for this command, invoke `az networkcloud console create --help`.
