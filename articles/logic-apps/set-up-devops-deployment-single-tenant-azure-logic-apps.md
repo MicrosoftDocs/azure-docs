@@ -36,7 +36,7 @@ If you don't have a Standard logic app, you can still follow this guide using th
 
 ## Deploy infrastructure resources
 
-To try the DevOps deployment experience without prior Standard logic app or infrastructure setup, use the following sample projects to deploy an example Standard logic app and infrastructure, based whether you want to use GitHub or Azure DevOps:
+To try the DevOps deployment experience without prior Standard logic app or infrastructure setup, use the following sample projects so you can set up deployment for an example Standard logic app and infrastructure, based whether you want to use GitHub or Azure DevOps:
 
 - [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -50,28 +50,12 @@ Both samples include the following resources that a Standard logic app uses to r
 
 | Resource name | Required | Description |
 |---------------|----------|-------------|
-| Standard logic app | Yes | This Azure resource contains the workflows that run in single-tenant Azure Logic Apps. |
+| Standard logic app | Yes | This Azure resource contains the workflows that run in single-tenant Azure Logic Apps. <br><br>**Important**: In your logic app project, each workflow has a **workflow.json** file that contains the workflow definition, which includes the trigger and action definitions. |
+| API connections | Yes, if API connections exist | These Azure resources define any managed API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. <br><br>**Important**: In your logic app project, the **connections.json** file contains metadata, endpoints, and keys for any managed API connections and Azure functions that your workflows use. To use different connections and functions in each environment, make sure that you parameterize the **connections.json** file and update the endpoints. <br><br>For more information, review [API connection resources and access policies](#api-connection-resources). |
 | Functions Premium or App Service hosting plan | Yes | This Azure resource specifies the hosting resources to use for running your logic app, such as compute, processing, storage, networking, and so on. <br><br>**Important**: In the current experience, the Standard logic app resource requires the [**Workflow Standard** hosting plan](logic-apps-pricing.md#standard-pricing), which is based on the Azure Functions Premium hosting plan. |
 | Azure storage account | Yes, for both stateful and stateless workflows | This Azure resource stores the metadata, keys for access control, state, inputs, outputs, run history, and other information about your workflows. |
 | Application Insights | Optional | This Azure resource provides monitoring capabilities for your workflows. |
-| API connections | Optional, if none exist | These Azure resources define any managed API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. <br><br>**Important**: In your logic app project, the **connections.json** file contains metadata, endpoints, and keys for any managed API connections and Azure functions that your workflows use. To use different connections and functions in each environment, make sure that you parameterize the **connections.json** file and update the endpoints. <br><br>For more information, review [API connection resources and access policies](#api-connection-resources). |
 | Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). |
-
-<a name="download-artifacts"></a>
-
-## Download Standard logic app artifacts from portal
-
-If your Standard logic app is in the Azure portal, you can download and save a zip file that contains your logic app's artifact files, including **workflow.json**, **connections.json**, **host.json**, and **local.settings.json**. 
-
-1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
-
-1. On the logic app menu, select **Overview**.
-
-1. On the **Overview** toolbar, select **Download app content**. In the confirmation box that appears, select **Download**.
-
-1. When the prompt appears, select **Save as**, browse to the local folder that you want, and select **Save**.
-
-1. Extract the zip file.
 
 <a name="api-connection-resources"></a>
 
@@ -83,13 +67,39 @@ For example, the following diagram shows the dependencies between a Standard log
 
 ![Conceptual diagram shows infrastructure dependencies for Standard logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
 
+<a name="download-artifacts"></a>
+
+## Download Standard logic app artifacts from portal
+
+If your Standard logic app is in the Azure portal, you can download a zip file that contains your logic app's artifact files, including **workflow.json**, **connections.json**, **host.json**, and **local.settings.json**. 
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
+
+1. On the logic app menu, select **Overview**.
+
+1. On the **Overview** toolbar, select **Download app content**. In the confirmation box that appears, select **Download**.
+
+1. When the prompt appears, select **Save as**, browse to the local folder that you want, and select **Save** to save the zip file.
+
+1. Extract the zip file.
+
+1. In Visual Studio Code, open the folder that contains the unzipped files.
+
+   When you open the folder, Visual Studio Code automatically creates a [workspace](https://code.visualstudio.com/docs/editor/workspaces).
+
+1. Edit the folder's contents to include only the folders and files required for deployment using DevOps.
+
+1. When you finish, save your changes.
+
 <a name="deploy-logic-app-resources"></a>  
 
 ## Build and deploy logic app (zip deploy)
 
-If you have a Standard logic app project, push that project and artifact files to your source repository. You can then set up build and release pipelines either inside or outside Azure that deploy Standard logic apps to your infrastructure.
+You can set up build and release pipelines either inside or outside Azure that deploy Standard logic apps to your infrastructure.
 
 ### Build your project
+
+1. Push your Standard logic app project and artifact files to your source repository. 
 
 1. To set up a build pipeline based on your logic app project type, complete the corresponding actions in the following table:
 
@@ -117,11 +127,11 @@ If you have a Standard logic app project, push that project and artifact files t
    > local.settings.json
    > ```
 
-### Before release to Azure
+## Before you release to Azure
 
 The managed API connections inside your logic app project's **connections.json** file are created specifically for local use in Visual Studio Code. Before you can release your project artifacts from Visual Studio Code to Azure, you have to update these artifacts. To use the managed API connections in Azure, you have to update their authentication methods so that they're in the correct format to use in Azure.
 
-#### Update authentication type
+### Update authentication type
 
 For each managed API connection that uses authentication, you have to update the **`authentication`** object from the local format in Visual Studio Code to the Azure portal format, as shown by the first and second code examples, respectively:
 
@@ -169,7 +179,7 @@ For each managed API connection that uses authentication, you have to update the
 }
 ```
 
-#### Create API connections as needed
+### Create API connections as needed
 
 If you're deploying your Standard logic app to an Azure region or subscription different from your local development environment, you must also make sure to create these managed API connections before deployment. Azure Resource Manager template (ARM template) deployment is the easiest way to create managed API connections.
   
@@ -227,15 +237,15 @@ In the response, find the **`connectionParameters`** object, which contains the 
 
 As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the **`PUT`** call that is sent to the managed connector's API as previously described, and review the request body for all the necessary information.
 
-#### On-premises data gateway resource definition
+### On-premises data gateway resource definition
 
 If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, see [Automate deployment for Azure Logic Apps by using Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md#data-gateway-resource-definitions) and [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
 
-### Release to Azure
+## Release to Azure
 
 To set up a release pipeline that deploys to Azure, follow the associated steps for GitHub, Azure DevOps, or Azure CLI.
 
-#### [GitHub](#tab/github)
+### [GitHub](#tab/github)
 
 For GitHub deployments, you can deploy your logic app by using [GitHub Actions](https://docs.github.com/actions), for example, the GitHub Actions in Azure Functions. This action requires that you pass through the following information:
 
@@ -255,7 +265,7 @@ For GitHub deployments, you can deploy your logic app by using [GitHub Actions](
 
 For more information, review [Continuous delivery by using GitHub Action](../azure-functions/functions-how-to-github-actions.md).
 
-#### [Azure DevOps](#tab/azure-devops)
+### [Azure DevOps](#tab/azure-devops)
 
 For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/azure/devops/pipelines/tasks/deploy/azure-function-app?view=azure-devops&preserve-view=true) in Azure Pipelines. This action requires that you pass through the following information:
 
@@ -276,7 +286,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
 
 For more information, review [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows).
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 If you use other deployment tools, you can deploy your Standard logic app by using the Azure CLI. Before you start, you need the following items:
 
@@ -307,7 +317,7 @@ If you use other deployment tools, you can deploy your Standard logic app by usi
 
 <a name="check-pip-version"></a>
 
-##### Check pip installation
+#### Check pip installation
 
 1. On a Windows or Mac operating system, open a command prompt, and enter the following command:
 
@@ -323,7 +333,7 @@ If you use other deployment tools, you can deploy your Standard logic app by usi
 
 <a name="check-environment-cli-version"></a>
 
-##### Check environment and CLI version
+#### Check environment and CLI version
 
 1. Sign in to the [Azure portal](https://portal.azure.com). In a terminal or command window, confirm that your subscription is active by running the command, [**`az login`**](/cli/azure/authenticate-azure-cli):
 
@@ -346,7 +356,7 @@ If you use other deployment tools, you can deploy your Standard logic app by usi
 
 <a name="install-logic-apps-cli-extension"></a>
 
-##### Install Azure Logic Apps (Standard) extension for Azure CLI
+#### Install Azure Logic Apps (Standard) extension for Azure CLI
 
 Currently, only the *preview* version for this extension is available. If you didn't install this extension yet, run the command, **`az extension add`**, with the following required parameters:
 
@@ -371,7 +381,7 @@ az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any
 
 <a name="create-resource-group"></a>
 
-##### Create resource group
+#### Create resource group
 
 If you don't have an existing Azure resource group to use for deployment, create the group by running the command, **`az group create`**. Unless you already set a default subscription for your Azure account, make sure to use the **`--subscription`** parameter with your subscription name or identifier. Otherwise, you don't have to use the **`--subscription`** parameter.
 
@@ -403,7 +413,7 @@ If your resource group is successfully created, the output shows the **`provisio
 
 <a name="deploy-logic-app"></a>
 
-##### Deploy logic app
+#### Deploy logic app
 
 Now, you can deploy your zipped artifacts to the Azure resource group that you created.
 
