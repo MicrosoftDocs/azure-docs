@@ -111,7 +111,7 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
 1. Set up trust bundle in the Azure IoT Operations namespace.
 
    1. To set up trust bundle, create a ConfigMap in the Azure IoT Operations namespace. Place the public key portion of your CA certificate into the config map with a key name of your choice.
-   1. Get the public key portion of your CA certificate. The steps to acquire the public key depends on the issuer you have chosen.
+   1. Get the public key portion of your CA certificate. The steps to acquire the public key depend on the issuer you have chosen.
    1. Create the ConfigMap. For example:
 
       ```bash
