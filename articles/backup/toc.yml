@@ -134,6 +134,8 @@
       href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
+    - name: SAP ASE Backup support matrix
+      href: sap-ase-backup-support-matrix.md
     - name: Azure Database for MySQL - Flexible Server long-term retention support matrix
       href: backup-azure-mysql-flexible-server-support-matrix.md
     - name: Azure file share backup support matrix
@@ -206,6 +208,10 @@
     href: backup-azure-mysql-flexible-server-about.md
   - name: Azure Database for PostgreSQL -Flexible server backup
     href: backup-azure-database-postgresql-flex-overview.md
+  - name: SAP ASE database on Azure VM backup
+    items:
+    - name: Overview
+      href: sap-ase-database-about.md
   - name: Azure Kubernetes Service backup
     items:
     - name: Overview

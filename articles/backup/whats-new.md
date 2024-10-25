@@ -17,6 +17,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- November 2024
+    - [Back up SAP ASE (Sybase) database (preview)](#back-up-sap-ase-sybase-database-preview) 
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
     - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
@@ -93,6 +95,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Back up SAP ASE (Sybase) database (preview)
+
+Azure Backup now offers backup support for SAP Adaptive Server Enterprise (ASE) (Sybase) database (preview).
 
 ## GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.
 

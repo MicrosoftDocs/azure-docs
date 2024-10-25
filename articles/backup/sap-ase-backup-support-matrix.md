@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 # Support matrix for backup of SAP ASE databases on Azure VMs
 
-Azure Backup supports the backup of SAP ASE databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP ASE databases on Azure VMs.
+Azure Backup supports the backup of SAP Adaptive Server Enterprise (ASE) (Sybase) databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP ASE (Sybase) databases on Azure VMs.
 
 > [!NOTE]
 > The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database has completed.
@@ -38,8 +38,8 @@ Cross Subscription Restore to Paired Region |  Region of Choice isn't supported 
 ------
 
 >[!NOTE]
->- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP ASE database running in an Azure VM. We recommend you to modify the policy manually as needed.
->- You can now monitor the backup and restore jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
+>- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP ASE (Sybase) database running in an Azure VM. We recommend you to modify the policy manually as needed.
+>- You can now monitor the backup and restore jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/Cockpit/DBA Cockpit) in the Azure portal.
 
 ## Support for multistreaming data backups
 
@@ -59,12 +59,12 @@ Cross Subscription Restore to Paired Region |  Region of Choice isn't supported 
 - **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
 - **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
 
-Learn more about SAP ASE Azure Virtual Machine storage and SAP ASE Azure virtual machine Premium SSD storage configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
+Learn more about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sybase) Azure virtual machine Premium SSD storage configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
 
 ## Next steps
 
-* Learn how to backup SAP ASE databases running on Azure VMs.
-* Learn how to restore SAP ASE databases running on Azure VMs
-* Learn how to manage SAP ASE databases that are backed up using Azure Backup.
-* Learn how to troubleshoot common issues when backing up SAP ASE databases.
+* Learn how to backup SAP ASE (Sybase) databases running on Azure VMs.
+* Learn how to restore SAP ASE (Sybase) databases running on Azure VMs
+* Learn how to manage SAP ASE (Sybase) databases that are backed up using Azure Backup.
+* Learn how to troubleshoot common issues when backing up SAP ASE (Sybase) databases.

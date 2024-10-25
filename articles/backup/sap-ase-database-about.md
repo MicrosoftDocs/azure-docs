@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # About SAP ASE (Sybase) database backup on Azure VMs
 
-SAP ASE (Sybase) databases are mission critical workloads that require a low recovery point objective (RPO) and a fast recovery time objective (RTO). You can now back up SAP ASE (Sybase) databases that are running on Azure virtual machines (VMs) by using [Azure Backup](./backup-overview.md).
+SAP Adaptive Server Enterprise (ASE) (Sybase) databases are mission critical workloads that require a low recovery point objective (RPO) and a fast recovery time objective (RTO). You can now back up SAP ASE (Sybase) databases that are running on Azure virtual machines (VMs) by using [Azure Backup](./backup-overview.md).
 
 This offering from Azure Backup aligns with the Azure Backup mantra of *zero-infrastructure backups*, which eliminate the need to deploy and manage the backup infrastructure. You can now seamlessly back up and restore SAP ASE (Sybase) databases that are running on Azure VMs and apply the enterprise management capabilities that Azure Backup provides.
 
@@ -18,12 +18,15 @@ This offering from Azure Backup aligns with the Azure Backup mantra of *zero-inf
 
 By using the Azure Backup service to back up and restore SAP ASE (Sybase) databases, you get the following advantages:
 
-* **15-minute RPO**: Recovery of critical data of up to 15 minutes is now possible.
+* **15-minute RPO**: As in the case of stream-based backup, log backups are streamed every 15 minutes and can be applied on top of DB backup which provides Point-In-Time recovery capability.
 * **One-click, point-in-time restores**: Restoration of production data to alternative ASE servers is made easy. The chaining of the backups to perform restores are all managed by Azure behind the scenes.
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup management from Azure**: Use Azure Backup management and monitoring capabilities for improved management experience.
 * **Compression**: Enable ASE Native compression via backup policy to save on backup storage costs.
 * **Striping**: Enable Striping to increase the backup throughput between ASE VM and Recovery services vault via preregistration script.
+* **Support for Cost-effective Backup policies** : Weekly full + daily differential backups result in lower storage costs (as opposed to daily streaming full backups) 
+* **Recovery Services Vault**: All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Auth. The vaulted backup data is stored in Microsoft-managed Azure subscription and is isolated from customer’s environment. These features ensure that the SAP ASE backup data is always secure and tamper-proof and can be recovered safely even when the source machines are compromised. 
+* **Multiple Database Restore options**: Support of Alternate Location Restore (System refresh), Original Location Restore, and Restore as Files. 
 
 To learn about the backup and restore scenarios that we support today, see the [SAP ASE scenario support matrix](./sap-ase-backup-support-matrix.md#scenario-support).
 
