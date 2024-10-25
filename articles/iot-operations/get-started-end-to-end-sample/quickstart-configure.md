@@ -52,40 +52,6 @@ The following snippet shows the YAML file that you applied:
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
-To establish mutual trust between the OPC PLC simulator and the OPC UA connector, run the following commands:
-
-# [Bash](#tab/bash)
-
-```bash
-# Extract the OPC UA connector application instance certificate and add it to the OPC PLC trust list
-kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcuabroker.crt
-data=$(kubectl create secret generic temp --from-file=opcuabroker.crt=./opcuabroker.crt --dry-run=client -o jsonpath='{.data}')
-kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{\"data\": $data}"
-rm ./opcuabroker.crt
-
-# Extract the OPC PLC application instance certificate and add it to the OPC UA connector trust list
-kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc.crt
-data=$(kubectl create secret generic temp --from-file=opcplc-000000.crt=./opcplc.crt --dry-run=client -o jsonpath='{.data}')
-kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{\"data\": $data}"
-rm ./opcplc.crt
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Extract the OPC UA connector application instance certificate and add it to the OPC PLC trust list
-kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcuabroker.crt
-$data = kubectl create secret generic temp --from-file=opcuabroker.crt=./opcuabroker.crt --dry-run=client -o jsonpath='{.data}'
-kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{`"data`": $data}"
-rm ./opcuabroker.crt
-
-# Extract the OPC PLC application instance certificate and add it to the OPC UA connector trust list
-kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcplc.crt
-$data = kubectl create secret generic temp --from-file=opcplc-000000.crt=./opcplc.crt --dry-run=client -o jsonpath='{.data}'
-kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
-rm ./opcplc.crt
-```
-
 ---
 
 ## Set your environment variables
@@ -131,12 +97,10 @@ Run the following commands to download and run the Bicep file that configures yo
 
 <!-- TODO: Fix download link -->
 
-Download the Bicep file to your local environment from [quickstart.bicep](https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=%2F.pipelines%2Fbicep%2Fquickstart.bicep)
-
 # [Bash](#tab/bash)
 
 ```bash
-# wget https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=/.pipelines/bicep/quickstart.bicep -O quickstart.bicep
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/quickstart.bicep -O quickstart.bicep
 
 AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv | awk -F'/' '{print $NF}')
 AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
@@ -158,6 +122,35 @@ az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RES
 ```
 
 ---
+
+## Review configuration
+
+The Bicep file configured the following resources:
+
+- An asset endpoint that connects to the OPC PLC simulator.
+- An asset that represents the oven and defines the data points that the oven exposes.
+- Two dataflows that process the messages from the simulated oven.
+- An Azure Event Hubs namespace that contains a destination hub for the dataflows.
+
+To view the asset endpoint, asset, and dataflows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+
+:::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
+
+The asset endpoint defines the connection to the OPC PLC simulator:
+
+:::image type="content" source="media/quickstart-configure/asset-endpoint-list.png" alt-text="Screenshot in the operations experience that shows a list of asset endpoints.":::
+
+The oven asset defines the data points that the oven exposes:
+
+:::image type="content" source="media/quickstart-configure/asset-list.png" alt-text="Screenshot in the operations experience that shows a list of assets.":::
+
+The dataflows define how the messages from the simulated oven are processed and routed to Event Hubs in the cloud:
+
+:::image type="content" source="media/quickstart-configure/dataflows-list.png" alt-text="Screenshot in the operations experience that shows a list of dataflows.":::
+
+The following screenshot shows how the temperature conversion dataflow is configured:
+
+:::image type="content" source="media/quickstart-configure/dataflow-compute.png" alt-text="Screenshot in the operations experience that shows the temperature conversion calculation.":::
 
 ## Verify data is flowing to MQTT broker
 
@@ -212,6 +205,8 @@ The sample tags you added in the previous quickstart generate messages from your
 ## Verify data is flowing to Event Hubs
 
 To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
+
+The Bicep configuration you applied previously created an Event Hubs namespace and hub that's used as a destination by the dataflow. To view the namespace and hub, navigate to the resource group in the Azure portal that contains your IoT Operations instance and then select the Event Hubs namespace.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
