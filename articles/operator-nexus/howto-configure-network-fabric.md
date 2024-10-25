@@ -45,7 +45,7 @@ The following table specifies parameters used to create Network Fabric,
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
-|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM version. | M4-A400-A100-C16-ab |True | String|
+|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM version. See [Network Fabric SKUs](./reference-operator-nexus-fabric-skus.md). | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
