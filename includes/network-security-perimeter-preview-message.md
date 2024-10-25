@@ -3,7 +3,7 @@
  description: include file
  services: private-link
  author: mbender
- ms.service: private-link
+ ms.service: azure-private-link
  ms.topic: include
  ms.date: 03/13/2024
  ms.author: mbender> -ms
