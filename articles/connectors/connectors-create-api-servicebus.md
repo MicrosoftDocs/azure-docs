@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/03/2024
+ms.date: 10/26/2024
 ms.custom: engagement-fy23
 ---
 
@@ -342,7 +342,7 @@ By default, the Service Bus built-in connector is a stateless connector. To run 
 
 1. In the designer, [follow these general steps to add the Azure Service Bus built-in trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   This example continues with the trigger named **When messages are available in a queue**.
+   This example continues with the trigger named **When messages are available in a queue**. This is a built-in auto-complete trigger. The trigger reads the message from service bus and if the logic app is able to get the message and save the trigger response to storage then trigger auto completes the message or if a failure happens the trigger abandons the message. This is for the stateful workflows. In case of the stateless workflows once the abandon/complete is decided about after the run completes.
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
