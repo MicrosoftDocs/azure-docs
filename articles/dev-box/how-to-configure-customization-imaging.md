@@ -24,15 +24,9 @@ To learn more about team customizations, see <link to customizations overview>
 ## Prerequisites
 To complete the steps in this article, you must have a team customization file that you want to use to create a dev box. If you don't have a customization file, see [Write a customization file](./how-to-write-customization-file.md).
 
-## Permissions required to configure Microsoft Dev Box for customizations
-To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
-
-| Action | Permission / Role |
-| --- | --- |
-| Attach a catalog to a dev center | Platform engineer with Contributor permission to the dev center. |
-| Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
-| Create a customization file | Anyone can create a customization file. |
-| Add tasks to a catalog | Permission to add to the repository hosting the catalog. |
+## Permissions required to configure Microsoft Dev Box customizations  
+  
+[!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
 
 ## Configure imaging
 This section covers the steps for creating your own customization (imagedefiniton.yaml) file.
