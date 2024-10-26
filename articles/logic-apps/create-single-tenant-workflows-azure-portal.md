@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 10/26/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -458,7 +458,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
 
-   1. On the **Workflow runtime settings** tab, for **Runtime Scale Monitoring**, select **On**.
+   1. On the **Workflow runtime settings** tab, for **Runtime Scale Monitoring**, select **On**. If your logic app uses the App Service Environment (ASE) v3 hosting option, this step is not needed because ASE does not support **Runtime Scale Monitoring**.
 
    1. On the **Configuration** toolbar, select **Save**.
 
