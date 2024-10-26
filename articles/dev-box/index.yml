@@ -86,7 +86,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create reusable Team Customizations
-            url: overview-what-is-team-customizations.md
+            url: concept-what-is-team-customizations.md
           - text: Use Dev Home to manage dev boxes
             url: how-to-use-dev-home-customize-dev-box.md       
           - text: Configure Azure Compute Gallery
@@ -96,7 +96,7 @@ landingContent:
           - text: Configure Dev Box Hibernation
             url: how-to-configure-dev-box-hibernation.md
           - text: Create reusable Team Customizations
-            url: overview-what-is-team-customizations.md
+            url: concept-what-is-team-customizations.md
 
    # Card
   - title: Support & Reference

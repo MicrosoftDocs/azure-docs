@@ -74,7 +74,7 @@ items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
   - name: Create reusable Team Customizations
-    href: overview-what-is-team-customizations.md
+    href: concept-what-is-team-customizations.md
   - name: Write a customization file
     href: how-to-write-customization-file.md
   - name: Use Dev Home to manage dev boxes
