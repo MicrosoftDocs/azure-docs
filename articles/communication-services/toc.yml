@@ -359,6 +359,8 @@ items:
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass User-to-User Information (UUI) data in a header
         href: how-tos/calling-sdk/call-context.md     
+      - name: Media Access
+        href: how-tos/calling-sdk/media-access.md
     - name: Call recording
       items:
       - name: Record a call
