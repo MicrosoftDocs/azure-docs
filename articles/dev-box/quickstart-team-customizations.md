@@ -123,6 +123,5 @@ DevBox applies customizations as the final stage of the creation process. Dev Bo
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
   
 ## Related content  
-  
-- Team customizations concepts  
-- How-to configure team customizations  
+- [Microsoft Dev Box Team Customizations](concept-what-are-team-customizations.md)
+- [Write a customization file](./how-to-write-customization-file.md) 

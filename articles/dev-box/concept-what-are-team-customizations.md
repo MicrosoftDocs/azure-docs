@@ -17,7 +17,7 @@ Team Customizations allows you to define a shared Dev Box configuration for each
 ## How does Dev Box Team Customizations work?
 When you configure Dev Box Team Customizations for your organization, careful planning and informed decision-making are essential. The following diagram provides an overview of the process and highlights key decision points.
 
-:::image type="content" source="media/concept-what-is-team-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram showing the workflow for Dev Box Team Customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-is-team-customizations/dev-box-customizations-workflow.svg":::
+:::image type="content" source="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram showing the workflow for Dev Box Team Customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg":::
  
 - **Configure your dev center:**
   - Enable project-level catalogs.

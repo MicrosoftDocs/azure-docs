@@ -177,5 +177,6 @@ To learn how to allow trusted Microsoft services to bypass the firewall, see [Co
 Make your customization file available to dev box pools by naming it *imagedefinition.yaml* and uploading it to the repository that hosts your catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
 
 ## Related content
-
+- [Microsoft Dev Box Team Customizations](concept-what-are-team-customizations.md)
+- [Configure imaging for Dev Box Team Customizations](how-to-configure-customization-imaging.md)
 - [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)
