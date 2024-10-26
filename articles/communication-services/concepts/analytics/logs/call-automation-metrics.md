@@ -100,7 +100,7 @@ The following event type name are available on Call Automation Callback Event me
 | Microsoft.Communication.TranscriptionStopped      |
 | Microsoft.Communication.TranscriptionUpdated      |
 
-The Code and SubCode values within the ResultInformation of a callback event indicate the status of an operation. These values are identical and can be used to determine the reason for an event, such as a call being disconnected. For details on specific disconnection reasons, refer to the list of codes provided at [Call end troubleshooting codes](https://learn.microsoft.com/en-us/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=callend).
+The Code and SubCode values within the ResultInformation of a callback event indicate the status of an operation. These values are identical and can be used to determine the reason for an event, such as a call being disconnected. For details on specific disconnection reasons, refer to the list of codes provided at [Call end troubleshooting codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=callend).
 
 
 ## Next steps
