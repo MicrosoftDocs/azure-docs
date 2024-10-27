@@ -676,10 +676,10 @@
         href: backup-azure-monitoring-use-azuremonitor.md  
       - name: Classic alerts
         items:  
-      - name: Using Azure Monitor alerts
-        href: move-to-azure-monitor-alerts.md    
-      - name: Using Backup Explorer
-        href: monitor-azure-backup-with-backup-explorer.md
+        - name: Using Azure Monitor alerts
+          href: move-to-azure-monitor-alerts.md    
+        - name: Using Backup Explorer
+          href: monitor-azure-backup-with-backup-explorer.md
   - name: Reports
     items:
     - name: Configure Azure Backup reports
