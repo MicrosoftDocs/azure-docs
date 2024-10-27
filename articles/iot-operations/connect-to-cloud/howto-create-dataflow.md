@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 10/27/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -460,9 +460,9 @@ sourceSettings:
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always:
 
-1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
+1. **Enrich**, **Rename**, or add a **New property**: Add additional data to the source data given a dataset and condition to match.
 1. **Filter**: Filter the data based on a condition.
-1. **Map**: Move data from one field to another with an optional conversion.
+1. **Map** or **Compute**: Move data from one field to another with an optional conversion.
 
 # [Portal](#tab/portal)
 
@@ -508,7 +508,12 @@ You can load sample data into the DSS by using the [DSS set tool sample](https:/
 
 # [Portal](#tab/portal)
 
-Currently, the enrich operation isn't available in the operations experience.
+In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
+
+1. In the operations experience, select a dataflow then **Add transform (optional)**.
+1. Chose **Rename** or **New property** transforms then select **Add**.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience to rename a datapoint and add a new property.":::
 
 # [Bicep](#tab/bicep)
 
@@ -585,7 +590,6 @@ builtInTransformationSettings: {
   ]
 }
 ``` -->
-
 
 For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
