@@ -35,7 +35,7 @@ items:
     items:
     - name: Groups and roles
       href: oracle-db/oracle-database-groups-roles.md
-    - name: Plan for IP address space
+    - name: Plan IP address space
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
@@ -51,7 +51,7 @@ items:
       href: oracle-db/exadata-operations-processes-services.md
     - name: OCI multicloud landing zone for Azure
       href: oracle-db/exadata-multicloud-landing-zone-azure-services.md
-    - name: Terraform/OpenTofu examples for Exadata Services
+    - name: Terraform/OpenTofu examples for Exadata services
       href: oracle-db/exadata-examples-services.md
     - name: Troubleshoot Exadata services
       href: oracle-db/exadata-troubleshoot-services.md
@@ -79,7 +79,7 @@ items:
     href: oracle-db/link-oracle-database-multiple-subscription.md
   - name: Support
     href: oracle-db/oracle-database-support.md
-  - name: FAQs
+  - name: FAQ
     href: oracle-db/faq-oracle-database-azure.md
   
  

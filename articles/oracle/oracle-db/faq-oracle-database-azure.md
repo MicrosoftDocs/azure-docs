@@ -9,7 +9,7 @@ ms.date: 08/01/2024
 ms.custom: engagement-fy24
 ---
 
-# FAQs for Oracle Database@Azure
+# FAQ for Oracle Database@Azure
 
 In this article, get answers to frequently asked questions about Oracle Database@Azure.
 
