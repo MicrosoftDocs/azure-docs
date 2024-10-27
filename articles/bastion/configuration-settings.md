@@ -15,7 +15,7 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 ## <a name="skus"></a>SKUs
 
-A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When you configure Bastion, you select the SKU tier. You decide the SKU tier based on the features that you want to use. The following table shows the availability of features per corresponding SKU.
+A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. Before configuring Bastion, a SKU tier must be selected. This selection is based on the desired features that the environment would benefit the most from. The following table shows the availability of features per corresponding SKU:
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
@@ -30,7 +30,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 ### <a name="premium"></a>Premium SKU (Preview)
 
-The Premium SKU is a new SKU that supports Bastion features such as [Session Recording](session-recording.md) and [Private-Only Bastion](private-only-deployment.md). When you deploy Bastion, we recommend that you select the Premium SKU only if you need the features that it supports.
+The Premium SKU, is a new SKU that supports Bastion features such as [Session Recording](session-recording.md) and [Private-Only Bastion](private-only-deployment.md). When you deploy Bastion, we recommend that you select the Premium SKU only if you need the features that it supports.
 
 ### Specify SKU
 
@@ -44,7 +44,7 @@ The Premium SKU is a new SKU that supports Bastion features such as [Session Rec
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
-You can always upgrade a SKU to add more features. For more information, see [Upgrade a SKU](upgrade-sku.md).
+You can always upgrade a SKU to add more features. For more information, see: [Upgrade a SKU](upgrade-sku.md).
 
 > [!NOTE]
 > Downgrading a SKU is not supported. To downgrade, you must delete and recreate Azure Bastion.
@@ -90,9 +90,9 @@ You can configure this setting using the following methods:
 
 ## <a name="instance"></a>Instances and host scaling
 
-An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU or higher, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.
+An Instance, also referred to as a "Scale Unit", is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. Connecting to client VMs is possible via an Azure Bastion Instance. When you configure Azure Bastion using the Basic SKU, two "Instances" are created. If you use the Standard SKU or higher, you can specify the number of "Instances" (with a minimum of two "Instances"). This is called **Host Scaling**.
 
-Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
+Each Instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per Instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the Instance to process. Once the concurrent sessions are exceeded, another Scale-Unit (Instance) is required.
 
 Instances are created in the AzureBastionSubnet. To allow for host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
