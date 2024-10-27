@@ -18,23 +18,23 @@ Azure Backup supports the backup of SAP Adaptive Server Enterprise (ASE) (Sybase
 
 ## Scenario support
 
-| **Scenario**               | **Supported  configurations**                                | **Unsupported  configurations**                              |
-| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Topology**               | SAP ASE Database running in Azure Linux VMs only                    | Windows |
-| **Regions**                   | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central | France South, Germany Central, Germany Northeast, US Gov IOWA, Azure Gov, China East, China East 2, China East 3, China North, China North 2, China North 3 |
-| **OS versions**            | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5 <br><br> RHEL 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10               |                                             |
-| **ASE versions**          | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04      |                                                            |
-| **ASE Instances**         | A single SAP ASE instance on a  single Azure VM | HA and multi SID on single VM isn't supported for public preview |
-| **Backup types**           | Full, Differential, and Log backups | Incremental, archival support from GA  |
-| **Restore types**          | ALR-Alternate Location Restore, OLR-Original Location Restore (In-Place), Restore as Files  |                                                              |
+| **Scenario** | **Supported  configurations** | **Unsupported  configurations** |
+| ------- | -------- | -------- |
+| **Topology** | SAP ASE Database running in Azure Linux VMs only | Windows |
+| **Regions** | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South. <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India. <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South. <br> **Africa/ME** - South Africa North, South Africa West, UAE North, UAE Central. | France South, Germany Central, Germany Northeast, US Gov IOWA, Azure Gov, China East, China East 2, China East 3, China North, China North 2, China North 3. |
+| **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5 <br><br> RHEL 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10|  |
+| **ASE versions** | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04 |  |
+| **ASE Instances** | A single SAP ASE instance on a  single Azure VM | HA and multi SID on single VM isn't supported for public preview. |
+| **Backup types** | Full, Differential, and Log backups | Incremental, archival support from GA |
+| **Restore types** | ALR-Alternate Location Restore, OLR-Original Location Restore (In-Place), Restore as Files  |  |
 | **Cross Subscription Restore** | Supported via the Azure portal <br>
-Cross Subscription Restore to Paired Region |  Region of Choice isn't supported      |
-| **Number of full backups per day**     |   One scheduled backup. <br><br> Three on-demand backups. <br> <br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.   |
-| **ASE deployments** | Standalone |     HA, Multi SID on Single VM      |
-| **Compression** | You can enable ASE Native compression via the Backup policy and when you take Adhoc Backup/Backup Now. In Preregistration Script – Compression Level is set to **Level 101** for Optimal results  |       |
-| **Striping Support** | You can increase your  backup throughput by enabling Striping configuration which needs to be set in **Preregistration script** –  refer parameters **enable-striping** -Set to **true** and **stripesCount** set to 4 by Default and can be adjusted.  |      |
-| **Azure CLI PowerShell** |  | Azure CLI/PowerShell support will be from GA release |
-| **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, Encryption at rest are supported  | |
+Cross Subscription Restore to Paired Region |  Region of Choice isn't supported |
+| **Number of full backups per day** | One scheduled backup. <br><br> Three on-demand backups. <br> <br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts. |
+| **ASE deployments** | Standalone | HA, Multi SID on Single VM |
+| **Compression** | You can enable ASE Native compression via the Backup policy and when you take Adhoc Backup/Backup Now. In Preregistration Script – Compression Level is set to **Level 101** for Optimal results. |  |
+| **Striping Support** | You can increase your  backup throughput by enabling Striping configuration, which needs to be set in **Preregistration script** –  refer parameters **enable-striping** - Set to **true** and **stripesCount** set to 4 by Default and can be adjusted.  | |
+| **Azure CLI PowerShell** |  | Azure CLI/PowerShell support will be from GA release. |
+| **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, Encryption at rest are supported. | |
 ------
 
 >[!NOTE]
