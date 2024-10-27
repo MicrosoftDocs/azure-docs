@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/23/2024
+ms.date: 10/21/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -9,6 +9,7 @@ ms.custom: generated
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[\[Preview\]: Azure Machine Learning Deployments should only use approved Registry Models](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12e5dd16-d201-47ff-849b-8454061c293d) |Restrict the deployment of Registry models to control externally created models used within your organization |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowDeployRegistryModels_Audit.json) |
 |[\[Preview\]: Azure Machine Learning Model Registry Deployments are restricted except for the allowed Registry](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F19539b54-c61e-4196-9a38-67598701be90) |Only deploy Registry Models in the allowed Registry and that are not restricted. |Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/OnlyDeployAllowedRegistryModels_Deny.json) |
 |[\[Preview\]: Configure allowed module authors for specified Azure Machine Learning computes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |Provide allowed module authors in specified Azure Machine Learning computes and can be assigned at the workspace. For more information, visit [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |[6.4.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
 |[\[Preview\]: Configure allowed Python packages for specified Azure Machine Learning computes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) |Provide allowed Python packages in specified Azure Machine Learning computes and can be assigned at the workspace. For more information, visit [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |[5.4.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |

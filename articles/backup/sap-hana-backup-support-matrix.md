@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 09/25/2024
+ms.date: 09/30/2024
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -36,16 +36,13 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
+| **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Sustems aren't supported. |
 
 ------
 
 >[!NOTE]
->Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
->
->Modify the policy manually as needed.
-
-> [!NOTE]
-> You can now [monitor the backup and restore](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobs (to the same machine) triggered from HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
+>- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM. We recommend you to modify the policy manually as needed.
+>- You can now [monitor the backup and restore](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobs (to the same machine) triggered from HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
 
 ## Support for multistreaming data backups
 

@@ -5,6 +5,10 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 09/26/2024
 ms.author: austinmc
+
+
+#Customer intent: As a security analyst, I want to use the MITRE ATT&CK framework in Microsoft Sentinel so that I can assess and enhance my organization's threat detection and response capabilities.
+
 ---
 
 # Understand security coverage by the MITRE ATT&CK® framework

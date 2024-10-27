@@ -7,7 +7,10 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial 
 ms.date: 09/26/2024
 ms.custom: template-tutorial
-#Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
+
+
+#Customer intent: As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage Microsoft Sentinel storage costs and ensure compliance with data retention requirements.
+
 ---
 
 # Tutorial: Configure a data retention policy for a table in a Log Analytics workspace

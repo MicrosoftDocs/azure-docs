@@ -12,12 +12,6 @@ ms.subservice: web-sdk
 
 # How to use the Azure Maps Spatial IO module
 
-> [!NOTE]
->
-> **Azure Maps Spatial service retirement**
->
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
-
 The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
 - [Read and write spatial data]. Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, GeoJSON and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).

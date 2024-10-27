@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 09/04/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -75,7 +75,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [Debian 12](https://www.debian.org/releases/bookworm/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2028](https://wiki.debian.org/LTS) |
+| [Debian 12](https://www.debian.org/releases/bookworm/) | ![Debian + AMD64](./media/support/green-check.png) | ![Debian + ARM32v7](./media/support/green-check.png) | ![Debian + ARM64](./media/support/green-check.png) | [June 2028](https://wiki.debian.org/LTS) |
 | [Debian 11](https://www.debian.org/releases/bullseye/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
 | [Red Hat Enterprise Linux 9](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
 | [Red Hat Enterprise Linux 8](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
@@ -103,6 +103,9 @@ The systems listed in the following table are considered compatible with Azure I
 
 > [!IMPORTANT]
 > Support for these systems is best effort and may require you reproduce the issue on a tier 1 supported system.
+>
+> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 
 ::: moniker range="=iotedge-1.4"
 
@@ -114,18 +117,16 @@ The systems listed in the following table are considered compatible with Azure I
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
 | [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) | [June 2024](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
-| [Ubuntu Server 22.04 <sup>2</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
-| [Ubuntu Server 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
-| [Ubuntu Core <sup>3</sup>](https://snapcraft.io/azure-iot-edge) | ![Ubuntu Core + AMD64](./media/support/green-check.png) |  | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
+| [Ubuntu Server 22.04](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 20.04](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Core <sup>2</sup>](https://snapcraft.io/azure-iot-edge) | ![Ubuntu Core + AMD64](./media/support/green-check.png) |  | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
 | [Yocto (kirkstone)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2026](https://wiki.yoctoproject.org/wiki/Releases) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
 
 <sup>1</sup> With the release of 1.3, there are new system calls that cause crashes in Debian 10. To see the workaround, view the [Known issue: Debian 10 (Buster) on ARMv7](https://github.com/Azure/azure-iotedge/releases) section of the 1.3 release notes for details.
 
-<sup>2</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
-
-<sup>3</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
+<sup>2</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
 
 ::: moniker-end
 
@@ -133,18 +134,15 @@ The systems listed in the following table are considered compatible with Azure I
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [Debian 12](https://www.debian.org/releases/bookworm/) | ![Debian 12 + AMD64](./media/support/green-check.png) |  | ![Debian 12 + ARM64](./media/support/green-check.png) | [June 2028](https://wiki.debian.org/LTS) |
 | [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
-| [Ubuntu Server 24.04 <sup>1</sup>](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) |  | ![Ubuntu 24.04 + ARM32v7](./media/support/green-check.png) |  | [June 2029](https://wiki.ubuntu.com/Releases) |
-| [Ubuntu Server 22.04 <sup>1</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
-| [Ubuntu Server 20.04 <sup>1</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 24.04](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) |  | ![Ubuntu 24.04 + ARM32v7](./media/support/green-check.png) |  | [June 2029](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 22.04](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 20.04](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
 | [Yocto (scarthgap)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2028](https://wiki.yoctoproject.org/wiki/Releases) |
 | [Yocto (kirkstone)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2026](https://wiki.yoctoproject.org/wiki/Releases) |
-
-<sup>1</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 ::: moniker-end
 

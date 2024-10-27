@@ -36,7 +36,7 @@ There are two services offered as part of Oracle Database@Azure:
 
 ### What are the Database versions supported on Oracle Database@Azure?
 
-Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on Oracle Database@Azure. This includes 11 g to 19c, similar to Exadata Cloud Service in OCI. Versions older than 19c need upgrade support. For more information, see [Oracle Database Releases That Support Direct Upgrade](https://docs.oracle.com/en/database/oracle/oracle-database/18/upgrd/oracle-database-releases-that-support-direct-upgrade.html).
+Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on Oracle Database@Azure. This includes 11 g to 19c, similar to Exadata Cloud Service in OCI. Versions older than 19c need upgrade support. For more information, see [Oracle Database Releases that Support Direct Upgrade](https://docs.oracle.com/en/database/oracle/oracle-database/18/upgrd/oracle-database-releases-that-support-direct-upgrade.html).
 
 ### Do you have any documented benchmark latency-wise between Azure resources and Oracle Database@Azure?
 
@@ -44,7 +44,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Base Database (BD), or do I need to migrate to Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](/training/modules/migrate-oracle-workload-azure-odaa/).
+No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](provision-autonomous-oracle-databases.md).
 
 ### For the Oracle Database@Azure service, will the automated DR use Azure backbone or the OCI backbone?
 
@@ -88,6 +88,10 @@ BCDR using the OCI managed offering (Backup and Data Guard) won't incur any more
 ### Does ingress/egress incur any charges for the Oracle Database@Azure service?
 
 Ingress and Egress for managed services is via Azure OCI backbone and doesn't incur charges. Virtual network traffic is charged at the current price.
+
+### Can a Cloud Service Provider (CSP) or an Outsourcer (OCA) avail the Oracle Database@Azure Service?
+
+No, Oracle Database@Azure does not support Cloud Service Providers, Outsourcer Channel Agreements, or Multi-party private offers (MPPO).   
 
 ## Onboarding, Provisioning, and Migration
 In this section, we'll cover questions related to onboarding, provisioning, and migration to Oracle Database@Azure.
@@ -134,7 +138,7 @@ None. The OCI connection is primarily utilized for OCI control plane to manage t
 
 ### How do I achieve low latencies between my application and Database tiers?
 
-You can deploy your application and database in the same virtual network or a peered VNETs in the same region and availability zone for lowest possible latencies.
+You can deploy your application and database in the same virtual network or a peered virtual networks in the same region and availability zone for lowest possible latencies.
 
 ## Management
 In this section, we cover questions related to management for Oracle Database@Azure.

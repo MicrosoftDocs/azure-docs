@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 09/26/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that analysts can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
+
 ---
 
 # Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel

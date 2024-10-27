@@ -2,11 +2,12 @@
  title: include file
  description: include file
  author: tfitzmac
- ms.service: governance
+ ms.service: azure
  ms.topic: include
  ms.date: 09/26/2023
  ms.author: tomfitz
  ms.custom: include file
+ ms.subservice: azure-governance
 ---
 
 | Resource | Limit |

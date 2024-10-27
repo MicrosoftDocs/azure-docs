@@ -5,7 +5,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 12/16/2022
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent

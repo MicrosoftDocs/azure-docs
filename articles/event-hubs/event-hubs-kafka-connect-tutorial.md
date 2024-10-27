@@ -76,7 +76,8 @@ consumer.security.protocol=SASL_SSL
 consumer.sasl.mechanism=PLAIN
 consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
-plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
+# path to the libs directory within the Kafka release
+plugin.path={KAFKA.DIRECTORY}/libs 
 ```
 
 > [!IMPORTANT]

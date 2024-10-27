@@ -5,6 +5,9 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 09/25/2024
+
+#Customer intent: As a security engineer, I want to customize data ingestion and transformation in Microsoft Sentinel so that analysts can filter, enrich, and secure log data efficiently.
+
 ---
 
 # Custom data ingestion and transformation in Microsoft Sentinel
@@ -100,7 +103,7 @@ Only the following tables are currently supported for custom log ingestion:
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
 - [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
-- **ASimAuthenticationEventLogs**
+- [**ASimAuthenticationEventLogs**](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
 - [**ASimFileEventLogs**](/azure/azure-monitor/reference/tables/asimfileeventlogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
@@ -114,7 +117,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.<!--how to fix for AMA?-->
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible. AMA-based data connectors use the configuration you define in the associated DCR for input and output streams and transformations, and ignore the workspace transformation DCR.
 
 - The following configurations are supported only via API:
 
@@ -122,7 +125,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
     - Standard DCRs for custom log ingestion to a standard table.
 
-- It make take up to 60 minutes for the data transformation configurations to apply.
+- It may take up to 60 minutes for the data transformation configurations to apply.
 
 - KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations) in the Azure Monitor documentation.
 

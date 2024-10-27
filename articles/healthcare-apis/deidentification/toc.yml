@@ -18,6 +18,8 @@ items:
   - name: How-to
     expanded: true
     items:
+      - name: Configure private endpoints
+        href: configure-private-endpoints.md
       - name: Use managed identities
         href: managed-identities.md
       - name: Use Azure role-based access control
@@ -27,6 +29,8 @@ items:
     items:
       - name: Monitor the de-identification service
         href: monitor-deidentification-service.md
+      - name: Reliability
+        href: /azure/reliability/reliability-health-data-services-deidentification
   - name: Reference
     expanded: true
     items:

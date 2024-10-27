@@ -3,13 +3,13 @@
 title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 

@@ -1,10 +1,14 @@
 ---
 title: Microsoft Sentinel incident response playbooks for SAP
 description: This article introduces Microsoft Sentinel playbooks built to respond to incidents in your SAP environment.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
 ms.date: 06/28/2023
+
+
+#Customer intent: As a security analyst, I want to automate incident response for SAP systems using Microsoft Sentinel so that I can improve the efficiency and effectiveness of our security operations.
+
 ---
 
 # Microsoft Sentinel incident response playbooks for SAP

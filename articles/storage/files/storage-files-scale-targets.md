@@ -1,98 +1,124 @@
 ---
 title: Azure Files scalability and performance targets
-description: Learn about the scalability and performance targets for Azure storage accounts, Azure Files, and Azure File Sync, including file share capacity, IOPS, throughput, ingress, egress, and operations.
+description: Learn about the scalability and performance targets for Azure Files and Azure File Sync, including file share storage, IOPS, and throughput.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 08/12/2024
 ms.author: kendownie
+ms.custom: references_regions
 ---
 
 # Scalability and performance targets for Azure Files and Azure File Sync
-
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) and Network File System (NFS) file system protocols. This article discusses the scalability and performance targets for Azure storage accounts, Azure Files, and Azure File Sync.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) and Network File System (NFS) file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
 The targets listed here might be affected by other variables in your deployment. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Azure Files scale targets
-
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and individual files.
 
 ### Storage account scale targets
-
 Storage account scale targets apply at the storage account level. There are two main types of storage accounts for Azure Files:
 
-- **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. File shares can be deployed into the transaction optimized (default), hot, or cool tiers.
+- **FileStorage storage accounts**: FileStorage storage accounts allow you to deploy Azure file shares with a provisioned billing model. FileStorage accounts can only be used to store Azure file shares; no other storage resources (blob containers, queues, tables, etc.) can be deployed in a FileStorage account.
 
-- **FileStorage storage accounts**: FileStorage storage accounts allow you to deploy Azure file shares on premium/solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares; no other storage resources (blob containers, queues, tables, etc.) can be deployed in a FileStorage account.
+- **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy pay-as-you-go file shares on HDD-based hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables.
 
-| Attribute | GPv2 storage accounts (standard) | FileStorage storage accounts (premium) |
-|-|-|-|
-| Number of storage accounts per region per subscription | 250<sup>1</sup> | 250<sup>1</sup> |
-| Maximum storage account capacity | 5 PiB<sup>2</sup> | 100 TiB (provisioned) |
-| Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
-| Maximum concurrent request rate | 20,000 IOPS<sup>2</sup> | 102,400 IOPS |
-| Throughput (ingress + egress) for LRS/GRS<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
-| Throughput (ingress + egress) for ZRS<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
-| Throughput (ingress + egress) for redundancy/region combinations not listed in the previous row | <ul><li>Ingress: 2,980 MiB/sec</li><li>Egress: 5,960 MiB/sec</li></ul> | 10,340 MiB/sec |
-| Maximum number of virtual network rules | 200 | 200 |
-| Maximum number of IP address rules | 200 | 200 |
-| Management read operations | 800 per 5 minutes | 800 per 5 minutes |
-| Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
-| Management list operations | 100 per 5 minutes | 100 per 5 minutes |
+| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
+|-|-|-|-|
+| Storage account kind | FileStorage | FileStorage | StorageV2 |
+| SKUs | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul> | <ul><li>StandardV2_LRS</li><li>StandardV2_ZRS</li><li>StandardV2_GRS</li><li>StandardV2_GZRS</li></ul> | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul> |
+| Number of storage accounts per region per subscription | 250 | 250 | 250 |
+| Maximum storage capacity | 100 TiB | 4 PiB | 5 PiB |
+| Maximum number of file shares | 1024 (recommended to use 50 or fewer) | 50 | Unlimited (recommended to use 50 or fewer) |
+| Maximum IOPS | 102,400 IOPS | 50,000 IOPS | 20,000 IOPS |
+| Maximum throughput | 10,340 MiB / sec | 5,120 MiB / sec | <ul><li>Select regions:<ul><li>Ingress: 7,680 MiB / sec</li><li>Egress: 25,600 MiB / sec</li></ul></li><li>Default:<ul><li>Ingress: 3,200 MiB / sec</li><li>Egress: 6,400 MiB / sec</li></ul></li></ul> |
+| Maximum number of virtual network rules | 200 | 200 | 200 |
+| Maximum number of IP address rules | 200 | 200 | 200 |
+| Management read operations | 800 per 5 minutes | 800 per 5 minutes | 800 per 5 minutes |
+| Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour | 10 per second/1200 per hour |
+| Management list operations | 100 per 5 minutes | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
-<sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+#### Selected regions with increased maximum throughput for HDD pay-as-you-go
+The following regions have an increased maximum throughput for HDD pay-as-you-go storage accounts (StorageV2): 
+
+- East Asia
+- Southeast Asia
+- Australia East
+- Brazil South
+- Canada Central
+- China East 2
+- China North 3
+- North Europe
+- West Europe
+- France Central
+- Germany West Central
+- Central India
+- Japan East
+- Jio India West
+- Korea Central
+- Norway East
+- South Africa North
+- Sweden Central
+- UAE North
+- UK South
+- Central US
+- East US
+- East US 2
+- US Gov Virginia
+- US Gov Arizona
+- North Central US
+- South Central US
+- West US
+- West US 2
+- West US 3
 
 ### Azure file share scale targets
-
 Azure file share scale targets apply at the file share level.
 
-| Attribute | Standard file shares<sup>1</sup> | Premium file shares |
+| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
 |-|-|-|
-| Minimum size of a file share | No minimum | 100 GiB (provisioned) |
-| Provisioned size increase/decrease unit | N/A | 1 GiB |
-| Maximum size of a file share | 100 TiB | 100 TiB |
-| Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | 20,000 | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
-| Throughput (ingress + egress) for a single file share (MiB/sec) | Up to storage account limits | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
-| Maximum number of share snapshots | 200 snapshots | 200 snapshots |
-| Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
-| Maximum length of individual pathname component<sup>2</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
-| Hard link limit (NFS only) | N/A | 178 |
-| Maximum number of SMB Multichannel channels | N/A | 4 |
-| Maximum number of stored access policies per file share | 5 | 5 |
+| Storage provisioning unit | 1 GiB | 1 GiB | N/A |
+| IOPS provisioning unit | N/A | 1 IO / sec | N/A |
+| Throughput provisioning unit | N/A | 1 MiB / sec | N/A |
+| Minimum storage size | 100 GiB (provisioned) | 32 GiB (provisioned) | 0 bytes |
+| Maximum storage size | 100 TiB | 256 TiB | 100 TiB |
+| Maximum number of files | Unlimited | Unlimited | Unlimited |
+| Maximum IOPS | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 20,000 IOPS |
+| Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 IOPS (dependent on provisioning) | Up to storage account limits |
+| Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
+| Maximum filename length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
+| Maximum length of individual pathname component<sup>2</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters |
+| Hard link limit (NFS only) | 178 | N/A | N/A |
+| Maximum number of SMB Multichannel channels | 4 | N/A | N/A |
+| Maximum number of stored access policies per file share | 5 | 5 | 5 |
 
-<sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
-
-<sup>2</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
+<sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
-
 File scale targets apply to individual files stored in Azure file shares.
 
-| Attribute | Files in standard file shares  | Files in premium file shares  |
+| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
 |-|-|-|
-| Maximum file size | 4 TiB | 4 TiB |
-| Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
-| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles for root directory<sup>3</sup> | 10,000 handles | 10,000 handles  |
-| Maximum concurrent handles per file and directory<sup>3</sup> | 2,000 handles | 2,000 handles |
-
-<sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower. These are soft limits, and throttling can occur beyond these limits.</sup>
-
-<sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./smb-performance.md).</sup>
-
-<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications aren't opening a handle on the root directory, Azure Files can support more than 10,000 active users per share. However, if you're using Azure Files to store disk images for large-scale virtual desktop workloads, you might run out of handles for the root directory or per file/directory. In this case, you might need to use multiple Azure file shares. For more information, see [Azure Files sizing guidance for Azure Virtual Desktop](#azure-files-sizing-guidance-for-azure-virtual-desktop).</sup>
+| Maximum file size | 4 TiB | 4 TiB | 4 TiB |
+| Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS | 1,000 IOPS |
+| Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec | 60 MiB / sec |
+| Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles | 10,000 handles  |
+| Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles | 2,000 handles |
 
 ### Azure Files sizing guidance for Azure Virtual Desktop
 

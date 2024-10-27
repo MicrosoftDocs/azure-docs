@@ -23,3 +23,7 @@ zone_pivot_groups: app-service-openai
 :::zone pivot="openai-java"
 [!INCLUDE [deploy-intelligent-apps-linux-java-pivot.md](includes/deploy-intelligent-apps/deploy-intelligent-apps-linux-java-pivot.md)]
 ::: zone-end
+
+:::zone pivot="openai-node"
+[!INCLUDE [deploy-intelligent-apps-linux-node-pivot.md](includes/deploy-intelligent-apps/deploy-intelligent-apps-linux-node-pivot.md)]
+::: zone-end

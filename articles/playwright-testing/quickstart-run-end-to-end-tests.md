@@ -107,6 +107,15 @@ You can generate an access token from your Playwright Testing workspace and use 
 > [!CAUTION]
 > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
+## Enable artifacts in Playwright configuration 
+In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
+```typescript
+  use: {
+    trace: 'on-first-retry',
+    video:'retain-on-failure',
+    screenshot:'on'
+  }
+```
 ## Run your tests at scale with Microsoft Playwright Testing
 
 You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. You can either use the Playwright CLI to run your tests, or use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
@@ -185,7 +194,7 @@ To run a single Playwright test in Visual Studio Code with Microsoft Playwright 
 You can now run multiple tests with the service, or run your entire test suite on remote browsers.
 
 > [!CAUTION]
-> Depending on the size of your test suite, you might incur additional charges for the test minutes beyond your allotted free test minutes and free test results.
+> Depending on the size of your test suite, you might incur additional charges for the test minutes and test results beyond your allotted free test minutes and free test results.
 
 ### Run a full test suite at scale
 
@@ -213,9 +222,7 @@ When you run multiple Playwright tests or a full test suite with Microsoft Playw
     Running 6 tests using 6 workers
         6 passed (18.2s)
     
-    To open last HTML report run:
-    
-        npx playwright show-report
+    Test report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
     ```
 
 # [Visual Studio Code](#tab/vscode)
@@ -243,11 +250,10 @@ To run your Playwright test suite in Visual Studio Code with Microsoft Playwrigh
 
 ## View test runs and results in the Playwright portal
 
-Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test runs and test results for your workspace.
+You can now troubleshoot the failed test cases in the Playwright portal.
 
- :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png" alt-text="Screenshot that shows the test runs for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png":::
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 
-The test run contains the CI information, test run status, workers used, duration, and billable minutes. If you open a test run, you can see the results and artifacts for each test along with other information. 
 
 > [!TIP]
 > You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. 

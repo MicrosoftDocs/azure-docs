@@ -1,7 +1,7 @@
 ---
 title: Create multiple resource instances in Bicep
 description: Use different methods to create multiple resource instances in Bicep
-ms.date: 06/23/2023
+ms.date: 09/26/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to create multiple resources in Bicep.
@@ -27,10 +27,10 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 ## Create a single instance
 
-In this section, you define a Bicep file for creating a storage account, and then deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntaxes. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it is likely one of the two causes:
+In this section, you define a Bicep file for creating a storage account, and then deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntaxes. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it's likely one of the two causes:
 
 - The storage account name is too long. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- The storage account name is not unique. Your storage account name must be unique within Azure.
+- The storage account name isn't unique. Your storage account name must be unique within Azure.
 
 The following Bicep file defines one storage account:
 
@@ -99,7 +99,7 @@ The index number is used as a part of the storage account name. After deploying 
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-number-0-2.png" alt-text="Use integer index with 0 as the starting number":::
 
-Inside range(), the first number is the starting number, and the second number is the number of times the loop will run. So if you change it to **range(3,2)**, you will also get two storage accounts:
+Inside range(), the first number is the starting number, and the second number is the number of times the loop will run. So if you change it to **range(3,2)**, you'll also get two storage accounts:
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-number-3-2.png" alt-text="Use integer index with 3 as the starting number":::
 

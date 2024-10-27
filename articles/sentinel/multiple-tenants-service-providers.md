@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As an MSSP, I want to manage multiple Microsoft Sentinel tenants from my own Azure tenant so that I can efficiently provide SOC services to my customers.
+
 ---
 
 # Manage multiple tenants in Microsoft Sentinel as an MSSP

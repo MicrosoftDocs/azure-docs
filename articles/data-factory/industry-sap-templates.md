@@ -5,7 +5,8 @@ description: Overview of the SAP templates
 author: ukchrist
 ms.author: ulrichchrist
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # SAP templates overview

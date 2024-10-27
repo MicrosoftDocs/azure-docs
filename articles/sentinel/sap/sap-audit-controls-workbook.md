@@ -1,10 +1,14 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - SAP Audit Controls workbook overview
 description: Learn about the SAP - Security Audit Controls workbook, used to monitor and track security control framework compliance across your SAP systems.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.date: 07/18/2023
+
+
+#Customer intent: As a security compliance officer, I want to use the SAP Audit Controls workbook to monitor and report on my SAP environment's compliance with various control frameworks, so that I can ensure adherence to regulatory requirements and improve security posture.
+
 ---
 
 # Microsoft Sentinel solution for SAP® applications - SAP Audit Controls workbook (Preview)

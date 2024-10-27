@@ -5,6 +5,8 @@ author: batamig
 ms.topic: how-to
 ms.date: 09/26/2024
 ms.author: bagol
+
+#Customer intent: As a security analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
 ---
 
 # Audit Microsoft Sentinel queries and activities

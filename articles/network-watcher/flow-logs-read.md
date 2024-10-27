@@ -6,13 +6,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
 ---
 
 # Read flow logs
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. Using the script provided in this article, you can read the latest data from the flow logs without having to download the entire log.
 

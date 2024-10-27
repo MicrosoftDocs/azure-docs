@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 09/26/2024
 ---
 
 # Tag support for Azure resources

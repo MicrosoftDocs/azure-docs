@@ -110,11 +110,11 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 * [Labs for the GenAI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/AI-Gateway)
 * [Azure API Management (APIM) - Azure OpenAI Sample (Node.js)](https://github.com/Azure-Samples/genai-gateway-apim)
 * [Python sample code for using Azure OpenAI with API Management](https://github.com/Azure-Samples/openai-apim-lb/blob/main/docs/sample-code.md)
-* [AI hub gateway landing zone accelerator](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
 
 ## Architecture and design considerations
 
 * [GenAI gateway reference architecture using API Management](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/reference-architectures/apim-based)
+* [AI hub gateway landing zone accelerator](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
 * [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/)
 * [Use a gateway in front of multiple Azure OpenAI deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 
@@ -122,5 +122,6 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 
 * [Blog: Introducing GenAI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
 * [Blog: Integrating Azure Content Safety with API Management for Azure OpenAI Endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
+* [Training: Manage your generative AI APIs with Azure API Management](/training/modules/api-management)
 * [Smart load balancing for OpenAI endpoints and Azure API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
 * [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management](api-management-authenticate-authorize-azure-openai.md)

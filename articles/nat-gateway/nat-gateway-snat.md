@@ -3,7 +3,7 @@ title: Source Network Address Translation (SNAT) with Azure NAT Gateway
 description: Learn about options and considerations for Source Network Address Translation (SNAT) with Azure NAT Gateway.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
 

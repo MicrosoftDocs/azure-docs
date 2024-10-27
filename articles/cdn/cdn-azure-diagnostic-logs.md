@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # Diagnostic logs - Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
 - Azure Storage account
