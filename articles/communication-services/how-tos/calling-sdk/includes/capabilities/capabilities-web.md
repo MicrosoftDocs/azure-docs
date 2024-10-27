@@ -81,7 +81,7 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *muteOthers*: Ability to soft mute remote participant(s) in the meeting 
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting
-- *ipAudio*: Ability to controls whether audio can be turned on in meetings and group calls, this is Teams meeting policy setting
-- *ipVideo*: Ability to controls whether outgoing and incoming video can be turned on in meetings and group calls, this is Teams meeting policy setting
+- *ipAudio*: Ability to controls whether audio can be turned on in meetings and group calls, this setting is from Teams meeting policy
+- *ipVideo*: Ability to controls whether outgoing and incoming video can be turned on in meetings and group calls, this setting is from Teams meeting policy
 - *forbidRemoteParticipantsAudio*: Ability to forbid remote participants audio in the meeting
 - *forbidRemoteParticipantsVideo*: Ability to forbid remote participants video in the meeting

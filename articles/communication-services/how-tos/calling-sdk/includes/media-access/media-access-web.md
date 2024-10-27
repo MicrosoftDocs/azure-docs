@@ -21,8 +21,7 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 ```
 
 ### Forbid or permit audio and video for Teams meeting attendees:
-To change the Media access state for an attendee, you can use the `forbidAudio()`, `permitAudio()`,  `forbidVideo()`, and `permitVideo()` methods.
-This is async methods, to verify results can be used `mediaAccessChanged` listeners.
+To change the Media access state for an attendee, you can use the `forbidAudio()`, `permitAudio()`,  `forbidVideo()`, and `permitVideo()` methods. These methods are async, to verify results can be used to `mediaAccessChanged` listeners.
 ```js
 const mediaAccessFeature = call.feature(Features.MediaAccsss);
 //forbid audio
@@ -35,8 +34,8 @@ mediaAccessFeature.forbidVideo();
 mediaAccessFeature.permitVideo();
 ```
 
-### Forbid orpermit media access for other participants
-This feature allows users with the Organizer and Presenter roles to forbid media access for other participants on Teams calls. In Azure Communication calls, changing the state of other participants is not allowed unless roles have been added.
+### Forbid and permit media access for other participants
+This feature allows users with the Organizer and Presenter roles to forbid and permit media access for other participants on Teams calls. In Azure Communication calls, changing the state of other participants isn't allowed unless adding the presenter role.
 
 To use this feature, you can use the following code:
 ```js
@@ -51,7 +50,7 @@ mediaAccessFeature.forbidAudio(participants);
 ```
 
 ### Handle changed states
-With the Raise Hand API, you can subscribe to the `mediaAccessChanged` events to handle changes in the state of participants on a call. These events are triggered by a call instance and provide information about the participant whose state has changed.
+With the 'Raise Hand' API, you can subscribe to the `mediaAccessChanged` events to handle changes in the state of participants on a call. These events are from a call instance and provide information about the participant whose state change.
 
 To subscribe to these events, you can use the following code:
 ```js
@@ -63,15 +62,14 @@ const mediaAccessChangedHandler = (event) => {
 };
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler):
 ```
-The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses. In the example above, we log a message to the console indicating the latest media accesses for all participants.
+The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
 
 To unsubscribe from the events, you can use the `off` method.
 
 ### List of all remote participants media access state
-To get information about all remote participants media access state on current call, you can use the `getRemoteParticipantsMediaAccess` api.
+To get information about all remote participants media access state on current call, you can use the `getRemoteParticipantsMediaAccess` API.
 Here's an example of how to use the `getRemoteParticipantsMediaAccess` API:
 ```js
 const mediaAccessHandFeature = call.feature(Features.MediaAccess);
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getRemoteParticipantsMediaAccess();
 ```
-
