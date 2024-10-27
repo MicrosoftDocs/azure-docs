@@ -176,7 +176,7 @@
       href: backup-azure-database-postgresql-server-faq.yml
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.yml
-    - name: FAQ-Azure Backup monitor alert
+    - name: FAQ-Azure Backup Monitoring and Reporting
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
@@ -664,30 +664,22 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitoring
     items:
-    - name: Using Backup center
-      href: backup-azure-monitoring-built-in-monitor.md
     - name: Review backup estate
+      href: backup-azure-monitoring-built-in-monitor.md
+    - name: Alerts
       items:
-      - name: View protectable resources
-        href: ../business-continuity-center/tutorial-view-protectable-resources.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-      - name: View protected items
-        href: ../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-      - name: Review security posture
-        href: ../business-continuity-center/tutorial-review-security-posture.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json#view-security-level
-    - name: Monitor backup estate
-      items:
-      - name: jobs
-        href: ../business-continuity-center/tutorial-monitor-operate.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json   
-      - name: Alerts
-        href: backup-azure-monitoring-alerts.md  
-    - name: Using Azure Monitor alerts
-      href: move-to-azure-monitor-alerts.md
-    - name: Using Azure Monitor metrics
-      href: metrics-overview.md
-    - name: Using Azure Monitor Logs
-      href: backup-azure-monitoring-use-azuremonitor.md
-    - name: Using Backup Explorer
-      href: monitor-azure-backup-with-backup-explorer.md
+      - name: Azure Monitor alerts
+        href: backup-azure-monitoring-alerts.md 
+      - name: Using Azure Monitor metrics
+        href: metrics-overview.md   
+      - name: Using Azure Monitor Logs
+        href: backup-azure-monitoring-use-azuremonitor.md  
+      - name: Classic alerts
+        items:  
+        - name: Using Azure Monitor alerts
+          href: move-to-azure-monitor-alerts.md    
+        - name: Using Backup Explorer
+          href: monitor-azure-backup-with-backup-explorer.md
   - name: Reports
     items:
     - name: Configure Azure Backup reports
