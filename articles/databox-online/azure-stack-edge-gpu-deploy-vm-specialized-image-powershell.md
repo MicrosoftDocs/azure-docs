@@ -4,8 +4,7 @@ description: Describes how to create VM images from specialized images starting 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/28/2023

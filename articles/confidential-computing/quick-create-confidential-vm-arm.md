@@ -170,7 +170,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
     ```Powershell
     Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
-    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
+    New-MgServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "Confidential VM Orchestrator"
     ```
 
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
@@ -194,7 +194,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
 
         ```azurecli-interactive
-        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "00001111-aaaa-2222-bbbb-3333cccc4444" | Out-String | ConvertFrom-Json
         az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
@@ -210,7 +210,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential VM Orchestrator` permissions to managed HSM.
 
         ```azurecli-interactive
-        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "00001111-aaaa-2222-bbbb-3333cccc4444" | Out-String | ConvertFrom-Json
         az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName
         ```
 

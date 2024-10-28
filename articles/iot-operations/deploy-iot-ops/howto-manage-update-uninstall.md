@@ -157,7 +157,8 @@ az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
 
 To delete the instance and also remove the Azure IoT Operations dependencies (the output of `init`), add the flag `--include-deps`.
 
-```az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps
+```azurecli
+az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps
 ```
 
 ### [Azure portal](#tab/portal)

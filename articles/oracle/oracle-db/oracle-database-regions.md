@@ -4,21 +4,22 @@ description: Learn about available regions for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
 ms.author: jacobjaygbay
 ---
 
 # Available regions for Oracle Database@Azure
-
 Learn what Azure regions offer Oracle Database@Azure.
 
 ## Asia Pacific (APAC)
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
-| Australia East | Australia East (Sydney)  | ✓  |                                  |
+| Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
+| Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
+| Japan East     | Japan East(Tokyo)  | ✓  |          ✓                      |
 
 
 ## Europe, Middle East, Africa (EMEA) 
@@ -29,6 +30,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 | France Central       |France central (Paris) | ✓   | ✓ |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ |
 | UK South             | UK South (London)   | ✓   | ✓    |
+| Italy North          | Italy North (Milan)   | ✓   |     |
 
 
 ## North America (NA) 
@@ -37,6 +39,14 @@ Learn what Azure regions offer Oracle Database@Azure.
 | -------------- | -------------------|------------------------|------------------ |
 | East US        | US East (Ashburn)          | ✓   | ✓  |
 | Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ |
+
+## Available DR regions for Oracle Database@Azure
+
+Below Azure regions offer single zone DR solution for Oracle Database@Azure.
+
+| Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
+|----------------|--------------------------|-------------------|-------------------|
+| West US | US West (Phoenix)  | ✓  |          ✓                      
 
 
 >[!Note] 

@@ -1,21 +1,18 @@
 ---
-title: Custom container sessions in Azure Container Apps (preview)
+title: Custom container sessions in Azure Container Apps
 description: Learn to run a container in a custom session in Azure Container Apps.
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/02/2024
+ms.date: 10/24/2024
 ms.author: antchu
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Azure Container Apps custom container sessions (preview)
+# Azure Container Apps custom container sessions
 
 In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provide, you can also use custom containers to define your own session sandboxes.
-
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for custom container sessions
 

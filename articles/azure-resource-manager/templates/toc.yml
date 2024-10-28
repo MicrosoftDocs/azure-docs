@@ -420,10 +420,13 @@
   - name: Export templates
     items:
     - name: Portal
+      displayName: export
       href: export-template-portal.md
     - name: Azure CLI
+      displayName: export
       href: export-template-cli.md
     - name: PowerShell
+      displayName: export
       href: export-template-powershell.md
   - name: Test templates
     items:
@@ -458,6 +461,7 @@
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
+      displayName: Visual Studio
       href: update-visual-studio-deployment-script.md
 - name: Reference
   items:

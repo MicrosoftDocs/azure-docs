@@ -76,8 +76,11 @@
   items:
   - name: Deploy
     items:
-    - name: Session hosts
+    - name: Host pools and session hosts
       items:
+      - name: Host pool management approaches
+        displayName: standard, host pools, session host configuration, shc, shu
+        href: host-pool-management-approaches.md
       - name: Microsoft Entra joined session hosts
         displayName: virtual machines, vms
         href: azure-ad-joined-session-hosts.md
@@ -89,6 +92,9 @@
         href: custom-image-templates.md
       - name: Windows Enterprise multi-session FAQ
         href: windows-multisession-faq.yml
+      - name: Graphics encoding
+        displayName: gpu, multimedia, videos, cad, session hosts, 3D, rendering, avc, h.264, high efficiency video coding, hevc, h.265
+        href: graphics-encoding.md
       - name: Fair Share technologies
         displayName: virtual machines, vms, cpu, processor
         href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
@@ -180,6 +186,9 @@
       href: disaster-recovery-concepts.md
     - name: Session hosts
       items:
+      - name: Session host update
+        displayName: virtual machines, vms, session host configuration, shc, shu
+        href: session-host-update.md
       - name: Session host management
         displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm
         href: management.md
@@ -239,9 +248,6 @@
     - name: Peripheral and resource redirection
       displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
       href: redirection-remote-desktop-protocol.md
-    - name: Multimedia redirection
-      displayName: mmr
-      href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
       href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
   - name: Monitor
@@ -334,9 +340,6 @@
           - name: Use OneDrive with RemoteApp
             displayName: applications, apps
             href: onedrive-remoteapp.md
-          - name: Set up Windows Sandbox
-            displayName: applications, apps
-            href: sandbox.md
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
@@ -429,6 +432,14 @@
       - name: Use Azure Virtual Desktop license
         displayName: licensing
         href: apply-windows-license.md
+      - name: Session host update
+        items:
+        - name: Update session hosts using a session host configuration
+          displayName: session host update, shc, shu
+          href: session-host-update-configure.md
+        - name: Session host update diagnostic queries
+          displayName: session host update, session host configuration, shc, shu
+          href: session-host-update-diagnostics.md
       - name: Scale session hosts
         items:
         - name: Autoscale
@@ -571,9 +582,14 @@
     - name: Customize display names
       displayName: apps, feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Set up multimedia redirection
-      displayName: mmr
-      href: multimedia-redirection.md
+    - name: Multimedia redirection
+      items:
+      - name: Redirect video playback and calls
+        displayName: multimedia redirection, mmr
+        href: multimedia-redirection-video-playback-calls.md
+      - name: Developer integration for WebRTC call apps
+        displayName: multimedia redirection, mmr
+        href: multimedia-redirection-developer-integration.md
   - name: Monitor
     items:
       - name: Send diagnostic data to Log Analytics
@@ -607,15 +623,28 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Quickstart
-    displayName: troubleshooting
-    href: troubleshoot-quickstart.md
-  - name: Host pool creation
-    displayName: troubleshooting
-    href: troubleshoot-set-up-issues.md
-  - name: Session host virtual machine configuration
-    displayName: troubleshooting, vms
-    href: troubleshoot-vm-configuration.md
+  - name: Host pools
+    items:
+    - name: Host pool creation
+      displayName: troubleshooting
+      href: troubleshoot-set-up-issues.md
+    - name: Quickstart
+      displayName: troubleshooting
+      href: troubleshoot-quickstart.md
+    - name: Session host update
+      displayName: troubleshooting
+      href: troubleshoot-session-host-update.md
+  - name: Session hosts
+    items:
+    - name: Session host update
+      displayName: troubleshooting, vms
+      href: troubleshoot-session-host-update.md
+    - name: Session host virtual machine configuration
+      displayName: troubleshooting, vms
+      href: troubleshoot-vm-configuration.md
+    - name: Session host statuses and health checks
+      displayName: troubleshooting
+      href: troubleshoot-statuses-checks.md
   - name: Management issues
     displayName: troubleshooting
     href: troubleshoot-management-issues.md

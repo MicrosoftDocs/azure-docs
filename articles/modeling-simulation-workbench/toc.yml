@@ -37,14 +37,22 @@ items:
     items:
       - name: Create a Slurm cluster
         href: ./tutorial-install-slurm.md
+  - name: Networking
+    items:
+      - name: Networking overview
+        href: ./concept-network.md
+      - name: Connectors
+        href: ./concept-connector.md
+      - name: Create a private network connector for VPN
+        href: ./how-to-guide-private-network.md
+      - name: Create a public network connector
+        href: ./how-to-guide-public-network.md
+      - name: Manage Red Hat firewalls
+        href: ./how-to-guide-configure-firewall-red-hat.md
   - name: How-to guides
     items:
       - name: Manage users
         href: ./how-to-guide-manage-users.md
-      - name: Set up networking
-        href: ./how-to-guide-set-up-networking.md
-      - name: Create a private network connector for VPN
-        href: ./how-to-guide-private-network.md
       - name: Manage license service
         href: ./how-to-guide-licenses.md
       - name: Import data
@@ -55,8 +63,6 @@ items:
         href: ./how-to-guide-manage-chamber-storage.md
       - name: Manage shared storage
         href: ./how-to-guide-manage-shared-storage.md
-      - name: Manage Red Hat firewalls
-        href: ./how-to-guide-configure-firewall-red-hat.md
       - name: Start and stop chambers, connectors, and VMs
         href: ./how-to-guide-start-stop-restart.md
       - name: Enable copy/paste
@@ -83,6 +89,8 @@ items:
         href: ./troubleshoot-known-issues.md
       - name: Best practices
         href: ./best-practices.md
+      - name: Limits and quotas
+        href: ./limits-quotas.md
       - name: Business continuity and disaster recovery
         href: ./disaster-recovery.md
       - name: Get support

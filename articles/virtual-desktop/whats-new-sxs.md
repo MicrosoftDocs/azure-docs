@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 08/13/2024
+ms.date: 10/16/2024
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -31,9 +31,18 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2404.16760  |
-| Validation | 1.0.2404.16760  |
+| Production | 1.0.2407.05700  |
+| Validation | 1.0.2407.05700  |
 
+## Version 1.0.2407.05700
+
+*Published: September 2024*
+
+In this release, we've made the following changes:
+
+- [HVEC preview](whats-new.md#enabling-hevc-gpu-acceleration-for-azure-virtual-desktop-is-now-in-preview) support.
+- Addressed an issue in the RemoteApp scenario that could cause the text highlight color in the File Explorer’s address bar to appear incorrectly.
+  
 ## Version 1.0.2404.16760
 
 *Published: July 2024*

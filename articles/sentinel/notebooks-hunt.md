@@ -10,6 +10,9 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
+
+
+
 ---
 
 # Hunt for security threats with Jupyter notebooks

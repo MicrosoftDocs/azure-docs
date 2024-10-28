@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: reference
 ms.date: 06/09/2024
+
+
+#Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
+
 ---
 
 # Microsoft Sentinel entity types reference

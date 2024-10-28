@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 02/27/2022
+
+
+#Customer intent: As a security engineer, I want to configure ingestion-time data transformation and custom log ingestion so that I can control, filter, and enrich data before it is ingested into Microsoft Sentinel.
+
 ---
 
 # Transform or customize data at ingestion time in Microsoft Sentinel (preview)

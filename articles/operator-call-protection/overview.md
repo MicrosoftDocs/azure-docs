@@ -1,8 +1,8 @@
 ---
 title: What is Azure Operator Call Protection Preview?
 description: Learn how telecommunications operators can use Azure Operator Call Protection Preview to detect fraud with AI.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-operator-call-protection
 ms.topic: overview
 ms.date: 01/31/2024

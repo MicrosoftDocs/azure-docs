@@ -4,7 +4,7 @@ description: Learn about how to get started with Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: get-started
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---

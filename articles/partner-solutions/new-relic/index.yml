@@ -7,8 +7,8 @@ metadata:
   title: Azure Native New Relic Service documentation
   description: Azure Native New Relic Service offers a monitoring solution for your Azure workloads by using a streamlined workflow.
   ms.topic: landing-page
-  author: flang-msft
-  ms.author: franlanglois
+  
+  
   ms.date: 01/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
