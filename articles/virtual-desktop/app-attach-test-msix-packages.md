@@ -267,7 +267,7 @@ You create a script for each phase:
 
 ## Use packages offline
 
-If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you need to set up the licenses manually.
+If you're using packages on devices that aren't connected to the internet, you need to make sure the package licenses are installed on your device to successfully run the app. If your device is online, the required licenses should download automatically..
 
 To install the license files, you need to use a PowerShell script that calls the `MDM_EnterpriseModernAppManagement_StoreLicenses02_01` class in the WMI Bridge Provider.
 
