@@ -238,7 +238,7 @@ access to the resources of their team.
 
 Microsoft Dev Box uses catalogs to enable developers to deploy
 customizations for dev boxes by using a catalog of tasks and a
-configuration file to install software, add extensions, clone
+customization file to install software, add extensions, clone
 repositories, and more. 
 
 Microsoft Dev Box stores catalogs in either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos). You can attach a catalog to a dev center or to a project.

@@ -20,9 +20,27 @@ To complete the steps in this article, you must:
 - Be a member of the Dev Box Users security group for at least one project.
 - Have a catalog attached to the dev center with tasks that you can use in your customization file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
-## Permissions required to configure Microsoft Dev Box customizations  
+## Permissions required to configure customizations
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
+
+## What is a customization file?
+Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These customization files include one or more `tasks`, which identify the catalog task and provide parameters like the name of the software to install. The customization file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a git clone task to clone a repository.
+
+```yml
+# From https://github.com/microsoft/devcenter-examples
+$schema: 1.0
+tasks:
+  - name: winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+      runAsUser: true
+  - name: git-clone
+    description: Clone this repository into C:\Workspaces
+    parameters:
+      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
+      directory: C:\Workspaces
+```
 
 ## Create a Team Customization File (imagedefinition.yaml)
 
@@ -91,7 +109,7 @@ You can use Dev Home to create a customization file for your development team. D
       :::image type="content" source="media/how-to-write-customization-file/dev-home-review-finish.png" alt-text="Screenshot showing the Review and finish page with the I agree and want to continue button highlighted.":::
  
 
-Notice that you can also generate a configuration file based on your selected repositories and software to use in the future to create dev boxes with the same customizations.
+Notice that you can also generate a customization file based on your selected repositories and software to use in the future to create dev boxes with the same customizations.
 
 :::image type="content" source="media/how-to-write-customization-file/dev-home-configuration-file.png" alt-text="Screenshot showing the Review and finish page with the Generate configuration file button highlighted.":::
 ---

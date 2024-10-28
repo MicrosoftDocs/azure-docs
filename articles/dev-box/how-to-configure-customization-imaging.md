@@ -17,7 +17,7 @@ Using a customization file simplifies the creation of dev boxes for your team. W
 To complete the steps in this article, you must have a team customization file that you want to use to create a dev box. If you don't have a customization file, see [Write a customization file](./how-to-write-customization-file.md).
 If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
 
-## Permissions required to configure Microsoft Dev Box customizations  
+## Permissions required to configure customizations
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
 

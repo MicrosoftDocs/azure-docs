@@ -39,53 +39,16 @@ When you configure Dev Box Team Customizations for your organization, careful pl
 - **Create dev box:**
   - Create your dev box from the configured pool using the developer portal.
 
-## What is a configuration file?
-Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more `tasks`, which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a git clone task to clone a repository.
+## What is a customization file?
+Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These tasks identify the catalog task and provide parameters like the name of the software to install. The customization file is then made available to the developers creating new dev boxes. 
 
-```yml
-# From https://github.com/microsoft/devcenter-examples
-$schema: 1.0
-tasks:
-  - name: winget
-    parameters:
-      package: Microsoft.VisualStudioCode
-      runAsUser: true
-  - name: git-clone
-    description: Clone this repository into C:\Workspaces
-    parameters:
-      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
-      directory: C:\Workspaces
-```
+You can use secrets from your Azure Key Vault in your customization file to clone private repositories, or with any custom task you author that requires an access token.
 
 ## What are tasks?
-A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a task.yaml file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog and scans a specified folder of the catalog recursively to find task definitions.
-
-Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common tasks:
-
-- Install software with WinGet package manager
-- Deploy desired state configuration (DSC) using WinGet Configuration
-- Clone a repository using git-clone
-- Configure applications like installing Visual Studio extensions
-- Run PowerShell scripts
-
-### Customize your dev box by using existing WinGet Configuration files
-WinGet Configuration takes a config-as-code approach to defining the unique sets of software and configuration settings needed to get your Windows environment in a ready-to-code state. These configuration files can also be used to set up a Dev Box, by using a WinGet task included in the Microsoft provided quickstart catalog mentioned earlier.
-The following example shows a dev box customization file that calls an existing WinGet DSC file.
-
-```yml
-tasks:
-    - name: winget
-      parameters:
-          configure: "projectConfiguration.dsc.yaml"
-```
-
-To learn more about WinGet Configuration, see [WinGet Configuration](https://aka.ms/winget-configuration).
-
-## Use secrets
-You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token.
+A task performs a specific action, like installing software. You can store a collection of curated tasks in a catalog attached to your dev center, with each task in a separate folder. Each task consists of one or more PowerShell scripts, along with a task.yaml file that provides parameters and defines how the scripts run. 
 
 ## Differences Between Team and Individual Customizations
-Individual developers can attach a yaml-based customization file when creating their Dev Box to control the development environment on their Dev Box. While teams of developers can share common yaml files, this approach can be inefficient and error-prone, and against compliance policies. Dev Box Team Customizations provides a workflow for developer team leaders, Project Admins, and dev center administrators to preconfigure customization files on Dev Box pools. This way, a developer creating a dev box doesn't need to find and upload a configuration file for themselves.
+Individual developers can attach a yaml-based customization file when creating their Dev Box to control the development environment on their Dev Box. While teams of developers can share common yaml files, this approach can be inefficient and error-prone, and against compliance policies. Dev Box Team Customizations provides a workflow for developer team leaders, Project Admins, and dev center administrators to preconfigure customization files on Dev Box pools. This way, a developer creating a dev box doesn't need to find and upload a customization file for themselves.
 
 ## Key terms
 **Catalog**

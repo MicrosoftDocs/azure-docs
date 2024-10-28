@@ -19,7 +19,7 @@ In this quickstart, you create a dev box from a team customizations file. Team c
   
 To complete the steps in this article, you must have a dev center configured with a dev box project.  
   
-## Permissions required to configure Microsoft Dev Box customizations  
+## Permissions required to configure customizations
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
   
