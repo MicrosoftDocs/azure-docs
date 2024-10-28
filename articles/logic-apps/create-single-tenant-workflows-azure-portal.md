@@ -458,7 +458,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 > [!NOTE]
 >
-> If your logic app uses the App Service Environment (ASE) v3 hosting option, skip 
+   > If your logic app uses the App Service Environment (ASE) v3 hosting option, skip 
 > the steps for runtime scale monitoring because ASE doesn't support this capability.
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
