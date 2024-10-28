@@ -19,8 +19,8 @@ The following table lists the current versions available for the public and Insi
 *Date published: October 15, 2024*   
 
 - Added list of graphics codecs to the Connection Information dialog. 
-- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
-- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
+- Fixed an issue where the Connection Information dialog showed the lowest round-trip time (RTT) instead of average RTT.
 
 ## Updates for version 1.2.5709
 
