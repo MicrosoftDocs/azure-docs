@@ -90,8 +90,13 @@ You can modify the schedule of a test after adding it. You can also pause or res
 > [!NOTE]
 > A schedule is disabled if three consecutive test runs of a schedule fail. You can resolve the issues with the test and enable the schedule again  from the Schedule pane of the test.
 
-[!div class="nextstepaction"]
-[View performance trends over time](./how-to-compare-multiple-test-runs.md)
+## Next steps
+
+Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
+
+- [Tutorial: automate regression tests](./quickstart-add-load-test-cicd.md)
+- [Define test fail criteria](./how-to-define-test-criteria.md)
+- [View performance trends over time](./how-to-compare-multiple-test-runs.md)
 
 
 
