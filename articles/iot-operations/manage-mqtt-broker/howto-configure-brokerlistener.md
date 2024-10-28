@@ -54,6 +54,54 @@ To view or edit the listener:
 
 1. Review the listener settings and make any changes as needed.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param aioBrokerHostName string = '<HOSTNAME>:<PORT>'
+param trustedCA string = '<TRUST_BUNDLE>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    brokerRef: 'default'
+    serviceName: 'aio-broker'
+    serviceType: 'ClusterIp'
+    ports: [
+      {
+        authenticationRef: 'default'
+        port: 18883
+        protocol: 'Mqtt'
+        tls: {
+          certManagerCertificateSpec: {
+            issuerRef: {
+              group: 'cert-manager.io'
+              kind: 'Issuer'
+              name: 'mq-dmqtt-frontend'
+            }
+          }
+          mode: 'Automatic'
+        }
+      }
+    ]
+  }
+}
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 To view the default *BrokerListener* resource, use the following command:
@@ -127,6 +175,51 @@ This example shows how to create a new *BrokerListener* resource named *loadbala
     | TLS            | Indicates whether TLS is enabled for secure communication. Can be set to [automatic](#configure-tls-with-automatic-certificate-management) or [manual](#configure-tls-with-manual-certificate-management). |
 
 1. Select **Create listener**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    brokerRef: 'default'
+    serviceName: 'aio-broker'
+    serviceType: 'ClusterIp'
+    ports: [
+      {
+        authenticationRef: 'default'
+        port: 18883
+        protocol: 'Mqtt'
+        tls: {
+          certManagerCertificateSpec: {
+            issuerRef: {
+              group: 'cert-manager.io'
+              kind: 'Issuer'
+              name: 'mq-dmqtt-frontend'
+            }
+          }
+          mode: 'Automatic'
+        }
+      }
+    ]
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -351,6 +444,102 @@ The following is an example of a BrokerListener resource that enables TLS on por
 
 1. Select **Save** to save the TLS settings.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    brokerRef: 'default'
+    serviceType: 'loadBalancer'
+    serviceName: 'aio-broker-loadbalancer-tls'
+    ports: [
+      {
+        port: 8884
+        tls: {
+          mode: 'Automatic'
+          certManagerCertificateSpec: {
+            issuerRef: {
+              name: 'my-issuer'
+              kind: 'Issuer'
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
+
+#### Optional: Configure server certificate parameters
+
+The only required parameters are `issuerRef.name` and `issuerRef.kind`. All properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized by specifying them in the BrokerListener resource, under `tls.automatic.issuerRef`. The following is an example of all supported properties:
+
+```bicep
+    ports: [
+      {
+        port: 8884
+        tls: {
+          mode: 'Automatic'
+          certManagerCertificateSpec: {
+            issuerRef: {
+              // Name of issuer. Required.
+              name: 'my-issuer'
+              // 'Issuer' or 'ClusterIssuer'. Required.
+              kind: 'Issuer'
+              // Issuer group. Optional; defaults to 'cert-manager.io'.
+              // External issuers may use other groups.
+              group: 'cert-manager.io'
+            }
+            // Namespace of certificate. Optional; omit to use default namespace.
+            namespace: 'az'
+            // Where to store the generated TLS server certificate. Any existing
+            // data at the provided secret will be overwritten.
+            // Optional; defaults to 'my-issuer-{port}'.
+            secret: 'my-issuer-8884'
+            // Parameters for the server certificate's private key.
+            // Optional; defaults to rotationPolicy: Always, algorithm: ECDSA, size: 256.
+            privateKey: {
+              rotationPolicy: 'Always'
+              algorithm: 'ECDSA'
+              size: 256
+            }
+            // Total lifetime of the TLS server certificate. Optional; defaults to '720h' (30 days).
+            duration: '720h'
+            // When to begin renewing the certificate. Optional; defaults to '240h' (10 days).
+            renewBefore: '240h'
+            // Any additional SANs to add to the server certificate. Omit if not required.
+            san: {
+              dns: [
+                'iotmq.example.com'
+                // To connect to the broker from a different namespace, add the following DNS name:
+                'aio-broker.azure-iot-operations.svc.cluster.local'
+              ]
+              ip: [
+                '192.168.1.1'
+              ]
+            }
+          }
+        }
+      }
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and *Issuer* for the frontends.
@@ -534,6 +723,48 @@ The following is an example of a BrokerListener resource that enables TLS on por
     | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
 
 1. Select **Save** to save the TLS settings.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    brokerRef: 'default'
+    // Optional, defaults to clusterIP
+    serviceType: 'loadBalancer'
+    // Match the SAN in the server certificate
+    serviceName: 'aio-broker-loadbalancer-tls'
+    ports: [
+      {
+        // Avoid port conflict with default listener at 18883
+        port: 8885
+        tls: {
+          mode: 'Manual'
+          manual: {
+            secretRef: 'server-cert-secret'
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
