@@ -40,7 +40,7 @@ The following table provides information on the Peering Service connectivity par
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe, North America |
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
-| [MainOne](https://www.mainone.net/connectivity-services/cloud-connect/) | Africa |
+| [MainOne](https://www.facebook.com/mainoneservice/posts/mainones-cloud-connect-service-provides-private-connectivity-between-your-data-c/833475925483185/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
