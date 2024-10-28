@@ -150,6 +150,8 @@
   - name: Confidential services
     expanded: true
     items:
+    - name: Azure Confidential Clean Rooms
+      href: confidential-clean-rooms.md
     - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
       href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
     - name: SQL on Confidential Virtual Machines #done
