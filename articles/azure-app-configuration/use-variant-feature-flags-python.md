@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Use variant feature flags in Azure App Configuration'
+title: 'Tutorial:  Use variant feature flags in Azure App Configuration (preview)'
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up and use variant feature flags in an App Configuration
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my application.
@@ -13,7 +13,7 @@ ms.date: 10/28/2024
 
 # Tutorial: Use variant feature flags in Azure App Configuration (preview)
 
-Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. Variants can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
+Variant feature flags (preview) enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. Variants can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
 
 > [!NOTE]
 > A quicker way to start your variant journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-python/)- This repository provides a comprehensive example, complete with variants and Azure resource provisioning.
@@ -29,9 +29,9 @@ In this tutorial, you:
 * An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
 
-## Create a variant feature flag
+## Create a variant feature flag (preview)
 
-Create a variant feature flag called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
+Create a variant feature flag (preview) called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
 | Variant Name | Variant Value | Allocation| 
 |---|---|---|
@@ -39,11 +39,11 @@ Create a variant feature flag called *Greeting* with no label and three variants
 | Simple | "Hello!" | 25% |
 | Long | "I hope this makes your day!" | 25% | 
 
-## Set up an app to use the variants
+## Set up an app to use the variants (preview)
 
-In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message increases the number of users who like the quote. Users who receive the _None_ variant see no greeting. Users who receive the _Simple_ variant get a simple greeting message. Users who receive the _Long_ variant get a slightly longer greeting. 
+In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message increases the number of users who like the quote. Users who receive the _None_ variant (preview) see no greeting. Users who receive the _Simple_ variant get a simple greeting message. Users who receive the _Long_ variant get a slightly longer greeting. 
 
-### Create an app and add user secrets
+### Create an app and add user secrets (preview)
 
 1. Create a new project folder named *QuoteOfTheDay*.
 
@@ -59,10 +59,10 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     .\venv\Scripts\Activate
     ```
 
-1. Install the required packages. The latest preview versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags.
+1. Install the required packages. The latest preview versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags (preview).
 
     ```bash
-    pip install flask azure-appconfiguration-provider==2.0.0b2 azure-identity featuremanagement[AzureMonitor]==2.0.0b2 flask-login flask_sqlalchemy flask_bcrypt azure-monitor-opentelemetry
+    pip install flask azure-appconfiguration-provider==2.0.0b2 azure-identity featuremanagement[AzureMonitor]==2.0.0b2 flask-login flask_sqlalchemy flask_bcrypt
     ```
 
 1. Create a new file named *app.py* in the *QuoteOfTheDay* folder.
@@ -72,17 +72,12 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     from azure.appconfiguration.provider import load
     from featuremanagement import FeatureManager
     from featuremanagement.azuremonitor import publish_telemetry
-    from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
     from opentelemetry.trace import get_tracer_provider
     from flask_bcrypt import Bcrypt
     
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager
-    
-    DEBUG = True
-    
-    configure_azure_monitor(connection_string=os.getenv("ApplicationInsightsConnectionString"))
     
     from flask import Flask
     
@@ -517,7 +512,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     }
     ```
 
-### Build and run the app
+### Build and run the app (preview)
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
 1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
