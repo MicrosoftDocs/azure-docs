@@ -59,6 +59,23 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
 
+# [Portal](#tab/portal)
+
+1. In the operations experience, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Explorer** > **New**.
+
+    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Data Explorer dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                                        |
+    | Host                  | The hostname of the Azure Data Explorer endpoint in the format `<cluster>.<region>.kusto.windows.net`. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity* or *User assigned managed identity*  |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -143,6 +160,10 @@ Before you create the dataflow endpoint, assign a role to the managed identity t
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -166,6 +187,11 @@ dataExplorerSettings:
 ---
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+
+# [Portal](#tab/portal)
+
+In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 # [Bicep](#tab/bicep)
 
@@ -195,6 +221,12 @@ dataExplorerSettings:
 #### User-assigned managed identity
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
 # [Bicep](#tab/bicep)
 
@@ -235,6 +267,12 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
+
+# [Portal](#tab/portal)
+
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations experience to set Azure Data Explorer advanced settings.":::
 
 # [Bicep](#tab/bicep)
 

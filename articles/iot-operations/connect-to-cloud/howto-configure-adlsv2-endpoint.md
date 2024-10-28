@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 10/27/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -36,6 +36,26 @@ First, in Azure portal, go to the Arc-connected Kubernetes cluster and select **
 Then, assign a role to the managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
 Finally, create the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
+
+# [Portal](#tab/portal)
+
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
+
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience to create a new ADLS V2 dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                                              |
+    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Bicep](#tab/bicep)
 
@@ -113,6 +133,14 @@ If you need to override the system-assigned managed identity audience, see the [
 Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret. 
 
 Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token as well as other placeholder values.
+
+# [Portal](#tab/portal)
+
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
+1. In the editor, select the destination dataflow endpoint.
+1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously.
+
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations experience to create a dataflow with an MQTT source and ADLS V2 destination.":::
 
 # [Bicep](#tab/bicep)
 
@@ -199,6 +227,12 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 
 To use system-assigned managed identity, specify the managed identity authentication method in the *DataflowEndpoint* resource. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -222,6 +256,10 @@ dataLakeStorageSettings:
 ---
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+# [Portal](#tab/portal)
+
+In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 # [Bicep](#tab/bicep)
 
@@ -274,6 +312,12 @@ You can also use the IoT Operations portal to create and manage the secret. To l
 
 Finally, create the *DataflowEndpoint* resource with the secret reference.
 
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
+
+Enter the access token secret name you created in **Access token secret name**.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -302,6 +346,12 @@ dataLakeStorageSettings:
 #### User-assigned managed identity
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
 # [Bicep](#tab/bicep)
 
@@ -342,6 +392,12 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
+
+# [Portal](#tab/portal)
+
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations experience to set ADLS V2 advanced settings.":::
 
 # [Bicep](#tab/bicep)
 
