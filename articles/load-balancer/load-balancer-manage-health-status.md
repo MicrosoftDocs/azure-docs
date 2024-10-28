@@ -2,11 +2,11 @@
 title: Manage Azure Load Balancer health status
 titleSuffix: Azure Load Balancer
 description: Learn how to manage Azure Load Balancer health status to get detailed health information about the backend instances in your Azure Load Balancer backend pool.
-author: mbender
+author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 10/30/2024
-ms.author: mbender-ms
+ms.author: mbender
 ms.custom: references_regions
 ---
 
@@ -103,7 +103,7 @@ To retrieve the health status information via REST API, you need to do a two req
 ```rest
 
 
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/loadBalancingRules/{loadBalancingRulesName}/health?api-version=2024-03-01
+    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/loadBalancingRules/<loadBalancingRulesName>/health?api-version=2024-03-01&preserve-view=true
     Authorization: Bearer <access token>
 
 ```
@@ -111,13 +111,13 @@ To retrieve the health status information via REST API, you need to do a two req
 1. Copy the Location URI from the Response Headers. Location URI should follow this schema.
 
 ```rest
-    https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{locationName}/operationResults/{operationResultsId}?api-version=2024-03-01
+    https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
 ```
 
 1. Use the copied Location URI to make a GET request.
 
 ```rest
-    GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{locationName}/operationResults/{operationResultsId}?api-version=2024-03-01 
+    GET https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
     
     Authorization: Bearer <access token>
 
@@ -132,13 +132,13 @@ To retrieve the health status information via REST API, you need to do a two req
   "loadBalancerBackendAddresses": [
     {
       "ipAddress": "10.0.2.5",
-      "networkInterfaceIPConfigurationId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+      "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
       "state": "Up",
       "reason": "Up_Admin"
     },
     {
       "ipAddress": "10.0.2.4",
-      "networkInterfaceIPConfigurationId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+      "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
       "state": "Up",
       "reason": "Up_Probe_Success"
     }
