@@ -202,7 +202,8 @@ spec:
   mqttSettings:
     authentication:
       method: ServiceAccountToken
-      serviceAccountTokenSettings: {}
+      serviceAccountTokenSettings:
+        audience: aio-mq-internal
 ```
 
 ---
