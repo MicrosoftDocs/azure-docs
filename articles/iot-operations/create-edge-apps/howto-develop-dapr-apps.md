@@ -111,7 +111,7 @@ The following definition components might require customization to your specific
           # Certificate chain for Dapr to validate the MQTT broker
           - name: aio-ca-trust-bundle
             configMap:
-              name: aio-ca-trust-bundle-test-only
+              name: azure-iot-operations-aio-ca-trust-bundle
 
           containers:
           # Container for the Dapr application 

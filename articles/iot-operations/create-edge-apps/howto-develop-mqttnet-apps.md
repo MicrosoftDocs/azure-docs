@@ -98,7 +98,7 @@ spec:
   # Certificate chain for the application to validate the MQTT broker              
   - name: aio-ca-trust-bundle
     configMap:
-      name: aio-ca-trust-bundle-test-only
+      name: azure-iot-operations-aio-ca-trust-bundle
 
   containers:
   - name: mqtt-client-dotnet

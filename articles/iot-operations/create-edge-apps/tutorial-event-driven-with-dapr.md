@@ -89,7 +89,7 @@ To start, create a yaml file that uses the following definitions:
           # Certificate chain for Dapr to validate the MQTT broker
           - name: aio-ca-trust-bundle
             configMap:
-              name: aio-ca-trust-bundle-test-only
+              name: azure-iot-operations-aio-ca-trust-bundle
 
           containers:
           - name: mq-event-driven-dapr
@@ -187,7 +187,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
               expirationSeconds: 86400
       - name: aio-ca-trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only
+          name: azure-iot-operations-aio-ca-trust-bundle
     ```
 
 1. Apply the deployment file with kubectl:
