@@ -85,8 +85,8 @@ gantt
   
   section K8s 1.30
     Upstream              : milestone, Apr 2024, 1d
-    Live                  : active, Oct 2024, 93d
-    Extended Availability : crit, Feb 2025, 458d
+    Live                  : active, Oct 2024, 458d
+    Extended Availability : crit, Feb 2026, 823d
     
   
 ```
