@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 10/28/2024
 ms.author: anfdocs
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
@@ -211,6 +211,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
+    <!-- ??? here ??? -->
+    * **Encryption key source**:
+        Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
     
     Select **Next: Tags**. 
     
@@ -246,6 +249,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The size of the volume.
     * **Throughput**:  
         You can reduce the throughput requirements for development or test systems accordingly to the value required for your use cases.
+    <!-- check order -->
+    * **Encryption key source**:
+        Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
 
     Select **Next: Protocols** to review the protocol settings. 
 

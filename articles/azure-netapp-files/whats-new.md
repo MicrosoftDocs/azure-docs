@@ -13,6 +13,10 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. 
+
+    <!-- Arnt -->
  
 ## October 2024
 

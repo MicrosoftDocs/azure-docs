@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 10/28/2024
 ms.author: anfdocs
 ---
 # Deploy application volume group for Oracle
@@ -84,6 +84,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+    * **Encryption key source**:
+        Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
 
     Select **Next: Tags**. Continue with Step 6. 
 
@@ -156,7 +158,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Volume Details - Tags tab of Create a Volume Group page for Oracle.](./media/volume-hard-quota-guidelines/application-create-volume-details-tags-tab-oracle.png) ](./media/volume-hard-quota-guidelines/application-create-volume-details-tags-tab-oracle.png#lightbox)
 
-12. The **Volumes Tab** enables you to remove optional volumes.  
+12. The **Volumes Tab** enables you to remove optional volumes. 
+
+    <!-- check -->
+    Provide an **Encryption key source** select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
+
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
 
