@@ -28,11 +28,12 @@ Navigate to the **Regulatory Documents** blade in your ACS resource and select *
 :::image type="content" source="./media/apply-for-brand-registration/regulatory-screen-1.png" alt-text="Screenshot showing Regulatory Documents blade." lightbox="./media/apply-for-brand-registration/regulatory-screen-1.png":::
 
 ### Brand Registration
-1. You first need to choose country/region and phone number type you would like to get verified. You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you have acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
+You first need to choose country/region and phone number type you would like to get verified. You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you have acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
 
 :::image type="content" source="./media/apply-for-brand-registration/brand-registration-1.png" alt-text="Screenshot showing Brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-1.png":::
 
-3. In the brand registration form, provide details about your company:
+### Company details
+In the brand registration form, provide details about your company:
    - **Company Name**: Your official registered business name.
    - **DBA or Brand Name**: Doing Business As (DBA) or brand name, if different.
    - **Website**: A website URL representing your business.
@@ -53,21 +54,35 @@ Navigate to the **Regulatory Documents** blade in your ACS resource and select *
    - **Contact Email Address**: Contact email for inquiries related to the brand registration.
    - **Contact Phone Number**: Phone number for inquiries related to the brand registration.
 
-4. Submit the form for verification. Brand verification may take up to 48 hours.
+### Review and submit
+Submit the form for verification. Brand verification may take up to 48 hours.
 
 :::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
 
 > **Warning**: Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
-### Campaign Registration
+## Campaign Registration
 After your brand is verified, proceed with the campaign registration:
 
-1. Select **Add Campaign** and fill in campaign-specific details:
-   - **Campaign Name**: A unique name for your campaign.
-   - **Campaign Use Case**: Select a use case category (e.g., Customer Care, Alerts).
-   - **Description**: Describe the purpose and target audience of your campaign.
-   - **Opt-In Method**: Explain how you obtain customer consent for SMS.
-   - **Sample Messages**: Provide example messages that will be sent.
+Select **Add ** and begin by filling in the **Application Type** details:
+   - **Country or Region**: Select the country or region where you plan to run your campaign.
+   - **Phone Number Type**: Choose the type of phone number for your campaign (e.g., Local).
+   - **Application Type**: Select the Campaign application type.
+
+Click **Next** to proceed to the **Campaign Details** section:
+
+### Campaign Details
+
+   - **Brand**: Select the brand associated with this campaign.
+   - **Description**: Add a description for the campaign, explaining its purpose and target audience.
+   - **Call-to-Action / Message Flow**: Describe how end users are expected to engage with this campaign (e.g., opt-in process, expected interaction).
+
+Click **Next** to proceed to the **Use Case** section:
+### Use Case
+   - **Content Type**: Select the type of content you intend to send (e.g., Marketing, Customer Care).
+   - **Sub-content Type**: Choose a more specific content category if applicable.
+   - **Sample Message**: Provide a sample message that aligns with the campaign's use case. You can add multiple sample messages if needed by clicking **Add Sample Message**.
+
 2. Submit your campaign application. Campaign approval may take 2–3 business days.
 
    ![Screenshot showing campaign registration form.](./media/register-10dlc/campaign-registration-form.png)
