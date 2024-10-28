@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Virtual Network?
-            url: /azure/virtual-network/overview
+            url: /azure/virtual-network/virtual-networks-overview
           - text: Networking Architecture
             url: /azure/architecture/networking/
       - linkListType: learn
