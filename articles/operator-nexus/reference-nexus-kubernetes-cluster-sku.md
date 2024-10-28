@@ -32,6 +32,7 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 
 | VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
 |---------------|----------------|------------|------------------|
+| NC_G56_224_v1 | 56             | 224        | 300              |
 | NC_G48_224_v1 | 48             | 224        | 300              |
 | NC_G36_168_v1 | 36             | 168        | 300              |
 | NC_G24_112_v1 | 24             | 112        | 300              |
@@ -43,6 +44,7 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 
 | VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
 |---------------|----------------|------------|------------------|
+| NC_P54_224_v1 | 54             | 224        | 300              |
 | NC_P46_224_v1 | 46             | 224        | 300              |
 | NC_P34_168_v1 | 34             | 168        | 300              |
 | NC_P22_112_v1 | 22             | 112        | 300              |
@@ -53,7 +55,9 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 
 | VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
 |---------------|----------------|------------|------------------|
+| NC_E110_448_v1 | 110             | 448        | 300              |
 | NC_E94_448_v1 | 94             | 448        | 300              |
+| NC_E82_448_v1 | 82             | 448        | 300              |
 | NC_E70_336_v1 | 70             | 336        | 300              |
 
 ## Next steps
