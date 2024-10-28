@@ -16,8 +16,6 @@ ms.date: 10/23/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster except for those on Arm64 architectures. For more information, review the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
-
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
 ## Choose your features

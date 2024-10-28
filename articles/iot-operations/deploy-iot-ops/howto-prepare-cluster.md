@@ -24,20 +24,11 @@ Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployment
 
 If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
 
-To prepare your Azure Arc-enabled Kubernetes cluster, you need:
-
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
+To prepare an Azure Arc-enabled Kubernetes cluster, you need:
+
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-* The latest version of the following extensions for Azure CLI:
-
-  ```bash
-  az extension add --upgrade --name azure-iot-ops
-  az extension add --upgrade --name connectedk8s
-  ```
 
 * Hardware that meets the system requirements:
 
@@ -47,6 +38,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
 
 ### [Ubuntu](#tab/ubuntu)
+
+To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -69,7 +62,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 ---
 
-## Create a cluster
+## Create and Arc-enable a cluster
 
 This section provides steps to create clusters in validated environments on Linux and Windows.
 
@@ -79,43 +72,7 @@ This section provides steps to create clusters in validated environments on Linu
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
-1. Open an elevated PowerShell window and change the directory to a working folder.
-
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant. Run the following command exactly as written, without changing the GUID value.
-
-   ```azurecli
-   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
-   ```
-
-1. Run the following commands, replacing the placeholder values with your information:
-
-   | Placeholder | Value |
-   | ----------- | ----- |
-   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription). |
-   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). |
-   | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
-   | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
-   | CLUSTER_NAME | A name for the new cluster to be created. |
-   | ARC_APP_OBJECT_ID | The object ID value that you retrieved in the previous step. |
-
-   ```powershell
-   $url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
-   Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
-   Unblock-File .\AksEdgeQuickStartForAio.ps1
-   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>" -CustomLocationOid "<ARC_APP_OBJECT_ID>"
-   ```
-
-   If there are any issues during deployment, including if your machine reboots as part of this process, run the whole set of commands again.
-
-1. Run the following commands to check that the deployment was successful:
-
-   ```powershell
-   Import-Module AksEdge
-   Get-AksEdgeDeploymentInfo
-   ```
-
-   In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
+For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks/hybrid/aks-edge-howto-deploy-azure-iot).
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -167,19 +124,9 @@ On multi-node clusters with at least three nodes, you have the option of enablin
 
 If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=ubuntu).
 
----
-
-## Arc-enable your cluster
+### Arc-enable your cluster
 
 Connect your cluster to Azure Arc so that it can be managed remotely.
-
-### [AKS Edge Essentials](#tab/aks-edge-essentials)
-
-The **AksEdgeQuickStartForAio.ps1** script that you ran in the previous section handled the steps to connect your cluster. You don't need to take any extra steps to Arc-enable.
-
-### [Ubuntu](#tab/ubuntu)
-
-To connect your cluster to Azure Arc:
 
 1. On the machine where you deployed the Kubernetes cluster, sign in with Azure CLI:
 
