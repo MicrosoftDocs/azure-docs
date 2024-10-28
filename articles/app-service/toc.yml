@@ -41,7 +41,9 @@
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
     - name: App settings reference
-      href: reference-app-settings.md      
+      href: reference-app-settings.md  
+    - name: Configure error pages
+      href: configure-error-pages.md   
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
