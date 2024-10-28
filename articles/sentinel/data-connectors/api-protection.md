@@ -3,7 +3,7 @@ title: "API Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector API Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 10/28/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -93,7 +93,7 @@ The sample application can be installed locally using a [Docker compose file](ht
 
 4.2 Run the sample
 
-Verfify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using Postman, curl, or similar. You should see a mixture of passing and failing API calls. 
+Verfify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using curl, or similar. You should see a mixture of passing and failing API calls. 
 
 4.3 Verify the data ingestion on Log Analytics
 
