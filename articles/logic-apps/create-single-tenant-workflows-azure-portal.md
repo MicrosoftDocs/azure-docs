@@ -456,7 +456,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 1. If your Standard logic app uses the hosting option named **Workflow Service Plan**, enable runtime scale monitoring:
 
-> [!NOTE]
+   > [!NOTE]
    >
    > If your logic app uses the App Service Environment (ASE) v3 hosting option, skip 
    > the steps for runtime scale monitoring because ASE doesn't support this capability.
