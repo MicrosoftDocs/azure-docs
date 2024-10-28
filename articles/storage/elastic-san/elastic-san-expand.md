@@ -38,7 +38,7 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 ```
 ---
 
-## Autoscale (Preview)
+## Autoscale (preview)
 
 You can set up a policy to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for capacity-only units. This means that your performance won't scale up with your storage. A sample autoscale policy would look like this:  
   
