@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 10/25/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -1136,6 +1136,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1188,6 +1193,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
