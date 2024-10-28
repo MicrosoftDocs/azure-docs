@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 09/16/2024
+ms.date: 10/30/2024
 ms.custom: references_regions
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
@@ -60,7 +60,7 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 |----------------|--------|
 | **Learning mode**  | - Default access mode.</br>- Helps network administrators to understand the existing access patterns of their PaaS resources.</br>- Advised mode of use before transitioning to enforced mode.|
  |
-| **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic is denied in this mode unless an Allow access rule exists. |
+| **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic except intra perimeter traffic is denied in this mode unless an *Allow* access rule exists. |
 
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
