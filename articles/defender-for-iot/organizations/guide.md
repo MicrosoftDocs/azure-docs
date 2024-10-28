@@ -1,11 +1,11 @@
 ---
-title: Trouble shooting guide for OT sensor deployment - Microsoft Defender for IoT
+title: Deployment guide for network sensor deployment - Microsoft Defender for IoT
 description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT.
 ms.topic: install-set-up-deploy
 ms.date: 10/15/2024
 ---
 
-# Trouble shooting guide for OT sensor deployment - Successful sensor deployment
+# Deployment guide for network sensor
 
 Deploying sensors effectively is crucial for ensuring comprehensive network monitoring and security. This guide provides a step-by-step approach to successful sensor deployment, covering essential aspects such as:
 
@@ -64,7 +64,7 @@ These are the following five deployment steps
         |Mirroring type| Switched Port Analyzer (SPAN) | Remote SPAN (RSPAN)  | Encapsulated Remote SPAN (ERSPAN) |
         |---|---|---|---|
         |Usage Scenario | Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks. |
-        |Description| SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. |ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet. |
+        |Description| SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. |RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks. |ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet. |
         |Mirroring set up | - Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.<br>  - Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.|- Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.<br> - RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches. <br> - Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.| - Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
         | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|    
         | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
