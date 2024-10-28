@@ -5,7 +5,8 @@ description: Learn about when to use Workflow Orchestration Manager, basic conce
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 09/25/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ms.custom: references_regions
 ---
 

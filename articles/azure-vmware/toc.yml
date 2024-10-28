@@ -53,6 +53,8 @@ items:
     href: reserved-instance.md
   - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
     href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
   items:
   - name: Private clouds and clusters

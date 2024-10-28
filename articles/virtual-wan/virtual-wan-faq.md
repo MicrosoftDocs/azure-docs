@@ -341,7 +341,7 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
 
-When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com with your Virtual WAN hub resource ID. 
+When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 

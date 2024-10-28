@@ -63,9 +63,12 @@ Using Microsoft Entra is the secure way to connect your cache. We recommend that
 
 When you disable access key authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra authentication. Follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections, if any.
 
-Before you disable access keys:
+### Before you disable access keys:
 
-- Microsoft Entra authorization must be enabled.
+- Ensure that Microsoft Entra authentication is enabled and you have at least one Redis User configured.
+- Ensure all applications connecting to your cache instance switch to using Microsoft Entra Authentication.
+- Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics are not the same, that means there are still some connections that were created using access keys and not Entra Token.
+- Consider disabling access during the scheduled maintenance window for your cache instance.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
 - For geo-replicated caches, you must:
 

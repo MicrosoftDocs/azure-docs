@@ -3,7 +3,7 @@ title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energ
 description: Find out how to troubleshoot manifest ingestion by using Airflow task logs.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: troubleshooting-general
 ms.date: 02/06/2023
 ---

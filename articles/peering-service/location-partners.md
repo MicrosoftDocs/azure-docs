@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 07/23/2023
+ms.date: 10/28/2024
 ms.custom: references_regions
 ---
 
@@ -40,7 +40,7 @@ The following table provides information on the Peering Service connectivity par
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe, North America |
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
-| [MainOne](https://www.mainone.net/connectivity-services/cloud-connect/) | Africa |
+| [MainOne](https://mainone.net/products-and-services/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
@@ -126,12 +126,10 @@ The following table provides information on the Peering Service connectivity par
 ---
 
 > [!NOTE]
-> For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> For more information about enlisting with the Peering Service Partner program, reach out to `peeringservice@microsoft.com`.
 
-## Next steps
+## Related content
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-

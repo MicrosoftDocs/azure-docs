@@ -1,12 +1,13 @@
 ---
-title: Create example Standard logic app workflow in Azure portal
+title: Create example Standard workflow in Azure portal
 description: Create your first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
+services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 09/27/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -108,7 +109,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Standard (Workflow Service Plan)**.
 
@@ -368,7 +369,7 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
    > [!TIP]
    >
-   > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
+   > You can also find the endpoint URL on your logic app **Overview** page in the **Workflow URL** property.
    >
    > 1. On the resource menu, select **Overview**.
    > 1. On the **Overview** pane, find the **Workflow URL** property.
@@ -408,6 +409,86 @@ For a stateful workflow, you can review the trigger history for each run, includ
 ## Resubmit workflow run with same inputs
 
 For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
+
+<a name="set-up-managed-identity-storage"></a>
+
+## Set up managed identity access to your storage account
+
+By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
+
+> [!NOTE]
+>
+> Currently, you can't disable storage account key access for Standard logic apps that use the 
+> Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
+> v3 hosting option, you can disable storage account key access after you finish the steps 
+> to set up managed identity authentication.
+
+1. In the [Azure portal](https://portal.azure.com), [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+
+1. From your user-assigned identity, get the resource ID:
+
+   1. On the user-assigned managed identity menu, under **Settings**, select **Properties**.
+
+   1. From the **Id** property, copy and save the resource ID.
+
+1. From your storage account, get the URIs for the Blob, Queue, and Table services:
+
+   1. On the storage account menu, under **Settings**, select **Endpoints**.
+
+   1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
+
+1. On your storage account, add the necessary role assignments for your user-assigned identity:
+
+   1. On the storage account menu, select **Access control (IAM)**.
+
+   1. On the **Access control (IAM)** page toolbar, from the **Add** menu, select **Add role assignment**.
+
+   1. On the **Job function roles** tab, add each of the following roles to the user-assigned identity:
+
+      - **Storage Account Contributor**
+      - **Storage Blob Data Owner**
+      - **Storage Queue Data Contributor**
+      - **Storage Table Data Contributor**
+
+   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) and [Understand role assignments](../role-based-access-control/role-assignments.md).
+
+1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
+
+1.  If your Standard logic app uses the hosting option named **Workflow Service Plan**, enable runtime scale monitoring:
+
+   1. On the logic app menu, under **Settings**, select **Configuration**.
+
+   1. On the **Workflow runtime settings** tab, for **Runtime Scale Monitoring**, select **On**.
+
+   1. On the **Configuration** toolbar, select **Save**.
+
+1. On your Standard logic app, set up the resource ID and service URIs:
+
+   1. On the logic app menu, select **Overview**.
+
+   1. On the **Overview** page toolbar, select **Stop**.
+
+   1. On the logic app menu, under **Settings**, select **Environment variables**.
+
+   1. On the **App settings** tab, select **Add** to add the following app settings and values:
+
+      | App setting | Value |
+      |-------------|-------|
+      | **AzureWebJobsStorage__managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
+      | **AzureWebJobsStorage__blobServiceUri** | The Blob service URI for your storage account |
+      | **AzureWebJobsStorage__queueServiceUri** | The Queue service URI for your storage account |
+      | **AzureWebJobsStorage__tableServiceUri** | The Table service URI for your storage account |
+      | **AzureWebJobsStorage__credential** | **managedIdentity** |
+
+   1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
+
+   1. When you finish, select **Apply**, which saves your changes and restarts your logic app.
+
+      Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
+
+      The following message might appear, but it isn't an error and doesn't affect your logic app:
+
+      **"AzureWebjobsStorage" app setting is not present.**
 
 <a name="enable-run-history-stateless"></a>
 
@@ -526,7 +607,7 @@ To fix this problem, follow these steps to delete the outdated version so that t
    > If you get an error such as **"permission denied"** or **"file in use"**, refresh the 
    > page in your browser, and try the previous steps again until the folder is deleted.
 
-1. In the Azure portal, return to your logic app's **Overview** page, and select **Restart**.
+1. In the Azure portal, return to your logic app and its **Overview** page, and select **Restart**.
 
    The portal automatically gets and uses the latest bundle.
 

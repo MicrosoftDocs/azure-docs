@@ -1,12 +1,12 @@
 ---
-title: Organize spaceborne geospatial data with STAC - Azure Orbital Analytics
+title: Organize spaceborne geospatial data with STAC
 description: Create an implementation of SpatioTemporal Asset Catalog (STAC) creation to structure geospatial data.
 author: taiyee
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 09/29/2022
-ms.author: taiyee
+ms.author: mosagie
 ---
 
 # Organize spaceborne geospatial data with SpatioTemporal Asset Catalog (STAC)
@@ -41,13 +41,13 @@ Here are a couple of examples:
 
 ## Architecture
 
-:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of STAC architecture." lightbox="media/stac-architecture.png":::
+:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of SpatioTemporal Asset Catalog (STAC) architecture." lightbox="media/stac-architecture.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_arch.vsdx) for this architecture.
 
 ### Dataflow 
 
-:::image type="content" source="media/stac-data-flow.png" alt-text="STAC dataflow diagram." lightbox="media/stac-data-flow.png":::
+:::image type="content" source="media/stac-data-flow.png" alt-text="SpatioTemporal Asset Catalog (STAC) dataflow diagram." lightbox="media/stac-data-flow.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_data_flow.vsdx) for this dataflow.
 
@@ -169,7 +169,7 @@ At a high level, this deployment does the following:
 - Deploys Azure API Management service and publishes the endpoint for STAC FastAPI.
 - Packages the code and its dependencies, builds the Docker container images, and pushes them to Azure Container Registry.
 
-    :::image type="content" source="media/stac-deploy.png" alt-text="Diagram of STAC deployment services." lightbox="media/stac-deploy.png":::
+    :::image type="content" source="media/stac-deploy.png" alt-text="Diagram of a sample STAC deployment services." lightbox="media/stac-deploy.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_deploy.vsdx) for this implementation.
 

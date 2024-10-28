@@ -6,9 +6,10 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 05/16/2024
+ms.date: 09/16/2024
 
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
+ms.service: azure-iot-operations
 ---
 
 # Configure OPC UA user authentication options for the connector for OPC UA
@@ -17,11 +18,13 @@ ms.date: 05/16/2024
 
 In this article, you learn how to configure OPC UA user authentication options. These options provide more control over how the connector for OPC UA authenticates with OPC UA servers in your environment.
 
+Currently, the connector for OPC UA supports user authentication with a username and password. You store and manage the username and password values in Azure Key Vault. Azure IoT Operations then synchronizes these values to your Kubernetes cluster where you can use them securely.
+
 To learn more, see [OPC UA applications - user authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/5.2.3).
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations Preview with [Manage Synced Secrets](../deploy-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
 
 ## Features supported
 
@@ -32,59 +35,23 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 ## Configure username and password authentication
 
-First, configure the secrets for the username and password in Azure Key Vault and project them into the connected cluster by using a `SecretProviderClass` object.
+To configure the secrets for the *username* and *password* values in the [operations experience](https://iotoperations.azure.com) web UI:
 
-1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the asset endpoint configuration in the operations experience web UI.
+1. Navigate to your list of asset endpoints:
 
-    Replace the placeholders for username and password with the credentials used to connect to the OPC UA server.
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of asset endpoints.":::
 
-    To configure the username and password, run the following code:
+1. Select **Create asset endpoint**.
 
-    ```bash
-    # Create username Secret in Azure Key Vault
-      az keyvault secret set \
-        --name "username" \
-        --vault-name "<your-azure-key-vault-name>" \
-        --value "<your-opc-ua-server-username>" \
-        --content-type "text/plain"
+1. Select **Username password** as the authentication mode:
 
-    # Create password Secret in Azure Key Vault
-      az keyvault secret set \
-        --name "password" \
-        --vault-name "<your-azure-key-vault-name>" \
-        --value "<your-opc-ua-server-password>" \
-        --content-type "text/plain"
-    ```
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/authentication-mode.png" alt-text="Screenshot that shows the username and password authentication mode selected.":::
 
-1. Configure the `aio-opc-ua-broker-user-authentication` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the `username` and `password` secrets in the `SecretProviderClass` object array in the cluster.
+1. Enter a synced secret name and then select the username and password references from the linked Azure Key Vault:
 
-    The following example shows a complete `SecretProviderClass` custom resource after you add the secrets:
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/select-from-key-vault.png" alt-text="Screenshot that shows the username and password references from Azure Key Vault.":::
 
-    ```yml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-user-authentication
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <azure-key-vault-name>
-        tenantId: <azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: username
-              objectType: secret
-              objectVersion: ""
-            - |
-              objectName: password
-              objectType: secret
-              objectVersion: ""
-    ```
+    > [!TIP]
+    > You have the option to create new secrets in Azure Key Vault if you haven't already added them.
 
-    > [!NOTE]
-    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
-
-In the operations experience, select the **Username & password** option when you configure the Asset endpoint. Enter the names of the references that store the username and password values. In this example, the names of the references are `username` and `password`.
+1. Select **Apply**.

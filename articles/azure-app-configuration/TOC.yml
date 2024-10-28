@@ -116,6 +116,8 @@
       href: push-kv-devops-pipeline.md
     - name: Pull using Azure Pipelines
       href: pull-key-value-devops-pipeline.md
+    - name: Create snapshots using Azure Pipelines
+      href: create-snapshot-devops-pipeline.md
     - name: Push using GitHub Actions
       href: push-kv-github-action.md
     - name: Build project using exported configuration
@@ -206,19 +208,21 @@
       href: concept-disaster-recovery.md
   - name: Security
     items:
-    - name: Encrypt using customer-managed keys
-      href: concept-customer-managed-keys.md
-    - name: Secure your config store using Private Endpoints
-      href: concept-private-endpoint.md
-    - name: Enable access using Microsoft Entra ID
+    - name: Authenticate using Microsoft Entra ID
       href: concept-enable-rbac.md
-    - name: Assign an Azure Managed Identity
-      href: overview-managed-identity.md
-    - name: Manage access key authentication
+    - name: Authenticate using access keys
       href: howto-disable-access-key-authentication.md
-    - name: Security controls by Azure Policy
+    - name: Secure your store using Private Endpoints
+      href: concept-private-endpoint.md
+    - name: Disable public network access
+      href: howto-disable-public-access.md
+    - name: Encrypt data using customer-managed keys
+      href: concept-customer-managed-keys.md
+    - name: Add Managed Identities to your store
+      href: overview-managed-identity.md
+    - name: Enforce security controls by Azure Policies
       href: ./security-controls-policy.md
-    - name: Security baseline
+    - name: Understand the security baselines
       href: /security/benchmark/azure/baselines/azure-app-configuration-security-baseline?toc=/azure/azure-app-configuration/TOC.json
 - name: How-to guides
   items:
@@ -242,8 +246,6 @@
     href: howto-recover-deleted-stores-in-azure-app-configuration.md
   - name: Enable geo-replication
     href: howto-geo-replication.md
-  - name: Disable public access
-    href: howto-disable-public-access.md
   - name: Set up private access
     href: howto-set-up-private-access.md
 - name: Reference

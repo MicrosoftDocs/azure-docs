@@ -26,6 +26,9 @@ When you connect to your cloud-hosted developer machine in Microsoft Dev Box by 
 | Remote Desktop Connection (MSTSC) | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Microsoft Remote Desktop Connection](/azure/dev-box/how-to-configure-multiple-monitors?branch=main&tabs=windows-connection#configure-remote-desktop-to-use-multiple-monitors) |
 | Microsoft Remote Desktop for macOS  | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Microsoft Remote Desktop for macOS](/azure/dev-box/how-to-configure-multiple-monitors?branch=main&tabs=macOS#configure-remote-desktop-to-use-multiple-monitors) |
 
+
+[!INCLUDE [note-windows-app](includes/note-windows-app.md)]
+
 ## Prerequisites
 
 To complete the steps in this article, you must install the appropriate Remote Desktop client on your local machine.

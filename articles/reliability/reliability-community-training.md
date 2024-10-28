@@ -5,8 +5,9 @@ author: atulsoni87AI
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: reliability
+ms.service: azure
 ms.date: 12/06/2023
+ms.subservice: azure-reliability
 ---
 
 
@@ -55,7 +56,7 @@ Community Training uses many dependency Azure services, such as App service and 
 
 #### Create a resource with availability zone enabled
 
-Community Training provides configuration for availability zones only at the time of instance creation. If you wish to change your availability zone configuration after instance creation, you'll need to create a new instance. To learn how to create your Community Training instance, see [Create Community Training](). 
+Community Training provides configuration for availability zones only at the time of instance creation. If you wish to change your availability zone configuration after instance creation, you'll need to create a new instance. To learn how to create your Community Training instance, see [Create Community Training](/azure/industry/training-services/microsoft-community-training/content-management/create-content/create-course-category/create-a-new-course). 
 
 ### Zone down experience
 
@@ -76,7 +77,7 @@ The Microsoft Community Training team manages the entire disaster recovery proce
 
 - In a regional disaster, the **control plane** is manually failed over to the paired region. You should expect some service degradation in the time before the failover completes. After the failover, only read-only operations are supported until the disaster region is back online. The service is manually failed back to the original region once it's back online and all operations resume. Recovery Point Objective (RPO) is expected to be 10 minutes; Recovery Time Objective (RTO), 24 hours.
 
-- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you need to [enable disaster recovery]() during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be 12 hours; Recovery Time Objective (RTO), 48 hours.
+- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you need to enable disaster recovery during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be 12 hours; Recovery Time Objective (RTO), 48 hours.
 
 
 >[!NOTE]

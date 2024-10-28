@@ -5,12 +5,12 @@ description: Learn how to use access tokens issued by Azure Active Directory B2C
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an API developer, I want to secure my Azure API Management API with Azure AD B2C, so that I can restrict access to only authenticated clients and ensure that only valid access tokens are accepted.

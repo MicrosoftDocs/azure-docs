@@ -316,6 +316,7 @@ Europe | North Europe </br> West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India
+Italy | Italy North
 Japan | Japan East
 Korea | Korea Central
 Norway | Norway East

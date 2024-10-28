@@ -1217,7 +1217,9 @@ An example of its usage can be found in the [VariantAndTelemetryDemo](https://gi
 
 #### Prerequisite
 
-This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/EvaluationDataToApplicationInsights/Program.cs#L20C1-L20C54) in the example application.
+This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
+
+This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service.
 
 ## Caching
 

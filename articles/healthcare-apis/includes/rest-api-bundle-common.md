@@ -76,5 +76,5 @@ Transaction bundles don't support:
 Batch and transaction bundles are executed serially in the FHIR service. To improve performance and throughput, we enabled parallel processing of bundles.
 
 To use parallel batch bundle processing:
-- Set header `x-bundle-processing-logic` value to 1parallel`.
+- Set header `x-bundle-processing-logic` value to `parallel`.
 - Ensure there's no overlapping resource ID that executes on DELETE, POST, PUT, or PATCH operations in the same bundle.

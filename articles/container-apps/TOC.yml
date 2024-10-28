@@ -237,7 +237,7 @@
   items:
   - name: Reliability in Azure Container Apps
     href: ../reliability/reliability-azure-container-apps.md
-- name: Dedicated hardware
+- name: Dedicated compute
   items:
     - name: Workload profiles
       href: workload-profiles-overview.md
@@ -340,6 +340,9 @@
       items:
       - name: Overview
         href: java-overview.md
+        displayName: java
+      - name: Turn on Java features
+        href: java-feature-switch.md
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md

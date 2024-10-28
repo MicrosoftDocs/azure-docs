@@ -58,7 +58,7 @@ A particular case of the previous design is when customers insert the Azure Fire
 
 :::image type="content" source="./media/scenarios/route-injection-vpn-expressroute-firewall.png" alt-text="Diagram showing hub and spoke topology with on-premises connectivity via NVA for VPN and ExpressRoute where Azure Firewall does the breakout.":::
 
-The Azure Firewall subnet learns the routes coming from both ExpressRoute and the VPN/SDWAN NVA, and decides whether sending traffic one way or the other. As described in the previous section, if the NVA appliance advertises more than 200 routes to the Route Server, it should send its BGP routes marked with the BGP community `no-advertise`. This way, the SDWAN prefixes won't be injected back to on-premises via Express-Route.
+The Azure Firewall subnet learns the routes coming from both ExpressRoute and the VPN/SDWAN NVA, and decides whether sending traffic one way or the other. As described in the previous section, if the NVA appliance advertises more than 1000 routes to the Route Server, it should send its BGP routes marked with the BGP community `no-advertise`. This way, the SDWAN prefixes won't be injected back to on-premises via Express-Route.
 
 ## Traffic symmetry
 

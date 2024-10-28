@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Node.js SDK for de
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 08/20/2019

@@ -4,8 +4,7 @@ description: Learn how to run a compute workload using a pre-created IoT Edge mo
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/19/2022
 ms.author: alkohli

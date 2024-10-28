@@ -151,9 +151,9 @@ To allow or disable serial or COM port redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow COM port redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow serial or COM port redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow serial or COM port redirection, toggle the switch to **Disabled**.
 
-   - To disable serial or COM port redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable serial or COM port redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

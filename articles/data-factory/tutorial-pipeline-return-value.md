@@ -63,16 +63,17 @@ Value of object type is defined as follows:
 ## Retrieving Value in Calling Pipeline
 
 The pipeline return value of the child pipeline becomes the activity output of the Execute Pipeline Activity. You can retrieve the information with _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName_. The use case is limitless. For instance, you can use
-* An _int_ value from child pipeline to define the wait period for a [wait activity](control-flow-wait-activity.md)
-* A _string_ value to define the URL for the [Web activity](control-flow-web-activity.md)
+
+* An _int_ value from child pipeline to define the wait period for a [wait activity](control-flow-wait-activity.md).
+* A _string_ value to define the URL for the [Web activity](control-flow-web-activity.md).
 * An _expression_ value payload for a [script activity](transform-data-using-script.md) for logging purposes.
 
 :::image type="content" source="media/pipeline-return-value/pipeline-return-value-03-calling-pipeline.png" alt-text="Screenshot shows the calling pipeline.":::
 
 There are two noticeable callouts in referencing the pipeline return values. 
 
-1.  With _Object_ type, you can further expand into the nested json object, such as _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName.nextLevelKey_
-2.  With _Array_ type, you can specify the index in the list, with _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName[0]_. The number is zero indexed, meaning that it starts with 0.
+1. With _Object_ type, you can further expand into the nested json object, such as _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName.nextLevelKey_
+1. With _Array_ type, you can specify the index in the list, with _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName[0]_. The number is zero indexed, meaning that it starts with 0.
 
 > [!NOTE]
 > Please make sure that the _keyName_ you are referencing exists in your child pipeline. The ADF expression builder can _not_ confirm the referential check for you.
@@ -80,14 +81,45 @@ There are two noticeable callouts in referencing the pipeline return values.
 
 ## Special Considerations
 
-While you can include multiple Set Pipeline Return Value activities in a pipeline, it's important to ensure that only one of them is executed in the pipeline.
+* While you can include multiple Set Pipeline Return Value activities in a pipeline, it is important to ensure that only one of them is executed in the pipeline. 
 
-:::image type="content" source="media/pipeline-return-value/pipeline-return-value-04-multiple.png" alt-text="Screenshot with Pipeline Return Value and Branching.":::
+  :::image type="content" source="media/pipeline-return-value/pipeline-return-value-04-multiple.png" alt-text="Screenshot with Pipeline Return Value and Branching.":::
 
-To avoid the previously described missing key problem when the calling pipeline, we encourage you to have the same list of keys for all branches in child pipeline. Consider using _null_ types for keys that don't have values, in a specific branch.
+  To avoid the previously described missing key problem when the calling pipeline, we encourage you to have the same list of keys for all branches in child pipeline. Consider using _null_ types for keys that don't have values, in a specific branch.
+
+* The Azure Data Factory expression language does not directly support inline JSON objects. Instead, it's necessary to concatenate strings and expressions properly.
+
+  For example, for the following JSON expression:
+  
+  ```json
+  {
+    "datetime": "@{utcnow()}",
+    "date": "@{substring(utcnow(),0,10)}",
+    "year": "@{substring(utcnow(),0,4)}",
+    "month": "@{substring(utcnow(),5,2)}",
+    "day": "@{substring(utcnow(),8,2)}"
+  }
+  ```
+
+  An equivalent Azure Data Factory expression would be:
+
+  ```json
+  @{
+    concat(
+      '{',
+      '"datetime": "', utcnow(), '", ',
+      '"date": "', substring(utcnow(),0,10), '", ',
+      '"year": "', substring(utcnow(),0,4), '", ',
+      '"month": "', substring(utcnow(),5,2), '", ',
+      '"day": "', substring(utcnow(),8,2), '"',
+      '}'
+    )
+  }
+  ```
 
 ## Related content
-Learn about another related control flow activity: 
-- [Set Variable Activity](control-flow-set-variable-activity.md)
-- [Append Variable Activity](control-flow-append-variable-activity.md)
 
+Learn about another related control flow activity:
+
+* [Set Variable Activity](control-flow-set-variable-activity.md)
+* [Append Variable Activity](control-flow-append-variable-activity.md)

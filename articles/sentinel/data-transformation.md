@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 02/27/2022
+
+
+#Customer intent: As a security engineer, I want to customize data ingestion and transformation in Microsoft Sentinel so that analysts can filter, enrich, and secure log data efficiently.
+
 ---
 
 # Custom data ingestion and transformation in Microsoft Sentinel
@@ -84,7 +88,6 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | ------------------- | ----------- |
 | **Direct ingestion via [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview)** | Standard DCRs |
 | [**AMA standard logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md)<li>[Windows Forwarded Events](./data-connectors/windows-forwarded-events.md)<li>[CEF data](connect-cef-ama.md)<li>[Syslog data](connect-cef-syslog.md) | Standard DCRs |
-| [**MMA standard logs**](connect-services-windows-based.md), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
 | [**Diagnostic settings-based connections**](connect-services-diagnostic-setting-based.md) | Workspace transformation DCRs, based on the [supported output tables](/azure/azure-monitor/logs/tables-feature-support) for specific data connectors |
 | **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-services-api-based.md)<li>[Microsoft Entra ID](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](/azure/azure-monitor/logs/tables-feature-support) for specific data connectors |
 | **Built-in, API-based data connector**, such as: <li>[Codeless data connectors](create-codeless-connector.md) | Standard DCRs |
@@ -101,7 +104,7 @@ Only the following tables are currently supported for custom log ingestion:
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
 - [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
-- **ASimAuthenticationEventLogs**
+- [**ASimAuthenticationEventLogs**](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
 - [**ASimFileEventLogs**](/azure/azure-monitor/reference/tables/asimfileeventlogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
@@ -115,7 +118,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible. AMA-based data connectors use the configuration you define in the associated DCR for input and output streams and transformations, and ignore the workspace transformation DCR.
 
 - The following configurations are supported only via API:
 
@@ -123,7 +126,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
     - Standard DCRs for custom log ingestion to a standard table.
 
-- It make take up to 60 minutes for the data transformation configurations to apply.
+- It may take up to 60 minutes for the data transformation configurations to apply.
 
 - KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations) in the Azure Monitor documentation.
 

@@ -57,7 +57,7 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 ## Upgrade procedure
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
-### Create new NFDV template
+### Create new NFDV resource
 For new NFDV versions, it must be in a valid SemVer format, where only higher incrementing values of patch and minor versions updates are allowed. A lower NFDV version is not allowed. Given a CNF deployed using NFDV 2.0.0, the new NFDV can be of version 2.0.1, or 2.1.0, but not 1.0.0, or 3.0.0. 
 
 ### Update new NFDV parameters
@@ -94,6 +94,8 @@ In the NFDV resource, under deployParametersMappingRuleProfile there is the prop
 For the applicationEnablement property, the publisher has two options: either provide a default value or parameterize it. 
 
 #### Sample NFDV
+The NFDV is used by publisher to set default values for applicationEnablement.
+
 ```json
 { 
       "location":"<location>", 
@@ -150,10 +152,9 @@ For the applicationEnablement property, the publisher has two options: either pr
 }
 ```
 
-### Operator changes
-Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at runtime. 
-
 #### Sample configuration group schema (CGS) resource
+The CGS is used by publisher to require the roleOverrideValues variable(s) to be provided by Operator at runt-time. These roleOverrideValues can include non-dedfault settings for applicationEnablement.
+
 ```json
 {
   "type": "object",
@@ -207,8 +208,13 @@ Operators specify applicationEnablement as defined by the NFDV. If applicationEn
   ]
 }
 ```
+
+### Operator changes
+Operators inherity default applicationEnablement values as defined by the NFDV. If applicationEnablement is parameterized in CGS, then it must be passed through the deploymentValues property at runtime. 
  
 #### Sample configuration group value (CGV) resource
+The CGV is used by operator to set the roleOverrideValues variable(s) at runt-time. The roleOverrideValues includes a non-dedfault settings for applicationEnablement.
+
 ```json
 {
   "location": "<location>",
@@ -225,7 +231,9 @@ Operators specify applicationEnablement as defined by the NFDV. If applicationEn
 }
 ```
 
-#### Sample NF template
+#### Sample NF ARM template
+The NF ARM template is used by operator to submit the roleOverrideValues variable(s), set by CGV, to the resource provider (RP). The operator can change the applicationEnablement setting in CGV, as needed, and resubmit the same NF ARM template, to alter behavior between iterations.
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

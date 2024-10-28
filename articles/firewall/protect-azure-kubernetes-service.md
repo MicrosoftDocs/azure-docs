@@ -26,7 +26,7 @@ However, in a production environment, communications with a Kubernetes cluster s
 
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
-See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
+See the following video for a quick overview on how this works in practice on a sample environment:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
 

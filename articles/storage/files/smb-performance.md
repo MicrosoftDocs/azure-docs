@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 09/09/2024
+ms.date: 10/03/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -28,7 +28,7 @@ The following tips might help you optimize performance:
 - Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
+- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
 - Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
@@ -167,27 +167,73 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for premium SMB file shares
 
-Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
+Metadata caching is an enhancement for premium SMB Azure file shares aimed to improve the following:
+
+- Reduce metadata latency
+- Raised metadata scale limits
+- Increase latency consistency, available IOPS, and boost network throughput
+
+This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
 
 - Create
 - Open
 - Close
 - Delete
 
-To onboard, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+
+### Register for the feature
+To get started, register for the feature using Azure portal or PowerShell.
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+2. Search for and select **Preview features**.
+3. Select the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Premium Files Metadata Cache Preview** and then select **Register**.
+
+# [Azure PowerShell](#tab/powershell)
+
+To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
+
+```azurepowershell-interactive
+Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
+Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -ProviderNamespace Microsoft.Storage 
+```
+---
 
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions.
+Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
-- Australia East
-- Brazil South East
-- France South
+- Asia East
+- Australia Central
+- Brazil South
+- Canada Central
+- France Central
 - Germany West Central
+- Japan East
+- Japan West
+- Jio India West
+- India Central
+- India South
+- Korea Central
+- Mexico Central
+- Norway East
+- Poland Central
+- Qatar Central
+- Spain Central
+- Sweden Central
 - Switzerland North
-- UAE Central
 - UAE North
+- UK West
+- UK South
+- US South Central
 - US West Central
+- US West 3
+
+> [!TIP]
+> As we extend region support for the Metadata Cache feature, premium file storage accounts in those regions will be automatically onboarded for all subscriptions registered with the Metadata Caching feature.
 
 ### Performance improvements with metadata caching
 

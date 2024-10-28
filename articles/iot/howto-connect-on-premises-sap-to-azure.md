@@ -3,7 +3,7 @@ title: "Connecting on-premises SAP systems to Azure"
 description: "Step by step guide about that shows how to connect an on-premises SAP Enterprise Resource Planning system to Azure."
 author: barnstee
 ms.author: erichb
-ms.service: iot
+ms.service: azure-iot
 ms.topic: how-to #Don't change.
 ms.date: 4/14/2024
 

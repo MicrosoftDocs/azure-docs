@@ -17,8 +17,9 @@ This page shows supported authentication methods and clients to connect Apache K
 Service Connector can be used to connect the following compute services to Apache Kafka on Confluent Cloud:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported Authentication types and client types

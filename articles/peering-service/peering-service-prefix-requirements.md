@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 07/23/2023
+ms.date: 10/08/2024
 ---
 
 # Azure Peering Service prefix requirements
@@ -29,7 +29,7 @@ The validation state of a Peering Service prefix can be seen in the Azure portal
 
 :::image type="content" source="./media/peering-service-prefix-requirements/prefix-validation-failed.png" alt-text="Screenshot of Peering Service prefixes with failed validation state.":::
 
-Prefixes can only be activated when all validation steps have passed. See the following possible validation errors and the troubleshooting steps to solve them.
+Prefixes can only be activated after all validation steps pass. See the following possible validation errors and the troubleshooting steps to solve them.
 
 ### Provider has fewer than two sessions in its primary location
 
@@ -45,7 +45,7 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 ### Peering service prefix is invalid
 
-If you're seeing this validation failure message, the prefix string that you've given isn't a valid IPv4 prefix. Delete and re-create this peering service prefix with a valid IPv4 address.
+If you're seeing this validation failure message, the prefix string that you gave isn't a valid IPv4 prefix. Delete and re-create this peering service prefix with a valid IPv4 address.
 
 ### Not receiving prefix advertisement from IP for prefix
 
@@ -85,6 +85,7 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 **A.**   To make this work with Peering Service, you must create a peer ASN in the same subscription as the peering service resource, and give it the same name as the peer ASN associated with the peering: [[Associate peer ASN to Azure subscription using the Azure portal](../internet-peering/howto-subscription-association-portal.md)]. 
 
-## Next steps
+## Next step
 
-[Peering Service customer walkthrough](customer-walkthrough.md)
+> [!div class="nextstepaction"]
+> [Peering Service customer walkthrough](customer-walkthrough.md)
