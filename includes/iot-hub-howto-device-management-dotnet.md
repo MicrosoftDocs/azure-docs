@@ -11,6 +11,8 @@ ms.date: 10/09/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
+  * **.NET SDK** - Requires Visual Studio.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) to create device and backend service application code for device direct messages.
@@ -85,7 +87,7 @@ catch (Exception ex)
 }
 ```
 
-In this example, the `onReboot` callback method implements the direct method on the device. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
+In this example, the `onReboot` callback method implements the direct method on the device. This code updates reported properties related to a device reboot. The reported properties can be read and verified by a IoT Hub or backend application, as demonstrated in the [Create a backend application](#create-a-backend-application) section of this article.
 
 ```csharp
 static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
@@ -124,7 +126,7 @@ static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userCon
 
 ### SDK device samples
 
-The Azure IoT SDK for .NET provides working samples of device apps that handle device message tasks. For more information, see:
+The Azure IoT SDK for .NET provides working samples of device apps that handle direct method tasks. For more information, see:
 
 * [Method Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/MethodSample)
 * [Simulated Device with Command](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/SimulatedDeviceWithCommand)
@@ -133,9 +135,9 @@ The Azure IoT SDK for .NET provides working samples of device apps that handle d
 
 ## Create a backend application
 
-This section describes how to initiate a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+This section describes how to trigger a direct method on a device and then use device twin queries to monitor the status of that device.
 
-The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class exposes all methods required to create a backend application to send messages to devices.
+The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class exposes all methods required to create a backend application to send direct method calls to devices.
 
 ### Required service NuGet package
 
@@ -152,7 +154,7 @@ Add the following `using` statements.
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring?#microsoft-azure-devices-serviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-serviceclientoptions)).
+Connect a backend application using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring?#microsoft-azure-devices-serviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-serviceclientoptions)).
 
 To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
@@ -174,7 +176,7 @@ To invoke a method on a device:
 1. Create a [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod) object. Pass the device direct method name as a parameter.
 1. Call [InvokeDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.serviceclient.invokedevicemethodasync?#microsoft-azure-devices-serviceclient-invokedevicemethodasync(system-string-microsoft-azure-devices-cloudtodevicemethod-system-threading-cancellationtoken)) to invoke the method on the device.
 
-This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback** section of this article.
+This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the [Create a direct method callback](#create-a-direct-method-callback) section of this article.
 
 ```csharp
 CloudToDeviceMethod method = new CloudToDeviceMethod("reboot");

@@ -24,11 +24,11 @@ The device is responsible for:
 
 * Initiating the corresponding device-specific action on the device.
 
-* Providing status updates through *reported properties* to IoT Hub.
+* Providing status updates through reported properties to IoT Hub.
 
 The back-end app can run device twin queries to report on the progress of the device management actions.
 
-This article shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub:
+This article shows you how a back-end app and a device app can work together to initiate and monitor a remote device action using direct methods and device twins. For this article, we use a device reboot as an example:
 
 * A service app calls a direct method to reboot in a device app through an IoT hub. The service app then displays the response and updated reported properties.
 * A device app handles a direct method to reboot a device and updates the last reboot time.
@@ -47,23 +47,7 @@ This article shows you how a back-end app and a device app can work together to 
 * If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Language SDK requirements:
-  * **.NET SDK** - Requires Visual Studio.
-  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
-    * Device applications require the **azure-iot-device** package. You can install the package using this command:
-
-      ```cmd/sh
-        pip install azure-iot-device
-      ```
-
-    * Service applications require the **azure-iot-hub** package. You can install the package using this command:
-
-      ```cmd/sh
-        pip install azure-iot-hub
-      ```
-
-  * **Java** - Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
-  * **Node.js** - Requires Node.js version 10.0.x or later.
 
 :::zone pivot="programming-language-csharp"
 

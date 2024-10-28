@@ -11,6 +11,8 @@ ms.date: 10/09/2024
 ms.custom: mqtt, devx-track-js
 ---
 
+  * **Node.js** - Requires Node.js version 10.0.x or later.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create device and backend service application code for device direct methods.

@@ -11,6 +11,20 @@ ms.date: 10/09/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
+  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+
+    * Device applications require the **azure-iot-device** package. You can install the package using this command:
+
+      ```cmd/sh
+        pip install azure-iot-device
+      ```
+
+    * Service applications require the **azure-iot-hub** package. You can install the package using this command:
+
+      ```cmd/sh
+        pip install azure-iot-hub
+      ```
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create device and backend service application code for device direct methods.
