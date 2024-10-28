@@ -56,7 +56,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 1.	In the left navigation of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Policies**.
 1.	On the **Policies** page, select **Create** to initiate the wizard.
 1.	On the **New Backup Policy** page, select the vCenter Server that uses the policy, then enter the policy name and a description.
-* **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters aren't supported. 
+    * **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters aren't supported. 
 1.	Specify the retention settings.
     The maximum retention value is 255 backups. If the **Backups to keep** option is selected during the backup operation, Cloud Backup for Virtual Machines retains backups within the specified retention count and deletes the backups that exceed the retention count.
 1. Choose **Back up using Azure NetApp Files** if you want to use Azure NetApp Files as a backup. Specify the retention settings. If the "Backups to keep" option is selected, Cloud Backup for Virtual Machines retains backups within the specified retention count and deletes the backups that exceed the retention count. The maximum retention value is 255 backups.
