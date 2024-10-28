@@ -73,7 +73,7 @@ In the following example, whenever the request URL contains `/article`, the URL 
     
     1. Enter a regular expression pattern. In this example, we use the pattern `.*article/(.*)/(.*)`
     
-      Parentheses ( ) are used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [Pattern matching and capturing](rewrite-http-headers-url.md#pattern-matching-and-capturing).
+       Parentheses ( ) are used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [Pattern matching and capturing](rewrite-http-headers-url.md#pattern-matching-and-capturing).
 
     1. Select **OK**.
 
