@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Create a service connection in App Service from the Azure portal
+title: 'Quickstart: Create a service connection in App Service'
 description: Quickstart showing how to create a service connection in App Service from the Azure portal
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/05/2023
+ms.date: 10/22/2024
 #Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
 ---
 
@@ -45,7 +45,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 1. Select **Next: Authentication** to choose an authentication method.
 
-    ### [System-assigned managed identity](#tab/SMI)
+    ### [System-assigned managed identity (recommended)](#tab/SMI)
 
     System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Microsoft Entra ID and tied to the lifecycle of the service instance.
 

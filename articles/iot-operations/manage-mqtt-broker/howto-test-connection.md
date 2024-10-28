@@ -41,6 +41,12 @@ The first option is to connect from within the cluster. This option uses the def
 
     ```yaml
     apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: mqtt-client
+      namespace: azure-iot-operations
+    ---
+    apiVersion: v1
     kind: Pod
     metadata:
       name: mqtt-client
@@ -48,7 +54,7 @@ The first option is to connect from within the cluster. This option uses the def
       # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
       namespace: azure-iot-operations
     spec:
-      # Use the "mqtt-client" service account which comes with default deployment
+      # Use the "mqtt-client" service account created from above
       # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
       serviceAccountName: mqtt-client
       containers:
@@ -72,7 +78,7 @@ The first option is to connect from within the cluster. This option uses the def
               expirationSeconds: 86400
       - name: trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only # Default root CA cert
+          name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
     ```
 
 1. Use `kubectl apply -f client.yaml` to deploy the configuration. It should only take a few seconds to start.
@@ -128,10 +134,10 @@ The first option is to connect from within the cluster. This option uses the def
 
 Since the broker uses TLS, the client must trust the broker's TLS certificate chain. You need to configure the client to trust the root CA certificate used by the broker.
 
-To use the default root CA certificate, download it from the `aio-ca-trust-bundle-test-only` ConfigMap:
+To use the default root CA certificate, download it from the `azure-iot-operations-aio-ca-trust-bundle` ConfigMap:
 
 ```bash
-kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
+kubectl get configmap azure-iot-operations-aio-ca-trust-bundle -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
 ```
 
 Use the downloaded `ca.crt` file to configure your client to trust the broker's TLS certificate chain.

@@ -1,7 +1,7 @@
 ---
 title: Configure Private Endpoint network access to Azure Health Data Services de-identification service
 description: Learn how to restrict network access to your de-identification service.
-ms.date: 09/26/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 author: jovinson-ms
 ms.author: jovinson
@@ -20,10 +20,6 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 ## Add a private endpoint using the Azure portal
 
 ### Prerequisites
-
-> [!IMPORTANT]
-> Before enabling Private Endpoint access to your de-identification service (preview), you will need to [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) to request access to this feature for your subscription.
-> Create the request under **Azure Health Data Services > General question > De-identification service > Configuration and management**
 
 - A de-identification service in your Azure subscription. If you don't have a de-identification service, follow the steps in [Quickstart: Deploy the de-identification service](quickstart.md).
 - Owner or contributor permissions for the de-identification service.
