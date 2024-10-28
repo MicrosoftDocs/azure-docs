@@ -73,9 +73,10 @@ You can sync triggers in one of three ways:
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header).
 
 + Use the [az rest](/cli/azure/reference-index#az-rest) command to send an HTTP POST request that calls the `syncfunctiontriggers` API: 
+
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>/syncfunctiontriggers?api-version=2016-08-01
-
+```
 When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
 The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
 
