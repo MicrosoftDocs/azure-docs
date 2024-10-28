@@ -43,7 +43,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 # [PowerShell](#tab/azure-powershell)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. There is also a sample that you can use to create an Elastic SAN that has autoscaling enabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) (preview) enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -54,9 +54,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<Location>`                     | The region where the new resources will be created. |
 | `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 | `<AutoScalePolicyEnforcement>`   | The setting that determines whether or not autoscaling is enabled for the Elastic SAN. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
-| `<UnusedSizeTiB>`                | The unused size that you want to have on your Elastic SAN. If you use more space than this amount, the scale-up operation gets triggered. This is a required to set up autoscaling. |
-|`<IncreaseCapacityUnitByTiB>`     | The number of capacity-only units you want to scale up by when autoscale gets triggered. |
-|`<CapacityUnitScaleUpLimit>`      | The maximum size you want autoscaling to grow your SAN to. |
+| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional, but it is required to enable autoscaling. |
+|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but required to enable autoscaling. |
+|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. |
 
 The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
@@ -86,7 +86,7 @@ $EsanVgName = "<ElasticSanVolumeGroupName>"
 $VolumeName = "<VolumeName>"
 $Location   = "<Location>"
 $Zone       = <Zone>
-$AutoScalePolicyEnforcement = "<AutoScalePolicyEnforcement>"
+$AutoScalePolicyEnforcement = "Enabled"
 $UnusedSizeTiB = <UnusedSizeTiB>
 $IncreaseCapacityUnitByTiB = <IncreaseCapacityUnitByTiB>
 $CapacityUnitScaleUpLimit = <CapacityUnitScaleUpLimit>
@@ -98,7 +98,7 @@ Connect-AzAccount
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS -AutoScalePolicyEnforcement $AutoScalePolicyEnforcement -UnusedSizeTiB $UnusedSizeTiB -IncreaseCapacityUnitByTiB $IncreaseCapacityUnitByTiB -CapacityUnitScaleUpLimit $CapacityUnitScaleUpLimit
 ```
 
-The following command creates an Elastic SAN that uses **zone-redundant** storage.
+The following command creates an Elastic SAN that uses zone-redundant storage, without enabling autoscale.
 
 ```azurepowershell
 # Define some variables.
@@ -114,7 +114,7 @@ New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. There is also a sample that you can use to create an Elastic SAN that has autoscaling enabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) (preview) enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -125,12 +125,12 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<Location>`                     | The region where the new resources will be created. |
 | `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 | `<AutoScalePolicyEnforcement>`   | The setting that determines whether or not autoscaling is enabled for the Elastic SAN. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
-| `<UnusedSizeTiB>`                | The unused size that you want to have on your Elastic SAN. If you use more space than this amount, the scale-up operation gets triggered. This is a required to set up autoscaling. |
-|`<IncreaseCapacityUnitByTiB>`     | The number of capacity-only units you want to scale up by when autoscale gets triggered. |
-|`<CapacityUnitScaleUpLimit>`      | The maximum size you want autoscaling to grow your SAN to. |
+| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional, but it is required to enable autoscaling. |
+|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but required to enable autoscaling. |
+|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. |
 
 
-The following command creates an Elastic SAN that uses **locally redundant** storage without autoscaling enabled.
+The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
 ```azurecli
 # Define some variables.
@@ -148,7 +148,7 @@ az login
 az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
 ```
 
-The following command creates an Elastic SAN that uses **locally redundant** storage **with** autoscaling enabled.
+The following command creates an Elastic SAN that uses locally redundant storage with autoscaling enabled.
 
 ```azurecli
 # Define some variables.
@@ -158,7 +158,7 @@ EsanVgName="<ElasticSanVolumeGroupName>"
 VolumeName="<VolumeName>"
 Location="<Location>"
 Zone=<Zone>
-AutoScalePolicyEnforcement="<AutoScalePolicyEnforcement>"
+AutoScalePolicyEnforcement="Enabled"
 UnusedSizeTiB="<UnusedSizeTiB>"
 IncreaseCapacityUnitByTiB="<IncreaseCapacityUnitByTiB>"
 CapacityUnitScaleUpLimit="<CapacityUnitScaleUpLimit>"
@@ -170,7 +170,7 @@ az login
 az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone --auto-scale-policy-enforcement $AutoScalePolicyEnforcement --unused-size-tib $UnusedSizeTiB --increase-capacity-unit-by-tib $IncreaseCapacityUnitByTiB --capacity-unit-scale-up-limit $CapacityUnitScaleUpLimitTiB
 ```
 
-The following command creates an Elastic SAN that uses **zone-redundant** storage.
+The following command creates an Elastic SAN that uses zone-redundant storage, with autoscaling disabled.
 
 ```azurecli
 # Define some variables.
