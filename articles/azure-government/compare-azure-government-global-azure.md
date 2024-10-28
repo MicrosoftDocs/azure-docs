@@ -263,8 +263,8 @@ The following features have known limitations in Azure Government:
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
-- Limitations with multi-factor authentication:
-    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+- Limitations with multifactor authentication:
+    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and shouldn't be required based off the user's current IP address.
 
 ### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
@@ -341,7 +341,7 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
-The following Azure Cost Management + Billing **features aren't currently available** in Azure Government:
+The following Microsoft Cost Management + Billing **features aren't currently available** in Azure Government:
 
 - Cost Management + Billing for cloud solution providers (CSPs)
 

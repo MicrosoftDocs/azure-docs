@@ -266,8 +266,8 @@ For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU 
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
-- If the sizing criteria is **performance-based** and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
-- If the sizing criteria is **as on premises** and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
+- If the sizing criterion is **performance-based** and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
+- If the sizing criterion is **as on premises** and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 
@@ -294,7 +294,7 @@ Using the 95th percentile value ensures that outliers are ignored. Outliers migh
 
 Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
 
- - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
+ - The readiness criterion is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?

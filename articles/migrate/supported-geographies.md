@@ -10,6 +10,7 @@ ms.date: 10/28/2024
 # Supported geographies 
 
 <!--#### [Azure Public cloud](#tab/public)-->
+This article provides detailed information on the geographies where Azure Migrate is supported, including the specific regions where metadata is stored for different types of Azure clouds. 
 
 ## Public cloud
 
@@ -62,4 +63,6 @@ Target replication | United States | Target regions: US DoD Central, US DoD East
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
 
----
+## Next steps
+
+[Review](migrate-support-matrix.md) the Azure Migrate Support Matrix for more information.
