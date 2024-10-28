@@ -5,7 +5,7 @@ description: Learn how to get a container or blob URL in Azure Storage by using 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
@@ -20,10 +20,8 @@ You can get a container or blob URL by using the `url` property of the client ob
 - [BlobClient.url](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-url)
 - [BlockBlobClient.url](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-url)
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
-
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article.
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript/TypeScript](storage-blob-javascript-get-started.md) article.
  
 ## Get a URL for a container or blob
 
@@ -40,7 +38,11 @@ The following example gets a container URL and a blob URL by accessing the clien
 ---
 
 > [!TIP]
-> For loops, you must use the object's `name` property to create a client then get the URL with the client. Iterators don't return client objects, they return item objects. 
+> When iterating over objects in a loop, use the object's `name` property to create a client, then get the URL with the client. Iterators don't return client objects, they return item objects. 
+
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/get-url.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-get-url.ts) code samples from this article (GitHub)
 
 ## See also
 
