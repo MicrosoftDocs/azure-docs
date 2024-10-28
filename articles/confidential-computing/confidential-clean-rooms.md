@@ -59,13 +59,13 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 - For further questions on onboarding reach out to  CleanRoomPMTeam@microsoft.com.
 - After reviewing details, we will reach out to you with detailed steps for onboarding.
 
-##Frequently asked questions
+## Frequently asked questions
 
 - Question: Where is the location Microsoft published side cars?
-- Answer: The Microsoft published side cars are available at: https://mcr.microsoft.com/cleanroom 
+  Answer: The Microsoft published side cars are available at: https://mcr.microsoft.com/cleanroom 
 
 - Question: Can more than two collaborators participate in a collaboration?
-- Answer: Yes, more than two collaborators can become part of collaboration. This allows multiple data providers to share data in the clean room.
+  Answer: Yes, more than two collaborators can become part of collaboration. This allows multiple data providers to share data in the clean room.
 
 If you have questions about Azure Confidential Clean Rooms, reach out to <accrsupport@microsoft.com>.
 
