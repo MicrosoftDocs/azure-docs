@@ -11,7 +11,7 @@ ms.author: malev
 
 # Import settings to App Configuration with Azure Pipelines
 
-The Azure App Configuration Import task imports key-values from a configuration file into your App Configuration store. This task enables full circle functionality within the pipeline as you're now able to export settings from the App Configuration store as well as import settings to the App Configuration store.
+The Azure App Configuration Import task imports key-values from a configuration file into your App Configuration store. This task enables full circle functionality within the pipeline as you're now able to export settings from the App Configuration store and import settings to the App Configuration store.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Assign the proper App Configuration role assignments to the credentials being us
 
 ## Use in builds
 
-This section will cover how to use the Azure App Configuration Import task in an Azure DevOps build pipeline.
+This section covers how to use the Azure App Configuration Import task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For more information about build pipelines got to [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
@@ -53,14 +53,14 @@ This section will cover how to use the Azure App Configuration Import task in an
 1. Search for the **Azure App Configuration Import** Task.
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the Add Task dialog with Azure App Configuration Import in the search box.](./media/add-azure-app-configuration-import-task.png)
-1. Configure the necessary parameters for the task to import key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
+1. Configure the necessary parameters for the task to import key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section, and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the app configuration import task parameters.](./media/azure-app-configuration-import-parameters.png)
-1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
+1. Save and queue a build. The build log displays any failures that occurred during the execution of the task.
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Import task in an Azure DevOps release pipeline.
+This section covers how to use the Azure App Configuration Import task in an Azure DevOps release pipeline.
 
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For more information about release pipelines, go to [Create your first relase pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
@@ -72,8 +72,8 @@ This section will cover how to use the Azure App Configuration Import task in an
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration Import** into the search box and select it.
-1. Configure the necessary parameters within the task to import your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
-1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
+1. Configure the necessary parameters within the task to import your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section, and in tooltips next to each parameter.
+1. Save and queue a release. The release log displays any failures encountered during the execution of the task.
 
 ## Parameters
 
@@ -84,23 +84,23 @@ The following parameters are used by the App Configuration Import task:
 - **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). The supported file formats depend on the file content profile. For the default profile the supported file formats are yaml, json and properties. For KvSet profile the supported file format is json.
 - **File Content Profile**: The Configuration File's [content profile](./concept-config-file.md). Default value is **Default**.
      - **Default**: Refers to the conventional configuration file formats that are directly consumable by applications.
-     - **Kvset**: Refers to a [file schema](https://aka.ms/latest-kvset-schema) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not applicable when using the Kvset profile.
+     - **Kvset**: Refers to a [file schema](https://aka.ms/latest-kvset-schema) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' aren't applicable when using the Kvset profile.
 - **Import Mode**: The default value is **All**. Determines the behavior when importing key-values.
     - **All**: Imports all key-values in the configuration file to App Configuration. 
-    - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration. Matching key-values are considered to be key-values with the same key, label, value, content type and tags.
+    - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration. Matching key-values are considered to be key-values with the same key, label, value, content type, and tags.
 - **Dry Run**: Default value is **Unchecked**.
-   - **Checked**: No updates will be performed to App Configuration. Instead any updates that would have been performed in a normal run will be printed to the console for review.
-   - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
+   - **Checked**: No updates are performed to App Configuration. Instead any updates that would have been performed in a normal run are printed to the console for review.
+   - **Unchecked**: Performs any updates to App Configuration and doesn't print to the console.
 - **Separator**: The separator that's used to flatten .json and .yml files.
-- **Depth**: The depth that the .json and .yml files will be flattened to.
-- **Prefix**: A string that's appended to the beginning of each key imported to the App Configuration store.
-- **Label**: A string that's added to each key-value as the label within the App Configuration store.
-- **Content Type**: A string that's added to each key-value as the content type within the App Configuration store.
+- **Depth**: The depth that the .json and .yml files are flattened to.
+- **Prefix**: A string appended to the beginning of each key imported to the App Configuration store.
+- **Label**: A string added to each key-value as the label within the App Configuration store.
+- **Content Type**: A string added to each key-value as the content type within the App Configuration store.
 - **Tags**: A JSON object in the format of `{"tag1":"val1", "tag2":"val2"}`, which defines tags that are added to each key-value imported to your App Configuration store.
 - **Delete key-values that are not included in the configuration file**: Default value is **Unchecked**. The behavior of this option depends on the configuration file content profile.
    - **Checked**:
        - **Default content profile**: Removes all key-values in the App Configuration store that match both the specified prefix and label before importing new key-values from the configuration file.
-       - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before importing new key-values from the configuration file.
+       - **Kvset content profile**: Removes all key-values in the App Configuration store that aren't included in the configuration file before importing new key-values from the configuration file.
    - **Unchecked**: Imports all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
 
 
@@ -113,15 +113,15 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 **How can I upload multiple configuration files?**
 
-Create multiple instances of the Azure App Configuration Import task within the same pipeline to import multiple configuration files to the App Configuration store.
+To import multiple configuration files to the App Configuration store, create multiple instances of the Azure App Configuration Import task within the same pipeline.
 
 **How can I create Key Vault references or feature flags using this task?**
 
-Depending on the file content profile you selected, please refer to examples in the [Azure App Configuration support for configuration file](./concept-config-file.md).
+Depending on the file content profile you selected, refer to examples in the [Azure App Configuration support for configuration file](./concept-config-file.md).
 
 **Why am I receiving a 409 error when attempting to import key-values to my configuration store?**
 
-A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+A 409 Conflict error message occurs if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
 
 ## Next step
 

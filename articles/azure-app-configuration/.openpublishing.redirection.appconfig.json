@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/push-kv-devops-pipeline.md",
+            "redirect_url": "/articles/azure-app-configuration/import-kv-devops-pipeline.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/pull-key-value-devops-pipeline.md",
+            "redirect_url": "/articles/azure-app-configuration/export-key-value-devops-pipeline.md",
+            "redirect_document_id": true
+        }
+    ]
+}

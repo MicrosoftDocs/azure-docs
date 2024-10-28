@@ -112,10 +112,10 @@
         href: reload-key-vault-secrets-dotnet.md
   - name: Build, deploy, and CI/CD
     items:
-    - name: Push using Azure Pipelines
-      href: push-kv-devops-pipeline.md
-    - name: Pull using Azure Pipelines
-      href: pull-key-value-devops-pipeline.md
+    - name: Import using Azure Pipelines
+      href: import-kv-devops-pipeline.md
+    - name: Export using Azure Pipelines
+      href: export-key-value-devops-pipeline.md
     - name: Create snapshots using Azure Pipelines
       href: create-snapshot-devops-pipeline.md
     - name: Push using GitHub Actions

@@ -12,7 +12,7 @@ ms.date: 05/30/2024
 
 Files are one of the most common ways to store configuration data. To help you start quickly, App Configuration has tools to assist you in [importing your configuration files](./howto-import-export-data.md), so you don't have to type in your data manually. This operation is a one-time data migration if you plan to manage your data in App Configuration after importing them. In some other cases, for example, where you adopt [configuration as code](./howto-best-practices.md#configuration-as-code), you may continue managing your configuration data in files and importing them as part of your CI/CD process recurrently. You may find one of these two scenarios applies to you:
 
-- You keep the configuration file in the format you had before. This format is helpful if you want to use the file as the fallback configuration for your application or the local configuration during development. When you import the configuration file, specify how you want the data transformed to App Configuration key-values. This option is the [**default file content profile**](#file-content-profile-default) in App Configuration importing tools such as portal, Azure CLI, Azure Pipeline Push task, GitHub Actions, etc.
+- You keep the configuration file in the format you had before. This format is helpful if you want to use the file as the fallback configuration for your application or the local configuration during development. When you import the configuration file, specify how you want the data transformed to App Configuration key-values. This option is the [**default file content profile**](#file-content-profile-default) in App Configuration importing tools such as portal, Azure CLI, Azure Pipeline Import task, GitHub Actions, etc.
 - You keep the configuration file in the format that contains all App Configuration key-value properties. When you import the file, you don't need to specify any transformation rules because all properties of a key-value is already in the file. This option is called [**KVSet file content profile**](#file-content-profile-kvset) in App Configuration importing tools. It's helpful if you want to manage all your App Configuration data, including regular key-values, Key Vault references, and feature flags, in one file and import them in one shot.
 
 The rest of this document will discuss both file content profiles in detail and use Azure CLI as an example. The same concept applies to other App Configuration importing tools too.
@@ -118,7 +118,7 @@ az appconfig kv import --profile appconfig/kvset --name <your store name> --sour
 > [!NOTE]
 > The KVSet file content profile is currently supported in
 > - Azure CLI version 2.30.0 or later
-> - [Azure App Configuration Push Task](./push-kv-devops-pipeline.md) version 3.3.0 or later
+> - [Azure App Configuration Import Task](./import-kv-devops-pipeline.md) version 10.0.0 or later
 
 The following table shows all the imported data in your App Configuration store.
 

@@ -18,7 +18,7 @@ This article explains how to use data from Azure App Configuration in a continuo
 
 ## Use App Configuration in your Azure DevOps Pipeline
 
-If you have an Azure DevOps Pipeline, you can fetch key-values from App Configuration and set them as task variables. The Azure App Configuration DevOps extension is an add-on module that provides this functionality. [Get this module](https://go.microsoft.com/fwlink/?linkid=2091063) and refer to [Pull settings from App Configuration with Azure Pipelines](./pull-key-value-devops-pipeline.md) for instructions to use it in your Azure Pipelines.
+If you have an Azure DevOps Pipeline, you can fetch key-values from App Configuration and set them as task variables. The Azure App Configuration DevOps extension is an add-on module that provides this functionality. [Get this module](https://go.microsoft.com/fwlink/?linkid=2091063) and refer to [Export settings from App Configuration with Azure Pipelines](./export-key-value-devops-pipeline.md) for instructions to use it in your Azure Pipelines.
 
 ## Deploy App Configuration data with your application
 

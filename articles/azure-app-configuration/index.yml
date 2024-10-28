@@ -108,10 +108,10 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-push-refresh.md
       - linkListType: tutorial
         links:
-        - text: Push data using Azure Pipelines
-          url: push-kv-devops-pipeline.md
-        - text: Pull data using Azure Pipelines
-          url: pull-key-value-devops-pipeline.md
+        - text: Import data using Azure Pipelines
+          url: import-kv-devops-pipeline.md
+        - text: Export data using Azure Pipelines
+          url: export-key-value-devops-pipeline.md
         - text: Push data using GitHub Actions
           url: push-kv-github-action.md
         - text: Export to project configuration file
