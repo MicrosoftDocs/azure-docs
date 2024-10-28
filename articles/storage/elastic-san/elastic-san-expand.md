@@ -48,8 +48,10 @@ Here, X is the amount of storage capacity you require to be unused. Y is the inc
   
 If you want to scale down your SAN, you need to do it manually by following the process outlined earlier. If you have configured an autoscaling policy and the amount in TiB by which you are scaling down the SAN is greater than the value of the unused capacity field set in the policy, the request fails and you'll have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the unused capacity should be 2 TiB, you can't reduce the total size of the SAN by 4 TiB because it would leave less than 2 TiB of unused capacity.
 
-# [PowerShell](#tab/azure-powershell-autoscale)
 
+
+# [PowerShell](#tab/azure-powershell-autoscale)
+Here is a script you can run to enable autoscale for a SAN that has already been created.
 ```azurepowershell
 # Define some variables.
 autoscalePolicyEnforcement = "<Enabled or Disabled>" # Whether autoscale is enabled or disabled at the SAN level
@@ -57,11 +59,11 @@ unusedSizeTiB = "<UnusedSizeTiB>" # Unused capacity on the SAN
 increaseCapacityUnit = "<IncreaseCapacityUnit>" # Amount by which the SAN will scale up if the policy is triggered
 capacityUnitScaleUpLimit = "<CapacityUnitScaleUpLimit>" # Maximum capacity until which scale up operations will occur
 
-Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoScalePolicyEnforcement $autoscalePolicyEnforcement -UnusedSizeTiB $unusedSizeTiB -IncreaseCapacityUnitByTiB $increaseCapacityUnit -CapacityUnitScaleUpLimitTiB $capacityUnitScaleUpLimit  
+Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoScalePolicyEnforcement "Enabled" -UnusedSizeTiB $unusedSizeTiB -IncreaseCapacityUnitByTiB $increaseCapacityUnit -CapacityUnitScaleUpLimitTiB $capacityUnitScaleUpLimit  
 ```
 
 # [Azure CLI](#tab/azure-cli-autoscale)
-
+Here is a script you can run to enable autoscale for a SAN that has already been created.
 ```azurecli
 # Define some variables.
 autoscalePolicyEnforcement = "<Enabled or Disabled>" # Whether autoscale is enabled or disabled at the SAN level
@@ -69,7 +71,7 @@ unusedSizeTiB = "<UnusedSizeTiB>" # Unused capacity on the SAN
 increaseCapacityUnit = "<IncreaseCapacityUnit>" # Amount by which the SAN will scale up if the policy is triggered
 capacityUnitScaleUpLimit = "<CapacityUnitScaleUpLimit>" # Maximum capacity until which scale up operations will occur
 
-az elastic-san update -n $sanName -g $resourceGroupName --auto-scale-policy-enforcement $autoscalePolicyEnforcement --unused-size-tib $unusedSizeTiB --increase-capacity-unit-by-tib $increaseCapacityUnit --capacity-unit-scale-up-limit-tib $capacityUnitScaleUpLimit 
+az elastic-san update -n $sanName -g $resourceGroupName --auto-scale-policy-enforcement "Enabled" --unused-size-tib $unusedSizeTiB --increase-capacity-unit-by-tib $increaseCapacityUnit --capacity-unit-scale-up-limit-tib $capacityUnitScaleUpLimit 
 ```
 
 ---
