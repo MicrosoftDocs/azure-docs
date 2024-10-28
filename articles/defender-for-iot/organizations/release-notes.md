@@ -109,9 +109,9 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ### Version 24.1.4
 
-**Release date**: 06/2024
+**Release date**: 07/2024
 
-**Supported until**: 05/2025
+**Supported until**: 07/2025
 
 This version includes the following updates and enhancements:
 
@@ -121,9 +121,9 @@ This version includes the following updates and enhancements:
 
 ### Version 24.1.3
 
-**Release date**: 04/2024
+**Release date**: 06/2024
 
-**Supported until**: 03/2025
+**Supported until**: 06/2025
 
 This version includes the following updates and enhancements:
 
@@ -139,9 +139,9 @@ This version includes the following updates and enhancements:
 
 ### Version 24.1.2
 
-**Release date**: 02/2024
+**Release date**: 04/2024
 
-**Supported until**: 01/2025
+**Supported until**: 04/2025
 
 This version includes the following updates and enhancements:
 
@@ -157,7 +157,7 @@ This version includes the following updates and enhancements:
 
 **Release date**: 12/2023
 
-**Supported until**: 11/2024
+**Supported until**: 12/2024
 
 This version includes the following updates and enhancements:
 
