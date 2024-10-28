@@ -1066,4 +1066,4 @@ CloudEvent properties are passed through for messages that contain the required 
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).

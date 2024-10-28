@@ -115,4 +115,4 @@ The only supported serialization format is Parquet.
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).

@@ -273,4 +273,4 @@ az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP>
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
