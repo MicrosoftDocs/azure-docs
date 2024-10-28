@@ -107,7 +107,7 @@ Degraded means that Resource Health detected a loss in performance in either one
 
 #### Next Steps
 
-Now that you configured an alert rule for your Azure VMware Solution private cloud, you can learn more about: 
+Now that you have configured an alert rule for your Azure VMware Solution private cloud, you can learn more about: 
 
 -  [Azure Resource Health](/azure/service-health/resource-health-overview)
 
@@ -118,7 +118,7 @@ Now that you configured an alert rule for your Azure VMware Solution private clo
 You can also continue with one of the other Azure VMware Solution how-to [guides](/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal)
 
 ## Third-party solutions
-Our application performance monitoring and troubleshooting partners have industry-leading solutions in VMware-based environments that assure the availability, reliability, and responsiveness of applications and services. Our customers adopt many of the solutions integrated with VMware NSX-T Data Center for their on-premises deployments. As one of our key principles, we want to enable them to continue to use their investments and VMware solutions running on Azure. Many of the Independent Software Vendors (ISV) already validated their solutions with Azure VMware Solution.
+Our application performance monitoring and troubleshooting partners have industry-leading solutions in VMware-based environments that assure the availability, reliability, and responsiveness of applications and services. Our customers adopt many of the solutions integrated with VMware NSX-T Data Center for their on-premises deployments. As one of our key principles, we want to enable them to continue to use their investments and VMware solutions running on Azure. Many of the Independent Software Vendors (ISV) already validated their solutions with Azure VMware Solution
 
 You can find more information about these solutions here:
 
