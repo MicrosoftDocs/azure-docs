@@ -157,5 +157,3 @@ landingContent:
           links:
           - text: Virtual network peering
             url: /training/modules/integrate-vnets-with-vnet-peering/
-          - text: Architect network infrastructure in Azure
-            url: /training/paths/architect-network-infrastructure/
