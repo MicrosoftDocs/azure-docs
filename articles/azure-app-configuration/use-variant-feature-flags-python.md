@@ -4,14 +4,14 @@ titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up and use variant feature flags in an App Configuration
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my application.
 author: mrm9084
-ms.author: rossgrambo
+ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/24/2024
+ms.date: 10/28/2024
 ---
 
-# Tutorial: Use variant feature flags in Azure App Configuration
+# Tutorial: Use variant feature flags in Azure App Configuration (preview)
 
 Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. Variants can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
 
