@@ -40,14 +40,13 @@ You are required to register yourself for the feature preview under _Preview Fea
 - Once Enabled the health of your private cloud infrastructure reflects following statuses
 
   
+  - Available
+  
+  - Unavailable
 
-1.  Available
+  - Unknown
 
-1.  Unavailable
-
-1.  Unknown
-
-1.  Degraded
+  - Degraded
 
 ####  
 
@@ -78,6 +77,7 @@ Degraded means that Resource Health detected a loss in performance in either one
 #### ![RHDegraded](media/ecosystem-app-monitoring-solutions/rhdegraded.png)
 
 #### Pre-configured Alarms enabled in Azure Resource Health
+
 
 |Alert Name|Remediation Mode|
 | -------- | -------- |
