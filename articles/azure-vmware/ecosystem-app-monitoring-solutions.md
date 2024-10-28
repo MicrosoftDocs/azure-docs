@@ -23,13 +23,13 @@ In this article, you learn how Azure Resource Health helps you diagnose and get 
 
 #### Preview Enablement
 
-You are required to register yourself for the feature preview under _Preview Features_ of Azure VMware Solution in Azure portal. Customers should first register themselves to "Microsoft.AVS/ResourceHealth" preview flag from Azure portal and Once registered, all the preconfigured alerts related to Host replacement, vCenter, and other critical alarms will start to surface in the Resource Health of Azure VMware Solution (AVS) User Interface (UI).
+You are required to register yourself for the feature preview under _Preview Features_ of Azure VMware Solution in Azure portal. Customers should first register themselves to ***"Microsoft.AVS/ResourceHealth"*** preview flag from Azure portal and once registered, all the preconfigured alerts related to Host replacement, vCenter, and other critical alarms will start to surface in the Resource Health of Azure VMware Solution (AVS) User Interface (UI).
 
 #### Benefits of enabling Resource Health
 
-- Resource Health feature enablement adds significant value to your monitoring capabilities. You get notified about unplanned maintenance that took place in your Private cloud infrastructure.
+- Resource Health feature enablement adds significant value to your monitoring capabilities. You get notified about unplanned maintenance that took place in your private cloud infrastructure.
 
-- Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable which makes it easy for you to check if SLA was violated.
+- Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the time that your resources have been unavailable which makes it easy for you to check if SLA was violated.
 
 - For the Public Preview, a group of critical alerts are enabled which notifies you about Host replacements, storage critical alarms and also about the Network health of your private cloud.
 
@@ -72,77 +72,45 @@ Degraded
 
 Degraded means that Resource Health detected a loss in performance in either one or more private cloud resources, although it's still available for use. Different resources have their own criteria for when they report that they are degraded.
 
-#### Pre-configured Alarms enabled in Azure Resource Health
+#### ![RHDegraded](media/ecosystem-app-monitoring-solutions/rhdegraded.png)
 
-| Alert Name | Remediation mode | 
-
+Pre-configured Alarms enabled in Azure Resource Health
 
 |Alert Name|Remediation Mode|
 | -------- | -------- |
 |Physical Disk Health Alarm |System Remediation|
-| Cell 3   | Cell 4   |
+|System Board Health Alarm|System Remediation|
+| Memory Health Alarm|System Remediation|
+|Storage Health Alarm|System Remediation|
+|Temperature Health Alarm |System Remediation|
+|Host Connection State Alarm|System Remediation|
+|High Availability (HA) host Status |System Remediation|
+| Network Connectivity Lost Alarm|System Remediation|
+|Virtual Storage (vSAN) Host Disk Error Alarm|System Remediation|
+|Voltage Health Alarm |System Remediation|
+|Processor Health Alarm| System Remediation|
+|Fan Health Alarm|System Remediation|
+|High pNIC error rate detected|System Remediation|
+|iDRAC critical alerts if there are hardware faults (CPU/DIMM/PCI bus/Voltage issues)|System Remediation|
+|vSphere HA restarted a virtual machine|System Remediation|
+|Virtual Storage (vSAN) High Disk Utilization|Customer Intervention Required|
+|Replacement Start and Stop Notification|System Remediation|
+|Repair Service notification to customers (Host reboot and Restart of Management services) |System Remediation|
+|Notification to customer when a Virtual Machine is configured to use an external device that prevents a maintenance operation|Customer Intervention Required|
+| Customer notification when CD-ROM is mounted on the Virtual Machine and its ISO image isn't accessible and blocks maintenance operation|Customer Intervention Required|
+|Notification to customer when an external Datastore mounted becomes inaccessible and will block maintenance operations|Customer Intervention Required|
+|Notification to customer when connected network adapter becomes inaccessible and blocks any maintenance operations|Customer Intervention Required|
+|VMware Network (NSX –T) alarms (Customer notification about License expiration)|Customer Intervention Required|
 
-| :---         | :---:             |
-
-|  Physical Disk Health Alarm   | System Remediation  | 
-
-| System Board Health Alarm   | System Remediation |
-
-| Memory Health Alarm   | System Remediation |
-
-| Storage Health Alarm   | System Remediation | 
-
-| Temperature Health Alarm   | System Remediation |
-
-| Host Connection State Alarm    | System Remediation | 
-
-| HA host Status       | System Remediation | 
-
-| Network Connectivity Lost Alarm  | System Remediation |
-
-| Virtual Storage (vSAN) Host Disk Error Alarm | System Remediation |
-
-| Voltage Health Alarm  | System Remediation |
-
-| Processor Health Alarm| System Remediation |
-
-| Fan Health Alarm | System Remediation |
-
-| High pNIC error rate detected | System Remediation |
-
-| iDRAC critical alerts if there are hardware faults (CPU/DIMM/PCI bus/Voltage issues) | System Remediation |
-
-| vSphere HA restarted a virtual machine | System Remediation | 
-
-| Virtual Storage (vSAN) High Disk Utilization   | Customer Intervention required |
-
-| Replacement Start and Stop Notification | System Remediation | 
-
-| Repair Service notification to customers (Host reboot and Restart of Management services) | System Remediation | 
-
-| Maintenance Manager notification: Notification to customer when a Virtual Machine is configured to use an external device that prevents a maintenance  operation | Customer Intervention Required |
-
-| Maintenance Manager notification: Customer notification when CD-ROM is mounted on the Virtual Machine and its ISO image isn't accessible and blocks maintenance operation |  Customer Intervention Required |
-
-|Maintenance Manager notification: Notification to customer when an external Datastore mounted becomes inaccessible and will block maintenance operations | Customer Intervention Required |
-
-| Maintenance Manager notification: Notification to customer when connected network adapter becomes inaccessible and blocks any maintenance operations | Customer Intervention Required |                                                  
-
-| VMware Network (NSX –T) alarms (Customer notification about License expiration) | Customer Intervention Required |
-
-### Next Steps
+#### Next Steps
 
 Now that you configured an alert rule for your Azure VMware Solution private cloud, you can learn more about: 
 
- -  [Azure Resource Health](/azure/service-health/resource-health-overview)
+-  [Azure Resource Health](/azure/service-health/resource-health-overview)
 
- 
+-  [Azure Monitor](/azure/azure-monitor/overview)
 
- -  [Azure Monitor](/azure/azure-monitor/overview#azure-monitor-overview)
-
- 
-
- -  [Azure Action Groups](/azure/azure-monitor/alerts/action-groups)
+-  [Azure Action Groups](/azure/azure-monitor/alerts/action-groups)
 
 You can also continue with one of the other Azure VMware Solution how-to [guides](/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal)
 
