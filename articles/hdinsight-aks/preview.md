@@ -6,8 +6,11 @@ ms.topic: troubleshooting
 ms.date: 10/28/2024
 ROBOTS: NOINDEX
 ---
+
 [!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 # Microsoft HDInsight on AKS preview information
 
