@@ -76,7 +76,7 @@ Connect-AzAccount
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
 
-The following command creates an Elastic SAN that uses **locally redundant** storage **with** autoscaling enabled.
+The following command creates an Elastic SAN that uses locally redundant storage with autoscaling enabled.
 
 ```azurepowershell
 # Define some variables.
