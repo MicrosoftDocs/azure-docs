@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 10/28/2024
 ms.author: jianleishen
 ---
 
@@ -311,6 +311,9 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `varchar` |`String` |`String` |
 | `year` |`Int` |`Int` |
 
+>[!NOTE]
+>Storing bit(1) as Boolean in the legacy version was a bug and it was fixed in the recommended version. If you still use Boolean value in the recommended version, set the column type as tinybit(1).
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
@@ -324,6 +327,42 @@ Here are steps that help you upgrade your MySQL connector:
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+### MySQL best practices
+
+This section introduces some best practices for MySQL connector.
+
+#### Cannot load SSL key
+
+If you are using MySQL connector recommended version with SSL Key as a connection property, you might hit the following issues:
+- Could not load the client key from your_pem_file
+- Unrecognized PEM header: -----BEGIN PRIVATE KEY-----
+
+The reason for these issues is the recommended version cannot decrypt the PCKS#8 format. You need to convert the PEM format to PCKS#1.
+
+#### Treat tiny as Boolean
+
+The recommended version treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html).
+
+To have the connector return this as numeric, set `treatTinyAsBoolean=false` in the connection properties.
+
+#### Treat char(36) as GUID
+
+The recommended version will treat Char(36) as GUID type by default for better performance.
+
+The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations like inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers, providing better performance.
+
+You can also change this behavior by setting `guidFromat=none` in connection property. 
+
+#### Cannot read zero or invalid date
+
+The recommended version cannot read zero or invalid date value. It is by default. 
+
+MySQL permits you to store a "zero" value of '0000-00-00' as a "dummy date." In some cases, this is more convenient than using NULL values, and uses less data and index space. To disallow '0000-00-00', enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).
+
+For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
+
+For an invalid date value, you can modify your SQL to wrap the column as String type.
 
 ## Differences between the recommended and the legacy driver version
 
