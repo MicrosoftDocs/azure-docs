@@ -21,8 +21,8 @@ The following table lists the current versions available for the public and Insi
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 - Added list of graphics codecs to the Connection Information dialog. 
-- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
-- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
+- Fixed an issue where the Connection Information dialog showed the lowest round-trip time (RTT) instead of average RTT.
 
 ## Updates for version 1.2.5709
 
