@@ -38,7 +38,7 @@ You create volumes from the storage that you allocated to your Elastic SAN. When
 
 Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have six of these volumes operating at their maximum performance (80,000 IOPS, 1,280 MB/s) since this would be below the SAN's limits. But if seven volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
 
-### Autoscaling (Preview)
+### Autoscaling (preview)
 
 You can set up a policy to scale up your SAN based on the used capacity (amount of storage you have consumed) at the SAN level. This can only be set up for additional capacity units, which means that you can only automatically scale up your storage, not your performance. For example, if you have a SAN of 100 TiB and you want to scale up your storage in 5 TiB increments, you can set up a policy that says whenever the unused capacity is less than or equal to 20 TiB of space, increase capacity by 5 TiB up to a maximum of 150 TiB. This feature is useful for snapshots, as you can ensure that you always have some extra space for your snapshots and that you won't hit the SAN level limit. The last parameter allows you to set a size limit for your SAN, beyond which the capacity will not expand via autoscale. You can modify your autoscaling policy at any point. 
 
