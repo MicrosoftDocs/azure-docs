@@ -6,9 +6,13 @@ ms.author: fenzhou
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-hdinsight-on-aks
-ms.date: 04/15/2024
+ms.date: 10/28/2024
 CustomerIntent: As a cloud architect/engineer, I want to understand reliability support for Azure HDInsight on Azure Kubernetes Service so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 # Reliability in Azure HDInsight on Azure Kubernetes Service
 
