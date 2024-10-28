@@ -50,6 +50,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -113,6 +115,11 @@ Your application can perform these actions on calls that are answered or placed 
 **Terminate** – Whether your application answers a one-to-one or group call, or places an outbound call with one or more participants, this action removes all participants and ends the call. This operation is triggered by setting the `forEveryOne` property to `true` in Hang-Up call action.
 
 **Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
+
+**Start/Stop audio streaming (public preview)** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+
+**Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+
 
 ### Query scenarios
 
