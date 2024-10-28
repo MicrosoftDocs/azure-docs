@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -15,11 +15,11 @@ IoT Plug and Play simplifies IoT by enabling you to interact with a device's cap
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
 * The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 
 ### Clone the SDK repository with the sample code
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](../articles/iot/tutorial-connect-device.md), you've already cloned the repository.
 
 Clone the samples from the Azure IoT SDK for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
 
@@ -48,7 +48,7 @@ The device is now ready to receive commands and property updates, and has starte
 
 ## Run the sample solution
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.

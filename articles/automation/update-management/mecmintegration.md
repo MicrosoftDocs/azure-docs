@@ -3,11 +3,14 @@ title: Integrate Azure Automation Update Management with Microsoft Configuration
 description: This article tells how to configure Microsoft Configuration Manager with Update Management to deploy software updates to manager clients.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2021
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: overview
+ms.service: azure-automation
 ---
 
 # Integrate Update Management with Microsoft Configuration Manager
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 Customers who have invested in Microsoft Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
@@ -20,7 +23,7 @@ You can report and update managed Windows servers by creating and pre-staging so
 
 * You must have [Azure Automation Update Management](overview.md) added to your Automation account.
 * Windows servers currently managed by your Microsoft Configuration Manager environment also need to report to the Log Analytics workspace that also has Update Management enabled.
-* This feature is enabled in Microsoft Configuration Manager current branch version 1606 and higher. To integrate your Microsoft Configuration Manager central administration site or a standalone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](../../azure-monitor/logs/collect-sccm.md).  
+* This feature is enabled in Microsoft Configuration Manager current branch version 1606 and higher. To integrate your Microsoft Configuration Manager central administration site or a standalone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](/azure/azure-monitor/logs/collect-sccm).  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update if they don't receive security updates from Microsoft Configuration Manager.
 
 How you manage clients hosted in Azure IaaS with your existing Microsoft Configuration Manager environment primarily depends on the connection you have between Azure datacenters and your infrastructure. This connection affects any design changes you may need to make to your Microsoft Configuration Manager infrastructure and related cost to support those necessary changes. To understand what planning considerations you need to evaluate before proceeding, review [Configuration Manager on Azure - Frequently Asked Questions](/configmgr/core/understand/configuration-manager-on-azure#networking).

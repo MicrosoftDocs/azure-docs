@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -348,7 +348,7 @@ catch (HttpOperationException e)
 
 IoT Plug and Play devices send the telemetry defined in the DTDL model to IoT Hub. By default, IoT Hub routes the telemetry to an Event Hubs endpoint where you can consume it. To learn more, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../articles/iot-hub/iot-hub-devguide-messages-d2c.md).
 
-The following code snippet shows how to read the telemetry from the default Event Hubs endpoint. The code in this snippet is taken from the IoT Hub quickstart [Send telemetry from a device to an IoT hub and read it with a back-end application](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp):
+The following code snippet shows how to read the telemetry from the default Event Hubs endpoint. The code in this snippet is taken from the IoT Hub quickstart [Send telemetry from a device to an IoT hub and read it with a back-end application](../articles/iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-csharp):
 
 ```csharp
 await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);

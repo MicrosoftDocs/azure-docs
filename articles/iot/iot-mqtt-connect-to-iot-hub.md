@@ -3,7 +3,7 @@ title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Support for devices that use MQTT to connect to an IoT Hub device-facing endpoint. Includes information about built-in MQTT support in the Azure IoT device SDKs.
 author: kgremban
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 06/27/2023
@@ -82,6 +82,8 @@ from azure.iot.device.aio import IoTHubDeviceClient
 device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
 ```
 
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
+
 ### Default keep-alive timeout
 
 In order to ensure a client/IoT Hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. The client using IoT SDK sends a keep-alive at the interval defined in the following table:
@@ -141,7 +143,7 @@ In the **CONNECT** packet, the device should use the following values:
 
   You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
-For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md).
+For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md).
 
 ### Using the Azure IoT Hub extension for Visual Studio Code
   
@@ -189,7 +191,7 @@ The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample)
 
 The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
 
-To learn more, see [Tutorial - Use MQTT to develop an IoT device client](../iot-develop/tutorial-use-mqtt.md).
+To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutorial-use-mqtt.md).
 
 ## TLS/SSL configuration
 
@@ -442,7 +444,7 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 To learn more about using MQTT, see: 
 
 * [MQTT documentation](https://mqtt.org/)
-* [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+* [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
 * [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:

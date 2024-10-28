@@ -85,7 +85,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -112,7 +112,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -125,7 +125,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -152,7 +152,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -235,11 +235,50 @@
           "hugepagesSize": "2M/1G"
         */
       },
-      "sshPublicKey": {
-        "type": "string",
+      "sshPublicKeys": {
+        "type": "array",
         "metadata": {
-          "description": "The SSH public key that will be associated with the 'azureuser' user for secure remote login"
-        }
+          "description": "The cluster wide SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
+      },
+      "controlPlaneSshKeys": {
+        "type": "array",
+        "metadata": {
+          "description": "The control plane SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
+      },
+      "agentPoolSshKeys": {
+        "type": "array",
+        "metadata": {
+          "description": "The agent pool SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
       },
       "labels": {
         "type": "array",
@@ -290,16 +329,15 @@
           },
           "administratorConfiguration": {
             "adminUsername": "[parameters('adminUsername')]",
-            "sshPublicKeys": [
-              {
-                "keyData": "[parameters('sshPublicKey')]"
-              }
-            ]
+            "sshPublicKeys": "[if(empty(parameters('sshPublicKeys')), createArray(), parameters('sshPublicKeys'))]"
           },
           "initialAgentPoolConfigurations": [
             {
               "name": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
-              "administratorConfiguration": {},
+              "administratorConfiguration": {
+                "adminUsername": "[parameters('adminUsername')]",
+                "sshPublicKeys": "[if(empty(parameters('agentPoolSshKeys')), createArray(), parameters('agentPoolSshKeys'))]"
+              },
               "count": "[parameters('systemPoolNodeCount')]",
               "vmSkuName": "[parameters('workerVmSkuName')]",
               "mode": "System",
@@ -318,7 +356,10 @@
             }
           ],
           "controlPlaneNodeConfiguration": {
-            "administratorConfiguration": {},
+            "administratorConfiguration": {
+              "adminUsername": "[parameters('adminUsername')]",
+              "sshPublicKeys": "[if(empty(parameters('controlPlaneSshKeys')), createArray(), parameters('controlPlaneSshKeys'))]"
+            },
             "count": "[parameters('controlPlaneCount')]",
             "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
             "availabilityZones": "[if(empty(parameters('controlPlaneZones')), json('null'), parameters('controlPlaneZones'))]"

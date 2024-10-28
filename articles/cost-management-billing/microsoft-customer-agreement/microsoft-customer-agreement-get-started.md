@@ -46,7 +46,7 @@ When you or your organization signed the Microsoft Customer Agreement, a billing
 
 ## Update your PO and tax ID number
 
-[Update your PO number](../manage/change-azure-account-profile.md#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.md#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+[Update your PO number](../manage/change-azure-account-profile.yml#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.yml#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
 
 
 ## Confirm payment details
@@ -78,7 +78,7 @@ Learn how to [cancel a previous support plan](../manage/subscription-transfer.md
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Learn how about the charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA)
 - [Take a step-by-step invoice tutorial](../understand/review-customer-agreement-bill.md)

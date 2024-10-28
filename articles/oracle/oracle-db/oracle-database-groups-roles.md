@@ -4,8 +4,7 @@ description: Learn about groups and roles for Oracle Database@Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
@@ -37,6 +36,14 @@ Use the following groups in your Oracle Cloud Infrastructure (OCI) tenancy.
 |odbaa-db-family-readers |Users this group are administrators who  read database family actions. |
 |odbaa-exa-cdb-administrators |Users this group are administrators who manage Oracle Container Database (CDB) actions. |
 |odbaa-exa-pdb-administrators | Users this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
+
+## Required IAM policies
+The following IAM policies are needed for Oracle Database@Azure users or groups:
+
+- ``Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’``
+- `` Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’``
+
+For information on working with policies, see [Getting Started with Policies](https://docs.oracle.com/en-us/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
 
 ## Next steps
 - [Overview - Oracle Database@Azure](database-overview.md)

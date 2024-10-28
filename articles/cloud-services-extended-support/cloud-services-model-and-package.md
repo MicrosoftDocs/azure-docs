@@ -2,18 +2,18 @@
 title: What is the Azure Cloud Service (extended support) model and package
 description: Describes the cloud service (extended support) model (.csdef, .cscfg) and package (.cspkg) in Azure
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ---
 
 # What is the Azure Cloud Service model and how do I package it?
 
-A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
+A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and its configuration. We collectively call these files the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
-Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
+Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you can't alter the definition.
 
 ## What would you like to know more about?
 * I want to know more about the [ServiceDefinition.csdef](#csdef) and [ServiceConfig.cscfg](#cscfg) files.
@@ -74,7 +74,7 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 </ServiceDefinition>
 ```
 
-You can refer to the [Service Definition Schema](schema-csdef-file.md)) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
+You can refer to the [Service Definition Schema](schema-csdef-file.md)) for a better understanding of the XML schema used here, however, here's a quick explanation of some of the elements:
 
 **Sites**  
 Contains the definitions for websites or web applications that are hosted in IIS7.
@@ -105,7 +105,7 @@ Contains tasks that are run when the role starts. The tasks are defined in a .cm
 ## ServiceConfiguration.cscfg
 The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](schema-cscfg-file.md) provides the allowable format for a service configuration file.
 
-The service configuration file is not packaged with the application, but is uploaded to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
+The service configuration file isn't packaged with the application. It uploads to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
 
 ```xml
 <?xml version="1.0"?>
@@ -125,10 +125,10 @@ The service configuration file is not packaged with the application, but is uplo
 </ServiceConfiguration>
 ```
 
-You can refer to the [Service Configuration Schema](schema-cscfg-file.md) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
+You can refer to the [Service Configuration Schema](schema-cscfg-file.md) for better understanding the XML schema used here, however, here's a quick explanation of the elements:
 
 **Instances**  
-Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommended that you deploy more than one instance of your web-facing roles. By deploying more than one instance, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
+Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, we recommend you deploy more than one instance of your web-facing roles. By deploying more than one instance, you adhere to the guidelines in the [Azure Compute Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
 
 **ConfigurationSettings**  
 Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
@@ -146,7 +146,7 @@ Configures the certificates that are used by the service. The previous code exam
 ## Defining ports for role instances
 Azure allows only one entry point to a web role. Meaning that all traffic occurs through one IP address. You can configure your websites to share a port by configuring the host header to direct the request to the correct location. You can also configure your applications to listen to well-known ports on the IP address.
 
-The following sample shows the configuration for a web role with a website and web application. The website is configured as the default entry location on port 80, and the web applications are configured to receive requests from an alternate host header that is called “mail.mysite.cloudapp.net”.
+The following sample shows the configuration for a web role with a website and web application. The website is configured as the default entry location on port 80, and the web applications are configured to receive requests from an alternate host header called `mail.mysite.cloudapp.net`.
 
 ```xml
 <WebRole>
@@ -182,14 +182,14 @@ The following sample shows the configuration for a web role with a website and w
 
 
 ## Changing the configuration of a role
-You can update the configuration of your cloud service while it is running in Azure, without taking the service offline. To change configuration information, you can either upload a new configuration file, or edit the configuration file in place and apply it to your running service. The following changes can be made to the configuration of a service:
+You can update the configuration of your cloud service while it's running in Azure, without taking the service offline. To change configuration information, you can either upload a new configuration file, or edit the configuration file in place and apply it to your running service. The following changes can be made to the configuration of a service:
 
 * **Changing the values of configuration settings**  
   When a configuration setting changes, a role instance can choose to apply the change while the instance is online, or to recycle the instance gracefully and apply the change while the instance is offline.
 * **Changing the service topology of role instances**  
-  Topology changes do not affect running instances, except where an instance is being removed. All remaining instances generally do not need to be recycled; however, you can choose to recycle role instances in response to a topology change.
+  Topology changes don't affect running instances, except where an instance is being removed. All remaining instances generally don't need to be recycled; however, you can choose to recycle role instances in response to a topology change.
 * **Changing the certificate thumbprint**  
-  You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate and bring it back online after the change is complete.
+  You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate. Azure brings it back online after the change completes.
 
 ### Handling configuration changes with Service Runtime Events
 The Azure Runtime Library includes the Microsoft.WindowsAzure.ServiceRuntime namespace, which provides classes for interacting with the Azure environment from a role. The RoleEnvironment class defines the following events that are raised before and after a configuration change:
@@ -256,7 +256,7 @@ Where the variables are defined as follows:
 | --- | --- |
 | \[DirectoryName\] |The subdirectory under the root project directory that contains the .csdef file of the Azure project. |
 | \[ServiceDefinition\] |The name of the service definition file. By default, this file is named ServiceDefinition.csdef. |
-| \[OutputFileName\] |The name for the generated package file. Typically, this is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg. |
+| \[OutputFileName\] |The name for the generated package file. Typically, this variable is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg. |
 | \[RoleName\] |The name of the role as defined in the service definition file. |
 | \[RoleBinariesDirectory] |The location of the binary files for the role. |
 | \[VirtualPath\] |The physical directories for each virtual path defined in the Sites section of the service definition. |

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Use Azure Automation runbooks to create clusters - Azure HDInsight'
 description: Learn how to create and delete Azure HDInsight clusters with scripts that run in the cloud by using Azure Automation runbooks.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2023

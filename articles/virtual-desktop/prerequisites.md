@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/06/2023
+ms.date: 09/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -93,7 +93,7 @@ To access desktops and applications from your session hosts, your users need to 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
 > [!NOTE]
-> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain. You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
@@ -130,10 +130,10 @@ For more detailed information about supported identity scenarios, including sing
 
 ### FSLogix Profile Container
 
-To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.yml) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
-- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
+- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
 
 ### Deployment parameters
@@ -159,9 +159,9 @@ To learn more about licenses you can use, including per-user access pricing, see
 > - The following items are not supported:
 >   - 32-bit operating systems.
 >   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
->   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
->   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
->   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+>   - [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) for the OS disk type.
+>   - [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
+>   - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 > 
 > - Support for Windows 7 ended on January 10, 2023.
 > - Support for Windows Server 2012 R2 ended on October 10, 2023.
@@ -169,14 +169,14 @@ To learn more about licenses you can use, including per-user access pricing, see
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 
 - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
-- [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+- [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
+- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource).
 
 Alternatively, for Azure Stack HCI you can use operating system images from:
 
 - Azure Marketplace. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 - Azure Storage account. For more information, see [Create Azure Stack HCI VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
-- A local share. For more information, see[Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+- A local share. For more information, see [Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 
@@ -187,6 +187,9 @@ You can deploy a virtual machines (VMs) to be used as session hosts from these i
 If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
 For session hosts on Azure Stack HCI, you must license and activate the virtual machines you use before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+
+> [!NOTE]
+> To ensure continued functionality with the latest security update, update your VMs on Azure Stack HCI to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
 
 > [!TIP]
 > To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
@@ -209,7 +212,7 @@ Also consider the following:
 
 - Your users might need access to applications and data that is hosted on different networks, so make sure your session hosts can connect to them.
 
-- Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to view your connection health and recommended Azure region. To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users.
+- Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md). To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users.
 
 - Use [Azure Firewall for Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md) to help you lock down your environment and filter outbound traffic.
 

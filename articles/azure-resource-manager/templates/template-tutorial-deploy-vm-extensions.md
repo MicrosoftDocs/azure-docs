@@ -1,14 +1,14 @@
 ---
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
-ms.date: 03/20/2024
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
 
-Learn how to use [Azure virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager template (ARM template) to run a PowerShell script on a Windows VM. The script installs Web Server on the VM.
+Learn how to use [Azure virtual machine extensions](/azure/virtual-machines/extensions/features-windows) to perform post-deployment configuration and automation tasks on Azure VMs. Many different VM extensions are available for use with Azure VMs. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager template (ARM template) to run a PowerShell script on a Windows VM. The script installs Web Server on the VM.
 
 This tutorial covers the following tasks:
 

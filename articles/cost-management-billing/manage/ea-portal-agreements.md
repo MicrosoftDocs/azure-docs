@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2024
+ms.date: 08/20/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -24,7 +24,7 @@ The date that the regional operations center processes the new Azure Prepayment 
 
 ## Enrollment status
 
-An enrollment has one of the following status values. Each value determines how you can use and access an enrollment. The enrollment status determines at which stage your enrollment is. It tells you if the enrollment needs to be activated before it can be used. Or, if the initial period expired and you're charged for usage overage.
+An enrollment has one of the following status values. Each value determines how you can use and access an enrollment. The enrollment status determines at which stage your enrollment is. It tells you if the enrollment needs to be activated before it can be used. Or, it informs you that the initial period expired and you're getting charged for usage overage.
 
 **Pending** - The enrollment administrator needs to sign in to the Azure portal. After the administrator signs in, the enrollment switches to **Active** status.
 
@@ -45,11 +45,13 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 **Transferred** - Transferred status is applied to enrollments that have their associated accounts and services transferred to a new enrollment. Enrollments don't automatically transfer if a new enrollment number is generated during renewal. The prior enrollment number must be included in the customer's renewal request for an automatic transfer.
 
+**Manually Terminated** - All the subscriptions and accounts under the enrollment are deactivated. Reactivation isn't supported for terminated enrollments. For direct EA, only a non-read-only enterprise administrator can request termination with a support request. For indirect EA, the partner can submit a request in the Volume Licensing Center. However, to terminate enrollments with Expired status, the partner must request it using Azure support.
+
 ## Partner markup
 
 In the Azure portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure portal shows usage and prices configured by partners for their customers.
 
-Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure portal such as: meter rates, Azure Prepayment, and orders. After the partner publishes the markup, the customer sees Azure costs in the Azure portal. For example, usage summary, price lists, and downloaded usage reports.
+Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure portal such as: meter rates, Azure Prepayment, and orders. After the partner publishes the markup, the customer sees Azure costs in the Azure portal. For example, usage summary, price lists, and downloaded usage reports. Percentage markup is not applied to Azure Marketplace.
 
 Starting in September 2019, partners can apply markup anytime during a term. They don't need to wait until the term next anniversary to apply markup.
 
@@ -57,7 +59,7 @@ Microsoft doesn't access or utilize the provided markup and associated prices fo
 
 ### How the calculation works
 
-The Licensing Solution Partners (LSP) provides a single percentage number in the Azure portal. All commercial information on the portal gets uplifted with the percentage provided by the LSP. Example:
+The Licensing Solution Partners (LSP) provides a single percentage number in the Azure portal. All Microsoft first party service information on the portal gets uplifted with the percentage provided by the LSP. Example:
 
 - Customer signs an EA with Azure Prepayment of USD 100,000.
 - The meter rate for Service A is USD 10 / Hour.
@@ -112,18 +114,22 @@ Let's look at an example. Assume that a customer enters an Azure Savings Plan co
 
 ### How to add a price markup
 
-You can add price markup on Azure portal with the following steps:
+You can add price markup in the Azure portal with the following steps:
  
 1. In the Azure portal, sign in as a partner administrator.
 1. Search for **Cost Management + Billing** and select it.
 1. In the left navigation menu, select **Billing scopes** and then select the billing account that you want to work with.
-1. In the left navigation menu, select **Billing Profile** and then select the billing profile that you want to work with.
-1. In the left navigation menu, select **Markup**.
-1. To add markup, select **Set markup**.
+1. In the left navigation menu, select **Billing profiles** and then select the billing profile that you want to work with.
+1. In the left navigation menu, expand **Settings** and then select **Markup**.
+1. To add markup, select **+ Add** under **Markup** **Percentage**.
 1. Enter the markup percentage and select **Preview**.
 1. Review the credit and usage charges before and after markup update.
-1. Accept the disclaimer and select **Publish** to publish the markup.
+1. Read the disclaimer and agree to prompt and then select **Publish** to publish the markup.
 1. The customer can now view credits and charges details.
+
+Here's an example showing price markup in the Azure portal:
+
+:::image type="content" source="./media/ea-portal-agreements/billing-profile-markup.png" border="true" alt-text="Screenshot showing price markup in the Azure portal." lightbox="./media/ea-portal-agreements/billing-profile-markup.png" :::
 
 ### Which enrollments have a markup enabled?
 
@@ -142,8 +148,14 @@ To check markup status of an enrollment in the Azure portal, follow the below st
 
 Once partner markup is published, the indirect customer has access to the balance and charge CSV monthly files and usage detail files. The usage detail files include the resource rate and extended cost.
 
-### How can I as partner apply markup to existing EA customers that were earlier with another partner?
+### How can I as a partner apply markup to existing EA customers that were earlier with another partner?
 Partners can use the markup feature in the Azure portal after a Change of Channel Partner is processed. There's no need to wait for the next anniversary term.
+
+### Who gets notified for important events?
+
+EA administrators receive various types of notifications from different services. Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal. For more information, see [Manage notification contacts](direct-ea-administration.md#manage-notification-contacts).
+
+Customers with indirect enrollment receive usage notifications containing quantity but not cost if markup is not defined for the enrollment by partner.
 
 ## Resource Prepayment and requesting quota increases
 
@@ -184,6 +196,6 @@ One example would be the Operations Management Suite (OMS) subscription. OMS off
 
 You can view your price sheet in the Azure portal. For more information, see [Download pricing for an enterprise agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
-## Next steps
+## Related content
 
 - [Get started with your Enterprise Agreement billing account](ea-direct-portal-get-started.md).

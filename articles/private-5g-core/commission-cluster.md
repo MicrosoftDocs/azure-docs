@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to commission the Azure Kubernetes Cluster on Azure Stack Edge to get it ready to deploy Azure Private 5G Core.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/30/2023
 ms.custom: template-how-to 
@@ -28,7 +28,7 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 ## Configure Kubernetes for Azure Private MEC on the Azure Stack Edge device
 
-These steps modify the Kubernetes cluster on the Azure Stack Edge device to optimize it for Azure Private MEC workloads.
+These steps modify the Kubernetes cluster on the Azure Stack Edge device to optimize it for Azure Private Multi-access Edge Compute (MEC) workloads.
 
 1. In the local UI, select **Kubernetes** in the left-hand menu.
 2. Under **Choose the option that best describes your scenario**, select **an Azure Private MEC solution in your environment**.
@@ -37,7 +37,7 @@ These steps modify the Kubernetes cluster on the Azure Stack Edge device to opti
 
 :::image type="content" source="media/commission-cluster/commission-cluster-enable-aks.png" alt-text="Screenshot of ASE Kubernetes configuration menu. The Azure Private MEC radio button is selected. The Workload confirmation popup is overlaid.":::
 
-Once you've applied these changes, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
+You should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 
@@ -75,42 +75,62 @@ You can input all the settings on this page before selecting **Apply** at the bo
 2. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
     - Control plane access interface
     - User plane access interface
-    - User plane data interface(s)  
+    - User plane data interfaces
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. If you are using VLAN trunking (required for HA deployments), you have **one single** N6 virtual network with no IP information. VLAN and IP information is done when configuring the mobile network. With this setup, you could use the names **N2**, **N3** and **N6**.
+
+    Under Access VLAN or non-VLAN mode, there is an N6 virtual network for each attached data network. You could use the names **N2**, **N3** and up to 10 **N6-DNX** (where **X** is the data network (DN) number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. If you are using VLAN trunking (required for HA deployments), carry out the following procedure three times:
+    1. Select **Add virtual network** and fill in the side panel:
+        - **Virtual switch**: select **vswitch-port3** for N2 and N3. Select **vswitch-port4** for N6.
+        - **Name**: *N2*, *N3*, or *N6*.
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings takes approximately 8 minutes. 
+4. If you are using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (12 times in total if you have the maximum 10 data networks):
     > [!IMPORTANT]
     > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-        - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
+        - **Virtual switch**: select **vswitch-port3** for N2, N3, and up to four DNs, and select **vswitch-port4** for up to six DNs.
         - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *10.232.44.0/24* and *10.232.44.1*
-            - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+            - If the subnet does not have a default gateway, use another IP address in the subnet that will respond to Address Resolution Protocol (ARP) requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
+    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings takes approximately 8 minutes.
     The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. If you are using VLAN trunking (required for HA deployments), carry out the following procedure three times:
+    1. Select **Add virtual network** and fill in the side panel:
+        - **Virtual switch**: select **vswitch-port5** for N2 and N3. Select **vswitch-port6** for N6.
+        - **Name**: *N2*, *N3*, or *N6*.
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings takes approximately 8 minutes. 
+4. If you are using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     > [!IMPORTANT]
     > If you are using port 5 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-        - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
+        - **Virtual switch**: select **vswitch-port5** for N2, N3, and up to four DNs, and select **vswitch-port6** for up to six DNs.
         - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN type**: select as appropriate.
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *10.232.44.0/24* and *10.232.44.1*
-            - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+            - If the subnet does not have a default gateway, use another IP address in the subnet that will respond to Address Resolution Protocol (ARP)  requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
-    1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
-  The page should now look like the following image:
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings takes approximately 8 minutes.
+
+The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
@@ -122,24 +142,23 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 1. Under **Compute virtual switch**, select **Modify**.
       1. Select the vswitch with compute intent (for example, *vswitch-port2*)
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
-      1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
+      1. Enter one IP address in a range for the service IP address, also on the management network. This is used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
-1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+    > [!IMPORTANT]
+    > If you are using VLAN trunking (required for HA deployments), no IP configuration is done for the virtual networks at this point. IP configuration is done when configuring the mobile network.
+1. Under **Virtual network**, select a virtual network. In VLAN trunking mode, this will be either **N2**, **N3** and **N6**. Otherwise, choose from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. If **NOT** in VLAN trunking mode, also add a pool of IP addresses: 
+        1. For a standard deployment, add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+        1. For an HA deployment, add a range of two IP addresses for each virtual network, where the N2 and N3 pod IP addresses are in the local access subnet and the N6 pod IP addresses are in the appropriate local data subnet.
       1. Repeat for each of the N2, N3, and N6-DNX virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 
-The page should now look like the following image:
+The page should now look like the following image (in VLAN trunking mode):
 
-:::zone pivot="ase-pro-2"
-:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled-ase-2.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-:::zone-end
-:::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-:::zone-end
 
-## Enable VM management on the ASE
+## Enable virtual machine management on the ASE
 
 1. Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
 1. Select **Edge services**.
@@ -148,7 +167,7 @@ The page should now look like the following image:
 
 ## Start the cluster and set up Arc
 
-If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
+If you're running other virtual machines (VMs) on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
 
 1. Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
@@ -157,7 +176,7 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. Select the **Change** link and enter the Microsoft Entra application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
+1. Select the **Change** link and enter the Microsoft Entra application Object ID (OID) for the custom location, which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
 
    :::image type="content" source="media/commission-cluster/commission-cluster-configure-kubernetes.png" alt-text="Screenshot of Configure Arc enabled Kubernetes pane, showing where to enter the custom location OID.":::
 
@@ -216,7 +235,7 @@ Additionally, your AKS cluster should now be visible from your Azure Stack Edge 
 
 ## Collect variables for the Kubernetes extensions
 
-Collect each of the values in the table below.
+Collect each of the values in the following table.
 
 | Value | Variable name |
 |--|--|
@@ -313,7 +332,7 @@ You should see the new **Custom location** visible as a resource in the Azure po
 
 If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster (see [Deploy Azure Kubernetes service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge)). You can then modify the settings via the local UI.  
 
-Alternatively, you can perform a full reset using the **Device Reset** blade in the local UI (see [Azure Stack Edge device reset and reactivation](/azure/databox-online/azure-stack-edge-reset-reactivate-device)) and then restart this procedure.  In this case, you should also [delete any associated resources](/azure/databox-online/azure-stack-edge-return-device?tabs=azure-portal) left in the Azure portal after completing the Azure Stack Edge reset. This will include some or all of the following, depending on how far through the process you are:
+Alternatively, you can perform a full reset using the **Device Reset** blade in the local UI (see [Azure Stack Edge device reset and reactivation](/azure/databox-online/azure-stack-edge-reset-reactivate-device)) and then restart this procedure. In this case, you should also [delete any associated resources](/azure/databox-online/azure-stack-edge-return-device?tabs=azure-portal) left in the Azure portal after completing the Azure Stack Edge reset. This will include some or all of the following, depending on how far through the process you are:
 
 - **Azure Stack Edge** resource
 - Autogenerated **KeyVault** associated with the **Azure Stack Edge** resource
@@ -339,6 +358,7 @@ Your packet core should now be in service with the updated ASE configuration. To
 
 ## Next steps
 
-Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
+Your Azure Stack Edge device is now ready for Azure Private 5G Core. For an HA deployment, you will also need to configure your routers. Otherwise, the next step is to collect the information you'll need to deploy your private network.
 
+- [Configure routers for a Highly Available (HA) deployment](configure-routers-high-availability.md)
 - [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

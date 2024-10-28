@@ -4,9 +4,9 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 02/28/2024
+ms.date: 04/05/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
@@ -15,13 +15,13 @@ ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 
 This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell. If you prefer, you can complete this quickstart using [Azure portal](private-dns-getstarted-portal.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 The following figure summarizes the setup used in this article:
 
-![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 
@@ -230,6 +230,8 @@ $virtualNetworkLink2.ToJsonString()
 
 ## Create forwarding rules
 
+
+
 Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
@@ -246,6 +248,10 @@ In this example:
 - 10.0.0.4 is the resolver's inbound endpoint. 
 - 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
 - 10.5.5.5 is a protective DNS service.
+
+> [!IMPORTANT]
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver
 

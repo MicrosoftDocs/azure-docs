@@ -1,18 +1,19 @@
 ---
 title: Understand Azure Files performance
-description: Learn about the factors that can impact Azure file share performance and how to optimize performance for your workload.
+description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth, and how to optimize performance for your workload.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
-# Understand Azure Files performance
+# Understand and optimize Azure file share performance
 
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -20,6 +21,7 @@ Azure Files can satisfy performance requirements for most applications and use c
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Glossary
+
 Before reading this article, it's helpful to understand some key terms relating to storage performance:
 
 -   **IO operations per second (IOPS)**
@@ -55,7 +57,7 @@ The following table summarizes the expected performance targets between standard
 | Write latency (single-digit milliseconds)     | Yes          | Yes         |
 | Read latency (single-digit milliseconds)      | No           | Yes         |
 
-Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
+Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
 
 | **Capacity (GiB)** | **Baseline IOPS** | **Burst IOPS** | **Burst credits** | **Throughput (ingress + egress)** |
 |--------------------|-------------------|----------------|-------------------|---------------------------------------------|
@@ -76,7 +78,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **IOPS and throughput requirements:** Premium file shares support larger IOPS and throughput limits than standard file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#provisioned-v1-bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
 
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, premium file shares provide a clear advantage over standard file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
@@ -149,6 +151,7 @@ By using eight threads instead of one, the above workload can be reduced from 14
 | Thread 8          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 ## See also
+
 - [Troubleshoot Azure file shares performance issues](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json)
 - [Monitoring Azure Files](storage-files-monitoring.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)

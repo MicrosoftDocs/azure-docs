@@ -28,3 +28,7 @@ items:
     href: ./palo-alto/index.yml
   - name: Apache Airflow on Astro - An Azure Native ISV Service
     href: ./astronomer/index.yml
+  - name: Informatica Intelligent Data Management Cloud (Preview) - Azure Native ISV Service
+    href: ./informatica/index.yml
+  - name: Split Experimentation
+    href: ./split-experimentation/index.yml

@@ -50,7 +50,7 @@ When you click the **Roles** tab, you'll see the list of built-in and custom rol
 
 :::image type="content" source="./media/shared/roles-list.png" alt-text="Screenshot of built-in roles in the Azure portal." lightbox="./media/shared/roles-list.png":::
 
-For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 <a name='azure-ad-roles'></a>
 
@@ -94,7 +94,9 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+>
+> For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 
@@ -114,7 +116,7 @@ For more information, see [Azure classic subscription administrators](classic-ad
 
 An Azure account is used to establish a billing relationship. An Azure account is a user identity, one or more Azure subscriptions, and an associated set of Azure resources. The person who creates the account is the Account Administrator for all subscriptions created in that account. That person is also the default Service Administrator for the subscription.
 
-Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Every service belongs to a subscription, and the subscription ID may be required for programmatic operations.
+Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Most services belong to a subscription, and the subscription ID may be required for programmatic operations.
 
 Each subscription is associated with a Microsoft Entra directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
 
@@ -122,6 +124,6 @@ Accounts and subscriptions are managed in the [Azure portal](https://portal.azur
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md)
 - [Roles for Microsoft 365 services in Microsoft Entra ID](../active-directory/roles/m365-workload-docs.md)

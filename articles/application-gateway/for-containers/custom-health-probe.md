@@ -3,10 +3,9 @@ title: Custom health probe for Azure Application Gateway for Containers
 description: Learn how to configure a custom health probe for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -26,14 +25,17 @@ The following properties make up custom health probes:
 
 | Property | Default Value |
 | -------- | ------------- |
-| interval | How often in seconds health probes should be sent to the backend target.  The minimum interval must be > 0 seconds. |
-| timeout | How long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
+| interval | How often in seconds health probes should be sent to the backend target. The minimum interval must be > 0 seconds. |
+| timeout | How long in seconds the request should wait until it's marked as a failure. The minimum interval must be > 0 seconds. |
 | healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
+| port | The port number used when probing the backend target. |
 | unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| protocol| Specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
+| grpc | Specified if the backend service is expecting gRPC connections. The value must be `{}`. |
+| (http) | Specified if the backend service is expecting http connections. |
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
+| UseTLS | UseTLS indicates whether health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
 
 [![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png)](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
@@ -52,15 +54,20 @@ When the default health probe is used, the following values for each health prob
 | healthyTrehshold | 1 probe |
 | unhealthyTreshold | 3 probes |
 | port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
-| protocol | HTTP for HTTP and HTTPS when TLS is specified |
 | (http) host | localhost |
 | (http) path | / |
+| UseTLS | HTTP for HTTP and HTTPS when TLS is specified. |
+
+<sup>1</sup> HTTPS is used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
+
+>[!Note]
+>Health probes are initiated with the `User-Agent` value of `Microsoft-Azure-Application-LB/AGC`.
 
 ## Custom health probe
 
 In both Gateway API and Ingress API, a custom health probe can be defined by defining a [_HealthCheckPolicyPolicy_ resource](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicy) and referencing a service the health probes should check against.  As the service is referenced by an HTTPRoute or Ingress resource with a class reference to Application Gateway for Containers, the custom health probe is used for each reference.
 
-In this example, the health probe emitted by Application Gateway for Containers sends the hostname contoso.com to the pods that make up _test-service_.  The request path is `/`, a probe is emitted every 5 seconds and wait 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) is considered healthy, all other responses are considered unhealthy.
+In this example, the health probe emitted by Application Gateway for Containers sends the hostname contoso.com to the pods that make up _test-service_.  The requested protocol is `http` with a path of `/`. A probe is emitted every 5 seconds and waits 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) is considered healthy, all other responses are considered unhealthy.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -80,7 +87,8 @@ spec:
     timeout: 3s
     healthyThreshold: 1
     unhealthyThreshold: 1
-    protocol: HTTP
+    port: 8123
+    # grpc: {} # defined if probing a gRPC endpoint
     http:
       host: contoso.com
       path: /
@@ -88,5 +96,6 @@ spec:
         statusCodes: 
         - start: 200
           end: 299
+    UseTLS: true
 EOF
 ```

@@ -1,18 +1,20 @@
 ---
-title: Relocation guidance for Log Analytics workspace
+title: Relocate Log Analytics workspace to another region
 description: Learn how to relocate Log Analytics workspace to a new region.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
 ---
 
 # Relocate Azure Monitor - Log Analytics workspace to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
 
@@ -22,12 +24,23 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
 
+
+## Relocation to availability zone support
+
+[!INCLUDE [availability zone overview](../reliability/includes/reliability-availability-zone-description-include.md)]
+
+If you want to relocate your Log Analytics workspace to a region that supports availability zones:
+
+- Read [Azure availability zone migration baseline](../reliability/availability-zones-baseline.md) to assess the availability-zone readiness of your workload or application.
+- Follow the guidance in [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md).
+
+
 ## Prerequisites
 
 - To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
 
 - Identify all the resources that are currently associated with your workspace, including:
-  - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](../azure-monitor/insights/solution-agenthealth.md#azure-monitor-log-records) table to list connected agents.
+  - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](/azure/azure-monitor/insights/solution-agenthealth#azure-monitor-log-records) table to list connected agents.
     ```kusto
     Heartbeat
     | summarize by Computer, Category, OSType, _ResourceId
@@ -56,15 +69,19 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
     ```
 
   - *Installed solutions*: Select **Legacy solutions** on the workspace navigation pane for a list of installed solutions.
-  - *Data collector API*: Data arriving through a [Data Collector API](../azure-monitor/logs/data-collector-api.md) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
+  - *Data collector API*: Data arriving through a [Data Collector API](/azure/azure-monitor/logs/data-collector-api) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
   - *Linked services*: Workspaces might have linked services to dependent resources such as an Azure Automation account, a storage account, or a dedicated cluster. Remove linked services from your workspace. Reconfigure them manually in the target workspace.
-  - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](../azure-monitor/alerts/alerts-log-api-switch.md) can be included in the template. 
+  - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](/azure/azure-monitor/alerts/alerts-log-api-switch) can be included in the template. 
   
-     You can [check if the scheduledQueryRules API is used for alerts in your workspace](../azure-monitor/alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
+     You can [check if the scheduledQueryRules API is used for alerts in your workspace](/azure/azure-monitor/alerts/alerts-log-api-switch#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
   - *Query packs*: A workspace can be associated with multiple query packs. To identify query packs in your workspace, select **Logs** on the workspace navigation pane, select **queries** on the left pane, and then select the ellipsis to the right of the search box. A dialog with the selected query packs opens on the right. If your query packs are in the same resource group as the workspace that you're moving, you can include it with this migration.
 - Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
 
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Prepare
 
@@ -302,7 +319,7 @@ The following procedures show how to prepare the workspace and resources for the
     | summarize max(TimeGenerated) by Type
     ```
 
-After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](../azure-monitor/logs/cross-workspace-query.md). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
+After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](/azure/azure-monitor/logs/cross-workspace-query). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
 
 Here's an example for a query across two workspaces that have the same name:
 
@@ -327,7 +344,7 @@ If you want to discard the source workspace, delete the exported resources or th
 
 ## Clean up
 
-While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](../azure-monitor/logs/cross-workspace-query.md) workspaces. 
+While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](/azure/azure-monitor/logs/cross-workspace-query) workspaces. 
 
 If you no longer need access to older data in the original workspace:
 
@@ -336,9 +353,6 @@ If you no longer need access to older data in the original workspace:
 
 ## Related content
 
-To learn more about moving resources between regions and disaster recovery in Azure, refer to:
-
-- [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md)
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 

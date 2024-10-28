@@ -7,14 +7,15 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
+    - name: Roadmap for Azure Deployment Environments
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: ade-roadmap.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a dev center
+    - name: Configure Azure Deployment Environments
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a project
-      href: quickstart-create-and-configure-projects.md
     - name: Create dev center and project (Azure Resource Manager)
       href: quickstart-create-dev-center-project-azure-resource-manager.md
       displayName: Azure Deployment Environments, ADE, environments, quickstart
@@ -25,17 +26,14 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
-      href: concept-environments-scenarios.md
     - name: Parameters and data types in environment.yaml
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
-    - name: Use Azure Developer CLI with ADE
-      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
-      href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
-      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+    - name: Azure role-based access control
+      href: concept-deployment-environments-role-based-access-control.md
 - name: Configure resources
   expanded: false
   items:
@@ -53,15 +51,32 @@ items:
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
+    - name: Configure AZD-compatible templates
+      href: how-to-configure-azure-developer-cli-deployment-environments.md
 - name: Create and manage environments
   expanded: false
   items: 
-    - name: Create environments with Azure Developer CLI (AZD)
-      href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
+- name: Configure the ADE extensibility model
+  expanded: false
+  items:
+    - name: Configure container image to execute deployments
+      href: how-to-configure-extensibility-model-custom-image.md
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi 
+    - name: Troubleshoot custom image errors and warnings
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi
+      href: troubleshoot-custom-image-logs-errors.md 
+- name: Use Azure Developer CLI with ADE
+  expanded: false
+  items:
+    - name: Use Azure Developer CLI (azd) with ADE
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: concept-azure-developer-cli-with-deployment-environments.md
+    - name: Create environments with Azure Developer CLI (azd)
+      href: how-to-create-environment-with-azure-developer.md 
 - name: Manage costs
   expanded: false
   items:
@@ -90,8 +105,12 @@ items:
 - name: Reference
   expanded: false
   items:
+    - name: ADE CLI reference
+      href: reference-deployment-environment-cli.md
+    - name: ADE CLI variables
+      href: reference-deployment-environment-variables.md
     - name: Install Azure CLI extension
-      href: how-to-install-devcenter-cli-extension.md  
+      href: how-to-install-devcenter-cli-extension.md
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API

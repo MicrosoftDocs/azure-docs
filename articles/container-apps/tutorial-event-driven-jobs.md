@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy an event-driven job with Azure Container Apps'
 description: Learn to create a job that processes queue messages with Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 05/05/2023
@@ -12,7 +12,7 @@ ms.author: cshoe
 
 # Tutorial: Deploy an event-driven job with Azure Container Apps
 
-Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires serverless ephemeral compute resources.
+Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires serverless ephemeral compute resources.
 
 In this tutorial, you learn how to work with [event-driven jobs](jobs.md#event-driven-jobs).
 
@@ -23,12 +23,15 @@ In this tutorial, you learn how to work with [event-driven jobs](jobs.md#event-d
 > * Deploy the job to the Container Apps environment
 > * Verify that the queue messages are processed by the container app
 
-The job you create starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
+The job you create starts an execution for each message that is sent to an Azure Storage queue. Each job execution runs a container that performs the following steps:
 
-1. Dequeues one message from the queue.
+1. Gets one message from the queue.
 1. Logs the message to the job execution logs.
 1. Deletes the message from the queue.
 1. Exits.
+
+> [!IMPORTANT]
+> The scaler monitors the queue's length to determine how many jobs to start. For accurate scaling, don't delete a message from the queue until the job execution has finished processing it.
 
 The source code for the job you run in this tutorial is available in an Azure Samples [GitHub repository](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial/blob/main/index.js).
 
@@ -117,9 +120,6 @@ To deploy the job, you must first build a container image for the job and push i
         --environment "$ENVIRONMENT" \
         --trigger-type "Event" \
         --replica-timeout "1800" \
-        --replica-retry-limit "1" \
-        --replica-completion-count "1" \
-        --parallelism "1" \
         --min-executions "0" \
         --max-executions "10" \
         --polling-interval "60" \
@@ -140,9 +140,6 @@ To deploy the job, you must first build a container image for the job and push i
     | Parameter | Description |
     | --- | --- |
     | `--replica-timeout` | The maximum duration a replica can execute. |
-    | `--replica-retry-limit` | The number of times to retry a replica. |
-    | `--replica-completion-count` | The number of replicas to complete successfully before a job execution is considered successful. |
-    | `--parallelism` | The number of replicas to start per job execution. |
     | `--min-executions` | The minimum number of job executions to run per polling interval. |
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |

@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 09/23/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -96,31 +96,12 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-In addition to those general limits, the following limits apply to DNS operations:
-
-| DNS Zone Operation | Limit (per zone) |
-| --------- | ----- |
-| Create or Update | 40 per minute |
-| Delete | 40 per minute |
-| Get | 1000 per minute |
-| List | 60 per minute |
-| List By Resource Group | 60 per minute |
-| Update | 40 per minute |
-
-| DNS Record Set Operation | Limit (per zone) |
-| --------- | ----- |
-| Create or Update | 200 per minute |
-| Delete | 200 per minute |
-| Get | 2000 per minute |
-| List By DNS Zone | 60 per minute |
-| List By Type | 60 per minute |
-| Update | 200 per minute |
+In addition to those general limits, see the [usage limits for Azure DNS](/azure/dns/dns-faq#what-are-the-usage-limits-for-azure-dns-).
 
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
+Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/azure/virtual-machines/compute-throttling-limits) provides comprehensive information on throttling policies and limits for VM, Virtual Machine Scale Sets and Scale Set VMs.    
 
-For checking virtual machine instances within a Virtual Machine Scale Set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
 ### Azure Resource Graph throttling
 
@@ -130,8 +111,8 @@ For checking virtual machine instances within a Virtual Machine Scale Set, use t
 
 For information about throttling in other resource providers, see:
 
-* [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
-* [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+* [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling)
+* [AKS troubleshooting](/azure/aks/troubleshooting#im-receiving-429---too-many-requests-errors)
 * [Managed identities](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#are-there-any-rate-limits-that-apply-to-managed-identities)
 
 ## Error code
@@ -258,6 +239,5 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 ## Next steps
 
-* For a complete PowerShell example, see [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 * To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](async-operations.md).

@@ -4,7 +4,7 @@ description: This helps you work with the client profile file
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc

@@ -3,19 +3,15 @@ title: Install a master target server for Linux VM failback with Azure Site Reco
 description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
 services: site-recovery
 author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.date: 10/16/2024
 ---
 
 
 # Install a Linux master target server for failback
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic.
 
@@ -263,8 +259,6 @@ Use the following steps to create a retention disk:
     ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>**.
-
-    ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. After you create the file system, mount the retention disk.
 

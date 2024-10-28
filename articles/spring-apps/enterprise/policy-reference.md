@@ -5,14 +5,13 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: subject-policy-reference, devx-track-java
 ---
 
 # Azure Policy built-in definitions for Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -33,5 +32,5 @@ the link in the **Version** column to view the source on the
 ## Next steps
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
-- Review [Understanding policy effects](../../governance/policy/concepts/effects.md).
+- Review the [Azure Policy definition structure basics](../../governance/policy/concepts/definition-structure-basics.md).
+- Review [Azure Policy definitions effect basics](../../governance/policy/concepts/effect-basics.md).

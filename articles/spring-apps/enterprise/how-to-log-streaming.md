@@ -3,31 +3,34 @@ title:  Stream Azure Spring Apps application console logs in real time
 description: Describes how to use log streaming to view application logs in real time
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Stream Azure Spring Apps application console logs in real time
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article describes how to enable log streaming in the Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
-
-For streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+This article describes how to enable log streaming in the Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md) and [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
 
 ## Prerequisites
 
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.0.0 or higher. You can install the extension by using the following command: `az extension add --name spring`
 - An instance of Azure Spring Apps with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
-## Use the Azure CLI to produce tail logs
+## Stream logs
+
+### [Azure portal](#tab/azure-portal)
+
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
+
+### [Azure CLI](#tab/azure-CLI)
 
 This section provides examples of using the Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, use the following commands to set your default resource group name and cluster name:
 
@@ -140,6 +143,8 @@ Single vip registry refresh property : null
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
+---
+
 ## Stream an Azure Spring Apps app log in a virtual network injection instance
 
 For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
@@ -161,7 +166,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
    :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 Use the following command to enable the log stream public endpoint:
 
@@ -196,4 +201,5 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 - [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
 - [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
+- [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md)
 - [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

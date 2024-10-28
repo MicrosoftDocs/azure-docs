@@ -1,11 +1,11 @@
 ---
 title: Create Datadog
 description: This article describes how to use the Azure portal to create an instance of Datadog.
-author: flang-msft
+
 
 ms.topic: quickstart
 ms.date: 01/06/2023
-ms.author: franlanglois
+
 ms.custom: references_regions
 
 ---
@@ -95,7 +95,7 @@ The Microsoft Entra admin center gives you access to three activity logs:
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md). To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
+To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
 
 You can request your IT Administrator to route Microsoft Entra logs to Datadog. For more information, see [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md).
 

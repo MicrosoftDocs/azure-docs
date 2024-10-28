@@ -2,7 +2,7 @@
 title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
 description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub to provide data to analyze and diagnose problems your hub may be having.
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 07/21/2022
@@ -18,7 +18,7 @@ ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 
 Use Azure Monitor to collect metrics and logs from your IoT hub to monitor the operation of your solution and troubleshoot problems when they occur. In this tutorial, you'll learn how to create charts based on metrics, how to create alerts that trigger on metrics, how to send IoT Hub operations and errors to Azure Monitor Logs, and how to check the logs for errors.
 
-This tutorial uses the Azure sample from the [.NET send telemetry quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json&pivots=programming-language-csharp) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
+This tutorial uses the Azure sample from the [.NET send telemetry quickstart](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json&pivots=programming-language-csharp) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
 
 Some familiarity with Azure Monitor concepts might be helpful before you begin this tutorial. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md). To learn more about the metrics and resource logs emitted by IoT Hub, see [Monitoring data reference](monitor-iot-hub-reference.md).
 
@@ -66,6 +66,8 @@ For this tutorial, we've provided a CLI script that performs the following steps
 3. Create a Log Analytics workspace.
 
 4. Register a device identity for the simulated device that sends messages to your IoT hub. Save the device connection string to use to configure the simulated device.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Set up resources using Azure CLI
 

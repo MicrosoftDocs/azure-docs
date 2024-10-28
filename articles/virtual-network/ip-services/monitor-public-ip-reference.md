@@ -1,83 +1,75 @@
 ---
-title: Monitoring Public IP addresses data reference
-titleSuffix: Azure Virtual Network
-description: Important reference material needed when you monitor Public IP addresses 
+title: Monitoring data reference for Public IP addresses
+description: This article contains important reference material you need when you monitor Azure Public IP addresses.
+ms.date: 07/21/2024
+ms.custom: horz-monitor
+ms.topic: reference
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
-ms.topic: reference
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom: subject-monitoring
 ---
 
-# Monitoring Public IP addresses data reference
+# Public IP addresses monitoring data reference
 
-See [Monitoring Public IP address](monitor-public-ip.md) for details on collecting and analyzing monitoring data for Public IP addresses.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Public IP addresses](monitor-public-ip.md) for details on the data you can collect for Public IP addresses and how to use it.
 
-This section lists all the automatically collected platform metrics collected for Public IP addresses.  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Public IP Addresses | [Microsoft.Network/publicIPAddresses](/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) |
+### Supported metrics for Microsoft.Network/publicIPAddresses
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+The following table lists the metrics available for the Microsoft.Network/publicIPAddresses resource type.
 
-## Metric Dimensions
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+[!INCLUDE [Microsoft.Network/publicIPAddresses](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-publicipaddresses-metrics-include.md)]
 
-Public IP Addresses have the following dimensions associated with its metrics.
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **Port** | The port of the traffic. |
-| **Direction** | The direction of the traffic, inbound or outbound. |
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-## Resource logs
+| Dimension name | Description |
+|:---------------|:------------|
+| Port           | The port of the traffic. |
+| Direction      | The direction of the traffic: inbound or outbound. |
 
-This section lists the types of resource logs you can collect for Public IP addresses. 
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+### Supported resource logs for Microsoft.Network/publicIPAddresses
 
-This section lists all the resource log category types collected for Public IP addresses.  
+[!INCLUDE [Microsoft.Network/publicIPAddresses](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-publicipaddresses-logs-include.md)]
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Public IP addresses | [Microsoft.Network/publicIPAddresses](/azure/azure-monitor/platform/resource-logs-categories#microsoftnetworkpublicipaddresses) |
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-## Azure Monitor Logs tables
+### Public IP addresses Microsoft.Network/publicIPAddresses
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Public IP addresses and available for query by Log Analytics. 
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
 
-For more information, see [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/reference/tables/tables-resourcetype#public-ip-addresses)
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-## Activity log
+- [Networking resource provider operations](/azure/role-based-access-control/resource-provider-operations#networking)
 
-The following table lists the operations that Public IP addresses may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
+The following table lists the operations that Public IP addresses can record in the Activity log. This list is a subset of the possible entries you might find in the activity log.
 
 | Namespace | Description |
 |:---|:---|
 | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
-| Microsoft.Network/publicIPAddresses/write | Creates a public Ip address or updates an existing public Ip address.  |
-| Microsoft.Network/publicIPAddresses/delete | Deletes a public Ip address. |
-| Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
-| Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public Ip Address Dns Alias resource |
-| Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public Ip Address Dns Alias resource |
-| Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public Ip Address Dns Alias resource |
-| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP Address |
-| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP Address |
-| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address |
-| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP Address |
+| Microsoft.Network/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
+| Microsoft.Network/publicIPAddresses/delete | Deletes a public IP address. |
+| Microsoft.Network/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+| Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public IP Address Dns Alias resource. |
+| Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public IP Address Dns Alias resource. |
+| Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public IP Address Dns Alias resource. |
+| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP Address. |
+| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP Address. |
+| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address. |
+| Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP Address. |
 
-See [all the possible resource provider operations in the activity log](../../role-based-access-control/resource-provider-operations.md).  
+## Related content
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../../azure-monitor/essentials/activity-log-schema.md). 
-
-## See Also
-
-- See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP addresses.
-
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Public IP addresses](monitor-public-ip.md) for a description of monitoring Public IP addresses.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

@@ -43,6 +43,9 @@ Once you authorize your Azure account with GitHub, **select** the **Organization
 ::: zone pivot="container-linux"
 ## 3. Configure registry settings
 
+> [!NOTE]
+> Sidecar containers (preview) will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+
 To deploy a multi-container (Docker Compose) app, **select** **Docker Compose** in **Container Type**.
 
 If you don't see the **Container Type** dropdown, scroll back up to **Source** and **select** **Container Registry**.
@@ -149,7 +152,7 @@ When you enable this option, App Service adds a webhook to your repository in Az
 ::: zone pivot="container-linux"
 > [!NOTE]
 > Support for multi-container (Docker Compose) apps is limited: 
-> - For Azure Container Registry, App Service creates a webhook in the selected registry with the registry as the scope. A `docker push` to any repository in the registry (including the ones not referenced by your Docker Compose file) triggers an app restart. You may want to [modify the webhook](../container-registry/container-registry-webhook.md) to a narrower scope.
+> - For Azure Container Registry, App Service creates a webhook in the selected registry with the registry as the scope. A `docker push` to any repository in the registry (including the ones not referenced by your Docker Compose file) triggers an app restart. You may want to [modify the webhook](/azure/container-registry/container-registry-webhook) to a narrower scope.
 > - Docker Hub doesn't support webhooks at the registry level. You must **add** the webhooks manually to the images specified in your Docker Compose file.
 ::: zone-end
 

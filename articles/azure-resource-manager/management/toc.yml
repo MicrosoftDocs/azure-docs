@@ -26,6 +26,8 @@
       href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Service tag
+      href: service-tags.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -68,7 +70,7 @@
         - name: Azure App Service
           href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Automation
-          href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../operational-excellence/relocation-automation.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Backup (Recovery Services vault)
           href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Batch
@@ -76,33 +78,33 @@
         - name: Azure Cache for Redis
           href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure AI Search
-          href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
-          href: ../../container-registry/manual-regional-move.md
+          href: /azure/container-registry/manual-regional-move
         - name: Azure Cosmos DB
-          href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/cosmos-db/how-to-move-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
-          href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MySQL Server
-          href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for PostgreSQL Server
-          href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/postgresql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Event Hubs
-          href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../operational-excellence/relocation-event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Functions
           href: ../../azure-functions/functions-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure IoT Hub
           href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Resource Manager
           href: microsoft-resources-move-regions.md
-        - name: Azure Storage
-          href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Storage Account
+          href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
           href: /azure/azure-sql/database/move-resources-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Stream Analytics
           items:
           - name: Move Stream Analytics jobs
-            href: ../../stream-analytics/copy-job.md
+            href: ../../stream-analytics/copy-job.md?toc=/azure/azure-resource-manager/management/toc.json
           - name: Move Stream Analytics cluster
             href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
@@ -110,11 +112,11 @@
         - name: Logic apps
           href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Maintenance Control configuration
-          href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/virtual-machines/move-region-maintenance-configuration?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Managed identities for Azure Resources
-          href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move
+          href: ../../operational-excellence/relocation-managed-identity.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Power BI
           href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
@@ -200,8 +202,8 @@
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations
     href: async-operations.md
-  - name: Control plane metrics in Azure Monitor 
-    href: control-plane-metrics.md
+  - name: Monitor Resource Manager
+    href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
 - name: Reference
@@ -223,6 +225,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Monitoring data reference
+    href: monitor-resource-manager-reference.md
 - name: Resources
   items:
   - name: Frequently asked questions

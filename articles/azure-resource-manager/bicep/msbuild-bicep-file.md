@@ -1,7 +1,7 @@
 ---
 title: Use MSBuild to convert Bicep to JSON
 description: Use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON.
-ms.date: 01/31/2024
+ms.date: 07/11/2024
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-arm-template
 
@@ -378,7 +378,7 @@ You need a Bicep file and a BicepParam file to be converted to JSON.
 
     var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-    resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       name: storageAccountName
       location: location
       sku: {
@@ -478,7 +478,7 @@ Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2022-05-01",
+          "apiVersion": "2023-04-01",
           "name": "[variables('storageAccountName')]",
           "location": "[parameters('location')]",
           "sku": {

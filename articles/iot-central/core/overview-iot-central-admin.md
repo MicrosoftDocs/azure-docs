@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett 
 ms.date: 03/04/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, iot-central-frontdoor]
 
@@ -100,7 +100,7 @@ An administrator can use IoT Central metrics to assess the health of connected d
 
 To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
-To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+To learn more, see [Monitor application health](howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Monitor connected IoT Edge devices
 
@@ -110,8 +110,8 @@ To learn how to monitor your IoT Edge fleet remotely by using Azure Monitor and 
 
 Many of the tools you use as an administrator are available in the **Security** and **Settings** sections of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
-- [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-iot-central-from-cli.md)
-- [Azure portal](howto-manage-iot-central-from-portal.md)
+- [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-and-monitor-iot-central.md)
+- [Azure portal](howto-manage-and-monitor-iot-central.md)
 
 ## Next steps
 

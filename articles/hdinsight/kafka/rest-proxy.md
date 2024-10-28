@@ -1,10 +1,10 @@
 ---
 title: Apache Kafka REST proxy - Azure HDInsight
 description: Learn how to do Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom:
-ms.date: 03/23/2023
+ms.date: 04/09/2024
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -112,9 +112,9 @@ def get_random_string():
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
-tenant_id = 'ABCDEFGH-1234-1234-1234-ABCDEFGHIJKL'
+tenant_id = 'aaaabbbb-0000-cccc-1111-dddd2222eeee'
 # Your Client Application Id
-client_id = 'XYZABCDE-1234-1234-1234-ABCDEFGHIJKL'
+client_id = '00001111-aaaa-2222-bbbb-3333cccc4444'
 # Your Client Credentials
 client_secret = 'password'
 # kafka rest proxy -endpoint

@@ -4,13 +4,15 @@ description: Reference for the http-data-source resolver policy available for us
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/19/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # HTTP data source for a resolver
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `http-data-source` resolver policy configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
@@ -89,13 +91,12 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 
 * To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL operation type in the schema. 
-* This policy supports GraphQL [union types](https://spec.graphql.org/October2021/#sec-Unions).
 
 ## Examples
 
@@ -272,6 +273,6 @@ For this example, we mock the customer results from an external source, and hard
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -1,16 +1,18 @@
 ---
-title: Import a gRPC API to Azure API Management (preview) | Microsoft Docs
+title: Import a gRPC API to Azure API Management
 description: Learn how to import a gRPC service definition as an API to an API Management instance using the Azure portal, ARM template, or bicep template.
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 05/06/2024
 ms.author: danlep
-ms.custom: devx-track-arm-template, devx-track-bicep
+ms.custom: devx-track-arm-template, devx-track-bicep, build-2024, devx-track-dotnet
 ---
-# Import a gRPC API (preview)
+# Import a gRPC API
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article shows how to import a gRPC service definition as an API in API Management. You can then manage the API in API Management, secure access and apply other polices, and pass gRPC API requests through the gateway to the gRPC backend. 
 
@@ -24,10 +26,9 @@ API Management supports pass-through with the following types of gRPC service me
 
 
 > [!NOTE]
-> * Importing a gRPC API is in preview. Currently, gRPC APIs are only supported in the self-hosted gateway, not the managed gateway for your API Management instance.
+> * Currently, gRPC APIs are only supported in the self-hosted gateway, not the managed gateway for your API Management instance.
 > * Currently, testing gRPC APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+> * Import is limited to a single Protobuff (.proto) file. 
 
 ## Prerequisites
 
@@ -70,6 +71,12 @@ API Management supports pass-through with the following types of gRPC service me
 
 ---
 
+## Call gRPC services with .NET
+
+For information about calling gRPC services with .NET, see the following articles:
+
+* [Tutorial: Create a gRPC client and server in ASP.NET Core](/aspnet/core/tutorials/grpc/grpc-start)
+* [Troubleshoot gRPC on .NET](/aspnet/core/grpc/troubleshoot#calling-grpc-services-hosted-in-a-sub-directory)
 
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 

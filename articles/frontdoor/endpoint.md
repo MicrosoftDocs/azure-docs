@@ -4,7 +4,7 @@ TitleSuffix: Azure Front Door
 description: Learn about endpoints when using Azure Front Door.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 08/09/2023
 ms.author: duau

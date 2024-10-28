@@ -2,11 +2,11 @@
 title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/30/2024
 ms.author: victorh
 ---
 
@@ -16,17 +16,17 @@ This article shows you how you can protect Azure Kubernetes Service (AKS) cluste
 
 ## Background
 
-Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For more information, see [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For more information, see [Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 Despite AKS being a fully managed solution, it doesn't offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this.
 
-AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (preconfigured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](../aks/outbound-rules-control-egress.md) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
+AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (preconfigured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](/azure/aks/outbound-rules-control-egress) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
 
 However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
 
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
-See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
+See the following video for a quick overview on how this works in practice on a sample environment:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
 
@@ -66,7 +66,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 Create a virtual network with two separate subnets, one for the cluster, one for the firewall. Optionally you could also create one for internal service ingress.
 
-![Empty network topology](../aks/media/limit-egress-traffic/empty-network.png)
+![Empty network topology](~/reusable-content/ce-skilling/azure/media/aks/empty-network.png)
 
 Create a resource group to hold all of the resources.
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 Azure Firewall inbound and outbound rules must be configured. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS Cluster.
 
-![Firewall and UDR](../aks/media/limit-egress-traffic/firewall-udr.png)
+![Firewall and UDR](~/reusable-content/ce-skilling/azure/media/aks/firewall-udr.png)
 
 > [!IMPORTANT]
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
@@ -149,7 +149,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> If you use secure access to the AKS API server with [authorized IP address ranges](../aks/api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
+> If you use secure access to the AKS API server with [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges), you need to add the firewall public IP into the authorized IP range.
 
 ### Create a UDR with a hop to Azure Firewall
 
@@ -177,7 +177,7 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 
 Finally, we add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you need to adapt it when using your own options.
 
-After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you might need to configure more network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters).
+After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you might need to configure more network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).
 
 #### Add FW Network Rules
 
@@ -207,9 +207,9 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ### Deploy AKS with outbound type of UDR to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network. You also use [outbound type `userDefinedRouting`](../aks/egress-outboundtype.md), this feature ensures any outbound traffic is forced through the firewall and no other egress paths exist (by default the Load Balancer outbound type could be used).
+Now an AKS cluster can be deployed into the existing virtual network. You also use [outbound type `userDefinedRouting`](/azure/aks/egress-outboundtype), this feature ensures any outbound traffic is forced through the firewall and no other egress paths exist (by default the Load Balancer outbound type could be used).
 
-![aks-deploy](../aks/media/limit-egress-traffic/aks-udr-fw.png)
+![aks-deploy](~/reusable-content/ce-skilling/azure/media/aks/aks-udr-fw.png)
 
 The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
 
@@ -220,12 +220,12 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 You define the outbound type to use the UDR that already exists on the subnet. This configuration enables AKS to skip the setup and IP provisioning for the load balancer.
 
 > [!IMPORTANT]
-> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](../aks/egress-outboundtype.md#limitations).
+> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](/azure/aks/egress-outboundtype#limitations).
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#azure-linux-container-host-for-aks).
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](/azure/aks/private-clusters) or changing the [**OS SKU**](/azure/aks/cluster-configuration#azure-linux-container-host-for-aks).
 >
-> The AKS feature for [**API server authorized IP ranges**](../aks/api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
+> The AKS feature for [**API server authorized IP ranges**](/azure/aks/api-server-authorized-ip-ranges) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
@@ -237,7 +237,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For a system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes a delay in the role assignment taking effect.
 >
 > To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported.
 
@@ -263,231 +263,17 @@ az aks get-credentials -g $RG -n $AKSNAME
 
 ## Restrict ingress traffic using Azure Firewall
 
-You can now start exposing services and deploying applications to this cluster. In this example, we expose a public service, but you can also choose to expose an internal service via [internal load balancer](../aks/internal-lb.md).
+You can now start exposing services and deploying applications to this cluster. In this example, we expose a public service, but you can also choose to expose an internal service via [internal load balancer](/azure/aks/internal-lb).
 
-![Public Service DNAT](../aks/media/limit-egress-traffic/aks-create-svc.png)
+![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/aks/aks-create-svc.png)
 
-Deploy the Azure voting app application by copying the following yaml to a file named `example.yaml`.
+1. Review the [AKS Store Demo quickstart](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-quickstart.yaml) manifest to see all the resources that will be created.
 
-```yaml
-# voting-storage-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-storage
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-storage
-  template:
-    metadata:
-      labels:
-        app: voting-storage
-    spec:
-      containers:
-      - name: voting-storage
-        image: mcr.microsoft.com/azuredocs/voting/storage:2.0
-        args: ["--ignore-db-dir=lost+found"]
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
----
-# voting-storage-secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: voting-storage-secret
-type: Opaque
-data:
-  MYSQL_USER: ZGJ1c2Vy
-  MYSQL_PASSWORD: UGFzc3dvcmQxMg==
-  MYSQL_DATABASE: YXp1cmV2b3Rl
-  MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
----
-# voting-storage-pv-claim.yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-# voting-storage-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-storage
-  labels:
-    app: voting-storage
-spec:
-  ports:
-  - port: 3306
-    name: mysql
-  selector:
-    app: voting-storage
----
-# voting-app-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-app
-  template:
-    metadata:
-      labels:
-        app: voting-app
-    spec:
-      containers:
-      - name: voting-app
-        image: mcr.microsoft.com/azuredocs/voting/app:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-        - name: ANALYTICS_HOST
-          value: "voting-analytics"
----
-# voting-app-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-app
-  labels:
-    app: voting-app
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 8080
-    name: http
-  selector:
-    app: voting-app
----
-# voting-analytics-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-analytics
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-analytics
-      version: "2.0"
-  template:
-    metadata:
-      labels:
-        app: voting-analytics
-        version: "2.0"
-    spec:
-      containers:
-      - name: voting-analytics
-        image: mcr.microsoft.com/azuredocs/voting/analytics:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
----
-# voting-analytics-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-analytics
-  labels:
-    app: voting-analytics
-spec:
-  ports:
-  - port: 8080
-    name: http
-  selector:
-    app: voting-analytics
-```
+2. Deploy the service using the `kubectl apply` command.
 
-Deploy the service by running:
-
-```bash
-kubectl apply -f example.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
+   ```
 
 ### Add a DNAT rule to Azure Firewall
 
@@ -507,17 +293,18 @@ kubectl get services
 The IP address needed is listed in the EXTERNAL-IP column, similar to the following.
 
 ```bash
-NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
-voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
-voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
-voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)                AGE
+kubernetes         ClusterIP      10.41.0.1       <none>            443/TCP                10h
+store-front        LoadBalancer   10.41.185.82    203.0.113.254     80:32718/TCP           9m
+order-service      ClusterIP      10.0.104.144    <none>            3000/TCP               11s
+product-service    ClusterIP      10.0.237.60     <none>            3002/TCP               10s
+rabbitmq           ClusterIP      10.0.161.128    <none>            5672/TCP,15672/TCP     11s
 ```
 
 Get the service IP by running:
 
 ```bash
-SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc store-front -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:
@@ -530,9 +317,11 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
+You should see the AKS store app. In this example, the Firewall public IP was `203.0.113.32`.
 
-![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](../aks/media/limit-egress-traffic/aks-vote.png)
+:::image type="content" source="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png":::
+
+On this page, you can view products, add them to your cart, and then place an order.
 
 ## Clean up resources
 
@@ -544,7 +333,7 @@ az group delete -g $RG
 
 ## Next steps
 
-- Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
+- Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](/azure/aks/concepts-clusters-workloads).
 
 <!-- LINKS - Internal -->
-[bring-your-own-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
+[bring-your-own-managed-identity]: /azure/aks/use-managed-identity#enable-a-user-assigned-managed-identity

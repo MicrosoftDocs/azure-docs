@@ -3,8 +3,7 @@ title: SSL offloading with Application Gateway for Containers - Gateway API
 description: Learn how to configure SSL offloading with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 02/27/2024
 ms.author: greglin
@@ -15,7 +14,7 @@ ms.author: greglin
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) that references a backend service.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) that references a backend service.
 
 ## Background
 

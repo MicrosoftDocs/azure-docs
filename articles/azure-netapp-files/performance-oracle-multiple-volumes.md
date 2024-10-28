@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
@@ -25,6 +25,8 @@ The testing occurred in two phases:
 ### SLOB2 scale-up performance 
 
 The following charts capture the performance profile of a single E104ids_v5 Azure VM running a single Oracle 19c database against eight Azure NetApp Files volumes with eight storage endpoints. The volumes are spread across three ASM disk groups: data, log, and archive. Five volumes were allocated to the data disk group, two volumes to the log disk group, and one volume to the archive disk group. All results captured throughout this article were collected using production Azure regions and active production Azure services. 
+
+To deploy Oracle on Azure virtual machines using multiple Azure NetApp Files volumes on multiple storage endpoints, use [application volume group for Oracle](application-volume-group-oracle-introduction.md).
 
 #### Single-host architecture
 
@@ -88,7 +90,7 @@ All systems eventually hit resource constraints, traditionally known as chokepoi
 
 ### Virtual machines 
 
-This section details the criteria to be considered in selecting [VMs](../virtual-machines/sizes.md) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
+This section details the criteria to be considered in selecting [VMs](/azure/virtual-machines/sizes) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
 
 #### Chipsets 
 
@@ -98,7 +100,7 @@ Read the [Azure Compute documentation](/azure/architecture/guide/technology-choi
 
 #### Available network bandwidth 
 
-It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
+It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the network interface card (NIC) itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
 
 As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 Gbps NIC with the egress limit set at 100 Gbps as well. By comparison, the E96_v5, with its 100 Gbps NIC has an egress limit of 35 Gbps with ingress unfettered at 100 Gbps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
 
@@ -354,7 +356,7 @@ Microsoft Oracle subject matter experts have estimated that more than 80% of Ora
 
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 * [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
-* [Design and implement an Oracle database in Azure](../virtual-machines/workloads/oracle/oracle-design.md)
+* [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design)
 * [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) 
-* [Reference architectures for Oracle Database Enterprise Edition on Azure](../virtual-machines/workloads/oracle/oracle-reference-architecture.md) 
+* [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) 
 * [Understand Azure NetApp Files application volumes groups for SAP HANA](application-volume-group-introduction.md)

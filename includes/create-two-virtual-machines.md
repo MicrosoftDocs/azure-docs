@@ -3,7 +3,7 @@
  description: include file
  services: virtual-network
  author: asudbring
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
  ms.date: 06/06/2023
  ms.author: allensu
@@ -56,7 +56,7 @@ The following procedure creates two VMs named **vm-1** and **vm-2** in the virtu
 
 1. Review the settings and select **Create**.
 
-1. Repeat the previous steps to create a second virtual machine with the following settings:
+1. Wait for the first virtual machine to deploy then repeat the previous steps to create a second virtual machine with the following settings:
 
     | Setting | Value |
     |---|---|
@@ -70,4 +70,4 @@ The following procedure creates two VMs named **vm-1** and **vm-2** in the virtu
 > [!NOTE]
 > Virtual machines in a virtual network with an Azure Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
 
-[!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]

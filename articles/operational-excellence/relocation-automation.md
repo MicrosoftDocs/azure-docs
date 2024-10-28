@@ -1,19 +1,23 @@
 ---
-title: Relocation guidance for Azure Automation
-description: Learn how to relocate an Azure Automation to a new region
+title: Relocate Azure Automation to another region
+description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
-ms.service: automation
-ms.topic: concept
+ms.service: azure-automation
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
 
 # Relocate Azure Automation to another region
 
-This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
+This article covers relocation guidance for relocating [Azure Automation](../automation/overview.md) across regions.
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
+
 
 If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
@@ -26,6 +30,9 @@ If your Azure Automation instance doesn't have any configuration and the instanc
 - If the source Azure Automation is enabled with a private connection, create a private link and configure the private link with DNS at target. 
 - For Azure Automation to communicate with Hybrid RunBook Worker, Azure Update Manager, Change Tracking, Inventory Configuration, and Automation State Configuration, you must enable port 443 for both inbound and outbound internet access.
 
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Prepare
 
@@ -38,6 +45,8 @@ To get started, export a Resource Manager template. This template contains setti
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
+
+
 
 ## Redeploy
 

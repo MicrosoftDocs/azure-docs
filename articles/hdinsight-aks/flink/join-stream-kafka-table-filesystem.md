@@ -1,14 +1,17 @@
 ---
 title: Enrich the events from Apache Kafka® with the attributes from FileSystem with Apache Flink®
 description: Learn how to join stream from Kafka with table from fileSystem using Apache Flink® DataStream API.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Enrich the events from Apache Kafka® with attributes from ADLS Gen2 with Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, you can learn how you can enrich the real time events by joining a stream from Kafka with table on ADLS Gen2 using Flink Streaming. We use Flink Streaming API to join events from HDInsight Kafka with attributes from ADLS Gen2. Further we use attributes-joined events to sink into another Kafka topic.
 
@@ -30,12 +33,6 @@ We're creating a topic called `user_events`.
   type, 
   timestamp, 
   ```
-
-**Kafka 2.4.1**
-```
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events --zookeeper zk0-contos:2181
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events_output --zookeeper zk0-contos:2181
-```
 
 **Kafka 3.2.0**
 ```
@@ -84,7 +81,7 @@ In this step, we perform the following activities
         <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <kafka.version>3.2.0</kafka.version> //replace with 2.4.1 if you are using HDInsight Kafka 2.4.1
+        <kafka.version>3.2.0</kafka.version>
     </properties>
     <dependencies>
         <dependency>

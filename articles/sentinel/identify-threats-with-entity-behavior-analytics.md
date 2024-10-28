@@ -1,20 +1,31 @@
 ---
-title: Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel | Microsoft Docs
+title: Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel | Microsoft Docs
 description: Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify zero-day advanced persistent threats (APT).
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 03/19/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to leverage User and Entity Behavior Analytics (UEBA) so that I can efficiently detect and prioritize sophisticated threats within my organization.
+
 ---
 
-# Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
+# Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-
-Identifying threats inside your organization and their potential impact - whether a compromised entity or a malicious insider - has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of time and effort expended with minimal returns, and the possibility of sophisticated threats simply evading discovery. Particularly elusive threats like zero-day, targeted, and advanced persistent threats can be the most dangerous to your organization, making their detection all the more critical.
+Identifying threats inside your organization and their potential impact&mdash;whether a compromised entity or a malicious insider&mdash;has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of time and effort expended with minimal returns, and the possibility of sophisticated threats simply evading discovery. Particularly elusive threats like zero-day, targeted, and advanced persistent threats can be the most dangerous to your organization, making their detection all the more critical.
 
 The UEBA capability in Microsoft Sentinel eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+All the benefits of UEBA are available in the unified security operations platform in the Microsoft Defender portal.
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
@@ -43,7 +54,10 @@ Microsoft Sentinel presents artifacts that help your security analysts get a cle
 - as compared to organization's behavior.
     :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
 
-The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Microsoft Entra ID (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Microsoft Entra ID with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table in Log Analytics.
+The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Microsoft Entra ID (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Microsoft Entra ID with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table.
+
+- In Microsoft Sentinel in the Azure portal, you query the *IdentityInfo* table in Log Analytics on the **Logs** page.
+- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
 
 Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
 
@@ -59,7 +73,7 @@ Learn more about [entities in Microsoft Sentinel](entities.md) and see the full 
 
 ### Entity pages
 
-Information about **entity pages** can now be found at [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
+Information about **entity pages** can now be found at [Entity pages in Microsoft Sentinel](entity-pages.md).
 
 ## Querying behavior analytics data
 
@@ -73,6 +87,9 @@ BehaviorAnalytics
 | where ActivityInsights.FirstTimeUserConnectedFromCountry == True
 | where ActivityInsights.CountryUncommonlyConnectedFromAmongPeers == True
 ```
+
+- In Microsoft Sentinel in the Azure portal, you query the *BehaviorAnalytics* table in Log Analytics on the **Logs** page.
+- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
 
 ### User peers metadata - table and notebook
 

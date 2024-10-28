@@ -1,85 +1,112 @@
 ---
-title: Create an ASP.NET Core web app with Azure Cache for Redis
-description: In this quickstart, you learn how to create an ASP.NET Core web app with Azure Cache for Redis
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+title: 'Quickstart: Use Azure Cache for Redis with ASP.NET Core'
+description: Modify a sample ASP.NET Core web app and connect the app to Azure Cache for Redis.
+
+
+
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
-ms.date: 03/25/2022
-
+ms.date: 04/24/2024
+#Customer intent: As an ASP.NET Core developer who is new to Azure Cache for Redis, I want to create a new ASP.NET Core app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
 
-In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
+In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and get data from the cache.
 
-## Skip to the code on GitHub
+You can use a caching provider in your ASP.NET Core web app. To quickly start using Redis with minimal changes to your existing code, see:
 
-Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
+- [ASP.NET Core output cache provider](/aspnet/core/performance/caching/output#redis-cache)
+- [ASP.NET Core distributed caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
+- [ASP.NET Core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
+
+## Skip to the code
+
+This article describes how to modify the code for a sample app to create a working app that connects to Azure Cache for Redis.
+
+If you want to go straight to the code, see the [ASP.NET Core quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
+
+You can clone the [Azure Cache for Redis samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repository, and then go to the *quickstart/aspnet-core* directory to view the completed source code for the steps that are described in this article.
+
+The *quickstart/aspnet-core* directory is also configured as an [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) template. Use the open-source azd tool to streamline provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
+
+```azdeveloper
+azd up
+```
+
+### Explore the eShop sample
+
+As a next step, you can see a real-world scenario eShop application that demonstrates the ASP.NET Core caching providers: [ASP.NET Core eShop by using Redis caching providers](https://github.com/Azure-Samples/azure-cache-redis-demos).
+
+Features include:
+
+- Redis distributed caching
+- Redis session state provider
+
+Deployment instructions are in the *README.md* file in the [ASP.NET Core quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create-entra-id.md)]
 
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
 
-Make a note of the **HOST NAME** and the **Primary** access key. You use these values later to construct the *CacheConnection* secret.
+[!INCLUDE [redis-access-policy](includes/redis-access-policy.md)]
 
-## Add a local secret for the connection string
+## Add a local secret for the host name
 
-In your command window, execute the following command to store a new secret named *CacheConnection*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
+In your command window, run the following command to store a new secret named *RedisHostName*. In the code, replace the placeholders, including angle brackets, with your cache name and primary access key:
 
 ```dos
-dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
+dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
 
-## Connect to the cache with RedisConnection
+## Connect to the cache by using RedisConnection
 
-The connection to your cache is managed by the `RedisConnection` class. The connection is made in this statement in `HomeController.cs` in the *Controllers* folder:
+The `RedisConnection` class manages the connection to your cache. The connection is made in this statement in *HomeController.cs* in the *Controllers* folder:
 
 ```csharp
 _redisConnection = await _redisConnectionFactory;
 ```
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
+The *RedisConnection.cs* file includes the StackExchange.Redis and Azure.Identity namespaces at the top of the file to include essential types to connect to Azure Cache for Redis:
 
 ```csharp
 using StackExchange.Redis;
+using Azure.Identity;
 ```
 
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` class code ensures that there's always a healthy connection to the cache. The connection is managed by the `ConnectionMultiplexer` instance from StackExchange.Redis. The `RedisConnection` class re-creates the connection when a connection is lost and can't reconnect automatically.
 
-For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in the [StackExchange.Redis GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-<!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs"::: -->
+## Verify layout views in the sample
 
-## Layout views in the sample
+The home page layout for this sample is stored in the *_Layout.cshtml* file. In the next section, you test the cache by using the controller that you add here.
 
-The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
+1. Open *Views\Shared\\_Layout.cshtml*.
 
-1.    Open *Views\Shared\\_Layout.cshtml*.
-
-1. You should see in `<div class="navbar-header">`:
+1. Verify that the following line is in `<div class="navbar-header">`:
 
     ```html
     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
     ```
-:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
 
-### Showing data from the cache
+:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="Screenshot that shows a welcome page on a webpage.":::
 
-From the home page, you select **Azure Cache for Redis Test** to see the sample output.
+### Show data from the cache
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
+On the home page, select **Azure Cache for Redis Test** in the navigation bar to see the sample output.
 
-1. You should see this code in the *RedisCache.cshtml* file.
+1. In Solution Explorer, expand the **Views** folder, and then right-click the **Home** folder.
+
+1. Verify that the following code is in the *RedisCache.cshtml* file:
 
     ```csharp
     @{
@@ -119,45 +146,29 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
 
 ## Run the app locally
 
-1. Execute the following command in your command window to build the app:
+1. In a Command Prompt window, build the app by using the following command:
 
     ```dos
     dotnet build
     ```
-    
-1. Then run the app with the following command:
+
+1. Run the app by using this command:
 
     ```dos
     dotnet run
     ```
-    
-1. Browse to `https://localhost:5001` in your web browser.
 
-1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
+1. In a web browser, go to `https://localhost:5001`.
 
-:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
+1. On the webpage navigation bar, select **Azure Cache for Redis Test** to test cache access.
 
-## Clean up resources
+:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot that shows a simple test completed locally.":::
 
-If you continue to use this quickstart, you can keep the resources you created and reuse them.
+<!-- Clean up include -->
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges.
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
+## Related content
 
-### To delete a resource group
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
-
-1. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
-
-   :::image type="content" source="media/cache-web-app-howto/cache-delete-resource-group.png" alt-text="Delete":::
-
-1. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
-
-After a few moments, the resource group and all of its resources are deleted.
-
-## Next steps
-- [Connection resilience](cache-best-practices-connection.md)
-- [Best Practices Development](cache-best-practices-development.md)
+- [Connection resilience best practices for your cache](cache-best-practices-connection.md)
+- [Development best practices for your cache](cache-best-practices-development.md)

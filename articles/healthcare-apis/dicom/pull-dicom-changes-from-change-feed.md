@@ -1,23 +1,23 @@
 ---
 title:  Access DICOM Change Feed logs by using C# and the DICOM client package in Azure Health Data Services
 description: Learn how to use C# code to consume Change Feed, a feature of the DICOM service that provides logs of all the changes in your organization's medical imaging data. The code example uses the DICOM client package to access and process the Change Feed.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 1/18/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Access DICOM Change Feed logs by using C# and the DICOM client package
 
-The Change Feed capability enables you to go through the history of the DICOM&reg; service and then act on the create and delete events. 
+The Change Feed capability enables you to go through the history of a DICOM&reg; service and act on the create and delete events. 
 
 You access the Change Feed by using REST APIs. These APIs, along with sample usage of Change Feed, are documented in the [DICOM Change Feed overview](change-feed-overview.md). The version of the REST API should be explicitly specified in the request URL as described in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
 ## Consume Change Feed
 
-The C# code example shows how to consume Change Feed using the DICOM client package.
+The following C# code example shows how to consume Change Feed using the DICOM client package.
 
 ```csharp
 const int limit = 10;

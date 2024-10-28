@@ -5,11 +5,17 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to surface custom event details in alerts so that I can triage, investigate, and respond to incidents more efficiently.
+
 ---
 
 # Surface custom event details in alerts in Microsoft Sentinel 
-
-## Introduction
 
 [Scheduled query analytics rules](detect-threats-custom.md) analyze **events** from data sources connected to Microsoft Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Microsoft Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.
 
@@ -17,9 +23,21 @@ Using the **custom details** feature in the **analytics rule wizard**, you can s
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing custom details in an existing analytics rule.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## How to surface custom event details
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+    # [Defender portal](#tab/defender)
+
+    From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    ---
 
 1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
@@ -46,9 +64,9 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     > [!NOTE]
     > 
     > **Service limits**
-    > - You can define **up to 20 custom details** in a single analytics rule.
+    > - You can define **up to 20 custom details** in a single analytics rule. Each custom detail can contain **up to 50 values**.
     >
-    > - The combined size limit for all custom details and [alert details](customize-alert-details.md), collectively, is **64 KB**.
+    > - The combined size limit for all custom details and their values in a single alert is **2 KB**. Values in excess of this limit are dropped.
 
 ## Next steps
 

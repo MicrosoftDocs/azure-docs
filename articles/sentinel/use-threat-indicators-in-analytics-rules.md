@@ -4,78 +4,82 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to generate alerts and incidents with threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 8/30/2022
+ms.date: 3/14/2024
 ms.author: austinmc
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to configure analytics rules using threat indicators so that I can automatically generate and investigate security alerts based on integrated threat intelligence from various data sources.
+
 ---
 
 # Use threat indicators in analytics rules
 
-Power your analytics rules with your threat indicators to automatically generate alerts based on the threat intelligence you've integrated.
+Power your analytics rules with your threat indicators to automatically generate alerts based on the threat intelligence that you integrated.
 
 ## Prerequisites
 
-- Threat indicators. These can be from threat intelligence feeds, threat intelligence platforms, bulk import from a flat file, or manual input.
-
-- Data sources. Events from your data connectors must be flowing to your Sentinel workspace.
-
-- An analytics rule of the format, "*TI map*..." that can map the threat indicators you have with the events you've ingested.
-
+- Threat indicators. These indicators can be from threat intelligence feeds, threat intelligence platforms, bulk import from a flat file, or manual input.
+- Data sources. Events from your data connectors must be flowing to your Microsoft Sentinel workspace.
+- An analytics rule of the format `TI map...`. It must use this format so that it can map the threat indicators you have with the events you ingested.
 
 ## Configure a rule to generate security alerts
 
-Below is an example of how to enable and configure a rule to generate security alerts using the threat indicators you've imported into Microsoft Sentinel. For this example, use the rule template called **TI map IP entity to AzureActivity**. This rule will match any IP address-type threat indicator with all your Azure Activity events. When a match is found, an **alert** will be generated along with a corresponding **incident** for investigation by your security operations team. This particular analytics rule requires the **Azure Activity** data connector (to import your Azure subscription-level events), and one or both of the **Threat Intelligence** data connectors (to import threat indicators). This rule will also trigger from imported indicators or manually created ones.
+The following example shows how to enable and configure a rule to generate security alerts by using the threat indicators that you imported into Microsoft Sentinel. For this example, use the rule template called **TI map IP entity to AzureActivity**. This rule matches any IP address-type threat indicator with all your Azure Activity events. When a match is found, an alert is generated along with a corresponding incident for investigation by your security operations team.
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
+This particular analytics rule requires the Azure Activity data connector (to import your Azure subscription-level events). It also requires one or both of the Threat Intelligence data connectors (to import threat indicators). This rule also triggers from imported indicators or manually created ones.
 
-1. Choose the **workspace** to which you imported threat indicators using the **Threat Intelligence** data connectors and Azure activity data using the **Azure Activity** data connector.
+1. In the [Azure portal](https://portal.azure.com/), go to **Microsoft Sentinel**.
 
-1. Select **Analytics** from the **Configuration** section of the Microsoft Sentinel menu.
+1. Choose the workspace to which you imported threat indicators by using the Threat Intelligence data connectors and Azure Activity data by using the Azure Activity data connector.
+
+1. On the Microsoft Sentinel menu, under the **Configuration** section, select **Analytics**.
 
 1. Select the **Rule templates** tab to see the list of available analytics rule templates.
 
-1. Find the rule titled **TI map IP entity to AzureActivity** and ensure you have connected all the required data sources as shown below.
+1. Find the rule titled **TI map IP entity to AzureActivity**, and ensure that you connected all the required data sources.
 
-    :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="Screenshot of required data sources for the TI map IP entity to AzureActivity analytics rule.":::
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="Screenshot that shows required data sources for the TI map IP entity to AzureActivity analytics rule.":::
 
-1. Select the **TI map IP entity to AzureActivity** rule and then select **Create rule** to open a rule configuration wizard. Configure the settings in the wizard and then select **Next: Set rule logic >**.
+1. Select the **TI map IP entity to AzureActivity** rule. Then select **Create rule** to open a rule configuration wizard. Configure the settings in the wizard, and then select **Next: Set rule logic >**.
 
-    :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="Screenshot of the create analytics rule configuration wizard.":::
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="Screenshot that shows the Create analytics rule configuration wizard.":::
 
-1. The rule logic portion of the wizard has been pre-populated with the following items:
+1. The rule logic portion of the wizard is prepopulated with the following items:
 
-   - The query that will be used in the rule.
-
-   - Entity mappings, which tell Microsoft Sentinel how to recognize entities like Accounts, IP addresses, and URLs, so that **incidents** and **investigations** understand how to work with the data in any security alerts generated by this rule.
-
+   - The query that's used in the rule.
+   - Entity mappings, which tell Microsoft Sentinel how to recognize entities like accounts, IP addresses, and URLs. Incidents and investigations can then understand how to work with the data in any security alerts that were generated by this rule.
    - The schedule to run this rule.
-
    - The number of query results needed before a security alert is generated.
 
     The default settings in the template are:
 
    - Run once an hour.
+   - Match any IP address threat indicators from the `ThreatIntelligenceIndicator` table with any IP address found in the last one hour of events from the `AzureActivity` table.
+   - Generate a security alert if the query results are greater than zero to indicate that matches were found.
+   - Ensure that the rule is enabled.
 
-   - Match any IP address threat indicators from the **ThreatIntelligenceIndicator** table with any IP address found in the last one hour of events from the **AzureActivity** table.
+    You can leave the default settings or change them to meet your requirements. You can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you're finished, select the **Automated response** tab.
 
-   - Generate a security alert if the query results are greater than zero, meaning if any matches are found.
-   
-   - The rule is enabled.
+1. Configure any automation you want to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel uses combinations of automation rules and playbooks powered by Azure Logic Apps. To learn more, see [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When you're finished, select **Next: Review >** to continue.
 
-    You can leave the default settings or change them to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you are finished, select the **Automated response** tab.
+1. When you see a message stating that the rule validation passed, select **Create**.
 
-1. Configure any automation you’d like to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel is done using combinations of **automation rules** and **playbooks** powered by Azure Logic Apps. To learn more, see this [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When finished, select the **Next: Review >** button to continue.
+## Review your rules
 
-1. When you see the message that the rule validation has passed, select the **Create** button and you are finished.
+Find your enabled rules on the **Active rules** tab of the **Analytics** section of Microsoft Sentinel. Edit, enable, disable, duplicate, or delete the active rule from there. The new rule runs immediately upon activation and then runs on its defined schedule.
 
-You can find your enabled rules in the **Active rules** tab of the **Analytics** section of Microsoft Sentinel. You can edit, enable, disable, duplicate, or delete the active rule from there. The new rule runs immediately upon activation, and from then on will run on its defined schedule.
+According to the default settings, each time the rule runs on its schedule, any results that are found generate a security alert. To see security alerts in Microsoft Sentinel in the **Logs** section of Microsoft Sentinel, under the **Microsoft Sentinel** group, see the `SecurityAlert` table.
 
-According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Microsoft Sentinel can be viewed in the **Logs** section of Microsoft Sentinel, in the **SecurityAlert** table under the **Microsoft Sentinel** group.
+In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents. On the Microsoft Sentinel menu, under **Threat Management**, select **Incidents**. Incidents are what your security operations teams triage and investigate to determine the appropriate response actions. For more information, see [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
-In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents, which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
+> [!NOTE]
+> Because analytic rules constrain lookups beyond 14 days, Microsoft Sentinel refreshes indicators every 12 days to make sure they're available for matching purposes through the analytic rules.
 
-Since analytic rules constrain lookups beyond 14 days, Microsoft Sentinel refreshes indicators every 12 days to make sure they are available for matching purposes through the analytic rules. 
-
-## Next steps
+## Related content
 
 In this article, you learned how to use threat intelligence indicators to detect threats. For more about threat intelligence in Microsoft Sentinel, see the following articles:
 

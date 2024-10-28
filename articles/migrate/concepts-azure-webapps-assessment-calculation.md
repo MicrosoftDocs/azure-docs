@@ -5,13 +5,13 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/02/2023
-ms.custom: engagement-fy23
+ms.date: 04/01/2024
+ms.custom: engagement-fy23, devx-track-extended-java
 ---
 
 # Assessment overview (migrate to Azure App Service)
 
-This article provides an overview of assessments for migrating on-premises ASP.NET web apps to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises ASP.NET/Java web apps to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.
@@ -24,7 +24,7 @@ There are four types of assessments you can create using the Azure Migrate: Disc
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps running on IIS web servers to Azure App Service.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps running on IIS web servers or Java web apps running on Tomcat servers to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 An Azure App Service assessment provides one sizing criteria:
@@ -33,7 +33,7 @@ An Azure App Service assessment provides one sizing criteria:
 --- | --- | ---
 **Configuration-based** | Assessments that make recommendations based on collected configuration data | The Azure App Service assessment takes only configuration data in to consideration for assessment calculation. Performance data for web apps isn't collected.
 
-## How do I assess my on-premises ASP.NET web apps?
+## How do I assess my on-premises ASP.NET/Java web apps?
 
 You can assess your on-premises web apps by using the configuration data collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises web apps and sends the configuration data to Azure Migrate. [Learn More](how-to-set-up-appliance-vmware.md)
 

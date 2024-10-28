@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues.
 
 - Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
@@ -66,7 +68,7 @@ Use [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsett
 
 Retention data is defined by the **-RetentionInDays** option in the command.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Enable diagnostic logs in a storage account
 
@@ -215,7 +217,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal.
 
-For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
+For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 **Metrics supported by Azure CDN from Microsoft**
 
@@ -268,7 +270,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
+Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
 ### More Metrics
 
@@ -302,6 +304,6 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 - [Analyze](cdn-log-analysis.md) Azure CDN usage patterns.
 
-- Learn more about [Azure Monitor](../azure-monitor/overview.md).
+- Learn more about [Azure Monitor](/azure/azure-monitor/overview).
 
-- Configure [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+- Configure [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).

@@ -150,11 +150,11 @@ Call context headers are currently available only for Call Automation SDK. Call 
 
 ### User-To-User header
 
-SIP User-To-User (UUI) header is an industry standard to pass contextual information during a call setup process. The maximum length of a UUI header key is 64 chars. The maximum length of UUI header value is 256 chars. The UUI header value might consist of alphanumeric characters and a few selected symbols, including "=", ";", ".", "!", "%", "*", "_", "+", "~", "-".
+SIP User-To-User (UUI) header is an industry standard to pass contextual information during a call setup process. The maximum length of a UUI header key is 64 chars. The maximum length of UUI header value is 256 chars. The UUI header value might consist of alphanumeric characters and a few selected symbols, including `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
 
 ### Custom header
 
-Azure Communication Services also supports up to five custom SIP headers. Custom SIP header key must start with a mandatory `X-MS-Custom-` prefix. The maximum length of a SIP header key is 64 chars, including the `X-MS-Custom-` prefix. The SIP header key might consist of alphanumeric characters and a few selected symbols, including ".", "!", "%", "*", "_", "+", "~", "-". The maximum length of the SIP header value is 256 characters. The SIP header value might consist of alphanumeric characters and a few selected symbols, including "=", ";", ".", "!", "%", "*", "_", "+", "~", "-".
+Azure Communication Services also supports up to five custom SIP headers. Custom SIP header key must start with a mandatory `X-MS-Custom-` prefix. The maximum length of a SIP header key is 64 chars, including the `X-MS-Custom-` prefix. The SIP header key might consist of alphanumeric characters and a few selected symbols, including `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of the SIP header value is 256 characters. The SIP header value might consist of alphanumeric characters and a few selected symbols, including `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
 
 For implementation details refer to [How to pass contextual data between calls](../../how-tos/call-automation/custom-context.md).
 

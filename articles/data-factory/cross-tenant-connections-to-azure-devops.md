@@ -1,7 +1,6 @@
 ---
 title: Cross-tenant connections to Azure DevOps
 description: Learn how to configure connections to Azure DevOps in another tenant in Azure Data Factory
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain

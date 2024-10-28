@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22, linux-related-content
 
 # Set up a lab to teach shell scripting on Linux
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach lets Ruby pass the data around and bash commands to interact with the shell.
@@ -42,7 +44,7 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 
 ### Install desktop and RDP
 
-The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md) article.
+The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](/azure/virtual-machines/linux/use-remote-desktop) article.
 
 ### Install Ruby
 

@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight known issues
 description: Track known issues for Azure HDInsight, along with troubleshooting steps, actions, and frequently asked questions.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
 ms.date: 03/28/2024
 ---
@@ -18,8 +18,11 @@ Azure HDInsight Open known issues:
 
 | HDInsight component | Issue description |
 |---------------------|-------------------|
-| Kafka | [Kafka 2.4.1 validation error in ARM templates](./kafka241-validation-error-arm-templates.md) |
+| Control Plane | [Component version validation error in ARM templates](./component-version-validation-error-arm-templates.md) |
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
+| Platform | [Switch users through the Ambari UI](./hdinsight-known-issues-ambari-users-cache.md)|
+
+
 
 
 
@@ -27,9 +30,9 @@ Azure HDInsight Open known issues:
 
 Select the title to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
-| Issue ID         | Area                   |Title                    | Issue published date| Status |
-|------------------|------------------------|-------------------------|-------------------|-------|
-|Not applicable|Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
+| Area                   |Title                    | Issue published date| Status |
+|------------------------|-------------------------|-------------------|-------|
+|Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
 
 ## Next steps
 

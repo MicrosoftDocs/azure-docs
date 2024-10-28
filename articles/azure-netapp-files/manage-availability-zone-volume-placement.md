@@ -6,12 +6,12 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Using availability zones for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zones for high availability](use-availability-zones.md).
 
 ## Requirements and considerations 
 
@@ -32,6 +32,9 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). This feature is currently in preview. 
 
+    >[!IMPORTANT]
+    >Once a volume is created with the same file path as another volume in a different availability zone, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there's an issue with other generally available features on the volume such as snapshots, it's supported because the problem is unrelated to the ability to create volumes with the same file path in different availability zones.
+
     You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required.
     
     1. Register the feature: 
@@ -49,9 +52,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFilePathUniquenessInAz
         ```
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-
-[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
 >[!IMPORTANT]
 >It's not recommended that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
@@ -82,24 +82,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     :::image type="content" source="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png":::
 
 ## Populate an existing volume with availability zone information
-
-1. The feature to populate existing volumes with availability zone information is currently in preview. If you're using this feature for the first time, you need to register the feature first.  
-    1. Register the feature: 
-
-    ```azurepowershell-interactive
-     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
-    ```   
-    2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-   
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
-    ```
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-    
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.   
     
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
@@ -182,7 +164,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 
 ## Next steps  
 
-* [Use availability zones for high availability](use-availability-zones.md)
+* [Use availability zones zonal placement for application high availability with Azure NetApp Files](use-availability-zones.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    

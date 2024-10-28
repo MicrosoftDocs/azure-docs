@@ -4,6 +4,7 @@ description: 'Describes the MQTT features supported by Azure Event Grid’s MQTT
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
@@ -59,14 +60,14 @@ The CONNECT packets for each session should include the following properties:
 For example, the following combinations of Username and ClientIds in the CONNECT packet enable the client "Mgmt-application" to connect to MQTT broker over three independent sessions:
 
 - First Session:
-  - Username: Mgmt-application
-  - ClientId: Mgmt-Session1
+  - Username: `Mgmt-application`
+  - ClientId: `Mgmt-Session1`
 - Second Session:
-  - Username: Mgmt-application
-  - ClientId: Mgmt-Session2
+  - Username: `Mgmt-application`
+  - ClientId: `Mgmt-Session2`
 - Third Session:
-  - Username: Mgmt-application
-  - ClientId: Mgmt-Session3
+  - Username: `Mgmt-application`
+  - ClientId: `Mgmt-Session3`
 
 :::image type="content" source="media/mqtt-support/mqtt-multi-session-high-res.png" alt-text="Diagram of a multi-session example." border="false":::
 
@@ -76,15 +77,17 @@ For more information, see [How to establish multiple sessions for a single clien
 
 - If a client tries to take over another client's active session by presenting its session name with a different authentication name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected. That being said, if the same client tries to reconnect with the same session names and the same authentication name, it's able to take over its existing session.
 - If a client resource is deleted without ending its session, other clients can't use its session name until the session expires. For example, If client B creates a session with session name 123 then client B gets deleted, client A can't connect to session 123 until it expires.
-- The limit for the number of sessions per client applies to online and offline sessions at any point in time. For example, consider a namespace with the maximum client sessions per authentication name is set to 1. If client A connects with a persistent session 123 then gets disconnected, client A won't be able to connect with a new session 456 since its session 123 is still active even if it's offline. Accordingly, we recommend that the same client always reconnects with the same static session names as opposed to generating a new session name with every reconnect.
+- The limit for the number of sessions per client applies to online and offline sessions at any point in time. For example, consider a namespace with the maximum client sessions per authentication name is set to 1. If client A connects with a persistent session 123, and then gets disconnected, client A won't be able to connect with a new session 456 since its session 123 is still active even if it's offline. Accordingly, we recommend that the same client always reconnects with the same static session names as opposed to generating a new session name with every reconnect.
 
 ## MQTT features
 Azure Event Grid’s MQTT broker feature supports the following MQTT features:
 
 ### Quality of service (QoS)
 MQTT broker supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and MQTT broker. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication.
+
 ### Persistent sessions
 MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session in case of disconnections to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
+
 #### Clean start and session expiry
 MQTT v5 introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with MQTT broker, discarding any previous session data. Session Expiry allows a client to inform MQTT broker when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that might have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
 
@@ -99,9 +102,9 @@ You can configure the maximum session expiry interval allowed for all your clien
 #### Session overflow
 MQTT broker maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with MQTT broker again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
 
-### Last Will and Testament (LWT) messages (preview)
+### Last Will and Testament (LWT) messages
 Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
-To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic.
+To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the will delay interval to a value greater than zero. In that case, if the client disconnects abruptly but resotres the connection before the will delay interval expires, the will message isn't published.
 
 ### User properties 
 MQTT broker supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
@@ -134,7 +137,7 @@ MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to ali
 MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
-- Will delay interval isn't supported yet.
+- Maximum will delay interval is 300.
 - Maximum QoS is 1.
 - Maximum Packet Size is 512 KiB
 - Message ordering isn't guaranteed.

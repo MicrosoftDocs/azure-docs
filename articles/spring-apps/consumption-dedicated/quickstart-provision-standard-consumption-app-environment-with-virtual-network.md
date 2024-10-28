@@ -3,16 +3,15 @@ title: Quickstart - Create an Azure Spring Apps Standard consumption and dedicat
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
@@ -47,8 +46,6 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 1. Open the [Azure portal](https://portal.azure.com/).
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
-
-   :::image type="content" source="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
@@ -185,7 +182,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment with the following command:
 
    ```azurecli
-   az containerapp env workload-profile set \
+   az containerapp env workload-profile add \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT
        --workload-profile-name my-wlp \

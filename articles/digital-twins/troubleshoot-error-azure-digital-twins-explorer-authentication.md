@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure Digital Twins Explorer: Authentication error"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting

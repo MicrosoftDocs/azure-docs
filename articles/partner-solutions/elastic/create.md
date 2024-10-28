@@ -3,8 +3,8 @@ title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
 ms.date: 06/01/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 
 ---
 
@@ -60,7 +60,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
    **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
 
-   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
    To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
 
@@ -68,6 +68,15 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
    - Resources with _Include_ tags send logs to Elastic.
    - Resources with _Exclude_ tags don't send logs to Elastic.
    - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+
+   Select **Next: Azure OpenAI configuration** to create and configure Azure OpenAI connector that can be used within Elastic's AI Assistant.
+
+1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+
+    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
+
+   >[!Note]
+   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
 
    Select **Next: Tags** to set up tags for the new Elastic resource.
 

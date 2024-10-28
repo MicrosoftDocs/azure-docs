@@ -5,7 +5,7 @@ description: This article describes how to use message routing to send device-to
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/23/2024
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
@@ -34,7 +34,7 @@ IoT Hub currently supports the following endpoints for message routing:
 * Service Bus queues
 * Service Bus topics
 * Event Hubs
-* Cosmos DB (preview)
+* Cosmos DB
 
 For more information about each of these endpoints, see [IoT Hub endpoints](./iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 
@@ -78,7 +78,7 @@ For more information, see [IoT Hub message routing query syntax](./iot-hub-devgu
 
 Use the following articles to learn how to read messages from an endpoint.
 
-* Read from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
+* Read from a [built-in endpoint](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
 
 * Read from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 

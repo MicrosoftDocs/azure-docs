@@ -5,9 +5,10 @@ author: bandersmsft
 ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 03/21/2024
+ms.topic: concept-article
+ms.date: 09/19/2024
 ms.author: banders
+#customer intent: As a billing administrator, I want to understand usage and charges so that I can manage Azure billing.
 ---
 
 # Understand the terms in your Azure usage and charges file
@@ -16,7 +17,9 @@ The detailed usage and charges file contains daily rated usage based on negotiat
 purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
 Fees don't include credits, taxes, or other charges or discounts. You manually download the usage and charges file.
 
-The information in the usage and charges file is the same information that's [exported from Cost Management](../costs/tutorial-export-acm-data.md). And, it's the same information that's retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+The information in the usage and charges file is the same information that gets [exported from Cost Management](../costs/tutorial-export-acm-data.md). And, it's the same information that gets retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+
+## Charges for account types
 
 The following table covers which charges are included for each account type.
 
@@ -24,7 +27,7 @@ Account type | Azure usage | Marketplace usage | Purchases | Refunds
 --- | --- | --- | --- | ---
 Enterprise Agreement (EA) | Yes | Yes | Yes | No
 Microsoft Customer Agreement (MCA) | Yes | Yes | Yes | Yes
-Pay-as-you-go (PAYG) | Yes | Yes | No | No
+Pay-as-you-go | Yes | Yes | No | No
 
 To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](understand-azure-marketplace-charges.md).
 
@@ -48,17 +51,18 @@ If you have usage or charges that you don't recognize, there are several things 
 - Find people responsible for the resource and engage with them
 - Analyze the audit logs
 - Analyze user permissions to the resource's parent scope
-- Create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to help identify the charges
+- To help identify the charges Create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) 
 
 For more information, see [Analyze unexpected charges](analyze-unexpected-charges.md).
 
-Note that Azure doesn't log most user actions. Instead, Microsoft logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Microsoft can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
+
+Azure doesn't log most user actions. Instead, Microsoft logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Microsoft can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
 
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

@@ -8,7 +8,6 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
-ms.reviewer: tamram
 ---
 
 # How to use the BlobFuse2 command set

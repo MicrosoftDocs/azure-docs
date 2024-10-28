@@ -378,12 +378,12 @@
       - name: SwissID
         href:  identity-provider-swissid.md
         displayName: Swiss ID      
-      - name: Twitter
-        href: identity-provider-twitter.md
       - name: WeChat
         href: identity-provider-wechat.md
       - name: Weibo
         href: identity-provider-weibo.md
+      - name: X
+        href: identity-provider-twitter.md
       - name: Pass through identity provider token
         href: idp-pass-through-user-flow.md
     - name: Manage tokens and session 
@@ -535,7 +535,7 @@
             href: partner-nevis.md
           - name: Nok Nok
             href: partner-nok-nok.md
-          - name: Transmit Security
+          - name: Transmit Security for passwordless
             href: partner-bindid.md
           - name: Trusona
             href: partner-trusona.md
@@ -569,6 +569,8 @@
         - name: Microsoft Dynamics 365 Fraud Protection
           href: partner-dynamics-365-fraud-protection.md
           displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+        - name: Transmit Security
+          href: partner-transmit-security.md
       - name: Investigate risk with Identity Protection
         href: identity-protection-investigate-risk.md
       - name: Configure Conditional Access
@@ -822,8 +824,6 @@
     href: user-flow-versions-legacy.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/updates/?status=nowavailable,inpreview,indevelopment&category=identity,security&query=b2c
   - name: Frequently asked questions
     href: ./faq.yml
     displayName: FAQ

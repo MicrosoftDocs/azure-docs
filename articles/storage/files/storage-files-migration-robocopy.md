@@ -4,7 +4,7 @@ description: Learn how to move or migrate files to an SMB Azure file share using
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 05/16/2024
 ms.author: kendownie
 recommendations: false
 ---
@@ -53,11 +53,9 @@ Remember that an Azure file share is deployed in the cloud in an Azure storage a
 As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
-> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
 Another consideration when you're deploying a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
-
-Standard Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (up to 100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 
@@ -71,8 +69,8 @@ With the information in this phase, you'll be able to decide how your servers an
 
 - **Networking:** Enable your networks to route SMB traffic.
 - **Authentication:** Configure Azure storage accounts for Kerberos authentication. Using identity-based authentication and domain joining your storage account will allow your apps and users to use their AD identity to for authentication.
-- **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
-- **Business continuity:** Integrating Azure file shares into an existing environment often entails preserving existing share addresses. If you aren't already using [DFS-Namespaces](files-manage-namespaces.md), consider establishing that in your environment. You'll be able to keep share addresses your users and scripts use, unchanged. DFS-N provides a namespace routing service for SMB, by redirecting clients to Azure file shares.
+- **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share. Within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
+- **Business continuity:** Integrating Azure file shares into an existing environment often entails preserving existing share addresses. If you aren't already using [DFS-Namespaces](files-manage-namespaces.md), consider establishing that in your environment. You'll be able to keep share addresses your users and scripts use, unchanged. DFS-N provides a namespace routing service for SMB by redirecting clients to Azure file shares.
 
 :::row:::
     :::column:::
@@ -80,10 +78,9 @@ With the information in this phase, you'll be able to decide how your servers an
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
-        The video references dedicated documentation for some topics:
+        The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
-* [Identity overview](storage-files-active-directory-overview.md)
-* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Identity-based authentication overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
 * [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)
@@ -99,7 +96,7 @@ With the information in this phase, you'll be able to decide how your servers an
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you're planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 2: Preparing to use Azure file shares.
+> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed [Phase 2: Preparing to use Azure file shares](#phase-2-preparing-to-use-azure-file-shares).
 
 Once you're ready, review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 

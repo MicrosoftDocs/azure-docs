@@ -2,14 +2,14 @@
 title: Managed app with managed identity
 description: Configure an Azure Managed Application with managed identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 06/24/2024
 ms.custom: subject-rbac-steps
 ---
 
 # Azure Managed Application with managed identity
 
 > [!NOTE]
-> Managed identity support for Azure Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize managed identity.
+> Managed identity support for Azure Managed Applications is currently in preview. Use the 2018-09-01-preview api version to utilize managed identity.
 
 Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The Azure platform manages the identity and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -22,7 +22,7 @@ Your application can be granted two types of identities:
 
 Managed identity enables many scenarios for managed applications. Some common scenarios that can be solved are:
 
-- Deploying a managed application linked to existing Azure resources. An example is deploying an Azure virtual machine (VM) within the managed application that is attached to an [existing network interface](../../virtual-network/virtual-network-network-interface-vm.md).
+- Deploying a managed application linked to existing Azure resources. An example is deploying an Azure virtual machine (VM) within the managed application that is attached to an [existing network interface](../../virtual-network/virtual-network-network-interface-vm.yml).
 - Granting the managed application and publisher access to Azure resources outside the managed resource group.
 - Providing an operational identity of managed applications for Activity Log and other services within Azure.
 
@@ -194,7 +194,7 @@ A basic Azure Resource Manager template that deploys a managed application with 
 
 Once a managed application is granted an identity, it can be granted access to existing Azure resources by creating a role assignment.
 
-To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Linking existing Azure resources
 
@@ -233,7 +233,7 @@ When you link the deployment of the managed application to existing resources, b
             "type": "Microsoft.Common.TextBox",
             "label": "Network interface resource ID",
             "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
             "visible": true
           },
           {
@@ -241,7 +241,7 @@ When you link the deployment of the managed application to existing resources, b
             "type": "Microsoft.Common.TextBox",
             "label": "User-assigned managed identity resource ID",
             "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
             "visible": true
           }
         ]
@@ -305,7 +305,7 @@ Once the managed application package is created, the managed application can be 
 
 ## Accessing the managed identity token
 
-The token of the managed application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
+The token of the managed application can now be accessed through the `listTokens` API from the publisher tenant. An example request might look like:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1

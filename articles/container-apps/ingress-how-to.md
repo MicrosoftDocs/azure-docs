@@ -3,17 +3,17 @@ title: Configure Ingress for your app in Azure Container Apps
 description: How to configure ingress for your container app
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 06/13/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 zone_pivot_groups: arm-azure-cli-portal
 ---
 
-#  Configure Ingress for your app in Azure Container Apps
+# Configure Ingress for your app in Azure Container Apps
 
-This article shows you how to enable [ingress](ingress-overview.md) features for your container app.  Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
+This article shows you how to enable [ingress](ingress-overview.md) features for your container app. Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
 
 ## Ingress settings
 
@@ -39,7 +39,7 @@ You can configure ingress for your container app using the Azure CLI, an ARM tem
 
 ::: zone pivot="azure-cli"
 
-This `az containerapp ingress enable` command enables ingress for your container app.  You must specify the target port, and you can optionally set the exposed port if your transport type is `tcp`.
+This `az containerapp ingress enable` command enables ingress for your container app. You must specify the target port, and you can optionally set the exposed port if your transport type is `tcp`.
 
 ```azurecli
 az containerapp ingress enable \
@@ -56,11 +56,11 @@ az containerapp ingress enable \
 
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
-| `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal Container Apps environment. | `external` or `internal`  | Yes |
-|`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. |  | No |
+| `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal Container Apps environment. | `external` or `internal` | Yes |
+|`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. | | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
-|`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
+|`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
  
 ::: zone-end
 
@@ -68,7 +68,7 @@ az containerapp ingress enable \
 
 Enable ingress for your container app by using the portal.
 
-You can enable ingress when you create your container app, or you can enable ingress for an existing container app.  
+You can enable ingress when you create your container app, or you can enable ingress for an existing container app.
 - To configure ingress when you create your container app, select **Ingress** from the **App Configuration** tab of the container app creation wizard.
 - To configure ingress for an existing container app, select **Ingress** from the **Settings** menu of the container app resource page.
 
@@ -79,19 +79,19 @@ You can configure ingress when you create your container app by using the Azure 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
 1. Select **Limited to Container Apps Environment** for internal ingress or **Accepting traffic from anywhere** for external ingress.
-1. Select the **Ingress Type**:  **HTTP** or **TCP** (TCP ingress is only available in environments configured with a custom VNET).
+1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a custom virtual network).
 1. If *HTTP* is selected for the **Ingress Type**, select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
 1. Select **Insecure connections** if you want to allow HTTP connections to your app.
 1. Enter the **Target port** for your container app.
-1. If you have selected **TCP** for the **Transport** option, enter the **Exposed port** for your container app. The exposed port number can be `1` to `65535`. (can't be `80` or `443`)
+1. If you selected **TCP** for the **Transport** option, enter the **Exposed port** for your container app. The exposed port number can be `1` to `65535`. (can't be `80` or `443`)
 
-The **Ingress** settings page for your container app also allows you to configure **IP Restrictions**.  For information to configure IP restriction, see [IP Restrictions](ip-restrictions.md).
+The **Ingress** settings page for your container app also allows you to configure **IP Restrictions**. For information to configure IP restriction, see [IP Restrictions](ip-restrictions.md).
 
 ::: zone-end
 
 ::: zone pivot="azure-resource-manager"
 
-Enable ingress for your container app by using the `ingress` configuration property.  Set the `external` property to `true`, and set your `transport` and `targetPort` properties.  
+Enable ingress for your container app by using the `ingress` configuration property. Set the `external` property to `true`, and set your `transport` and `targetPort` properties. 
 -`external` property can be set to *true* for external or *false* for internal ingress.
 - Set the `transport` to `auto` to detect HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, or `tcp` for TCP.
 - Set the `targetPort` to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`.
@@ -129,13 +129,13 @@ az containerapp ingress disable \
 
 ::: zone pivot="azure-portal"
 
-You can disable ingress for your container app  using the portal.
+You can disable ingress for your container app using the portal.
 
 1. Select **Ingress** from the **Settings** menu of the container app page.
 1. Deselect the **Ingress** **Enabled** setting.
 1. Select **Save**.
 
-:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Sceenshot of  disabling container app ingress.":::
+:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Sceenshot of disabling container app ingress.":::
 
 ::: zone-end
 
@@ -145,7 +145,7 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 
 ::: zone-end
 
-## <a name="use-additional-tcp-ports"></a>Use additional TCP ports
+## <a name="use-additional-tcp-ports"></a>Use other TCP ports
 
 You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
 
@@ -155,7 +155,7 @@ You can expose additional TCP ports from your application. To learn more, see th
 
 ::: zone pivot="azure-cli"
 
-Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
+Adding other TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
 ```azurecli
 az containerapp create \
@@ -203,7 +203,7 @@ type: Microsoft.App/containerApps
 
 ::: zone pivot="azure-portal"
 
-This feature is not supported in the Azure portal.
+This feature isn't supported in the Azure portal.
 
 ::: zone-end
 

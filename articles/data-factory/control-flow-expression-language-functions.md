@@ -5,11 +5,10 @@ description: This article provides information about expressions and functions t
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 05/17/2024
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
@@ -190,11 +189,13 @@ Corporation
 
 ### Escaping single quote character
 
-Expression functions use single quote for string value parameters. Use two single quotes to escape a `'` character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+Expression functions in pipelines use the single quote (_'_) to surround string value parameters. Use two consecutive single quote characters within a pipeline string expression to include a single quote. Here's an example: expression `@concat('Here is a double quote character: ". ', 'And here is a single quote character all within the same string: ''.')` will return the following result:
 
 ```
-Baba's book store
+Here is a double quote character: ". And here is a single quote character all within the same string: '.
 ```
+
+However, in data flow expressions, this syntax isn't supported. Instead, data flow expressions can be surrounded by either single or double quotes. Enclose text requiring single quotes within double quotes, and text requiring double quotes within single quotes, within string functions. If you require a string containing both single and double quotes, you can use `concat()` to merge two substrings that each contain either single quotes or double quotes. The data flow equivalent of the previous pipeline expression example would be `concat('Here is a double quote character: ". ', "And here is a single quote character all within the same string: '.")`. In a data flow, that expression will return the same result as the previous example for pipeline expressions.
 
 ### Tutorial
 This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.
@@ -324,14 +325,14 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | Math function | Task |
 | ------------- | ---- |
 | [add](control-flow-expression-language-functions.md#add) | Return the result from adding two numbers. |
-| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing two numbers. |
+| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing one number by another number. |
 | [max](control-flow-expression-language-functions.md#max) | Return the highest value from a set of numbers or an array. |
 | [min](control-flow-expression-language-functions.md#min) | Return the lowest value from a set of numbers or an array. |
-| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing two numbers. |
+| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing one number by another number. |
 | [mul](control-flow-expression-language-functions.md#mul) | Return the product from multiplying two numbers. |
 | [rand](control-flow-expression-language-functions.md#rand) | Return a random integer from a specified range. |
 | [range](control-flow-expression-language-functions.md#range) | Return an integer array that starts from a specified integer. |
-| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting the second number from the first number. |
+| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting one number from another number. |
 
 ## Function reference
 
@@ -1398,34 +1399,46 @@ And returns this result: `"https://contoso.com"`
 
 ### div
 
-Return the integer result from dividing two numbers.
-To get the remainder result, see [mod()](#mod).
+Return the result of dividing one number by another number. 
 
 ```
 div(<dividend>, <divisor>)
 ```
 
+The precise return type of the function depends on the types of its parameters &mdash; see examples for detail.
+
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | The integer result from dividing the first number by the second number |
+| <*quotient-result*> | Integer or Float | The result of dividing the first number by the second number |
 ||||
 
-*Example*
+*Example 1*
 
-Both examples divide the first number by the second number:
+These examples divide the number 9 by 2:
 
 ```
-div(10, 5)
-div(11, 5)
+div(9, 2.0)
+div(9.0, 2)
+div(9.0, 2.0)
 ```
 
-And return this result: `2`
+And all return this result: `4.5`
+
+*Example 2*
+
+This example also divides the number 9 by 2, but because both parameters are integers the remainder is discarded (integer division):
+
+```
+div(9, 2)
+```
+
+The expression returns the result `4`. To obtain the value of the remainder, use the [mod()](#mod) function.
 
 <a name="encodeUriComponent"></a>
 
@@ -2366,8 +2379,7 @@ And return this result: `1`
 
 ### mod
 
-Return the remainder from dividing two numbers.
-To get the integer result, see [div()](#div).
+Return the remainder from dividing one number by another number. For integer division, see [div()](#div).
 
 ```
 mod(<dividend>, <divisor>)
@@ -2376,7 +2388,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float |  The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
@@ -2386,13 +2398,13 @@ mod(<dividend>, <divisor>)
 
 *Example*
 
-This example divides the first number by the second number:
+This example calculates the remainder when the first number is divided by the second number:
 
 ```
 mod(3, 2)
 ```
 
-And return this result: `1`
+And returns this result: `1`
 
 <a name="mul"></a>
 
@@ -2407,7 +2419,7 @@ mul(<multiplicand1>, <multiplicand2>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*multiplicand1*> | Yes | Integer or Float | The number to multiply by *multiplicand2* |
-| <*multiplicand2*> | Yes | Integer or Float | The number that multiples *multiplicand1* |
+| <*multiplicand2*> | Yes | Integer or Float | The number that multiplies *multiplicand1* |
 |||||
 
 | Return value | Type | Description |
@@ -2417,7 +2429,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 *Example*
 
-These examples multiple the first number by the second number:
+These examples multiply the first number by the second number:
 
 ```
 mul(1, 2)
@@ -2878,7 +2890,7 @@ And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 ### sub
 
-Return the result from subtracting the second number from the first number.
+Return the result from subtracting one number from another number.
 
 ```
 sub(<minuend>, <subtrahend>)

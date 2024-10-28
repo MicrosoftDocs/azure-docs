@@ -18,12 +18,7 @@ This article describes how to add or change the administrator role for a user us
 
 This article applies to a Microsoft Online Service Program (pay-as-you-go) account or a Visual Studio account. If you have a Microsoft Customer Agreement (Azure plan) account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md). If you have an Azure Enterprise Agreement, see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
 
-Microsoft recommends that you manage access to resources using Azure RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](/powershell/azure/servicemanagement/install-azure-ps), you'll need to use a classic administrator.
-
-> [!TIP]
-> If you only use the Azure portal to manage the classic resources, you don't need to use the classic administrator.
-
-For more information, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md) and [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+Microsoft recommends that you manage access to resources using Azure RBAC. Classic administrative roles are retired. For more information, see [Prepare for Azure classic administrator roles retirement](classic-administrator-retire.md).
 
 ## Determine account billing administrator
 
@@ -52,13 +47,13 @@ If you're not sure who the account billing administrator is for a subscription, 
 ### To assign a user as an administrator
 
 - Assign the Owner role to a user at the subscription scope.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 * [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)

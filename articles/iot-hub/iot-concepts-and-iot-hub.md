@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
 ms.date: 02/22/2024
@@ -27,7 +27,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
-- [Azure Machine Learning](../machine-learning/index.yml) to add machine learning and AI models to your solution.
+- [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
 
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
@@ -114,10 +114,10 @@ For more information, see [Compare message routing and Event Grid for IoT Hub](i
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 - [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-cli.md)
-- [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
+- [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
 - [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure Internet of Things?](../iot/iot-introduction.md)
-- [What is Azure IoT device and application development?](../iot-develop/about-iot-develop.md)
+- [What is Azure IoT device and application development?](../iot/concepts-iot-device-development.md)

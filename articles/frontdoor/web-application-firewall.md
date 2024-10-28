@@ -3,7 +3,7 @@ title: Web Application Firewall on Azure Front Door
 description: This article provides a list of the various features available with Web Application Firewall (WAF) on Azure Front Door. 
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 06/02/2023
 ms.author: duau

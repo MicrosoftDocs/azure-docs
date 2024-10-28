@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 09/03/2024
 ms.custom: engagement-fy23
 ---
 
@@ -32,9 +32,9 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>**Note**: Service Bus built-in connector triggers follow the [*polling trigger*](introduction.md#triggers) pattern, which means that the trigger continually checks for messages in the queue or topic subscription. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. <br><br>**Note**: Service Bus managed connector triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers), which means that the trigger periodically checks for messages in the queue or topic subscription. For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted), which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In App** and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The Service Bus managed connector triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers), which means that the trigger periodically checks for messages in the queue or topic subscription. <br><br>The Service Bus built-in connector non-session triggers follow a *continuous polling trigger pattern* that is fully managed by the connector. This pattern has the trigger constantly check for messages in the queue or topic subscription. Session triggers follow the *long-polling trigger pattern*, but its configuration is governed by the Azure Functions setting named [**clientRetryOptions:tryTimeout**](../azure-functions/functions-bindings-service-bus.md#hostjson-settings). The built-in version usually provides better performance, capabilities, pricing, and so on.
+<br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Prerequisites
 
@@ -52,9 +52,13 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * If your logic app resource uses a managed identity for authenticating access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
 
-  Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
+  * Each logic app resource should use only one managed identity, even if the logic app's workflow accesses different messaging entities.
 
-  For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+  * Each managed identity that accesses a queue or topic subscription should use its own Service Bus API connection.
+
+  * Service Bus operations that exchange messages with different messaging entities and require different permissions should use their own Service Bus API connections.
+
+  For more information about managed identities, see [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 * By default, the Service Bus built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -105,6 +109,7 @@ In Standard workflows that use the Service Bus built-in operations, you can incr
 
 To increase the timeout for sending a message, [add the **ServiceProviders.ServiceBus.MessageSenderOperationTimeout** app setting](../logic-apps/edit-app-settings-host-settings.md).
 
+<a name="service-bus-managed-triggers"></a>
 ### Service Bus managed connector triggers
 
 * For the Service Bus managed connector, all triggers are *long-polling*. This trigger type processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
@@ -136,7 +141,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
 ### Service Bus built-in connector triggers
 
-Currently, configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
+For he Service Bus built-in connector, non-session triggers follow a *continuous polling trigger pattern* that is fully managed by the connector. This pattern has the trigger constantly check for messages in the queue or topic subscription. Session triggers follow the *long-polling trigger pattern*, with its configuration is governed by the Azure Functions setting named [**clientRetryOptions:tryTimeout**](../azure-functions/functions-bindings-service-bus.md#hostjson-settings). Currently, the configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
 
 * In Standard workflows, some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the **Maximum message count** parameter isn't supported, you can still control the number of messages received by using the **maxMessageBatchSize** property in the **host.json** file. To find this file, see [Edit host and app settings for Standard logic apps](../logic-apps/edit-app-settings-host-settings.md).
 
@@ -222,7 +227,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 | Authentication type | Required information |
 |---------------------|----------------------|
 | **Connection String** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
-| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, review [Microsoft Entra ID Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication). |
+| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, see [OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#oauth-microsoft-entra). |
 | **Managed identity** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
 
 <a name="get-connection-string"></a>
@@ -244,7 +249,7 @@ To create a connection when you add a Service Bus trigger or action, you need to
    > [!NOTE]
    >
    > To check that the string is for the namespace, not a specific messaging entity, search the 
-   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
+   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
    > string is for a specific entity, and isn't the correct string to use with your workflow.
 
 1. Save the connection string for later use.
@@ -331,7 +336,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Built-in connector trigger
 
-The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+By default, the Service Bus built-in connector is a stateless connector. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md). Also, Service Bus built-in non-session triggers follow the [*push trigger* pattern](introduction.md#triggers), while session-based triggers provide polling capabilty.
 
 1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource with blank workflow in the designer.
 
@@ -360,11 +365,6 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 
    ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
 
-   > [!NOTE]
-   >
-   > This Service Bus trigger follows the *polling trigger* pattern, which means that the trigger continually checks for messages
-   > in the queue or topic subscription. For more general information about polling triggers, review [Triggers](introduction.md#triggers).
-
 1. Add any actions that your workflow needs.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
@@ -374,6 +374,8 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 <a name="managed-connector-trigger"></a>
 
 #### Managed connector trigger
+
+Service Bus managed triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers).
 
 1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource and blank workflow in the designer.
 
@@ -579,23 +581,37 @@ In Standard workflows, to read a message from a dead-letter queue in a queue or 
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app resource, make the changes, and then enable the logic app resource again.
 
-### No session available
+### No session available or might be locked by another receiver
 
 Occasionally, operations such as completing a message or renewing a session produce the following error:
 
 ``` json
 {
   "status": 400,
-  "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'. clientRequestId: facae905-9ba4-44f4-a42a-888888888888",
   "error": {
     "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'."
   }
 }
 ```
 
+Occasionally, a session-based trigger might fail with the following error:
+
+``` json
+{
+  "status": 400,
+  "error": {
+    "message": "Communication with the Service Bus namespace 'xxxx' and 'yyyy' entity failed. The requested session 'zzzz' cannot be accepted. It may be locked by another receiver."
+  }
+}
+```
+
 The Service Bus connector uses in-memory cache to support all operations associated with the sessions. The Service Bus message receiver is cached in the memory of the role instance (virtual machine) that receives the messages. To process all requests, all calls for the connection get routed to this same role instance. This behavior is required because all the Service Bus operations in a session require the same receiver that receives the messages for a specific session.
 
-The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
+Due to reasons such as an infrastructure update, connector deployment, and so on, the possibility exists for requests to not get routed to the same role instance. If this event happens, requests fail for one of the following reasons:
+
+- The receiver that performs the operations in the session isn't available in the role instance that serves the request.
+
+ - The new role instance tries to obtain the session, which either timed out in the old role instance or wasn't closed.
 
 As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 

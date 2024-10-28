@@ -4,8 +4,7 @@ description: Describes how to configure BCDR on Azure Stack Edge VPN.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 04/17/2020
 ms.author: alkohli

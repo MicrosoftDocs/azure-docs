@@ -3,7 +3,7 @@ title: Load testing for Azure App Service
 titleSuffix: Azure Load Testing
 description: 'Learn how to use Azure Load Testing with apps hosted on Azure App Service. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 06/30/2023
@@ -59,7 +59,8 @@ Get started [create a load test by uploading a JMeter script](./how-to-create-an
 
 If you previously created a [URL-based test](#create-a-url-based-load-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
-<a name="monitor"/>
+<a name="monitor"></a>
+
 ## Monitor your apps for bottlenecks and provisioning issues 
 
 During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test run:

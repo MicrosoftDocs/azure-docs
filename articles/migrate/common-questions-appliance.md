@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: engagement-fy24
-ms.date: 03/13/2024
+ms.custom: engagement-fy25
+ms.date: 08/06/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -85,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -110,6 +110,10 @@ A project can have multiple appliances registered to it. However, one appliance 
 1. Select **Change** in the upper-right corner to choose your project.
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
+
+## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
+If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
+
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 
@@ -147,6 +151,49 @@ By default, the appliance and its installed agents are updated automatically. Th
 
 Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Migrate automatic updates. Use Windows Updates to keep the operating system up to date.
 
+## How to troubleshoot Auto-update failures for Azure Migrate appliance?
+
+A modification was made recently to the MSI validation process, which could potentially impact the Migrate appliance auto-update process. The auto-update process might fail with the following error message:
+
+:::image type="content" source="./media/common-questions-appliance/auto-update-process-error-inline.png" alt-text="Screenshot of auto update process error." lightbox="./media/common-questions-appliance/auto-update-process-error-expanded.png":::
+
+To fix this issue, follow these steps to ensure that your appliance can validate the digital signatures of the MSIs:
+
+1. Ensure that the Microsoft’s root certificate authority certificate is present in your appliance’s certificate stores.
+    1. Go to **Settings** and search for ‘certificates’. 
+    1. Select **Manage Computer Certificates**. 
+    
+        :::image type="content" source="./media/common-questions-appliance/settings-inline.png" alt-text="Screenshot of Windows settings." lightbox="./media/common-questions-appliance/settings-expanded.png":::
+
+    1. In the certificate manager, you must see the entry for **Microsoft Root Certificate Authority 2011** and **Microsoft Code Signing PCA 2011**.
+    
+        :::image type="content" source="./media/common-questions-appliance/certificate-1.png" alt-text="Screenshot of certificate 1." lightbox="./media/common-questions-appliance/certificate-1.png":::
+
+        :::image type="content" source="./media/common-questions-appliance/certificate-2-inline.png" alt-text="Screenshot of certificate 2." lightbox="./media/common-questions-appliance/certificate-2-expanded.png":::
+
+    1. If these two certificates are not present, proceed to download them from the following sources:
+        - https://download.microsoft.com/download/2/4/8/248D8A62-FCCD-475C-85E7-6ED59520FC0F/MicrosoftRootCertificateAuthority2011.cer 
+        - https://www.microsoft.com/pkiops/certs/MicCodSigPCA2011_2011-07-08.crt
+    1. install these certificates on the appliance machine.
+1. Check if there are any group policies on your machine that could be interfering with certificate validation: 
+    1. Go to Windows Start Menu > Run > gpedit.msc. <br>The **Local Group Policy Editor** window. Make sure that the **Network Retrieval** policies are defined as shown in the following screenshot:
+    
+        :::image type="content" source="./media/common-questions-appliance/local-group-policy-editor-inline.png" alt-text="Screenshot of local group policy editor." lightbox="./media/common-questions-appliance/local-group-policy-editor-expanded.png":::
+
+1. Ensure that there are no internet access issues or firewall settings interfering with the certificate validation.
+
+**Verify Azure Migrate MSI Validation Readiness**
+
+1. To ensure that your appliance is ready to validate Azure Migrate MSIs, follow these steps:
+    1. Download a sample MSI from [Microsoft Download Center](https://download.microsoft.com/download/9/b/8/9b8abdb7-a784-4a25-9da7-31ce4d80a0c5/MicrosoftAzureAutoUpdate.msi) on the appliance.
+    1. Right-click on it and go to **Digital Signatures** tab. 
+        
+        :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
+
+    1. Select **Details** and check that the **Digital Signature Information** for the certificate is **OK** as highlighted in the following screenshot: 
+    
+        :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
+
 ## Can I check agent health?
 
 Yes. In the portal, go the **Agent health** page of the Azure Migrate: Discovery and assessment tool or the Migration and modernization tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
@@ -172,9 +219,9 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
+    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
-1. Execute the following script to rotate the AAD app certificate and extend its validity for an additional 6 months:
+1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1```
 
@@ -186,4 +233,4 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](migrate-appliance.md) about the Azure Migrate appliance.

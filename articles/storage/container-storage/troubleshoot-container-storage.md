@@ -1,20 +1,20 @@
 ---
-title: Troubleshoot Azure Container Storage Preview
+title: Troubleshoot Azure Container Storage
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 03/20/2024
+ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: how-to
 ---
 
-# Troubleshoot Azure Container Storage Preview
+# Troubleshoot Azure Container Storage
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Use this article to troubleshoot common issues with Azure Container Storage and find resolutions to problems.
 
 ## Troubleshoot installation issues
 
-### Azure Container Storage fails to install
+### Azure Container Storage fails to install due to missing configuration
 
 After running `az aks create`, you might see the message *Azure Container Storage failed to install. AKS cluster is created. Please run `az aks update` along with `--enable-azure-container-storage` to enable Azure Container Storage*.
 
@@ -26,15 +26,48 @@ To install Azure Container Storage on the cluster and create a storage pool, run
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type>
 ```
 
+### Azure Container Storage fails to install due to Azure Policy restrictions
+
+Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers, which can be blocked by Azure Policy. When this happens, the installation of Azure Container Storage might timeout or fail, and you might see errors in the `gatekeeper-controller` logs such as:
+
+```output
+{"level":"info","ts":1722622443.9484184,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: prereq, securityContext: {\"privileged\": true, \"runAsUser\": 0}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-prereq-gt58x","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+{"level":"info","ts":1722622443.9839077,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: metrics-exporter, securityContext: {\"privileged\": true}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-metrics-exporter-286np","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+{"level":"info","ts":1722622444.0515249,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: csi-node, securityContext: {\"privileged\": true}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-csi-node-7hcd7","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+{"level":"info","ts":1722622444.0729053,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: io-engine, securityContext: {\"privileged\": true}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-io-engine-84hwx","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+{"level":"info","ts":1722622444.0742755,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: ndm, securityContext: {\"privileged\": true}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-ndm-x6q5n","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+{"level":"info","ts":1722622449.2412128,"logger":"webhook","msg":"denied admission: Privileged container is not allowed: ndm, securityContext: {\"privileged\": true}","hookType":"validation","process":"admission","details":{},"event_type":"violation","constraint_name":"azurepolicy-k8sazurev2noprivilege-686dd8b209a774ba977c","constraint_group":"constraints.gatekeeper.sh","constraint_api_version":"v1beta1","constraint_kind":"K8sAzureV2NoPrivilege","constraint_action":"deny","resource_group":"","resource_api_version":"v1","resource_kind":"Pod","resource_namespace":"acstor","resource_name":"azurecontainerstorage-ndm-b5nfg","request_username":"system:serviceaccount:kube-system:daemon-set-controller"}
+```
+
+To resolve this, you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources within Azure, including AKS clusters. In some cases, policies might block the creation of Azure Container Storage pods and components. You can find more details on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+
+To add the `acstor` namespace to the exclusion list, follow these steps:
+
+1. [Create your Azure Kubernetes cluster](install-container-storage-aks.md).
+1. Enable Azure Policy for AKS.
+1. Create a policy that you suspect is blocking the installation of Azure Container Storage.
+1. Attempt to install Azure Container Storage in the AKS cluster.
+1. Check the logs for the gatekeeper-controller pod to confirm any policy violations.
+1. Add the `acstor` namespace to the exclusion list of the policy.
+1. Attempt to install Azure Container Storage in the AKS cluster again.
+
 ### Can't set storage pool type to NVMe
 
-If you try to install Azure Container Storage with ephemeral disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
+If you try to install Azure Container Storage with Ephemeral Disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
 
-To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
+To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
 ## Troubleshoot storage pool issues
 
 To check the status of your storage pools, run `kubectl describe sp <storage-pool-name> -n acstor`. Here are some issues you might encounter.
+
+### Error when trying to expand an Azure Disks storage pool
+
+If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will get an error message like "Only Disk CachingType 'None' is supported for disk with size greater than 4095 GB" or ""Disk 'xxx' of size 4096 GB (<=4096 GB) cannot be resized to 16384 GB (>4096 GB) while it is attached to a running VM. Please stop your VM or detach the disk and retry the operation."
+
+To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
+
+This limitation only applies when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` Disk SKUs.
 
 ### Elastic SAN creation fails
 
@@ -42,9 +75,9 @@ If you're trying to create an Elastic SAN storage pool, you might see the messag
 
 ### No block devices found
 
-If you see this message, you're likely trying to create an ephemeral disk storage pool on a cluster where the VM SKU doesn't have NVMe drives.
+If you see this message, you're likely trying to create an Ephemeral Disk storage pool on a cluster where the VM SKU doesn't have NVMe drives.
 
-To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
+To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
 ### Storage pool type already enabled
 
@@ -63,6 +96,114 @@ If you select Y, an automatic validation runs to ensure that there are no persis
 If you created an Elastic SAN storage pool, you might not be able to delete the resource group in which your AKS cluster is located.
 
 To resolve this, sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
+
+## Troubleshoot volume issues
+
+### Pod pending creation due to ephemeral volume size above available capacity
+
+An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation will be in pending status.
+
+Use the following command to check if your pod creation is in pending status.
+
+```output
+$ kubectl get pods
+NAME     READY   STATUS    RESTARTS   AGE
+fiopod   0/1     Pending   0          17s
+```
+
+In this example, the pod `fiopod` is in `Pending` status.
+
+Use the following command to check if the pod has the warning event for persistentvolumeclaim creation.
+
+```output
+$ kubectl describe pod fiopod
+...
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  40s   default-scheduler  0/3 nodes are available: waiting for ephemeral volume controller to create the persistentvolumeclaim "fiopod-ephemeralvolume". preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling..
+```
+
+In this example, the pod shows the warning event on creating persistent volume claim `fiopod-ephemeralvolume`.
+
+Use the following command to check if the persistent volume claim fails to provision due to insufficient capacity.
+
+```output
+$ kubectl describe pvc fiopod-ephemeralvolume
+...
+  Warning  ProvisioningFailed    107s (x13 over 20m)  containerstorage.csi.azure.com_aks-nodepool1-29463073-vmss000000_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  failed to provision volume with StorageClass "acstor-ephemeraldisk-temp": rpc error: code = Internal desc = Operation failed: GenericOperation("error in response: status code '507 Insufficient Storage', content: 'RestJsonError { details: \"Operation failed due to insufficient resources: Not enough suitable pools available, 0/1\", message: \"SvcError :: NotEnoughResources\", kind: ResourceExhausted }'")
+```
+
+In this example, `Insufficient Storage` is shown as the reason for volume provisioning failure.
+
+Run the following command to check the available capacity of a single node's ephemeral disk.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
+
+Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
+
+### Volume fails to attach due to metadata store offline
+
+Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to store and manage metadata of volumes to support volume orchestration operations. For high availability and resiliency, `etcd` runs in three pods. When there are less than two `etcd` instances running, Azure Container Storage will halt volume orchestration operations while still allowing data access to the volumes. Azure Container Storage automatically detects when an `etcd` instance is offline and recovers it. However, if you notice volume orchestration errors after restarting an AKS cluster, it's possible that an `etcd` instance failed to auto-recover. Follow the instructions in this section to determine the health status of the `etcd` instances.
+
+Run the following command to get a list of pods.
+
+```azurecli-interactive
+kubectl get pods
+```
+
+You'll see output similar to the following.
+
+```output
+NAME     READY   STATUS              RESTARTS   AGE 
+fiopod   0/1     ContainerCreating   0          25m 
+```
+
+Describe the pod:
+
+```azurecli-interactive
+kubectl describe pod fiopod
+```
+
+Typically, you'll see volume failure messages if the metadata store is offline. In this example, **fiopod** is in **ContainerCreating** status, and the **FailedAttachVolume** warning indicates that the creation is pending due to volume attach failure.
+
+```output
+Name:             fiopod 
+
+Events: 
+
+Type     Reason              Age                 From                     Message 
+
+----     ------              ----                ----                     ------- 
+
+Normal   Scheduled           25m                 default-scheduler        Successfully assigned default/fiopod to aks-nodepool1-xxxxxxxx-vmss000009
+
+Warning  FailedAttachVolume  3m8s (x6 over 23m)  attachdetach-controller  AttachVolume.Attach failed for volume "pvc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" : timed out waiting for external-attacher of containerstorage.csi.azure.com CSI driver to attach volume xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+You can also run the following command to check the status of `etcd` instances:
+
+```azurecli-interactive
+kubectl get pods -n acstor | grep "^etcd"
+```
+
+You should see output similar to the following, with all instances in the Running state:
+
+```output
+etcd-azurecontainerstorage-bn89qvzvzv                            1/1     Running   0               4d19h
+etcd-azurecontainerstorage-phf92lmqml                            1/1     Running   0               4d19h
+etcd-azurecontainerstorage-xznvwcgq4p                            1/1     Running   0               4d19h
+```
+
+If fewer than two instances are shown in the Running state, you can conclude that the volume is failing to attach due to the metadata store being offline, and the automated recovery wasn't successful. If this is the case, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
 
 ## See also
 

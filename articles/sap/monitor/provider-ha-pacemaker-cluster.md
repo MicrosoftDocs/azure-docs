@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 08/21/2024
 ms.author: sujaj
 #Customer intent: As a developer, I want to create a high-availability Pacemaker cluster so that I can use the resource with Azure Monitor for SAP solutions.
 ---
@@ -45,11 +45,11 @@ For SUSE-based Pacemaker clusters, Please follow below steps to install in each 
     sudo systemctl enable prometheus-ha_cluster_exporter
     ```
 
-1. Data is then collected in the system by ha_cluster_exporter. You can export the data via URL `http://<ip address of the server>:9644/metrics`. 
-To check if the metrics are fetched via URL on the server where the ha_cluster_exporter is installed, Run below command on the server.
+1. Data is collected in the system through the ha_cluster_exporter. You can export the data via URL `http://<ip address of the server>:9664/metrics`. 
+To check if the metrics are fetched via URL on the server where the ha_cluster_exporter is installed, Run the following command on the server.
 
     ```bash
-     curl http://localhost:9644/metrics
+     curl http://localhost:9664/metrics
     ```
 
 For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** subpackage in each node. For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4, and later versions.
@@ -74,8 +74,8 @@ For RHEL-based Pacemaker clusters, Please follow below steps to install in each 
     sudo systemctl enable pmcd
     ```
 
-1. Install and enable the HA cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linux to find the path of "hacluster" bits. usually hacluster will be in path "/var/lib/pcp/pmdas".
-Example : cd /var/lib/pcp/pmdas/hacluster
+1. Install and enable the HA cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linux to find the path of "hacluster" bits. Usually hacluster is in path "/var/lib/pcp/pmdas".
+Example: cd /var/lib/pcp/pmdas/hacluster
 
     ```bash
     cd $PCP_PMDAS_DIR/hacluster
@@ -95,8 +95,8 @@ Example : cd /var/lib/pcp/pmdas/hacluster
     sudo systemctl enable pmproxy
     ```
 
-1. Data is then collected in the system by PCP. You can export the data by using `pmproxy` via URL `http://<ipaddress of the serrver>:44322/metrics?names=ha_cluster`. 
-To check if the metrics are fetched via URL on the server where the hacluster is installed, Run below command on the server.
+1. Data gets collected in the system by PCP. You can export the data by using `pmproxy` via URL `http://<ipaddress of the serrver>:44322/metrics?names=ha_cluster`. 
+To check if the metrics are fetched via URL on the server where the hacluster is installed, Run the following command on the server.
     
     ```bash
      curl http://localhost:44322/metrics?names=ha_cluster
@@ -111,7 +111,7 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure Monitor for SAP solutions service.
 1. Open your Azure Monitor for SAP solutions resource.
-1. On the resource's menu, under **Settings**, select **Providers**.
+1. On the resource menu, under **Settings**, select **Providers**.
 1. Select **Add** to add a new provider.
 
     ![Diagram that shows Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-start.png)
@@ -128,13 +128,12 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 
         ![Diagram that shows the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
 
-1. Enter the SID - SAP system ID, Hostname - SAP hostname of the Virtual machine (Command `hostname -s` for SUSE and RHEL based servers will give hostname detail.), Cluster - Provide any custom name that is easy to identify the SAP system cluster - this Name will be visible in the workbook for metrics (need not have to be the cluster name configured on the server). 
+1. Enter the SID - SAP system ID, Hostname - SAP hostname of the Virtual machine (Command `hostname -s` for SUSE and RHEL based servers provide hostname detail), and Cluster - Provide any custom name that is easy to identify the SAP system cluster - this Name is visible in the workbook for metrics (need not have to be the cluster name configured on the server). 
 
-1. Click on "Start test" under "Prerequisite check (Preview) - highly recommended" - This test will help validate the connectivity from AMS subnet to the SAP source system and list out if any error's found - which need to be addressed before provider creation otherwise the provider creation will fail with error.
+1. Select "Start test" under "Prerequisite check (Preview) - highly recommended" - This test helps validate the connectivity from AMS subnet to the SAP source system and list out if any errors  are found - which need to be addressed before provider creation otherwise the provider creation will fail with error.
 1. Select **Create** to finish creating the Provider.
 
-1. Create provider for each of the servers in the cluster to be able to see the metrics in the workbook
-For example - If the Cluster has three servers configured, Create three providers for each of the three servers with all of the above steps followed.
+1. Create provider for each of the servers in the cluster to be able to see the metrics in the workbook. For example, if the Cluster has three servers configured, Create three providers for each of the three servers with all of the above steps followed.
 
 ## Troubleshooting
 

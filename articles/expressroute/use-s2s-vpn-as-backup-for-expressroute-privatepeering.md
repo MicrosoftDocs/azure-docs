@@ -3,16 +3,20 @@ title: 'Using S2S VPN as a backup for Azure ExpressRoute Private Peering | Micro
 description: This page provides architectural recommendations for backing up Azure ExpressRoute private peering with S2S VPN.
 services: networking
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 04/15/2024
 ms.author: duau 
 ---
 
 # Using S2S VPN as a backup for ExpressRoute private peering
 
 In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for a backup connectivity solution when using ExpressRoute private peering. We also discussed how to use geo-redundant ExpressRoute circuits for high-availability. In this article, we explain how to use and maintain a site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
+
+> [!NOTE] 
+> Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
+>
 
 Unlike geo-redundant ExpressRoute circuits, you can only use ExpressRoute and VPN disaster recovery combination in an active-passive setup. A major challenge of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection. The common reason for the failures of the passive connection is lack of active maintenance. Therefore, in this article, the focus is on how to verify and actively maintain a S2S VPN connectivity that is backing up an ExpressRoute private peering.
 

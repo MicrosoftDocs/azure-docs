@@ -1,11 +1,11 @@
 ---
 title: Analyze connection quality in Azure Virtual Desktop - Azure
 description: Connection quality for Azure Virtual Desktop users.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 01/05/2023
-ms.author: helohr
-ms.custom: engagement-fy23
+ms.author: daknappe
+ms.custom: engagement-fy23, docs_inherited
 ---
 # Analyze connection quality in Azure Virtual Desktop
 
@@ -101,7 +101,6 @@ In contrast to other diagnostics tables that report data at regular intervals th
 
 - Learn more about how to monitor and run queries about connection quality issues at [Monitor connection quality](connection-quality-monitoring.md).
 - Troubleshoot connection and latency issues at [Troubleshoot connection quality for Azure Virtual Desktop](troubleshoot-connection-quality.md).
-- To check the best location for optimal latency, see the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Azure Log Analytics pricing](/services-hub/unified/health/azure-pricing).
 - To get started with your Azure Virtual Desktop deployment, check out [our tutorial](./create-host-pools-azure-marketplace.md).
 - To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).

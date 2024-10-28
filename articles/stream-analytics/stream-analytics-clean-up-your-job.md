@@ -1,9 +1,9 @@
 ---
 title: Clean up your Azure Stream Analytics job
 description: This article shows you different methods for deleting your Azure Stream Analytics jobs.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: devx-track-dotnet
@@ -45,7 +45,7 @@ When you stop a job, the resources are deprovisioned and it stops processing eve
 
 ## Stop or delete a job using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To stop a job using PowerShell, use the [Stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet. To delete a job using PowerShell, use the [Remove-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet.
 

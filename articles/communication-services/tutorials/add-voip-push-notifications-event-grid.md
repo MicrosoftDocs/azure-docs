@@ -9,7 +9,7 @@ ms.date: 07/25/2023
 ms.author: sanathr
 ---
 
-# Connect Calling Native Push Notification with Azure Event Grid
+# Integrate push notifications using Azure Event Grid in your Android, iOS and Windows applications
 
 With Azure Communication Services, you can receive real-time event notifications in a dependable, expandable, and safe way by integrating it with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). This integration can be used to build a notification system that sends push notifications to your users on mobile devices. To achieve it, create an Event Grid subscription that triggers an [Azure Function](../../azure-functions/functions-overview.md) or webhook.
 
@@ -23,7 +23,7 @@ You can take a look at [voice and video calling events](../../event-grid/communi
 
 The current limitations of using the Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications.md) are:
 
-* There's a **24-hour limit** after the register push notification API is called when the device token information is saved. After 24 hours, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
+* The maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)**.
 * Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the Calling SDK.
 
 ## Prerequisites

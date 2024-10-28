@@ -18,8 +18,8 @@ In this tutorial, you learn how to use a namespace topic to route data from MQTT
 ## Prerequisites
 
 - If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- If you're new to Event Grid, read the [Event Grid overview](/azure/event-grid/overview) before you start this tutorial.
-- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
+- If you're new to Event Grid, read the [Event Grid overview](../event-grid/overview.md) before you start this tutorial.
+- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](custom-event-quickstart-portal.md#register-the-event-grid-resource-provider).
 - Make sure that port **8883** is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 
 [!INCLUDE [event-grid-create-namespace-portal](./includes/event-grid-create-namespace-portal.md)]
@@ -117,7 +117,7 @@ Follow steps in the quickstart: [Publish and subscribe on an MQTT topic](./mqtt-
 
 ## View routed MQTT messages in Event Hubs by using a Stream Analytics query
 
-Navigate to the Event Hubs instance (event hub) within your event subscription in the Azure portal. Process data from your event hub by using Stream Analytics. For more information, see [Process data from Azure Event Hubs using Stream Analytics - Azure Event Hubs | Microsoft Learn](/azure/event-hubs/process-data-azure-stream-analytics). You can see the MQTT messages in the query.
+Navigate to the Event Hubs instance (event hub) within your event subscription in the Azure portal. Process data from your event hub by using Stream Analytics. For more information, see [Process data from Azure Event Hubs using Stream Analytics - Azure Event Hubs | Microsoft Learn](../event-hubs/process-data-azure-stream-analytics.md). You can see the MQTT messages in the query.
 
 :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png" alt-text="Screenshot that shows the MQTT messages data in Event Hubs by using the Stream Analytics query tool.":::
 

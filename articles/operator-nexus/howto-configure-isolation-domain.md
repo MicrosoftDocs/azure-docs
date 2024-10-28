@@ -45,7 +45,7 @@ Isolation domains are used to enable Layer 2 or Layer 3 connectivity between wor
 |---|---|---|---|
 |`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
 |`resource-name`	|Resource Name of the l2isolationDomain|example-l2domain| True
-|`location`|AODS Azure Region used during NFC Creation|eastus| True
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus| True
 |`nf-Id`	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
 |`Vlan-id` | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
 |`mtu` | maximum transmission unit is 1500 by default, if not specified|1500||
@@ -247,7 +247,7 @@ The following parameters are available for configuring L3 isolation domains.
 |---|---|---|---|
 |`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
 |`resource-name`	|Resource Name of the l3isolationDomain|example-l3domain|True|
-|`location`|AODS Azure Region used during NFC Creation|eastus|True|
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus|True|
 |`nf-Id`|Azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
 
 The following parameters for isolation domains are optional.
@@ -255,7 +255,7 @@ The following parameters for isolation domains are optional.
 | Parameter|Description|Example|Required|
 |---|---|---|---|
 | `redistributeConnectedSubnet` | Advertise connected subnets default value is True |True |      |
-| `redistributeStaticRoutes`  |Advertise Static Routes can have value of true/False.  Defualt Value is False | False       | |
+| `redistributeStaticRoutes`  |Advertise Static Routes can have value of true/False.  Default Value is False | False       | |
 | `aggregateRouteConfiguration`|List of Ipv4 and Ipv6 route configurations  |     |   | 
 | `connectedSubnetRoutePolicy` | Route Policy Configuration for IPv4 or Ipv6 L3 ISD connected subnets. Refer to help file for using correct syntax  |    |   | 
 
@@ -453,7 +453,7 @@ The following parameters are available for creating internal networks.
 |`vlan-Id` |Vlan identifier with range from 501 to 4095|1001|True|
 |`resource-group`|Use the corresponding NFC resource group name| NFCresourcegroupname | True
 |`l3-isolation-domain-name`|Resource Name of the l3isolationDomain|example-l3domain | True
-|`location`|AODS Azure Region used during NFC Creation|eastus | True
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus | True
 
 
 The following parameters are optional for creating internal networks.

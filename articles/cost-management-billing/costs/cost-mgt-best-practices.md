@@ -197,7 +197,7 @@ After you've deployed your infrastructure in Azure, it's important to make sure 
 
 Azure Advisor is a service that, among other things, identifies virtual machines with low utilization from a CPU or network usage standpoint. From there, you can decide to either shut down or resize the machine based on the estimated cost to continue running the machines. Advisor also provides recommendations for reserved instance purchases. The recommendations are based on your last 30 days of virtual machine usage. When acted on, the recommendations can help you reduce your spending.
 
-For more information, see [Azure Advisor](../../advisor/advisor-overview.md).
+For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 ### Size your VMs properly
 
@@ -230,5 +230,6 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
-## Next steps
+## Related content
+
 - If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

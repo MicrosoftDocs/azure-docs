@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/18/2022
+ms.date: 09/10/2024
 ---
 # Performance FAQs for Azure NetApp Files
 
@@ -14,16 +14,20 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 ## What should I do to optimize or tune Azure NetApp Files performance?
 
 You can take the following actions per the performance requirements: 
-- Ensure that the Virtual Machine is sized appropriately.
+- Ensure the virtual machine (VM) is sized appropriately.
 - Enable Accelerated Networking for the VM.
 - Select the desired service level and size for the capacity pool.
 - Create a volume with the desired quota size for the capacity and performance.
 
-There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
+There is no need to set accelerated networking for the network interface cards (NICs) in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure VMs. Azure NetApp Files NICs are optimized by design.
 
-## How do I convert throughput-based service levels of Azure NetApp Files to IOPS?
+## How do I monitor Azure NetApp Files volume performance 
 
-You can convert MB/s to IOPS by using the following formula:  
+Azure NetApp Files volumes performance can be monitored through [available metrics](azure-netapp-files-metrics.md). 
+
+## How do I convert throughput-based service levels of Azure NetApp Files to input/output operations per second (IOPS)?
+
+You can convert megabytes per seconds (MBps) to IOPS with this formula:  
 
 `IOPS = (MBps Throughput / KB per IO) * 1024`
 
@@ -34,6 +38,18 @@ You can change the service level of an existing volume by moving the volume to a
 ## How do I monitor Azure NetApp Files performance?
 
 Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
+
+## Why is a workload's latency high when the IOPS are low?
+
+In the absence of other symptoms (such as errors, network issues, or an application not responding), low IOP workloads are typically not a problem. Low IOPS are typically below 500-600 IOPS but can vary.
+
+Azure NetApp Files responds to requests as they come in. A workload with few requests might appear to be higher, but is responding as expected. Low IOPS workloads (for example 5 IOPS and 32 KiB/s):
+
+- Aren't in the RAM cache, so need to go to disk more.
+- Don't have a high sample size, so are considered statistically irrelevant. 
+- Don't have enough samples to average out any outliers. 
+ 
+Reported latency can reach the seconds or tens of seconds range due to the latency averaging skew. Increasing the workload on the volume with low IOPS can further help determine if latency skew is the reason the latency shows an inflated number.
 
 ## What's the performance impact of Kerberos on NFSv4.1?
 
@@ -49,11 +65,11 @@ No, Azure NetApp Files does not support SMB Direct.
 
 ## Is NIC Teaming supported in Azure?
 
-NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+NIC Teaming isn't supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance. Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
 
 ## Are jumbo frames supported?
 
-Jumbo frames are not supported with Azure virtual machines.
+Jumbo frames aren't supported with Azure virtual machines.
 
 ## Next steps  
 
@@ -62,7 +78,7 @@ Jumbo frames are not supported with Azure virtual machines.
 - [Performance benchmark test recommendations for Azure NetApp Files](azure-netapp-files-performance-metrics-volumes.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)
 - [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [NFS FAQs](faq-nfs.md)

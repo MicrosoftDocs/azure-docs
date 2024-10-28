@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 05/16/2024
 ms.author: kendownie
 recommendations: false
 ---
@@ -38,7 +38,7 @@ The goal is to move the shares on your NAS appliance to Azure and have them beco
 The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares and configure networking. Then you'll migrate your files using Azure DataBox, and RoboCopy to catch-up with changes. Finally, you'll cut-over your users and apps to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
 
 > [!TIP]
-> If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
+> If you're returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -61,11 +61,9 @@ Remember that an Azure file share is deployed in the cloud in an Azure storage a
 As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
-> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
 Another consideration when you're deploying a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
-
-Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (up to 100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 
@@ -129,10 +127,9 @@ To save time, you should proceed with this phase while you wait for your DataBox
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
-        The video references dedicated documentation for some topics:
+        The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
-* [Identity overview](storage-files-active-directory-overview.md)
-* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Identity-based authentication for SMB overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
 * [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)

@@ -1,10 +1,19 @@
 ---
 title: Create incident tasks in Microsoft Sentinel using automation rules
 description: This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+
+#Customer intent: As a SOC manager, I want to manage incident tasks using automation rules so that I can standardize and streamline analyst workflows.
+
 ---
 
 # Create incident tasks in Microsoft Sentinel using automation rules
@@ -28,6 +37,8 @@ Another article, at the following links, addresses scenarios that apply more to 
 
 - [View and follow incident tasks](work-with-tasks.md#view-and-follow-incident-tasks)
 - [Manually add an ad-hoc task to an incident](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident)
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
@@ -68,9 +79,9 @@ Give your automation rule a name that describes what it does.
 
     For example, filter by **Analytics rule name**:
 
-    - You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
+    - You might want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
 
-    - Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
+    - Or, you might want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
 
     In either case, you can add more conditions to narrow the scope of incidents to which your automation rule will apply. Learn more about [adding advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 

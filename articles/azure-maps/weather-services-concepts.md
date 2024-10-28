@@ -1,12 +1,12 @@
 ---
 title: Weather services concepts in Microsoft Azure Maps
 description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: weather
 ---
 
 # Weather services in Azure Maps
@@ -70,7 +70,7 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 | 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  No    | Mostly Cloudy with Flurries|
 | 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  No    | Partly Sunny with Flurries|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Yes |  Yes   | Snow|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  No    | Mostly Cloudy with Snow|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  No    | Mostly Cloudy with Snow|
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Yes |  Yes   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Yes |  Yes   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Yes |  Yes   | Freezing Rain|
@@ -89,7 +89,7 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 | 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | No  |  Yes   | Partly Cloudy with Thunderstorms|
 | 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | No  |  Yes   | Mostly Cloudy with Thunderstorms|
 | 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | No  |  Yes   | Mostly Cloudy with Flurries|
-| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | No  |  Yes   | Mostly Cloudy with Snow|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow-night.png"::: | No  |  Yes   | Mostly Cloudy with Snow|
 
 ## Radar and satellite imagery color scale
 

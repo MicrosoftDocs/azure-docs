@@ -14,8 +14,6 @@ zone_pivot_groups: acs-plat-ios-android-windows
 
 # Manage audio filters
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Learn how to manage audio processing features with the Azure Communication Services SDKS. You learn how to apply different audio features before and during calls using audio filters. 
 
 Currently, there are five different filters available to control.

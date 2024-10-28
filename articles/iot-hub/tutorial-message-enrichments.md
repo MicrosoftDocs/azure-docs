@@ -3,7 +3,7 @@ title: Tutorial - Use message enrichments
 titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 05/11/2023
@@ -102,6 +102,9 @@ The values for these variables should be for the same resources you used in the 
 
 Create a second endpoint and route for the enriched messages.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
+
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
@@ -145,29 +148,26 @@ Create a second endpoint and route for the enriched messages.
    routeName=ContosoStorageRouteEnriched
    ```
 
-1. Use the [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) command to create a custom endpoint that points to the storage container you made in the previous section.
+1. Use the [az iot hub message-endpoint create](/cli/azure/iot/hub/message-endpoint#az-iot-hub-message-endpoint-create-storage-container) command to create a custom endpoint that points to the storage container you made in the previous section.
 
    ```azurecli-interactive
-   az iot hub routing-endpoint create \
+   az iot hub message-endpoint create \
      --connection-string $(az storage account show-connection-string --name $storageName --query connectionString -o tsv) \
      --endpoint-name $endpointName \
-     --endpoint-resource-group $resourceGroup \
-     --endpoint-subscription-id $(az account show --query id -o tsv) \
-     --endpoint-type azurestoragecontainer
      --hub-name $hubName \
      --container $containerName \
      --resource-group $resourceGroup \
      --encoding json
    ```
 
-1. Use the [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
+1. Use the [az iot hub message-route create](/cli/azure/iot/hub/message-route#az-iot-hub-message-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
 
    ```azurecli-interactive
-   az iot hub route create \
-     --name $routeName \
+   az iot hub message-route create \
+     --route-name $routeName \
      --hub-name $hubName \
      --resource-group $resourceGroup \
-     --source devicemessages \
+     --source-type devicemessages \
      --endpoint-name $endpointName \
      --enabled true \
      --condition 'level="storage"'

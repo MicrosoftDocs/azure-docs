@@ -13,6 +13,10 @@
     href: files-nfs-protocol.md
   - name: What's new in Azure Files?
     href: files-whats-new.md
+- name: Architecture
+  items:
+  - name: Well-architected considerations
+    href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Create a Windows SMB file share
@@ -50,7 +54,7 @@
   - name: Target a cloud-only deployment
     items:
     - name: Use Azure Storage Mover to migrate to SMB Azure file shares
-      href: migrate-files-storage-mover.md    
+      href: migrate-files-storage-mover.md
     - name: Use Robocopy to migrate to SMB Azure file shares
       href: storage-files-migration-robocopy.md
     - name: Migrate from an on-premises NAS to Azure file shares with DataBox
@@ -58,21 +62,65 @@
   - name: Target a hybrid deployment with Azure File Sync
     items:
     - name: Replace Windows file servers with Azure File Sync
-      href: windows-server-to-azure-files.md    
+      href: windows-server-to-azure-files.md
     - name: Migrate from Linux to a hybrid file server with Azure File Sync
       href: storage-files-migration-linux-hybrid.md
     - name: Migrate from on-premises NAS to a hybrid file server using Azure File Sync
       href: storage-files-migration-nas-hybrid.md
     - name: Migrate from on-premises NAS to a hybrid file server using DataBox
-      href: storage-files-migration-nas-hybrid-databox.md      
+      href: storage-files-migration-nas-hybrid-databox.md
   - name: Transfer files with AzCopy
-    items: 
+    items:
     - name: Get started with AzCopy
       href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json
     - name: Use AzCopy with Files
       href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, and troubleshoot AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
+- name: Authentication and authorization
+  items:
+  - name: Overview of identity-based authentication options
+    href: storage-files-active-directory-overview.md
+  - name: Windows identity-based authentication
+    items:
+    - name: Enable an AD source
+      items:
+      - name: On-premises AD DS authentication
+        items:
+        - name: AD DS overview
+          href: storage-files-identity-ad-ds-overview.md
+        - name: Enable AD DS authentication
+          href: storage-files-identity-ad-ds-enable.md
+        - name: Use Azure Files with multiple AD DS forests
+          href: storage-files-identity-multiple-forests.md
+        - name: Update password
+          href: storage-files-identity-ad-ds-update-password.md
+      - name: Microsoft Entra Domain Services authentication
+        items:
+        - name: Enable Microsoft Entra Domain Services
+          href: storage-files-identity-auth-domain-services-enable.md
+      - name: Microsoft Entra Kerberos authentication
+        items:
+        - name: Enable authentication for hybrid identities
+          href: storage-files-identity-auth-hybrid-identities-enable.md
+        - name: Enable authentication for hybrid identities on legacy clients
+          href: storage-files-identity-auth-hybrid-cloud-trust.md
+    - name: Assign and manage permissions
+      items:
+      - name: Assign share-level permissions
+        href: storage-files-identity-assign-share-level-permissions.md
+      - name: Configure directory/file-level permissions
+        href: storage-files-identity-configure-file-level-permissions.md
+    - name: Mount file share
+      href: storage-files-identity-mount-file-share.md
+  - name: Linux identity-based authentication
+    href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize access to file data
+    items:
+    - name: Choose how to authorize access to file data
+      href: authorize-data-operations-portal.md
+    - name: Authorize access with Microsoft Entra ID using OAuth over REST
+      href: authorize-oauth-rest.md
 - name: Security and networking
   items:
   - name: Networking
@@ -85,7 +133,7 @@
       href: storage-files-configure-p2s-vpn-windows.md
     - name: Configure Point-to-Site VPN on Linux
       href: storage-files-configure-p2s-vpn-linux.md
-    - name: Configure Site-to-Site VPN 
+    - name: Configure Site-to-Site VPN
       href: storage-files-configure-s2s-vpn.md
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
@@ -130,41 +178,13 @@
     - name: Manage Transport Layer Security (TLS)
       items:
       - name: Enforce minimum TLS version for incoming requests
-        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json 
+        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json
       - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json      
-  - name: Authorization
-    items:
-    - name: Overview of identity-based authentication options
-      href: storage-files-active-directory-overview.md
-    - name: Enable on-premises AD DS authentication
-      items:
-      - name: AD DS overview
-        href: storage-files-identity-auth-active-directory-enable.md
-      - name: Enable AD DS authentication
-        href: storage-files-identity-ad-ds-enable.md
-      - name: Assign share-level permissions
-        href: storage-files-identity-ad-ds-assign-permissions.md
-      - name: Assign directory/file-level permissions
-        href: storage-files-identity-ad-ds-configure-permissions.md
-      - name: Mount file share
-        href: storage-files-identity-ad-ds-mount-file-share.md
-      - name: Update password
-        href: storage-files-identity-ad-ds-update-password.md
-    - name: Use Azure Files with multiple AD DS forests
-      href: storage-files-identity-multiple-forests.md
-    - name: Enable Microsoft Entra Domain Services authentication
-      href: storage-files-identity-auth-domain-services-enable.md
-    - name: Enable Microsoft Entra Kerberos authentication for hybrid identities
-      href: storage-files-identity-auth-hybrid-identities-enable.md
-    - name: Enable AD Kerberos authentication for Linux clients (SMB)
-      href: storage-files-identity-auth-linux-kerberos-enable.md
-    - name: Choose how to authorize access to file data
-      href: authorize-data-operations-portal.md
-    - name: Authorize access with Microsoft Entra ID using OAuth over REST
-      href: authorize-oauth-rest.md
+        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
+  - name: Configure root squash (NFS shares)
+    href: nfs-root-squash.md    
 - name: Data protection
   items:
   - name: Data protection overview
@@ -215,10 +235,8 @@
     href: files-disaster-recovery.md
   - name: Geo-redundancy for large file shares
     href: geo-redundant-storage-for-large-file-shares.md
-  - name: Change how data is replicated
-    href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
-  - name: Check the Last Sync Time property
-    href: ../common/last-sync-time-get.md?toc=/azure/storage/files/toc.json
+  - name: Change the redundancy configuration
+    href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: Premium file shares ZRS support
@@ -234,7 +252,7 @@
   - name: NFS performance
     href: nfs-performance.md
   - name: NFS large directory best practices
-    href: nfs-large-directories.md    
+    href: nfs-large-directories.md
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
   - name: Understanding billing
@@ -257,8 +275,6 @@
     href: storage-dotnet-how-to-use-files.md
   - name: Java
     href: storage-java-how-to-use-file-storage.md
-  - name: C++
-    href: storage-c-plus-plus-how-to-use-files.md
   - name: Python
     href: storage-python-how-to-use-file-storage.md
 - name: Troubleshooting
@@ -280,7 +296,7 @@
   - name: Troubleshoot backing up file shares
     href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot ClientOtherErrors
-    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json      
+    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json
 - name: Reference
   items:
   - name: Azure Files FAQ
@@ -315,7 +331,7 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-  - name: Monitoring data reference
+  - name: Monitoring Files data reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
@@ -363,7 +379,7 @@
     - name: .NET
       items:
       - name: Azure Storage client library
-        items: 
+        items:
         - name: Version 12.x (preview)
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
         - name: Version 11.x and earlier
@@ -371,7 +387,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)
@@ -382,23 +398,11 @@
       items:
       - name: Azure Storage client library version 12.x (preview)
         href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
-      - name: Azure Storage client library version 10.x     
+      - name: Azure Storage client library version 10.x
         href: https://github.com/Azure/azure-storage-node
     - name: Python
-      items: 
+      items:
       - name: Azure Storage client library version 12.x (preview)
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
-      - name: Azure Storage client library version 2.1     
+      - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
-  - name: Code samples using deprecated SDKs
-    items:
-    - name: .NET
-      items:
-      - name: Version 11.x samples
-        href: files-samples-dotnet-v11.md
-      - name: Design highly available applications (.NET version 11.x)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
-    - name: Java version 8 samples
-      href: files-samples-java-v8.md
-    - name: Python version 2 samples
-      href: files-samples-python-v2.md

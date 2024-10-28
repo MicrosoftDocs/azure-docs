@@ -3,9 +3,9 @@ title: Azure Application Gateway HTTP settings configuration
 description: This article describes how to configure Azure Application Gateway HTTP settings.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 10/03/2024
 ms.author: greglin
 ---
 
@@ -15,7 +15,7 @@ The application gateway routes traffic to the backend servers by using the confi
 
 ## Cookie-based affinity
 
-Azure Application Gateway uses gateway-managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value which contains the session details, so that the subsequent requests carrying the affinity cookie will be routed to the same backend server for maintaining stickiness.
+Azure Application Gateway uses gateway-managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value which contains the session details, so that the subsequent requests carrying the affinity cookie are routed to the same backend server for maintaining stickiness.
 
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 > [!NOTE]
@@ -26,7 +26,7 @@ The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chrom
 
 To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
-Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you're using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
+Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
 
 > [!NOTE]
 > If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
@@ -35,8 +35,7 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 ## Connection draining
 
 Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are 
-- explicitly removed from the backend pool,
-- removed during scale-in operations, or
+- explicitly removed from the backend pool, or
 - reported as unhealthy by the health probes.
 
 You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.
@@ -46,7 +45,7 @@ You can apply this setting to all backend pool members by enabling Connection Dr
 |Default value when Connection Draining is not enabled in Backend Setting| 30 seconds |
 |User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3600 seconds |
 
-The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances.
+The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity. These requests continue to be forwarded to the deregistering instances.
 
 ## Protocol
 
@@ -60,7 +59,7 @@ This setting specifies the port where the backend servers listen to traffic from
 
 ## Trusted root certificate 
 
-If you select HTTPS as the backend protocol, the Application Gateway requires a trusted root certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate that the backend pool will be using. This certificate must be uploaded directly to the Application Gateway in .CER format.
+If you select HTTPS as the backend protocol, the Application Gateway requires a trusted root certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate used by the backend pool. This certificate must be uploaded directly to the Application Gateway in .CER format.
 
 If you plan to use a certificate on the backend pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
 
@@ -101,7 +100,7 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 ## Configuring the host name
 
-Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway.  While this configuration can be useful in some cases, overriding the hostname to be different between the client and application gateway and application gateway to backend target, should be done with care.  
+Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway. While this configuration can be useful in some cases, exercise caution when overriding the hostname such that it is different between the application gateway and the client compared to the backend target.  
 
 In production, it is recommended to keep the hostname used by the client towards the application gateway as the same hostname used by the application gateway to the backend target. This avoids potential issues with absolute URLs, redirect URLs, and host-bound cookies.
 

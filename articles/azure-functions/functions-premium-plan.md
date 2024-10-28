@@ -3,9 +3,9 @@ title: Azure Functions Premium plan
 description: Details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 04/07/2024
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
 
 # Azure Functions Premium plan
@@ -22,6 +22,7 @@ Premium plan hosting provides the following benefits to your functions:
 * [Choice of Premium instance sizes](#available-instance-skus).
 * More predictable pricing, compared with the Consumption plan.
 * High-density app allocation for plans with multiple function apps.
+* Supports [Linux container deployments](./container-concepts.md).
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.
 
@@ -36,9 +37,8 @@ Billing for the Premium plan is based on the number of core seconds and memory a
 
 When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create or choose an Azure Functions Premium hosting plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux).
 
-The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
+The following articles show you how to programmatically create a function app with a Premium plan:
 
-+ [Azure portal](create-premium-plan-function-app-portal.md)
 + [Azure CLI](scripts/functions-cli-create-premium-plan.md)
 + [Azure Resource Manager template](functions-infrastructure-as-code.md?pivots=premium-plan)
 
@@ -125,7 +125,7 @@ $Resource | Set-AzResource -Force
 
 ### Maximum function app instances
 
-In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale out limit cannot exceed the maximum burst instances of the plan. 
+In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale-out limit cannot exceed the maximum burst instances of the plan. 
 
 ## Private network connectivity
 
@@ -145,8 +145,7 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps, with the following limitations:
 
-+ Platform upgrades can trigger a managed shutdown and halt the function execution.
-+ Platform outages can cause an unhandled shutdown and halt the function execution.
++ Platform upgrades can trigger a managed shutdown and halt the function execution with a grace period of 10 minutes.
 + There's an idle timer that stops the worker after 60 minutes with no new executions.
 + [Scale-in behavior](event-driven-scaling.md#scale-in-behaviors) can cause worker shutdown after 60 minutes.
 + [Slot swaps](functions-deployment-slots.md) can terminate executions on the source and target slots during the swap.
@@ -161,7 +160,7 @@ This migration isn't supported on Linux.
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
+If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale-out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
 
 ### [Portal](#tab/portal)
 
@@ -249,11 +248,12 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
-|China East 2| 100 | 20 |
-|China North 2| 100 | 20 |
+|China East 2| 20 | 20 |
+|China North 2| 20 | 20 |
+|China North 3| 20 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 100 |
-|East US 2| 100 | 100 |
+|East US 2| 80 | 100 |
 |France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
 |Israel Central| 100 | 20 |
@@ -263,6 +263,7 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
 |Korea South| 40 | 20 |
+|Mexico Central| 20 | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 100 |
 |Norway East| 100 | 20 |
@@ -271,14 +272,15 @@ These are the currently supported maximum scale-out values for a single plan in 
 |South Central US| 100 | 100 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
+|Spain Central| 20 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
-|USGov Arizona| 100 | 20 |
-|USGov Texas| 100 | Not Available |
-|USGov Virginia| 100 | 20 |
+|USGov Arizona| 20 | 20 |
+|USGov Texas| 20 | Not Available |
+|USGov Virginia| 80 | 20 |
 |West Central US| 100 | 20 |
 |West Europe| 100 | 100 |
 |West India| 100 | 20 |

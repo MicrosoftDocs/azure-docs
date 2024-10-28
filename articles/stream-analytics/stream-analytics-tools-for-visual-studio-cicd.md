@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics CI/CD NuGe
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
 ---

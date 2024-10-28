@@ -2,12 +2,12 @@
 title: System views supported in Synapse SQL
 description: Links to the documentation for system views supported in Synapse SQL.
 author: filippopovic
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql 
 ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # System views supported in Synapse SQL

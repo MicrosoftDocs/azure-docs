@@ -3,11 +3,10 @@ title: Copy data from MySQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory and Synapse Analytics that lets you copy data from a MySQL database to a data store supported as a sink.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 
@@ -18,7 +17,10 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!NOTE]
->To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+>To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+
+>[!IMPORTANT]
+>MySQL connector using the recommended driver version provides improved native MySQL support. If you are using the connector with the legacy driver version, please [upgrade it](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
 
 ## Supported capabilities
 
@@ -313,15 +315,26 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MySQL driver version
+## <a name="upgrade-the-mysql-driver-version"></a> Upgrade the MySQL connector
 
-Here are steps that help you upgrade your MySQL driver version: 
+Here are steps that help you upgrade your MySQL connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+## Differences between the recommended and the legacy driver version
+
+The table below shows the data type mapping differences between MySQL using the recommended and the legacy driver version.
+
+|MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|:---|:---|:---|
+|bit(1)| UInt64|Boolean|
+|bit(M), M>1|UInt64|Byte[]|
+|bool|Boolean|Int16|
+|JSON|String|Byte[]|
 
 ## Related content
 

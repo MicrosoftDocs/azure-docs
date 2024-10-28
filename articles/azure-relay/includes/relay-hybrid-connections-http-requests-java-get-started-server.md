@@ -1,19 +1,14 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 01/04/2024
 ms.author: samurp
-ms.custom: include file
-
 ---
 
 ### Create a Java application
 
-If you have disabled the "Requires Client Authorization" option when creating the Relay,
+If you disabled the "Requires Client Authorization" option when creating the Relay,
 you can send requests to the Hybrid Connections URL with any browser. For accessing
 protected endpoints, you need to create and pass a token in the `ServiceBusAuthorization`
 header, which is shown here.
@@ -21,9 +16,9 @@ header, which is shown here.
 Here's a simple Maven project structure and a Java class that demonstrates sending requests to 
 a Hybrid Connections URL with client authorization utilizing the Azure Relay library. 
 
-### Add the Relay MVN package
+### Add the Relay package
 
-Modify your pom.xml file in your maven application package to include the following:
+Modify your pom.xml file in your maven application package to include the Azure Relay package.
 
 ```xml
 <dependency>
@@ -33,7 +28,7 @@ Modify your pom.xml file in your maven application package to include the follow
 </dependency>
 ```
 
-Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project to add the dependency jar file in the lib directory of your project. This will also import all dependencies of the `azure-relay` mvn package. This package provides functions to construct Relay URIs and tokens.
+Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project to add the dependency jar file in the lib directory of your project. It imports all dependencies of the `azure-relay` mvn package. This package provides functions to construct Relay uniform resource identifiers (URIs) and tokens.
 
 ### Write some code to send messages
 
@@ -77,12 +72,12 @@ Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project
 
     Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
 
-    1. `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
-    2. `path` - The name of the hybrid connection.
-    3. `keyrule` - The name of the SAS key.
-    4. `key` - The SAS key value.
+    - `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
+    - `path` - The name of the hybrid connection.
+    - `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
+    - `nst key` -   The primary key of the namespace you saved earlier.
 
-4. Add the following code to the `Listener.java` file, below is the expected main function for your java class: 
+4. Add the following code to the `Listener.java` file. The main function should look like the following code:
 
     ```java
     public static void main( String[] args ) throws URISyntaxException
@@ -136,7 +131,7 @@ Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project
     }
 
     ```
-    Here is what your `Listener.java` file should look like:
+    Here's what your `Listener.java` file should look like:
 
     ```java
     package com.example.listener;
@@ -217,3 +212,4 @@ Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project
         }
     }
     ```
+

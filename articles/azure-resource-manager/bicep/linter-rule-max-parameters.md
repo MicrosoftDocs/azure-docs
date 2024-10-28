@@ -1,7 +1,7 @@
 ---
 title: Linter rule - max parameters
 description: Linter rule - max parameters.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---

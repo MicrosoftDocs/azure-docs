@@ -1,15 +1,15 @@
 ---
-title: Apache Spark on GPU
+title: Apache Spark on GPU (deprecated)
 description: Introduction to core concepts for Apache Spark on GPUs inside Synapse Analytics.
-author: Niharikadutta
-ms.service: synapse-analytics
+author: midesa
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 02/27/2024
-ms.author: nidutta
+ms.date: 07/15/2024
+ms.author: midesa
 ---
 
-# Apache Spark GPU-accelerated pools in Azure Synapse Analytics (preview)
+# Apache Spark GPU-accelerated pools in Azure Synapse Analytics (deprecated)
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
@@ -21,12 +21,12 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 ```
 
 > [!NOTE]
-> Azure Synapse GPU-enabled pools are currently in Public Preview.
+> The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
 
-> [!WARNING]
-> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtimes.
-> - Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-> - End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
+> [!CAUTION]
+> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
+> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 ## RAPIDS Accelerator for Apache Spark
 
@@ -65,7 +65,7 @@ For example, using a large pool with three nodes:
 
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL, and .NET for Spark (C#).
 
-1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
+1. Create a GPU-enabled pool.
 
 2. Create a notebook and attach it to the GPU-enabled pool you created in the first step.
 

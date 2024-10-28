@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/21/2024
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
@@ -31,7 +32,7 @@ In this tutorial, you'll do the following:
 > * Set up the development environment for the Azure IoT C SDK.
 > * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -39,7 +40,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
-- Git installed. For more information, see [Git downloads](https://git-scm.com/download/).
+- Git installed. For more information, see [Git downloads](https://git-scm.com/downloads).
 
 - Azure CLI installed. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). Or, you can run the commands in this tutorial in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -370,7 +371,7 @@ For the example in this tutorial, use the following two device registration IDs 
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-The IoT extension for the Azure CLI provides the [`iot dps enrollment-group compute-device-key`](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
@@ -379,7 +380,7 @@ az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --re
 ```
 
 ```azurecli
-az iot dps compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id mainbuilding167-contoso-hpsd-088
+az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id mainbuilding167-contoso-hpsd-088
 ```
 
 > [!NOTE]

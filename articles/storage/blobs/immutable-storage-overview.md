@@ -6,8 +6,8 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 03/26/2024
+ms.topic: overview
+ms.date: 05/01/2024
 ms.author: normesta
 ---
 
@@ -55,7 +55,7 @@ A time-based retention policy stores blob data in a WORM format for a specified 
 
 A time-based retention policy can be configured at the following scopes:
 
-- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container.
+- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container. If there is a legal hold on a container, Version-level WORM cannot be created for the same container. This is because the versions can't generated due to the legal hold.
 - Container-level WORM policy: A time-based retention policy configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
 ### Retention interval for a time-based policy
@@ -77,7 +77,7 @@ You can't delete a locked time-based retention policy. You can extend the retent
 
 ### Retention policy audit logging
 
-Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
+Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Logging typically starts once you have locked the policy. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
 
 The Azure Activity log provides a more comprehensive log of all management service activities. Azure resource logs retain information about data operations. It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
@@ -118,7 +118,7 @@ The following table shows a breakdown of the differences between container-level
 | Feature dependencies | No other features are a prerequisite or requirement for this feature to function. | Versioning is a prerequisite for this feature to be used. |
 | Enablement for existing accounts/container | This feature can be enabled at any time for existing containers. | Depending on the level of granularity, this feature might not be enabled for all existing accounts/containers. |
 | Account/container deletion | Once a time-based retention policy is locked on a container, containers may only be deleted if they're empty. | Once version-level WORM is enabled on an account or container level, they may only be deleted if they're empty.|
-| Support for Azure Data Lake Storage Gen2 (storage accounts that have a hierarchical namespace enabled)| Container-level WORM policies are supported in accounts that have a hierarchical namespace.  | Version-level WORM policies are not yet supported in accounts that have a hierarchical namespace. |
+| Support for Azure Data Lake Storage (storage accounts that have a hierarchical namespace enabled)| Container-level WORM policies are supported in accounts that have a hierarchical namespace.  | Version-level WORM policies are not yet supported in accounts that have a hierarchical namespace. |
 
 To learn more about container-level WORM, see [Container-Level WORM policies](immutable-container-level-worm-policies.md). To learn more about version-level WORM, please visit [version-Level WORM policies](immutable-version-level-worm-policies.md).
 
@@ -131,7 +131,7 @@ The following table helps you decide which type of WORM policy to use.
 | Organization of data | You want to set policies for specific data sets, which can be categorized by container. All the data in that container needs to be kept in a WORM state for the same amount of time. | You can't group objects by retention periods. All blobs must be stored with an individual retention time based on that blob’s scenarios, or user has a mixed workload so that some groups of data can be clustered into containers while other blobs can't. You might also want to set container-level policies and blob-level policies within the same account. |
 | Amount of data that requires an immutable policy | You don't need to set policies on more than 10,000 containers per account. | You want to set policies on all data or large amounts of data that can be delineated by account. You know that if you use container-level WORM, you'll have to exceed the 10,000-container limit. |
 | Interest in enabling versioning | You don't want to deal with enabling versioning either because of the cost, or because the workload would create numerous extra versions to deal with. | You either want to use versioning, or don't mind using it. You know that if they don’t enable versioning, you can't keep edits or overwrites to immutable blobs as separate versions. |
-| Storage location (Blob Storage vs Data Lake Storage Gen2) | Your workload is entirely focused on Azure Data Lake Storage Gen2. You have no immediate interest or plan to switch to using an account that doesn't have the hierarchical namespace feature enabled. | Your workload is either on Blob Storage in an account that doesn't have the hierarchical namespace feature enabled, and can use version-level WORM now, or you're willing to wait for versioning to be available for accounts that do have a hierarchical namespace enabled (Azure Data Lake Storage Gen2).|
+| Storage location (Blob Storage vs Data Lake Storage) | Your workload is entirely focused on Azure Data Lake Storage. You have no immediate interest or plan to switch to using an account that doesn't have the hierarchical namespace feature enabled. | Your workload is either on Blob Storage in an account that doesn't have the hierarchical namespace feature enabled, and can use version-level WORM now, or you're willing to wait for versioning to be available for accounts that do have a hierarchical namespace enabled (Azure Data Lake Storage).|
 
 ### Access tiers
 
@@ -143,7 +143,7 @@ All redundancy configurations support immutable storage. For more information ab
 
 ## Recommended blob types
 
-Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
+Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
 
 ## Immutable storage with blob soft delete
 
@@ -162,6 +162,10 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 > [!NOTE]
 > You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
 
+## Configuring policies at scale
+
+You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+
 ## Pricing
 
 There's no extra capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. If you're using version-level WORM, the bill might be higher because you've enabled versioning, and there's a cost associated with extra versions being stored. Review the versioning pricing policy for more information.  For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -172,7 +176,7 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
-This feature is incompatible with point in time restore and last access tracking. 
+This feature is incompatible with point in time restore and last access tracking. This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. See the Allow protected append blob writes for more detail.

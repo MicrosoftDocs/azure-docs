@@ -12,21 +12,21 @@ ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 
 Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration allows you use the computing power of Functions in orchestrations with other Azure and third-party services.
 
-This tutorial shows you how to create a workflow to analyze Twitter activity. As tweets are evaluated, the workflow sends notifications when positive sentiments are detected.
+This tutorial shows you how to create a workflow to analyze X activity. As tweets are evaluated, the workflow sends notifications when positive sentiments are detected.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create an Azure AI services API Resource.
 > * Create a function that categorizes tweet sentiment.
-> * Create a logic app that connects to Twitter.
+> * Create a logic app that connects to X.
 > * Add sentiment detection to the logic app.
 > * Connect the logic app to the function.
 > * Send an email based on the response from the function.
 
 ## Prerequisites
 
-* An active [Twitter](https://twitter.com/) account.
+* An active [X](https://x.com/) account.
 * An [Outlook.com](https://outlook.com/) account (for sending notifications).
 
 > [!NOTE]
@@ -161,7 +161,7 @@ With the Text Analytics resource created, you'll copy a few settings and set the
     > [!NOTE]
     > To test the function, select **Test/Run** from the top menu. On the _Input_ tab, enter a value of `0.9` in the _Body_ input box, and then select **Run**. Verify that a value of _Positive_ is returned in the _HTTP response content_ box in the _Output_ section.
 
-Next, create a logic app that integrates with Azure Functions, Twitter, and the Azure AI services API.
+Next, create a logic app that integrates with Azure Functions, X, and the Azure AI services API.
 
 ## Create a logic app
 
@@ -194,13 +194,13 @@ Next, create a logic app that integrates with Azure Functions, Twitter, and the 
 
 You can now use the Logic Apps Designer to add services and triggers to your application.
 
-## Connect to Twitter
+## Connect to X
 
-Create a connection to Twitter so your app can poll for new tweets.
+Create a connection to X so your app can poll for new tweets.
 
-1. Search for **Twitter** in the top search box.
+1. Search for **X** in the top search box.
 
-1. Select the **Twitter** icon.
+1. Select the **X** icon.
 
 1. Select the **When a new tweet is posted** trigger.
 
@@ -208,19 +208,19 @@ Create a connection to Twitter so your app can poll for new tweets.
 
     | Setting |  Value |
     | ------- | ---------------- |
-    | Connection name | **MyTwitterConnection** |
+    | Connection name | **MyXConnection** |
     | Authentication Type | **Use default shared application** |
 
 1. Select **Sign in**.
 
-1. Follow the prompts in the pop-up window to complete signing in to Twitter.
+1. Follow the prompts in the pop-up window to complete signing in to X.
 
 1. Next, enter the following values in the _When a new tweet is posted_ box.
 
     | Setting | Value |
     | ------- | ----- |
-    | Search text | **#my-twitter-tutorial** |
-    | How often do you want to check for items? | **1** in the textbox, and <br> **Hour** in the dropdown. You may enter different values but be sure to review the current [limitations](/connectors/twitterconnector/#limits) of the Twitter connector.  |
+    | Search text | **#my-x-tutorial** |
+    | How often do you want to check for items? | **1** in the textbox, and <br> **Hour** in the dropdown. You may enter different values but be sure to review the current [limitations](/connectors/twitterconnector/#limits) of the X connector.  |
 
 1. Select the **Save** button on the toolbar to save your progress.
 
@@ -324,7 +324,7 @@ The email box should now look like this screenshot.
 
 ## Run the workflow
 
-1. From your Twitter account, tweet the following text: **I'm enjoying #my-twitter-tutorial**.
+1. From your X account, tweet the following text: **I'm enjoying #my-x-tutorial**.
 
 1. Return to the Logic Apps Designer and select the **Run** button.
 
@@ -344,7 +344,7 @@ To clean up all the Azure services and accounts created during this tutorial, de
 
 1. Select the **Delete** button.
 
-Optionally, you may want to return to your Twitter account and delete any test tweets from your feed.
+Optionally, you may want to return to your X account and delete any test tweets from your feed.
 
 ## Next steps
 

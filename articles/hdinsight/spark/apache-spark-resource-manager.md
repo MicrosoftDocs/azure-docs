@@ -1,10 +1,10 @@
 ---
 title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to manage resources for Spark clusters on Azure HDInsight for better performance.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Manage resources for Apache Spark cluster on Azure HDInsight
@@ -36,7 +36,7 @@ The three configuration parameters can be configured at the cluster level (for a
 
 ### Change the parameters using Ambari UI
 
-1. From the Ambari UI navigate to **Spark2** > **Configs** > **Custom spark2-defaults**.
+1. From the Ambari UI navigate to **Spark 2** > **Configs** > **Custom spark2-defaults**.
 
     :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png " alt-text="Set parameters using Ambari custom." border="true":::
 
@@ -106,15 +106,15 @@ Because of Spark dynamic allocation, the only resources that are consumed by thr
 
 1. From the Ambari UI, from the left pane, select **Spark2**.
 
-2. In the next page, select **Spark2 Thrift Servers**.
+2. In the next page, select **Spark 2 Thrift Servers**.
 
     :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png " alt-text="Restart thrift server1." border="true":::
 
-3. You should see the two headnodes on which the Spark2 Thrift Server is running. Select one of the headnodes.
+3. You should see the two headnodes on which the Spark 2 Thrift Server is running. Select one of the headnodes.
 
     :::image type="content" source="./media/apache-spark-resource-manager/restart-thrift-server-2.png " alt-text="Restart thrift server2." border="true":::
 
-4. The next page lists all the services running on that headnode. From the list, select the drop-down button next to Spark2 Thrift Server, and then select **Stop**.
+4. The next page lists all the services running on that headnode. From the list, select the drop-down button next to Spark 2 Thrift Server, and then select **Stop**.
 
     :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png " alt-text="Restart thrift server3." border="true":::
 5. Repeat these steps on the other headnode as well.
@@ -135,11 +135,11 @@ Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics 
 
 1. In the Yarn UI, from the left panel, select **Running**. From the list of running applications, determine the application to be killed and select the **ID**.
 
-    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App1." border="true":::
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App 1." border="true":::
 
 2. Select **Kill Application** on the top-right corner, then select **OK**.
 
-    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Kill App2." border="true":::
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Kill App 2." border="true":::
 
 ## See also
 

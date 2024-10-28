@@ -4,6 +4,9 @@
   items:
   - name: What is DevTest Labs?
     href: devtest-lab-overview.md
+  - name: Roadmap for Azure DevTest Labs
+    displayName: roadmap, future, features, enhancements, coming soon, in development
+    href: devtest-labs-roadmap.md
 - name: Quickstart
   items:
   - name: Create a lab - Portal
@@ -75,7 +78,7 @@
     - name: Configure auto-shutdown of lab VMs
       href: devtest-lab-auto-shutdown.md
     - name: Set auto startup for lab VMs
-      href: devtest-lab-auto-startup-vm.md
+      href: devtest-lab-auto-startup-vm.yml
     - name: Manage lab storage account
       href: encrypt-storage.md
     - name: Scale your lab

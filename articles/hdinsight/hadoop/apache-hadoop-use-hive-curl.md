@@ -1,10 +1,10 @@
 ---
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight using Curl.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 ---
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
@@ -178,7 +178,7 @@ $clusterName
 
 1. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
-    You can list and download these files by using the [Azure CLI](/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI with Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md) document.
+    You can list and download these files by using the [Azure CLI](/cli/azure/install-azure-cli). For more information, see [Use Azure CLI with Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## Next steps
 

@@ -6,12 +6,12 @@ brand: azure
 
 metadata:
   title: Azure VMware Solution Documentation Hub | Microsoft Learn
-  description: Azure VMware Solution is to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure. 
+  description: Learn to use Azure VMware Solution to deploy a VMware Software-defined Data Center (SDDC) private cloud to Azure. 
   ms.service: azure-vmware 
   ms.topic: hub-page 
   author: jjaygbay1
-  ms.author: jjaygbay1
-  ms.date: 3/22/2024 
+  ms.author: jacobjaygbay 
+  ms.date: 4/1/2024 
 
 
 highlightedContent:
@@ -38,11 +38,11 @@ highlightedContent:
       url: architecture-migrate.md
     - title: Well-Architected Framework (WAF)
       itemType: concept
-      url: /azure/well-architected/what-is-well-architected-framework
+      url: /azure/well-architected/azure-vmware/design-principles
     - title: Cloud Adoption Framework (CAF)
       itemType: concept
-      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
-    
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+
 
 # additionalContent section (optional)
 # Card with links style
@@ -65,87 +65,63 @@ additionalContent:
         # Card
         - title: Quickstart
           links:
-          - text: 1 - Plan the deployment
+          - text: Plan the deployment
             url: plan-private-cloud-deployment.md
-          - text: 2 - Deploy Azure VMware Solution
+          - text: Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
-          - text: 3 - Connect to on-premises environment
+          - text: Connect to on-premises environment
             url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 4 - Install VMware HCX Connector
+          - text: Install VMware HCX Connector
             url: install-vmware-hcx.md
-          - text: 5 - Configure on-premises VMware HCX Connector
+          - text: Configure on-premises VMware HCX Connector
             url: configure-vmware-hcx.md
-          - text: 6 - Uninstall VMware HCX in Azure VMware Solution
-            url: uninstall-vmware-hcx.md
          # Card
         - title: Tutorials
           links:
-          - text: 1 - Network planning checklist
+          - text: Network planning checklist
             url: tutorial-network-checklist.md
-          - text: 2 - Create a private cloud
+          - text: Create a private cloud
             url: tutorial-create-private-cloud.md
-          - text: 3 - Configure networking
+          - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: 4 - Access a private cloud
+          - text: Access a private cloud
             url: tutorial-access-private-cloud.md
-          - text: 5 - Create an NSX network segment
+          - text: Create an NSX network segment
             url: tutorial-nsx-t-network-segment.md
-          - text: 6 - Peer on-premises to private cloud
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 7 - Scale a private cloud
-            url: tutorial-scale-private-cloud.md
-          - text: 8 - Delete a private cloud
-            url: tutorial-delete-private-cloud.md 
         
     - title: Design Azure VMware Solution
       items:
         # Card
         - title: Architecture and design
           links: 
-          - text: Access and identity
-            url: architecture-identity.md
-          - text: API Management
-            url: architecture-api-management.md
+          - text: Private clouds and clusters
+            url: architecture-private-clouds.md
           - text: Hub and spoke
             url: architecture-hub-and-spoke.md
           - text: Internet connectivity design considerations
             url: architecture-design-public-internet-access.md
           - text: Network design considerations
             url: architecture-network-design-considerations.md
-          - text: Networking and interconnectivity
-            url: architecture-networking.md
-          - text: Private clouds and clusters
-            url: architecture-private-clouds.md
-          - text: Run command
-            url: using-run-command.md
-          - text: Storage
-            url: architecture-storage.md
           - text: Migrate
             url: architecture-migrate.md
         # Card
-        - title: WAF - Azure VMware Solution design principles
+        - title: Well Architected Framework (WAF)
           links:
           - text: Azure VMware Solution design principles
             url: /azure/well-architected/azure-vmware/design-principles
-          - text: Infrastructure and provisioning considerations for Azure VMware Solution workloads
+          - text: Infrastructure and provisioning considerations
             url: /azure/well-architected/azure-vmware/infrastructure
-          - text: Application considerations for Azure VMware Solution workloads
+          - text: Application considerations
             url: /azure/well-architected/azure-vmware/application-platform
-          - text: Networking considerations for Azure VMware Solution workloads
+          - text: Networking considerations
             url: /azure/well-architected/azure-vmware/networking
-          - text: Monitoring considerations for Azure VMware Solution workloads
+          - text: Monitoring considerations
             url: /azure/well-architected/azure-vmware/monitoring
-          - text: Security considerations for Azure VMware Solution workloads
-            url: /azure/well-architected/azure-vmware/security
-          - text: Operations considerations for Azure VMware Solution workloads
-            url: /azure/well-architected/azure-vmware/operations
         # Card
         - title: Cloud Adoption Framework (CAF)
           links:
           - text: Enterprise-Scale for Azure VMware Solution
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
-          - text: Identity and access management
-            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
           - text: Network topology and connectivity
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
           - text: Management and monitoring
@@ -154,10 +130,6 @@ additionalContent:
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
           - text: Enterprise-scale security, governance, and compliance
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-          - text: Platform automation and DevOps
-            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
-          - text: Enterprise-Scale for Azure VMware Solution automation
-            url: https://github.com/Azure/Enterprise-Scale-for-AVS
             
     - title: Build and operate Azure VMware Solution
       items:
@@ -173,11 +145,7 @@ additionalContent:
           - text: Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md	
           - text: Deploy vSAN stretched clusters
-            url: deploy-vsan-stretched-clusters.md
-          - text: Create a placement policy
-            url: create-placement-policy.md
-          - text: Protect, monitor, and manage VMs
-            url: integrate-azure-native-services.md          
+            url: deploy-vsan-stretched-clusters.md  
       # Card
         - title: Security
           links:
@@ -204,16 +172,6 @@ additionalContent:
             url: configure-l2-stretched-vmware-hcx-networks.md
           - text: Configure DNS forwarder
             url: configure-dns-azure-vmware-solution.md
-          - text: Configure VMware HCX network extension
-            url: configure-hcx-network-extension.md
-          - text: VMware HCX Mobility Optimized Networking (MON) guidance
-            url: vmware-hcx-mon-guidance.md
-          - text: Configure NSX network components
-            url: configure-nsx-network-components-azure-portal.md
-          - text: Configure port mirroring
-            url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Configure a site-to-site VPN in vWAN
-            url: configure-site-to-site-vpn-gateway.md
       # Card
         - title: Backup and recovery
           links:
@@ -245,10 +203,6 @@ additionalContent:
             url: configure-windows-server-failover-cluster.md
           - text: Deploy VMs from the content library
             url: deploy-vm-content-library.md
-          - text: Configure GitHub Enterprise Server
-            url: configure-github-enterprise-server.md
-          - text: Bitnami appliance deployment
-            url: bitnami-appliances-deployment.md
         # Card
         - title: Migrate
           links:
@@ -262,27 +216,14 @@ additionalContent:
             url: configure-hcx-network-extension.md
           - text: VMware HCX Mobility Optimized Networking (MON) guidance
             url: vmware-hcx-mon-guidance.md	
-          - text: Configure VMware HCX network extension high availability
-            url: configure-hcx-network-extension-high-availability.md
-          - text: Enable VMware HCX access over the internet
-            url: enable-hcx-access-over-internet.md
-          - text: Upgrade VMware HCX on Azure VMware Solution
-            url: upgrade-hcx-azure-vmware-solutions.md
-          - text: Use VMware HCX Run Commands
-            url: use-hcx-run-commands.md
-          - text: Uninstall VMware HCX in Azure VMware Solution
-            url: uninstall-vmware-hcx.md
         # Card
         - title: Operate and monitor
           links:
-            - text: Security solutions for Azure VMware Solution
-              url: ecosystem-security-solutions.md
-            - text: Security recommendations
-              url: security-recommendations.md
-            - text: Security baseline
-              url: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
-            - text: Vulnerability Management
-              url: vulnerability-management.md
-            - text: Rotate cloudadmin credentials
-              url: rotate-cloudadmin-credentials.md
-
+            - text: Run Command
+              url: using-run-command.md
+            - text: Configure VMware Syslogs
+              url: configure-vmware-syslogs.md
+            - text: Configure Alerts
+              url: configure-alerts-for-azure-vmware-solution.md
+            - text: Arc-enabled Azure VMware Solution
+              url: deploy-arc-for-azure-vmware-solution.md

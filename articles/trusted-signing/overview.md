@@ -1,42 +1,51 @@
 ---
-title: What is Trusted Signing? #Required; page title is displayed in search results. Include the brand.
-description: Learn about the Trusted Signing service. #Required; article description that is displayed in search results. 
-author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.service: azure-code-signing
-ms.date: 03/21/2024 #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+title: What is Trusted Signing?
+description: Learn about the Trusted Signing service in Azure. 
+author: microsoftshawarma
+ms.author: rakiasegev
+ms.topic: overview
+ms.service: trusted-signing
+ms.date: 03/21/2024
+ms.custom: template-overview
 ---
 
 # What is Trusted Signing?
-Signing is often difficult to do – from obtaining certificates, to securing them, and operationalizing a secure way to integrate with build pipelines. 
 
-Trusted Signing (formerly Azure Code Signing) is a Microsoft fully managed end-to-end signing solution that simplifies the process and empowers 3rd party developers to easily build and distribute applications. This is part of Microsoft’s commitment to an open, inclusive, and secure ecosystem. 
+Certificate signing can be a challenge for organizations. The process involves getting certificates, securing them, and operationalizing a secure way to integrate certificates into build pipelines.
+
+Trusted Signing is a Microsoft fully managed, end-to-end signing solution that simplifies the certificate signing process and helps partner developers more easily build and distribute applications. Trusted Signing is part of the Microsoft commitment to an open, inclusive, and secure ecosystem.
 
 ## Features
 
-* Simplifies the signing process with an intuitive experience in Azure
-* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
-* Integrations into leading developer toolsets.
-* Supports Public Trust, Test, Private Trust, and CI policy signing scenarios.
-* Timestamping service. 
-* Content confidential signing – meaning digest signing that is fast and reliable – your file never leaves your endpoint. 
+The Trusted Signing service:
+
+- Simplifies the signing process through an intuitive experience in Azure.
+- Provides zero-touch certificate lifecycle management inside FIPS 140-2 Level 3 certified HSMs.
+- Integrates with leading developer toolsets.
+- Supports Public Trust, Private Trust, virtualization-based security (VBS) enclave, code integrity (CI) policy, and test signing scenarios.
+- Includes a timestamping service.
+- Offers content-confidential signing. Your file never leaves your endpoint, and you get digest signing that is fast and reliable.
 
 ## Resource structure
-Here’s a high-level overview of the service’s resource structure:
 
-![Diagram of Azure Code Signing resource group and cert profiles.](./media/trusted-signing-resource-structure-overview.png)
+The following figure shows a high-level overview of the Trusted Signing resource structure:
 
-* You create a resource group within a subscription. You then create a Trusted Signing account within the resource group.
-* Two resources within an account:
-    *	Identity validation 
-    * Certificate profile 
-* Two types of accounts (depending on the SKU you choose):
-    * Basic 
-    * Premium
+:::image type="content" source="media/trusted-signing-resource-structure-overview.png" alt-text="Diagram that shows the Trusted Signing service resource group and certificate profile structure." border="false":::
 
-## Next steps
-* [Learn more about the Trusted Signing resource structure.](concept.md)
-* [Learn more about the signing integrations.](how-to-signing-integrations.md)
-* [Get started with Trusted Signing.](quickstart.md) 
+You create a resource group in an Azure subscription. Then you create a Trusted Signing account inside the resource group.
+
+A Trusted Signing account contains two resources:
+
+- Identity validation
+- Certificate profile
+
+You can choose between two types of accounts:
+
+- Basic SKU
+- Premium SKU
+
+## Related content
+
+- Learn more about the [Trusted Signing resource structure](./concept-trusted-signing-resources-roles.md).
+- Learn more about [signing integrations](how-to-signing-integrations.md) for the Trusted Signing service.
+- Complete the quickstart to [set up Trusted Signing](quickstart.md).

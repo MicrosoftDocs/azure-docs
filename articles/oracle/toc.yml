@@ -9,17 +9,77 @@ items:
     href: /azure/virtual-machines/workloads/oracle/
 - name: Oracle Database@Azure
   items:
+  - name: What's new in Oracle Database@Azure
+    href: oracle-db/oracle-database-what-is-new.md
+  - name: Available regions for Oracle Database@Azure
+    href: oracle-db/oracle-database-regions.md
+  - name: Get started with Oracle Database@Azure
+    href: oracle-db/oracle-database-get-started.md
+  - name: Oracle Database@Azure compliance information
+    href: oracle-db/oracle-database-compliance.md
   - name: Overview - Oracle Database@Azure
     href: oracle-db/database-overview.md
-  - name: Onboard with Oracle Database@Azure
-    href: oracle-db/onboard-oracle-database.md
   - name: Network planning for Oracle Database@Azure
     href: oracle-db/oracle-database-network-plan.md
   - name: Groups and roles for Oracle Database@Azure
     href: oracle-db/oracle-database-groups-roles.md
-  - name: Provision and manage Oracle Database@Azure
-    href: oracle-db/provision-oracle-database.md
+  - name: Troubleshoot Oracle Database@Azure
+    href: oracle-db/oracle-database-troubleshoot.md
+  - name: Known issues for Oracle Database@Azure
+    href: oracle-db/oracle-database-known-issues.md
+  - name: Onboard Oracle Database@Azure
+    items:
+    - name: Onboard Oracle Database@Azure
+      href: oracle-db/onboard-oracle-database.md
+  - name: Design considerations 
+    items:
+    - name: Groups and roles for Oracle Database@Azure
+      href: oracle-db/oracle-database-groups-roles.md
+    - name: Plan for IP Address Space
+      href: oracle-db/oracle-database-plan-ip.md
+    - name: Delegated subnet limits
+      href: oracle-db/oracle-database-delegated-subnet-limits.md      
+  - name: Exadata services
+    items:
+    - name: What's new in Exadata services
+      href: oracle-db/exadata-whats-new-services.md
+    - name: Provision Exadata infrastructure
+      href: oracle-db/exadata-provision-infrastructure.md
+    - name: Manage Exadata resources
+      href: oracle-db/exadata-manage-resources.md
+    - name: Operations processes for Exadata services
+      href: oracle-db/exadata-operations-processes-services.md
+    - name: OCI Multicloud landing zone for Azure
+      href: oracle-db/exadata-multicloud-landing-zone-azure-services.md
+    - name: Terraform/OpenTofu Examples for Exadata Services
+      href: oracle-db/exadata-examples-services.md
+    - name: Troubleshoot Exadata services
+      href: oracle-db/exadata-troubleshoot-services.md
+  - name: Autonomous Database services
+    items:
+    - name: What's new in Autonomous Database services
+      href: oracle-db/oracle-database-whats-new-autonomous-database-services.md
+    - name: Provision an autonomous database
+      href: oracle-db/provision-autonomous-oracle-databases.md
+    - name: Manage autonomous database resources
+      href: oracle-db/oracle-database-manage-autonomous-database-resources.md
+    - name: Autonomous database services for Oracle Database@Azure
+      href: oracle-db/oracle-database-autonomous-database-services.md
+    - name: Operations processes for Autonomous Database services
+      href: oracle-db/oracle-database-processes-autonomous-database-services.md
+    - name: Provision an autonomous database serverless instance
+      href: oracle-db/oracle-database-provision-autonomous-database.md
+    - name: OCI multicloud landing zone for Azure
+      href: oracle-db/oracle-cloud-infrastructure-azure-autonomous-database-services.md
+    - name: Terraform/OpenTofu Examples for Autonomous Database Services
+      href: oracle-db/oracle-database-examples-autonomous-database-services.md
+    - name: Troubleshoot autonomous database services
+      href: oracle-db/oracle-database-troubleshoot-autonomous-database-services.md     
+  - name: Link Oracle Database@Azure to multiple Azure subscriptions
+    href: oracle-db/link-oracle-database-multiple-subscription.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
+  - name: FAQs
+    href: oracle-db/faq-oracle-database-azure.md
   
  

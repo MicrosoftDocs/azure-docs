@@ -3,16 +3,16 @@ title: 'Azure Virtual WAN partners, regions, and available locations'
 description: This article contains a list of Azure Virtual WAN partners and available locations.
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions
-# Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+# Customer intent: As someone with a networking background, I want to learn more aobut Branch IPsec connectivity automation
 ---
-# Virtual WAN partners, regions, and virtual hub locations
+# Virtual WAN Branch IPsec connectivity automation 
 
-This article provides information on Virtual WAN supported regions and partners for connectivity into a Virtual WAN hub.
+This article provides information on Virtual WAN partners for connectivity into a Virtual WAN hub.
 
 There are two types of offerings that make connecting to Azure easier:
 
@@ -23,9 +23,9 @@ There are two types of offerings that make connecting to Azure easier:
 
 Some partners offer Network Virtual Appliances (NVAs) that can be deployed directly into the Azure Virtual WAN hub through a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers.
 
-When a Network Virtual Appliance is deployed into a Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as an SD-WAN gateway, Firewall or a combination of both. For more information about the benefits of deploying an NVA into a Virtual WAN hub, see [About NVAs in a Virtual WAN hub](about-nva-hub.md).
+When a Network Virtual Appliance is deployed into a Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as an SD-WAN gateway, Firewall or a combination of both. For more information about  deploying an NVA into a Virtual WAN hub and available partners, see [About NVAs in a Virtual WAN hub](about-nva-hub.md).
 
-[!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
+
 
 ## <a name="automation"></a>Branch IPsec connectivity automation from partners
 
@@ -45,10 +45,6 @@ Some connectivity partners may extend the automation to include creating the Azu
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
 The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN gateways: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari), and SharpLink.
-
-## <a name="locations"></a>Available regions
-
-To view the available regions for Virtual WAN, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-wan). Specify **Virtual WAN** as the product name.
 
 ## Next steps
 

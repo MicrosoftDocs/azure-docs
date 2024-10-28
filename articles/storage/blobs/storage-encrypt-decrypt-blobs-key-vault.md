@@ -34,7 +34,7 @@ This tutorial shows you how to:
 
 - Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Key vault - create one using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [PowerShell](../../key-vault/general/quick-create-powershell.md)
+- Key vault - create one using [Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [PowerShell](/azure/key-vault/general/quick-create-powershell)
 - [Visual Studio 2022](https://visualstudio.microsoft.com) installed
 
 <a name='assign-a-role-to-your-azure-ad-user'></a>
@@ -293,4 +293,4 @@ In this tutorial, you learned how to use .NET client libraries to perform client
 
 For a broad overview of client-side encryption for blobs, including instructions for migrating encrypted data to version 2, see [Client-side encryption for blobs](client-side-encryption.md).
 
-For more information about Azure Key Vault, see the [Azure Key Vault overview page](../../key-vault/general/overview.md)
+For more information about Azure Key Vault, see the [Azure Key Vault overview page](/azure/key-vault/general/overview)

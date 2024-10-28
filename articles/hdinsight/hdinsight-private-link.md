@@ -1,11 +1,11 @@
 ---
 title: Enable Private Link on an Azure HDInsight cluster
 description: Learn how to connect to an outside HDInsight cluster by using Azure Private Link.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 03/30/2023
+ms.date: 04/11/2024
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -19,7 +19,7 @@ Private Link can be used in cross-network scenarios where virtual network peerin
 
 The use of Private Link to connect to an HDInsight cluster is an optional feature and is disabled by default. The feature is available only when the `resourceProviderConnection` network property is set to *outbound*, as described in the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
-When `privateLink` is set as *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
+When `privateLink` is set as *enabled*, internal [standard load balancers (SLBs)](../load-balancer/load-balancer-overview.md) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Private link deployment steps
 Successfully creating a Private Link cluster takes many steps, so we've outlined them here. Follow each of the steps below to ensure everything is set up correctly.
@@ -42,7 +42,7 @@ To start, deploy the following resources if you haven't created them already. Yo
 ## <a name="DisableNetworkPolicy"></a>Step 2: Configure HDInsight subnet
 
 - **Disable privateLinkServiceNetworkPolicies on subnet.** In order to choose a source IP address for your Private Link service, an explicit disable setting ```privateLinkServiceNetworkPolicies``` is required on the subnet. Follow the instructions here to [disable network policies for Private Link services](../private-link/disable-private-link-service-network-policy.md).
-- **Enable Service Endpoints on subnet.** For successful deployment of a Private Link HDInsight cluster, we recommend that you add the *Microsoft.SQL*, *Microsoft.Storage*, and *Microsoft.KeyVault* service endpoint(s) to your subnet prior to cluster deployment.  [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) route traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. 
+- **Enable Service Endpoints on subnet.** For successful deployment of a Private Link HDInsight cluster, we recommend that you add the `Microsoft.SQL`, `Microsoft.Storage`, and `Microsoft.KeyVault` service endpoint(s) to your subnet prior to cluster deployment.  [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) route traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. 
 
 
 ## <a name="NATorFirewall"></a>Step 3: Deploy NAT gateway *or* firewall

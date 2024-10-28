@@ -19,7 +19,7 @@ ms.service: azure-functions
 Azure Functions offers built-in integration with Application Insights to monitor functions executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
 
 - [Monitor executions in Azure Functions](functions-monitoring.md)
-- [How to configure monitoring for Azure Functions](configure-monitoring.md)
+- [Configure monitoring for Azure Functions](configure-monitoring.md)
 - [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
 - [Monitor Azure Functions with Application Insights](/azure/azure-monitor/app/monitor-functions)
 
@@ -30,6 +30,9 @@ For more information about the resource types for Azure Functions, see [Azure Fu
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#metrics).
+
+>[!NOTE]  
+>App Service metrics (Microsoft.Web/sites) aren't available when your function app runs on Linux in a [Consumption plan](./consumption-plan.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 

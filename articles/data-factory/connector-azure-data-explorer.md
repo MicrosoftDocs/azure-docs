@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy or transform data in Azure Data Explorer by using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/24/2023
+ms.date: 05/15/2024
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics

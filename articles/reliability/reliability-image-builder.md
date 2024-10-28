@@ -5,7 +5,7 @@ author: ericd-mst-github
 ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.date: 08/22/2023
 ---
@@ -79,14 +79,14 @@ When a regional disaster occurs, Microsoft is responsible for outage detection, 
 
 #### Outage detection, notification, and management
 
-Microsoft sends a notification if there's an outage in the Azure Image Builder (AIB) Service. One common outage symptom is image templates getting 500 errors when attempting to run. You can review Azure Image Builder outage notifications and status updates through [support request management.](../azure-portal/supportability/how-to-manage-azure-support-request.md)
+Microsoft sends a notification if there's an outage in the Azure Image Builder (AIB) Service. One common outage symptom is image templates getting 500 errors when attempting to run. You can review Azure Image Builder outage notifications and status updates through [support request management.](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
 
 
 #### Set up disaster recovery and outage detection
 
 You're responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You need to configure both the control plane (service side) and data plane.
 
-It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
+It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](/azure/virtual-machines/image-builder-overview#regions) and what resources are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
 
 ### Single-region geography disaster recovery
 
@@ -96,11 +96,11 @@ To get an image template resource using Resource Graph from the Azure portal:
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
-    ![Screenshot of Azure Resource Graph Explorer in the portal.](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-portal.png#lightbox)
+    ![Screenshot of Azure Resource Graph Explorer in the portal.](media/resource-graph-explorer-portal.png#lightbox)
 
 1. Use the search bar on the far left to search resource by type and name to see how the details give you properties of the image template. The *See details* option on the bottom right shows the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
-    ![Screenshot of using Azure Resource Graph Explorer search.](../virtual-machines//media/image-builder-reliability/resource-graph-explorer-search.png#lightbox)
+    ![Screenshot of using Azure Resource Graph Explorer search.](media/resource-graph-explorer-search.png#lightbox)
 
 
 ### Capacity and proactive disaster recovery resiliency
@@ -110,7 +110,7 @@ Microsoft and its customers operate under the [shared responsibility model](./bu
 When planning where to replicate a template, consider:
 
 - AIB region availability:
-    - Choose [AIB supported regions](../virtual-machines//image-builder-overview.md#regions) close to your users.
+    - Choose [AIB supported regions](/azure/virtual-machines/image-builder-overview#regions) close to your users.
     - AIB continually expands into new regions.
 - Azure paired regions:
     - For your geographic area, choose two regions paired together.
@@ -118,11 +118,11 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to your data processing information, refer to the Azure Image Builder [data residency](../virtual-machines//linux/image-builder-json.md#data-residency) details.
+In regards to your data processing information, refer to the Azure Image Builder [data residency](/azure/virtual-machines/linux/image-builder-json#data-residency) details.
 
 
 ## Next steps
 
 - [Reliability in Azure](overview.md)
 - [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
-- [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
+- [Azure Image Builder overview](/azure/virtual-machines/image-builder-overview)

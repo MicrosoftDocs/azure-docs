@@ -1,9 +1,9 @@
 ---
 title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 03/19/2024
+ms.date: 06/28/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -43,7 +43,7 @@ using './azuredeploy.json'
 ```
 
 ```bicep
-using 'br/public:storage/storage-account:3.0.1'
+using 'br/public:avm/res/storage/storage-account:0.9.0' 
 ...
 ```
 
@@ -361,11 +361,13 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ## Deploy Bicep file with parameters file
 
+### Azure CLI
+
 From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch.
 
 ```azurecli
 az deployment group create \
@@ -386,7 +388,34 @@ az deployment group create \
 
 ---
 
+You can use inline parameters and a location parameters file in the same deployment operation. For example:
+
+# [Bicep parameters file](#tab/Bicep)
+
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --parameters storage.bicepparam \
+  --parameters storageAccountType=Standard_LRS
+```
+
+# [JSON parameters file](#tab/JSON)
+
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.bicep \
+  --parameters storage.parameters.json \
+  --parameters storageAccountType=Standard_LRS
+```
+
+---
+
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters).
+
+### Azure PowerShell
 
 From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
 
@@ -402,7 +431,6 @@ New-AzResourceGroupDeployment `
 
 # [JSON parameters file](#tab/JSON)
 
-
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
@@ -413,13 +441,39 @@ New-AzResourceGroupDeployment `
 
 ---
 
+You can use inline parameters and a location parameters file in the same deployment operation. For example:
+
+# [Bicep parameters file](#tab/Bicep)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile C:\MyTemplates\storage.bicep `
+  -TemplateParameterFile C:\MyTemplates\storage.bicepparam `
+  -storageAccountType Standard_LRS
+```
+
+# [JSON parameters file](#tab/JSON)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile C:\MyTemplates\storage.bicep `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json `
+  -storageAccountType Standard_LRS
+```
+
+---
+
 For more information, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md#parameters). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or later.
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. 
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
 
-It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
+It's possible to use an external JSON parameters file, by providing the URI to the file. External Bicep parameters file is not currently supported. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
 ## Parameter name conflicts
 

@@ -1,14 +1,17 @@
 ---
 title: How to connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
 description: Learn how to connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs. Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol.
 
@@ -53,60 +56,66 @@ In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/
 ## Packaging the JAR for Flink 
 1. Package com.example.app;
    
-   ```
+    ```
+       package contoso.example;
+     
     import org.apache.flink.api.common.functions.MapFunction;
     import org.apache.flink.api.common.serialization.SimpleStringSchema;
+     
+    import org.apache.flink.api.java.utils.ParameterTool;
+    import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
+    import org.apache.flink.connector.kafka.sink.KafkaSink;
+     
     import org.apache.flink.streaming.api.datastream.DataStream;
     import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-    import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;     //v0.11.0.0
-    import java.io.FileNotFoundException;
+     
     import java.io.FileReader;
     import java.util.Properties;
-
-    public class FlinkTestProducer {
-
-    private static final String TOPIC = "test";
-    private static final String FILE_PATH = "src/main/resources/producer.config";
-
-    public static void main(String... args) {
-        try {
-            Properties properties = new Properties();
-            properties.load(new FileReader(FILE_PATH));
-
-            final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-            DataStream stream = createStream(env);
-            FlinkKafkaProducer<String> myProducer = new FlinkKafkaProducer<>(
-                    TOPIC,    
-                    new SimpleStringSchema(),   // serialization schema
-                    properties);
-
-            stream.addSink(myProducer);
-            env.execute("Testing flink print");
-
-        } catch(FileNotFoundException e){
-            System.out.println("FileNotFoundException: " + e);
-        } catch (Exception e) {
-            System.out.println("Failed with exception:: " + e);
-        }
-    }
-
-    public static DataStream createStream(StreamExecutionEnvironment env){
-        return env.generateSequence(0, 200)
-            .map(new MapFunction<Long, String>() {
-                @Override
-                public String map(Long in) {
-                    return "FLINK PRODUCE " + in;
-                }
-            });
-      }
-   }
-   ```
- 
+     
+    public class AzureEventHubDemo {
+     
+       public static void main(String[] args) throws Exception {
+           // 1. get stream execution environment
+           StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment().setParallelism(1);
+           ParameterTool parameters = ParameterTool.fromArgs(args);
+           String input = parameters.get("input");
+           Properties properties = new Properties();
+           properties.load(new FileReader(input));
+     
+           // 2. generate stream input
+           DataStream<String> stream = createStream(env);
+     
+           // 3. sink to eventhub
+           KafkaSink<String> sink = KafkaSink.<String>builder().setKafkaProducerConfig(properties)
+                  .setRecordSerializer(KafkaRecordSerializationSchema.builder()
+                          .setTopic("topic1")
+                          .setValueSerializationSchema(new SimpleStringSchema())
+                           .build())
+                   .build();
+     
+           stream.sinkTo(sink);
+     
+           // 4. execute the stream
+           env.execute("Produce message to Azure event hub");
+       }
+     
+       public static DataStream<String> createStream(StreamExecutionEnvironment env){
+           return env.generateSequence(0, 200)
+                   .map(new MapFunction<Long, String>() {
+                       @Override
+                       public String map(Long in) {
+                           return "FLINK PRODUCE " + in;
+                       }
+                   });
+       }
+    } 
+    ```
+     
 1. Add the snippet to run the Flink Producer.
 
    :::image type="content" source="./media/flink-eventhub/testing-flink.png" alt-text="Screenshot showing how to test Flink in Event Hubs." border="true" lightbox="./media/flink-eventhub/testing-flink.png":::
 
-1. Once the code is executed, the events are stored in the topic **“TEST”**
+1. Once the code is executed, the events are stored in the topic **"topic1"**
 
    :::image type="content" source="./media/flink-eventhub/events-stored-in-topic.png" alt-text="Screenshot showing Event Hubs stored in topic." border="true" lightbox="./media/flink-eventhub/events-stored-in-topic.png":::
 

@@ -3,7 +3,7 @@ title: Migrate Azure Front Door (classic) to Standard/Premium tier
 description: This article provides step-by-step instructions on how to migrate from an Azure Front Door (classic) profile to an Azure Front Door Standard or Premium tier profile.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/24/2023
 ms.author: duau
@@ -63,7 +63,7 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
     > [!NOTE]
     > The **Configure WAF policy upgrades** link will only appear if you have WAF policies associated to the Front Door (classic) profile.
 
-    For each WAF policy associated to the Front Door (classic) profile select an action. You can make copy of the WAF policy that matches the tier you're migrating the Front Door profile to or you can use an existing compatible WAF policy. You may also change the WAF policy name from the default provided name. Once completed, select **Apply** to save your Front Door WAF settings. 
+    For each WAF policy associated to the Front Door (classic) profile select an action. You can make a copy of the WAF policy that matches the tier you're migrating the Front Door profile to or you can use an existing compatible WAF policy. You may also change the WAF policy name from the default provided name. Once completed, select **Apply** to save your Front Door WAF settings. 
 
     :::image type="content" source="./media/migrate-tier/waf-policy.png" alt-text="Screenshot of the upgrade WAF policy screen.":::
 

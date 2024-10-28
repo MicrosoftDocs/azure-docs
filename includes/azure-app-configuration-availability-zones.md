@@ -20,4 +20,5 @@ Following are regions where App Configuration has enabled availability zone supp
 | US Gov Virginia  | West Europe          |                |        | China North 3  |
 | West US 2        | Sweden Central       |                |        |                |
 | West US 3        | Switzerland North    |                |        |                |
-|                  | Poland Central       |                |        |                |
+| Mexico Central   | Poland Central       |                |        |                |
+|                  | Spain Central        |                |        |                |

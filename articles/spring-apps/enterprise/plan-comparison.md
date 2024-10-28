@@ -3,7 +3,7 @@ title: Compare available plans in Azure Spring Apps
 description: Understand and compare all plans in the Azure Spring Apps.
 author: karlerickson
 ms.author: taoxu
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 01/05/2024
 ms.custom: devx-track-java, engagement-fy23, references_regions
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 # Compare available plans in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This article provides a comparison of plans available in Azure Spring Apps. Each plan is designed to cater to different customer scenarios and purposes, as described in the following list:
 

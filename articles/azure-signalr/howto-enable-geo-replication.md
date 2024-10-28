@@ -5,7 +5,7 @@ author: biqian
 
 ms.author: biqian
 ms.date: 06/01/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 
@@ -22,14 +22,6 @@ Companies seeking local presence or requiring a robust failover system often cho
 ## Prerequisites
 
 * An Azure SignalR Service in [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/).
-* The user needs following permissions to operate on replicas:
-
-    | Permission                                        | Description                                       |
-    |---------------------------------------------------|---------------------------------------------------|
-    | Microsoft.SignalRService/signalr/replicas/write   | create, update or delete a replica. |
-    | Microsoft.SignalRService/signalr/replicas/read    | get meta data of a replica.|
-    | Microsoft.SignalRService/signalr/replicas/action  | perform actions on a replica, such as restarting. |
-
 
 ## Example use case
 Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure SignalR Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.
@@ -118,6 +110,9 @@ Deploy the Bicep file using Azure CLI
 
 ----
 
+> [!NOTE]
+> * The replica count is currently limited to a maximum of 8 per primary resource.
+
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
@@ -197,3 +192,13 @@ Specifically, if your application typically broadcasts to larger groups (size >1
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-howto-scale-autoscale.md) to manage this.
 
 For more performance evaluation, refer to [Performance](signalr-concept-performance.md).
+
+## Non-Inherited and Inherited Configurations
+Replicas inherit most configurations from the primary resource; however, some settings must be configured directly on the replicas. Below is the list of those configurations:
+
+1. **SKU**: Each replica has its own SKU name and unit size. The autoscaling rules for replicas must be configured separately based on their individual metrics.
+2. **Shared private endpoints**: While shared private endpoints are automatically replicated to replicas, separate approvals are required on target private link resources. To add or remove shared private endpoints, manage them on the primary resource. **Do not** enable the replica until its shared private endpoint has been approved.
+3. **Log Destination Settings**. If not configured on the replicas, only logs from the primary resource will be transferred.
+4. **Alerts**. 
+
+All other configurations are inherited from the primary resource. For example, access keys, identity, application firewall, custom domains, private endpoints, and access control.

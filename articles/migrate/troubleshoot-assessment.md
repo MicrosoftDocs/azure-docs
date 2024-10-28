@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # Common issues in Azure Migrate assessments
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
 ## Common assessment errors
 
@@ -68,7 +68,7 @@ The operation took longer than expected either due to network latency issues or 
 
 - Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.
 
-- Connect to the impacted server from the appliance and run the commands documented here to check if they return null or empty data.
+- Connect to the impacted server from the appliance and run the commands documented [here](discovered-metadata.md#linux-server-metadata) to check if they return null or empty data.
 
 - If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
@@ -203,7 +203,7 @@ The error details will be mentioned with the error.
 
 #### Recommended Action
 
-Ensure that port 443 is open on the ESXi host on which the server is running. Learn more on how to remediate the issue.
+Ensure that port 443 is open on the ESXi host on which the server is running. [Learn more](troubleshoot-discovery.md#error-9014-httpgetrequesttoretrievefilefailed) on how to remediate the issue.
 
 ### Error Code: 9015: The vCenter Server user account provided for server discovery doesn't have guest operations privileges enabled.
 
@@ -213,7 +213,7 @@ The required privileges of guest operations haven't been enabled on the vCenter 
 
 #### Recommended Action
 
-Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. Learn more on how to set up the vCenter Server account with required privileges.
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](./vmware/tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
 
 ### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
 
@@ -251,13 +251,13 @@ Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-m
 
 #### Fix
 
-Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure.
+Azure endorses only [selected Linux OS versions](/azure/virtual-machines/linux/endorsed-distros). Consider upgrading the server before you migrate to Azure.
 
 ### Issue: Unendorsed Linux OS
 
 #### Fix
 
-The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
+The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](/azure/virtual-machines/linux/endorsed-distros) before you migrate to Azure.
 
 ### Issue: Unknown operating system
 
@@ -299,7 +299,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -317,7 +317,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 
@@ -385,7 +385,7 @@ Support for certain Operating System versions has been deprecated by VMware and 
 
 ## Common web apps discovery errors
 
-Azure Migrate provides options to assess discovered ASP.NET web apps for migration to Azure App Service by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
+Azure Migrate provides options to assess discovered ASP.NET/Java web apps for migration to Azure App Service and Azure KubernetesService (AKS) by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
 
 Here, typical App Service assessment errors are summarized.
 

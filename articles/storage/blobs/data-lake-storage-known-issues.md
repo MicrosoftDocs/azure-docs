@@ -1,7 +1,7 @@
 ---
-title: Known issues with Azure Data Lake Storage Gen2
+title: Known issues with Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
+description: Learn about limitations and known issues of Azure Data Lake Storage.
 author: normesta
 
 ms.service: azure-data-lake-storage
@@ -11,7 +11,7 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ---
 
-# Known issues with Azure Data Lake Storage Gen2
+# Known issues with Azure Data Lake Storage
 
 This article describes limitations and known issues for accounts that have the hierarchical namespace feature enabled.
 
@@ -20,29 +20,29 @@ This article describes limitations and known issues for accounts that have the h
 
 ## Supported Blob storage features
 
-An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage](./storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 
-Azure Data Lake Storage Gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Azure Data Lake Storage supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage](data-lake-storage-supported-azure-services.md).
 
-For more information, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+For more information, see [Azure services that support Azure Data Lake Storage](data-lake-storage-supported-azure-services.md).
 
 ## Supported open source platforms
 
-Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+Several open source platforms support Data Lake Storage. For a complete list, see [Open source platforms that support Azure Data Lake Storage](data-lake-storage-supported-open-source-platforms.md).
 
-For more information, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+For more information, see [Open source platforms that support Azure Data Lake Storage](data-lake-storage-supported-open-source-platforms.md).
 
 ## Blob storage APIs
 
-Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data.
+Data Lake Storage APIs, NFS 3.0, and Blob APIs can operate on the same data.
 
-This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
+This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage APIs to operate on the same data.
 
-- You can't use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you're overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option. 
+- You can't use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you're overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option. 
  
-  Blobs that are created by using a Data Lake Storage Gen2 operation such the [Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) operation, can't be overwritten by using [PutBlock](/rest/api/storageservices/put-block) or [PutBlockList](/rest/api/storageservices/put-block-list) operations, but they can be overwritten by using a [PutBlob](/rest/api/storageservices/put-block) operation subject to the maximum permitted blob size imposed by the corresponding api-version that PutBlob uses. 
+  Blobs that are created by using a Data Lake Storage operation such the [Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) operation, can't be overwritten by using [PutBlock](/rest/api/storageservices/put-block) or [PutBlockList](/rest/api/storageservices/put-block-list) operations, but they can be overwritten by using a [PutBlob](/rest/api/storageservices/put-block) operation subject to the maximum permitted blob size imposed by the corresponding api-version that PutBlob uses. 
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -90,7 +90,7 @@ In the storage browser that appears in the Azure portal, you can't access a file
 
 ## Third party applications
 
-Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage. Applications that call Blob APIs will likely work.
 
 
 ## Windows Azure Storage Blob (WASB) driver
@@ -101,7 +101,7 @@ Using the WASB driver as a client to a hierarchical namespace enabled storage ac
 
 ## Soft delete for blobs capability
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.yml?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.yml?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
 
 ## Events
 

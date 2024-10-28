@@ -2,7 +2,7 @@
 title: Quickstart - Create Azure API Management instance - Terraform
 description: Use this quickstart to create an Azure API Management instance using Terraform.
 ms.topic: quickstart
-ms.service: api-management
+ms.service: azure-api-management
 ms.date: 12/12/2023
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-azurepowershell
 author: TomArcherMsft
@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure API Management instance using Terraform
+
+[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
 This article shows how to use [Terraform](/azure/terraform) to create an API Management instance on Azure. You can also use Terraform for common management tasks such as importing APIs in your API Management instance. 
 
@@ -40,7 +42,7 @@ In this article, you learn how to:
 
 - For Azure PowerShell:
 
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 
 ## Implement the Terraform code
@@ -79,6 +81,9 @@ In this article, you learn how to:
 ## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+> [!NOTE]
+> It can take 30 to 40 minutes to create and activate an API Management service.
 
 ## Verify the results
 

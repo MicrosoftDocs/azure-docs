@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -23,10 +23,10 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.AppComplianceAutomation/onboard/action | Onboard given subscriptions to Microsoft.AppComplianceAutomation provider. |
-> | Microsoft.AppComplianceAutomation/triggerEvaluation/action | Trigger evaluation for given resourceIds to get quick compliance result. |
+> | Microsoft.AppComplianceAutomation/triggerEvaluation/action | Trigger quick evaluation for the given subscriptions. |
 > | Microsoft.AppComplianceAutomation/listInUseStorageAccounts/action | List the storage accounts which are in use by related reports |
 > | Microsoft.AppComplianceAutomation/checkNameAvailability/action | action checkNameAvailability |
-> | Microsoft.AppComplianceAutomation/getCollectionCount/action | Get the resource count. |
+> | Microsoft.AppComplianceAutomation/getCollectionCount/action | Get the count of reports. |
 > | Microsoft.AppComplianceAutomation/getOverviewStatus/action | Get the resource overview status. |
 > | Microsoft.AppComplianceAutomation/register/action | Register the subscription for Microsoft.AppComplianceAutomation |
 > | Microsoft.AppComplianceAutomation/unregister/action | Unregister the subscription for Microsoft.AppComplianceAutomation |
@@ -38,9 +38,10 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/write | Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report. |
 > | Microsoft.AppComplianceAutomation/reports/delete | Delete an AppComplianceAutomation report. |
 > | Microsoft.AppComplianceAutomation/reports/write | Update an exiting AppComplianceAutomation report. |
-> | Microsoft.AppComplianceAutomation/reports/syncCertRecord/action | Synchronize attestation record from app compliance. |
 > | Microsoft.AppComplianceAutomation/reports/checkNameAvailability/action | Checks the report's nested resource name availability, e.g: Webhooks, Evidences, Snapshots. |
 > | Microsoft.AppComplianceAutomation/reports/fix/action | Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed. |
+> | Microsoft.AppComplianceAutomation/reports/getScopingQuestions/action | Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed. |
+> | Microsoft.AppComplianceAutomation/reports/syncCertRecord/action | Synchronize attestation record from app compliance. |
 > | Microsoft.AppComplianceAutomation/reports/verify/action | Verify the AppComplianceAutomation report health status. |
 > | Microsoft.AppComplianceAutomation/reports/evidences/read | Returns a paginated list of evidences for a specified report. |
 > | Microsoft.AppComplianceAutomation/reports/evidences/read | Get the evidence metadata |
@@ -319,6 +320,7 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/deviceSecurityGroups/write | Creates or updates IoT device security groups |
 > | Microsoft.Security/deviceSecurityGroups/delete | Deletes IoT device security groups |
 > | Microsoft.Security/deviceSecurityGroups/read | Gets IoT device security groups |
+> | Microsoft.Security/externalSecuritySolutions/read | Gets the external security solutions |
 > | Microsoft.Security/governanceRules/read | Get governance rules for managing security posture |
 > | Microsoft.Security/governanceRules/write | Create or update governance rules for managing security posture |
 > | Microsoft.Security/informationProtectionPolicies/read | Gets the information protection policies for the resource |
@@ -352,16 +354,21 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/iotSite/read | Gets IoT site |
 > | Microsoft.Security/iotSite/write | Creates or updates IoT site |
 > | Microsoft.Security/iotSite/delete | Deletes IoT site |
+> | Microsoft.Security/jitNetworkAccessPolicies/read | Gets the just-in-time network access policies |
 > | Microsoft.Security/locations/read | Gets the security data location |
 > | Microsoft.Security/locations/alerts/read | Gets all available security alerts |
 > | Microsoft.Security/locations/alerts/dismiss/action | Dismiss a security alert |
 > | Microsoft.Security/locations/alerts/activate/action | Activate a security alert |
 > | Microsoft.Security/locations/alerts/resolve/action | Resolve a security alert |
 > | Microsoft.Security/locations/alerts/simulate/action | Simulate a security alert |
+> | Microsoft.Security/locations/externalSecuritySolutions/read | Gets the external security solutions |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Gets the just-in-time network access policies |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just-in-time network access policy or updates an existing one |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Deletes the just-in-time network access policy |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initiates a just-in-time network access policy request |
+> | Microsoft.Security/locations/securitySolutions/read | Gets the security solutions |
+> | Microsoft.Security/locations/securitySolutions/write | Creates a new security solution or updates an existing one |
+> | Microsoft.Security/locations/securitySolutions/delete | Deletes a security solution |
 > | Microsoft.Security/locations/tasks/read | Gets all available security recommendations |
 > | Microsoft.Security/locations/tasks/start/action | Start a security recommendation |
 > | Microsoft.Security/locations/tasks/resolve/action | Resolve a security recommendation |
@@ -518,6 +525,15 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/bookmarks/relations/read | Gets a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/write | Updates a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/delete | Deletes a bookmark relation |
+> | Microsoft.SecurityInsights/businessApplicationAgents/read | Gets a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/write | Create or Updates a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/delete | Deletes a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/read | Gets a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/write | Create or Updates a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/delete | Deletes a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/listActions/action | Lists the actions of a system |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/reportActionStatus/action | Reports the status of an action |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/undoAction/action | Undoes an action |
 > | Microsoft.SecurityInsights/cases/read | Gets a case |
 > | Microsoft.SecurityInsights/cases/write | Updates a case |
 > | Microsoft.SecurityInsights/cases/delete | Deletes a case |
@@ -580,7 +596,6 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/Metadata/read | Read Metadata for Sentinel content. |
 > | Microsoft.SecurityInsights/Metadata/write | Write Metadata for Sentinel content. |
 > | Microsoft.SecurityInsights/Metadata/delete | Delete Metadata for Sentinel content. |
-> | Microsoft.SecurityInsights/MitreCoverageRecords/read | Read Products Mitre Coverage |
 > | Microsoft.SecurityInsights/officeConsents/read | Gets consents from Microsoft Office |
 > | Microsoft.SecurityInsights/officeConsents/delete | Deletes consents from Microsoft Office |
 > | Microsoft.SecurityInsights/onboardingStates/read | Gets an onboarding state |

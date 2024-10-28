@@ -43,10 +43,18 @@ items:
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
-  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+  - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
+    href: extended-security-updates-windows-sql-server.md
+  - name: License SQL Server, Windows Server and Linux in Azure VMware Solution
+    href: license-sql-windows-in-avs.md
+  - name: Enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
+    href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
   items:
   - name: Private clouds and clusters
@@ -70,7 +78,7 @@ items:
   - name: Migrate
     href: architecture-migrate.md
   - name: Well Architected Framework
-    href: https://learn.microsoft.com/azure/well-architected/azure-vmware/
+    href: /azure/well-architected/azure-vmware/
   - name: Cloud Adoption Framework
     items:
       - name: Azure VMware Solution landing zone accelerator
@@ -305,6 +313,8 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
+  - name: Self service maintenance orchestration (public preview)
+    href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
@@ -377,3 +387,5 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
+  - name: Azure VMware Solution Master Diagrams File
+    href: https://github.com/Azure/azure-vmware-solution/blob/main/azure-vmware-master-diagrams

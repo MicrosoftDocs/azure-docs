@@ -1,10 +1,10 @@
 ---
 title: Connect Apache Kafka cluster with VM in different VNet on Azure HDInsight - Azure HDInsight
 description: Learn how to connect Apache Kafka cluster with VM in different VNet on Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 03/31/2023
+ms.date: 04/11/2024
 ---
 
 # How to connect Kafka cluster with VM in different VNet
@@ -22,7 +22,7 @@ This Document lists steps that must be followed to set up connectivity between V
    
 1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more information, see [Create an Apache Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster)
 
-1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
+1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 
 1. After this step, we can copy the entries of the file /etc/host from Kafka headnode to VM.
    

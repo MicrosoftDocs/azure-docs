@@ -1,22 +1,24 @@
 ---
-title: "Pricing example: Copy data and transform with Azure Databricks hourly"
+title: "Pricing example: Copy data and transform it with Azure Databricks"
 description: This article shows how to estimate pricing for Azure Data Factory to copy data and transform it with Azure Databricks every hour for 30 days.
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 06/25/2024
 ---
 
-# Pricing example: Copy data and transform with Azure Databricks hourly
+# Pricing example: Copy data and transform it with Azure Databricks
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage and transform the data with Azure Databricks on an hourly schedule for 8 hours per day for 30 days.
 
-The prices used in this example below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+The prices used in this example below are hypothetical and aren't intended to imply exact actual pricing. Read/write and monitoring costs aren't shown since they're typically negligible and do not impact overall costs significantly. Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+
+> [!NOTE]
+> This estimate is for Azure Data Factory costs involved only. Azure Databricks will also incur costs in this scenario, however, which you can estimate using the Azure Pricing Calculator.
 
 Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 

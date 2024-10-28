@@ -3,7 +3,7 @@ title: Apache Kafka output binding for Azure Functions
 description: Use Azure Functions to write messages to an Apache Kafka stream.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 05/14/2022
+ms.date: 06/14/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -37,15 +37,15 @@ The attributes you use depend on the specific event provider.
 
 The following example shows a C# function that sends a single message to a Kafka topic, using data provided in HTTP GET request.
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutput.cs" range="12-32" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutput.cs" range="12-32" :::
 
 To send events in a batch, use an array of `KafkaEventData` objects, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputMany.cs" range="12-30" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputMany.cs" range="12-30" :::
 
 The following function adds headers to the Kafka output data:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/Confluent/). 
 
@@ -53,15 +53,15 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example shows a C# function that sends a single message to a Kafka topic, using data provided in HTTP GET request.
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutput.cs" range="11-31" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutput.cs" range="11-31" :::
 
 To send events in a batch, use an array of `KafkaEventData` objects, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputMany.cs" range="12-30" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputMany.cs" range="12-30" :::
 
 The following function adds headers to the Kafka output data:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputWithHeaders.cs" range="11-31" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputWithHeaders.cs" range="11-31" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/EventHub). 
 
@@ -69,19 +69,19 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example has a custom return type that is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="11-31" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="11-31" :::
 
 In the class `MultipleOutputType`, `Kevent` is the output binding variable for the Kafka binding.
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="34-46" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="34-46" :::
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="11-30" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="11-30" :::
 
 The string array is defined as `Kevents` property on the class, on which the output binding is defined:  
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" :::
 
 The following function adds headers to the Kafka output data:
 
@@ -94,19 +94,19 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example has a custom return type that is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="11-31" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="11-31" :::
 
 In the class `MultipleOutputType`, `Kevent` is the output binding variable for the Kafka binding.
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="34-46" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="34-46" :::
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="11-30" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="11-30" :::
 
 The string array is defined as `Kevents` property on the class, on which the output binding is defined:  
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" :::
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" :::
 
 The following function adds headers to the Kafka output data:
 
@@ -309,7 +309,7 @@ The `KafkaOutput` annotation allows you to create a function that writes to a sp
 | **brokerList** | (Required) The list of Kafka brokers to which the output is sent. See [Connections](#connections) for more information. |
 | **topic** | (Required) The topic to which the output is sent. |
 | **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
-| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
+| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. ([Currently not supported for Java](https://github.com/Azure/azure-functions-java-library/issues/198).) |
 | **maxMessageBytes** | (Optional) The maximum size of the output message being sent (in MB), with a default value of `1`. |
 | **batchSize** | (Optional) Maximum number of messages batched in a single message set, with a default value of `10000`.  |
 | **enableIdempotence** | (Optional) When set to `true`, guarantees that messages are successfully produced exactly once and in the original produce order, with a default value of `false`|

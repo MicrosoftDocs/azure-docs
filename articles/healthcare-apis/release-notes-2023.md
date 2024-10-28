@@ -2,12 +2,12 @@
 title: Release notes for 2023 Azure Health Data Services monthly releases
 description: 2023 - Find out about features and improvements introduced in 2023 for the FHIR, DICOM, and MedTech services in Azure Health Data Services. Review the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
-author: kgaddam10
-ms.service: healthcare-apis
+author: shellyhaverkamp
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: kavitagaddam 
+ms.author: jasteppe 
 ms.custom: references_regions
 ---
 
@@ -135,7 +135,7 @@ Batch bundles are executed serially in FHIR service by default. To improve throu
 
 Learn more:
 
-- [Batch bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+- [Batch bundle parallelization](./../healthcare-apis/fhir/rest-api-capabilities.md)
 - [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 #### Bug fixes

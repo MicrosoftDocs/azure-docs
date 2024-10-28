@@ -1,11 +1,11 @@
 ---
 title: Azure Route Server frequently asked questions (FAQ)
-description: Find answers to frequently asked questions about Azure Route Server.
+description: In this article, you find answers to the most frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: faq
-ms.date: 08/18/2023
+ms.date: 09/11/2024
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -32,13 +32,16 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Yes, if you peer a virtual network hosting the Azure Route Server to another virtual network and you enable **Use the remote virtual network's gateway or Route Server** on the second virtual network, Azure Route Server learns the address spaces of the peered virtual network and send them to all the peered network virtual appliances (NVAs). It also programs the routes from the NVAs into the route table of the virtual machines in the peered virtual network. 
 
-### Why does Azure Route Server require a public IP address?
+### Why does Azure Route Server require a public IP address with opened ports?
 
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, that's why it needs the public IP address. This public IP address doesn't constitute a security exposure of your virtual network.
+These public endpoints are required for Azure's underlying SDN and management platform to communicate with Azure Route Server. Because Route Server is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage Route Server via its private endpoints due to compliance requirements. Connectivity to Route Server's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual network.
 
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed an ExpressRoute virtual network gateway in a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break ExpressRoute connectivity for IPv6 traffic.
+No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic.
+
+> [!WARNING]
+> If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will also break connectivity for IPv4 traffic. This issue will be fixed in our next release to ensure IPv4 traffic continues to work as expected.
 
 ## Routing
 
@@ -50,9 +53,13 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Azure Route Server supports only Border Gateway (BGP) Protocol. Your network virtual appliance (NVA) must support multi-hop external BGP because you need to deploy the Route Server in a dedicated subnet in your virtual network. When you configure the BGP on your NVA, the ASN you choose must be different from the Route Server ASN.
 
-### Does Azure Route Server preserve the BGP AS Path of the route it receives?
+### Does Azure Route Server preserve the BGP AS path of the route it receives?
 
-Yes, Azure Route Server propagates the route with the BGP AS Path intact.
+Yes, Azure Route Server propagates the route with the BGP AS path intact.
+
+### If AS path prepend is configured on an NVA towards the route server, will the ExpressRoute circuit pass the AS path prepend information to on-premises?
+
+When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN information. On-premises receives the prefix with [AS 12076](../expressroute/expressroute-routing.md#autonomous-system-numbers-asn).
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
@@ -65,6 +72,14 @@ Azure Route Server Keepalive timer is 60 seconds and the Hold timer is 180 secon
 ### Can Azure Route Server filter out routes from NVAs?
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP community. If a network virtual appliance (NVA) advertises routes with this community string to the route server, the route server doesn't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes sent from Azure Route Server to ExpressRoute.
+
+### When a VNet peering is created between my hub VNet and spoke VNet, does this cause a BGP soft reset between Azure Route Server and its peered NVAs?
+
+Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Route Server will perform a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs do not support BGP route refresh, then Azure Route Server will perform a BGP hard reset with the peered NVAs, which may cause connectivity disruption for traffic traversing the NVAs. 
+
+### How is the 1000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
+
+Currently, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, the route server calculates this as 1002 routes and tear down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
@@ -94,7 +109,7 @@ No. By default, Azure Route Server doesn't propagate routes it receives from an 
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 

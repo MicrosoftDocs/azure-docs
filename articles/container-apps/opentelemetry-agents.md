@@ -3,7 +3,7 @@ title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
 description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.date: 03/08/2024
 ms.author: cshoe
 ms.topic: how-to
@@ -48,7 +48,7 @@ The following table shows you what type of data you can send to each destination
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
-| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | Yes | Yes |
+| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
 | [Datadog](https://datadoghq.com/) | No | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
@@ -73,7 +73,7 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
         "destinations": ["appInsights"]
       },
       "logsConfiguration": {
-        "destinations": ["apInsights"]
+        "destinations": ["appInsights"]
       }
     }
   }
@@ -86,10 +86,14 @@ Before you run this command, replace placeholders surrounded by `<>` with your v
 
 ```azurecli
 az containerapp env telemetry app-insights set \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --name <YOUR_ENVIRONMENT_NAME> \
   --connection-string <YOUR_APP_INSIGHTS_CONNECTION_STRING> \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryLogs true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-logs true
 ```
+>[!NOTE]
+> Due to the sensitivity of the connection-string, you will not be able to see the detail values of the connection string when the command returns. The system will display it as null. 
 
 ---
 
@@ -140,11 +144,15 @@ Before you run this command, replace placeholders surrounded by `<>` with your v
 
 ```azurecli
 az containerapp env telemetry data-dog set \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --name <YOUR_ENVIRONMENT_NAME> \
   --site  "<YOUR_DATADOG_SUBDOMAIN>.datadoghq.com" \
   --key <YOUR_DATADOG_KEY> \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryMetrics true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-metrics true
 ```
+>[!NOTE]
+> Due to the sensitivity of the key, you will not be able to see the detail values of the key when the command returns. The system will display it as null. 
 
 ---
 
@@ -167,7 +175,7 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
     "appInsightsConfiguration": {},
     "openTelemetryConfiguration": {
       "destinationsConfiguration":{
-        "otlpConfiguration": [
+        "otlpConfigurations": [
           {
             "name": "otlp1",
             "endpoint": "ENDPOINT_URL_1",
@@ -199,26 +207,34 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az containerap env telemetry otlp add \
-  --name "otlp1"
+az containerapp env telemetry otlp add \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --name <YOUR_ENVIRONMENT_NAME> \
+  --otlp-name "otlp1" \
   --endpoint "ENDPOINT_URL_1" \
   --insecure false \
   --headers "api-key-1=key" \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryMetrics true
-az containerap env telemetry otlp add \
-  --name "otlp2"
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-metrics true
+az containerapp env telemetry otlp add \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --name <YOUR_ENVIRONMENT_NAME> \
+  --otlp-name "otlp2" \
   --endpoint "ENDPOINT_URL_2" \
   --insecure true \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryLogs true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-logs true
 ```
+>[!NOTE]
+> Due to the sensitivity of the headers value, you will not be able to see the detail values of the headers value when the command returns. The system will display them as null. 
 
 ---
 
 | Name | Description |
 |---|---|
-| `name` | A name you select to identify your OTLP-configured endpoint. |
+| `resource-group` | Name of resource group. You can configure the default group using `az configure --defaults group=<NAME>`. |
+| `name` | Name of the Container Apps environment. |
+| `otlp-name` | A name you select to identify your OTLP-configured endpoint. |
 | `endpoint` | The URL of the destination that receives collected data. |
 | `insecure` | Default true. Defines whether to enable client transport security for the exporter's gRPC connection. If false, the `headers` parameter is required. |
 | `headers` | Space-separated values, in 'key=value' format, that provide required information for the OTLP endpoints' security. Example: `"api-key=key other-config-value=value"`. |

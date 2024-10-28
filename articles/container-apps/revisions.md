@@ -3,7 +3,7 @@ title: Update and deploy changes in Azure Container Apps
 description: Learn how to use revisions to make changes in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 02/01/2024
 ms.author: cshoe

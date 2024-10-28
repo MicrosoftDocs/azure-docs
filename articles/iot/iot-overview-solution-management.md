@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT solution
 description: An overview of the management options for an IoT solution such as the Azure portal and ARM templates.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
@@ -32,10 +32,10 @@ While there are tools specifically for [monitoring devices](iot-overview-device-
 | IoT Hub | [Use Azure Monitor to monitor your IoT hub](../iot-hub/monitor-iot-hub.md) </br> [Check IoT Hub service and resource health](../iot-hub/iot-hub-azure-service-health-integration.md) |
 | Device Provisioning Service (DPS) | [Use Azure Monitor to monitor your DPS instance](../iot-dps/monitor-iot-dps.md) |
 | IoT Edge | [Use Azure Monitor to monitor your IoT Edge fleet](../iot-edge/how-to-collect-and-transport-metrics.md) </br> [Monitor IoT Edge deployments](../iot-edge/how-to-monitor-iot-edge-deployments.md) |
-| IoT Central | [Use audit logs to track activity in your IoT Central application](../iot-central/core/howto-use-audit-logs.md) </br> [Use Azure Monitor to monitor your IoT Central application](../iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health) |
+| IoT Central | [Use audit logs to track activity in your IoT Central application](../iot-central/core/howto-use-audit-logs.md) </br> [Use Azure Monitor to monitor your IoT Central application](../iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health) |
 | Azure Digital Twins | [Use Azure Monitor to monitor Azure Digital Twins resources](../digital-twins/how-to-monitor.md) |
 
-To learn more about the Azure Monitor service, see [Azure Monitor overview](../azure-monitor/overview.md).
+To learn more about the Azure Monitor service, see [Azure Monitor overview](/azure/azure-monitor/overview).
 
 ## Azure portal
 
@@ -43,7 +43,7 @@ The Azure portal offers a consistent GUI environment for managing your Azure IoT
 
 | Action | Links |
 |--------|-------|
-| Deploy service instances in your Azure subscription | [Manage your IoT hubs](../iot-hub/iot-hub-create-through-portal.md) </br>[Set up DPS](../iot-dps/quick-setup-auto-provision.md) </br> [Manage IoT Central applications](../iot-central/core/howto-manage-iot-central-from-portal.md) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-portal.md) |
+| Deploy service instances in your Azure subscription | [Manage your IoT hubs](../iot-hub/iot-hub-create-through-portal.md) </br>[Set up DPS](../iot-dps/quick-setup-auto-provision.md) </br> [Manage IoT Central applications](../iot-central/core/howto-manage-and-monitor-iot-central.md) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-portal.md) |
 | Configure services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-portal.md) </br> [Deploy IoT Edge modules](../iot-edge/how-to-deploy-at-scale.md) </br> [Configure file uploads (IoT Hub)](../iot-hub/iot-hub-configure-file-upload.md) </br> [Manage device enrollments (DPS)](../iot-dps/how-to-manage-enrollments.md) </br> [Manage allocation policies (DPS)](../iot-dps/how-to-use-allocation-policies.md) |
 
 ## ARM templates and Bicep
@@ -70,8 +70,8 @@ Use PowerShell to automate the management of your IoT solution. For example, you
 
 | Action | Links |
 |--------|-------|
-| Deploy service instances in your Azure subscription | [Create an IoT hub using the New-AzIotHub cmdlet](../iot-hub/iot-hub-create-using-powershell.md) </br> [Create an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#create-an-application) |
-| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-powershell.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-powershell#modify-an-application) |
+| Deploy service instances in your Azure subscription | [Create an IoT hub using the New-AzIotHub cmdlet](../iot-hub/iot-hub-create-using-powershell.md) </br> [Create an IoT Central application](../iot-central/core/howto-create-iot-central-application.md?tabs=azure-powershell) |
+| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-powershell.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-and-monitor-iot-central.md?tabs=azure-powershell) |
 
 For PowerShell reference documentation, see:
 
@@ -85,8 +85,8 @@ Use the Azure CLI to automate the management of your IoT solution. For example, 
 
 | Action | Links |
 |--------|-------|
-| Deploy service instances in your Azure subscription | [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md) </br> [Create an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#create-an-application) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-cli.md) </br> [Set up DPS](../iot-dps/quick-setup-auto-provision-cli.md) |
-| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-azure-cli.md) </br> [Deploy and monitor IoT Edge modules at scale](../iot-edge/how-to-deploy-cli-at-scale.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-iot-central-from-cli.md?tabs=azure-cli#modify-an-application) </br> [Create an Azure Digital Twins graph](../digital-twins/tutorial-command-line-cli.md) |
+| Deploy service instances in your Azure subscription | [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md) </br> [Create an IoT Central application](../iot-central/core/howto-create-iot-central-application.md) </br> [Set up an Azure Digital Twins instance](../digital-twins/how-to-set-up-instance-cli.md) </br> [Set up DPS](../iot-dps/quick-setup-auto-provision-cli.md) |
+| Manage services | [Create and delete routes and endpoints (IoT Hub)](../iot-hub/how-to-routing-azure-cli.md) </br> [Deploy and monitor IoT Edge modules at scale](../iot-edge/how-to-deploy-cli-at-scale.md) </br> [Manage an IoT Central application](../iot-central/core/howto-manage-and-monitor-iot-central.md) </br> [Create an Azure Digital Twins graph](../digital-twins/tutorial-command-line-cli.md) |
 
 For Azure CLI reference documentation, see:
 

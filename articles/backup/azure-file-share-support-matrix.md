@@ -1,10 +1,10 @@
 ---
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
-ms.topic: conceptual
-ms.date: 03/29/2024
+ms.topic: reference
+ms.date: 09/09/2024
 ms.custom: references_regions, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -64,7 +64,7 @@ Vaulted backup for Azure Files (preview) is available in West Central US, Southe
 
 | File  share type                                   | Support   |
 | -------------------------------------------------- | --------- |
-| Standard                                           | Supported |
+| Standard (with large file shares enabled)                                   | Supported |
 | Large                                              | Supported |
 | Premium                                            | Supported |
 | File shares connected with Azure File Sync service | Supported |
@@ -120,6 +120,7 @@ Vaulted backup for Azure Files (preview) is available in West Central US, Southe
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum number of restore per day                           | 20      |
+| Maximum size of a file (if the destination account is in a Vnet) | 1TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 | Maximum duration of a restore job                           | 15 days
@@ -186,6 +187,22 @@ Vaulted backup for Azure Files (preview) is available in West Central US, Southe
 >Original location restores (OLR) and file-level recovery aren't supported. You can perform restore to an empty folder with the **Overwrite** option only.
 
 ---
+
+## Daylight savings
+
+Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. It doesn't shift the hour of the backup forward or backwards. To ensure the backup runs at the desired time, modify the backup policies manually as required.
+
+## Support for customer-managed failover
+
+This section describes how your backups and restores are affected after customer-managed failovers. 
+
+The following table lists the behavior of backups due to customer-initiated failovers:
+
+| Failover type | Backups | Restore | Enabling protection (re-protection) of failed over account in secondary region |
+| --- | --- | --- | --- |
+| Customer-managed planned failover | Supported | Supported | Not supported |
+| Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
 
 ## Next steps
 

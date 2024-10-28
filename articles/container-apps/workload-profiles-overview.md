@@ -3,9 +3,9 @@ title: Workload profiles in Azure Container Apps
 description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 10/20/2024
 ms.author: cshoe
 ms.custom:
   - references_regions
@@ -18,17 +18,17 @@ A workload profile determines the amount of compute and memory resources availab
 
 Profiles are configured to fit the different needs of your applications.
 
-| Profile type  | Description | Potential use |
+| Profile type | Description | Potential use |
 |--|--|--|
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
-| Dedicated (General purpose) | Balance of memory and compute resources  |  Apps that require larger amounts of CPU and/or memory |
+| Dedicated (General purpose) | Balance of memory and compute resources | Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
-| Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions.  | Apps that require GPU |
+| Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |
 
 > [!NOTE]
 > When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
 
-The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. Workload profiles environments are deployed separately from Consumption only environments.
+The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment when you create it or after you create it. Workload profiles environments are deployed separately from Consumption only environments.
 
 For each Dedicated workload profile in your environment, you can:
 
@@ -48,7 +48,7 @@ There are different types and sizes of workload profiles available by region. By
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation |
 |---|---|---|---|---|---|
-| Consumption | consumption |4 | 8 | - | Consumption | per replica |
+| Consumption | Consumption |4 | 8 | - | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |
@@ -63,7 +63,8 @@ There are different types and sizes of workload profiles available by region. By
 
 <sup>\*</sup> Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.
 
-Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
+> [!NOTE]
+> The command `az containerapp env workload-profile set` is no longer available for selecting a workload profile. Instead, use [az containerapp env workload-profile add](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-add) or [az containerapp env workload-profile update](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-update).
 
 In addition to different core and memory sizes, workload profiles also have varying image size limits available. To learn more about the image size limits for your container apps, see [hardware reference](hardware.md#image-size-limit).
 
@@ -71,13 +72,13 @@ The availability of different workload profiles varies by region.
 
 ## Resource consumption
 
-You can constrain the memory and CPU usage of each app inside a workload profile, and you can run multiple apps inside a single instance of a workload profile. However, the total amount of resources available to a container app is less than what's allocated to a profile. The difference between allocated and available resources is the amount reserved by the Container Apps runtime.
+You can constrain the memory and CPU usage of each app inside a workload profile, and you can run multiple apps inside a single instance of a workload profile. However, the total resources available to a container app are less than the resources allocated to a profile. The difference between allocated and available resources is the amount reserved by the Container Apps runtime.
 
 ## Scaling
 
-When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added.
+When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances might be added.
 
-At the same time, if the number of required replicas goes down, profile instances may be removed. You have control over the constraints on the minimum and maximum number of profile instances.
+At the same time, if the number of required replicas goes down, profile instances might be removed. You have control over the constraints on the minimum and maximum number of profile instances.
 
 Azure calculates [billing](billing.md#consumption-dedicated) largely based on the number of running profile instances.
 

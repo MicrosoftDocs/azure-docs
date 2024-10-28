@@ -1,7 +1,7 @@
 ---
 title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
@@ -38,7 +38,7 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 
 The [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Specify deployment template and parameters
 
@@ -243,11 +243,8 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 1. Deploy the quickstart template through the Azure portal
 
    - The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](#required-parameters) or [optional parameters](#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
-    </br>
-    </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-       <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
-    </a>
+  
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json)
 
 ## Next steps
 

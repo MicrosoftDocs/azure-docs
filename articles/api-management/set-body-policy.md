@@ -4,13 +4,15 @@ description: Reference for the set-body policy available for use in Azure API Ma
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 02/02/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Set body
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
@@ -80,7 +82,7 @@ OriginalUrl.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -271,7 +273,7 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 

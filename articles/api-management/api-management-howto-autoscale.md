@@ -4,22 +4,25 @@ description: This article describes how to set up rules to control autoscale beh
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/06/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
-# Automatically scale an Azure API Management instance  
+# Automatically scale an Azure API Management instance
 
-An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale) and is currently supported only in the **Basic**, **Standard**, and **Premium** tiers of the Azure API Management service.
+[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
+
+An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale).
 
 The article walks through the process of configuring autoscale and suggests optimal configuration of autoscale rules.
 
 > [!NOTE]
 > * In service tiers that support multiple scale units, you can also [manually scale](upgrade-and-scale.md) your API Management instance.
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
+> * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
 
 ## Prerequisites
 
@@ -29,8 +32,6 @@ To follow the steps from this article, you must:
 + Have an Azure API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Understand the concept of [capacity](api-management-capacity.md) of an API Management instance.
 + Understand [manual scaling](upgrade-and-scale.md) of an API Management instance, including cost consequences.
-
-[!INCLUDE [premium-standard-basic.md](../../includes/api-management-availability-premium-standard-basic.md)]
 
 ## Azure API Management autoscale limitations
 

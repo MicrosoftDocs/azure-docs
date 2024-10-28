@@ -2,8 +2,8 @@
 title: Restore Azure File shares
 description: Learn how to use the Azure portal to restore an entire file share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
-ms.date: 03/04/2024
-ms.service: backup
+ms.date: 04/05/2024
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -179,6 +179,8 @@ You can also monitor restore progress from the Recovery Services vault:
  >[!NOTE]
  >- Folders will be restored with original permissions if there is atleast one file present in them.
  >- Trailing dots in any directory path can lead to failures in the restore.
+>- Restore of a file or folder with length *>2 KB* or with characters `xFFFF` or `xFFFE` isn't supported from snapshots.
+ 
 
 ## Next steps
 

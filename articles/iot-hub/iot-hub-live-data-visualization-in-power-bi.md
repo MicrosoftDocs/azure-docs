@@ -5,7 +5,7 @@ description: This tutorial uses Power BI to visualize temperature and humidity d
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: arduino
 ms.date: 04/14/2023
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you begin this tutorial, have the following prerequisites in place:
 
-* Complete one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](raspberry-pi-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
+* Complete one of the [Send telemetry](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](raspberry-pi-get-started.md) or one of the [Embedded device tutorials](../iot/tutorial-devkit-mxchip-az3166-iot-hub.md). These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.

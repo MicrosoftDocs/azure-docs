@@ -3,7 +3,7 @@ title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energ
 description: Find out how to troubleshoot manifest ingestion by using Airflow task logs.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: troubleshooting-general
 ms.date: 02/06/2023
 ---
@@ -25,7 +25,7 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 |`update_status_running_task` | Calls the workflow service and marks the status of the DAG as `running` in the database.        |
 |`check_payload_type` | Validates whether the type of ingestion is batch or single manifest.|
 |`validate_manifest_schema_task` | Ensures that all the schema types mentioned in the manifest are present and there's referential schema integrity. All invalid values are evicted from the manifest. |
-|`provide_manifest_intergrity_task` | Validates references inside the OSDU&trade; R3 manifest and removes invalid entities. This operator is responsible for parent/child validation. All orphan-like entities are logged and excluded from the validated manifest. Any external referenced records are searched. If none are found, the manifest entity is dropped. All surrogate key references are also resolved. |
+|`provide_manifest_intergrity_task` | Validates references inside the OSDU&reg; R3 manifest and removes invalid entities. This operator is responsible for parent/child validation. All orphan-like entities are logged and excluded from the validated manifest. Any external referenced records are searched. If none are found, the manifest entity is dropped. All surrogate key references are also resolved. |
 |`process_single_manifest_file_task` | Performs ingestion of the final manifest entities obtained from the previous step. Data records are ingested via the storage service. |
 |`update_status_finished_task` | Calls the workflow service and marks the status of the DAG as `finished` or `failed` in the database. |
 

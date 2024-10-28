@@ -57,8 +57,8 @@ print("Queue statistics: " + queue_statistics)
 ::: zone pivot="programming-language-java"
 
 ```java
-var queueStatistics = client.getQueueStatistics("queue1");
-System.out.println("Queue statistics: " + new GsonBuilder().toJson(queueStatistics));
+RouterQueueStatistics queueStatistics = client.getQueueStatisticsWithResponse("queue1").getValue();
+System.out.println("Queue statistics: " + BinaryData.fromObject(queueStatistics).toString());
 ```
 
 ::: zone-end

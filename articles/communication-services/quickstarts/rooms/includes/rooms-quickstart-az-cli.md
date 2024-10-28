@@ -29,7 +29,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running the ```az login``` command from the terminal and providing your credentials.
 
 
 ### Store your connection string in an environment variable 
@@ -42,7 +42,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 setx AZURE_COMMUNICATION_CONNECTION_STRING "<connectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
+After you add the environment variable, you might need to restart any running programs that need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
 
 ##### [macOS](#tab/unix)
 
@@ -52,7 +52,7 @@ Edit your **`.zshrc`**, and add the environment variable:
 export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable. 
 
 ##### [Linux](#tab/linux)
 
@@ -62,7 +62,7 @@ Edit your **`.bash_profile`**, and add the environment variable:
 export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable. 
 
 ---
 
@@ -76,13 +76,11 @@ Use the `rooms create` command to create a room.
 az communication rooms create --presenter-participants "<participantId>" --consumer-participants "<participantId>" --attendee-participant "<participantId>" --valid-from "<valid-from>" --valid-until "<valid-until>" --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
 ```
 
-- Use `<participantId>` optionally to specify the type of participant as presenter-participants, consumer-participants, or attendee-participants. If you do not specify a value, the default is empty. 
+- Use `<participantId>` optionally to specify the type of participant as presenter-participants, consumer-participants, or attendee-participants. If you don't specify a value, the default is empty. 
 - Replace `<connection-string>` with your Azure Communication Services connection string. 
 - Use `<valid-from>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
-- Use `<pstn-dial-out-enabled>`* optionally by setting this flag ("True" or "False") to enable or disable PSTN dial out for a room. By default, this flag is set to "False" when creating a room.
-
-*`<pstn-dial-out-enabled>` is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+- Use `<pstn-dial-out-enabled>` optionally by setting this flag ("True" or "False") to enable or disable PSTN dial out for a room. By default, this flag is set to "False" when creating a room.
 
 If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
@@ -90,8 +88,8 @@ If you've stored the connection string in environment variables as stated above,
 az communication rooms create 
 ```
 
-### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
-The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability may also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
+### Enable PSTN dial out capability for a room
+The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability can also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
 
 ```azurecli-interactive
 az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
@@ -101,7 +99,7 @@ az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" 
 az communication rooms update --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --room "<roomId>"
 ```
 
-- Use `<pstn-dial-out-enabled>` set this flag ("True" or "False") to enable or disable PSTN dial out for a room.
+- To enable or disable PSTN dial out for a room, set `<pstn-dial-out-enabled>` flag ("True" or "False").
 
 ### Get the rooms 
 
@@ -144,13 +142,13 @@ Use the `identity user create` command to create a new participant, identified b
 az communication identity user create
 ```
 
-Add a user as a participant to the room 
+Add a user as a participant to the room.
 
 ```azurecli-interactive
 az communication rooms participant add-or-update --attendee-participant "<participantId>" --room "<roomId>"
 ```
 
-- Replace `<participantId>` with your participant ID. If the `<participantId>` does not exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
+- Replace `<participantId>` with your participant ID. If the `<participantId>` doesn't exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
 - Replace `<roomId>` with your room ID.
 
 ### Get list of participants in a room

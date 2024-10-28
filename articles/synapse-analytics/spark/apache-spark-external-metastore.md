@@ -2,7 +2,7 @@
 title: Use external Hive Metastore for Azure Synapse Spark Pool
 description: Learn how to set up external Hive Metastore for Azure Synapse Spark Pool.
 keywords: external Hive Metastore,share,Synapse
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 author: juluczni
@@ -13,7 +13,7 @@ ms.date: 02/15/2022
 # Use external Hive Metastore for Synapse Spark Pool
 
 > [!NOTE]
-> External Hive metastores will no longer be supported in Spark 3.4 and subsequent versions in Synapse.
+> External Hive metastores will no longer be supported in [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) and subsequent versions in Synapse.
 
 Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore) compatible metastore as their catalog. When customers want to persist the Hive catalog metadata outside of the workspace, and share catalog objects with other computational engines outside of the workspace, such as HDInsight and Azure Databricks, they can connect to an external Hive Metastore. In this article, you can learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
@@ -21,10 +21,9 @@ Azure Synapse Analytics allows Apache Spark pools in the same workspace to share
 
 The feature works with Spark 3.1. The following table shows the supported Hive Metastore versions for each Spark version.
 
-|Spark Version|HMS 0.13.X|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
-|--|--|--|--|--|--|
-|2.4|Yes|Yes|Yes|Yes|No|
-|3.1|Yes|Yes|Yes|Yes|Yes|
+|Spark Version|HMS 2.3.x|HMS 3.1.X|
+|--|--|--|
+|3.3|Yes|Yes|
 
 
 ## Set up linked service to Hive Metastore 
@@ -88,7 +87,7 @@ try {
 ```
 
 ## Configure Spark to use the external Hive Metastore
-After creating the linked service to the external Hive Metastore successfully, you need to setup a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
+After creating the linked service to the external Hive Metastore successfully, you need to set up a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
 
 Here are the configurations and descriptions:
 
@@ -97,9 +96,11 @@ Here are the configurations and descriptions:
 
 |Spark config|Description|
 |--|--|
-|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`0.13`</li><li>`1.2`</li><li>`2.1`</li><li>`2.3`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
-|`spark.sql.hive.metastore.jars`|<ul><li>Version 0.13: `/opt/hive-metastore/lib-0.13/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 2.3: `/opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*`</li></ul>|
+|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`2.3`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
+|`spark.sql.hive.metastore.jars`|<ul><li>Version 2.3: `/opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*`</li></ul>|
 |`spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`|Name of your linked service|
+|`spark.sql.hive.metastore.sharedPrefixes`|`com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas`|
+
 
 ### Configure at Spark pool level
 When creating the Spark pool, under **Additional Settings** tab, put below configurations in a text file and upload it in **Apache Spark configuration** section. You can also use the context menu for an existing Spark pool, choose Apache Spark configuration to add these configurations.
@@ -112,14 +113,16 @@ Update metastore version and linked service name, and save below configs in a te
 spark.sql.hive.metastore.version <your hms version, Make sure you use the first 2 parts without the 3rd part>
 spark.hadoop.hive.synapse.externalmetastore.linkedservice.name <your linked service name>
 spark.sql.hive.metastore.jars /opt/hive-metastore/lib-<your hms version, 2 parts>/*:/usr/hdp/current/hadoop-client/lib/*
+spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas
 ```
 
-Here is an example for metastore version 2.1 with linked service named as HiveCatalog21:
+Here is an example for metastore version 2.3 with linked service named as HiveCatalog21:
 
 ```properties
-spark.sql.hive.metastore.version 2.1
+spark.sql.hive.metastore.version 2.3
 spark.hadoop.hive.synapse.externalmetastore.linkedservice.name HiveCatalog21
-spark.sql.hive.metastore.jars /opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*
+spark.sql.hive.metastore.jars /opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*
+spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas
 ```
 
 ### Configure at Spark session level
@@ -131,7 +134,8 @@ For notebook session, you can also configure the Spark session in notebook using
     "conf":{
         "spark.sql.hive.metastore.version":"<your hms version, 2 parts>",
         "spark.hadoop.hive.synapse.externalmetastore.linkedservice.name":"<your linked service name>",
-        "spark.sql.hive.metastore.jars":"/opt/hive-metastore/lib-<your hms version, 2 parts>/*:/usr/hdp/current/hadoop-client/lib/*"
+        "spark.sql.hive.metastore.jars":"/opt/hive-metastore/lib-<your hms version, 2 parts>/*:/usr/hdp/current/hadoop-client/lib/*",
+        "spark.sql.hive.metastore.sharedPrefixes":"com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas"
     }
 }
 ```

@@ -18,12 +18,12 @@ services: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove and transfer call to a Teams user.
+In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove, and transfer call to a Teams user.
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-- A Microsoft Teams phone license and a Teams tenant with administrative privileges. Teams phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/en-us/microsoft-teams/compare-microsoft-teams-bundle-options). Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
+- An Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/).
+- A Microsoft Teams Phone license and a Teams tenant with administrative privileges. Teams Phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). The Microsoft Teams user must also be `voice` enabled, see [setting-up-your-phone-system](/microsoftteams/setting-up-your-phone-system).  Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
 - A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
 - [Acquire a PSTN phone number from the Communication Service resource](../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - An Azure Event Grid subscription to receive the `IncomingCall` event.
@@ -32,7 +32,7 @@ In this quickstart, we use the Azure Communication Services Call Automation APIs
 
 ## Step 1: Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users
 
-To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](/entra/identity/role-based-access-control/permissions-reference#teams-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) must explicitly enable the Communication Services resource(s) access to their tenant to allow calling.
+To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](/entra/identity/role-based-access-control/permissions-reference#teams-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) must explicitly enable the Communication Services resources access to their tenant to allow calling.
 
 [Set-CsTeamsAcsFederationConfiguration (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csteamsacsfederationconfiguration)
 Tenant level setting that enables/disables federation between their tenant and specific Communication Services resources.
@@ -43,16 +43,16 @@ User policy that allows the admin to further control which users in their organi
 <a name='step-2-use-the-graph-api-to-get-azure-ad-object-id-for-teams-users-and-optionally-check-their-presence'></a>
 
 ## Step 2: Use the Graph API to get Microsoft Entra object ID for Teams users and optionally check their presence
-A Teams user’s Microsoft Entra object ID (OID) is required to add them to or transfer to them from a Communication Services call. The OID can be retrieved through 1) Office portal, 2) Microsoft Entra admin center, 3) Microsoft Entra Connect; or 4) Graph API. The example below uses Graph API.
+A Teams user’s Microsoft Entra object ID (OID) is required to add them to or transfer to them from a Communication Services call. The OID can be retrieved through 1) Office portal, 2) Microsoft Entra admin center, 3) Microsoft Entra Connect; or 4) Graph API. The following example uses Graph API.
 
-Consent must be granted by a Microsoft Entra admin before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following shows a search by display name, but other properties can be searched as well:
+A Microsoft Entra admin must grand consent before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following example shows a search by display name, but you can also search for other properties:
 
 [List users using Microsoft Graph v1.0](/graph/api/user-list):
 ```rest
 Request:
-	https://graph.microsoft.com/v1.0/users?$search="displayName:Art Anderson"
+    https://graph.microsoft.com/v1.0/users?$search="displayName:Art Anderson"
 Permissions:
-	Application and delegated. Refer to documentation.
+    Application and delegated. Refer to documentation.
 Response:
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users",
     "value": [
@@ -133,11 +133,11 @@ call_connection_client.add_participant(target_participant = CallInvite(
 
 -----
 
-On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft Teams user through an incoming call toast notification.
+On the Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.
 
 ![Screenshot of Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.](./media/incoming-call-toast-notification-teams-user.png)
 
-After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster. Note that your application that is managing the call using Call Automation API will remain hidden to Teams user on the call screen. 
+After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user displays all the participants on the Microsoft Teams roster. Your application that is managing the call using Call Automation API remains hidden to Teams user on the call screen. 
 ![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user.](./media/active-call-teams-user.png)
 
 ## Step 4: Remove a Teams user from an existing Communication Services call controlled by Call Automation APIs
@@ -222,4 +222,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
 - Learn more about capabilities of [Teams Interoperability support with Azure Communication Services Call Automation](../../concepts/call-automation/call-automation-teams-interop.md)
 - Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
-- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario.

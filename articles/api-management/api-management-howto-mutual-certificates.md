@@ -5,7 +5,7 @@ description: Learn how to manage client certificates and secure backend services
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 01/12/2023
 ms.author: danlep 
@@ -13,6 +13,9 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Secure backend services using client certificate authentication in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 
 API Management allows you to secure access to the backend service of an API using client certificates and mutual TLS authentication. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
@@ -22,18 +25,18 @@ You can also manage API Management certificates using the [API Management REST A
 
 API Management provides two options to manage certificates used to secure access to backend services:
 
-* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
+* Reference a certificate managed in [Azure Key Vault](/azure/key-vault/general/overview) 
 * Add a certificate file directly in API Management
 
 Using key vault certificates is recommended because it helps improve API Management security:
 
 * Certificates stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to certificates stored in key vaults
+* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to certificates stored in key vaults
 * Certificates updated in the key vault are automatically rotated in API Management. After update in the key vault, a certificate in API Management is updated within 4 hours. You can also manually refresh the certificate using the Azure portal or via the management REST API.
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * You should have your backend service configured for client certificate authentication. To configure certificate authentication in the Azure App Service, refer to [this article][to configure certificate authentication in Azure WebSites refer to this article]. 
@@ -102,9 +105,8 @@ To delete a certificate, select it and then select **Delete** from the context m
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md

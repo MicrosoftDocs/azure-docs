@@ -4,13 +4,16 @@ description: Reference for the find-and-replace policy available for use in Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Find and replace string in body
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -34,7 +37,7 @@ The `find-and-replace` policy finds a request or response substring and replaces
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 
@@ -44,6 +47,6 @@ The `find-and-replace` policy finds a request or response substring and replaces
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

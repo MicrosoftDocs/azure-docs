@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -207,6 +207,7 @@ Can read the attestation provider properties
 > | Actions | Description |
 > | --- | --- |
 > | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -225,7 +226,8 @@ Can read the attestation provider properties
   "permissions": [
     {
       "actions": [
-        "Microsoft.Attestation/attestationProviders/attestation/read"
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1029,7 +1031,7 @@ Microsoft Sentinel Contributor
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/workbooks/* |  |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -1155,7 +1157,7 @@ Microsoft Sentinel Reader
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/workbooks/read | Read a workbook |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -1238,6 +1240,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Append tags to Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/replaceTags/action | Replace Tags of Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Query Threat Intelligence Indicators |
+> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action | Undoes an action |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
@@ -1248,7 +1251,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/workbooks/read | Read a workbook |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/myworkbooks/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -1287,6 +1290,7 @@ Microsoft Sentinel Responder
         "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/replaceTags/action",
         "Microsoft.SecurityInsights/threatIntelligence/queryIndicators/action",
+        "Microsoft.SecurityInsights/businessApplicationAgents/systems/undoAction/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
@@ -1341,7 +1345,7 @@ View and update permissions for Microsoft Defender for Cloud. Same permissions a
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/* | Create and manage security components and policies |
 > | [Microsoft.IoTSecurity](../permissions/internet-of-things.md#microsoftiotsecurity)/* |  |
-> | Microsoft.IoTFirmwareDefense/* |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |

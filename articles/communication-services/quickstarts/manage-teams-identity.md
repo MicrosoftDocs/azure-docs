@@ -87,7 +87,7 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md).
+If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 
@@ -109,8 +109,9 @@ You can see that the status of the Communication Services Teams.ManageCalls and 
 
 If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Microsoft Entra tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your Microsoft Entra tenancy. 
 
-You will require **Application.ReadWrite.All** as shown bellow
-![image](https://github.com/brpiment/azure-docs-pr/assets/67699415/c53459fa-d64a-4ef2-8737-b75130fbc398)
+You will require **Application.ReadWrite.All** as shown below.
+
+[![Screenshot showing Application Read Write All.](./media/graph-permissions.png)](./media/graph-permissions.png#lightbox)
 
 
 ```script
@@ -195,5 +196,5 @@ Learn about the following concepts:
 - [Use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
-- [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
+- [Single-tenant and multitenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
 - [Create and manage Communication access tokens for Teams users in a single-page application (SPA)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa)

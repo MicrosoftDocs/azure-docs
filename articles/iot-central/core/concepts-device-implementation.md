@@ -3,9 +3,9 @@ title: Device implementation
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/06/2023
+ms.date: 10/14/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ms.custom:  [amqp, mqtt, device-developer]
@@ -33,7 +33,7 @@ The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and P
 
 ### Device model
 
-A device model is defined by using the [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
+For IoT Central, a device model is defined by using the [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
@@ -71,11 +71,11 @@ To learn more about the format of the JSON messages that a device exchanges with
 
 ### Device SDKs
 
-Use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to implement the behavior of your device. The code should:
+To implement the code that runs on your device, you should use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Actions your code should implement include:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
 - Announce the DTMI of the model the device implements.
-- Send telemetry in the format that the device model specifies. IoT Central uses the model in the device template to determine how to use the telemetry for visualizations and analysis.
+- Send telemetry in the format that the device model specifies. To determine how to use the telemetry for visualizations and analysis, IoT Central uses the model in the device template.
 - Synchronize property values between the device and IoT Central. The model specifies the property names and data types so that IoT Central can display the information.
 - Implement command handlers for the commands specified in the model. The model specifies the command names and parameters that the device should use.
 
@@ -105,15 +105,25 @@ A device can set the `iothub-creation-time-utc` property when it creates a messa
 
 You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
 
-To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
 
 ## Best practices
 
-These recommendations show how to implement devices to take advantage of the [built-in high availability, disaster recovery, and automatic scaling](concepts-faq-scalability-availability.md) in IoT Central.
+These recommendations show how to implement devices to take advantage of the built-in high availability, disaster recovery, and automatic scaling in IoT Central.
+
+### Device provisioning
+
+As the number of IoT hubs in your application changes, a device might need to connect to a different hub.
+
+Before a device connects to IoT Central, it must be registered and provisioned in the underlying services. When you add a device to an IoT Central application, IoT Central adds an entry to a DPS enrollment group. Information from the enrollment group such as the ID scope, device ID, and keys is surfaced in the IoT Central UI.
+
+When a device first connects to your IoT Central application, DPS provisions the device in one of the enrollments group's linked IoT hubs. The device is then associated with that IoT hub. DPS uses an allocation policy to load balance the provisioning across the IoT hubs in the application. This process makes sure each IoT hub has a similar number of provisioned devices.
+
+To learn more about registration and provisioning in IoT Central, see [IoT Central device connectivity guide](overview-iot-central-developer.md#how-devices-connect).
 
 ### Handle connection failures
 
-For scaling or disaster recovery purposes, IoT Central may update its underlying IoT hubs. To maintain connectivity, your device code should handle specific connection errors by establishing a connection to a new IoT Hub endpoint.
+When IoT Central automatically scales or handles a disaster recovery scenario, it might update its underlying IoT hubs. To maintain connectivity, your device code should handle specific connection errors by establishing a connection to a new IoT Hub endpoint.
 
 If the device gets any of the following errors when it connects, it should reprovision the device with DPS to get a new connection string. These errors mean the connection string is no longer valid:
 
@@ -128,7 +138,9 @@ If the device gets any of the following errors when it connects, it should use a
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshooting.md).
 
-To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot/concepts-manage-device-reconnections.md).
+
+Currently, IoT Edge devices can't move between IoT hubs.
 
 ### Test failover capabilities
 

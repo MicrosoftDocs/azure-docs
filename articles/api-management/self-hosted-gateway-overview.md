@@ -4,21 +4,21 @@ description: Learn how self-hosted gateway feature of Azure API Management helps
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 
 # Self-hosted gateway overview
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The self-hosted gateway is an optional, containerized version of the default managed gateway included in every API Management service. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multicloud API management, presents its high-level architecture, and highlights its capabilities.
 
 For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Hybrid and multicloud API management
 
@@ -91,8 +91,6 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 -   Sending metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
 
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
-
 ### FQDN dependencies
 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
@@ -106,11 +104,11 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 | Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
 | Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
 | Endpoints for Microsoft Entra integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](/azure/azure-monitor/ip-addresses#outgoing-ports) |
 | Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 
-<sup>1</sup>For an API Management instance in an internal virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.<br/> 
+<sup>1</sup>For an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-internal-virtual-network).<br/>
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
 <sup>3</sup>Only required when using Microsoft Entra authentication to verify RBAC permissions.<br/>
 <sup>4</sup>Only required when using Microsoft Entra authentication or Microsoft Entra related policies.<br/>
@@ -120,6 +118,12 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
 > * The associated storage account names are listed in the service's **Network connectivity status** page in the Azure portal.
 > * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
+
+### Connectivity in internal virtual network
+
+ * **Private connectivity** - If the self-hosted gateway is deployed in a virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network. 
+
+* **Internet connectivity** - If the self-hosted gateway needs to connect to the v2 configuration endpoint over the internet, configure a custom hostname for the configuration endpoint, and expose the endpoint using Application Gateway.<br/>
 
 ### Authentication options
 

@@ -1,0 +1,33 @@
+### YamlMime:Landing
+
+title: Azure Business Process Tracking documentation (Preview) # < 60 chars
+summary: Model business processes that you can map to Azure resources used for implementation. Record key business data from deployed resources during run time. # < 160 chars
+
+metadata:
+  title: Azure Business Process Tracking documentation
+  description: Model business processes that you can map to Azure resources used to implement business logic. Record key business data from deployed resources during run time.
+  ms.service: azure-business-process-tracking
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan
+  ms.date: 06/07/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Azure Business Process Tracking
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Business Process Tracking?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a business process
+            url: create-business-process.md
+          - text: Map business process to workflow
+            url: map-business-process-workflow.md
+          - text: Deploy business process and tracking
+            url: deploy-business-process.md
+          - text: Manage a business process
+            url: manage-business-process.md

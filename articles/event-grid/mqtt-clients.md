@@ -156,17 +156,17 @@ Use the following commands to create/show/delete a client
 
 **Create client**
 ```azurecli-interactive
- az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name` --api-version 2023-06-01-preview --properties @./resources/client.json
+az eventgrid namespace client create -g myRG --namespace-name myNS -n myClient
 ```
 
 **Get client**
 ```azurecli-interactive
-az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+az eventgrid namespace client show -g myRG --namespace-name myNS -n myClient
 ```
 
 **Delete client**
 ```azurecli-interactive
-az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+az eventgrid namespace client delete -g myRG --namespace-name myNS -n myClient
 ```
 
 ## Next steps

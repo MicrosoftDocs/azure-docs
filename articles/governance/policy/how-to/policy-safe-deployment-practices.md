@@ -13,12 +13,12 @@ the safe deployment practices (SDP) framework. The
 safe deployment of Azure Policy definitions and assignments helps limiting the impact of
 unintended behaviors of policy resources.
 
-The high-level approach of implementing SDP with Azure Policy is to graudally rollout policy assignments
+The high-level approach of implementing SDP with Azure Policy is to gradually rollout policy assignments
 by rings to detect policy changes that affect the environment in early stages before it
 affects the critical cloud infrastructure.
 
 Deployment rings can be organized in diverse ways. In this how-to tutorial, rings are divided by
-different Azure regions with _Ring 0_ representing non-critical, low traffic locations
+different Azure regions with _Ring 0_ representing non-critical, low traffic locations,
 and _Ring 5_ denoting the most critical, highest traffic locations.
 
 ## Steps for safe deployment of Azure Policy assignments with deny or append effects
@@ -184,6 +184,63 @@ expected.
 6. Repeat by including more rings in your resource selector configuration.
 
 7. Repeat this process for all production rings.
+
+## Steps for safely updating built-in definition version within Azure Policy assignment
+
+1. Within the existing assignment, apply _overrides_ to update the version of the definition for the least
+critical ring. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assessed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`. 
+
+    ```json
+    "overrides":[{ 
+      "kind": "definitionVersion", 
+      "value": "2.0.*",
+      "selectors": [{
+        "kind": "resourceLocation",
+        "in": [ "eastus"]
+      }]
+    }] 
+    ```
+    
+2. Once the assignment is updated and the initial compliance scan has completed,
+validate that the compliance result is as expected.
+
+    You should also configure automated tests that run compliance checks. A compliance check should
+    encompass the following logic:
+    
+    - Gather compliance results
+    - If compliance results are as expected, the pipeline should continue
+    - If compliance results aren't as expected, the pipeline should fail and you should start debugging
+    
+    For example, you can configure the compliance check by using other tools within
+    your particular continuous integration/continuous deployment (CI/CD) pipeline.
+    
+    At each rollout stage, the application health checks should confirm the stability of the service
+    and impact of the policy. If the results aren't as expected due to application configuration,
+    refactor the application as appropriate.
+
+3. Repeat by expanding the resource selector property values to include the next rings. 
+locations and validating the expected compliance results and application health. Example with an added location value:
+
+    ```json
+     "overrides":[{ 
+      "kind": "definitionVersion", 
+      "value": "2.0",
+      "selectors": [{
+        "kind": "resourceLocation",
+        "in": [ "eastus", "westus"]
+      }]
+    }] 
+    ```
+
+4. Once you have successfully included all the necessary locations within the _selectors, you can remove the override and update the definitionVersion property within the assignment: 
+
+```json
+"properties": {
+        "displayName": "Enforce resource naming rules",
+        "description": "Force resource names to begin with DeptA and end with -LC",
+        "definitionVersion": "2.0.*",
+}
+```
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: Continuous integration & delivery in Azure Synapse Analytics  
 description: Learn how to use continuous integration and continuous delivery (CI/CD) to deploy changes between environments in an Azure Synapse Analytics workspace.
 author: liudan66
-ms.service: synapse-analytics
-ms.subservice: cicd
+ms.service: azure-synapse-analytics
+ms.subservice: ci-cd
 ms.topic: conceptual
 ms.date: 01/25/2024
 ms.author: liud 
@@ -21,9 +21,12 @@ This article outlines how to use an Azure DevOps release pipeline and GitHub Act
 
 ## Prerequisites
 
-To automate the deployment of an Azure Synapse workspace to multiple environments, the following prerequisites and configurations must be in place.
+To automate the deployment of an Azure Synapse workspace to multiple environments, the following prerequisites and configurations must be in place. Note that you may choose to use **either** Azure DevOps **or** GitHub, according to your preference or existing setup.
+
 
 ### Azure DevOps
+
+If you are using Azure DevOps:
 
 - Prepare an Azure DevOps project for running the release pipeline.
 - [Grant any users who will check in code Basic access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repository.
@@ -34,6 +37,8 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 
 ### GitHub
+
+If you are using GitHub:
 
 - Create a GitHub repository that contains the Azure Synapse workspace artifacts and the workspace template. 
 - Make sure that you've created a self-hosted runner or use a GitHub-hosted runner.

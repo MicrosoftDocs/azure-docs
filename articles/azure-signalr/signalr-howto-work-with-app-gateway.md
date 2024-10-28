@@ -3,8 +3,8 @@ title: How to use SignalR Service with Azure Application Gateway
 description: This article provides information about using Azure SignalR Service with Azure Application Gateway.
 author: vicancy
 ms.author: lianwei
-ms.date: 08/16/2022
-ms.service: signalr
+ms.date: 05/10/2024
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 
@@ -241,16 +241,16 @@ Let's deploy the Chat application into the same VNet with **_ASRS1_** so that th
 
 ### Deploy the chat application to Azure
 
-- On the [Azure portal](https://portal.azure.com/), search for **App services** and **Create**.
+- On the [Azure portal](https://portal.azure.com/), search for **App services** and **Create** **Web App**.
 
-- On the **Basics** tab, use these values for the following application gateway settings:
+- On the **Basics** tab, use these values for the following web app settings:
   - **Subscription** and **Resource group** and **Region**: the same as what you choose for SignalR Service
   - **Name**: **_WA1_**
   * **Publish**: **Code**
   * **Runtime stack**: **.NET 6 (LTS)**
   * **Operating System**: **Linux**
   * **Region**: Make sure it's the same as what you choose for SignalR Service
-  * Select **Next: Docker**
+  * Select **Next: Deployment**, keep all as default, and select **Next:Networking**
 - On the **Networking** tab
   - **Enable network injection**: select **On**
   - **Virtual Network**: select **_VN1_** we previously created
@@ -258,7 +258,9 @@ Let's deploy the Chat application into the same VNet with **_ASRS1_** so that th
   - **Outbound subnet**: create a new subnet
   - Select **Review + create**
 
-Now let's deploy our chat application to Azure. Below we use Azure CLI to deploy the web app, you can also choose other deployment environments following [publish your web app section](/azure/app-service/quickstart-dotnetcore#publish-your-web-app).
+Now let's deploy our chat application to Azure. Below 
+
+We use Azure CLI to deploy our chat application to Azure. Check [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore) for other deployment environments deploying to Azure.
 
 Under folder samples/Chatroom, run the below commands:
 
@@ -271,7 +273,7 @@ zip -r app.zip .
 # use az CLI to deploy app.zip to our webapp
 az login
 az account set -s <your-subscription-name-used-to-create-WA1>
-az webapp deployment source config-zip -n WA1 -g <resource-group-of-WA1> --src app.zip
+az webapp deploy -g <resource-group-of-WA1> -n WA1 --src-path app.zip
 ```
 
 Now the web app is deployed, let's go to the portal for **_WA1_** and make the following updates:

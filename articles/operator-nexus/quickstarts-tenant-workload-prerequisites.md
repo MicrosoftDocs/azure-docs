@@ -32,49 +32,25 @@ You need to create various networks based on your workload needs. The following 
 - Determine the BGP peering info for each network, and whether the networks need to talk to each other. You should group networks that need to talk to each other into the same L3 isolation domain, because each L3 isolation domain can support multiple L3 networks.
 - The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints. You can modify the list of endpoints after the network creation.
 
+## Create isolation domains
+
+The isolation-domains enable communication between workloads hosted in the same rack (intra-rack communication) or different racks (inter-rack communication). You can find more details about creating isolation domains [here](./howto-configure-isolation-domain.md).
+
 ## Create networks for tenant workloads
-
-The following sections explain the steps to create networks for tenant workloads (VMs and Kubernetes clusters).
-
-### Create isolation domains
-
-Isolation domains enable creation of layer 2 (L2) and layer 3 (L3) connectivity between network functions running on Azure Operator Nexus. This connectivity enables inter-rack and intra-rack communication between the workloads.
-You can create as many L2 and L3 isolation domains as needed.
-
-You should have the following information already:
-
-- The network fabric resource ID to create isolation domains.
-- VLAN and subnet info for each L3 network.
-- Which networks need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
-- BGP peering and network policy information for your L3 isolation domains.
-- VLANs for all your L2 networks.
-- VLANs for all your trunked networks.
-- MTU values for your networks.
-
-#### L2 isolation domain
-
-[!INCLUDE [l2-isolation-domain](./includes/l2-isolation-domain.md)]
-
-#### L3 isolation domain
-
-[!INCLUDE [l3-isolation-domain](./includes/l3-isolation-domain.md)]
-
-### Create networks for tenant workloads
 
 The following sections describe how to create these networks:
 
 - Layer 2 network
 - Layer 3 network
 - Trunked network
-- Cloud services network
 
-#### Create an L2 network
+### Create an L2 network
 
 Create an L2 network, if necessary, for your workloads. You can repeat the instructions for each required L2 network.
 
-Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
+Gather the resource ID of the L2 isolation domain that you created to configure the VLAN for this network.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
   az networkcloud l2network create --name "<YourL2NetworkName>" \
@@ -85,7 +61,7 @@ Gather the resource ID of the L2 isolation domain that you [created](#l2-isolati
     --l2-isolation-domain-id "<YourL2IsolationDomainId>"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" `
@@ -100,19 +76,19 @@ New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" `
 
 ---
 
-#### Create an L3 network
+### Create an L3 network
 
 Create an L3 network, if necessary, for your workloads. Repeat the instructions for each required L3 network.
 
 You need:
 
-- The `resourceID` value of the L3 isolation domain that you [created](#l3-isolation-domain) to configure the VLAN for this network.
+- The `resourceID` value of the L3 isolation domain that you created to configure the VLAN for this network.
 - The `ipv4-connected-prefix` value, which must match the `i-pv4-connected-prefix` value that's in the L3 isolation domain.
 - The `ipv6-connected-prefix` value, which must match the `i-pv6-connected-prefix` value that's in the L3 isolation domain.
 - The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
 - The `vlan` value, which must match what's in the L3 isolation domain.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
   az networkcloud l3network create --name "<YourL3NetworkName>" \
@@ -127,7 +103,7 @@ You need:
     --vlan <YourNetworkVlan>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudL3Network -Name "<YourL3NetworkName>" `
@@ -144,13 +120,13 @@ New-AzNetworkCloudL3Network -Name "<YourL3NetworkName>" `
 
 ---
 
-#### Create a trunked network
+### Create a trunked network
 
 Create a trunked network, if necessary, for your VM. Repeat the instructions for each required trunked network.
 
 Gather the `resourceId` values of the L2 and L3 isolation domains that you created earlier to configure the VLANs for this network. You can include as many L2 and L3 isolation domains as needed.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
   az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
@@ -167,7 +143,8 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
       "<YourL3IsolationDomainId3>" \
     --vlans <YourVlanList>
 ```
-### [Azure PowerShell](#tab/azure-powershell)
+
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
@@ -183,7 +160,7 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 
 ---
 
-#### Create a cloud services network
+## Create a cloud services network
 
 To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cluster, you must have a cloud services network. Without this network, you can't create a VM or cluster.
 
@@ -238,8 +215,10 @@ After setting up the cloud services network, you can use it to create a VM or cl
 
 > [!NOTE]
 > To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
+>
+> In addition, if your ACR has dedicated data endpoints enabled, you will need to add all the new data-endpoints to the egress allow list.  To find all the possible endpoints for your ACR follow the instruction [here](/azure/container-registry/container-registry-dedicated-data-endpoints#dedicated-data-endpoints).
 
-#### Using the proxy to reach outside of the virtual machine
+### Use the proxy to reach outside of the virtual machine
 
 After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you need to additionally set appropriate environment variables within VM to use tenant proxy and to reach outside of virtual machine. This tenant proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 

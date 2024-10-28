@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -329,6 +329,59 @@ Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as Docume
     }
   ],
   "roleName": "DocumentDB Account Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## PostgreSQL Flexible Server Long Term Retention Backup Role
+
+Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs for Long Term Retention Backup.
+
+[Learn more](/azure/backup/backup-azure-database-postgresql-flex-overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupOperations/read | Returns the list of  PostgreSQL server long term backup operation tracking. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/startLtrBackup/action | Start long term backup for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/operationResults/read | Return PostgreSQL Server Operation Results |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs for Long Term Retention Backup.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c088a766-074b-43ba-90d4-1fb21feae531",
+  "name": "c088a766-074b-43ba-90d4-1fb21feae531",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action",
+        "Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read",
+        "Microsoft.DBforPostgreSQL/locations/operationResults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "PostgreSQL Flexible Server Long Term Retention Backup Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

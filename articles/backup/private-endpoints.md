@@ -2,9 +2,9 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 04/16/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -285,8 +285,8 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only *DPM server 2022 (10.22.123.0)* and later.
+>- Private endpoints are supported with only *MABS V4 (14.0.30.0)* and later.
 
 ## Deleting Private EndPoints
 
@@ -626,9 +626,9 @@ To set up private endpoint for Recovery Services vault correctly through this wo
 
 ## Frequently asked questions
 
-### Can I create a private endpoint for an existing Backup vault?<br>
+### Can I create a private endpoint for an existing Recovery Services vault?<br>
 
-No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
+No, private endpoints can be created for new Recovery Services Vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
 
 ### I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 

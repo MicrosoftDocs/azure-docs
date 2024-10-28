@@ -36,7 +36,7 @@ management jump boxes.
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
 
-- [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md)
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs)
   and an Azure storage account to ensure resource logs, activity logs, metrics, and networks traffic
   flows are stored in a central location for easy querying, analytics, archival, and alerting.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md)
@@ -56,7 +56,7 @@ foundation. This environment is composed of:
   Azure Firewall) configured to block all internet inbound and outbound traffic.
 - [Application security groups](../../../../virtual-network/application-security-groups.md)
   to enable grouping of Azure virtual machines to apply common network security policies.
-- [Route tables](../../../../virtual-network/manage-route-table.md) to route all
+- [Route tables](../../../../virtual-network/manage-route-table.yml) to route all
   outbound internet traffic from subnets through the firewall. (Azure Firewall and NSG rules will
   need to be configured after deployment to open connectivity.)
 - [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)

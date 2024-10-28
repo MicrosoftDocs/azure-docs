@@ -3,7 +3,7 @@ title: Azure IoT support and help options | Microsoft Docs
 description: How to obtain help and support for questions or problems when you create solutions using Azure IoT Services.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 02/28/2024
@@ -41,7 +41,6 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Azure IoT SDKs](/answers/topics/azure-iot-sdk.html)
 * [Azure Digital Twins](/answers/topics/azure-digital-twins.html)
 * [Azure IoT Plug and Play](/answers/topics/azure-iot-pnp.html)
-* [Azure RTOS](/answers/topics/azure-rtos.html)
 * [Azure Sphere](/answers/topics/azure-sphere.html)
 * [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
 * [Azure Maps](/answers/topics/azure-maps.html)
@@ -62,7 +61,6 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Azure IoT Hub Device Provisioning Service](https://stackoverflow.com/questions/tagged/azure-iot-dps)
 * [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
 * [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
-* [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
 * [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
 * [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
 

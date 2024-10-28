@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -139,6 +139,13 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/register/action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Unregister/Action | Unregisters the subscription for the Azure Stack HCI resource provider. |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/clusters/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Write | Creates/Updates a network security group resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Write | Creates/Updates security rule resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Delete | Deletes a network security group resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Delete | Deletes a security rule resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/join/action | Joins network security group resource |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/register/action | Registers the subscription for the Microsoft.HybridCompute Resource Provider |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/register/action | Registers the subscription for the Microsoft.GuestConfiguration resource provider. |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
@@ -248,6 +255,13 @@ Grants full access to the cluster and its resources, including the ability to re
         "Microsoft.AzureStackHCI/register/action",
         "Microsoft.AzureStackHCI/Unregister/Action",
         "Microsoft.AzureStackHCI/clusters/*",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/Write",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Write",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/Delete",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Delete",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/join/action",
         "Microsoft.HybridCompute/register/action",
         "Microsoft.GuestConfiguration/register/action",
         "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
@@ -418,6 +432,8 @@ Grants permissions to perform all VM actions
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/MarketPlaceGalleryImages/deploy/action | Deploys market place gallery images resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
@@ -509,6 +525,8 @@ Grants permissions to perform all VM actions
         "Microsoft.AzureStackHCI/MarketPlaceGalleryImages/deploy/action",
         "Microsoft.AzureStackHCI/Clusters/Read",
         "Microsoft.AzureStackHCI/Clusters/ArcSettings/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
         "Microsoft.Insights/AlertRules/Read",
@@ -597,6 +615,19 @@ Grants permissions to view VMs
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/GalleryImages/Read | Gets/Lists gallery images resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/MarketplaceGalleryImages/Read | Gets/Lists market place gallery images resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/networkSecurityPerimeterConfigurations/read | Reads any Azure Arc networkSecurityPerimeterConfigurations |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/privateEndpointConnections/read | Read any Azure Arc privateEndpointConnections |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/read | Read any Azure Arc privateLinkScopes |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
@@ -644,6 +675,19 @@ Grants permissions to view VMs
         "Microsoft.AzureStackHCI/StorageContainers/Read",
         "Microsoft.AzureStackHCI/GalleryImages/Read",
         "Microsoft.AzureStackHCI/MarketplaceGalleryImages/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/Read",
+        "Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/privateLinkScopes/networkSecurityPerimeterConfigurations/read",
+        "Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read",
+        "Microsoft.HybridCompute/privateLinkScopes/read",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
         "Microsoft.Insights/AlertRules/Read",
@@ -715,6 +759,49 @@ Lets you manage Azure Stack registrations.
     }
   ],
   "roleName": "Azure Stack Registration Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Hybrid Server Resource Administrator
+
+Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider.
+
+[Learn more](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/48b40c6e-82e0-4eb3-90d5-19e40f49b624",
+  "name": "48b40c6e-82e0-4eb3-90d5-19e40f49b624",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridCompute/machines/*",
+        "Microsoft.HybridCompute/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Hybrid Server Resource Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

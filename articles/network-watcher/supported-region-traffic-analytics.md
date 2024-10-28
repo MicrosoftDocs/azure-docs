@@ -4,11 +4,11 @@ titleSuffix: Azure Network Watcher
 description: Learn about the regions that support enabling traffic analytics on NSG flow logs and the Log Analytics workspaces that you can use.
 services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: conceptual
 ms.date: 06/15/2023
 ms.author: halkazwini
-ms.custom: references_regions, engagement-fy23
+ms.custom: references_regions
 ---
 
 # Traffic analytics supported regions
@@ -142,7 +142,7 @@ The Log Analytics workspace that you use for traffic analytics must exist in one
 > [!NOTE]
 > If a network security group is supported for flow logging in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region as a workaround.
 
-## Next steps
+## Related content
 
 - Learn more about [Traffic analytics](traffic-analytics.md).
-- Learn about [Usage scenarios of traffic analytics](usage-scenarios-traffic-analytics.md).
+- Learn about [Usage scenarios of traffic analytics](traffic-analytics-usage-scenarios.md).

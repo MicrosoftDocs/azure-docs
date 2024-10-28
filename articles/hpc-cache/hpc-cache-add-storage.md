@@ -2,7 +2,7 @@
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 3/1/2023
 ms.custom: subject-rbac-steps
@@ -102,14 +102,14 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
     | Assign access to | "HPC Cache Resource Provider" or "StorageCache Resource Provider" |
 
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
    <!-- > [!NOTE]
    > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal. -->

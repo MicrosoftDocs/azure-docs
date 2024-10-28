@@ -5,7 +5,7 @@ description: Learn how to use distributed tracing to trace IoT messages througho
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 02/29/2024
 ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
@@ -13,7 +13,7 @@ ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
 
 # Trace Azure IoT device-to-cloud messages by using distributed tracing (preview)
 
-Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-trace-data.md).
+Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](/azure/azure-monitor/app/distributed-trace-data).
 
 When you enable distributed tracing for IoT Hub, you can:
 
@@ -33,11 +33,11 @@ When you enable distributed tracing for IoT Hub, you can:
   - Southeast Asia
   - West US 2
 
-- A device registered to your IoT hub. If you don't have one, follow the steps in [Register a new device in the IoT hub](./iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub) and save the device connection string to use in this article.
+- A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device) and save the device connection string to use in this article.
 
 - This article assumes that you're familiar with sending telemetry messages to your IoT hub.
 
-- The latest version of [Git](https://git-scm.com/download/).
+- The latest version of [Git](https://git-scm.com/downloads).
 
 ## Public preview limits and considerations
 
@@ -45,7 +45,7 @@ Consider the following limitations to determine if this preview feature is right
 
 - The proposal for the W3C Trace Context standard is currently a working draft.
 - The only development language that the client SDK currently supports is C, in the [public preview branch of the Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/readme.md)
-- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
+- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub imposes a throttle on the rate of logging that can occur as part of distributed tracing.
 - The distributed tracing feature is supported only for IoT hubs created in the following regions:
 
@@ -68,7 +68,7 @@ To support wider adoption for distributed tracing, Microsoft is contributing to 
 1. The SDK adds a `tracestate` value to the message property, which contains the time stamp for message creation.
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at the IoT Hub gateway.
-1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop." IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview) under the `DiagnosticIoTHubD2C` operation.
+1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop." IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview) under the `DiagnosticIoTHubD2C` operation.
 1. When the message processing is finished, IoT Hub generates another `span-id` value and logs it, along with the existing `trace-id` value, under the `DiagnosticIoTHubIngress` operation.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint. IoT Hub logs another `span-id` value with the same `trace-id` value under the `DiagnosticIoTHubEgress` category.
 
@@ -108,7 +108,7 @@ After the logging is turned on, IoT Hub records a log when a message that contai
 - The IoT hub processes the message.
 - The message is routed to custom endpoints. Routing must be enabled.
 
-To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
+To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Update sampling options
 
@@ -154,7 +154,7 @@ You can use the Azure portal or the Azure IoT Hub extension for Visual Studio Co
 
    **Enable Distributed Tracing: Enabled** now appears under **Distributed Tracing Setting (Preview)** > **Desired**.
 
-1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select the Enter key.
+1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select **Enter**.
 
     ![Screenshot that shows entering a sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
@@ -188,7 +188,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 To see all the traces logged by an IoT hub, query the log store that you selected in diagnostic settings. This section shows how to query by using Log Analytics.
 
-If you set up [Log Analytics with resource logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the logged traces:
+If you set up [Log Analytics with resource logs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the logged traces:
 
 ```Kusto
 // All distributed traces 
@@ -206,7 +206,7 @@ Here are a few example logs in Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | `{"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"}` |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | `{"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"}` |
 
-To understand the types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
+To understand the types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Run a sample application
 
@@ -266,7 +266,7 @@ In this section, you edit the [iothub_ll_telemetry_sample.c](https://github.com/
 
    :::code language="c" source="~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" range="56-60" highlight="2":::
 
-   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json#register-a-device) section of the quickstart for sending telemetry.
+   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json#register-a-device) section of the quickstart for sending telemetry.
 
 1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` and enable distributed tracing for the device:
 

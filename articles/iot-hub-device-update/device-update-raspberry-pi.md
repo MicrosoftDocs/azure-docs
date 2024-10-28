@@ -5,7 +5,8 @@ author: eshashah
 ms.author: eshashah
 ms.date: 3/8/2023
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ reference image
@@ -135,7 +136,7 @@ Read the license terms prior to using the agent. Your installation and use const
            "runas": "adu",
            "connectionSource": {
               "connectionType": "string",
-              "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU=" 
+              "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>" 
            },
            "manufacturer": "contoso",
            "model": "virtual-vacuum-v2"

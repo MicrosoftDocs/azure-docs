@@ -1,24 +1,27 @@
 ---
 title: Using Azure Cosmos DB for Apache Cassandra® with HDInsight on AKS for Apache Flink®
 description: Learn how to Sink Apache Kafka® message into Azure Cosmos DB for Apache Cassandra®, with Apache Flink® running on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Sink Apache Kafka® messages into Azure Cosmos DB for Apache Cassandra, with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
+
+This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
 
 This example is prominent when Engineers prefer real-time aggregated data for analysis. With access to historical aggregated data, you can build machine learning (ML) models to build insights or actions. You can also ingest IoT data into Apache Flink to aggregate data in real-time and store it in Apache Cassandra.
 
 ## Prerequisites
 
-* [Apache Flink 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+* [Apache Flink 1.17.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/)
 * An Ubuntu VM for maven project development environment in the same VNet as HDInsight on AKS cluster.
 
 ## Azure Cosmos DB for Apache Cassandra
@@ -27,8 +30,8 @@ Azure Cosmos DB for Apache Cassandra can be used as the data store for apps writ
 
 For more information, see the following links.
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md).
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java).
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png" alt-text="Screenshot showing how to create Azure Cosmos DB for Apache Cassandra on Azure portal." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png":::
 
@@ -42,115 +45,114 @@ Get credentials uses it on Stream source code:
 
 ### Cloning repository of Azure Samples
 
-Refer GitHub readme to download maven, clone this repository using `Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git` from 
-[Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
+Refer GitHub readme to download maven, and clone this repository using `Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git` from 
+[Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started).
 
 ### Updating maven project for Cassandra
 
-Go to maven project folder **azure-cosmos-db-cassandra-java-getting-started-main** and update the changes required for this example
+Go to maven project folder **azure-cosmos-db-cassandra-java-getting-started-main** and update the changes required for this example.
 
 **maven pom.xml**
 ``` xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.azure.cosmosdb.cassandra</groupId>
-    <artifactId>cosmosdb-cassandra-examples</artifactId>
-    <version>1.0-SNAPSHOT</version>
-   <dependencies>
-             <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-java</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-clients</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-files</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-core</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-mapping</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-extras</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <finalName>cosmosdb-cassandra-examples</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.azure.cosmosdb.cassandra</groupId>
+  <artifactId>cosmosdb-cassandra-examples</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  <dependencies>
+            <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-java</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-streaming-java</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-clients</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-connector-files</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-connector-kafka</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-core</artifactId>
+          <version>3.3.0</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-mapping</artifactId>
+          <version>3.1.4</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-extras</artifactId>
+          <version>3.1.4</version>
+       </dependency>
+       <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.5</version>
+       </dependency>
+       <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.7.5</version>
+       </dependency>
+   </dependencies>
+ 
+   <build>
+       <plugins>
+           <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+               <configuration>
+                   <descriptorRefs>
+                      <descriptorRef>jar-with-dependencies</descriptorRef>
+                   </descriptorRefs>
+                  <finalName>cosmosdb-cassandra-examples</finalName>
+                  <appendAssemblyId>false</appendAssemblyId>
+               </configuration>
+               <executions>
+                   <execution>
+                      <id>make-assembly</id>
+                      <phase>package</phase>
+                       <goals>
+                          <goal>single</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+           <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+               <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+               </configuration>
+           </plugin>
+       </plugins>
+   </build>
+ 
 </project>
-
 ```
+
 **Cosmos DB for Apache Cassandra's connection configuration**
 
 You're required to update your host-name and user-name, and keys in the below snippet.
@@ -430,7 +432,7 @@ public class CassandraDemo {
 
 ### Building the project
 
-Run **mvn clean install** from azure-cosmos-db-cassandra-java-getting-started-main folder to build the project. This command generates cosmosdb-cassandra-examples.jar under target folder
+Run **mvn clean install** from azure-cosmos-db-cassandra-java-getting-started-main folder to build the project. This command generates cosmosdb-cassandra-examples.jar under target folder.
 
 ```
 root@flinkvm:/home/flinkvm/azure-cosmos-db-cassandra-java-getting-started-main/target# ll
@@ -465,7 +467,7 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.UserProfile -j cosmosdb-c
 
 ## Sink Kafka Topics into Cosmos DB for Apache Cassandra
 
-Run CassandraDemo class to sink Kafka topic into  Cosmos DB for Apache Cassandra
+Run CassandraDemo class to sink Kafka topic into  Cosmos DB for Apache Cassandra.
 
 ```
 bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb-cassandra-examples.jar
@@ -475,13 +477,13 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb
 
 ## Validate Apache Flink Job Submission
 
-Check job on Flink Web UI on HDInsight on AKS Cluster
+Check job on Flink Web UI on HDInsight on AKS Cluster.
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png" alt-text="Screenshot showing how to check the job on HDInsight on AKS Flink UI." lightbox="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png":::
 
 ## Producing Messages in Kafka
 
-Produce message into Kafka topic
+Produce message into Kafka topic.
 
 ``` python
 sshuser@hn0-flinkd:~$ cat user.py
@@ -547,7 +549,7 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 
 ### Preferences
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
-* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

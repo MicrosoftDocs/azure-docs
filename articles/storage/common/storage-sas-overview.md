@@ -32,6 +32,9 @@ Azure Storage supports three types of shared access signatures:
 
 - Account SAS
 
+> [!IMPORTANT]
+> For scenarios where shared access signatures are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key, which provides superior security. For more information on authorization for data access, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+
 ### User delegation SAS
 
 A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
@@ -55,9 +58,6 @@ You can also delegate access to the following:
 - Read, write, and delete operations that aren't permitted with a service SAS.
 
 For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
-
-> [!NOTE]
-> Microsoft recommends that you use Microsoft Entra credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Microsoft Entra credentials to create a user delegation SAS when possible for superior security. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 A shared access signature can take one of the following two forms:
 

@@ -3,22 +3,15 @@ title: 'Create a hub and spoke topology in Azure - Portal'
 description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 10/23/2024
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Create a hub and spoke topology in Azure - Portal
 
 In this article, you learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
-
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -30,18 +23,10 @@ In this article, you learn how to create a hub and spoke network topology with A
 
 This section helps you create a network group containing the virtual networks you're using for the hub-and-spoke network topology.
 
-1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
+> [!NOTE]
+> This how-to guide assumes you created a network manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network Groups** under *Settings*, then select **+ Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
-
-1. On the *Create a network group* page, enter a **Name** for the network group. This example uses the name **myNetworkGroup**. Select **Add** to create the network group.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
-
-1. The *Network Groups* page lists the new network group.
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
+[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
 ## Define network group members
 
@@ -59,7 +44,8 @@ To manually add the desired virtual networks for your Mesh configuration to your
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
 
 ## Create a hub and spoke connectivity configuration
 
@@ -67,11 +53,7 @@ This section guides you through how to create a hub-and-spoke configuration with
 
 1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
-
 1. On the **Basics** page, enter the following information, and select **Next: Topology >**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -82,7 +64,7 @@ This section guides you through how to create a hub-and-spoke configuration with
 
     :::image type="content" source="media/how-to-create-hub-and-spoke/topology.png" alt-text="Screenshot of Add Topology screen for hub and spoke topology.":::
 
-1. Select **Delete existing peerings** checkbox if you want to remove all previously created VNet peering between virtual networks in the network group defined in this configuration,  and then select **Select a hub**.
+1. Select **Delete existing peerings** checkbox if you want to remove all previously created virtual network peering between virtual networks in the network group defined in this configuration,  and then select **Select a hub**.
 1. On the **Select a hub** page, Select a virtual network that acts as the hub virtual network and select **Select**.
     
     :::image type="content" source="media/how-to-create-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub list.":::
@@ -96,8 +78,8 @@ This section guides you through how to create a hub-and-spoke configuration with
     :::image type="content" source="./media/how-to-create-hub-and-spoke/spokes-settings.png" alt-text="Screenshot of spoke network groups settings.":::
 
 
-    * *Direct connectivity*: Select **Enable peering within network group** if you want to establish VNet peering between virtual networks in the network group of the same region.
-    * *Global Mesh*: Select **Enable mesh connectivity across regions** if you want to establish VNet peering for all virtual networks in the network group across regions.
+    * *Direct connectivity*: Select **Enable peering within network group** if you want to establish virtual network peering between virtual networks in the network group of the same region.
+    * *Global Mesh*: Select **Enable mesh connectivity across regions** if you want to establish virtual network peering for all virtual networks in the network group across regions.
     * *Gateway*: Select **Use hub as a gateway** if you have a virtual network gateway in the hub virtual network that you want this network group to use to pass traffic to on-premises.
 
     Select the settings you want to enable for each network group.
@@ -120,12 +102,9 @@ To have this configuration take effect in your environment, you need to deploy t
     | Target regions | Select all the regions that apply to virtual networks you select for the configuration. |
 
 1. Select **Next** and then select **Deploy** to complete the deployment.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
-
 1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/deployment-succeeded.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 > [!NOTE]
 > If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.

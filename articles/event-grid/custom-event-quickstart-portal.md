@@ -18,7 +18,7 @@ In this article, you use the Azure portal to do the following tasks:
 
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
@@ -58,7 +58,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
 
 2. On the **Custom deployment** page, do the following steps: 
-    1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you're done with the tutorial by deleting the resource group.  
+    1. For **Resource group**, select an existing resource group or create a resource group.  
     2. For **Site Name**, enter a name for the web app.
     3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
     5. Select **Review + create**. 
@@ -68,7 +68,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
 1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
     :::image type="content" source="./media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the successful deployment message with a link to navigate to the resource group.":::
-4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the storage account in this list. 
+4. On the **Resource group** page, in the list of resources, select the web app (**contosoegriviewer** in the following example) that you created. 
 
     :::image type="content" source="./media/blob-event-quickstart-portal/resource-group-resources.png" alt-text="Screenshot that shows the Resource Group page with the deployed resources.":::
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.

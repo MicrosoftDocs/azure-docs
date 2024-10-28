@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: devx-track-js
 ---
 
@@ -135,7 +135,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 6. Optionally, you may find it helpful to add the following `meta` elements to the `head` element of the page:
 
    ```HTML
-    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+    <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
     <!-- Ensures the web page looks good on all screen sizes. -->
@@ -152,7 +152,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
         <meta charset="utf-8">
 
-        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->
@@ -238,7 +238,7 @@ For a list of supported languages and regional views, see [Localization support 
 
 Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
 
-![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl-2-compatability.png)
+:::image type="content" source="./media/how-to-use-map-control/webgl-2-compatability.png" alt-text="Screenshot of a map image showing WebGL 2 Compatibility." lightbox="./media/how-to-use-map-control/webgl-2-compatability.png":::
 
 ```html
 <!DOCTYPE html>
@@ -249,7 +249,7 @@ Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility w
         <title>WebGL2 - Azure Maps Web SDK Samples</title>
         <link href=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet"/>
         <script src=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
-        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+        <script src="https://unpkg.com/deck.gl@^8/dist.min.js"></script>
         <style>
             html,
             body {

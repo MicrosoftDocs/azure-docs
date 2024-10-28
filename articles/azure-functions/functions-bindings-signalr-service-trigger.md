@@ -1,12 +1,12 @@
 ---
 title: Azure Functions SignalR Service trigger binding
-description: Learn to send SignalR Service messages from Azure Functions.
+description: Learn to handle SignalR Service messages from Azure Functions.
 author: Y-Sindo
 ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 03/12/2024
+ms.date: 04/02/2024
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -25,7 +25,6 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
@@ -36,10 +35,12 @@ The following sample shows a C# function that receives a message event from clie
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
+> [!IMPORTANT]
+> Class based model of SignalR Service bindings in C# isolated worker doesn't optimize how you write SignalR triggers due to the limitation of C# worker model. For more information about class based model, see [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model).
 
 # [In-process model](#tab/in-process)
 
-SignalR Service trigger binding for C# has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
+SignalR Service trigger binding for C# in-process model has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
 
 ### With class-based model
 
@@ -49,7 +50,7 @@ See [Class based model](../azure-signalr/signalr-concept-serverless-development-
 public class HubName1 : ServerlessHub
 {
     [FunctionName("SignalRTest")]
-    public async Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+    public Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
     {
         logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
     }
@@ -62,7 +63,7 @@ Traditional model obeys the convention of Azure Function developed by C#. If you
 
 ```cs
 [FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", parameterNames: new string[] {"message"})]InvocationContext invocationContext, string message, ILogger logger)
+public static Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", parameterNames: new string[] {"message"})]InvocationContext invocationContext, string message, ILogger logger)
 {
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
@@ -72,7 +73,7 @@ Because it can be hard to use `ParameterNames` in the trigger, the following exa
 
 ```cs
 [FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage")]InvocationContext invocationContext, [SignalRParameter]string message, ILogger logger)
+public static Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage")]InvocationContext invocationContext, [SignalRParameter]string message, ILogger logger)
 {
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
@@ -112,7 +113,7 @@ app.generic("function1",
 Here's the JavaScript code:
 
 ```javascript
-module.exports = async function (context, invocation) {
+module.exports = function (context, invocation) {
     context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
 };
 ```
@@ -200,7 +201,7 @@ See the [Example section](#example) for complete examples.
 
 ### Payloads
 
-The trigger input type is declared as either `InvocationContext` or a custom type. If you choose `InvocationContext` you get full access to the request content. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+The trigger input type is declared as either `InvocationContext` or a custom type. If you choose `InvocationContext`, you get full access to the request content. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
 ### InvocationContext
 
@@ -210,11 +211,11 @@ The trigger input type is declared as either `InvocationContext` or a custom typ
 |------------------------------|------------|
 |Arguments| Available for *messages* category. Contains *arguments* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
 |Error| Available for *disconnected* event. It can be Empty if the connection closed with no error, or it contains the error messages.|
-|Hub| The hub name which the message belongs to.|
+|Hub| The hub name that the message belongs to.|
 |Category| The category of the message.|
 |Event| The event of the message.|
-|ConnectionId| The connection ID of the client which sends the message.|
-|UserId| The user identity of the client which sends the message.|
+|ConnectionId| The connection ID of the client that sends the message.|
+|UserId| The user identity of the client that sends the message.|
 |Headers| The headers of the request.|
 |Query| The query of the request when clients connect to the service.|
 |Claims| The claims of the client.|
@@ -235,13 +236,13 @@ After you set `parameterNames`, the names you defined correspond to the argument
 [SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
 ```
 
-Then, the `arg1` will contain the content of `message1`, and `arg2` will contain the content of `message2`.
+Then, the `arg1` contains the content of `message1`, and `arg2` contains the content of `message2`.
 
 ### `ParameterNames` considerations
 
 For the parameter binding, the order matters. If you're using `ParameterNames`, the order in `ParameterNames` matches the order of the arguments you invoke in the client. If you're using attribute `[SignalRParameter]` in C#, the order of arguments in Azure Function methods matches the order of arguments in clients.
 
-`ParameterNames` and attribute `[SignalRParameter]` **cannot** be used at the same time, or you will get an exception.
+`ParameterNames` and attribute `[SignalRParameter]` **cannot** be used at the same time, or you'll get an exception.
 
 ### SignalR Service integration
 
@@ -249,13 +250,13 @@ SignalR Service needs a URL to access Function App when you're using SignalR Ser
 
 :::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Upstream Portal":::
 
-When using SignalR Service trigger, the URL can be simple and formatted as shown below:
+When using SignalR Service trigger, the URL can be simple and formatted as follows:
 
 ```http
 <Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-The `Function_App_URL` can be found on Function App's Overview page and The `API_KEY` is generated by Azure Function. You can get the `API_KEY` from `signalr_extension` in the **App keys** blade of Function App.
+The `Function_App_URL` can be found on Function App's Overview page and the `API_KEY` is generated by Azure Function. You can get the `API_KEY` from `signalr_extension` in the **App keys** blade of Function App.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="API key":::
 
 If you want to use more than one Function App together with one SignalR Service, upstream can also support complex routing rules. Find more details at [Upstream settings](../azure-signalr/concept-upstream.md).

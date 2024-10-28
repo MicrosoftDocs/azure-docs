@@ -4,8 +4,7 @@ description: Describes data residency posture for Azure Stack Edge.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: alkohli
@@ -51,7 +50,7 @@ If you are creating a new Azure Stack Edge resource, you have the option to enab
 
 - Wait for the Singapore region to be restored.
 
-- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
+- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.yml).
 
 ## Azure Edge Hardware Center ordering and management resource 
 

@@ -2,7 +2,7 @@
 title: Introduction to the Azure Internet of Things (IoT)
 description: Introduction explaining the fundamentals of Azure IoT and the IoT services, including examples that help illustrate the use of IoT.
 author: dominicbetts
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: overview
 ms.date: 02/27/2024
@@ -45,7 +45,7 @@ An IoT device is typically made up of a circuit board with sensors attached that
 * An accelerometer in an elevator.
 * Presence sensors in a room.
 
-There's a wide variety of devices available from different manufacturers to build your solution. For prototyping a microprocessor device, you can use a device such as a [Raspberry Pi](https://www.raspberrypi.org/). The Raspberry Pi lets you attach many different types of sensor. For prototyping a microcontroller device, use devices such as the [ESPRESSIF ESP32](../iot-develop/quickstart-devkit-espressif-esp32-freertos-iot-hub.md), [STMicroelectronics B-U585I-IOT02A Discovery kit](../iot-develop/quickstart-devkit-stm-b-u585i-iot-hub.md), [STMicroelectronics B-L4S5I-IOT01A Discovery kit](../iot-develop/quickstart-devkit-stm-b-l4s5i-iot-hub.md), or [NXP MIMXRT1060-EVK Evaluation kit](../iot-develop/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md). These boards typically have built-in sensors, such as temperature and accelerometer sensors.
+There's a wide variety of devices available from different manufacturers to build your solution. For prototyping a microprocessor device, you can use a device such as a [Raspberry Pi](https://www.raspberrypi.org/). The Raspberry Pi lets you attach many different types of sensor. For prototyping a microcontroller device, use devices such as the [ESPRESSIF ESP32](./tutorial-devkit-espressif-esp32-freertos-iot-hub.md), or [Tutorial: Use Eclipse ThreadX to connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](tutorial-devkit-stm-b-l475e-iot-hub.md). These boards typically have built-in sensors, such as temperature and accelerometer sensors.
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices.
 

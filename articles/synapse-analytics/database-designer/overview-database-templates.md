@@ -4,7 +4,7 @@ description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
 ms.reviewer: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
 ms.date: 10/16/2023
@@ -41,8 +41,8 @@ A typical database template addresses the core requirements of a specific indust
 
 Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
-* **Airlines** - For companies operating passenger or cargo airline services.
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
+* **Airlines** - For companies operating passenger or cargo airline services.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
 * **Banking** - For companies providing a wide range of banking and related financial services.
 * **Consumer Goods** - For manufacturers or producers of goods bought and used by consumers.
@@ -62,8 +62,10 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **R&D and Clinical Trials** - For companies involved in research and development and clinical trials of pharmaceutical products or devices.
 * **Restaurants** - For companies that prepare and serve food.
 * **Retail** - For sellers of consumer goods or services to customers through multiple channels.
+* **Sustainability** - For organizations reporting about different dimensions of their sustainability initiatives, including emissions, water, waste, and social & governance.
 * **Travel Services** - For companies providing booking services for airlines, hotels, car rentals, cruises, and vacation packages.
 * **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.
+* **Wireless** - For companies providing a range of wireless telecommunications services.
  
 As emission and carbon management is an important discussion in all industries, so we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 

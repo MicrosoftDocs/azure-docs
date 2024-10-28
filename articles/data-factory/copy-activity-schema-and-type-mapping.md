@@ -3,17 +3,16 @@ title: Schema and data type mapping in copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how the Azure Data Factory copy activity perform schema mapping and data type mapping from source data to sink data.
+This article describes how the Azure Data Factory copy activity performs schema mapping and data type mapping from source data to sink data.
 
 ## Schema mapping
 
@@ -278,17 +277,17 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time (1) | Float-point (2) | GUID | Integer (3) | String | TimeSpan |
-| ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Date/Time   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Float-point | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
-| TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
+| Source\Sink | Boolean | Byte array | Date/Time | Decimal | Float-point | GUID | Integer | String | TimeSpan |
+| ----------- | ------- | ---------- | ------------- | ------- | --------------- | ---- | ------------ | ------ | -------- |
+| Boolean     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Byte array  |         | ✓          |               |         |                 |      |              | ✓      |          |
+| Date/Time   |         |            | ✓             |         |                 |      |              | ✓      |          |
+| Decimal     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Float-point | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| GUID        |         |            |               |         |                 | ✓    |              | ✓      |          |
+| Integer     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
+| TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
 (1) Date/Time includes DateTime and DateTimeOffset.
 

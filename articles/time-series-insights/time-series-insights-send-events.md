@@ -1,7 +1,7 @@
 ---
 title: 'Send events to an environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to configure an event hub, run a sample application, and send events to your Azure Time Series Insights environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
@@ -200,7 +200,5 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
-
-* [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
 
 * Read more about [IoT Hub device messages](../iot-hub/iot-hub-devguide-messages-construct.md)

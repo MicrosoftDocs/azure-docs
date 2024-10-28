@@ -121,10 +121,6 @@ If you're working with a production environment, you'd deployed a CA-signed SSL/
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
-> [!TIP]
-> You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
->
-
 # [Deploy a CA-signed certificate](#tab/ca-signed)
 
 **To deploy a CA-signed SSL/TLS certificate:**
@@ -244,7 +240,7 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
-You may want to change the interfaces used by your sensor to monitor traffic. You'd originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
+You may want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
 
 For more information, see [ERSPAN ports](best-practices/traffic-mirroring-methods.md#erspan-ports).
 

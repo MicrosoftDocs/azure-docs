@@ -1,30 +1,30 @@
 ---
 title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph"
-description: Learn to use a serverless function to assign custom user roles based on Active Directory group membership.
+description: Learn to use a serverless function to assign custom user roles based on Entra ID group membership.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
-ms.date: 07/11/2023
+ms.date: 06/13/2024
 ms.author: cshoe
 keywords: "static web apps authorization, assign user roles, custom roles"
 ---
 
 # Tutorial: Assign custom roles with a function and Microsoft Graph
 
-This article demonstrates how to use a function to query [Microsoft Graph](https://developer.microsoft.com/graph) and assign custom roles to a user based on their Active Directory group membership.
+This article demonstrates how to use a function to query [Microsoft Graph](https://developer.microsoft.com/graph) and assign custom roles to a user based on their Entra ID group membership.
 
 In this tutorial, you learn to:
 
 - Deploy a static web app.
 - Create a Microsoft Entra app registration.
 - Set up custom authentication with Microsoft Entra ID.
-- Configure a [serverless function](authentication-custom.md#manage-roles) that queries the user's Active Directory group membership and returns a list of custom roles.
+- Configure a [serverless function](authentication-custom.md#manage-roles) that queries the user's Entra ID group membership and returns a list of custom roles.
 
 > [!NOTE]
 > This tutorial requires you to [use a function to assign roles](authentication-custom.md#manage-roles). Function-based role management is currently in preview. The permission level required to complete this tutorial is "User.Read.All".
 
-There's a function named *GetRoles* in the app's API. This function uses the user's access token to query Active Directory from Microsoft Graph. If the user is a member of any groups defined in the app, then the corresponding custom roles are mapped to the user.
+There's a function named *GetRoles* in the app's API. This function uses the user's access token to query Entra ID from Microsoft Graph. If the user is a member of any groups defined in the app, then the corresponding custom roles are mapped to the user.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
 1. Once the process is complete, select **Go to resource** to open your new static web app.
 
-1. In the overview section, locate your application's **URL**. Copy this value into a text editor to use in upcoming steps to set up Active Directory authentication.
+1. In the overview section, locate your application's **URL**. Copy this value into a text editor to use in upcoming steps to set up Entra authentication.
 
 <a name='create-an-azure-active-directory-application'></a>
 
@@ -113,7 +113,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
 1. After the app registration is created, copy the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section to a text editor.
 
-    You need these values to configure Active Directory authentication in your static web app.
+    You need these values to configure Entra ID authentication in your static web app.
 
 ### Enable ID tokens
 
@@ -142,11 +142,11 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
 1. Copy the **Value** of the client secret you created to a text editor.
 
-    You need this value to configure Active Directory authentication in your static web app.
+    You need this value to configure Entra ID authentication in your static web app.
 
     :::image type="content" source="media/assign-roles-microsoft-graph/create-client-secret.png" alt-text="Create a client secret":::
 
-## Configure Active Directory authentication
+## Configure Entra ID authentication
 
 1. In a browser, open the GitHub repository containing the static web app you deployed.
 
@@ -159,9 +159,9 @@ There's a function named *GetRoles* in the app's API. This function uses the use
         "azureActiveDirectory": {
           "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
           "registration": {
-            "openIdIssuer": "https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>",
-            "clientIdSettingName": "AAD_CLIENT_ID",
-            "clientSecretSettingName": "AAD_CLIENT_SECRET"
+            "openIdIssuer": "https://login.microsoftonline.com/<YOUR_ENTRA_TENANT_ID>",
+            "clientIdSettingName": "ENTRA_CLIENT_ID",
+            "clientSecretSettingName": "ENTRA_CLIENT_SECRET"
           },
           "login": {
             "loginParameters": [
@@ -186,7 +186,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
 1. Select **Edit** to update the file.
 
-1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Microsoft Entra ID.
+1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_ENTRA_TENANT_ID>` by replacing `<YOUR_ENTRA_TENANT_ID>` with the directory (tenant) ID of your Microsoft Entra ID.
 
 1. Select **Commit changes...**.
 
@@ -202,14 +202,14 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
     | Name | Value |
     |---|---|
-    | `AAD_CLIENT_ID` | Your Active Directory application (client) ID. |
-    | `AAD_CLIENT_SECRET` | Your Active Directory application client secret value. |
+    | `ENTRA_CLIENT_ID` | Your Entra ID application (client) ID. |
+    | `ENTRA_CLIENT_SECRET` | Your Entra application client secret value. |
 
 1. Select **Save**.
 
 ## Create roles
 
-1. Open you Active Directory app registration in the Azure portal.
+1. Open you Entra ID app registration in the Azure portal.
 
 1. Under *Manage*, select **App roles**.
 
@@ -253,9 +253,9 @@ Based on the user's group memberships, the function assigns custom roles to the 
     };
     ```
 
-    The *GetRoles* function is called whenever a user is successfully authenticated with Microsoft Entra ID. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object, then the corresponding custom roles are returned.
+    The *GetRoles* function is called whenever a user is successfully authenticated with Microsoft Entra ID. The function uses the user's access token to query their Entra group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object, then the corresponding custom roles are returned.
 
-    In the above example, if a user is a member of the Active Directory group with ID `b6059db5-9cef-4b27-9434-bb793aa31805`, they're granted the `reader` role.
+    In the above example, if a user is a member of the Entra ID group with ID `b6059db5-9cef-4b27-9434-bb793aa31805`, they're granted the `reader` role.
 
 1. Select **Commit changes...**.
 
@@ -267,7 +267,7 @@ Based on the user's group memberships, the function assigns custom roles to the 
 
 1. Sign in to your static web app using Microsoft Entra ID.
 
-1. When you're logged in, the sample app displays the list of roles that you're assigned based on your identity's Active Directory group membership. 
+1. When you're logged in, the sample app displays the list of roles that you're assigned based on your identity's Entra ID group membership. 
 
     Depending on these roles, you're permitted or prohibited to access some of the routes in the app.
 
@@ -289,4 +289,4 @@ Clean up the resources you deployed by deleting the resource group.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authentication and authorization](./authentication-authorization.md)
+> [Authentication and authorization](./authentication-authorization.yml)

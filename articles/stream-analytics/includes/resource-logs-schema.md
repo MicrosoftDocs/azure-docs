@@ -1,8 +1,8 @@
 ---
-title: include file
-description: include file
+title: Azure Event Grid resource logs schema
+description: This article provides schema information for resources logs in Azure Event Grid. 
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: spelluru
@@ -16,7 +16,7 @@ All logs are stored in JSON format. Each entry has the following common string f
 Name | Description
 ------- | -------
 time | Timestamp (in UTC) of the log.
-resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Log category, either **Execution** or **Authoring**.
 operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**.
 status | Status of the operation. For example, **Failed** or **Succeeded**.
@@ -60,4 +60,3 @@ Type | Type of message. Maps to internal categorization of errors. For example, 
 Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema) or [all the resource log category types collected for Azure Stream Analytics](../monitor-azure-stream-analytics-reference.md#resource-logs).
-

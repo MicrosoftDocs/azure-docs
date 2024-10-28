@@ -3,7 +3,7 @@ title: Diagnose and solve tool for Static Web Apps
 description: Learn to troubleshoot issues with your static web app with the diagnose and solve tool in the Azure portal.
 ms.date: 12/08/2022
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.author: cshoe
 ---

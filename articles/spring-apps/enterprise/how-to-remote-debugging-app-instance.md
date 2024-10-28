@@ -1,18 +1,17 @@
 ---
 title: Debug your apps remotely in Azure Spring Apps
 description: Learn how to debug your apps remotely in Azure Spring Apps.
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 author: KarlErickson
 ms.author: jialuogan
-ms.date: 4/18/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Debug your apps remotely in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -42,7 +41,7 @@ Use the following steps to enable remote debugging for your application using th
 1. Under **Settings** in the left navigation pane, select **Remote debugging**.
 1. On the **Remote debugging** page, enable remote debugging and specify the debugging port.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/portal-enable-remote-debugging.png" alt-text="Screenshot of the Remote debugging page showing the Remote debugging option selected." lightbox="media/how-to-remote-debugging-app-instance/portal-enable-remote-debugging.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/portal-enable-remote-debugging.png" alt-text="Screenshot of the Azure portal that shows the Remote debugging page with the Remote debugging and Debugging port options selected." lightbox="media/how-to-remote-debugging-app-instance/portal-enable-remote-debugging.png":::
 
 ### [Azure CLI](#tab/cli)
 
@@ -94,7 +93,7 @@ Use the following steps to assign an Azure role using the Azure portal.
 1. In the navigation pane, select **Access Control (IAM)**.
 1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/add-role-assignment.png" alt-text="Screenshot of the Azure portal Add role assignment page with Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-remote-debugging-app-instance/add-role-assignment.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/add-role-assignment.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-remote-debugging-app-instance/add-role-assignment.png":::
 
 1. On the **Add role assignment** page, in the **Name** list, search for and select *Azure Spring Apps Remote Debugging Role*, and then select **Next**.
 
@@ -137,7 +136,7 @@ Use the following steps to enable or disable remote debugging:
 1. Sign in to your Azure account in Azure Explorer.
 1. Select an app instance, and then select **Enable Remote Debugging**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png" alt-text="Screenshot of IntelliJ that shows the Enable Remote Debugging menu option." lightbox="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png":::
 
 ### Attach debugger
 
@@ -145,11 +144,11 @@ Use the following steps to attach debugger.
 
 1. Select an app instance, and then select **Attach Debugger**. IntelliJ connects to the app instance and starts remote debugging.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png" alt-text="Screenshot of IntelliJ that shows the Attach Debugger menu option." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png":::
 
 1. Azure Toolkit for IntelliJ creates the remote debugging configuration. You can find it under **Remote Jvm Debug"** Configure the module class path to the source code that you use for remote debugging.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png" alt-text="Screenshot of the Run/Debug Configurations page." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png" alt-text="Screenshot of IntelliJ that shows the Run/Debug Configurations page." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png":::
 
 ### Troubleshooting
 
@@ -160,7 +159,7 @@ This section provides troubleshooting information.
   - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
   - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
-    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
+    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot of the IntelliJ project explorer that shows the Refresh menu option for the App Instances node." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
 - Take the following actions if you successfully attach debugger but can't remotely debug the app instance:
 
@@ -183,7 +182,7 @@ Use the following steps to enable or disable remote debugging:
 1. Sign in to your Azure subscription.
 1. Select an app instance, and then select **Enable Remote Debugging**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png" alt-text="Screenshot of the IntelliJ project explorer that shows the Enable Remote Debugging menu option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png":::
 
 ### Attach debugger
 
@@ -191,7 +190,7 @@ Use the following steps to attach debugger.
 
 1. Select an app instance, and then select **Attach Debugger**. VS Code connects to the app instance and starts remote debugging.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png" alt-text="Screenshot of the IntelliJ project explorer that shows the Attach Debugger menu option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png":::
 
 ### Troubleshooting
 
@@ -202,7 +201,7 @@ This section provides troubleshooting information.
   - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
   - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
-    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
+    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot of the IntelliJ project explorer that shows the Refresh menu option for the App Instances node." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
 - Take the following action if you successfully attach debugger but can't remotely debug the app instance:
 

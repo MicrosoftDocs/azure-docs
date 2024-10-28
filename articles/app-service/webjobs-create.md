@@ -4,10 +4,10 @@ description: Learn how to use WebJobs to run background tasks in Azure App Servi
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
-ms.date: 7/30/2023
+ms.date: 3/01/2024
 author: msangapu-msft
 ms.author: msangapu
-ms.reviewer: cephalin;suwatch;pbatum;naren.soni;glenga
+ms.reviewer: cephalin;suwatch;pbatum;naren.soni;
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -21,17 +21,51 @@ Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload a
 
 If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-## Overview
-WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There's no extra cost to use WebJobs.
+> [!NOTE]
+> WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available and not in preview.
 
-You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. WebJobs aren't supported for App Service on Linux yet. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## Overview
+
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
+You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## WebJob types
 
-The following table describes the differences between *continuous* and *triggered* WebJobs.
+### <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
+### [Windows code](#tab/windowscode)
+The following file types are supported:<br>
+**.cmd**, **.bat**, **.exe** (using Windows cmd)<br>**.ps1** (using PowerShell)<br>**.sh** (using Bash)<br>**.js** (using Node.js)<br>**.jar** (using Java)<br><br>The necessary runtimes to run these file types are already installed on the web app instance.
+### [Windows container](#tab/windowscontainer)
+> [!NOTE]
+> WebJobs for Windows container is in preview.
+>
+
+The following file types are supported:<br>
+**.cmd**, **.bat**, **.exe** (using Windows cmd)<br><br>In addition to these file types, WebJobs written in the language runtime of the Windows container app.<br>Example: .jar and .war scripts if the container is a Java app.
+### [Linux code](#tab/linuxcode)
+> [!NOTE]
+> WebJobs for Linux code is in preview. 
+>
+
+**.sh** scripts are supported.<br><br>In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
+### [Linux container](#tab/linuxcontainer)
+> [!NOTE]
+> WebJobs for Linux container is in preview. 
+>
+
+**.sh** scripts are supported. <br><br>In addition to shell scripts, WebJobs written in the language runtime of the Linux container app are also supported. <br>Example: Node (.js) scripts if the site is a Node.js app.
+
+---
+
+### Continuous vs. triggered WebJobs
+
+The following table describes the differences between *continuous* and *triggered* WebJobs:
 
 |Continuous  |Triggered  |
 |---------|---------|
@@ -42,17 +76,7 @@ The following table describes the differences between *continuous* and *triggere
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
-The following file types are supported:
-
-* .cmd, .bat, .exe (using Windows cmd)
-* .ps1 (using PowerShell)
-* .sh (using Bash)
-* .php (using PHP)
-* .py (using Python)
-* .js (using Node.js)
-* .jar (using Java)
 
 ## <a name="CreateContinuous"></a> Create a continuous WebJob
 
@@ -79,7 +103,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
@@ -166,7 +190,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 ## Manage WebJobs
 
-You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Just go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
+You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
 
 You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOBS_STOPPED` with a value of `1` to stop all WebJobs running on your site. You can use this method to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
 
@@ -184,14 +208,14 @@ You can also [add an application setting](configure-common.md#configure-app-sett
 
 ## WebJob statuses
 
-Below is a list of common WebJob statuses:
+The following is a list of common WebJob statuses:
 
-- **Initializing**  The app has just started and the WebJob is going through its initialization process.
+- **Initializing**  The app has started and the WebJob is going through its initialization process.
 - **Starting**  The WebJob is starting up.
 - **Running**  The WebJob is running.
 - **PendingRestart**  A continuous WebJob exits in less than two minutes since it started for any reason, and App Service waits 60 seconds before restarting the WebJob. If the continuous WebJob exits after the two-minute mark, App Service doesn't wait the 60 seconds and restarts the WebJob immediately. 
 - **Stopped**  The WebJob was stopped (usually from the Azure portal) and is currently not running and won't run until you start it again manually, even for a continuous or scheduled WebJob.
-- **Aborted**  This can occur for a number of reasons, such as when a long-running WebJob reaches the timeout marker.
+- **Aborted**  This can occur for many of reasons, such as when a long-running WebJob reaches the timeout marker.
 
 ## <a name="NextSteps"></a> Next steps
 

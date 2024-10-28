@@ -3,10 +3,9 @@ title: URL Redirect for Azure Application Gateway for Containers - Ingress API
 description: Learn how to redirect URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -37,7 +36,7 @@ A redirect sets the response status code returned to clients to understand the p
 
 The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
 
-[ ![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-ingress-api/url-redirect.png) ](./media/how-to-url-redirect-ingress-api/url-redirect.png#lightbox)
+[![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-ingress-api/url-redirect.png)](./media/how-to-url-redirect-ingress-api/url-redirect.png#lightbox)
 
 ## Prerequisites
 

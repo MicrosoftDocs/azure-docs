@@ -1,11 +1,11 @@
 ---
 title: Configure a host pool as a validation environment - Azure
 description: How to configure a host pool as a validation environment to test service updates before they roll out to production.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/01/2023
-ms.author: helohr 
-ms.custom: devx-track-azurecli
+ms.author: daknappe
+ms.custom: devx-track-azurecli, docs_inherited
 ---
 # Configure a host pool as a validation environment
 
@@ -29,7 +29,7 @@ You can configure any existing pooled or personal host pool to be a validation h
 
 ## Define your host pool as a validation environment
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 To use the Azure portal to configure your validation host pool:
 

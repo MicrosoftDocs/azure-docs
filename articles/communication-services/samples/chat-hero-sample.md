@@ -2,11 +2,11 @@
 title: Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
-author: RinaRish
+author: kperla97
 manager: chpalm
 services: azure-communication-services
 
-ms.author: ektrishi
+ms.author: kaperla
 ms.date: 6/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -62,7 +62,7 @@ Complete the following prerequisites and steps to set up the sample.
 
    `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 
-   Or clone the repo using any method described in [Clone an existing Git repo](https://learn.microsoft.com/azure/devops/repos/git/clone).
+   Or clone the repo using any method described in [Clone an existing Git repo](/azure/devops/repos/git/clone).
 
 3. Get the `Connection String` and `Endpoint URL` from the Azure portal or by using the Azure CLI. 
 

@@ -1,23 +1,20 @@
 ---
-title: OT sensor VM (Microsoft Hyper-V) - Microsoft Defender for IoT
-description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V.
-ms.date: 04/24/2022
+title: OT sensor VM (Microsoft Hyper-V) Gen 2 - Microsoft Defender for IoT
+description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V 2nd generation.
+ms.date: 03/27/2024
 ms.topic: reference
 ---
 
-# OT network sensor VM (Microsoft Hyper-V)
+# OT network sensor VM (Microsoft Hyper-V) Gen 2
 
 This article describes an OT sensor deployment on a virtual appliance using Microsoft Hyper-V.
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
-|**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Performance** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
-
-> [!IMPORTANT]
-> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using versions 22.3.x and above.
 
 ## Prerequisites
 
@@ -56,11 +53,11 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Generation** and set it to **Generation 2**, and then select **Next**.
 
-1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dynamic Memory**.
+1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (for example, 8192, 16384, 32768). Don't enable **Dynamic Memory**.
 
 1. Configure the network adaptor according to your server network topology. Under the "Hardware Acceleration" blade, disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
-1. Connect the VHDX created previously to the virtual machine.
+1. Connect the VHDX, created previously, to the virtual machine.
 
 1. Review the summary, and select **Finish**.
 
@@ -68,9 +65,11 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Add Hardware**, and add a new network adapter.
 
-1. Select the virtual switch that will connect to the sensor management network.
+1. Select the virtual switch that connects to the sensor management network.
 
 1. Allocate CPU resources [according to your organization's needs](../ot-appliance-sizing.md).
+
+1. Select **Firmware**, in **Boot order** move **DVD Drive** to the top of the list, select **Apply** and then select **OK**.
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
@@ -82,11 +81,12 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. To start installing the OT sensor software, open the virtual machine console.
 
-    The VM will start from the ISO image, and the language selection screen will appear.
+    The VM starts from the ISO image, and the language selection screen will appear.
 
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
 
-
+> [!NOTE]
+> We recommend using the 2nd Generation configuration, which offers better performance and increased security, however to use the 1st Generation configuration, see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
 
 ## Next steps
 

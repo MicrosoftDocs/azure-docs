@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/29/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ---
 
@@ -14,12 +14,23 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2024
 
+### 2024 quarter 3 (July, August, September)
+
+#### Soft delete for NFS Azure file shares is generally available
+
+Soft delete protects your Azure file shares from accidental deletion. The feature has been available for SMB Azure file shares for some time, and is now generally available for NFS Azure file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/soft-delete-for-nfs-azure-file-shares-is-now-generally-available/ba-p/4162222).
+
+### 2024 quarter 2 (April, May, June)
+
+#### Azure Files vaulted backup is now in public preview
+
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy. For more information, see [Azure Files vaulted backup (preview)](../../backup/whats-new.md#azure-files-vaulted-backup-preview).
+
 ### 2024 quarter 1 (January, February, March)
 
 #### Azure Files geo-redundancy for standard large file shares is generally available
 
 Standard SMB file shares that are geo-redundant (GRS and GZRS) can now scale up to 100TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
-
 
 #### Metadata caching for premium SMB file shares is in public preview
 
@@ -96,11 +107,11 @@ Note: Azure File Sync is zone-redundant in all regions that [support zones](../.
 
 ### 2022 quarter 4 (October, November, December)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
-This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
+This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.yml) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
-Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](../../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
+Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
 
 ### 2022 quarter 1 (January, February, March)
 #### Azure File Sync TCO improvements
@@ -124,7 +135,7 @@ Formula changes:
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### NFSv4.1 protocol support is generally available
@@ -133,7 +144,7 @@ Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. N
 For more information, see:
 
 - [NFS file shares in Azure Files](files-nfs-protocol.md)
-- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
+- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### Symmetric throughput for premium file shares
@@ -146,7 +157,7 @@ Formula changes:
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### 2021 quarter 3 (July, August, September)
@@ -190,7 +201,7 @@ The experience for domain joining an Azure storage account has been improved to 
 For more information, see:
 
 - [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md)
-- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
+- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md)
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane

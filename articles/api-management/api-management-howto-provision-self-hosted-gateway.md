@@ -4,7 +4,7 @@ description: Learn how to provision a self-hosted gateway in Azure API Managemen
 services: api-management
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: danlep
@@ -12,9 +12,9 @@ ms.author: danlep
 
 # Provision a self-hosted gateway in Azure API Management
 
-Provisioning a gateway resource in your Azure API Management instance is a prerequisite for deploying a self-hosted gateway. This article walks through the steps to provision a gateway resource in API Management.
-
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
+Provisioning a gateway resource in your Azure API Management instance is a prerequisite for deploying a self-hosted gateway. This article walks through the steps to provision a gateway resource in API Management.
 
 ## Prerequisites
 

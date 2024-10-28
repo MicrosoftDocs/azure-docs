@@ -20,6 +20,9 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 > * Build and deploy the Spring Boot app
 > * Connect Apache Kafka on Confluent Cloud to Azure Spring Apps using Service Connector
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -98,7 +101,7 @@ Create an instance of Azure Spring Apps by following [the Azure Spring Apps quic
 1. Create the app with a public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service-instance-name> -g <your-resource-group-name> --assign-endpoint true
+    az spring app create -n hellospring -s <service-instance-name> -g <your-resource-group-name> --assign-endpoint true
     ```
 
 ## Create a service connection using Service Connector
@@ -108,7 +111,7 @@ Create an instance of Azure Spring Apps by following [the Azure Spring Apps quic
 Run the following command to connect your Apache Kafka on Confluent Cloud to your spring cloud app.
 
 ```azurecli
-az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource-group> --service <your-spring-cloud-service> --app <your-spring-cloud-app> --deployment <your-spring-cloud-deployment> --bootstrap-server <kafka-bootstrap-server-url> --kafka-key <cluster-api-key> --kafka-secret <cluster-api-secret> --schema-registry <kafka-schema-registry-endpoint> --schema-key <registry-api-key> --schema-secret <registry-api-secret>
+az spring connection create confluent-cloud -g <your-spring-cloud-resource-group> --service <your-spring-cloud-service> --app <your-spring-cloud-app> --deployment <your-spring-cloud-deployment> --bootstrap-server <kafka-bootstrap-server-url> --kafka-key <cluster-api-key> --kafka-secret <cluster-api-secret> --schema-registry <kafka-schema-registry-endpoint> --schema-key <registry-api-key> --schema-secret <registry-api-secret>
 ```
 
 Replace the following placeholder texts with your own data:
@@ -147,7 +150,7 @@ Select **Review + Create** to review the connection settings. Then select **Crea
 Run the following command to upload the JAR file (`build/libs/java-springboot-0.0.1-SNAPSHOT.jar`) to your Spring Cloud app.
 
 ```azurecli
-az spring-cloud app deploy -n hellospring -s <service-instance-name> -g <your-resource-group-name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
+az spring app deploy -n hellospring -s <service-instance-name> -g <your-resource-group-name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
 ```
 
 ## Validate the Kafka data ingestion

@@ -1,15 +1,15 @@
 ---
 title: Stream data as input into Azure Stream Analytics
-description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events and also reference data.
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 01/25/2024
 ---
 # Stream data as input into Stream Analytics
 
-Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
+Stream Analytics has first-class integration with Azure data streams as inputs from four kinds of resources:
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
@@ -50,7 +50,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Event Hub namespace** | The Event Hubs namespace is a container for event hubs. When you create an event hub, you also create the namespace. |
 | **Event Hub name** | The name of the event hub to use as input. |
 | **Event Hub consumer group** (recommended) | We recommend that you use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the `$Default` consumer group. |
-| **Authentication mode** | Specify the type of the authentication you want to use to connect to the event hub. You can use a connection string or a managed identity to authenticate with the event hub. For the managed identity option, you can either create a system-assigned managed identity to the Stream Analytics job or a user-assigned managed identity to authenticate with the event hub. When you use a managed identity, the managed identity must be a member of [Azure Event Hubs Data Receiver or Azure Event Hubs Data Owner roles](../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs). | 
+| **Authentication mode** | Specify the type of the authentication you want to use to connect to the event hub. You can use a connection string or a managed identity to authenticate with the event hub. For the managed identity option, you can either create a system-assigned managed identity for the Stream Analytics job or a user-assigned managed identity to authenticate with the event hub. When you use a managed identity, the managed identity must be a member of [Azure Event Hubs Data Receiver or Azure Event Hubs Data Owner roles](../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs). | 
 | **Event Hub policy name** | The shared access policy that provides access to the Event Hubs. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hubs settings manually.|
 | **Partition key** | It's an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It's used for improving the performance of your query if it includes a `PARTITION BY` or `GROUP BY` clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to `PartitionId.` |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
@@ -63,7 +63,7 @@ When your data comes from an Event Hubs stream input, you have access to the fol
 | Property | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |The date and time when Stream Analytics processes the event. |
-| **EventEnqueuedUtcTime** |The date and time that when Event Hubs receives the events. |
+| **EventEnqueuedUtcTime** |The date and time when Event Hubs receives the events. |
 | **PartitionId** |The zero-based partition ID for the input adapter. |
 
 For example, using these fields, you can write a query like the following example:
@@ -135,8 +135,6 @@ If a blob is uploaded to a storage account container at 13:00, and the Azure Str
 If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics picks up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the timestamp assigned. For example, if there's a blob `2019/10-01/00/b1.txt` with a `BlobLastModifiedTime` of `2019-11-11`, then the timestamp assigned to this blob is `2019-11-11`.
 
 To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage or Azure Data Lake Storage Gen2 input every second if the blob file is available. If the blob file is unavailable, there's an exponential backoff with a maximum time delay of 90 seconds.
-
-CSV-formatted inputs require a header row to define fields for the data set, and all header row fields must be unique.
 
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.

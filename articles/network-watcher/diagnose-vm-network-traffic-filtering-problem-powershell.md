@@ -4,10 +4,11 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 08/23/2023
+ms.date: 09/30/2024
 ms.custom: devx-track-azurepowershell, mode-api
+
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
 
@@ -15,7 +16,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-powershell/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -27,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This quickstart requires the Azure PowerShell `Az` module. To find the installed version, run `Get-Module -ListAvailable Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also install Azure PowerShell locally to run the cmdlets. This quickstart requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ## Create a virtual machine
 
@@ -215,8 +216,7 @@ When no longer needed, use [Remove-AzResourceGroup](/powershell/module/az.resour
 Remove-AzResourceGroup -Name 'myResourceGroup' -Force
 ```
 
-## Next steps
+## Next step
 
-In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
-
-Even with the proper network traffic filters in place, communication to a virtual machine can still fail, due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem-powershell.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-powershell.md).
+> [!div class="nextstepaction"]
+> [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md)

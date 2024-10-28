@@ -2,12 +2,12 @@
 title: Available Azure services by region types and categories 
 description: Learn about region types and service categories in Azure.
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 06/13/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Available services by region types and categories 
@@ -28,63 +28,61 @@ Azure assigns service categories as foundational, mainstream, and strategic at g
 Azure services are presented in the following tables by category. Note that some services are non-regional. That means they're available globally regardless of region. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational                           | ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream                                  | 
+> | ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational                           | ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream                                  |
 > |----------------------------------------|---------------------------------------------------|
-> | Azure Application Gateway              | Azure API Management                              | 
-> | Azure Backup                           | Azure App Configuration                           | 
-> | Azure Cosmos DB                        | Azure App Service                                 | 
-> | Azure Event Hubs                       | Microsoft Entra Domain Services            | 
+> | Azure Application Gateway              | Azure API Management                              |
+> | Azure Backup                           | Azure App Configuration                           |
+> | Azure Cosmos DB for NoSQL              | Azure App Service                                 |
+> | Azure Event Hubs                       | Microsoft Entra Domain Services            |
 > | Azure ExpressRoute                     | Azure Bastion                                     |
-> | Azure Key Vault                        | Azure Batch                                       | 
-> | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure AI Search                            | 
-> | Azure Service Bus                      | Azure Container Registry                          | 
+> | Azure Key Vault                        | Azure Batch                                       |
+> | Azure Load Balancer                    | Azure Cache for Redis                             |
+> | Azure Public IP                        | Azure AI Search                            |
+> | Azure Service Bus                      | Azure Container Registry                          |
 > | Azure Service Fabric                   | Azure Container Instances                         |
-> | Azure Site Recovery                    | Azure Data Explorer                               |  
-> | Azure SQL                              | Azure Data Factory                                | 
-> | Azure Storage: Disk Storage            | Azure Database for MySQL                          | 
-> | Azure Storage Accounts                 | Azure Database for PostgreSQL                     | 
-> | Azure Storage: Blob Storage            | Azure DDoS Protection                             | 
-> | Azure Storage Data Lake Storage        | Azure Event Grid                                  | 
-> | Azure Virtual Machines                 | Azure Firewall                                    | 
+> | Azure Site Recovery                    | Azure Data Explorer                               |
+> | Azure SQL                              | Azure Data Factory                                |
+> | Azure Storage: Disk Storage            | Azure Database for MySQL                          |
+> | Azure Storage Accounts                 | Azure Database for PostgreSQL                     |
+> | Azure Storage: Blob Storage            | Azure DDoS Protection                             |
+> | Azure Storage Data Lake Storage        | Azure Event Grid                                  |
+> | Azure Virtual Machines                 | Azure Firewall                                    |
 > | Azure Virtual Machine Scale Sets       | Azure Firewall Manager                            |
 > | Virtual Machines: Av2-series           | Azure Functions                                   |
-> | Virtual Machines: Bs-series            | Azure HDInsight                                   |   
-> | Virtual Machines: Dv2 and DSv2-series  | Azure IoT Hub                                     | 
-> | Virtual Machines: Dv3 and DSv3-series  | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Machines: ESv3 abd ESv3-series | Azure Logic Apps                                  | 
-> | Azure Virtual Network                  | Azure Media Services                              | 
-> | Azure VPN Gateway                      | Azure Monitor: Application Insights               | 
-> |                                        | Azure Monitor: Log Analytics                      | 
-> |                                        | Azure Network Watcher                             | 
-> |                                        | Azure Private Link                                |  
+> | Virtual Machines: Bs-series            | Azure HDInsight                                   |
+> | Virtual Machines: Dv2 and DSv2-series  | Azure IoT Hub                                     |
+> | Virtual Machines: Dv3 and DSv3-series  | Azure Kubernetes Service (AKS)                    |
+> | Virtual Machines: ESv3 abd ESv3-series | Azure Logic Apps                                  |
+> | Azure Virtual Network                  | Azure Media Services                              |
+> | Azure VPN Gateway                      | Azure Monitor: Application Insights               |
+> |                                        | Azure Monitor: Log Analytics                      |
+> |                                        | Azure Network Watcher                             |
+> |                                        | Azure Private Link                                |
 > |                                        | Azure Storage: Files Storage                      |
-> |                                        | Azure Virtual WAN                                 | 
-> |                                        | Premium Blob Storage                              |  
-> |                                        | Virtual Machines: Ddsv4-series                    | 
-> |                                        | Virtual Machines: Ddv4-series                     | 
-> |                                        | Virtual Machines: Dsv4-series                     | 
-> |                                        | Virtual Machines: Dv4-series                      | 
-> |                                        | Virtual Machines: Edsv4-series                    | 
-> |                                        | Virtual Machines: Edv4-series                     | 
-> |                                        | Virtual Machines: Esv4-series                     | 
-> |                                        | Virtual Machines: Ev4-series                      | 
-> |                                        | Virtual Machines: Fsv2-series                     | 
-> |                                        | Virtual Machines: M-series                        | 
+> |                                        | Azure Virtual WAN                                 |
+> |                                        | Premium Blob Storage                              |
+> |                                        | Virtual Machines: Ddsv4-series                    |
+> |                                        | Virtual Machines: Ddv4-series                     |
+> |                                        | Virtual Machines: Dsv4-series                     |
+> |                                        | Virtual Machines: Dv4-series                      |
+> |                                        | Virtual Machines: Edsv4-series                    |
+> |                                        | Virtual Machines: Edv4-series                     |
+> |                                        | Virtual Machines: Esv4-series                     |
+> |                                        | Virtual Machines: Ev4-series                      |
+> |                                        | Virtual Machines: Fsv2-series                     |
+> |                                        | Virtual Machines: M-series                        |
 
 ### Strategic services
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg)
-
->  Strategic                                          |
-> |------------------------------------------------------|
+> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic       |
+> |----------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
 > | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure AI services                             |
+> | Azure Container Apps                                 |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
@@ -94,6 +92,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure Machine Learning                               |
+> | Azure Managed HSM                                    |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
 > | Microsoft Purview                                        |
@@ -122,6 +121,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: HBv3-series                        |
 > | Virtual Machines: HCv1-series                        |
 > | Virtual Machines: LSv2-series                        |
+> | Virtual Machines: LSv3-series                        |
 > | Virtual Machines: Mv2-series                         |
 > | Virtual Machines: NCv3-series                        |
 > | Virtual Machines: NCasT4 v3-series                   |
@@ -134,7 +134,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: SAP HANA on Azure Large Instances  |
 
 
-Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
+Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
 To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](availability-zones-service-support.md).
 

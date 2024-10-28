@@ -45,7 +45,8 @@ See these articles to learn how to define a storage task:
 
 - [Create a storage task](storage-tasks/storage-task-create.md)
 - [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md)
-- [Properties, operators, and operations in storage task conditions](storage-tasks/storage-task-properties-operators-operations.md)
+- [Storage task conditions](storage-tasks/storage-task-conditions.md)
+- [Storage task operations](storage-tasks/storage-task-operations.md)
 
 ### Assign a storage task
 
@@ -81,12 +82,43 @@ See the [Azure Storage Actions events schema](../event-grid/event-schema-storage
 
 Azure Storage tasks are supported in the following public regions:
 
-- France Central
+- Australia East
+
+- Australia Southeast
+
+- Brazil south
+
 - Canada Central
+
+- Central India
+
+- Central US
+
+- France Central
+- Germany West Central
+
+- North Central US
+
+- North Europe
+
+- South Central Us
+
+- Southeast Asia
+
+- Switzerland North
+
+- West Europe
+
+- West US
+
+- West US 2
 
 ## Pricing and billing
 
 You can try the feature for free during the preview, paying only for transactions invoked on your storage account. Pricing information for the feature will be published before general availability.
+
+> [!Note]
+> General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Next steps
 

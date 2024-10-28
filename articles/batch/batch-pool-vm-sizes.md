@@ -13,7 +13,7 @@ When you select a node size for an Azure Batch pool, you can choose from almost 
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md) available in Azure.
+Batch pools in the Virtual Machine configuration support almost all [VM sizes](/azure/virtual-machines/sizes) available in Azure.
 The supported VM sizes in a region can be obtained via the Batch Management API. You can use one of the following methods to
 return a list of VM sizes supported by Batch in a region:
 
@@ -35,13 +35,13 @@ az batch location list-skus --location <azure-region>
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM SKU selection.
 
 Batch **doesn't** support any VM SKU sizes that have only remote storage. A local temporary disk is required for Batch.
-For example, Batch supports [ddv4 and ddsv4](../virtual-machines/ddv4-ddsv4-series.md), but does not support
-[dv4 and dsv4](../virtual-machines/dv4-dsv4-series.md).
+For example, Batch supports [ddv4 and ddsv4](/azure/virtual-machines/ddv4-ddsv4-series), but does not support
+[dv4 and dsv4](/azure/virtual-machines/dv4-dsv4-series).
 
 ### Using Generation 2 VM Images
 
-Some VM series, such as [FX](../virtual-machines/fx-series.md) and [Mv2](../virtual-machines/mv2-series.md), can only be used
-with [generation 2 VM images](../virtual-machines/generation-2.md). Generation 2 VM images are specified like any VM image,
+Some VM series, such as [FX](/azure/virtual-machines/fx-series) and [Mv2](/azure/virtual-machines/mv2-series), can only be used
+with [generation 2 VM images](/azure/virtual-machines/generation-2). Generation 2 VM images are specified like any VM image,
 using the `sku` property of the [`imageReference`](/rest/api/batchservice/pool/add#imagereference) configuration; the `sku`
 strings have a suffix such as `-g2` or `-gen2`. To get a list of VM images supported by Batch, including generation 2 images,
 use the ['list supported images'](/rest/api/batchservice/account/listsupportedimages) API,
@@ -61,7 +61,7 @@ Batch pools in Cloud Services Configuration support all [VM sizes for Cloud Serv
 
 ## Size considerations
 
-- **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes, respectively. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).
+- **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes, respectively. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).
 
 - **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it's common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 

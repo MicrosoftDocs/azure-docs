@@ -4,7 +4,7 @@ description: Learn how to configure cloud metrics and logs for Azure API Managem
 services: api-management
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: danlep
@@ -12,11 +12,11 @@ ms.author: danlep
 
 # Configure cloud metrics and logs for Azure API Management self-hosted gateway
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides details for configuring cloud metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md).
 
 The self-hosted gateway has to be associated with an API management service and requires outbound TCP/IP connectivity to Azure on port 443. The gateway leverages the outbound connection to send telemetry to Azure, if configured to do so. 
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Metrics
 By default, the self-hosted gateway emits a number of metrics through [Azure Monitor](https://azure.microsoft.com/services/monitor/), same as the managed gateway [in the cloud](api-management-howto-use-azure-monitor.md). 
@@ -52,7 +52,7 @@ The self-hosted gateway currently emits the following metrics through Azure Moni
 
 The self-hosted gateway currently does not send [diagnostic logs](./api-management-howto-use-azure-monitor.md#activity-logs) to the cloud. However, it is possible to [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed. 
 
-If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect logs from your containers and view them in Log Analytics. 
+If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-overview) to collect logs from your containers and view them in Log Analytics. 
 
 ## Next steps
 

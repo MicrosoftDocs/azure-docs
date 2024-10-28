@@ -4,13 +4,15 @@ description: Reference for the invoke-dapr-binding policy available for use in A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Trigger output binding
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The `invoke-dapr-binding` policy instructs API Management gateway to trigger an outbound Dapr [binding](https://github.com/dapr/docs/blob/master/README.md). The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/bindings/{{bind-name}},` replacing the template parameter and adding content specified in the policy statement.
 
@@ -53,7 +55,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 
 ### Usage notes
@@ -100,6 +102,6 @@ The "backend" section is empty and the request is not forwarded to the backend.
 
 ## Related policies
 
-* [API Management Dapr integration policies](api-management-dapr-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

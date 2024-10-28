@@ -4,13 +4,16 @@ description: Reference for the json-to-xml policy available for use in Azure API
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Convert JSON to XML
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -42,7 +45,7 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 
@@ -99,6 +102,6 @@ The XML response to the client will be:
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

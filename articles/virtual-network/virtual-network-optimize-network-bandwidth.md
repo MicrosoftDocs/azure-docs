@@ -1,22 +1,19 @@
 ---
 title: Optimize Azure VM network throughput
-description: Optimize network throughput for Microsoft Azure Windows and Linux virtual machines, including major distributions such as Ubuntu, CentOS, and Red Hat.
+description: Optimize network throughput for Microsoft Azure Windows and Linux virtual machines, including major distributions such as Ubuntu and Red Hat.
 services: virtual-network
 author: asudbring
 manager: Gerald DeGrace
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 08/02/2024
 ms.author: allensu
 ---
 
 # Optimize network throughput for Azure virtual machines
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-Azure Virtual Machines (VMs) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
+Azure Virtual Machines (VMs) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu and Red Hat.
 
 ## Windows virtual machines
 
@@ -108,26 +105,6 @@ sudo apt-get install "linux-azure"
 sudo reboot
 ```
 
-### CentOS
-
-In order to get the latest optimizations, we recommend that you create a virtual machine with the latest supported version by specifying the following parameters:
-
-```json
-"Publisher": "OpenLogic",
-"Offer": "CentOS",
-"Sku": "7.7",
-"Version": "latest"
-```
-
-Both new and existing VMs can benefit from installing the latest Linux Integration Services (LIS). The throughput optimization is in LIS, starting from 4.2.2-2. Later versions contain further improvements. Enter the following
-commands to install the latest LIS:
-
-```bash
-sudo yum update
-sudo reboot
-sudo yum install microsoft-hyper-v
-```
-
 ### Red Hat
 
 In order to get the optimizations, we recommend that you create a virtual machine with the latest supported version by specifying the following parameters:
@@ -152,7 +129,7 @@ Learn more about Linux Integration Services Version 4.3 for Hyper-V by viewing t
 
 ## Next steps
 
-- Deploy VMs close to each other for low latency with [proximity placement groups](../virtual-machines/co-location.md).
+- Deploy VMs close to each other for low latency with [proximity placement groups](/azure/virtual-machines/co-location).
 - See the optimized result with [Bandwidth/Throughput testing](virtual-network-bandwidth-testing.md) for your scenario.
 - Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md).
 - Learn more with [Azure Virtual Network frequently asked questions](virtual-networks-faq.md).

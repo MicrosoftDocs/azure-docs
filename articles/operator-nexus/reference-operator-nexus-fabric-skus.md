@@ -2,9 +2,9 @@
 title: Azure Operator Nexus Fabric SKUs
 description: SKU options for Azure Operator Nexus Network Fabric
 ms.topic: article
-ms.date: 02/26/2024
-author: joemarshallmsft
-ms.author: joemarshall
+ms.date: 04/18/2024
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ---
 
@@ -16,18 +16,14 @@ Operator Nexus Fabric SKUs offer a comprehensive range of options, allowing oper
 
 The following table outlines the various configurations of Operator Nexus Fabric SKUs, catering to different use-cases and functionalities required by operators.
 
-| **S.No** | **Use-Case** | **Network Fabric SKU ID** | **Description** |
-|--|--|--|--|
-| 1        | Multi Rack Near-Edge | M4-A400-A100-C16-ab       | <ul><li>Support 400-Gbps link between Operator Nexus fabric CEs and Provider Edge PEs</li><li>Support up to four compute rack deployment and aggregator rack</li><li>Each compute rack can have up to 16 compute servers</li><li>One Network Packet Broker</li></ul> |
-| 2        | Multi Rack Near-Edge  | M8-A400-A100-C16-ab       |  <ul><li>Support 400-Gbps link between Operator Nexus fabric CEs and Provider Edge PEs </li><li>Support up to eight compute rack deployment and aggregator rack </li><li>Each compute rack can have up to 16 compute servers </li><li>One Network Packet Broker for deployment size between one and four compute racks. Two network packet brokers for deployment size of five to eight compute racks </li></ul> |
-| 3        | Multi Rack Near-Edge  | M8-A100-A25-C16-aa        | <ul><li>Support 100-Gbps link between Operator Nexus fabric CEs and Provider Edge PEs </li><li>Support up to eight compute rack deployment and aggregator rack </li><li>Each compute rack can have up to 16 compute servers </li><li>One Network Packet Broker for 1 to 4 rack compute rack deployment and two network packet brokers with deployment size of 5 to 8 compute racks </li></ul> |
-| 4        | Single Rack Near-Edge | S-A100-A25-C12-aa         | <ul><li>Supports 100-Gbps link between Operator Nexus fabric CEs and Provider Edge PEs </li><li>Single rack with shared aggregator and compute rack </li><li>Each compute rack can have up to 12 compute servers </li><li>One Network Packet Broker  </li></ul> |
+| S.No | Use-Case              | Network Fabric SKU ID | Description                                                                                                                        | BOM Components                                                                                                                                                            |
+|------|-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | Multi Rack Near-Edge  | M4-A400-A100-C16-ab   | - Support 400-Gbps link between Nexus fabric CEs and Provider Edge PEs.<br> - Support up to four compute rack deployment and aggregator rack.<br> - Each compute rack can have racks of up to 16 compute servers.<br> - One Network Packet Broker. | - Pair of Customer Edge Devices required for SKU.<br> - Pair of Top the rack switches per rack deployed.<br> - One Management switch per compute rack deployed.<br> - Network packet broker device.<br> - Terminal Server.<br> - Cable and optics. |
+| 2    | Multi Rack Near-Edge  | M8-A400-A100-C16-ab   | - Support 400-Gbps link between Nexus fabric CEs and Provider Edge PEs.<br> - Supports up to eight compute rack deployment and aggregator rack.<br> - Each compute rack can have racks of up to 16 compute servers.<br> - For deployments with 1 to 4 compute racks, one Network Packet Broker is required. <br> - For deployments with 5 to 8 compute racks, two Network Packet Brokers are needed. | - Pair of Customer Edge Devices required for SKU.<br> - Pair of Top the rack switches per rack deployed. <br> - One Management switch per compute rack deployed.<br> - Network packet broker device(s).<br> - Terminal Server.<br> - Cable and optics. |
+| 3    | Multi Rack Near-Edge  | M8-A100-A25-C16-aa    | - Support 100-Gbps link between Nexus fabric CEs and Provider Edge PEs.<br>Supports up to eight compute rack deployment and aggregator rack.<br> - Each compute rack can have racks of up to 16 compute servers.<br> - For deployments with 1 to 4 compute racks, one Network Packet Broker is required. <br> - For deployments with 5 to 8 compute racks, two Network Packet Brokers are needed. | - Pair of Customer Edge Devices required for SKU.<br> - Pair of Top the rack switches per rack deployed.<br> - One Management switch per compute rack deployed.<br> - Network packet broker device(s).<br> - Terminal Server.<br> - Cable and optics |
+| 4    | Single Rack Near-Edge | S-A100-A25-C12-aa     | - Supports 100-Gbps link between Nexus fabric CEs and PEs<br>Single rack with shared aggregator and compute rack<br> - Each compute rack can have racks of up to 12 compute servers<br>One Network Packet Broker.  | - Pair of Customer Edge Devices required for SKU.<br> - Pair of Management switches.<br> - Network packet broker device.<br> - Terminal Server.<br> - Cable and optics |
 
-The BOM for each SKU requires:
+**Notes:**
 
-- A pair of Customer Edge (CE) devices
-- For the multi-rack SKUs, a pair of Top-of-Rack (TOR) switches per deployed rack
-- One management switch per deployed rack
-- One of more NPB devices (see table)
-- Terminal Server
-- Cable and optics
+- Bill of materials (BOM) adheres to nexus network fabric specifications.
+- All subscribed customers have the privilege to request BOM details.

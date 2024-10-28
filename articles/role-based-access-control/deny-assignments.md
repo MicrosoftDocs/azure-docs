@@ -21,7 +21,7 @@ This article describes how to list deny assignments.
 
 ## How deny assignments are created
 
-Deny assignments are created and managed by Azure to protect resources. You can't directly create your own deny assignments. However, you can specify deny settings when creating a deployment stack, which creates a deny assignment that is owned by the deployment stack resources. Deployment stacks is currently in preview. For more information, see [Protect managed resources against deletion](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources-against-deletion).
+Deny assignments are created and managed by Azure to protect resources. You can't directly create your own deny assignments. However, you can specify deny settings when creating a deployment stack, which creates a deny assignment that is owned by the deployment stack resources. Deployment stacks is currently in preview. For more information, see [Protect managed resources against deletion](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources).
 
 ## Compare role assignments and deny assignments
 
@@ -80,7 +80,7 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 Follow these steps to list deny assignments.
 
 > [!IMPORTANT]
-> You can't directly create your own deny assignments. Deny assignments are created and managed by Azure. For more information, see [Protect managed resources against deletion](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources-against-deletion).
+> You can't directly create your own deny assignments. Deny assignments are created and managed by Azure. For more information, see [Protect managed resources against deletion](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources).
 # [Azure portal](#tab/azure-portal)
 
 ### Prerequisites

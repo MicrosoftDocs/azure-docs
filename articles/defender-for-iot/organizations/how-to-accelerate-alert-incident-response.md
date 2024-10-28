@@ -1,7 +1,7 @@
 ---
 title: Accelerate OT alert workflows - Microsoft Defender for IoT
 description: Learn how to improve Microsoft Defender for IoT OT alert workflows on an OT network sensor or the on-premises management console.
-ms.date: 01/31/2024
+ms.date: 10/11/2024
 ms.topic: how-to
 ---
 
@@ -80,6 +80,7 @@ This section describes how to create an alert suppression rule on the Azure port
     1. In the **Alert name** dropdown list, select one or more alerts for your rule. Selecting the name of an alert engine instead of a specific rule name applies the rule to all existing and future alerts associated with that engine.
 
     1. Optionally filter your rule further by defining additional conditions, such as for traffic coming from specific sources, to specific destinations, or on specific subnets.
+       When specifying subnets as conditions, note that the subnets refer to both the source and destination devices.
 
     1. When you're finished configuring your rule conditions, select **Next**.
 
@@ -110,49 +111,11 @@ If you're currently using an on-premises management console with cloud-connected
 
 Your rules are added to the list of suppression rules on the **Suppression rules (Preview)** page. Select a rule to edit or delete it as needed.
 
-### Create alert exclusion rules on an on-premises management console
-
-We recommend creating alert exclusion rules on an on-premises management console only for locally managed sensors. For cloud-connected sensors, any suppression rules created on the Azure portal will override exclusion rules created on the on-premises management console for that sensor.
-
-**To create an alert exclusion rule**:
-
-1. Sign into your on-premises management console and select **Alert Exclusion** on the left-hand menu.
-
-1. On the **Alert Exclusion** page, select the **+** button at the top-right to add a new rule.
-
-1. In the **Create Exclusion Rule** dialog, enter the following details:
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Name**     |  Enter a meaningful name for your rule. The name can't contain quotes (`"`).      |
-    |**By Time Period**     |   Select a time zone and the specific time period you want the exclusion rule to be active, and then select **ADD**. <br><br>Use this option to create separate rules for different time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.      |
-    |**By Device Address**     |   Select and enter the following values, and then select **ADD**: <br><br>- Select whether the designated device is a source, destination, or both a source and destination device. <br>- Select whether the address is an IP address, MAC address, or subnet <br>- Enter the value of the IP address, MAC address, or subnet. |
-    |**By Alert Title**     |  Select one or more alerts to add to the exclusion rule and then select **ADD**. To find alert titles, enter all, or part of an alert title and select the one you want from the dropdown list.        |
-    |**By Sensor Name**     |  Select one or more sensors to add to the exclusion rule and then select **ADD**. To find sensor names, enter all or part of the sensor name and select the one you want from the dropdown list.         |
-
-    > [!IMPORTANT]
-    > Alert exclusion rules are `AND` based, which means that alerts are only excluded when all rule conditions are met.
-    > If a rule condition is not defined, all options are included. For example, if you don't include the name of a sensor in the rule, the rule is applied to all sensors.
-
-    A summary of the rule parameters is shown at the bottom of the dialog.
-
-1. Check the rule summary shown at the bottom of the **Create Exclusion Rule** dialog and then select **SAVE**
-
-**To create alert exclusion rules via API**:
-
-Use the [Defender for IoT API](references-work-with-defender-for-iot-apis.md) to create on-premises management console alert exclusion rules from an external ticketing system or other system that manage network maintenance processes.
-
-Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions) API to define the sensors, analytics engines, start time, and end time to apply the rule.  Exclusion rules created via API are shown in the on-premises management console as read-only.
-
-For more information, see [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
-
-
 ## Allow internet connections on an OT network
 
 Decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
 All OT sensor users can view a currently configured list of domains in a [data mining report](how-to-create-data-mining-queries.md), including the FQDNs, resolved IP addresses, and the last resolution time.
-
 
 **To define a DNS allowlist:**
 
@@ -166,8 +129,9 @@ All OT sensor users can view a currently configured list of domains in a [data m
 
 1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains.
 
-1. Select **Submit** to save your changes.
+    You can use the `*` wildcard at any place in the domain name to easily add subdomains to the allowlist without having to input each one, for example, `*.microsoft.com` or `teams.microsoft.*`.
 
+1. Select **Submit** to save your changes.
 
 **To view the current allowlist in a data mining report:**
 
@@ -177,10 +141,7 @@ For example:
 
 :::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png" alt-text="Screenshot of how to generate a custom data mining report for the allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png":::
 
-The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert. For example:
-
-:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
-
+The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert.
 
 ## Create alert comments on an OT sensor
 
@@ -275,8 +236,7 @@ Use the [Defender for IoT API](references-work-with-defender-for-iot-apis.md) to
 
 Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions) API to define the sensors, analytics engines, start time, and end time to apply the rule.  Exclusion rules created via API are shown in the on-premises management console as read-only.
 
-For more information, see 
-[Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
+For more information, see [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
 ## Next steps
 

@@ -1,19 +1,21 @@
 ---
-title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
-description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: limwainstein
+title: Resources for creating Microsoft Sentinel custom connectors
+description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics API, Logstash, Logic Apps, PowerShell, and Azure Functions.
+author: austinmccollum
 ms.topic: conceptual
-ms.date: 01/09/2023
-ms.author: lwainstein
+ms.date: 10/01/2024
+ms.author: austinmc
+#Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
+
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors
 
-Microsoft Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
+Microsoft Sentinel provides a wide range of [out-of-the-box connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector.
 
-For a full list of supported connectors, see the [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom, and more)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) blog post.
+For a full list of supported connectors, see the [Find your Microsoft Sentinel data connector)](data-connectors-reference.md).
 
 ## Compare custom connector methods
 
@@ -22,8 +24,8 @@ The following table compares essential details about each method for creating cu
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
 | **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
-|**[Log Analytics Agent](#connect-with-the-log-analytics-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
-|**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins, plus custom plugin, capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
+|**[Azure Monitor Agent](#connect-with-the-azure-monitor-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection, data transformation  |   No      | Low         |
+|**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Supports all capabilities of the Azure Monitor Agent  |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
 |**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
@@ -45,13 +47,13 @@ Connectors created using the CCP are fully SaaS, without any requirements for se
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
-## Connect with the Log Analytics agent
+## Connect with the Azure Monitor Agent
 
-If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
+If your data source delivers events in text files, we recommend that you use the Azure Monitor Agent to create your custom connector.
 
-- For more information, see [Collecting custom logs in Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
+- For more information, see [Collect logs from a text file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-text).
 
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](../azure-monitor/agents/data-sources-json.md).
+- For an example of this method, see [Collect logs from a JSON file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-json).
 
 ## Connect with Logstash
 
@@ -167,10 +169,10 @@ You can stream events to Microsoft Sentinel by using the Log Analytics Data Coll
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility.
 
-For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
+For more information, see the [Log Analytics Data collector API](/azure/azure-monitor/logs/data-collector-api), especially the following examples:
 
-- [C#](../azure-monitor/logs/data-collector-api.md#sample-requests)
-- [Python](../azure-monitor/logs/data-collector-api.md#sample-requests)
+- [C#](/azure/azure-monitor/logs/data-collector-api#sample-requests)
+- [Python](/azure/azure-monitor/logs/data-collector-api#sample-requests)
 
 ## Connect with Azure Functions
 
@@ -182,7 +184,7 @@ For examples of this method, see:
 - [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors/okta-single-sign-on-using-azure-function.md)
 - [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors/proofpoint-tap-using-azure-functions.md)
 - [Connect your Qualys VM to Microsoft Sentinel with Azure Function](data-connectors/qualys-vulnerability-management-using-azure-functions.md)
-- [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
+- [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/logs/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Microsoft Sentinel GitHub community)
 
@@ -203,7 +205,7 @@ Use the data ingested into Microsoft Sentinel to secure your environment with an
 - [Get visibility into alerts](get-visibility.md)
 - [Visualize and monitor your data](monitor-your-data.md)
 - [Investigate incidents](investigate-cases.md)
-- [Detect threats](detect-threats-built-in.md)
+- [Detect threats](threat-detection.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
 

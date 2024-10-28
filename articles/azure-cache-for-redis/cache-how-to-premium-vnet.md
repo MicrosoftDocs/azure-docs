@@ -2,9 +2,7 @@
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
 ms.topic: conceptual
 ms.date: 08/29/2023
 
@@ -58,7 +56,7 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 
 1. Select the **Networking** tab, or select the **Networking** button at the bottom of the page.
 
-1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
+1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
    > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails. The failure is because Azure Cache for Redis uses a basic load balancer that is not compatible with a NAT Gateway.
@@ -178,7 +176,7 @@ There are network connectivity requirements for Azure Cache for Redis that might
 >When you connect to an Azure Cache for Redis instance that's hosted in a virtual network, your cache clients must be in the same virtual network or in a virtual network with virtual network peering enabled within the same Azure region. Global virtual network peering isn't currently supported. This requirement applies to any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, NSGs or other network layers must be configured such that the client's network traffic is allowed to reach the Azure Cache for Redis instance.
 >
 
-After the port requirements are configured as described in the previous section, you can verify that your cache is working by following these steps:
+After the port requirements are configured as described in the previous section, a reboot is necessary in most cases to ensure the changes reflect correctly. Otherwise, you might experience some connectivity issues. You can verify that your cache is working by following these steps:
 
 - [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
 - After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:

@@ -21,7 +21,7 @@ ms.author: wchi
     using Azure.Identity;
     using System; 
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // TokenCredential credential = new DefaultAzureCredential();
     
@@ -70,7 +70,7 @@ ms.author: wchi
     import com.azure.cosmos.CosmosClient;
     import com.azure.cosmos.CosmosClientBuilder;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
     
@@ -110,7 +110,7 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
    from azure.cosmos import CosmosClient
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    
-   # Uncomment the following lines according to the authentication type.
+   # Uncomment the following lines corresponding to the authentication type you want to use.
    # system-assigned managed identity
    # cred = ManagedIdentityCredential()
 
@@ -147,7 +147,7 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
     func main() {
         endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
 
-        // Uncomment the following lines according to the authentication type.
+        // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
@@ -179,7 +179,7 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
     import { CosmosClient } from "@azure/cosmos";
     const { DefaultAzureCredential } = require("@azure/identity");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned managed identity.
     // const credential = new DefaultAzureCredential();
 

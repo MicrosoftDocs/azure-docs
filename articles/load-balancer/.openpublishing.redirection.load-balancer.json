@@ -270,7 +270,6 @@
             "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
             "redirect_document_id": true
         },
-        
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md",
             "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cli",
@@ -354,6 +353,26 @@
         {
             "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
             "redirect_url": "/azure/load-balancer/concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-template.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
             "redirect_document_id": false
         }
     ]

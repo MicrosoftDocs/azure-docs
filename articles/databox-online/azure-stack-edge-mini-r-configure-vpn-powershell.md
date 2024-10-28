@@ -4,8 +4,7 @@ description: Describes how to configure VPN on your Azure Stack Edge Mini R devi
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli 

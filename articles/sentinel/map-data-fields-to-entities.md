@@ -5,23 +5,40 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
+ms.collection: usx-security
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security analyst, I want to map data fields to entities in analytics rules so that I can enrich alerts and incidents with essential information for effective investigation and remediation.
+
 ---
 
 # Map data fields to entities in Microsoft Sentinel 
 
-> [!IMPORTANT]
->
-> - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
-
-## Introduction
-
-Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
+Entity mapping is an integral part of the configuration of [scheduled analytics rules](scheduled-rules-overview.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 
+> [!IMPORTANT]
+>
+> - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+
 ## How to map entities
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+    # [Defender portal](#tab/defender)
+
+    From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    ---
 
 1. Select a scheduled query rule and select **Edit** from the details pane. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 

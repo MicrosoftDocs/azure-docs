@@ -1,7 +1,7 @@
 ---
 title: Device development introduction
 description: An overview of Azure IoT device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
@@ -40,7 +40,7 @@ Examples of specialized hardware and operating systems include:
 
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
-[Azure RTOS](/azure/rtos/overview-rtos) is a real time operating system for IoT and edge devices powered by MCUs. Azure RTOS is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
+[Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
@@ -71,7 +71,7 @@ For MPU devices, device SDKs are available for the following languages:
 
 For MCU devices, see:
 
-- [Azure RTOS Middleware](https://github.com/eclipse-threadx)
+- [Eclipse ThreadX](https://github.com/eclipse-threadx)
 - [FreeRTOS Middleware](https://github.com/Azure/azure-iot-middleware-freertos)
 - [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
@@ -79,11 +79,11 @@ For MCU devices, see:
 
 All of the device SDKs include samples that demonstrate how to use the SDK to connect to the cloud, send telemetry, and use the other primitives.
 
-The [IoT device development](../iot-develop/about-iot-develop.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
+The [IoT device development](./concepts-iot-device-development.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
 
-To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](./concepts-manage-device-reconnections.md).
 
 ## Device development without a device SDK
 
@@ -138,5 +138,6 @@ The following table lists some of the available IoT development tools:
 
 Now that you've seen an overview of device development in Azure IoT solutions, some suggested next steps include:
 
+- [Azure IoT device development](concepts-iot-device-development.md)
 - [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
 - [Device management and control](iot-overview-device-management.md)

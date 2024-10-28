@@ -2,8 +2,8 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 03/04/2024
-ms.service: backup
+ms.date: 09/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -63,6 +63,9 @@ You can similarly create NSG outbound security rules for Azure Storage and Micro
 
 If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](../firewall/fqdn-tags.md). This allows all outbound access to Azure Backup.
 
+>[!Note]
+>Azure Backup currently doesn't support the *TLS inspection enabled* **Application Rule** on Azure Firewall.
+
 #### Allow access to service IP ranges
 
 If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
@@ -113,13 +116,13 @@ You can also use the following FQDNs to allow access to the required services fr
 
 If the Firewall or NSG settings block the `“management.azure.com”` domain from Azure Virtual Machine, snapshot backups will fail.
 
-Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](../machine-learning/how-to-access-azureml-behind-firewall.md).
+Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](/azure/machine-learning/how-to-access-azureml-behind-firewall).
 
 - **Source**: IP address of the VM.
 - **Destination**: Service Tag.
 - **Destination Service Tag**: `AzureResourceManager`
 
-:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings."  lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
+:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings." lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
 
 
 
@@ -258,6 +261,24 @@ You can run an on-demand backup using SAP HANA native clients to local file-syst
 To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
 Learn about the [supported scenarios](sap-hana-backup-support-matrix.md#support-for-multistreaming-data-backups).
+
+## Review backup status 
+
+Azure Backup periodically synchronizes the datasource between the extension installed on the VM and Azure Backup service, and shows the backup status in the Azure portal. The following table lists the (four) backup status for a datasource:
+
+| Backup state | Description |
+| --- | --- |
+| **Healthy** | The last backup is successful. |
+| **Unhealthy** | The last backup has failed. |
+| **NotReachable** | There's currently no synchronization occurring between the extension on the VM and the Azure Backup service. |
+| **IRPending** | The first backup on the datasource hasn't occurred yet. |
+ 
+Generally, synchronization occurs *every hour*. However, at the extension level, Azure Backup polls every *5 minutes* to check for any changes in the status of the latest backup compared to the previous one. For example, if the previous backup is successful but the latest backup has failed, Azure Backup syncs that information to the service to update the backup status in the Azure portal accordingly to *Healthy* or *Unhealthy*.
+ 
+If no data sync occurs to the Azure Backup service for more than *2 hours*, Azure Backup shows the backup status as *NotReachable*. This scenario might occur if the VM is shut down for an extended period or there's a network connectivity issue on the VM, causing the synchronization to cease. Once the VM is operational again and the extension services restart, the data sync operation to the service resumes, and the backup status changes to *Healthy* or *Unhealthy* based on the status of the last backup.
+
+
+:::image type="content" source="./media/backup-azure-sap-hana-database/check-backup-status.png" alt-text="Screenshot shows the backup status for the SAP HANA database." lightbox="./media/backup-azure-sap-hana-database/check-backup-status.png":::
 
 ## Next steps
 

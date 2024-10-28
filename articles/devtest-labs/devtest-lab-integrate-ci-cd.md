@@ -54,7 +54,7 @@ For more information and details, see [Use a Resource Manager template](devtest-
 
 Next, create a script to collect the values that task steps like **Azure File Copy** and **PowerShell on Target Machines** use to deploy apps to VMs. You'd ordinarily use these tasks to deploy your own apps to your Azure VMs. The tasks require values such as the VM resource group name, IP address, and FQDN.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Save the following script with a name like *GetLabVMParams.ps1*, and check it in to your project's source control system.
 

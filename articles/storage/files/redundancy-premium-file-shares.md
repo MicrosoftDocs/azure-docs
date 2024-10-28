@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 09/26/2023
+ms.date: 10/14/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -15,6 +15,7 @@ ms.custom: references_regions
 Zone-redundant storage (ZRS) replicates your storage account synchronously across three Azure availability zones in the primary region.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -22,9 +23,43 @@ Zone-redundant storage (ZRS) replicates your storage account synchronously acros
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Premium file share accounts
+
 ZRS is supported for premium Azure file shares through the `FileStorage` storage account kind.
 
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+ZRS for premium file shares is available for a subset of Azure regions:
+
+- (Africa) South Africa North
+- (Asia Pacific) Australia East
+- (Asia Pacific) China North 3
+- (Asia Pacific) Southeast Asia
+- (Asia Pacific) Korea Central
+- (Asia Pacific) East Asia
+- (Asia Pacific) Japan East
+- (Asia Pacific) Central India
+- (Canada) Canada Central
+- (Europe) France Central
+- (Europe) Germany West Central
+- (Europe) North Europe
+- (Europe) West Europe
+- (Europe) UK South
+- (Europe) Poland Central
+- (Europe) Norway East
+- (Europe) Spain Central
+- (Europe) Sweden Central
+- (Europe) Switzerland North
+- (Europe) Italy North
+- (Middle East) Qatar Central
+- (Middle East) Israel Central
+- (Middle East) UAE North
+- (North America) East US
+- (North America) East US 2
+- (North America) West US 2
+- (North America) West US 3
+- (North America) Central US
+- (North America) South Central US
+- (North America) Mexico Central
+- (South America) Brazil South
+- (US Government) US Gov Virginia
 
 ## See also
 

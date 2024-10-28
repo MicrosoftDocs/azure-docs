@@ -3,16 +3,15 @@ title: "How to self-diagnose Azure Spring Apps with virtual networks"
 description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in virtual networks.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java
 ---
 
 # Self-diagnose running Azure Spring Apps in virtual networks
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 

@@ -4,13 +4,15 @@ description: Enable the Azure API Management self-hosted gateway to authenticate
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/22/2023
 ms.author: danlep
 ---
 
 # Use Microsoft Entra authentication for the self-hosted gateway
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) needs connectivity with its associated cloud-based API Management instance for reporting status, checking for and applying configuration updates, and sending metrics and events. 
 
@@ -97,7 +99,7 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
 
 ### Assign API Management Configuration API Access Validator Service Role 
 
-Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For detailed steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md). 
+Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For detailed steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.yml). 
 
 * Scope: The  resource group or subscription in which the API Management instance is deployed
 * Role: API Management Configuration API Access Validator Service Role

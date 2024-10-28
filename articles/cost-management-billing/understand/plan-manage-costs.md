@@ -104,7 +104,7 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and review Azure Advisor recommendations
 
-[Azure Advisor](../../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
+[Azure Advisor](/azure/advisor/advisor-overview) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
 
 :::image type="content" border="true" source="./media/plan-manage-costs/advisor-button.png" alt-text="Screenshot of Azure Advisor button in the Azure portal.":::
 
@@ -184,6 +184,7 @@ For some services, there are prerequisites for the SLA to apply. For example, vi
 
 For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
-## Next steps
+## Related content
+
 - Learn about using [spending limits](../manage/spending-limit.md) to prevent overspending.
 - Start [analyzing your Azure costs](../costs/quick-acm-cost-analysis.md).

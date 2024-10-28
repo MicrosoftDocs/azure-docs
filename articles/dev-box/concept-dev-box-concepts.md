@@ -15,9 +15,9 @@ ms.custom: template-concept
 
 This article describes the key concepts and components of Microsoft Dev Box to help you set up the service successfully.
 
-Microsoft Dev Box gives developers self-service access to preconfigured and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
+Microsoft Dev Box gives developers self-service access to preconfigured and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, manage security, and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
 
-Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
+Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. The services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
@@ -36,7 +36,7 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 ## Catalogs
 
-The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process.Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
+The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a *[quick start](https://github.com/microsoft/devcenter-catalog)*[ catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
 
 To learn how to create reusable customization tasks, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
 
@@ -52,7 +52,7 @@ You can configure projects for [Deployment Environments](../deployment-environme
 
 ## Dev box definition
 
-A dev box definition specifies a source image and size, including compute size and storage size. You can use a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. You can use dev box definitions across multiple projects in a dev center.
+A dev box definition specifies a source image and size, including compute size and storage size. Select a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. Dev Box supports client editions of Windows 10 and Windows 11. You can use dev box definitions across multiple projects in a dev center.
 
 ## Network connection
 

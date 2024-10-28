@@ -27,6 +27,8 @@
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
+  - name: Manage saving plan
+    href: manage-savings-plan.md
   - name: Renew a savings plan
     href: renew-savings-plan.md
   - name: Download price sheet
@@ -35,10 +37,8 @@
     items:
     - name: Permissions to view and manage
       href: permission-view-manage.md
-    - name: Who can buy a savings plan
-      href: buy-savings-plan.md#who-can-buy-a-savings-plan
-    - name: Manage saving plan
-      href: manage-savings-plan.md
+    - name: Permission to buy
+      href: permission-buy-savings-plan.md
   - name: Utilization and cost reports
     items:
     - name: View savings plan utilization

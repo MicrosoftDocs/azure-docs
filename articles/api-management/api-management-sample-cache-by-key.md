@@ -4,12 +4,15 @@ description: Learn how to cache items by key in Azure API Management. You can mo
 services: api-management
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.date: 05/19/2022
 ms.author: danlep
 
 ---
 # Custom caching in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
 
 ## Architecture

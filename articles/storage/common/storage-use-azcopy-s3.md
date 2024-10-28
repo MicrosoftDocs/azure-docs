@@ -40,7 +40,7 @@ Gather your AWS access key and secret access key, and then set these environment
 
 | Operating system | Command  |
 |--------|-----------|
-| **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
+| **Windows** | PowerShell:`$env:AWS_ACCESS_KEY_ID=<access-key>`<br>`$env:AWS_SECRET_ACCESS_KEY=<secret-access-key>` <br> In a command prompt use: `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 | **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 

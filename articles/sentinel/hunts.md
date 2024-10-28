@@ -5,16 +5,23 @@ description: Learn how to use hunts for conducting end-to-end proactive threat h
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 03/12/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to conduct end-to-end threat hunting so that I can identify and mitigate undetected threats and malicious behaviors in my environment while managing all components of the hunting process.
+
 ---
 
-# Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel
+# Conduct end-to-end proactive threat hunting in Microsoft Sentinel
 
 Proactive threat hunting is a process where security analysts seek out undetected threats and malicious behaviors. By creating a hypothesis, searching through data, and validating that hypothesis, they determine what to act on. Actions can include creating new detections, new threat intelligence, or spinning up a new incident.
 
-Learn how to use the **Hunts** feature, which provides an end to end hunting experience within Microsoft Sentinel.
+Use the end to end hunting experience within Microsoft Sentinel to:
 
-Common use cases:
 - Proactively hunt based on specific MITRE techniques, potentially malicious activity, recent threats, or your own custom hypothesis.
 - Use security-researcher-generated hunting queries or custom hunting queries to investigate malicious behavior.
 - Conduct your hunts using multiple persisted-query tabs that enable you to keep context over time.
@@ -23,6 +30,8 @@ Common use cases:
 - Act on results by creating new analytic rules, new incidents, new threat indicators, and running playbooks.
 - Keep track of your new, active, and closed hunts in one place.
 - View metrics based on validated hypotheses and tangible results.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 In order to use the hunts feature, you either need to be assigned a built-in Microsoft Sentinel role, or a custom Azure RBAC role. Here are your options:
@@ -37,35 +46,36 @@ In order to use the hunts feature, you either need to be assigned a built-in Mic
 Defining a hypothesis is an open ended, flexible process and can include any idea you want to validate. Common hypotheses include:
 
 - Suspicious behavior - Investigate potentially malicious activity that's visible in your environment to determine if an attack is occurring.
-- New threat campaign - Look for types of malicious activity based on newly discovered threat actors, techniques, or vulnerabilities. This might be something you've heard about in a security news article.
+- New threat campaign - Look for types of malicious activity based on newly discovered threat actors, techniques, or vulnerabilities. This might be something you heard about in a security news article.
 - Detection gaps - Increase your detection coverage using the MITRE ATT&CK map to identify gaps.
 
 Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. When you create a hunt, initiate it with preselected hunting queries or add queries as you progress. Here are recommendations for preselected queries based on the most common hypotheses.
 
 ### Hypothesis - Suspicious behavior
-1. Navigate to the Hunting page **Queries** tab. With a well-established base of queries installed, running all your queries is the recommended method for identifying potentially malicious behaviors. 
 
-1. Select **Run All queries** > wait for the queries to execute. This process may take a while. 
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+
+1. Select the **Queries** tab. To identify potentially malicious behaviors, run all the queries.
+1. Select **Run All queries** > wait for the queries to execute. This process might take a while.
 1. Select **Add filter** > **Results** > unselect the checkboxes "!", "N/A", "-", and "0" values > **Apply**
     :::image type="content" source="media/hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3.":::
 
-1. Sort these results by the **Results Delta** column to see what has changed most recently. These results provide initial guidance on the hunt.
+1. Sort these results by the **Results Delta** column to see what changed most recently. These results provide initial guidance on the hunt.
 
 
 ### Hypothesis - New threat campaign
-Content hub offers threat campaign and domain-based solutions to hunt for specific attacks. 
 
-1. For example, install the "Log4J Vulnerability Detection" or the "Apache Tomcat" solutions from Microsoft.
+The content hub offers threat campaign and domain-based solutions to hunt for specific attacks. In the following steps, you install one of these types of solutions.
+
+1. Go to the **Content Hub**.
+1. Install a threat campaign or domain-based solution like the **Log4J Vulnerability Detection** or **Apache Tomcat**.
 
     :::image type="content" source="media/hunts/content-hub-solutions.png" alt-text="Screenshot shows the content hub in grid view with the Log4J and Apache solutions selected." lightbox="media/hunts/content-hub-solutions.png":::
 
-1. Once installed, create a hunt directly from the solution by selecting the package > **Actions** > **Create hunt (Preview)**.
-
-    :::image type="content" source="media/hunts/add-content-queries-to-hunt.png" alt-text="Screenshot shows action menu options from content hub solutions page.":::
-
-1. If you already have a hunt started, select **Add to existing hunt (Preview)** to add the queries from the solution to an existing hunt.
-1. Alternatively, search for queries from these solutions in the Hunting **Queries** tab. Search by solution name, or filtering by **Source Name** of the solution.
-
+1. After the solution is installed, in Microsoft Sentinel, go to **Hunting**.
+1. Select the **Queries** tab. 
+1. Search by solution name, or filtering by **Source Name** of the solution.
+1. Select the query and **Run query**.
 
 ### Hypothesis - Detection gaps
 The MITRE ATT&CK map helps you identify specific gaps in your detection coverage. Use predefined hunting queries for specific MITRE ATT&CK techniques as a starting point to develop new detection logic.
@@ -86,7 +96,7 @@ The MITRE ATT&CK map helps you identify specific gaps in your detection coverage
 ## Create a Hunt
 There are two primary ways to create a hunt.
 
-1. If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. All the queries you selected are cloned for this new hunt.
+1. If you started with a hypothesis where you selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. All the queries you selected are cloned for this new hunt.
 
     :::image type="content" source="media/hunts/create-new-hunt.png" alt-text="Screenshot shows queries selected and the create new hunt menu option selected.":::
 
@@ -98,7 +108,7 @@ There are two primary ways to create a hunt.
 
 1. Select **Create** to get started.
 
-    :::image type="content" source="media/hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status and hypothesis state.":::
+    :::image type="content" source="media/hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status, and hypothesis state.":::
 
 
 ## View hunt details
@@ -113,7 +123,7 @@ There are two primary ways to create a hunt.
     :::image type="content" source="media/hunts/view-hunt-details.png" alt-text="Screenshot showing the hunt details." lightbox="media/hunts/view-hunt-details.png":::
  
 ### Queries tab
-The **Queries** tab contains hunting queries specific to this hunt. These queries are clones of the originals, independent from all others in the workspace and can be updated or deleted without impacting your overall set of hunting queries or queries in other hunts. 
+The **Queries** tab contains hunting queries specific to this hunt. These queries are clones of the originals, independent from all others in the workspace. Update or delete them without impacting your overall set of hunting queries or queries in other hunts.
 
 #### Add a query to the hunt
 1. Select **Query Actions** > **add queries to hunt**
@@ -146,17 +156,18 @@ This feature allows you to see hunting query results in the Log Analytics search
 1. These LA query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
 
 ## Add a bookmark
+
 When you find interesting results or important rows of data, add those results to the hunt by creating a bookmark. For more information, see [Use hunting bookmarks for data investigations](bookmarks.md).
 
-1. Select the desired row or rows. Select the Add bookmark action, right above the Results table.
+1. Select the desired row or rows. 
+1. Above the results table, select **Add bookmark**.
     :::image type="content" source="media/hunts/add-bookmark.png" alt-text="Screenshot showing add bookmark pane with optional fields filled in." lightbox="media/hunts/add-bookmark.png":::
 
-   Optional steps:
-1. Name the bookmark(s), 
-1. Set the event time column
-1. Map entity identifiers
-1. Set MITRE tactics and techniques
-1. Add tags, and add notes. 
+1. Name the bookmark.
+1. Set the event time column.
+1. Map entity identifiers.
+1. Set MITRE tactics and techniques.
+1. Add tags, and add notes.
 
     The bookmarks preserve the specific row results, KQL query, and time range that generated the result.
 
@@ -164,7 +175,8 @@ When you find interesting results or important rows of data, add those results t
 
 
 ## View bookmarks
-1. Navigate to your hunt's bookmark tab to view your bookmarks with previously created details.
+
+1. Navigate to the hunt's bookmark tab to view your bookmarks.
 
     :::image type="content" source="media/hunts/view-bookmark.png" alt-text="Screenshot showing a bookmark with all its details and the hunts action menu open." lightbox="media/hunts/view-bookmark.png":::
 
@@ -177,6 +189,7 @@ When you find interesting results or important rows of data, add those results t
     - Select the **Edit** button to update the tags, MITRE tactics and techniques, and notes.
 
 ## Interact with entities
+
 1. Navigate to your hunt's **Entities** tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. 
 1. Select entity names to visit the corresponding UEBA entity page. 
 1. Right-click on the entity to take actions appropriate to the entity types, such as adding an IP address to TI or running an entity type specific playbook.
@@ -196,6 +209,7 @@ Comments are an excellent place to collaborate with colleagues, preserve notes, 
 
 
 ## Create incidents
+
 There are two choices for incident creation while hunting. 
 
 Option 1: Use bookmarks.
@@ -213,12 +227,13 @@ Option 2: Use the hunts **Actions**.
 
     :::image type="content" source="media/hunts/create-incident-actions-menu.png" alt-text="Screenshot showing hunts actions menu from the bookmarks window.":::
 
-1. During the **Add bookmarks** step, use the **Add bookmark** action to choose bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
+1. During the **Add bookmarks** step, use the **Add bookmark** action to choose bookmarks from the hunt to add to the incident. You're limited to bookmarks that aren't assigned to an incident.
 1. After the incident is created, it will be linked under the **Related incidents** list for that hunt.
 
 
 ## Update status
-1. When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis state.
+
+1. When you captured enough evidence to validate or invalidate your hypothesis, update your hypothesis state.
 
     :::image type="content" source="media/hunts/set-hypothesis.png" alt-text="Screenshot shows hypothesis state menu selection.":::
 
@@ -229,13 +244,14 @@ Option 2: Use the hunts **Actions**.
 These status updates are visible on the main Hunting page and are used to [track metrics](#track-metrics).
 
 ## Track metrics
+
 Track tangible results from hunting activity using the metrics bar in the **Hunts** tab. Metrics show the number of validated hypotheses, new incidents created, and new analytic rules created. Use these results to set goals or celebrate milestones of your hunting program.
- 
+
 :::image type="content" source="media/hunts/track-metrics.png" alt-text="Screenshot shows hunting metrics.":::
 
-
 ## Next steps
-In this article you learned how to run a hunting investigation with the hunts feature in Microsoft Sentinel.
+
+In this article, you learned how to run a hunting investigation with the hunts feature in Microsoft Sentinel.
 
 For more information, see:
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

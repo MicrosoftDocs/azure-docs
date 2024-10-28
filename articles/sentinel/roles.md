@@ -3,37 +3,48 @@ title: Roles and permissions in Microsoft Sentinel
 description: Learn how Microsoft Sentinel assigns permissions to users using Azure role-based access control, and identify the allowed actions for each role.
 author: yelevin
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 03/07/2024
 ms.author: yelevin
+ms.collection: usx-security
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security operations manager, I want to assign appropriate roles and permissions in Microsoft Sentinel so that my team can effectively manage incidents, automate responses, and access necessary data without compromising security.
+
 ---
 
 # Roles and permissions in Microsoft Sentinel
 
-This article explains how Microsoft Sentinel assigns permissions to user roles and identifies the allowed actions for each role. Microsoft Sentinel uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
+This article explains how Microsoft Sentinel assigns permissions to user roles and identifies the allowed actions for each role. Microsoft Sentinel uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-Use Azure RBAC to create and assign roles within your security operations team to grant appropriate access to Microsoft Sentinel. The different roles give you fine-grained control over what Microsoft Sentinel users can see and do. Azure roles can be assigned in the Microsoft Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Microsoft Sentinel inherits.
+Use Azure RBAC to create and assign roles within your security operations team to grant appropriate access to Microsoft Sentinel. The different roles give you fine-grained control over what Microsoft Sentinel users can see and do. Azure roles can be assigned in the Microsoft Sentinel workspace directly, or in a subscription or resource group that the workspace belongs to, which Microsoft Sentinel inherits.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Roles and permissions for working in Microsoft Sentinel
 
+Grant the appropriate access to the data in your workspace by using built-in roles. You might need to grant more roles or specific permissions depending on a user's job tasks.
+
+
 ### Microsoft Sentinel-specific roles
 
-**All Microsoft Sentinel built-in roles grant read access to the data in your Microsoft Sentinel workspace.**
+All Microsoft Sentinel built-in roles grant read access to the data in your Microsoft Sentinel workspace.
 
 - [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) can view data, incidents, workbooks, and other Microsoft Sentinel resources.
 
-- [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) can, in addition to the above, manage incidents (assign, dismiss, etc.).
+- [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) can, in addition to the permissions for Microsoft Sentinel Reader, manage incidents like assign, dismiss, and change incidents.
 
-- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the above, install and update solutions from content hub, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
+- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the permissions for Microsoft Sentinel Responder, install and update solutions from content hub, and create and edit Microsoft Sentinel resources like workbooks, analytics rules, and more.
 
 - [**Microsoft Sentinel Playbook Operator**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) can list, view, and manually run playbooks.
 
 - [**Microsoft Sentinel Automation Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-automation-contributor) allows Microsoft Sentinel to add playbooks to automation rules. It isn't meant for user accounts.
 
-> [!NOTE]
->
-> - For best results, assign these roles to the **resource group** that contains the Microsoft Sentinel workspace. This way, the roles apply to all the resources that support Microsoft Sentinel, as those resources should also be placed in the same resource group.
->
-> - As another option, assign the roles directly to the Microsoft Sentinel **workspace** itself. If you do this, you must also assign the same roles to the SecurityInsights **solution resource** in that workspace. You might need to assign them to other resources as well, and you will need to constantly manage role assignments to resources.
+For best results, assign these roles to the **resource group** that contains the Microsoft Sentinel workspace. This way, the roles apply to all the resources that support Microsoft Sentinel, as those resources should also be placed in the same resource group.
+
+As another option, assign the roles directly to the Microsoft Sentinel **workspace** itself. If you do that, you must assign the same roles to the SecurityInsights **solution resource** in that workspace. You might also need to assign them to other resources, and continually manage role assignments to the resources.
 
 ### Other roles and permissions
 
@@ -59,7 +70,7 @@ Users with particular job requirements might need to be assigned other roles or 
 
 - **Allow guest users to assign incidents**
 
-    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the **Microsoft Sentinel Responder** role. Note that the Directory Reader role is *not* an Azure role but a Microsoft Entra role, and that regular (non-guest) users have this role assigned by default.
+    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) role to the user, in addition to the **Microsoft Sentinel Responder** role. The Directory Reader role isn't an Azure role but a Microsoft Entra role, and regular (nonguest) users have this role assigned by default.
 
 - **Create and delete workbooks**
 
@@ -67,7 +78,7 @@ Users with particular job requirements might need to be assigned other roles or 
 
 ### Azure and Log Analytics roles you might see assigned
 
-When you assign Microsoft Sentinel-specific Azure roles, you might come across other Azure and Log Analytics roles that might have been assigned to users for other purposes. Note that these roles grant a wider set of permissions that include access to your Microsoft Sentinel workspace and other resources:
+When you assign Microsoft Sentinel-specific Azure roles, you might come across other Azure and Log Analytics roles that might be assigned to users for other purposes. These roles grant a wider set of permissions that include access to your Microsoft Sentinel workspace and other resources:
 
 - **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Microsoft Sentinel resources.
 
@@ -97,7 +108,7 @@ Review the [role recommendations](#role-and-permissions-recommendations) for whi
 
 - **Log Analytics RBAC**. You can use the Log Analytics advanced Azure RBAC across the data in your Microsoft Sentinel workspace. This includes both data type-based Azure RBAC and resource-context Azure RBAC. To learn more:
 
-    - [Manage log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md#azure-rbac)
+    - [Manage log data and workspaces in Azure Monitor](/azure/azure-monitor/logs/manage-access#azure-rbac)
     - [Resource-context RBAC for Microsoft Sentinel](resource-context-rbac.md)
     - [Table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
 
@@ -115,16 +126,13 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
 
-
-> [!TIP]
-> More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles may be required, such as the Global Administrator or Security Administrator roles, to set up data connectors for services in other Microsoft portals.
->
+More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Security Administrator role, to set up data connectors for services in other Microsoft portals.
 
 ## Resource-based access control
 
-You might have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you might want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
+You might have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you might want to provide a team outside of security operations with access to the Windows event data for the servers they own.
 
-In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Microsoft Sentinel workspace or specific Microsoft Sentinel features. This method is also known as setting up resource-context RBAC. [Learn more about RBAC](resource-context-rbac.md)
+In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Microsoft Sentinel workspace or specific Microsoft Sentinel features. This method is also known as setting up resource-context RBAC. For more information, see [Manage access to Microsoft Sentinel data by resource](resource-context-rbac.md).
 
 ## Next steps
 

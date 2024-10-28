@@ -3,7 +3,7 @@ title: 'Tutorial: Create and use an Apache Kafka service for development'
 description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/16/2023
@@ -379,7 +379,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     # [Bash](#tab/bash)
 
     ```bash
-        az containerapp service kafka create \
+        az containerapp add-on kafka create \
         --name "$KAFKA_SVC" \
         --resource-group "$RESOURCE_GROUP" \
         --environment "$ENVIRONMENT"

@@ -1,7 +1,7 @@
 ---
 title: Device infrastructure and connectivity
-description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC-UA.
-ms.service: iot
+description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC UA.
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
@@ -53,7 +53,7 @@ A device can establish a secure connection to an IoT hub:
 
 The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint where they discover their connection details. To learn more, see [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
-To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](./concepts-manage-device-reconnections.md).
 
 ## Device connection strings
 

@@ -1,7 +1,7 @@
 ---
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: include
 ms.date: 10/09/2023
 ---
