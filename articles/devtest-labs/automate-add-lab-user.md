@@ -139,7 +139,7 @@ First, create a parameter file (for example: azuredeploy.parameters.json) that p
   "contentVersion": "1.0.0.0",
   "parameters": {
     "principalId": {
-      "value": "11111111-1111-1111-1111-111111111111"
+      "value": "aaaaaaaa-bbbb-cccc-1111-222222222222"
     },
     "labName": {
       "value": "MyLab"
@@ -163,7 +163,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
+New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "aaaaaaaa-bbbb-cccc-1111-222222222222"
 ```
 
 ## Use Azure PowerShell

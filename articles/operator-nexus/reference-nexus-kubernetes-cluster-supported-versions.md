@@ -99,6 +99,7 @@ Note the following important changes to make before you upgrade to any of the av
 |--------------------|----------------|-----------------|
 | Volume orchestration connectivity is TLS encrypted | Beginning from 1.28.9-1, 1.28.0-5, 1.27.9-1, 1.27.3-5, 1.26.12-1, 1.26.6-5, 1.25.11-5 and 1.25.6-7  | |
 | Cluster nodes are Azure Arc-enabled | Beginning from 1.25.6-4, 1.25.11-2, 1.26.3-4, 1.26.6-2, 1.27.1-4, 1.27.3-2 and 1.28.0-2 | |
+| nexus-shared volumes have their capacity attribute enforced as a volume size limit | Beginning from v1.27.13-3, v1.27.9-5, v1.28.11-4, v1.28.12-3, v1.29.6-4, v1.29.7-3, v1.30.3-1 | |
 
 ## Upgrading Kubernetes versions
 
@@ -233,7 +234,7 @@ Nexus Kubernetes clusters don't support direct upgrades between LTS versions. To
 
 ### How does Microsoft notify me of new Kubernetes versions?
 
-This document is updated periodically with planned dates of the new Kubernetes versions. 
+This document is updated periodically with planned dates of the new Kubernetes versions.
 
 ### How often should I expect to upgrade Kubernetes versions to stay in support?
 

@@ -44,6 +44,12 @@
             "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
             "redirect_url": "howto-use-azure-policy",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "troubleshoot-enable-node-down-cleaner.md",
+            "redirect_url": "concepts-storage",
+
+            "redirect_document_id": false
         }
     ]
 }

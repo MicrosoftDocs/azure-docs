@@ -170,7 +170,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
     ```Powershell
     Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
-    New-MgServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "Confidential VM Orchestrator"
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
@@ -194,7 +194,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
 
         ```azurecli-interactive
-        $cvmAgent = az ad sp show --id "00001111-aaaa-2222-bbbb-3333cccc4444" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
         az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
@@ -210,13 +210,13 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential VM Orchestrator` permissions to managed HSM.
 
         ```azurecli-interactive
-        $cvmAgent = az ad sp show --id "00001111-aaaa-2222-bbbb-3333cccc4444" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
         az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName
         ```
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
+    1. Prepare and download the key release policy to your local disk.
     1. Create a new key.
 
         ```azurecli-interactive
@@ -232,7 +232,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid
         ```
 
-    1. Deploy a Disk Encryption Set (DES) using a [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) (`deployDES.json`).
+    1. Deploy a Disk Encryption Set (DES) using a DES ARM template (`deployDES.json`).
 
         ```azurecli-interactive
         $desName = <name of DES>
@@ -260,7 +260,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
  1. (Optional) Create a new key from an Azure Managed HSM.
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
+    1. Prepare and download the key release policy to your local disk.
     1. Create the new key.
 
         ```azurecli-interactive
@@ -302,7 +302,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>
