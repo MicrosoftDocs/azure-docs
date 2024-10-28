@@ -5,9 +5,10 @@ author: timlt
 ms.author: timlt
 ms.date: 10/11/2024
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Security practices for Azure IoT device manufacturers

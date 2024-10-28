@@ -5,7 +5,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 8/8/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 # Introduction to configuring package repository
 

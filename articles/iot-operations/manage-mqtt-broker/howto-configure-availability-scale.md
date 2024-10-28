@@ -7,9 +7,10 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 09/09/2024
+ms.date: 10/18/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
+ms.service: azure-iot-operations
 ---
 
 # Configure core MQTT broker settings
@@ -90,10 +91,10 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations Preview deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations Preview deploys a default Broker resource named `default`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
-kubectl get broker broker -n azure-iot-operations -o yaml
+kubectl get broker default -n azure-iot-operations -o yaml
 ```
 
 ### Modify default broker by redeploying
@@ -103,16 +104,16 @@ Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-
 To delete the default broker, run the following command:
 
 ```bash
-kubectl delete broker broker -n azure-iot-operations
+kubectl delete broker default -n azure-iot-operations
 ```
 
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
+Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `default` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
   memoryProfile: medium
@@ -135,7 +136,7 @@ kubectl apply -f <path-to-yaml-file>
 
 ## Configure MQTT broker advanced settings
 
-The broker advanced settings include client configurations, encryption of internal traffic, and certificate rotations. For more information on the advanced settings, see the [Broker]() API reference.
+The broker advanced settings include client configurations, encryption of internal traffic, and certificate rotations. For more information on the advanced settings, see the [Broker](/rest/api/iotoperations/broker/create-or-update) API reference.
 
 Here's an example of a *Broker* with advanced settings:
 
@@ -143,7 +144,7 @@ Here's an example of a *Broker* with advanced settings:
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
   advanced:

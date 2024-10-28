@@ -129,8 +129,6 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
-      - name: Upload MQTT data to a lakehouse
-        href: view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md
     - name: Configure observability and monitoring
       items:
       - name: Deploy observability resources with a script
@@ -159,7 +157,7 @@ items:
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials
       items:
-      - name: MQTT bridge
+      - name: Bi-directional communications with Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:

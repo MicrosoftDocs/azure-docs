@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-data-extract` command for Azure Operator Nexus
 description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting and diagnostic purposes.
-author: DanCrank
-ms.author: danielcrank
+author: eak13
+ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 10/16/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 There might be situations where a user needs to investigate and resolve issues with an on-premises bare metal machine. Azure Operator Nexus provides a prescribed set of data extract commands via `az networkcloud baremetalmachine run-data-extract`. These commands enable users to get diagnostic data from a bare metal machine.
 
-The command produces an output file containing the results of the data extract. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There's a deprecated method of sending data to the Cluster Manager storage account if a storage account hasn't been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
+The command produces an output file containing the results of the data extract. By default, the data is sent to the Cluster Manager storage account. There's also a preview method where users can configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output.
 
 ## Prerequisites
 
@@ -22,17 +22,51 @@ The command produces an output file containing the results of the data extract. 
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
-## Create and configure storage resources (customer-managed storage)
+## Verify access to the Cluster Manager storage account
+
+> [!NOTE]
+> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
+
+If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
+
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+
+## **PREVIEW:** Send command output to a user specified storage account
+
+> [!IMPORTANT]
+> Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
+
+### Create and configure storage resources
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-2. In the storage account, create a blob storage container. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-3. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity. For more information on managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+1. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output.
+   1. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity.
+   1. For more information on managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+   1. If using the Cluster's system assigned identity, the system assigned identity needs to be added to the cluster before it can be granted access.
+   1. When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
 
-When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
+### Configure the cluster to use a user-assigned managed identity for storage access
 
-## Configure the cluster to use a user-assigned managed identity for storage access
+Use this command to create a cluster with a user managed storage account and user-assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
 
-Use this command to configure the cluster for a user-assigned identity:
+```azurecli-interactive
+az networkcloud cluster create --name "<cluster-name>" \
+  --resource-group "<cluster-resource-group>" \
+  ...
+  --mi-user-assigned "<user-assigned-identity-resource-id>" \
+  --command-output-settings identity-type="UserAssignedIdentity" \
+  identity-resource-id="<user-assigned-identity-resource-id>" \
+  container-url="<container-url>" \
+  ...
+  --subscription "<subscription>"
+```
+
+Use this command to configure an existing cluster for a user provided storage account and user-assigned identity. The update command can also be used to change the storage account location and identity if needed.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
@@ -44,11 +78,22 @@ az networkcloud cluster update --name "<cluster-name>" \
   --subscription "<subscription>"
 ```
 
-The identity resource ID can be found by clicking "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
+### Configure the cluster to use a system-assigned managed identity for storage access
 
-## Configure the cluster to use a system-assigned managed identity for storage access
+Use this command to create a cluster with a user managed storage account and system assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
 
-Use this command to configure the cluster to use its own system-assigned identity:
+```azurecli-interactive
+az networkcloud cluster create --name "<cluster-name>" \
+  --resource-group "<cluster-resource-group>" \
+  ...
+  --mi-system-assigned true \
+  --command-output-settings identity-type="SystemAssignedIdentity" \
+  container-url="<container-url>" \
+  ...
+  --subscription "<subscription>"
+```
+
+Use this command to configure an existing cluster for a user provided storage account and to use its own system-assigned identity. The update command can also be used to change the storage account location.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
@@ -61,7 +106,7 @@ az networkcloud cluster update --name "<cluster-name>" \
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
-## Clear the cluster's CommandOutputSettings
+### Clear the cluster's CommandOutputSettings
 
 The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
@@ -75,15 +120,41 @@ az rest --method patch \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
 
-## Verify Storage Account access (cluster manager storage)
+### View the principal ID for the managed identity
 
-If using the deprecated Cluster Manager storage method, verify you have access to the Cluster Manager's storage account
+The identity resource ID can be found by selecting "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
 
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+The CLI can also be used to view the identity and the associated principal ID data within the cluster.
+
+Example:
+
+```console
+az networkcloud cluster show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Cluster Name>
+```
+
+System-assigned identity example:
+
+```
+    "identity": {
+        "principalId": "2cb564c1-b4e5-4c71-bbc1-6ae259aa5f87",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "type": "SystemAssigned"
+    },
+```
+
+User-assigned identity example:
+
+```
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
+                "clientId": "e67dd610-99cf-4853-9fa0-d236b214e984",
+                "principalId": "8e6d23d6-bb6b-4cf3-a00f-4cd640ab1a24"
+            }
+        }
+    },
+```
 
 ## Execute a run command
 
@@ -136,7 +207,7 @@ In the response, the operation performs asynchronously and returns an HTTP statu
 
 ### Hardware Support Data Collection
 
-This example executes the `hardware-support-data-collection` command and get `SysInfo` and `TTYLog` logs from the Dell Server. The script executes a `racadm supportassist collect` command on the designated baremetal machine. The resulting tar.gz file contains the zipped extract command file outputs in `hardware-support-data-<timestamp>.zip`.
+This example executes the `hardware-support-data-collection` command and get `SysInfo` and `TTYLog` logs from the Dell Server. The script executes a `racadm supportassist collect` command on the designated bare metal machine. The resulting tar.gz file contains the zipped extract command file outputs in `hardware-support-data-<timestamp>.zip`.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -202,7 +273,7 @@ Archive:  TSR20240227164024_FM56PK3.pl.zip
 Data is collected with the `mde-agent-information` command and formatted as JSON
 to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file is found
 in the data extract zip file located in the storage account. The script executes a
-sequence of `mdatp` commands on the designated baremetal machine.
+sequence of `mdatp` commands on the designated bare metal machine.
 
 This example executes the `mde-agent-information` command without arguments.
 
@@ -591,12 +662,12 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
 
 The CVE data is refreshed per container image every 24 hours or when there's a change to the Kubernetes resource referencing the image.
 
-## Viewing the Output
+## Viewing the output
 
-The command provides another command (if using customer provided storage) or a link (if using cluster manager storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
 
 > [!WARNING]
 > Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
 
 > [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.

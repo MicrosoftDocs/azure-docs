@@ -96,7 +96,7 @@ The response contains the authorization key and status:
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
 "name": "MyAuthorization1",
 "provisioningState": "Succeeded",
 "resourceGroup": "ExpressRouteResourceGroup"

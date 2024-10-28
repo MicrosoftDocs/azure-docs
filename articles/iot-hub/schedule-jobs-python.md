@@ -5,7 +5,7 @@ description: Use the device SDK for Python to schedule a job that invokes a dire
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: how-to
 ms.date: 09/17/2022

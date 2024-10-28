@@ -1755,8 +1755,6 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Questions & Answers
     href: /answers/questions/topics/single/25423.html
-  - name: Monthly updates archive
-    href: whats-new-archive.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow

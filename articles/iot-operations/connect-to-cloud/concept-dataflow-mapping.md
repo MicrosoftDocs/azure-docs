@@ -9,6 +9,7 @@ ms.date: 09/24/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
+ms.service: azure-iot-operations
 ---
 
 # Map data by using dataflows

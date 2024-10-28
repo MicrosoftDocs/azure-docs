@@ -13,6 +13,9 @@ ms.author: greglin
 
 Azure Application Gateway v2 [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
+
 ## YAML for WebSocket server deployment
 
 The following Kubernetes deployment YAML shows the minimum configuration for deploying a WebSocket server, which is the same as deploying a regular web server:
@@ -73,7 +76,7 @@ spec:
               servicePort: 80
 ```
 
-Assuming that all the prerequisites are fulfilled, and you have an Application Gateway instance controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway instance's public IP address and the `ws.contoso.com` domain.
+Assuming that all the prerequisites are fulfilled, and you have an Application Gateway deployment controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway deployment's public IP address and the `ws.contoso.com` domain.
 
 The following cURL command would test the WebSocket server deployment:
 
@@ -98,4 +101,4 @@ To avoid the `502 Bad Gateway` error, you might need to add an HTTP `GET` handle
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

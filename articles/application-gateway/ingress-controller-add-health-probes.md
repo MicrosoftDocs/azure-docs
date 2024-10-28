@@ -13,6 +13,9 @@ ms.author: greglin
 
 By default, the Application Gateway Ingress Controller (AGIC) provisions an HTTP `GET` probe for exposed Azure Kubernetes Service (AKS) pods. You can customize the probe properties by adding a [readiness or liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your deployment or pod specification.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
+
 ## Code for adding a readiness or liveness probe
 
 ```yaml
@@ -68,4 +71,4 @@ Any property that the readiness or liveness probe can't infer uses the following
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

@@ -106,3 +106,173 @@ Output schemas are associated with dataflow destinations are only used for dataf
 Note: The Delta schema format is used for both Parquet and Delta output.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
+
+To upload an output schema, see [Upload schema](#upload-schema).
+
+## Upload schema
+
+Input schema can be uploaded in the operations experience portal as [mentioned previously](#input-schema). You can also upload a schema using a Bicep template. 
+
+### Example with Bicep template
+
+Create a Bicep `.bicep` file, and add the schema content to it at the top as a variable. This example is a Delta schema that corresponds to the OPC UA data from [quickstart](../get-started-end-to-end-sample/quickstart-add-assets.md).
+
+```bicep
+// Delta schema content matching OPC UA data from quickstart
+// For ADLS Gen2, ADX, and Fabric destinations
+var opcuaSchemaContent = '''
+{
+  "$schema": "Delta/1.0",
+  "type": "object",
+  "properties": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "temperature",
+        "type": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "SourceTimestamp",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "Value",
+              "type": "integer",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "StatusCode",
+              "type": {
+                "type": "struct",
+                "fields": [
+                  {
+                    "name": "Code",
+                    "type": "integer",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "Symbol",
+                    "type": "string",
+                    "nullable": true,
+                    "metadata": {}
+                  }
+                ]
+              },
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Tag 10",
+        "type": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "SourceTimestamp",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "Value",
+              "type": "integer",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "StatusCode",
+              "type": {
+                "type": "struct",
+                "fields": [
+                  {
+                    "name": "Code",
+                    "type": "integer",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "Symbol",
+                    "type": "string",
+                    "nullable": true,
+                    "metadata": {}
+                  }
+                ]
+              },
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  }
+}
+'''
+```
+
+Then, define schema resource along with pointers to the existing Azure IoT Operation instance, custom location, and schema registry resources that you have from deploying Azure IoT Operations.
+
+```bicep
+// Replace placeholder values with your actual resource names
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
+
+// Pointers to existing resources from AIO deployment
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
+  name: schemaRegistryName
+}
+
+// Name and version of the schema
+param opcuaSchemaName string = 'opcua-output-delta'
+param opcuaSchemaVer string = '1'
+
+// Define the schema resource to be created and instantiate a version
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+  parent: schemaRegistry
+  name: opcuaSchemaName
+  properties: {
+    displayName: 'OPC UA Delta Schema'
+    description: 'This is a OPC UA delta Schema'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+  parent: opcSchema
+  name: opcuaSchemaVer
+  properties: {
+    description: 'Schema version'
+    schemaContent: opcuaSchemaContent
+  }
+}
+```
+
+After you've defined the schema content and resources, you can deploy the Bicep template to create the schema in the schema registry.
+
+```azurecli
+az stack group create --name <DEPLOYMENT_NAME> --resource-group 
+<RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou 
+deleteResources --yes
+```
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)
