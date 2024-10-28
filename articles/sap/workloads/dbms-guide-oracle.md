@@ -98,8 +98,8 @@ The table below details the support status
 | Azure Files NFS | Not supported | | |
 | Azure files SMB | Not supported | | |
 
-<sup>1</sup> Azure Premium SSD v2 doesn't have predefined storage sizes.  There's no need to allocate multiple disks within an ASM Disk Group or LVM VG.  It's recommended to allocate a single Premium SSD v2 disk with the required size, throughput, and IOPS per ASM Disk Group
-<sup>2</sup> 512e is supported on Premium SSD v2 for Windows systems.  512e configurations are't recommended for Linux customers.  Migrate to 4K Native using procedure in MOS 512/512e sector size to 4K Native Review (Doc ID 1133713.1)
+1. Azure Premium SSD v2 doesn't have predefined storage sizes.  There's no need to allocate multiple disks within an ASM Disk Group or LVM VG. It's recommended to allocate a single Premium SSD v2 disk with the required size, throughput, and IOPS per ASM Disk Group
+2. 512e is supported on Premium SSD v2 for Windows systems.  512e configurations are't recommended for Linux customers. Migrate to 4K Native using procedure in MOS 512/512e sector size to 4K Native Review (Doc ID 1133713.1)
 
 Other considerations that apply list like:
 1. No support for DIRECTIO with 4K Native sector size. Recommended settings for FILESYSTEMIO_OPTIONS for LVM configurations:
@@ -441,13 +441,12 @@ At the time, of writing ASM for Windows customers on Azure isn't supported. The 
 |-----------------------------------------|----------|-----------------------|--------------------------|
 | E:\oracle\\\<SID\>\origlogaA & mirrlogB | Premium  | None                  | Not needed               |
 | F:\oracle\\\<SID\>\origlogaB & mirrlogA | Premium  | None                  | Not needed               |
-| G:\oracle\\\<SID\>\sapdata1...n         | Premium  | Read-only<sup>2</sup> | Recommended              |
-| H:\oracle\\\<SID\>\oraarch<sup>3</sup>  | Premium  | None                  | Not needed               |
+| G:\oracle\\\<SID\>\sapdata1...n         | Premium  | None                  | Recommended              |
+| H:\oracle\\\<SID\>\oraarch<sup>2</sup>  | Premium  | None                  | Not needed               |
 | I:\Oracle Home, saptrace, ...           | Premium  | None                  | None                     |
 
 1. Striping: Windows Storage Spaces
-2. During R3load migrations, the Host Cache option for SAPDATA should be set to None
-3. oraarch: Windows Storage Spaces is optional
+2. oraarch: Windows Storage Spaces is optional
 
 The disk selection for hosting Oracle's online redo logs is driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
@@ -459,13 +458,12 @@ The disk selection for hosting Oracle's online redo logs is driven by IOPS requi
 | F:\oracle\\\<SID\>\origlogaB           | Premium  | None                  | Can be used              |
 | G:\oracle\\\<SID\>\mirrlogAB           | Premium  | None                  | Can be used              |
 | H:\oracle\\\<SID\>\mirrlogBA           | Premium  | None                  | Can be used              |
-| I:\oracle\\\<SID\>\sapdata1...n        | Premium  | Read-only<sup>2</sup> | Recommended              |
-| J:\oracle\\\<SID\>\oraarch<sup>3</sup> | Premium  | None                  | Not needed               |
+| I:\oracle\\\<SID\>\sapdata1...n        | Premium  | None                  | Recommended              |
+| J:\oracle\\\<SID\>\oraarch<sup>2</sup> | Premium  | None                  | Not needed               |
 | K:\Oracle Home, saptrace, ...          | Premium  | None                  | None                     |
 
 1. Striping: Windows Storage Spaces
-2. During R3load migrations, the Host Cache option for SAPDATA should be set to None
-3. oraarch: Windows Storage Spaces is optional
+2. oraarch: Windows Storage Spaces is optional
 
 ### Links for Oracle on Windows
 - [Overview of Windows Tuning (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/overview-of-windows-tuning.html#GUID-C0A0EC5D-65DD-4693-80B1-DA2AB6147AB9)
