@@ -34,11 +34,11 @@ To build and run your app on the device.
 
 ### More features
 
-The list of [use cases](../../concepts/ui-library/ui-library-use-cases) has detailed information about more features.
+The list of [use cases](../../concepts/ui-library/ui-library-use-cases.md?branch=main&pivots=platform-mobile) has detailed information about more features.
 
 ## Add notifications to your mobile app
 
-Azure Communication Services integrates with [Azure Event Grid](../../../event-grid/overview) and [Azure Notification Hubs](../../../notification-hubs/notification-hubs-push-notification-overview), so you can [add push notifications](../../concepts/notifications) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.
+Azure Communication Services integrates with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../concepts/notifications.md) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.
 
 
 ## Next steps
