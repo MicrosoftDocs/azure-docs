@@ -5,11 +5,11 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 10/09/2024
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
 # Manage blob properties and metadata with JavaScript

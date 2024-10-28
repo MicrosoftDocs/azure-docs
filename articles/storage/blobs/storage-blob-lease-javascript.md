@@ -8,9 +8,9 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/28/2024
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
 # Create and manage blob leases with JavaScript/TypeScript

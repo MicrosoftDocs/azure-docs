@@ -5,11 +5,11 @@ description: Learn how to categorize, manage, and query for blob objects by usin
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 10/23/2024
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
 # Use blob index tags to manage and find data with JavaScript/TypeScript

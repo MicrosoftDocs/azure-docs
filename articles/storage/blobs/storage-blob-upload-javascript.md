@@ -5,11 +5,11 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
 # Upload a blob with JavaScript/TypeScript

@@ -8,9 +8,9 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 10/28/2024
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
 # Set or change a block blob's access tier with JavaScript/TypeScript
