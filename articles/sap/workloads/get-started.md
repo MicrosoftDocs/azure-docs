@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 10/25/2024
+ms.date: 10/28/2024
 ms.author: juergent
 ---
 
@@ -55,7 +55,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- October 25, 2024: Adding documentation link to [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md) that describes how to disable SMT to be able to use some Mv3 SKUs where SQL Server would have a problem with too large NUMA nodes 
+- October 28, 2024: Added information on RedHat support and the configuration of Azure fence agents for VMs in the Azure Government cloud to the document [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).
+- October 25, 2024: Adding documentation link to [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md) that describes how to disable SMT to be able to use some Mv3 SKUs where SQL Server would have a problem with too large NUMA nodes.
+- October 16, 2024: Included ordering constraints in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to ensure SAP resources on a node stop before any of the NFS mounts.
 - October 14, 2024: Change several database guides mentioning that with several Mv3 VM types, IOPS and throughput could be lower when using read cached Premium SSD v1 disks compared to using non-cached disks
 - October 7, 2024: Changes in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md), documenting new Mv3 SKUs that will not work with SQL Server because of NUMA nodes larger than 64 vCPUs
 - October 5, 2024: Changes in documenting active/active and active/passive application layer in [SAP workload configurations with Azure Availability Zones](./high-availability-zones.md). Eliminating the list of regions for each of the cases
