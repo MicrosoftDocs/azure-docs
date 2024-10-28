@@ -89,11 +89,11 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
     {
         [FunctionName(nameof(GetProducts))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{cost}")]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{productid}")]
             HttpRequest req,
             [MySql("select * from Products where Cost = @Cost",
                 "MySqlConnectionString",
-                parameters: "@Cost={cost}")]
+                parameters: "@productId={productid}")]
             IEnumerable<Product> products)
         {
             return new OkObjectResult(products);
@@ -579,7 +579,7 @@ The following is binding data in the function.json file:
       "methods": [
         "get"
       ],
-      "route": "getproducts}"
+      "route": "getproducts"
     },
     {
       "name": "$return",
