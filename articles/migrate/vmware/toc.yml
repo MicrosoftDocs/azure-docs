@@ -14,8 +14,6 @@ items:
       href: how-to-set-up-appliance-vmware.md
   - name: Import using RVTools XLSX (preview)
     href: tutorial-import-vmware-using-rvtools-xlsx.md
-  - name: Common questions about importing servers
-    href: ../common-questions-import.md?context=/azure/migrate/context/vmware-context
 - name: Analyze dependencies  
   items:
   - name: Dependency analysis

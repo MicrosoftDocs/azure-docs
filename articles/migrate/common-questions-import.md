@@ -8,7 +8,7 @@ ms.service: azure-migrate
 ms.date: 10/28/2024
 ---
 
-# Import VMware servers using RVTools xlsx - Common questions
+# Import VMware servers using RVTools XLSX - Common questions
 
 This article answers common questions about importing servers running in your VMware environment using RVTools XLSX.
 
@@ -38,6 +38,6 @@ Ensure the following:
 
 ## Next steps
 
-Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+[Learn more](how-to-create-assessment.md) about creating an assessment.
 
  
