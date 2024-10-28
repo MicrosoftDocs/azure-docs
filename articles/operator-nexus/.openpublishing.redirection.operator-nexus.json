@@ -47,7 +47,8 @@
         },
         {
             "source_path": "troubleshoot-enable-node-down-cleaner.md",
-            "redirect_url": "concepts-storage.md",
+            "redirect_url": "concepts-storage",
+
             "redirect_document_id": false
         }
     ]
