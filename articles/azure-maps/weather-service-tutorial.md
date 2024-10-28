@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 10/28/2021
+ms.date: 10/28/2024
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: weather
@@ -19,12 +19,15 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 >
-> * Work with data files in [Azure Notebooks] in the cloud.
+> * Create and run a [Jupyter Notebook in VS Code].
 > * Load demo data from file.
 > * Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
 > * Enrich the demo data with Azure Maps [Daily Forecast] weather data.
 > * Plot forecast data in graphs.
+
+> [!NOTE]
+> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository].
 
 ## Prerequisites
 
@@ -32,26 +35,48 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 * An [Azure Maps account]
 * A [subscription key]
+* [Visual Studio Code]
+* A working knowledge of [Jupyter Notebooks in VS Code]
+* Environment set up to work with Python in Jupyter Notebooks. For more information, see [Setting up your environment].
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
-To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook].
+## Install project level packages
 
-> [!NOTE]
-> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository].
+The _EV Routing and Reachable Range_ project has dependencies on the [aiohttp] and [IPython] python libraries. You can install these in the Visual Studio terminal using pip:
+
+```python
+pip install aiohttp
+pip install ipython
+pip install pandas
+```
+
+## Open Jupyter Notebook in Visual Studio Code
+
+Download then open the Notebook used in this tutorial:
+
+1. Open the file [weatherDataMaps.ipynb] in the [AzureMapsJupyterSamples] repository in GitHub.
+1. Select the **Download raw file** button in the upper-right corner of the screen to save the file locally.
+
+    ![A screenshot showing how to download the Notebook file named weatherDataMaps.ipynb from the GitHub repository.](./media/weather-service-tutorial/download-notebook.png)
+
+1. Open the downloaded Notebook in Visual Studio Code by right-clicking on the file then selecting **Open with > Visual Studio Code**, or through the VS Code File Explorer.
 
 ## Load the required modules and frameworks
 
-To load all the required modules and frameworks, run the following script:
+Once your code is added, you can run a cell using the **Run** icon to the left of the cell and the output is displayed below the code cell.
 
-```python
+Run the following script to load all the required modules and frameworks.
+
+```Python
+import aiohttp
 import pandas as pd
 import datetime
 from IPython.display import Image, display
-!pip install aiohttp
-import aiohttp
 ```
+
+![A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.](./media/weather-service-tutorial/import-libraries.png)
 
 ## Import weather data
 
@@ -182,28 +207,26 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 
-## Clean up resources
-
-There are no resources that require cleanup.
-
 ## Next steps
 
-To learn more about Azure Notebooks, see
-
 > [!div class="nextstepaction"]
-> [Azure Notebooks]
+> [Learn more about all the notebooks experiences from Microsoft and GitHub]: https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps REST APIs]: consumption-model.md
-[Azure Notebooks]: https://notebooks.azure.com
-[Create an Azure Notebook]: tutorial-ev-routing.md#create-an-azure-notebooks-project
+[AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
 [EV routing using Azure Notebooks]: tutorial-ev-routing.md
 [free account]: https://azure.microsoft.com/free/
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Jupyter Notebook in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
+[Jupyter Notebooks in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
+[Setting up your environment]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data
 [weather_dataset_demo.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data
+[Visual Studio Code]: https://code.visualstudio.com/
+[weatherDataMaps.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/weatherDataMaps.ipynb
