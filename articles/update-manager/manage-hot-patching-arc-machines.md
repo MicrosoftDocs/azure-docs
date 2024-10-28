@@ -45,7 +45,9 @@ To enroll hotpatch license, follow these steps:
 
 After you enroll to hotpatch license, your machine is automatically opted in to receive hotpatch updates. 
 
-To re-enable or disable updates at scale, follow these steps: 
+#### [At scale](#tab/manage-scale)
+
+To re-enable or disable updates at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and in the **Azure Update Manager | Machines** page, under **Settings**, select **Update settings**.
@@ -54,6 +56,16 @@ To re-enable or disable updates at scale, follow these steps:
 1. In the **Hotpatch** dropdown, select **Enable (current)** and then select **Save**.
 
    :::image type="content" source="./media/manage-hot-patching-arc-machines/manage-hot-patch-updates.png" alt-text="Screenshot showing how to manage hotpatch updates." lightbox="./media/manage-hot-patching-arc-machines/manage-hot-patch-updates.png"::: 
+
+#### [On single VM](#tab/manage-single)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
+1.  Under **Resources**, select **Machines** and then select the specific Arc-enabled machine.
+1. In the **Arc-enabled machine | Updates** page, 
+under the **Recommended updates** section, in **Hotpatch**, select **Change**.
+1. In the Hotpatch (preview), select **Enroll in Hotpatch** and then select **Confirm**.
+
+---
 
 ### View hotpatch status 
 
@@ -114,7 +126,7 @@ This ensures hotpatch updates that don't require reboots are installed in the sa
 
 You can view the history of update deployments on your VM through the [history](deploy-updates.md#view-update-history-for-a-single-vm) option. 
 
-Update history displays the histroy for the past 30 days, along with patch installation details such as reboot status. 
+Update history displays the history for the past 30 days, along with patch installation details such as reboot status. 
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/history-update-deployments.png" alt-text="Screenshot showing how to view the history of update deployments on your VM." lightbox="./media/manage-hot-patching-arc-machines/history-update-deployments.png":::
  
