@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Deprecation of Transport Layer Security (TLS) 1.0 and 1.1
+ description: The include file contains a note about deprecation of TLS 1.0 and 1.1.
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
