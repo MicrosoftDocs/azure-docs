@@ -26,7 +26,7 @@ For preview, Microsoft Sentinel is available in the Defender portal without Micr
 
 ## New and improved capabilities
 
-The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft will continue to innovate in this new experience with features that might be exclusive to the Defender portal.
+The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
