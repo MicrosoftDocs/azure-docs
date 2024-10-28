@@ -6,13 +6,18 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 06/07/2024
+ms.date: 10/28/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (October 2024)
+
+The RVTools XLSX (preview) file now includes the vInfo, vPartition, and vMemory sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+
 
 ## Update (April 2024)
 
