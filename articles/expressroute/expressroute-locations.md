@@ -104,7 +104,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** | &check; | &check; | Taipei |
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | &check; |&check; | Milan |
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** | &check; | &check; | Montreal<br/>Quebec City<br/>Toronto2 |
-| **[Flo Networks](https://flo.net/)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neurtrona Networks and Transtelco as providers for circuit creation* |
+| **[Flo Networks](https://flo.net/)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neutrona (company name is Neutrona Networks) Networks and Transtelco as providers for circuit creation* |
 | **[GBI](https://www.gbiinc.com/microsoft-azure/)** | &check; | &check; | Dubai2<br/>Frankfurt |
 | **[GÉANT](https://www.geant.org/Networks)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Madrid2<br/>Marseille |
 | **[GlobalConnect](https://www.globalconnect.no/)** | &check; | &check; | Amsterdam<br/>Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
@@ -332,7 +332,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London<br/>Slough |
-| **[IVedha Inc](https://ivedha.com/cloud-services)**| Equinix | Toronto |
+| **[IVedha Inc](https://ivedha.com/cloud-managed-services/)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](https://kalaam-telecom.com/)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapore|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong 
