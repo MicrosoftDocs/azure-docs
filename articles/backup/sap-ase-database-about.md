@@ -70,11 +70,11 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
    * [Restore a new VM from the Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. 
    * Create a new empty VM and attach the disks from the latest recovery point.
 
-1. If Write Accelerator disks are excluded, they aren’t restored. In this case, create empty Write Accelerator disks and a log area.
+2. If Write Accelerator disks are excluded, they aren’t restored. In this case, create empty Write Accelerator disks and a log area.
 
-1. After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive database data from Azure Backup.
+3. After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive database data from Azure Backup.
 
-1. Restore the database into the VM from the Azure SAP ASE (Sybase) database backup to your intended point in time.
+4. Restore the database into the VM from the Azure SAP ASE (Sybase) database backup to your intended point in time.
 
 ## Back up an ASE system with replication enabled
 
@@ -87,14 +87,6 @@ Although there are multiple physical nodes (primary and secondary), the backup s
 As databases grow in size, the time it takes to restore them becomes a factor when you're dealing with streaming backups. Also, during backup, the time the database takes to generate Backint streams can grow in proportion to the churn, which can be factor as well.
 
 A database-consistent, snapshot-based approach helps to solve both issues, and it gives you the benefit of instant backup and instant restore. For ASE, Azure Backup is now providing a ASE-consistent, snapshot-based approach that's integrated with Backint, so that you can use Azure Backup as a single product for your entire ASE landscape, irrespective of database size.
-
-### Pricing
-
-SAP ASE (Sybase) Backup pricing has two components: 
-
-1. **Protected Instance Fees**: A flat rate of $80 (East US 2) per instance, with standard regional uplift, regardless of the ASE database size. For example, if you're protecting 1.2 TB of ASE database in one instance running in the East US 2 region, the PI cost would be flat $80 (East US 2 Region) per month + storage consumed. 
-
-2. **Backup Storage Fees based on consumption**: 
 
 ## Next steps
 
