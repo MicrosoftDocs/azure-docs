@@ -92,7 +92,7 @@ Using Azure CLI, find the principal ID for the Azure IoT Operations Arc extensio
 ```azurecli
 export PRINCIPAL_ID=$(az k8s-extension list \
   --resource-group $RESOURCE_GROUP \
-  --cluster-name <CLUSTER-NAME> \
+  --cluster-name $CLUSTER_NAME \
   --cluster-type connectedClusters \
   --query "[?extensionType=='microsoft.iotoperations'].identity.principalId | [0]" -o tsv)
 echo $PRINCIPAL_ID
