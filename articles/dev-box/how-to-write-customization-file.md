@@ -112,6 +112,7 @@ You can use Dev Home to create a customization file for your development team. D
 Notice that you can also generate a customization file based on your selected repositories and software to use in the future to create dev boxes with the same customizations.
 
 :::image type="content" source="media/how-to-write-customization-file/dev-home-configuration-file.png" alt-text="Screenshot showing the Review and finish page with the Generate configuration file button highlighted.":::
+
 ---
 
 ## Use GitHub Copilot to write a customization file
