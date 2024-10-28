@@ -29,9 +29,9 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
 - Phase 1:
-   - Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances aren't updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
+  - Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances aren't updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
 - Phase 2:
-   - Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting November 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVerion_ for all caches to 1.2.
+  - Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting November 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVerion_ for all caches to 1.2.
 
 | Date | Description |
 |--|--|
@@ -111,7 +111,7 @@ You can configure TLS 1.2 on the cache by setting the **Minimum TLS version** va
 
 1. Select **1.2** in the **Minimum TLS version** in the working pane. Then, select **Save**.
 
-   :::image type="content" source="media/cache-remove-tls-10-11/change-redis-tls-version.png" alt-text="Screenshot showing the Set TLS 1.2 for cache on Azure portal":::
+  :::image type="content" source="media/cache-remove-tls-10-11/change-redis-tls-version.png" alt-text="Screenshot showing the Set TLS 1.2 for cache on Azure portal":::
 
 You can also do the same using PowerShell. You need the Az.RedisCache module already installed before running the command.
 
@@ -121,8 +121,8 @@ You can also do the same using PowerShell. You need the Az.RedisCache module alr
 
 For setting the TLS version through CLI, the `--minimum-tls-version` is available only at Redis creation time and changing `minimum-tls-version` on an existing Redis instance isn't supported.
 
->[!NOTE]
->The Azure Cache for Redis service is expected to be available while we migrate it to support >only TLS 1.2 or later.
+> [!NOTE]
+> The Azure Cache for Redis service should be available during the migration TLS 1.2 or later.
 
 ## Check whether your client application is already compliant
 
@@ -183,17 +183,18 @@ Versions earlier than PHP 7: Predis supports only TLS 1.0. These versions don't 
 
 PHP 7.0 to PHP 7.2.1: Predis uses only TLS 1.0 or 1.1 by default. You can use the following workaround to use TLS 1.2. Specify TLS 1.2 when you create the client instance:
 
-  ``` PHP
-  $redis=newPredis\Client([
-      'scheme'=>'tls',
-      'host'=>'host',
-      'port'=>6380,
-      'password'=>'password',
-      'ssl'=>[
-          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-      ],
-  ]);
-  ```
+``` PHP
+$redis=newPredis\Client([
+    'scheme'=>'tls',
+    'host'=>'host',
+    'port'=>6380,
+    'password'=>'password',
+    'ssl'=>[
+        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+    ],
+]);
+
+```
 
 PHP 7.3 and later versions: Predis uses the latest TLS version.
 
