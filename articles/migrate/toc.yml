@@ -21,11 +21,11 @@ items:
 - name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
   items:
   - name: Supported Geographies
-    href: migrate-support-matrix.md
+    href: supported-geographies.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-migrate-security-baseline
   - name: Support Matrix
-    href: migrate-support-matrix-vmware.md
+    href: migrate-support-matrix.md
 - name: Explore inventory
   items:
     - name: Azure Migrate project

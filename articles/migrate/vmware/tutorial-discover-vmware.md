@@ -129,7 +129,7 @@ To set up a new project:
 1. In **Get started**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **Databases (only)**, or **Explore more scenarios**.
 1. Select **Create project**.
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](../migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](../migrate-support-matrix.md#azure-government).
+1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](../supported-geographies.md#public-cloud) and [supported geographies for government clouds](../supported-geographies.md#azure-government).
 
     > [!Note]
     > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](../discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
