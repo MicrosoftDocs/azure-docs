@@ -7,7 +7,7 @@ keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 10/14/2024
+ms.date: 10/28/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 ---
@@ -38,6 +38,7 @@ General information about running SAP Business Suite on Oracle can be found at 
 | 1672954 | [Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954) |
 | 1171650 | [Automated Oracle DB parameter check](https://launchpad.support.sap.com/#/notes/1171650) |
 | 2936683 | [Oracle Linux 8: SAP Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2936683) |
+| 3399081 | [Oracle Linux 9: SAP Installation and Upgrade](https://launchpad.support.sap.com/#/notes/3399081) |
 
 ### Specifics for Oracle Database on Oracle Linux
 
@@ -87,7 +88,7 @@ The table below details the support status
 |--------|------------|--------| ------| -----|
 | **Block Storage Type** | | | | |
 | Premium SSD | Supported | 512e | ASM Recommended. LVM Supported | No support for ASM on Windows |
-| Premium SSD v2 | Supported | 4K Native or 512e<sup>1</sup> | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| Premium SSD v2<sup>1</sup> | Supported | 4K Native or 512e<sup>2</sup> | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
 | Standard SSD | Not supported | | | |
 | Standard HDD | Not supported | | | |
 | Ultra disk | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
@@ -97,7 +98,8 @@ The table below details the support status
 | Azure Files NFS | Not supported | | |
 | Azure files SMB | Not supported | | |
 
-<sup>1</sup> 512e is supported on Premium SSD v2 for Windows systems.  512e configurations are't recommended for Linux customers.  Migrate to 4K Native using procedure in MOS 512/512e sector size to 4K Native Review (Doc ID 1133713.1)
+<sup>1</sup> Azure Premium SSD v2 does not have predefined storage sizes.  There is no need to allocate multiple disks within an ASM Disk Group or LVM VG.  It is recommended to allocate a single Premium SSD v2 disk with the required size, throughput and IOPS per ASM Disk Group
+<sup>2</sup> 512e is supported on Premium SSD v2 for Windows systems.  512e configurations are't recommended for Linux customers.  Migrate to 4K Native using procedure in MOS 512/512e sector size to 4K Native Review (Doc ID 1133713.1)
 
 Other considerations that apply list like:
 1. No support for DIRECTIO with 4K Native sector size. Recommended settings for FILESYSTEMIO_OPTIONS for LVM configurations:
@@ -315,13 +317,12 @@ Mirror Log is required when running LVM.
 |--------------------------------------|----------|-----------------------|--------------------------|
 | /oracle/\<SID\>/origlogaA & mirrlogB | Premium  | None                  | Not needed               |
 | /oracle/\<SID\>/origlogaB & mirrlogA | Premium  | None                  | Not needed               |
-| /oracle/\<SID\>/sapdata1...n         | Premium  | Read-only<sup>2</sup> | Recommended              |
-| /oracle/\<SID\>/oraarch<sup>3</sup>  | Premium  | None                  | Not needed               |
+| /oracle/\<SID\>/sapdata1...n         | Premium  | None                  | Recommended              |
+| /oracle/\<SID\>/oraarch<sup>2</sup>  | Premium  | None                  | Not needed               |
 | Oracle Home, saptrace, ...           | Premium  | None                  | None                     |
 
 1. Striping: LVM stripe using RAID0
-2. During R3Load migrations, the Host Cache option for SAPDATA should be set to None
-3. oraarch: LVM is optional
+2. oraarch: LVM is optional
 
 The disk selection for hosting Oracle's online redo logs is driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
@@ -333,22 +334,22 @@ The disk selection for hosting Oracle's online redo logs is driven by IOPS requi
 | /oracle/\<SID\>/origlogaB           | Premium  | None                  | Can be used              |
 | /oracle/\<SID\>/mirrlogAB           | Premium  | None                  | Can be used              |
 | /oracle/\<SID\>/mirrlogBA           | Premium  | None                  | Can be used              |
-| /oracle/\<SID\>/sapdata1...n        | Premium  | Read-only<sup>2</sup> | Recommended              |
-| /oracle/\<SID\>/oraarch<sup>3</sup> | Premium  | None                  | Not needed               |
+| /oracle/\<SID\>/sapdata1...n        | Premium  | None                  | Recommended              |
+| /oracle/\<SID\>/oraarch<sup>2</sup> | Premium  | None                  | Not needed               |
 | Oracle Home, saptrace, ...          | Premium  | None                  | None                     |
 
 1. Striping: LVM stripe using RAID0
-2. During R3load migrations, the Host Cache option for SAPDATA should be set to None
-3. oraarch: LVM is optional
+2. oraarch: LVM is optional
 
 ## Azure Infra: Virtual machine Throughput Limits & Azure Disk Storage Options
 
-### Oracle Automatic Storage Management (ASM)## can evaluate these storage technologies:
+### Current recommendations for Oracle Storage
 
-1.  Azure Premium Storage – currently the default choice
+1.  Azure Premium Storage – The majority of customers are deploying on ASM with Premium Storage
+2.  Azure NetApp Files - VLDB customers, often with single Oracle databases larger than 50TB are typically using ANF and leveraging Storage Snapshot capabilities of Azure NetApp Files for Backup and Restore
 3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](/azure/virtual-machines/disk-bursting)
-4.  Azure Write Accelerator
-5.  Online disk extension for Azure Premium SSD storage is still in progress
+4.  Azure Write Accelerator - used for the case that the Oracle redo log is based on Premium SSD v1 disks
+5.  Online disk extension is fully supported for Premium Storage v1 and works with ASM
 
 Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](/azure/virtual-machines/how-to-enable-write-accelerator).
 
@@ -375,8 +376,7 @@ The following recommendations should be followed when selecting a VM type:
 For backup/restore functionality, the SAP BR\*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
 For more information about how you can use Azure Backup and Recovery services for Oracle databases, see:
-- [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/oracle-overview)
-- [<u>Azure Backup service</u>](../../backup/backup-overview.md) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
+- [<u>Azure Backup service</u>](../../backup/backup-overview.md) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup</u>](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
 
 ## High availability
 
