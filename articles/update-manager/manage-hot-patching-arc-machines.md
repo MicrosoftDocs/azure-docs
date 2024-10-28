@@ -120,7 +120,9 @@ You can also choose to trigger an *on-demand patch assessment* for your VM at an
 
 To install, you can create a [user-defined schedule](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) or [one-time update](quickstart-on-demand.md#install-updates). You can install it immediately after it's available, allowing your machine to get secure faster. 
 
-Using either of these options you can choose to install all available update classifications or only security updates. You can also specify updates to include or exclude by providing a list of individual hotpatch knowledge base IDs. 
+Using either of these options you can choose to install all available update classifications or only security updates. You can also specify updates to include or exclude by providing a list of individual hotpatch knowledge base IDs. You can enter more than one knowledge base ID in this flow.
+
+:::image type="content" source="./media/manage-hot-patching-arc-machines/include-knowledge-base-id.png" alt-text="Screenshot showing how to include knowledge base ID." lightbox="./media/manage-hot-patching-arc-machines/include-knowledge-base-id.png":::
 
 This ensures hotpatch updates that don't require reboots are installed in the same schedule or one-time update schedule, making patch installation window predictable. 
 
