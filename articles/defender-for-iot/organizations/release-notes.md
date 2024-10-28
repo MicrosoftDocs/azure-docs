@@ -107,6 +107,19 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 24.1.x
 
+### Version 24.1.5
+
+**Release date**: 09/2024
+
+**Supported until**: 09/2025
+
+This version includes the following updates and enhancements:
+
+- [Add wildcards to allowlist domain names](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [OCPI protocol is now supported](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery)
+- [New sensor setting type: Public addresses](configure-sensor-settings-portal.md#add-sensor-settings)
+- [Improved OT sensor onboarding](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor)
+
 ### Version 24.1.4
 
 **Release date**: 07/2024
