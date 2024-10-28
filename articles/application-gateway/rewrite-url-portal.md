@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/05/2021
+ms.date: 10/22/2024
 ms.author: greglin
 ---
 
@@ -73,7 +73,7 @@ In the following example, whenever the request URL contains `/article`, the URL 
     
     1. Enter a regular expression pattern. In this example, we use the pattern `.*article/(.*)/(.*)`
     
-       The parentheses ( ) are used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [Rewrite HTTP headers and URL with Application Gateway](rewrite-http-headers-url.md#capturing).
+      Parentheses ( ) are used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [Pattern matching and capturing](rewrite-http-headers-url.md#pattern-matching-and-capturing).
 
     1. Select **OK**.
 

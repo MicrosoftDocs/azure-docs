@@ -3,7 +3,7 @@ title: "VM offerings: Azure Modeling and Simulation Workbench"
 description: VM offerings available in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: concept-article
 ms.date: 08/12/2024
 
