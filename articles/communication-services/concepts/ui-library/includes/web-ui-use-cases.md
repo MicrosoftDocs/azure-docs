@@ -18,7 +18,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------------- | ------------------------------------------------------ |
 | Call types          | Join a Microsoft Teams meeting.                                     |
 |                     | Join an Azure Communication Services call by using a group ID.   |
-|                     | Join an Azure Communication Services [Room](../../rooms/room-concept.md). |
+|                     | Join an Azure Communication Services [room](../../rooms/room-concept.md). |
 |                     | Start an outbound call to another Azure Communication Services user. |
 |                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#voice-calling-pstn). |
 | [Teams interoperability](../../teams-interop.md)      | Join the call lobby                                             |
@@ -95,7 +95,7 @@ The following table compares composites and UI components for customization use 
 
 ## Observability
 
-The state management architecture of the UI Library is decoupled, so you can access stateful call and chat clients directly. You can hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
+The state management architecture of UI Library is decoupled, so you can access stateful call and chat clients directly. You can hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
 
 The following table compares composites and UI components for observability use cases.
 
@@ -138,7 +138,7 @@ Accessibility by design is a principle across Microsoft products. UI Library fol
 
 ## Localization
 
-Localization is key to making products for users around the world who speak different languages. UI Library provides default support for some languages and capabilities. This support includes right-to-left languages. You can provide their own localization files to use with the UI Library.
+Localization is key to making products for users around the world who speak different languages. UI Library provides default support for some languages and capabilities. This support includes right-to-left languages. You can provide their own localization files to use with UI Library.
 
 ## Known issues
 
@@ -146,4 +146,4 @@ The UI library doesn't support updating message type when editing existing messa
 
 
 > [!div class="nextstepaction"]
-> [Visit the UI Library storybook](https://azure.github.io/communication-ui-library).
+> [Visit UI Library storybook](https://azure.github.io/communication-ui-library).
