@@ -2021,21 +2021,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/monitoring/management-overview-monitoring.md",
-      "redirect_url": "/azure/monitoring/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/monitoring/monitoring-container-health.md",
-      "redirect_url": "/azure/monitoring/monitoring-container-insights-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/monitoring/monitoring-walkthrough-servicemap.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/multi-factor-authentication/end-user/index.md",
       "redirect_url": "/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user",
       "redirect_document_id": false
@@ -2218,101 +2203,6 @@
     {
       "source_path_from_root": "/articles/openshift/tutorial-delete-cluster.md",
       "redirect_url": "/azure/openshift/delete-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/index.md",
-      "redirect_url": "/azure/monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/oms-solution-agenthealth.md",
-      "redirect_url": "/azure/monitoring/monitoring-solution-agenthealth",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/oms-solution-office-365.md",
-      "redirect_url": "/azure/monitoring/monitoring-solution-office-365",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-architecture.md",
-      "redirect_url": "/azure/monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-integration.md",
-      "redirect_url": "/azure/monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-overview.md",
-      "redirect_url": "/azure/monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-runbook-datacollect.md",
-      "redirect_url": "/azure/monitoring/monitoring-runbook-datacollect",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-sdk.md",
-      "redirect_url": "/azure/monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-service-map-scom.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map-scom",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-service-map.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solution-targeting.md",
-      "redirect_url": "/azure/monitoring/monitoring-solution-targeting",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-best-practices.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-best-practices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-creating.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-creating",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-resources-automation.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-resources-automation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-resources-searches-alerts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-resources-views.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-resources-views",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions-solution-file.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions-solution-file",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-solutions.md",
-      "redirect_url": "/azure/monitoring/monitoring-solutions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map",
       "redirect_document_id": false
     },
     {
