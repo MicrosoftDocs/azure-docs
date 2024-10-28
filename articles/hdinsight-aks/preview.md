@@ -7,12 +7,11 @@ ms.date: 10/28/2024
 ROBOTS: NOINDEX
 ---
 
+# Microsoft HDInsight on AKS preview information
+
 [!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
-
-# Microsoft HDInsight on AKS preview information
 
 Azure HDInsight on AKS is currently in public preview and may be substantially modified before it's released. Preview online service products and features aren't complete but are made available on a preview basis so that customers can get early access and provide feedback.
 
