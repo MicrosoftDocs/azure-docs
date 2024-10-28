@@ -53,6 +53,8 @@ You are required to register yourself for the feature preview under _Preview Fea
 
 Available means that there are no events detected that affect the health of the resource. In cases where the resource recovered from unplanned downtime during the last 24 hours, you see a "Recently resolved" notification
 
+:::image type="icon" source="media/deploy-arc-for-azure-vmware-solution/RHAvailable.png":::
+
 ![RHAvailable](media/ecosystem-app-monitoring-solutions/rhavailable.png)
 
 #### Unavailable 
@@ -67,14 +69,18 @@ Unknown means that Resource Health hasn't received information about the resou
 
 - If the resource is running as expected, the status of the resource will change to Available after a few minutes. If you experience problems with the resource, the Unknown health status might mean that an event in the private cloud is affecting the resource.
 
-#### ![RHUnknown](media/ecosystem-app-monitoring-solutions/rhunknown.png)
+:::image type="icon" source="media/deploy-arc-for-azure-vmware-solution/RHUnknown.png":::
+
+#### 
 Degraded
 
 Degraded means that Resource Health detected a loss in performance in either one or more private cloud resources, although it's still available for use. Different resources have their own criteria for when they report that they are degraded.
 
+:::image type="icon" source="media/deploy-arc-for-azure-vmware-solution/RHDegraded.png":::
+
 #### ![RHDegraded](media/ecosystem-app-monitoring-solutions/rhdegraded.png)
 
-Pre-configured Alarms enabled in Azure Resource Health
+#### Pre-configured Alarms enabled in Azure Resource Health
 
 |Alert Name|Remediation Mode|
 | -------- | -------- |
