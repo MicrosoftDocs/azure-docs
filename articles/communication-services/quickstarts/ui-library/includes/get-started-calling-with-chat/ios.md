@@ -86,14 +86,14 @@ In the Xcode project, under **Build Settings**, set the **Enable Bitcode** optio
 ### Download a Chat Icon
 
 - Download an icon from [here](https://github.com/microsoft/fluentui-system-icons/blob/master/assets/Chat/SVG/ic_fluent_chat_24_regular.svg).
-- Open downloaded file and chage `fill` to the `fill="#FFFFFF"`.
+- Open downloaded file and change `fill` to the `fill="#FFFFFF"`.
 - In the Xcode go to Assets. Create a new image set and name it ic_fluent_chat_24_regular. Select downloaded file as universal icon.
 
 ## Initialize the composite
 
 To initialize the composite:
 
-1. Go to `ViewController` and update connection settings:
+- Go to `ViewController` and update connection settings:
     - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
     - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
     - Replace `DISPLAY_NAME` with your name.

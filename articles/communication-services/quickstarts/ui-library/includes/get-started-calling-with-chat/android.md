@@ -136,13 +136,13 @@ In the *app/src/main/res/layout/activity_main.xml* layout file, add the followin
 
 - Download an icon from [here](https://github.com/microsoft/fluentui-system-icons/blob/master/android/library/src/main/res/drawable/ic_fluent_chat_24_regular.xml).
 - Save it to the *UILibraryQuickStart/app/src/main/res/drawable*
-- Open it and chage `android:fillColor` to the `@color/white`
+- Open it and change `android:fillColor` to the `@color/white`
 
 ## Initialize the composites
 
 To initialize the Call composite:
 
-1. Go to `MainActivity` and update connection settings:
+- Go to `MainActivity` and update connection settings:
     - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
     - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
     - Replace `DISPLAY_NAME` with your name.
