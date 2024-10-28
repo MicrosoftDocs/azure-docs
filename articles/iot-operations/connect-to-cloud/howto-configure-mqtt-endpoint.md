@@ -23,7 +23,7 @@ MQTT dataflow endpoints are used for MQTT sources and destinations. You can conf
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-## Azure IoT Operations Local MQTT broker
+## Azure IoT Operations local MQTT broker
 
 ### Default endpoint
 
@@ -820,6 +820,9 @@ mqttSettings:
 ---
 
 The *retain* setting only takes effect if the dataflow uses MQTT endpoint as both source and destination. For example, in an [MQTT bridge](tutorial-mqtt-bridge.md) scenario.
+
+> [!IMPORTANT]
+> Azure Event Grid MQTT broker [currently doesn't support the retain flag](../../event-grid/mqtt-support.md#mqttv5-current-limitations). This means if you set the retain flag to `Keep` for an Event Grid MQTT broker endpoint and it's being used as a destination, the messages are rejected. To avoid this, set the retain flag to `Never` when using Event Grid MQTT broker as a destination.
 
 ### Session expiry
 
