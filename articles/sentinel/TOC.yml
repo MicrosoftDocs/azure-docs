@@ -137,82 +137,87 @@
       href: ci-cd-custom-deploy.md
   - name: Protect business applications
     items: 
-    - name: Integrate SAP applications
+    - name: Integrate SAP systems
       items: 
-      - name: SAP solution overview
+      - name: SAP applications
         items:
         - name: Overview
           href: sap/solution-overview.md
-        - name: Content overview
-          href: sap/sap-solution-security-content.md
-        - name: Working with the SAP solution across multiple workspaces
-          href: sap/cross-workspace.md
-        - name: Respond to SAP incidents with playbooks
-          href: sap/sap-incident-response-playbooks.md
-        - name: Automatic attack disruption for SAP
-          href: sap/deployment-attack-disrupt.md
-        - name: Deployment guide
+        - name: Deploy the SAP integration
           items: 
-          - name: Overview
+          - name: Deployment overview
             href: sap/deployment-overview.md
           - name: Deployment prerequisites
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-          - name: Prepare SAP environment
-            href: sap/preparing-sap.md
-          - name: Configure auditing
-            href: sap/configure-audit.md
-          - name: Deploy the data connector agent
-            href: sap/deploy-data-connector-agent-container.md        
-          - name: Deploy SAP security content
+          - name: Install the solution for SAP applications
             href: sap/deploy-sap-security-content.md
-          - name: Configure the solution
-            href: sap/deployment-solution-configuration.md
-          - name: Update the connector
-            href: sap/update-sap-data-connector.md      
-          - name: Disable the connector
-            displayName: disable, stop ingestion, stop
-            href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
-        - name: Reference
-          items:    
-          - name: SAP solution data reference
-            href: sap/sap-solution-log-reference.md
+          - name: Prepare your SAP environment
+            href: sap/preparing-sap.md
+          - name: Connect your SAP system
+            displayName: disable, stop ingestion, stop 
+            href: sap/deploy-data-connector-agent-container.md
+          - name: Troubleshoot SAP solution deployment
+            href: sap/sap-deploy-troubleshoot.md    
+          - name: Extra deployment steps
+            items:
+            - name: Collect SAP HANA audit logs
+              href: sap/collect-sap-hana-audit-logs.md
+            - name: Update the connector
+              href: sap/update-sap-data-connector.md      
+            - name: Deploy from the command line
+              href: sap/deploy-command-line.md
+            - name: Deploy with expert options
+              href: sap/sap-solution-deploy-alternate.md
+          - name: SAP deployment reference (advanced)
+            items:
+            - name: Required ABAP permissions
+              href: sap/required-abap-authorizations.md
+            - name: Kickstart script reference
+              href: sap/reference-kickstart.md
+            - name: Container update script reference 
+              href: sap/reference-update.md
+            - name: Systemconfig.json file reference
+              href: sap/reference-systemconfig-json.md
+            - name: Systemconfig.ini file reference (legacy)
+              href: sap/reference-systemconfig.md
+        - name: Enable SAP detections and threat protection
+          href: sap/deployment-solution-configuration.md
+        - name: Automatic attack disruption for SAP
+          href: sap/deployment-attack-disrupt.md
+        - name: Integrate SAP across multiple workspaces
+          href: sap/cross-workspace.md
+        - name: Monitor SAP systems
+          items:
+          - name: Monitor SAP system health and role
+            href: monitor-sap-system-health.md
+          - name: Monitor SAP audit logs
+            href: sap/sap-audit-log-workbook.md
+          - name: Monitor SAP audit controls
+            href: sap/sap-audit-controls-workbook.md
+        - name: SAP solution content reference
+          items:
+          - name: SAP security content reference
+            href: sap/sap-solution-security-content.md
           - name: Monitored SAP security parameters
             href: sap/sap-suspicious-configuration-security-parameters.md
-          - name: SAP audit log workbook
-            href: sap/sap-audit-log-workbook.md
-          - name: SAP audit controls workbook
-            href: sap/sap-audit-controls-workbook.md   
-          - name: Kickstart script reference
-            href: sap/reference-kickstart.md
-          - name: Container update script reference 
-            href: sap/reference-update.md
-          - name: Systemconfig.json file reference
-            href: sap/reference-systemconfig-json.md
-          - name: Systemconfig.ini file reference
-            href: sap/reference-systemconfig.md
-      - name: Optional deployment steps
-        items: 
-        - name: Configure SAP data connector to use SNC
-          href: sap/configure-snc.md      
-        - name: Collect SAP HANA audit logs
-          href: sap/collect-sap-hana-audit-logs.md
-        - name: Deploy SAP connector manually
-          href: sap/sap-solution-deploy-alternate.md
-        - name: Configure SAP audit log monitoring rules
-          href: sap/configure-audit-log-rules.md
-        - name: Select SAP ingestion profile
-          href: sap/select-ingestion-profiles.md 
-      - name: SAP BTP solution
+          - name: SAP solution function reference
+            href: sap/sap-solution-function-reference.md
+          - name: SAP solution log and table reference
+            href: sap/sap-solution-log-reference.md
+        - name: Stop SAP data collection
+          href: sap/stop-collection.md
+      - name: SAP BTP
         items:
         - name: Overview
           href: sap/sap-btp-solution-overview.md
-        - name: Content overview
+          displayName: BTP
+        - name: Security content reference
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
     - name: Integrate Microsoft business applications
       items:
-      - name: Dynamics 365 Finance and Operations solution
+      - name: Dynamics 365 Finance and Operations
         items:
         - name: Overview
           href: dynamics-365/dynamics-365-finance-operations-solution-overview.md
@@ -220,7 +225,7 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
-      - name: Microsoft Power Platform solution
+      - name: Microsoft Power Platform
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
@@ -1093,8 +1098,6 @@
       href: monitor-optimize-analytics-rule-execution.md
     - name: Audit and monitor the health of analytics rules
       href: monitor-analytics-rule-integrity.md
-    - name: Monitor SAP system health and role
-      href: monitor-sap-system-health.md 
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
   - name: Remove Microsoft Sentinel from your workspaces
@@ -1103,8 +1106,6 @@
   items:
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: Service limits
