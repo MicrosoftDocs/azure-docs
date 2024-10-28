@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/21/2024
+ms.date: 10/28/2024
 ms.author: anfdocs
 ---
 
@@ -14,10 +14,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## October 2024
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md)
 
     <!-- PLR text -->
+ 
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
+
+    This feature is currently in preview in the Australia East, Central India, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 

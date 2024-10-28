@@ -83,7 +83,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
    | Image | Select **Windows 11 Enterprise, version 22H2**. |
    | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
-   | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
+   | Number of VMs | Enter **1** as a minimum. You can deploy up to 500 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
    | OS disk type | Select **Premium SSD** for best performance. |
    | Boot Diagnostics | Select **Enable with managed storage account (recommended)**. |
    | **Network and security** |  |

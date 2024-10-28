@@ -4,8 +4,7 @@ description: In this tutorial, learn how to connect to and copy data from your h
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
