@@ -32,7 +32,7 @@ Biometric authentication has the following benefits:
 
 To get started, you'll need:
 
-- License to [Grit's Visual IEF builder](https://www.gritiefedit.com/). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
+- License to [Grit's Visual IEF builder](/azure/active-directory-b2c/partner-grit-editor). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
 
 - An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
