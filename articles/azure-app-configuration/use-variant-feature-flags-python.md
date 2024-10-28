@@ -59,7 +59,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     .\venv\Scripts\Activate
     ```
 
-1. Install the required packages.
+1. Install the required packages. The latest preview versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags.
 
     ```bash
     pip install flask azure-appconfiguration-provider==2.0.0b2 azure-identity featuremanagement[AzureMonitor]==2.0.0b2 flask-login flask_sqlalchemy flask_bcrypt azure-monitor-opentelemetry
