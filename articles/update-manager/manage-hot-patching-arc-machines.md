@@ -2,7 +2,7 @@
 title: Hotpatching on Azure Arc-enabled machines
 description: This article details how to manage hotpatching on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 10/06/2024
+ms.date: 10/28/2024
 ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -14,7 +14,7 @@ ms.author: sudhirsneha
 
 Azure Update Manager enables you to install hotpatches on Windows Server Azure Editions and Arc-enabled machines. For more information, see [Hotpatch for virtual machines](https://learn.microsoft.com/windows-server/get-started/hotpatch). 
 
-This article explains how to install hotpatches on compatible Arc-enabled machines. For Hotpatches being non-intrusive on availability, you can create faster schedules and update your services immediately after release, with less planning to maintain reliability of your machines at-scale.  
+This article explains how to install hotpatches on compatible Arc-enabled machines. For hotpatches being non-intrusive on availability, you can create faster schedules and update your services immediately after release, with less planning to maintain reliability of your machines at-scale.  
 
 ## Support matrix
 
@@ -24,8 +24,8 @@ This article explains how to install hotpatches on compatible Arc-enabled machin
 
 ## Prerequisites
 
-- Verify that the machine has a supported OS SKU [Learn more](#support-matrix).
-- Confirm that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
+- Verify that the machine has a supported OS SKU. [Learn more](#support-matrix).
+- Ensure that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
 - Ensure the machine is Arc-enabled. 
 
 ## Manage Hotpatches
@@ -34,9 +34,9 @@ This article explains how to install hotpatches on compatible Arc-enabled machin
 
 To enroll hotpatch license, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select the specific *Arc-enabled server*.
-1. Under the **Recommended updates** section, in Hotpatch, select **Change**.
+1. Under the **Recommended updates** section, in **Hotpatch**, select **Change**.
 1. In the Hotpatch (preview), select **Enroll in Hotpatch** and then select **Confirm**.
        
    :::image type="content" source="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png" alt-text="Screenshot showing how to enroll hotpatch license." lightbox="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png"::: 
@@ -47,13 +47,13 @@ After you enroll to hotpatch license, your machine is automatically opted in to 
 
 To re-enable or disable updates at scale, follow these steps: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and in the **Azure Update Manager | Machines** page, under **Settings**, select **Update settings**.
 1. In **Change update settings** page, select **+Add machine**, to select the machine to which you want to change the update settings.
 1. In **Select resources** page, select the machines and then select **Add** to view the machines in **Change update settings** page.
-1. In the **Hotpatch** dropdown, select **Enable** and then select **Save**.
+1. In the **Hotpatch** dropdown, select **Enable (current)** and then select **Save**.
 
-   :::image type="content" source="./media/manage-hot-patching-arc-machines/manage-hot-patch-updates.png" alt-text="Screenshot showing how to manage hotpatch updates." lightbox="./media/manage-hot-patching-arc-machines/enroll-hotpatch-license.png"::: 
+   :::image type="content" source="./media/manage-hot-patching-arc-machines/manage-hot-patch-updates.png" alt-text="Screenshot showing how to manage hotpatch updates." lightbox="./media/manage-hot-patching-arc-machines/manage-hot-patch-updates.png"::: 
 
 ### View hotpatch status 
 
@@ -61,9 +61,10 @@ To re-enable or disable updates at scale, follow these steps:
 
 To view the hotpatch status at scale on your machines, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select **Edit columns**.
 1. In **Choose columns**, select **Hotpatch status** and then select **Save**.
+   
    The **Hotpatch status** column appears in the machines grid and displays the status for all Azure machines and Arc-enabled machines. To view only Arc related details, you can filter Resource Type as **Arc-enabled server**. 
 
     :::image type="content" source="./media/manage-hot-patching-arc-machines/view-status-at-scale.png" alt-text="Screenshot showing how to view hotpatching status at scale." lightbox="./media/manage-hot-patching-arc-machines/view-status-at-scale.png":::
@@ -72,9 +73,9 @@ To view the hotpatch status at scale on your machines, follow these steps:
 
 To view the hotpatch status on a single machine, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select the specific Arc-enabled machine.
-1. Under the **Recommended updates** section, you can view the Hotpatch status for your VM.
+1. In the **Arc-enabled machine | Updates** page, under the **Recommended updates** section, you can view the Hotpatch status for your VM.
 
    :::image type="content" source="./media/manage-hot-patching-arc-machines/view-status-single-machine.png" alt-text="Screenshot showing how to view hotpatching status on single virtual machine." lightbox="./media/manage-hot-patching-arc-machines/view-status-single-machine.png":::
 
@@ -107,13 +108,13 @@ To install, you can create a [user-defined schedule](scheduled-patching.md#sched
 
 Using either of these options you can choose to install all available update classifications or only security updates. You can also specify updates to include or exclude by providing a list of individual hotpatch knowledge base articles. 
 
-This ensures hotpatch updates that don't require reboots are installed in the same schedule or one-time update, making patch installation window predictable. 
+This ensures hotpatch updates that don't require reboots are installed in the same schedule or one-time update schedule, making patch installation window predictable. 
 
 ### View history
 
-You can also view the history of update deployments on your VM through the [history](deploy-updates.md#view-update-history-for-a-single-vm). 
+You can view the history of update deployments on your VM through the [history](deploy-updates.md#view-update-history-for-a-single-vm) option. 
 
-Update history from the past 30 days is displayed, along with patch installation details such as reboot status. 
+Update history displays the histroy for the past 30 days, along with patch installation details such as reboot status. 
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/history-update-deployments.png" alt-text="Screenshot showing how to view the history of update deployments on your VM." lightbox="./media/manage-hot-patching-arc-machines/history-update-deployments.png":::
  
