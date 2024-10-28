@@ -52,7 +52,7 @@ ACCR is built using confidential computing to provide a hardware-based, trusted 
 By providing a secure and compliant environment for data collaboration, ACCR reduces the need for costly and complex data protection measures. This makes it a cost-effective solution for organizations looking to leverage sensitive data for analysis and insights
 
 
-##Onboarding to Azure Confidential Clean Rooms
+## Onboarding to Azure Confidential Clean Rooms
 ACCR is currently in Gated Preview. To express your interest in joining the gated preview, please follow these steps:
 - Fill and submit the form at https://aka.ms/ACCR-Preview-Onboarding
 - Once you submit, further steps will be shared with you on onboarding. 
