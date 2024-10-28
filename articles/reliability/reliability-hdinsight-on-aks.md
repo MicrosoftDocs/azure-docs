@@ -10,11 +10,15 @@ ms.date: 10/28/2024
 CustomerIntent: As a cloud architect/engineer, I want to understand reliability support for Azure HDInsight on Azure Kubernetes Service so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 # Reliability in Azure HDInsight on Azure Kubernetes Service
+
+> [!Note]
+> We will retire Azure HDInsight on AKS on January 31, 2025. Before January 31, 2025, you will need to migrate your workloads to [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) or an equivalent Azure product to avoid abrupt termination of your workloads. The remaining clusters on your subscription will be stopped and removed from the host.
+>
+> Only basic support will be available until the retirement date.
+
+> [!IMPORTANT]
+> This feature is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include more legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability. For information about this specific preview, see [Azure HDInsight on AKS preview information](/azure/hdinsight-aks/preview). For questions or feature suggestions, please submit a request on [AskHDInsight](https://aka.ms/askhdinsight) with the details and follow us for more updates on [Azure HDInsight Community](https://www.linkedin.com/groups/14313521/).
 
 This article describes reliability support in [Azure HDInsight on Azure Kubernetes Service (AKS)](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
