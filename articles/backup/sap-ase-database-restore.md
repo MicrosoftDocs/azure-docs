@@ -121,7 +121,7 @@ Typically, a network share path, or the path of a mounted Azure file share that'
 
 4. All the backup files associated with the selected restore point are dumped into the destination path.
 
-5. Depending on the type of restore point you've chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_<date and time of restore>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
+5. Depending on the type of restore point you've chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore\>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
 
 >[!Note]
 > If you've selected **Restore to a point in time**, the log files, which were dumped to the target VM, might sometimes contain logs beyond the point in time that were chosen for restore. Azure Backup does this to ensure that log backups for all ASE services are available for consistent and successful restore to the chosen point in time.
