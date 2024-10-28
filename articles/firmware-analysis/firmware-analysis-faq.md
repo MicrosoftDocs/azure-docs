@@ -9,7 +9,7 @@ ms.date: 01/10/2024
 ---
 
 # Frequently asked questions about Firmware analysis
-This article addresses frequent questions about Firmware analysis.
+This article addresses frequent questions about Firmware analysis. 
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 

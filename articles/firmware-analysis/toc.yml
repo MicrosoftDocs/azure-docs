@@ -1,18 +1,18 @@
 items:
   - name: Firmware analysis
     items:
-    - name: Firmware analysis frequently asked questions
-      href: firmware-analysis-faq.md
-    - name: Firmware analysis role-based access control
-      href: firmware-analysis-rbac.md
     - name: Overview of Firmware analysis
       href: overview-firmware-analysis.md
+    - name: Tutorial using Firmware analysis with the Azure portal
+      href: tutorial-analyze-firmware.md
+    - name: Firmware analysis role-based access control
+      href: firmware-analysis-rbac.md
     - name: Quickstart to use Firmware analysis with Azure CLI
       href: quickstart-upload-firmware-using-azure-command-line-interface.md
     - name: Quickstart to use Firmware analysis with Azure PowerShell
       href: quickstart-upload-firmware-using-powershell.md
     - name: Quickstart to use Firmware analysis with a Python script
       href: quickstart-upload-firmware-using-python.md
-    - name: Tutorial using Firmware analysis with the Azure portal
-      href: tutorial-analyze-firmware.md
+    - name: Firmware analysis frequently asked questions
+      href: firmware-analysis-faq.md
       
