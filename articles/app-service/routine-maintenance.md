@@ -60,7 +60,7 @@ Maintenance operations upgrade machines iteratively while App Service monitors t
 
 ### Are business hours reflected?
 
-Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). If resources are still upgrading by 9 AM of a given region, the upgrade will safely pause before the next critical step and until the end of business hours. 
+Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). If resources are still upgrading by 9 AM in a given region, the upgrade will safely pause before the next critical step and until the end of business hours. 
 
 ### What are my options to control routine maintenance?
 
