@@ -38,6 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **24.1** | | | |
+| 24.1.5  |09/2024 | Minor |09/2025 |
 | 24.1.4  |07/2024 | Minor |07/2025 |
 | 24.1.3  |06/2024 | Minor |06/2025 |
 | 24.1.2  |04/2024 | Minor |04/2025 |
