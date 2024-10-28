@@ -7,13 +7,6 @@ ms.topic: conceptual
 ms.date: 10/28/2024
 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang:
-  - csharp
-  - golang
-  - java
-  - javascript
-  - php
-  - python
 
 ---
 
@@ -25,12 +18,9 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 
 > [!IMPORTANT]
 > Starting November 1, 2024, the TLS 1.2 requirement is enforced.
->
->
 
 > [!IMPORTANT]
 > The TLS 1.0/1.1 retirement content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
->
 
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
