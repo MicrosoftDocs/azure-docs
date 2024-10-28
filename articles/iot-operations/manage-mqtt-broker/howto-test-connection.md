@@ -64,16 +64,16 @@ The first option is to connect from within the cluster. This option uses the def
         command: ["sh", "-c"]
         args: ["apk add mosquitto-clients mqttui && sleep infinity"]
         volumeMounts:
-        - name: mq-sat
+        - name: broker-sat
           mountPath: /var/run/secrets/tokens
         - name: trust-bundle
           mountPath: /var/run/certs
       volumes:
-      - name: mq-sat
+      - name: broker-sat
         projected:
           sources:
           - serviceAccountToken:
-              path: mq-sat
+              path: broker-sat
               audience: aio-internal # Must match audience in BrokerAuthentication
               expirationSeconds: 86400
       - name: trust-bundle
@@ -94,7 +94,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
     ```
 
     The output should look similar to the following:
@@ -106,12 +106,12 @@ The first option is to connect from within the cluster. This option uses the def
     Client (null) sending DISCONNECT
     ```
 
-    The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
+    The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 1. To subscribe to the topic, run the following command:
 
     ```console
-    mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
     ```
 
     The output should look similar to the following:
