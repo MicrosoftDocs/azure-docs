@@ -12,6 +12,7 @@ ms.author: robece
 
 This article describes how to forward events from event subscriptions created in resources like topics, system topics, domains, and partner topics to Event Grid namespaces. 
 
+## Overview
 Event Grid basic supports **Event Grid Namespace topic** as the **endpoint type**. When creating an event subscription to an Event Grid topic, system topic, domain, or partner topic, you can select an Event Grid namespace topic as the endpoint for handling events. 
 
 :::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png" alt-text="Image that shows events forwarded from Event Grid basic to Event Grid namespace topic." border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png":::
