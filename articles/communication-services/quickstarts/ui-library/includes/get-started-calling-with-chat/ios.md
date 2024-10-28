@@ -1,7 +1,7 @@
 ---
 author: pavelprystinka
 ms.author: pprystinka
-ms.date: 10/10/2021
+ms.date: 10/28/2024
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -262,15 +262,3 @@ class ViewController: UIViewController {
     }
 }
 ```
-
-## Run the code
-
-To build and run your app on the iOS simulator, select **Product** > **Run** or use the (&#8984;-R) keyboard shortcut. Then, try out the call experience on the simulator:
-
-### More features
-
-The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
-
-## Add notifications to your mobile app
-
-Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.
