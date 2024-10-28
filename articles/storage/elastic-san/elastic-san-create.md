@@ -53,7 +53,6 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
 | `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
-| `<PublicNetworkAccess>`          | The property which determines if public internet access to your Elastic SAN endpoints is enabled or disabled at the SAN level. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
 | `<AutoScalePolicyEnforcement>`   | The setting that determines whether or not autoscaling is enabled for the Elastic SAN. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
 | `<UnusedSizeTiB>`                | The unused size that you want to have on your Elastic SAN. If you use more space than this amount, the scale-up operation gets triggered. This is a required to set up autoscaling. |
 |`<IncreaseCapacityUnitByTiB>`     | The number of capacity-only units you want to scale up by when autoscale gets triggered. |
