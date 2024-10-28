@@ -165,7 +165,7 @@ In the above example, `FeatureW` specifies a `RequirementType` of `All`, meaning
 
 #### Microsoft Feature Management Schema
 
-The feature management library also supports the usage of the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/tree/main/docs/FeatureManagement) to declare feature flags. This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
+The feature management library also supports the usage of the [`Microsoft Feature Management schema`]([https://github.com/Azure/AppConfiguration/tree/main/docs/FeatureManagement](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v1.0.0.schema.json)) to declare feature flags. This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
 
 ``` JavaScript
 {
@@ -198,7 +198,7 @@ The feature management library also supports the usage of the [`Microsoft Featur
 
 :::zone target="docs" pivot="preview-version"
 
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/tree/main/docs/FeatureManagement). This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
+The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
 
 Below we have an example of declaring feature flags in a json file.
 
@@ -1410,6 +1410,8 @@ app.UseMiddleware<TargetingHttpContextMiddleware>();
 An example of its usage can be found in the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/VariantAndTelemetryDemo) example.
 
 #### Prerequisite
+
+This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
 
 This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service.
 
