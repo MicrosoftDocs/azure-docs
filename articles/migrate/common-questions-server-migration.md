@@ -49,7 +49,7 @@ To learn more, review this [article](./server-migrate-overview.md) to compare mi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 

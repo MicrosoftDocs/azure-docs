@@ -4,12 +4,12 @@ description: Provides a list of regions where Azure Migrate is supported
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/28/2024
 ---
 
 # Supported geographies 
 
-#### [Azure Public cloud](#tab/public)
+<!--#### [Azure Public cloud](#tab/public)-->
 
 ## Public cloud
 
@@ -44,7 +44,7 @@ United States | Central US or West US 2
 > [!NOTE]
 > For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
-#### [Azure for US Government](#tab/gov)
+<!--#### [Azure for US Government](#tab/gov)--->
 
 ## Azure Government
 
@@ -54,7 +54,9 @@ Create project | United States | Metadata is stored in US Gov Arizona, US Gov Vi
 Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
-#### [Azure operated by 21Vianet](#tab/21via)
+<!--#### [Azure operated by 21Vianet](#tab/21via)-->
+
+## Azure operated by 21Vianet
 
 **Geography** | **Metadata storage location**
 --- | ---

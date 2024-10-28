@@ -36,7 +36,7 @@ Once you're done with discovery and the inventory of servers shows up in the por
  - The following are some Azure VM specific settings. Learn more about general assessment settings.  For more information, see [Create an Azure VM assessment](tutorial-assess-vmware-azure-vm.md). 
  
 > [!NOTE] 
-> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types. 
+> In Azure Government, review the [supported target](supported-geographies.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types. 
  
 **Setting Category** | **Setting** | **Details** 
 --- | --- | ---  
@@ -55,7 +55,7 @@ Once you're done with discovery and the inventory of servers shows up in the por
 |**Security** | **Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure VM with Microsoft Defender for Cloud.  
  
 > [!NOTE] 
-> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types. Also, [review the best practices](best-practices-assessment.md) to create an assessment with Azure Migrate. 
+> In Azure Government, review the [supported target](supported-geographies.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types. Also, [review the best practices](best-practices-assessment.md) to create an assessment with Azure Migrate. 
   
 ## Assessment Report 
  
