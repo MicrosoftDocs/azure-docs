@@ -62,7 +62,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 1. Install the required packages.
 
     ```bash
-    pip install flask azure-appconfiguration-provider azure-identity featuremanagement[AzureMonitor] flask-login flask_sqlalchemy fask_bcyrpt
+    pip install flask azure-appconfiguration-provider==2.0.0b2 azure-identity featuremanagement[AzureMonitor]==2.0.0b2 flask-login flask_sqlalchemy flask_bcrypt azure-monitor-opentelemetry
     ```
 
 1. Create a new file named *app.py* in the *QuoteOfTheDay* folder.
