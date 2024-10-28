@@ -1,0 +1,141 @@
+### YamlMime:Landing
+
+title: Virtual Network documentation
+summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+
+metadata:
+  title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
+  description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+  ms.service: azure-virtual-network
+  ms.topic: landing-page
+  author: asudbring
+  ms.author: allensu
+  ms.date: 10/28/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about Azure Virtual Network
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: /azure/virtual-network/overview
+          - text: Networking Architecture
+            url: /azure/architecture/networking/
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /training/modules/introduction-to-azure-virtual-networks/
+          - text: Architect network infrastructure in Azure
+            url: /training/paths/architect-network-infrastructure/
+  # Card (optional)
+  - title: Concepts and Architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Virtual network peering
+            url: /azure/virtual-network/virtual-network-peering-overview
+          - text: Route network traffic
+            url: /azure/virtual-network/virtual-networks-udr-overview
+          - text: Hub-spoke network topology
+            url: /azure/architecture/networking/architecture/hub-spoke
+  # Card
+  - title: Plan and design
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connect to an on-premises network
+            url: /azure/architecture/reference-architectures/hybrid-networking/
+          - text: IPv6
+            url: /azure/virtual-network/ip-services/ipv6-overview
+          - text: IP address types and allocation
+            url: /azure/virtual-network/ip-services/public-ip-addresses
+
+  - title: Deployment
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a virtual network
+            url: /azure/virtual-network/quick-create-portal
+      - linkListType: tutorial
+        links:
+          - text: Create a virtual network peer
+            url: /azure/virtual-network/tutorial-connect-virtual-networks-portal
+          - text: Route network traffic
+            url: /azure/virtual-network/tutorial-create-route-table-portal
+      - linkListType: deploy
+        links:
+          - text: Provision a new application in an existing network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%201
+
+  # Card
+  - title: Manage and monitor
+    linkLists:
+        - linkListType: how-to-guide
+          links:
+          - text: Manage virtual networks
+            url: /azure/virtual-network/manage-virtual-network
+          - text: Manage subnets
+            url: /azure/virtual-network/virtual-network-manage-subnet
+          - text: Monitor virtual networks
+            url: /azure/virtual-network/monitor-virtual-network
+
+  # Card
+  - title: Reliability and availability
+    linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
+  # Card
+  - title: Security and compliance
+    linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview  
+  # Card
+  - title: Troubleshoot
+    linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview     
+  # Card
+  - title: How-to guidance
+    linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
+  # Card
+  - title: Network foundation
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Front Door overview
+            url: /azure/frontdoor/front-door-overview
+          - text: Azure Application Gateway overview
+            url: /azure/application-gateway/overview
+            
+  # Card
+  - title: Training
+    linkLists:
+        - linkListType: quickstart
+          links:
+          - text: TBD
+            url: /azure/load-balancer/overview
+          - text: TBD
+            url: /azure/load-balancer/overview
