@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 10/28/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -75,7 +75,7 @@ Request body:
   "name": "{tenantId}", 
   "id": " /providers/Microsoft.Resources/dataBoundaries/{tenantId}",   
   "properties": { 
-    "dataBoundary": "EU", 
+    "dataBoundary": "{dataBoundaryGeo}", 
     "provisioningState": "Created" 
   } 
 } 
@@ -136,7 +136,7 @@ Response body:
   "name": "{tenantId}", 
   "id": " /providers/Microsoft.Resources/dataBoundaries/{tenantId}",   
   "properties": { 
-    "dataBoundary": "EU", 
+    "dataBoundary": "{dataBoundaryGeo}", 
     "provisioningState": "Created" 
   } 
 } 
