@@ -45,6 +45,8 @@ To connect to an asset, first you need to establish the application authenticati
 
 1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a Kubernetes native secret named *aio-opc-ua-broker-trust-list* that's created when you deploy Azure IoT Operations.
 
+    For a DER encoded certificate in a file such as *./my-server.der*, run the following command:
+
     ```azurecli
     # Append my-server.der OPC UA server certificate to the trusted certificate list secret as a new entry
     az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server.der"
