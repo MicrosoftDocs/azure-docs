@@ -109,7 +109,6 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* and overwrite the content to the quote app.
 
     ```csharp
-    using Microsoft.ApplicationInsights;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.FeatureManagement;
