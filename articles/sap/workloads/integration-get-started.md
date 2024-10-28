@@ -19,7 +19,7 @@ To learn more about the opportunities of extending SAP applications with Azure s
 
 > [!VIDEO https://www.youtube.com/embed/72kbjv0GJAY]
 
-We have over thirty years of partnership between SAP and Microsoft, which is a foundation to support common goals long-term, including a joint commitment by SAP and Microsoft to simplify and streamline customers’ journeys to the cloud. For more information, see:
+We have over 30 years of partnership between SAP and Microsoft, which is a foundation to support common goals long-term, including a joint commitment by SAP and Microsoft to simplify and streamline customers’ journeys to the cloud. For more information, see:
 
 - [SAP Partners with Microsoft for First-in-Market Cloud Migration Offerings](https://news.microsoft.com/2019/10/20/sap-partners-with-microsoft-for-first-in-market-cloud-migration-offerings/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/)
@@ -41,7 +41,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Universal Print](#microsoft-universal-print) | Learn about the available cloud native printing capabilities for SAP. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user authentication and authorization with Microsoft Entra ID. Single sign-on (SSO) and multifactor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about codevelopment efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender XDR, Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
@@ -58,7 +58,7 @@ For more information about integration with [Azure OpenAI service](/azure/ai-ser
 Also see these SAP resources:
 
 - [empower SAP RISE enterprise users with Azure OpenAI in multicloud environment | blog](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
-- [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core | github repos](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
+- [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core | GitHub repos](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
 - [SAP SuccessFactors Helps HR Solve Skills Gap with Generative AI | SAP News](https://news.sap.com/2023/05/sap-successfactors-helps-hr-solve-skills-gap-with-generative-ai/)
 
 ### Microsoft Copilot
@@ -94,7 +94,7 @@ For more information about integration with Microsoft Teams, see [Native SAP app
 - [SAP Build Work Zone, advanced edition](https://help.sap.com/docs/WZ/b03c84105ff74f809631e494bd612e83/bfa596db8219450ba9c65b809300b55d.html)
 - [Embedding SAP Cloud Portal and SAP Build Work Zone into Microsoft Teams](https://blogs.sap.com/2022/01/26/integrate-sap-cloud-portal-and-launchpad-service-into-microsoft-teams-including-sso/)
 - [Embed self-hosted SAP Fiori Launchpad into Microsoft Teams](https://blogs.sap.com/2022/08/02/embed-self-hosted-sap-fiori-launchpad-into-microsoft-teams/)
-- [Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba and Microsoft Teams](https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/)
+- [Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba, and Microsoft Teams](https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/)
 
 ### Microsoft Power Platform
 
@@ -224,37 +224,33 @@ Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-
 
 Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
 
-Unify all your security solutions for M365, cloud-infrastructure, and SAP in one portal experience with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender). Profit from the correlation of signals across the Microsoft ecosystem and connected 3rd parties to detect and respond to threats in real-time.
+Unify all your security solutions for Microsoft 365, cloud-infrastructure, and SAP in one portal experience with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender). Profit from the correlation of signals across the Microsoft ecosystem and connected third parties to detect and respond to threats in real-time.
 
-Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
+Learn more about identity focused integration capabilities that power the analysis on Defender and Microsoft Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
 
-Leverage the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
+Use the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
 
 See the Microsoft Security Copilot working with an SAP Incident in action [here](https://www.youtube.com/watch?v=snV2joMnSlc&t=234s).
 
-Discover partner offerings for SAP security on the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=Sentinel%20for%20SAP&page=1).
+Discover partner offerings for SAP security on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=Sentinel%20for%20SAP&page=1).
 
 #### Microsoft Sentinel for SAP
 
-Sentinel integrates natively with Defender XDR. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
+Microsoft Sentinel integrates natively with Microsoft Defender XDR. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
-- [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
-- [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
-- [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
-- [Deploy Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/deploy-sap-btp-solution.md)
-- [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
-- [Deploying Microsoft Sentinel SAP agent into an AKS/Kubernetes cluster](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deploying-microsoft-sentinel-threat-monitoring-for-sap-agent/ba-p/3528040)
+- [Microsoft Sentinel solution for SAP applications](/azure/sentinel/sap/solution-overview)
+- [Microsoft Sentinel solution for SAP BTP](/azure/sentinel/sap/sap-btp-solution-overview)
 
 Also see the following SAP resources:
 
 - [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/)
 - [Deploy SAP user blocking based on suspicious activity on the SAP backend](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/)
-- [Automatically trigger re-activation of the SAP audit log on malicious deactivation](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-3/)
-- [Automatically remediate Sentinel SAP Collector Agent attack](https://blogs.sap.com/2023/07/06/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-4/)
+- [Automatically trigger reactivation of the SAP audit log on malicious deactivation](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-3/)
+- [Automatically remediate Microsoft Sentinel SAP Collector Agent attack](https://blogs.sap.com/2023/07/06/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-4/)
 
-See below video to experience the SAP security orchestration, automation and response workflow with Sentinel in action:
+See below video to experience the SAP security orchestration, automation, and response workflow with Microsoft Sentinel in action:
 
 > [!VIDEO https://www.youtube.com/embed/b-AZnR-nQpg]
 
@@ -262,7 +258,7 @@ See below video to experience the SAP security orchestration, automation and res
 
 The [Defender product family](/azure/defender-for-cloud/defender-for-cloud-introduction) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
 
-- Defender XDR (integration with Sentinel for SAP)
+- Defender XDR (integration with Microsoft Sentinel for SAP)
     - [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md)
 
 - Defender for Servers (SAP hosts)
@@ -277,7 +273,7 @@ The [Defender product family](/azure/defender-for-cloud/defender-for-cloud-intro
     - [Protect your OpenAPI APIs with Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction)
     - [Enable the Defender for APIs](/azure/defender-for-cloud/defender-for-apis-deploy)
 
-See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares). Be aware that the threat landscape has evolved from file-based attacks to file-less attacks. Therefore, the protection approach has to evolve beyond pure AntiVirus capabilities too.
+See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares). The threat landscape has evolved from file-based attacks to file-less attacks, and the protection approach has to evolve beyond pure AntiVirus capabilities too.
 
 For more information about using Microsoft Defender for Endpoint (MDE) via Microsoft Defender for Server for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
 
