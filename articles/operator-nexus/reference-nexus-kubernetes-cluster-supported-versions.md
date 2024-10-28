@@ -3,8 +3,8 @@ title: Supported Kubernetes versions in Azure Operator Nexus Kubernetes service
 description: Learn the Kubernetes version support policy and lifecycle of clusters in Azure Operator Nexus Kubernetes service
 ms.topic: article
 ms.date: 10/04/2023
-author: dramasamy
-ms.author: dramasamy
+author: dramasamy, travisneely
+ms.author: dramasamy, travisneely
 ms.service: azure-operator-nexus
 ---
 
@@ -45,7 +45,60 @@ View the upcoming version releases on the Nexus Kubernetes release calendar.
 
 For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
-[!INCLUDE [supported-versions](./includes/kubernetes-cluster/supported-versions.md)]
+| K8s Version | Nexus GA | End of Life | Extended Availability |
+| ------- | -------- | ----------- | --------------------- |
+| 1.26 | Sep 2023 | Mar 2024 | Mar 2025 |
+| 1.27 | Sep 2023 | Jul 2024, LTS until Jul 2025 | Jun 2025 |
+| 1.28 | Nov 2023 | Oct 2024 | Oct 2025 |
+| 1.29 | Aug 2024 | Feb 2025 | Feb 2026 |
+| 1.30 | Oct 2024 | Feb 2025 | Feb 2026 |
+
+
+*\* Indicates the version is designated for Long Term Support*
+
+## Nexus Kubernetes release schedule Gantt chart
+
+```mermaid
+%%{init: {'gantt': {'titleTopMargin': 25, 'barHeight': 20, 'barGap': 4, 'topPadding': 75, 'sidePadding': 75}}}%%
+gantt
+  title       Kubernetes Versions Supported on NAKS
+  dateFormat  %b/%y
+  axisFormat  %b/%y
+
+  
+  section K8s 1.26
+    Upstream              : milestone, Dec 2022, 1d
+    Live                  : active, Sep 2023, 152d
+    Extended Availability : crit, Mar 2024, 517d
+    
+  
+  section K8s 1.27
+    Upstream              : milestone, Apr 2023, 1d
+    Live                  : active, Sep 2023, 274d
+    Extended Availability : crit, Jul 2024, 609d
+    
+    Long Term Support     : special, 2026-03-02 00:00:00, 335d
+    
+  
+  section K8s 1.28
+    Upstream              : milestone, Aug 2023, 1d
+    Live                  : active, Nov 2023, 305d
+    Extended Availability : crit, Oct 2024, 670d
+    
+  
+  section K8s 1.29
+    Upstream              : milestone, Dec 2023, 1d
+    Live                  : active, Aug 2024, 154d
+    Extended Availability : crit, Feb 2025, 519d
+    
+  
+  section K8s 1.30
+    Upstream              : milestone, Apr 2024, 1d
+    Live                  : active, Oct 2024, 93d
+    Extended Availability : crit, Feb 2025, 458d
+    
+  
+```
 
 ## Nexus Kubernetes service version components
 
@@ -72,26 +125,25 @@ We can easily upgrade from any small update in one Kubernetes version to any sma
 
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
-| Kubernetes Version | Version Bundle | Components      | OS components | Breaking Changes | Notes           |
-|--------------------|----------------|-----------------|---------------|------------------|-----------------|
-| 1.29.6             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.29.4             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.28.11             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | |
-| 1.28.9             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.28.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.28.0-5 |
-| 1.27.9             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |   |
-| 1.27.3             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.3             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.27.1-8 |
-| 1.26.12             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.12             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |   |
-| 1.26.6             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.6             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.26.3-8 |
-| 1.25.11             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.25.11             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0 | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.25.11             | 4              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0 | Azure Linux 2.0  |  No breaking changes    | |
-| 1.25.6             | 8              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4-hotfix<br>etcd v3.5.14<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.25.6             | 7              |Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.25.4-6 |
+| Kubernetes Version | Version Bundle | Components | OS Components | Breaking Changes | Notes |
+| ------- | -------- | -------- | -------- | ----------- | --------------------- |
+| 1.30.5 | 1 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.30.3 | 2 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.30.3 | 1 | Calico v3.27.4<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.29.9 | 1 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.29.7 | 4 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.29.7 | 3 | Calico v3.27.4<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes |  |
+| 1.28.14 | 1 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.28.12 | 4 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.28.12 | 3 | Calico v3.27.4<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 |  | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.27.13 | 4 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.27.13 | 3 | Calico v3.27.4<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.27.9 | 6 | Calico v3.28.2<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.27.9 | 5 | Calico v3.27.4<br>metrics-server v0.7.2<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.14.0-102<br>Csi-nfs v4.9.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.26.12 | 4 | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-88<br>Csi-nfs v4.8.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.26.12 | 3 | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-88<br>Csi-nfs v4.8.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.26.6 | 6 | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-88<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
+| 1.26.6 | 5 | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0<br>metallb v0.14.5-3 | 2.0.20240425 | No breaking changes | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
 
 ### Version bundle features
 
