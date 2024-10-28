@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 10/28/2024
 ms.author: cshoe
 ---
 
@@ -13,18 +13,20 @@ ms.author: cshoe
 
 Azure Container Apps is a fully managed service where platform and infrastructure updates are regularly and automatically applied to both components and environments.
 
+The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
+
+Depending on the type of update, you can choose to define a *maintenance window* that controls when noncritical updates are applied to your Container Apps environment.
+
+The following table describes the difference between the timing in how *critical* and *noncritical* updates are applied to your environment.
+
 | Update type | Description | Timing |
 |---|---|---|
-| Critical | Urgent updates include changes essential to the security and stability of your app. | Anytime |
-| Noncritical | Security patches, bug fixes, and the introduction of new features. | During your planned maintenance window, or anytime if a window isn't configured. |
-
-With maintenance windows, the system is designed to minimize the effect on performance of your apps during updates. There are, however, some scenarios where your app or job replicas could restart during the update process. By defining maintenance windows, you can control when updates are applied to your components and environments.
+| Critical | Urgent fixes that include updates essential to the security and stability of your app. | Anytime |
+| Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only happen during that time span. If a maintenance window isn't configured, then updates can be applied at any time. |
 
 ## How maintenance windows work
 
-You can define a weekly maintenance window for your Azure Container Apps environment. When a maintenance window is configured, regular, noncritical updates are applied during this window.
-
-To define a maintenance window, you specify a day of week, a start time in the UTC time zone, and a duration.
+To control when noncritical updates are applied, you can define a weekly maintenance window for your Azure Container Apps environment. When you define a maintenance window, you specify a day of week, a start time in the UTC time zone, and a duration.
 
 Keep in mind the following considerations:
 
@@ -52,27 +54,35 @@ In many cases, you can minimize the impact of platform updates on your applicati
 
 You can add a maintenance window to an environment with the `maintenanceconfiguration add` command.
 
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your own values.
+
 ```azurecli
-az containerapp env maintenanceconfiguration add  \
+az containerapp env maintenanceconfiguration add \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --weekday Monday \
-  --start-hour-utc 1  
-  --duration 8 
+  --start-hour-utc 1
+  --duration 8
 ```
+
+UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
 ## Update a maintenance window
 
 You can update the maintenance window for an environment with the `maintenanceconfiguration update` command.
+
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
 ```azurecli
 az containerapp env maintenanceconfiguration update \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \ 
   --weekday Monday \
-  -- start-hour-utc 1 \
+  --start-hour-utc 1 \
   --duration 9 
 ```
+
+UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
 ## View the configured window
 
@@ -100,7 +110,7 @@ TODO: query that indicates start, end, and success of scheduled maintenance
 
 ## Considerations
 
-Maintenance windows are free during preview
+Maintenance windows are free during preview.
 
 ## Next steps
 
