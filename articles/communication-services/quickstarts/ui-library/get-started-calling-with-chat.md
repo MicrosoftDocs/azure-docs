@@ -43,4 +43,4 @@ Azure Communication Services integrates with [Azure Event Grid](../../../event-g
 
 ## Next steps
 
-- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)

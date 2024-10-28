@@ -150,7 +150,7 @@ To initialize the Call composite:
     - Replace `USER_ACCESS_TOKEN` with your token.
 
 ### Get a Teams meeting chat thread for a Communication Services user
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](../../../../graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](../../../../graph/api/resources/onlinemeeting) property
+The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation]() (/graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property
 
 With the Graph APIs, you can also obtain the threadID. The response has a chatInfo object that contains the threadID.
 
