@@ -72,7 +72,7 @@ Azure SQL Edge containers aren't supported on the following platforms for produc
    | Parameter | Description |
    | --- | --- |
    | **-e "ACCEPT_EULA=Y"** | Set the **ACCEPT_EULA** variable to any value to confirm your acceptance of the [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2139274). Required setting for the SQL Edge image. |
-   | **-e "MSSQL_SA_PASSWORD=<password>"** | Specify your own strong password that is at least eight characters and meets the [password requirements](/sql/relational-databases/security/password-policy). Required setting for the SQL Edge image. |
+   | **-e "MSSQL_SA_PASSWORD=\<password\>"** | Specify your own strong password that is at least eight characters and meets the [password requirements](/sql/relational-databases/security/password-policy). Required setting for the SQL Edge image. |
    | **-p 1433:1433** | Map a TCP port on the host environment (first value) with a TCP port in the container (second value). In this example, SQL Edge is listening on TCP 1433 in the container and this is exposed to the port, 1433, on the host. |
    | **--name azuresqledge** | Specify a custom name for the container rather than a randomly generated one. If you run more than one container, you can't reuse this same name. |
    | **-d** | Run the container in the background (daemon) |
