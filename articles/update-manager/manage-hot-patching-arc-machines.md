@@ -37,7 +37,7 @@ To enroll hotpatch license, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select the specific *Arc-enabled server*.
 1. Under the **Recommended updates** section, in **Hotpatch**, select **Change**.
-1. In the Hotpatch (preview), select **Enroll in Hotpatch** and then select **Confirm**.
+1. In the Hotpatch, select **Enroll in Hotpatch** and then select **Confirm**.
        
    :::image type="content" source="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png" alt-text="Screenshot showing how to enroll hotpatch license." lightbox="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png"::: 
        
@@ -59,11 +59,13 @@ To re-enable or disable updates at scale, follow these steps:
 
 #### [On single VM](#tab/manage-single)
 
+To re-enable or disable updates on a single VM, follow these steps:
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
-1.  Under **Resources**, select **Machines** and then select the specific Arc-enabled machine.
+1. Under **Resources**, select **Machines** and then select the specific Arc-enabled machine.
 1. In the **Arc-enabled machine | Updates** page, 
 under the **Recommended updates** section, in **Hotpatch**, select **Change**.
-1. In the Hotpatch (preview), select **Enroll in Hotpatch** and then select **Confirm**.
+1. In the Hotpatch, select **Enroll in Hotpatch** and then select **Confirm**.
 
 ---
 
@@ -118,7 +120,7 @@ You can also choose to trigger an *on-demand patch assessment* for your VM at an
 
 To install, you can create a [user-defined schedule](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) or [one-time update](quickstart-on-demand.md#install-updates). You can install it immediately after it's available, allowing your machine to get secure faster. 
 
-Using either of these options you can choose to install all available update classifications or only security updates. You can also specify updates to include or exclude by providing a list of individual hotpatch knowledge base articles. 
+Using either of these options you can choose to install all available update classifications or only security updates. You can also specify updates to include or exclude by providing a list of individual hotpatch knowledge base IDs. 
 
 This ensures hotpatch updates that don't require reboots are installed in the same schedule or one-time update schedule, making patch installation window predictable. 
 
@@ -134,6 +136,7 @@ Update history displays the history for the past 30 days, along with patch insta
 
 ## Next steps
 
+* Learn more about [hotpatching on Azure VMs](updates-maintenance-schedules.md#hotpatching).
 * Learn more about [configure update settings](manage-update-settings.md) on your machines.
 * Learn more on how to perform an [on-demand update](deploy-updates.md).
 
