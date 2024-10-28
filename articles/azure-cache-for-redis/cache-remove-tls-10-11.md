@@ -6,8 +6,14 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 ms.topic: conceptual
 ms.date: 10/28/2024
 
-ms.devlang: csharp, golang, java, javascript, php, python
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang:
+  - csharp
+  - golang
+  - java
+  - javascript
+  - php
+  - python
 
 ---
 
