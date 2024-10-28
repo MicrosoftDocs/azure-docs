@@ -188,7 +188,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
-|[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[Go Full Cloud](https://www.gofullcloud.com/)|
