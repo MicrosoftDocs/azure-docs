@@ -59,19 +59,23 @@ These are the following five deployment steps
 
 1. Traffic Mirroring Methods
 
-    There are three types of traffic mirroring methods each designed for specific usage scenarios. Choose the best method based on the usage and size of your network.
-
-        |Mirroring type| Switched Port Analyzer (SPAN) | Remote SPAN (RSPAN)  | Encapsulated Remote SPAN (ERSPAN) |
-        |---|---|---|---|
-        |Usage Scenario | Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks. |
-        |Description| SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. |ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet. |
-        |Mirroring set up | - Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.<br>  - Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.|- Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.<br> - RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches. <br> - Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.| - Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
-        | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|    
-        | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
+    There are three types of traffic mirroring methods, that are designed for specific usage scenarios. Choose the best method based on the usage and size of your network.
 
     1. Switched Port Analyzer (SPAN)
 
+        SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. For example:
+
+        **How It Works:**  Set up:
+        Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.
+
+        Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.
+
         :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the setup of the local SPAN traffic mirroring between the OT network and the sensor.":::
+
+        |**Usage Scenario:** |Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|
+        |---|---|
+        | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|
+        | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|
 
         |Mirroring type| Switched Port Analyzer (SPAN) |
         |---|---|
@@ -83,7 +87,22 @@ These are the following five deployment steps
 
     1. Remote SPAN (RSPAN)
 
+        RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks.
+
+        How It Works:
+
+        Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.
+
+        RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches.
+
+        Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.
+
         :::image type="content" source="media/guide/deployment-guide-RSPAN.png" alt-text="Diagram to explain the set up of the remote SPAN (RSPAN) traffic mirroring between the OT network and the sensor":::
+
+        |Usage Scenario | Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|
+        |---|---|
+        |Benefits: | - Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. |
+        |Complexity | Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.|
 
         |Mirroring type| Remote SPAN (RSPAN)  |
         |---|---|
@@ -95,7 +114,21 @@ These are the following five deployment steps
 
     1. Encapsulated Remote SPAN (ERSPAN)
 
+        ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet.
+
         :::image type="content" source="media/guide/deployment-guide-ERSPAN.png" alt-text="Diagram to explain the set up of the encapuslated remote SPAN (ERSPAN) traffic mirroring between the OT network and the sensor":::
+
+        How It Works:
+
+        Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.
+
+        Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? -->
+
+        Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.
+
+        |Usage Scenario | Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|
+        |---|---|
+        | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 
         |Mirroring type| Encapsulated Remote SPAN (ERSPAN)  |
         |---|---|
@@ -104,39 +137,39 @@ These are the following five deployment steps
         |Mirroring set up | - Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
         | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 
-    **Select mirroring method**
+    **Choosing the Right Method**
 
     When selecting a mirroring method, consider the following factors:
 
-    |Factors| Description |
-    |---|---|
-    |Network Size and Layout | - SPAN is suitable for local monitoring. <br>- RSPAN for larger, multi-switch environments <br> - ERSPAN for geographically dispersed or complex networks.|
-    |Traffic Volume | Ensure that the chosen method can handle the volume of traffic without introducing significant latency or network load.|
-    |Monitoring Needs| Determine if traffic is captured locally or across different network segments and choose the appropriate method.|
+    Network Size and Layout: SPAN is suitable for local monitoring, RSPAN for larger, multi-switch environments, and ERSPAN for geographically dispersed or complex networks.
 
-    By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
+    Traffic Volume: Ensure that the chosen method can handle the volume of traffic without introducing significant latency or network load.
 
-1. Deploy the sensors
+    Monitoring Needs: Determine if you need to capture traffic locally or across different network segments and choose the method that best meets those needs.
 
-    After choosing the sensor location and mirroring method, install the sensors.
+    By selecting the appropriate mirroring method, you can ensure that your network sensor captures the necessary Layer 2 (L2) traffic, providing high-quality data for accurate inventory and traffic analysis.
+
+1. Deploy the sensor
+
+    After choosing the sensor location and the mirroring method the user can move forward and install the sensors.
 
 1. Post deployment validation
 
-    It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks <!-- or network data?? Theo -->being sent to the sensor.  
+    It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the current networks being sent to the sensor.  
 
     :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
     Key steps include:
 
-    - Verify that the number of devices in the inventory is reasonable.
+    - Verifying that the number of devices in the inventory is reasonable.
 
-    - Check the type classification for devices listed in the inventory.
+    - Ensuring type classification for devices listed in the inventory.
 
-    - Confirm the visibility of OT protocol names on the device's inventory.
+    - Confirming the visibility of OT protocol names on the device’s inventory.
 
-    - Ensure L2 protocols are monitored by identifying MAC addresses in the inventory.
+    - Assure L2 protocols are monitored by seeing MAC addresses in the inventory.
 
-    If information doesn't appear, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
+    If information is lacking, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
 
     :::image type="content" source="media/guide/deployment-guide-post-deployment-analyze.png" alt-text="Screenshot of the OT sensor Analyze feature screen used to help validate the post OT sensor deployment.":::
 
