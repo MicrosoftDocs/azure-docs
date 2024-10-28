@@ -168,12 +168,9 @@ Oracle ASM disk group recommendation:
 
 ### Variant 2 – medium to large data volumes between 3 TB and 12 TB, restore time important
 
-Customer has medium to large sized databases where backup and/or restore
-+
+Customer has medium to large sized databases where backup and/or restore, or recovery of all databases can't be accomplished in a timely fashion.
 
-recovery of all databases can't be accomplished in a timely fashion.
-
-Usually customers are using RMAN, Azure Backup for Oracle and/or disk snap techniques in combination.
+Usually customers are using RMAN, Azure Backup for Oracle and/or disk snapshot techniques in combination.
 
 Major differences to Variant 1 are:
 
@@ -198,7 +195,7 @@ Major differences to Variant 1 are:
 
 ### Variant 3 – huge data and data change volumes more than 5 TB, restore time crucial
 
-Customer has a huge database where backup and/or restore + recovery of a single database can't be accomplished in a timely fashion.
+Customer has a huge database where backup and/or restore, or recovery of a single database can't be accomplished in a timely fashion.
 
 Usually customers are using RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant, each relevant database file type is separated to different Oracle ASM disk groups.
 
@@ -346,7 +343,7 @@ The disk selection for hosting Oracle's online redo logs is driven by IOPS requi
 ### Current recommendations for Oracle Storage
 
 1.  Azure Premium Storage – Most customers are deploying on ASM with Premium Storage
-2.  Azure NetApp Files - VLDB customers, often with single Oracle databases larger than 50TB are typically using ANF and leveraging Storage Snapshot capabilities of Azure NetApp Files for Backup and Restore
+2.  Azure NetApp Files - VLDB customers, often with single Oracle databases larger than 50TB are typically using ANF and using Storage Snapshot capabilities of Azure NetApp Files for Backup and Restore
 3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](/azure/virtual-machines/disk-bursting)
 4.  Azure Write Accelerator - used for the case that the Oracle redo log is based on Premium SSD v1 disks
 5.  Online disk extension is fully supported for Premium Storage v1 and works with ASM
