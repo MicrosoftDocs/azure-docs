@@ -1,9 +1,9 @@
 ---
-author: tfitzmac
+author: mumian
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 12/05/2023
-ms.author: tomfitz
+ms.author: jgao
 ---
 | Resource | Limit | Comment |
 | --- | --- | ---|
