@@ -8,9 +8,9 @@ ms.service: azure-migrate
 ms.date: 10/28/2024
 ---
 
-# Import VMware servers using RVTools xls - Common questions
+# Import VMware servers using RVTools xlsx - Common questions
 
-This article answers common questions about importing servers running in your VMware environment using RVTools XLSX (preview).
+This article answers common questions about importing servers running in your VMware environment using RVTools XLSX.
 
 ### Which sheets and columns are required to import data into Azure Migrate? 
 
@@ -31,9 +31,9 @@ Storage sizing is captured using data from the vPartition and vMemory sheets. If
 
 Ensure the following:
 
-- There are no manual edits made to the RVTools export. If there are edits, remove them or take a fresh export for importing into Azure Migrate.
+- There are no manual edits in the RVTools export file. If there are edits, remove them or export a fresh file for importing into Azure Migrate.
 
-- The file imported is set to be readable. File sensitivity labels might hamper Azure Migrate from reading the file successfully. Set the file sensitivity to **General**.
+- The imported file is set to be readable. Set the file sensitivity to **General** as file sensitivity labels might prevent Azure Migrate from reading the file successfully.
 
 
 ## Next steps
