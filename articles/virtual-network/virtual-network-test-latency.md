@@ -49,7 +49,7 @@ Use the following best practices to test and analyze network latency:
 
 ## Test VMs with Latte or SockPerf
 
-Use the following procedures to install and test network latency with [Latte](https://github.com/mellanox/sockperf) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
+Use the following procedures to install and test network latency with [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
 # [Windows](#tab/windows)
 
