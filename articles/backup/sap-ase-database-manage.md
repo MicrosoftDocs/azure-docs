@@ -24,23 +24,23 @@ To run on-demand backups, follow these steps
 2.	On the Backup Items blade, select the **Backup Management Type** as **SAP ASE (Sybase) in Azure VM**.
 3.	Select **view details** of Database for on-demand backup.
 
-    :::image type="content" source="media/sap-ase-db-manage/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-ase-db-manage/view-details.png":::
+  :::image type="content" source="media/sap-ase-db-manage/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-ase-db-manage/view-details.png":::
 
 4.	Select **Backup now** for taking on-demand backup.
 
-    :::image type="content" source="media/sap-ase-db-manage/take-on-demand-backup.png" alt-text="Screenshot showing how to take on-demand backup." lightbox="media/sap-ase-db-manage/take-on-demand-backup.png":::
+   :::image type="content" source="media/sap-ase-db-manage/take-on-demand-backup.png" alt-text="Screenshot showing how to take on-demand backup." lightbox="media/sap-ase-db-manage/take-on-demand-backup.png":::
 
 5. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**. The retention period of this backup is determined by the type of on-demand backup you want to run.
 - *On-demand full backups* are retained for a minimum of 45 days and a maximum of 99 years.
 - *On-demand differential* backups are retained as per the *log retention* set in the policy.
 
-    :::image type="content" source="media/sap-ase-db-manage/choose-backup.png" alt-text="Screenshot showing how to choose the type of backup you want to perform." lightbox="media/sap-ase-db-manage/choose-backup.png":::
+   :::image type="content" source="media/sap-ase-db-manage/choose-backup.png" alt-text="Screenshot showing how to choose the type of backup you want to perform." lightbox="media/sap-ase-db-manage/choose-backup.png":::
 
 ## Monitor backup jobs
 
 Azure Backup shows all manually triggered jobs in the Backup jobs section of Recovery Services Vault.
 
-    :::image type="content" source="media/sap-ase-db-manage/monitor-backup-jobs.png" alt-text="Screenshot showing how to monitor backup jobs." lightbox="media/sap-ase-db-manage/monitor-backup-jobs.png":::
+:::image type="content" source="media/sap-ase-db-manage/monitor-backup-jobs.png" alt-text="Screenshot showing how to monitor backup jobs." lightbox="media/sap-ase-db-manage/monitor-backup-jobs.png":::
 
 ## Change Backup policy
 
@@ -48,7 +48,7 @@ You can change the underlying policy for an SAP ASE backup items > View details 
 
 Making policy modifications affects all the associated backup items and triggers corresponding configure protection jobs.
 
-    :::image type="content" source="media/sap-ase-db-manage/change-backup-jobs.png" alt-text="Screenshot showing how to change backup jobs." lightbox="media/sap-ase-db-manage/change-backup-jobs.png":::
+:::image type="content" source="media/sap-ase-db-manage/change-backup-jobs.png" alt-text="Screenshot showing how to change backup jobs." lightbox="media/sap-ase-db-manage/change-backup-jobs.png":::
 
 ## Edit a Policy
 To modify the policy to change backup types, frequencies, and retention range, follow these steps:
@@ -58,7 +58,7 @@ To modify the policy to change backup types, frequencies, and retention range, f
 
 1. On the **Recovery Services Vault**, go to **Backup Policies**, and then select the policy you want to edit.
 
-    :::image type="content" source="media/sap-ase-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-ase-db-manage/edit-policy.png":::
+  :::image type="content" source="media/sap-ase-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-ase-db-manage/edit-policy.png":::
 
 Modifying the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
 
@@ -78,9 +78,9 @@ If you choose to leave recovery points, keep these details in mind:
 
 - If you delete a data source without stopping backups, new backups will fail.
 
-    :::image type="content" source="media/sap-ase-db-manage/stop-backup.png" alt-text="Screenshot showing how to stop backup." lightbox="media/sap-ase-db-manage/stop-backup.png":::
+   :::image type="content" source="media/sap-ase-db-manage/stop-backup.png" alt-text="Screenshot showing how to stop backup." lightbox="media/sap-ase-db-manage/stop-backup.png":::
 
-    :::image type="content" source="media/sap-ase-db-manage/retain-backup-data.png" alt-text="Screenshot showing how to retain backup data." lightbox="media/sap-ase-db-manage/retain-backup-data.png":::
+   :::image type="content" source="media/sap-ase-db-manage/retain-backup-data.png" alt-text="Screenshot showing how to retain backup data." lightbox="media/sap-ase-db-manage/retain-backup-data.png":::
 
 ## Resume protection for an SAP ASE database
 
@@ -91,7 +91,7 @@ To resume protection for an SAP ASE database:
 1.	Open the backup item, and then select **Resume backup**.
 2.	On the **Backup policy** menu, select a policy, and then select **Save**.
 
-    :::image type="content" source="media/sap-ase-db-manage/resume-backup.png" alt-text="Screenshot showing how to resume backup." lightbox="media/sap-ase-db-manage/resume-backup.png":::
+   :::image type="content" source="media/sap-ase-db-manage/resume-backup.png" alt-text="Screenshot showing how to resume backup." lightbox="media/sap-ase-db-manage/resume-backup.png":::
 
 ## Unregister an SAP ASE instance
 
@@ -99,15 +99,15 @@ Unregister an SAP ASE instance after you disable protection but before you delet
 
 1.	In the **Recovery Services** vault, under **Manage**, select **Backup Infrastructure**.
 
-    :::image type="content" source="media/sap-ase-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-ase-db-manage/backup-infrastructure.png":::
+   :::image type="content" source="media/sap-ase-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-ase-db-manage/backup-infrastructure.png":::
 
 2. For **Backup Management type**, select **Workload in Azure VM**.
 
-    :::image type="content" source="media/sap-ase-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-ase-db-manage/select-workload.png":::
+   :::image type="content" source="media/sap-ase-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-ase-db-manage/select-workload.png":::
 
 3. On the **Protected Servers** pane, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
 
-    :::image type="content" source="media/sap-ase-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-ase-db-manage/select-instance.png":::
+   :::image type="content" source="media/sap-ase-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-ase-db-manage/select-instance.png":::
 
 ## Next steps
 

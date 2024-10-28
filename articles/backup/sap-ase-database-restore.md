@@ -114,7 +114,7 @@ The files that are dumped are:
 
 Typically, a network share path, or the path of a mounted Azure file share that's specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share that's mounted on them.
 
-    :::image type="content" source="media/sap-ase-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-ase-db-restore/restore-files.png":::
+   :::image type="content" source="media/sap-ase-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-ase-db-restore/restore-files.png":::
 
    > [!Note]
    > To restore the database backup files on an Azure file share mounted on the target registered VM, make sure that the root account has read/write permissions on the share.
@@ -152,5 +152,5 @@ Learn about the [minimum role requirements for cross-region restore](/azure/back
 
 ## Next steps
 
-- [Manage SAP ASE databases by using Azure Backup](sap-ase-db-manage.md)
+- [Manage SAP ASE databases by using Azure Backup](sap-ase-database-manage.md)
 - [About backing up SAP ASE databases on Azure VMs](sap-ase-database-about.md)
