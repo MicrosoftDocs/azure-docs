@@ -434,7 +434,7 @@
         href: apply-windows-license.md
       - name: Session host update
         items:
-        - name: Update session hosts using a session host configuration
+        - name: Update session hosts
           displayName: session host update, shc, shu
           href: session-host-update-configure.md
         - name: Session host update diagnostic queries
