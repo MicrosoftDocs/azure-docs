@@ -35,6 +35,8 @@ items:
           href: tutorial-discover-vmware.md
         - name: Import servers in VMware environment
           href: tutorial-import-vmware-using-rvtools-xlsx.md
+        - name: Common questions about importing servers
+          href: common-questions-import.md
     - name: Discover servers in Hyper-V environment
       href: tutorial-discover-hyper-v.md
     - name: Discover physical servers
