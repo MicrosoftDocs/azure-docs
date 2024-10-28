@@ -58,7 +58,7 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 |`<IncreaseCapacityUnitByTiB>`     | The number of capacity-only units you want to scale up by when autoscale gets triggered. |
 |`<CapacityUnitScaleUpLimit>`      | The maximum size you want autoscaling to grow your SAN to. |
 
-The following command creates an Elastic SAN that uses **locally redundant** storage without autoscaling enabled.
+The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
 ```azurepowershell
 # Define some variables.
