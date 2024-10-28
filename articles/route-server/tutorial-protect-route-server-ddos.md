@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 06/12/2024
+ms.date: 09/24/2024
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server in my environment with DDoS protection so that the Route Server dynamically updates virtual machines (VMs) routing tables with any changes in the topology while it's protected by Azure DDoS protection.
 ---
@@ -73,7 +73,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
     | Name | Enter **myRouteServer**. |
     | Region | Select **West US**. |
     | **Configure virtual networks** |   |
-    | Virtual network | Select **Create new**. </br> In **Name**, enter **myVNet**. </br> Leave the pre-populated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter **RouteServerSubnet**. </br> In **Address range**, enter **10.1.1.0/27**. </br> Select **OK**.  |
+    | Virtual network | Select **Create new**. </br> In **Name**, enter **myVNet**. </br> Leave the prepopulated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter **RouteServerSubnet**. </br> In **Address range**, enter **10.1.1.0/27**. </br> Select **OK**.  |
     | Subnet | Select **RouteServerSubnet (10.1.1.0/27)**. |
     | **Public IP address** |  |
     | Public IP address | Select **Create new**. |
@@ -85,8 +85,8 @@ In this section, you create an Azure Route Server. The virtual network and publi
 
 5. Select **Create**.
 
-    > [!NOTE]
-    > The deployment of the Route Server will take about 20 minutes.
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
+
 
 ## Enable DDoS protection
 
@@ -153,4 +153,5 @@ If you're not going to continue to use this application, delete the virtual netw
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md)
+> [Configure and manage Azure Route Server](configure-route-server.md)
+

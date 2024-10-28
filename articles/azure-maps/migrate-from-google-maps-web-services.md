@@ -52,11 +52,6 @@ The following service APIs aren't currently available in Azure Maps:
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
 
-Azure Maps has several other REST web services that may be of interest:
-
-* [Spatial operations]: Offload complex spatial calculations and operations, such as geofencing, to a service.
-* [Traffic]: Access real-time traffic flow and incident data.
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account] before you begin.

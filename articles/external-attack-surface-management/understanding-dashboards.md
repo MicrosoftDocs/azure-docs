@@ -30,7 +30,7 @@ To access your Defender EASM dashboards, first navigate to your Defender EASM in
 ![Screenshot of dashboard screen with dashboard navigation section highlighted.](media/Dashboards-1.png)
 
 
-## Downloading chart data 
+### Downloading chart data 
 
 The data underlying any dashboard chart can be exported to a CSV file.  This export is useful for users who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Chart exports currently support individual chart segments; to download multiple segments from the same chart, you need to export each individual segment. 
 
@@ -39,6 +39,18 @@ Selecting an individual chart segment opens a drilldown view of the data, listin
 Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, might be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
 
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
+
+
+
+### Marking CVEs as non-applicable 
+
+Many Defender EASM dashboards feature CVE data, bringing your attention to potential vulnerabilities based on the web component infrastructure that powers your attack surface. For instance, CVEs are listed on the Attack Surface summary dashboard, categorized by their potential severity. Upon investigating these CVEs, you might determine that some are not relevant to your organization. This may be because you are running an unimpacted version of the web component, or your organization has different technical solutions in place to protect you from that specific vulnerability. 
+
+From the drilldown view of any CVE-related chart, next to the "Download CSV report" button, you now have the option to set an observation as non-applicable. Clicking this value will route you to an inventory list of all assets associated to that observation, and you can then elect to mark all observations as non-applicable from this page. For more information on marking observations as non-applicable, see [Modifying inventory assets](modifying-inventory-assets.md). 
+
+![Screenshot of dashboard drilldown view with "mark observation as nonapplicable" button highlighted.](media/cves-1.png)
+
+
 
 
 ## Inventory changes 
@@ -75,7 +87,7 @@ The Observations page features a list of all potential insights in the left-hand
 
 ![Screenshot of attack surface drilldown for medium severity priorities.](media/Dashboards-3.png)
 
-This detailed view for any observation includes the title of the issue, a description, and remediation guidance from the Defender EASM team. In this example, the description explains how expired SSL certificates can lead to critical business functions becoming unavailable, preventing customers or employees from accessing web content and thus damaging your organization’s brand. The Remediation section provides advice on how to swiftly fix the issue; in this example, Microsoft recommends that you review the certificates associated with the impacted host assets, update the coinciding SSL certificate(s), and update your internal procedures to ensure that SSL certificates are updated in a timely manner.
+This detailed view for any observation includes the title of the issue, a description, and remediation guidance from the Defender EASM team. In this example, the description explains how expired SSL certificates can lead to critical business functions becoming unavailable, preventing customers or employees from accessing web content and thus damaging your organization’s brand. The Remediation section provides advice on how to swiftly fix the issue; in this example, Microsoft recommends that you review the certificates associated with the impacted host assets, update the coinciding SSL certificates, and update your internal procedures to ensure that SSL certificates are updated in a timely manner.
 
 Finally, the Asset section lists any entities that have been impacted by this specific security concern. In this example, a user wants to investigate the impacted assets to learn more about the expired SSL Certificate. You can click on any asset name from this list to view the Asset Details page.
 
@@ -101,7 +113,7 @@ For instance, your organization may decide to migrate all cloud infrastructure t
 
 ### Sensitive services
 
-This section displays sensitive services detected on your Attack Surface that should be assessed and potentially adjusted to ensure the security of your organization. This chart highlights any services that have historically been vulnerable to attack or are common vectors of information leakage to malicious actors. Any assets in this section should be investigated, and Microsoft recommends that organizations consider alternative services with a better security posture to mitigate risk.
+This section displays sensitive services detected on your Attack Surface that should be assessed and potentially adjusted to ensure the security of your organization. This chart highlights any services that are historically vulnerable to attack or are common vectors of information leakage to malicious actors. Any assets in this section should be investigated, and Microsoft recommends that organizations consider alternative services with a better security posture to mitigate risk.
 
 ![Screenshot of sensitive services chart.](media/Dashboards-7.png)
 

@@ -6,12 +6,12 @@ description: Define a technical profile for a JSON web token (JWT) issuer in a c
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing custom policies in Azure Active Directory B2C, I want to define a technical profile for a JWT token issuer, so that I can emit a JWT token that is returned to the relying party application during the authentication flow.

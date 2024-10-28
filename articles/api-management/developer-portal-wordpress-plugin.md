@@ -69,7 +69,8 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     
     `https://<apim-instance-name>.developer.azure-api.net/signin`
     
-1. On the **Authentication** page, under **Single-page application**, select **Add URI** and enter the following URI, substituting the name of your API Management instance:
+1. Select **+ Add a platform** again. Select **Single-page application** agaain.
+1. On the **Configure single-page application** page, enter the following redirect URI, substituting the name of your API Management instance, and select **Configure**:
     
     `https://<apim-instance-name>.developer.azure-api.net/`
 

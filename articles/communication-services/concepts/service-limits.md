@@ -80,6 +80,7 @@ We recommend acquiring identities and tokens before creating chat threads or sta
 For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
+
 When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages are queued to be sent once the number of requests is below the threshold.
 
 Rate Limits for SMS:
@@ -91,6 +92,7 @@ Rate Limits for SMS:
 |Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
+
 If you have requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
 
 
@@ -99,6 +101,10 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 ## Email
 
 You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
+
+The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
+
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
 
 ### Rate Limits 
 
@@ -126,6 +132,7 @@ You can send a limited number of email messages. If you exceed the following lim
 | --- | --- |
 | Number of recipients in Email | 50 |
 | Total email request size (including attachments) | 10 MB |
+| Maximum authenticated connections per subscription | 250 |
 
 For all message size limits, you need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of ~10 MB, you can expect a realistic maximum message size value of approximately ~7.5 MB.
 
@@ -156,8 +163,8 @@ To increase your email quota, follow the instructions at [Quota increase for ema
 
 ### Size Limits
 
-| **Name**         | Limit  |
-|--|--|
+| **Name** | Limit |
+| --- | --- |
 |Number of participants in thread|250 |
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
@@ -235,42 +242,46 @@ The Calling SDK doesn't enforce these limits, but your users might experience pe
 
 The following timeouts apply to the Communication Services Calling SDKs:
 
-| Action                                                                      | Timeout in seconds |
-| --------------------------------------------------------------------------- | ------------------ |
-| Reconnect/removal participant                                               | 120                |
-| Add or remove new modality from a call (Start/stop video or screen sharing) | 40                 |
-| Call Transfer operation timeout                                             | 60                 |
-| 1:1 call establishment timeout                                              | 85                 |
-| Group call establishment timeout                                            | 85                 |
-| PSTN call establishment timeout                                             | 115                |
-| Promote 1:1 call to a group call timeout                                    | 115                |
-
+| Action | Timeout in seconds |
+| --- | --- |
+| Reconnect/removal participant | 120 |
+| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
+| Call Transfer operation timeout | 60 |
+| 1:1 call establishment timeout | 85 |
+| Group call establishment timeout | 85 |
+| PSTN call establishment timeout | 115 |
+| Promote 1:1 call to a group call timeout | 115 |
 
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits, pending review by our vetting team.
 
 ## Job Router
+
 When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests fail until the token of bucket to handle requests is replenished after a certain time.
 
 Rate Limits for Job Router:
 
-|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Timeout in seconds|
-|---------|-----|-------------|-------------------|-------------------------|
-|General Requests|Per Resource|10|1000|10|
+| Operation | Scope | Timeframe (seconds) | Limit (number of requests) | Timeout in seconds |
+| --- | --- | --- | --- | --- |
+| General Requests | Per Resource | 10 | 1000 | 10 |
 
 ### Action to take
+
 If you need to send a volume of messages that exceeds the rate limits, email us at acs-ccap@microsoft.com.
 
 ## Teams Interoperability and Microsoft Graph
+
 Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
 ### Action to take
+
 When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the `Retry-After` response header. Backing off requests using the `Retry-After` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
-You can find more information on Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
+You can find more information about Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
 ## Next steps
+
 See the [help and support](../support.md) options.

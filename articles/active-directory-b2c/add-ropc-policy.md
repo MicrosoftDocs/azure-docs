@@ -6,12 +6,12 @@ description: Learn how to set up the resource owner password credentials (ROPC) 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer integrating Azure AD B2C into my application, I want to set up the resource owner password credentials flow, so that my application can exchange valid credentials for tokens and authenticate users.

@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM-supported content in Microsoft Sentinel so that I can enhance threat detection and response capabilities using normalized security data.
+
 ---
 
 # Advanced Security Information Model (ASIM) security content  (Public preview)

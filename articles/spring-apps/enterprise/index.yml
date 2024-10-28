@@ -20,6 +20,14 @@ landingContent:
 # Start card title with a verb
 
   # Card (optional)
+  - title: Retirement
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Spring Apps retirement announcement
+            url: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+
+  # Card (optional)
   - title: Documentation for other plans
     linkLists:
       - linkListType: overview

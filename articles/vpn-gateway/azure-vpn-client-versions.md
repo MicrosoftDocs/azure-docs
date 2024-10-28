@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 08/16/2024
+ms.date: 10/03/2024
 ms.author: cherylmc
 ---
 # Azure VPN Client versions

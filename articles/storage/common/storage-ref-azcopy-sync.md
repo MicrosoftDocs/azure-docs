@@ -14,6 +14,8 @@ ms.reviewer: zezha-msft
 
 Replicates the source location to the destination location. This article provides a detailed reference for the azcopy sync command. To learn more about synchronizing blobs between source and destination locations, see [Synchronize with Azure Blob storage by using AzCopy v10](storage-use-azcopy-blobs-synchronize.md). For Azure Files, see [Synchronize files](storage-use-azcopy-files.md#synchronize-files).
 
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
+
 ## Synopsis
 
 The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:

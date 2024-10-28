@@ -6,7 +6,7 @@ metadata:
   author: zhenlan
   ms.service: azure-app-configuration
   ms.topic: faq
-  ms.date: 09/11/2024
+  ms.date: 10/01/2024
   ms.author: zhenlwa
   ms.custom: references_regions
 title: Azure App Configuration FAQ
@@ -50,11 +50,11 @@ sections:
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
         answer: |
-          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata. There's no limit on the number of keys and labels as long as their total size is below the storage limit.
 
-          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
+          This key-value limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
-          For more information, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
+          For a complete list of limits, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -85,12 +85,14 @@ sections:
               Standard tier stores are limited to 30,000 requests per hour. Once the hourly quota is exhausted, additional requests may return an HTTP status code 429, indicating too many requests, until the end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
 
               Premium tier stores have no quota limit on requests, ensuring that access to the store is never blocked.
-          - **Throughput**: App Configuration stores in all tiers have a throughput allowance. Requests exceeding this allowance will receive an HTTP status code 429 response.
+          - **Throughput**: App Configuration stores in all tiers have a throughput allowance. Requests exceeding this allowance receive an HTTP status code 429 response.
               Stores in the Free tier have no guaranteed throughput.
 
-              Stores in the Standard tier allow up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
+              Stores in the Standard tier allow run rate† up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
 
-              Stores in the Premium tier allow up to 450 RPS for read requests and up to 100 RPS for write requests.
+              Stores in the Premium tier allow run rate† up to 450 RPS for read requests and up to 100 RPS for write requests.
+
+              †The run rate is typically measured as the average number of requests handled by an App Configuration store without throttling over a specified period.
           - **Service level agreement**: The Free tier doesn't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
           - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
           - **Cost**: There's no cost to use a Free tier store.
@@ -107,13 +109,13 @@ sections:
           
       - question: Where does data stored in App Configuration reside? 
         answer: |
-          Customer data stored in App Configuration reside in the region where the customer's App Configuration store was created. Customer data will be replicated to another region only if the customer enables [geo-replication](./concept-geo-replication.md) for that region. This applies to all available regions. Customers may move, copy, or access their data from any location globally.
+          Customer data stored in App Configuration reside in the region where the customer's App Configuration store was created. Customer data is replicated to another region only if the customer enables [geo-replication](./concept-geo-replication.md) for that region. This applies to all available regions. Customers may move, copy, or access their data from any location globally.
 
       - question: How does App Configuration ensure high data availability? 
         answer: |
           Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages.
 
-          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../reliability/availability-zones-service-support.md)
+          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of three availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../reliability/availability-zones-service-support.md)
           
           [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
 
@@ -121,19 +123,19 @@ sections:
         answer: |        
           App Configuration stores have different request quotas based on their tier. Free tier stores are limited to 1,000 requests per day, Standard tier stores to 30,000 requests per hour, and Premium tier stores have no request limits, ensuring uninterrupted access.
 
-          App Configuration stores have throughput allowances based on their tier. Free tier stores do not have guaranteed throughput. Standard tier stores support up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support up to 450 RPS for read operations and up to 100 RPS for write operations.
+          App Configuration stores have throughput allowances based on their tier. Free tier stores don't have guaranteed throughput. Standard tier stores support run rate up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support run rate up to 450 RPS for read operations and up to 100 RPS for write operations.
 
       - question: How do I estimate the number of requests my application may send to App Configuration?
         answer: |
-          Let's take an example and assume you have an application with 1,000 configuration settings. Your application loads all those settings from App Configuration upon startup. After that, it checks for a sentinel key for configuration changes every 30 seconds. Whether you are running on Kubernetes, App Service, or VMs, let's assume you have 50 instances of your application running simultaneously.
+          Let's take an example and assume you have an application with 1,000 configuration settings. Your application loads all those settings from App Configuration upon startup. After that, it checks for a sentinel key for configuration changes every 30 seconds. Whether you're running on Kubernetes, App Service, or VMs, let's assume you have 50 instances of your application running simultaneously.
 
-          Firstly, let's estimate the requests for configuration monitoring. Each instance of your application will send one request for the sentinel key to App Configuration every 30 seconds, so it will send 120 (=3600/30) requests in an hour. Given you have 50 instances of your application, your application sends 6,000 (=120x50) total requests every hour for configuration monitoring. Note that because the sentinel key requests are frequent and mostly unchanged, the majority of them won't count against the store hourly quota limits†.
+          Firstly, let's estimate the requests for configuration monitoring. Each instance of your application sends one request for the sentinel key to App Configuration every 30 seconds, so it sends 120 (=3600/30) requests in an hour. Given you have 50 instances of your application, your application sends 6,000 (=120x50) total requests every hour for configuration monitoring. Note that because the sentinel key requests are frequent and mostly unchanged, the majority of them don't count against the store hourly quota limits† for a Standard tier store.
 
-          Secondly, let's estimate the requests for configuration loading/reloading. Your application loads all settings at the startup or whenever a sentinel key change is detected. Each request to App Configuration can retrieve up to 100 key-values, so it will take 10 (=1000/100) requests to load all settings. Given you have 50 application instances, you send 500 (=10x50) total requests when your application restarts or reloads its configuration.
+          Secondly, let's estimate the requests for configuration loading/reloading. Your application loads all settings at the startup or whenever a sentinel key change is detected. Each request to App Configuration can retrieve up to 100 key-values, so it takes 10 (=1000/100) requests to load all settings. Given you have 50 application instances, you send 500 (=10x50) total requests when your application restarts or reloads its configuration.
 
-          Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests will use the available hourly quota. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly throttling limit.
+          Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests use the available hourly quota for a Standard tier store. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly quota limit.
           
-          †Free tier stores do not have frequent, repeated requests excluded from their daily limit.
+          †Free tier stores don't have frequent, repeated requests excluded from their daily limit.
 
       - question: My application receives HTTP status code 429 responses. Why?
         answer: |
@@ -149,9 +151,9 @@ sections:
 
           Receiving momentary HTTP status code 429 responses usually causes no harm, as App Configuration clients handle them gracefully. However, if your application regularly experiences HTTP status code 429 responses, consider the following options:
           
-          - **Upgrade your store to the Premium tier**: This tier has no quota limit on requests and has significantly increased storage quota.
-          - **Use App Configuration Providers**: The providers have built-in retry and caching capabilities along with many other resiliency features.
-          - **Use App Configuration SDKs** if your application needs to send write requests. Although the SDKs may not be as feature-rich as providers, they automatically retry on HTTP status code 429 responses.
+          - **Upgrade your store to the Premium tier**: This tier has no quota limit on requests and has increased storage quota and higher throughput allowance.
+          - **Use App Configuration Providers**: The providers have built-in retry and caching capabilities along with many other resiliency features. Be sure to update to the latest version of the provider for all the latest enhancements.
+          - **Use App Configuration SDKs** if your application needs to send write requests. Although the SDKs may not be as feature-rich as providers, they automatically retry on HTTP status code 429 responses and other transient errors.
           - **Include retry logic in custom clients** if you can't use App Configuration Providers or SDKs. The `retry-after-ms` header in the response provides a suggested wait time (in milliseconds) before retrying the request.
           - **Distribute requests across multiple client instances**: This helps achieve the maximum throughput from your App Configuration store.
           - **Reduce requests made to App Configuration**: Follow the guidance to [minimize the number of requests](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
@@ -175,7 +177,7 @@ sections:
         answer: |
           Spring profiles provide a way to separate parts of your application, including configuration, and make it only available in certain environments or when specific libraries are used.
 
-          You're recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library will load the key-values with the label(s) matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there's no active Spring profile set, key-values with "no label" will be loaded.
+          You're recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library loads the key-values with the label(s) matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there's no active Spring profile set, key-values with "no label" will be loaded.
 
           For example, with profiles `dev` and `prod`, you create key-values accordingly with the following labels.
 
@@ -186,7 +188,7 @@ sections:
 
           When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
 
-          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library will load key-values with the specified label(s) regardless of the active Spring profile.
+          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
 
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
@@ -202,7 +204,7 @@ sections:
           services.AddScopedFeatureManagement();
           ```
 
-          Feature filters can evaluate a feature flag based on the properties of an HTTP Request. This is usually performed by inspecting the `HttpContext` through the singleton `IHttpContextAccessor` [pattern](https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-targetingfilter-aspnet-core#update-the-web-application-code-to-use-targetingfilter). However, this pattern does not work for [Blazor server applications](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/server/interactive-server-side-rendering?view=aspnetcore-7.0#ihttpcontextaccessorhttpcontext-in-razor-components) where scoped services should be used instead. In this case, `AddScopedFeatureManagement` method should be used. 
+          Feature filters can evaluate a feature flag based on the properties of an HTTP Request. This is usually performed by inspecting the `HttpContext` through the singleton `IHttpContextAccessor` [pattern](https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-targetingfilter-aspnet-core#update-the-web-application-code-to-use-targetingfilter). However, this pattern doesn't work for [Blazor server applications](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/server/interactive-server-side-rendering?view=aspnetcore-7.0#ihttpcontextaccessorhttpcontext-in-razor-components) where scoped services should be used instead. In this case, `AddScopedFeatureManagement` method should be used. 
 
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |

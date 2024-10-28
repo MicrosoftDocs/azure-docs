@@ -8,7 +8,7 @@ ms.subservice: ip-services
 ms.topic: conceptual
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/15/2024
+ms.date: 09/27/2024
 ---
 
 # Public IP addresses
@@ -94,6 +94,10 @@ Static public IP addresses are commonly used in the following scenarios:
 | Basic public IPv6 | x | :white_check_mark: |
 
 ## Availability Zone
+> [!IMPORTANT]
+> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
+> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
+> 
 
 Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
 A public IP's availability zone can't be changed after the public IP's creation.
@@ -105,10 +109,6 @@ A public IP's availability zone can't be changed after the public IP's creation.
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
 
 In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
-
-> [!IMPORTANT]
-> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2.
 
 ## Domain Name Label
 

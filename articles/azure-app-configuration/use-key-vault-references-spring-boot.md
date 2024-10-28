@@ -94,10 +94,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```json
     {
-    "clientId": "00000000-0000-0000-0000-000000000000",
-    "clientSecret": "00000000-0000-0000-0000-000000000000",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000",
+    "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+    "clientSecret": "aaaaaaaa-0b0b-1c1c-2d2d-333333333333",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",

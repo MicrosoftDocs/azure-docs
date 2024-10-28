@@ -343,6 +343,14 @@ These error codes can appear while you enable AKS backup to store backups in a v
 
 **Recommended action**: Use same cluster version for Target cluster as Source cluster or manually apply the CRs.
 
+### LinkedAuthorizationFailed
+
+**Error code**: LinkedAuthorizationFailed
+
+**Cause**: To perform a restore operation, user needs to have a **read** permission over the backed up AKS cluster. 
+
+**Recommended action**: Assign Reader role on the source AKS cluster and then proceed to perform the restore operation. 
+
 ## Next steps
 
 - [About Azure Kubernetes Service (AKS) backup](azure-kubernetes-service-backup-overview.md)

@@ -79,5 +79,3 @@ landingContent:
         links:
           - text: Microservices with Dapr
             url: microservices-dapr.md
-          - text: Background processing
-            url: background-processing.md

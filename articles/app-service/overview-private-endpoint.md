@@ -28,9 +28,9 @@ Using private endpoint for your app enables you to:
 
 A private endpoint is a special network interface (NIC) for your App Service app in a subnet in your virtual network.
 When you create a private endpoint for your app, it provides secure connectivity between clients on your private network and your app. The private endpoint is assigned an IP Address from the IP address range of your virtual network.
-The connection between the private endpoint and the app uses a secure [Private Link](../private-link/private-link-overview.md). Private endpoint is only used for incoming traffic to your app. Outgoing traffic won't use this private endpoint. You can inject outgoing traffic to your network in a different subnet through the [virtual network integration feature](./overview-vnet-integration.md).
+The connection between the private endpoint and the app uses a secure [Private Link](../private-link/private-link-overview.md). Private endpoint is only used for incoming traffic to your app. Outgoing traffic doesn't use this private endpoint. You can inject outgoing traffic to your network in a different subnet through the [virtual network integration feature](./overview-vnet-integration.md).
 
-Each slot of an app is configured separately. You can plug up to 100 private endpoints per slot. You can't share a private endpoint between slots. The sub-resource name of a slot is `sites-<slot-name>`.
+Each slot of an app is configured separately. You can plug up to 100 private endpoints per slot. You can't share a private endpoint between slots. The subresource name of a slot is `sites-<slot-name>`.
 
 The subnet where you plug the private endpoint can have other resources in it, you don't need a dedicated empty subnet.
 You can also deploy the private endpoint in a different region than your app. 
@@ -40,11 +40,11 @@ You can also deploy the private endpoint in a different region than your app.
 
 From a security perspective:
 
-- Private endpoint and public access can co-exist on an app. For more information, see [overview of access restrictions](./overview-access-restrictions.md#how-it-works)
+- Private endpoint and public access can coexist on an app. For more information, see [overview of access restrictions](./overview-access-restrictions.md#how-it-works)
 - When you enable private endpoints to your app, ensure that public network access is disabled to ensure isolation.
 - You can enable multiple private endpoints in others virtual networks and subnets, including virtual network in other regions.
 - The access restrictions rules of your app aren't evaluated for traffic through the private endpoint.
-- You can eliminate the data exfiltration risk from the virtual network by removing all NSG rules where destination is tag Internet or Azure services.
+- You can eliminate the data exfiltration risk from the virtual network by removing all Network Security Group (NSG) rules where destination is tag Internet or Azure services.
 
 In the Web HTTP logs of your app, you find the client source IP. This feature is implemented using the TCP Proxy protocol, forwarding the client IP property up to the app. For more information, see [Getting connection Information using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
 
@@ -55,10 +55,9 @@ In the Web HTTP logs of your app, you find the client source IP. This feature is
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net (see [note at top](#dnl-note)).
+When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default `<app-name>.azurewebsites.net`. When you're using [unique default hostname](#dnl-note) your app name has the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the examples below _mywebapp_ could also represent the full regionalized unique hostname.
 
-By default, without private endpoint, the public name of your web app is a canonical name to the cluster.
-For example, the name resolution is:
+By default, without private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
 
 |Name |Type |Value |
 |-----|-----|------|
@@ -86,13 +85,13 @@ For example, the name resolution is:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this CNAME entry in Azure Public DNS to point the app address to the private endpoint address|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your private endpoint IP address|
 
-After this DNS configuration, you can reach your app privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
+After this DNS configuration, you can reach your app privately with the default name mywebapp.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
 
 
 If you need to use a custom DNS name, you must add the custom name in your app and you must validate the custom name like any custom name, using public DNS resolution. 
 For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
 
-For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
+For the Kudu console, or Kudu REST API (deployment with Azure DevOps Services self-hosted agents for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
 
 | Name | Type | Value |
 |-----|-----|-----|
@@ -111,7 +110,7 @@ az appservice ase update --name myasename --allow-new-private-endpoint-connectio
 
 ## Specific requirements
 
-If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but you also automatically register the provider when you create the first web app in a subscription.
+If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) but you also automatically register the provider when you create the first web app in a subscription.
 
 ## Pricing
 
@@ -120,12 +119,12 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Limitations
 
-* When you use Azure Function in Elastic Premium plan with private endpoint, to run or execute the function in Azure portal, you must have direct network access or you receive an HTTP 403 error. In other words, your browser must be able to reach the private endpoint to execute the function from the Azure portal. 
+* When you use Azure Function in Elastic Premium plan with private endpoint, to run or execute the function in Azure portal you must have direct network access or you receive an HTTP 403 error. In other words, your browser must be able to reach the private endpoint to execute the function from the Azure portal. 
 * You can connect up to 100 private endpoints to a particular app.
 * Remote Debugging functionality isn't available through the private endpoint. The recommendation is to deploy the code to a slot and remote debug it there.
 * FTP access is provided through the inbound public IP address. Private endpoint doesn't support FTP access to the app.
 * IP-Based SSL isn't supported with private endpoints.
-* Apps that you configure with private endpoints cannot receive public traffic coming from subnets with `Microsoft.Web` service endpoint enabled and cannot use [service endpoint-based access restriction rules](./overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).
+* Apps that you configure with private endpoints can't receive public traffic coming from subnets with `Microsoft.Web` service endpoint enabled and can't use [service endpoint-based access restriction rules](./overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).
 * Private endpoint naming must follow the rules defined for resources of type `Microsoft.Network/privateEndpoints`. Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork). 
 
 We're improving Azure Private Link feature and private endpoint regularly, check [this article](../private-link/private-endpoint-overview.md#limitations) for up-to-date information about limitations.

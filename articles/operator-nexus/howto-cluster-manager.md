@@ -1,5 +1,5 @@
 ---
-title: How to guide for running commands for Cluster Manager on Azure Operator Nexus
+title: "Cluster Manager: How to manage the Cluster Manager in Operator Nexus"
 description: Learn to create, view, list, update, delete commands for Cluster Manager on Operator Nexus
 author: jaredr80
 ms.author: jaredro
@@ -54,7 +54,7 @@ Some arguments that are available for every Azure CLI command
 
 ## Cluster Manager Identity
 
-Starting with the 2024-06-01-preview API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
+Starting with the 2024-07-01 API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
 
 If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
 Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It is a known limitation of the platform that will be addressed in the future.
@@ -195,7 +195,7 @@ az networkcloud clustermanager update \
 ### Update Cluster Manager Identities via APIs
 
 Cluster Manager managed identities can be assigned via CLI. The un-assignment of the identities can be done via API calls.
-Note, `<APIVersion>` is the API version 2024-06-01-preview or newer.
+Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
 - To remove all managed identities, execute:
 

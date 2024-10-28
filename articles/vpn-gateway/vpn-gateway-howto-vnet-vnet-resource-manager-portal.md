@@ -188,7 +188,7 @@ You can create either a bidirectional, or single direction connection. For this 
 
    * **First virtual network gateway**: Select **VNet1GW** from the dropdown.
    * **Second virtual network gateway**: Select **VNet4GW** from the dropdown.
-   * **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
+   * **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway. The important thing when specifying a shared key is that it's exactly the same for both sides of the connection.
    * **IKE Protocol**: IKEv2
 1. For this exercise, you can leave the rest of the settings as their default values.
 1. Select **Review + create**, then **Create** to validate and create your connections.
@@ -206,7 +206,7 @@ You can create either a bidirectional, or single direction connection. For this 
 
 ## Add more connections
 
-If you want to add more connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create more connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](./tutorial-site-to-site-portal.md).
+If you want to add more connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. When you configure a connection that uses a shared key, make sure that the shared key is exactly the same for both sides of the connection. Before you create more connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](./tutorial-site-to-site-portal.md).
 
 ## VNet-to-VNet FAQ
 
