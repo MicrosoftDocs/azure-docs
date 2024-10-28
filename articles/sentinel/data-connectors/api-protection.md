@@ -72,7 +72,7 @@ Copy the values shown below and save them for configuration of the API log forwa
 
 Step 3: Install the 42Crunch protection and log forwarder
 
-The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are availabe as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation will depend on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
+The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are availabe as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation depends on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
 
 
 Installation via Docker Compose
@@ -89,7 +89,7 @@ In order to test the data ingestion the user should deploy the sample *httpbin* 
 
 4.1 Install the sample
 
-The sample application can be installed locally using a [Docker compose file](https://github.com/42Crunch/azure-sentinel-integration/blob/main/sample-deployment/docker-compose.yml) which will install the httpbin API server, the 42Crunch API protection and the Microsoft Sentinel log forwarder. Set the environment variables as required using the values copied from step 2.
+The sample application can be installed locally using a [Docker compose file](https://github.com/42Crunch/azure-sentinel-integration/blob/main/sample-deployment/docker-compose.yml) which installs the httpbin API server, the 42Crunch API protection, and the Microsoft Sentinel log forwarder. Set the environment variables as required using the values copied from step 2.
 
 4.2 Run the sample
 
