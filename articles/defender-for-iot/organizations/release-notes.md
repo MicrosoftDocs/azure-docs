@@ -38,11 +38,12 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **24.1** | | | |
-| 24.1.4  |06/2024 | Major |05/2025 |
-| 24.1.3  |04/2024 | Major |03/2025 |
-| 24.1.2  |02/2024 | Major |01/2025 |
+| 24.1.5  |09/2024 | Minor |09/2025 |
+| 24.1.4  |07/2024 | Minor |07/2025 |
+| 24.1.3  |06/2024 | Minor |06/2025 |
+| 24.1.2  |04/2024 | Minor |04/2025 |
 | **23.2** | | | |
-| 23.2.0 | 12/2023 | Major | 11/2024 |
+| 23.2.0 | 12/2023 | Major | 12/2024 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
@@ -107,11 +108,24 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 24.1.x
 
+### Version 24.1.5
+
+**Release date**: 09/2024
+
+**Supported until**: 09/2025
+
+This version includes the following updates and enhancements:
+
+- [Add wildcards to allowlist domain names](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [OCPI protocol is now supported](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery)
+- [New sensor setting type: Public addresses](configure-sensor-settings-portal.md#add-sensor-settings)
+- [Improved OT sensor onboarding](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor)
+
 ### Version 24.1.4
 
-**Release date**: 06/2024
+**Release date**: 07/2024
 
-**Supported until**: 05/2025
+**Supported until**: 07/2025
 
 This version includes the following updates and enhancements:
 
@@ -121,9 +135,9 @@ This version includes the following updates and enhancements:
 
 ### Version 24.1.3
 
-**Release date**: 04/2024
+**Release date**: 06/2024
 
-**Supported until**: 03/2025
+**Supported until**: 06/2025
 
 This version includes the following updates and enhancements:
 
@@ -139,9 +153,9 @@ This version includes the following updates and enhancements:
 
 ### Version 24.1.2
 
-**Release date**: 02/2024
+**Release date**: 04/2024
 
-**Supported until**: 01/2025
+**Supported until**: 04/2025
 
 This version includes the following updates and enhancements:
 
@@ -157,7 +171,7 @@ This version includes the following updates and enhancements:
 
 **Release date**: 12/2023
 
-**Supported until**: 11/2024
+**Supported until**: 12/2024
 
 This version includes the following updates and enhancements:
 
