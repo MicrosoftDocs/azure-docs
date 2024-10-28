@@ -162,7 +162,7 @@ You can configure **private links** to connect to Azure Event Grid to **publish 
 
 Here's the list of regions where the new MQTT broker and namespace topics features are available:
 
-| | | | |
+| Region | Region | Region | Region |
 | -- | -- | -- | -- | 
 | Australia East | Australia South East | Australia Central |Australia Central 2 |
 | Brazil South | Brazil Southeast | Canada Central | Canada East |
