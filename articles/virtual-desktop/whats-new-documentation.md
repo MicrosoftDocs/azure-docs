@@ -210,7 +210,7 @@ In June 2023, we made the following changes to the documentation:
 
 - Updated [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md) to include simulcast, mirror my video, manage breakout rooms, call health panel.
 
-- Published a new article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+- Published a new article to [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 - Added Intune to [Administrative template for Azure Virtual Desktop](administrative-template.md).
 

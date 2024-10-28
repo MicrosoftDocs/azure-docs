@@ -224,7 +224,7 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
   "properties": {
     {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.145",
+      "clientIp": "203.0.113.145",
       "clientPort": "0",
       "requestUri": "/",
       "ruleSetType": "OWASP",

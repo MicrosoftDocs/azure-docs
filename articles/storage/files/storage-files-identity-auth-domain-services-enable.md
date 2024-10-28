@@ -180,4 +180,4 @@ Get-ADUser $userObject -properties KerberosEncryptionType
 
 ## Next step
 
-- To grant users access to your file share, follow the instructions in [Assign share-level permissions](storage-files-identity-ad-ds-assign-permissions.md).
+- To grant users access to your file share, follow the instructions in [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md).

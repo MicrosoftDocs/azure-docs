@@ -207,7 +207,10 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br
 - If you import servers by using a CSV file and build a business case:
     - Performance history duration in Azure settings will not be applicable
     - Servers where no performance data is specified will be classified as *unknown* in the business case utilization insights chart and will be sized as-is without rightsizing for Azure cost
-    - Servers where server type and virtualization are not specified will be classified as *Not applicable* in virtualization distribution and no virtualization software cost will be added in on-premises cost
+    - Servers where server type and virtualization are not specified will be classified as *Not applicable* in virtualization distribution and no virtualization software cost will be added in on-premises cost.
+ 
+> [!Note]
+> To get an accurate Arc business case estimates, enter the **Server name**, **Cores**, **Memory (in MB)**, and **OS Name** in the respective columns in the CSV file.
 
 
 ## Assessment considerations
