@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 09/09/2024
+ms.date: 10/28/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -33,6 +33,17 @@ To learn more about *BrokerListener*, see [BrokerListener resource](howto-config
 To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperationsmq/broker-authorization) API reference.
 
 The following example shows how to create a *BrokerAuthorization* resource using both usernames and attributes:
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select the **Authorization** tab.
+1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+
+    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot using Azure portal to create broker authorization rules.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -62,6 +73,10 @@ spec:
               - "/commands/{principal.attributes.organization}"
 ```
 
+To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
+
+---
+
 This broker authorization allows clients with usernames `temperature-sensor` or `humidity-sensor`, or clients with attributes `organization` with value `contoso` and `city` with value `seattle`, to:
 
 - Connect to the broker.
@@ -73,11 +88,48 @@ This broker authorization allows clients with usernames `temperature-sensor` or 
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
 
-To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
-
 ### Further limit access based on client ID
 
 Because the `principals` field is a logical OR, you can further restrict access based on client ID by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with its building number to connect and publish telemetry to topics scoped with their building, use the following configuration:
+
+# [Portal](#tab/portal)
+
+In the **Broker authorization details** for your authorization policy, use the following configuration:
+
+```json
+[
+    {
+        "brokerResources": [
+            {
+                "clientIds": [
+                    "{principal.attributes.building}*"
+                ],
+                "method": "Connect",
+                "topics": []
+            },
+            {
+                "clientIds": [],
+                "method": "Publish",
+                "topics": [
+                    "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+                ]
+            }
+        ],
+        "principals": {
+            "attributes": [
+                {
+                    "building": "building22"
+                },
+                {
+                    "building": "building23"
+                }
+            ]
+        }
+    }
+]
+```
+ 
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -101,6 +153,8 @@ spec:
         topics:
           - "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
 ```
+
+---
 
 Here, if the `clientIds` were not set under the `Connect` method, a client with any client ID could connect as long as it had the `building` attribute set to `building22` or `building23`. By adding the `clientIds` field, only clients with client IDs that start with `building22` or `building23` can connect. This ensures not only that the client has the correct attribute but also that the client ID matches the expected pattern.
 
@@ -129,6 +183,47 @@ kubectl annotate serviceaccount mqtt-client aio-broker-auth/group=authz-sat
 Attribute annotations must begin with `aio-broker-auth/` to distinguish them from other annotations.
 
 As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
+
+# [Portal](#tab/portal)
+
+In the **Broker authorization details** for your authorization policy, use the following configuration:
+
+```json
+[
+    {
+        "brokerResources": [
+            {
+                "clientIds": [],
+                "method": "Connect",
+                "topics": []
+            },
+            {
+                "clientIds": [],
+                "method": "Publish",
+                "topics": [
+                    "odd-numbered-orders"
+                ]
+            },
+            {
+                "clientIds": [],
+                "method": "Subscribe",
+                "topics": [ 
+                    "orders" 
+                ]
+            }
+        ],
+        "principals": {
+            "attributes": [
+                {
+                    "group": "authz-sat"
+                }
+            ]
+        }
+    }
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -176,7 +271,18 @@ kubectl edit brokerauthorization my-authz-policies
 
 ## Disable authorization
 
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select the broker listener you want to edit from the list.
+1. On the port you want to disable authorization, select **None** in the authorization dropdown.
+
+# [Kubernetes](#tab/kubernetes)
+
 To disable authorization, omit `authorizationRef` in the `ports` setting of a *BrokerListener* resource.
+
+---
 
 ## Unauthorized publish in MQTT 3.1.1
 
