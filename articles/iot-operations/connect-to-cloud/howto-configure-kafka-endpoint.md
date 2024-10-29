@@ -254,7 +254,7 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
       tls: {
         mode: 'Enabled'
       }
-      consumerGroupId: mqConnector
+      consumerGroupId: <YOUR_CONSUMER_GROUP>
     }
   }
 }
@@ -279,7 +279,7 @@ spec:
         secretRef: <SECRET_NAME>
     tls:
       mode: Enabled
-    consumerGroupId: mqConnector
+    consumerGroupId: <YOUR_CONSUMER_GROUP>
 ```
 
 ---
@@ -345,7 +345,7 @@ The secret must be in the same namespace as the Kafka dataflow resource. The sec
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='your-sasl-token'
+  --from-literal=token='<YOUR_SASL_TOKEN>'
 ```
 
 <!-- TODO: double check! -->
