@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 10/28/2024
 ms.custom: generated
 ---
 
@@ -969,7 +969,7 @@ View, edit projects and train the models, including the ability to publish, unpu
 }
 ```
 
-## Cognitive Services Data Reader (Preview)
+## Cognitive Services Data Reader
 
 Lets you read Cognitive Services data.
 
@@ -1002,7 +1002,7 @@ Lets you read Cognitive Services data.
       "notDataActions": []
     }
   ],
-  "roleName": "Cognitive Services Data Reader (Preview)",
+  "roleName": "Cognitive Services Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1970,6 +1970,7 @@ Access to the real-time speech recognition and batch transcription APIs, real-ti
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/read |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/write |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/action |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/frontend/action |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/text-dependent/*/action |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/text-independent/*/action |  |
@@ -2006,6 +2007,7 @@ Access to the real-time speech recognition and batch transcription APIs, real-ti
         "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/read",
         "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/write",
         "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/delete",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/action",
         "Microsoft.CognitiveServices/accounts/SpeechServices/*/frontend/action",
         "Microsoft.CognitiveServices/accounts/SpeechServices/text-dependent/*/action",
         "Microsoft.CognitiveServices/accounts/SpeechServices/text-independent/*/action",
