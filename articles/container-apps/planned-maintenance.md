@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 10/29/2024
 ms.author: cshoe
 ---
 
@@ -36,7 +36,7 @@ Keep in mind the following considerations:
 
 * Planned maintenance is a best-effort feature. When there are critical updates, Container Apps can apply these updates outside of the maintenance window to ensure the security and reliability of the platform and your applications.
 
-* Replicas running on *consumption workload profiles* might also restart outside of the maintenance window. These updates are applied to the underlying serverless containers platform.
+* Support for maintenance windows is supported in all environments except for consumption workload profiles.
 
 ## Minimize impact to your applications
 
