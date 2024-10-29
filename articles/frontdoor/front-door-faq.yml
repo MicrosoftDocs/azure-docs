@@ -57,7 +57,7 @@ sections:
       - question: |
           Can I deploy Azure Load Balancer behind Front Door?
         answer:  |
-          To use
+          To use Azure Front Door, you must have a public VIP or a DNS name that is publicly accessible. Azure Front Door uses the public IP to route the traffic to your origin. A common scenario is to deploy an Azure Load Balancer behind Front Door. You can also use Private Link with Azure Front Door Premium to connect to an internal load balancer. For more information, see [enable Private Link with internal load balancer](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
       
       - question: |
           What protocols does Azure Front Door support?
