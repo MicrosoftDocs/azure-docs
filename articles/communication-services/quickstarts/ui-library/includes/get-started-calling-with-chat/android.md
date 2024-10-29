@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-android) from GitHub.
 
-## Create an Android project
+## Set up the project
 
 In Android Studio, create a new project:
 
@@ -78,12 +78,11 @@ You need two Maven repositories to integrate the library:
     }
     ```
 
-## Connect to the Teams Meeting with calling and chat
+## Connect to the Teams meeting with calling and chat
 
-- First we will use CallComposite to connect to the call
-- Once user is admitted to the call, CallComposite will notify us by changing status to `connected`
-- Then user can be connected to the chat thread
-- When the user clicks **Chat** button, a custom button is added to `CallComposite`. `CallComposite` is minimized, and Chat is displayed.
+You use `CallComposite` to connect to the call. After a user is admitted to the call, `CallComposite` notifies you by changing the status to `connected`. Then the user can be connected to the chat thread.
+
+When the user selects the **Chat** button, a custom button is added to `CallComposite`. `CallComposite` is minimized, and **Chat** appears in Teams.
 
 ## Add a button and chat container view to Activity_main.xml
 
@@ -128,7 +127,7 @@ In the *app/src/main/res/layout/activity_main.xml* layout file, add the followin
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Get a Chat icon
+## Download a Chat icon
 
 1. Download an icon from the [GitHub repository](https://github.com/microsoft/fluentui-system-icons/blob/master/android/library/src/main/res/drawable/ic_fluent_chat_24_regular.xml).
 1. Save the icon to *UILibraryQuickStart/app/src/main/res/drawable*.
@@ -139,14 +138,14 @@ In the *app/src/main/res/layout/activity_main.xml* layout file, add the followin
 To initialize the call composite, go to `MainActivity` and update connection settings:
 
 - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
-- Replace `ACS_ENDPOINT` with your Communication Services resource's endpoint.
+- Replace `ACS_ENDPOINT` with your Azure Communication Services resource's endpoint.
 - Replace `DISPLAY_NAME` with your name.
-- Replace `USER_ID` with your Communication Services user ID.
+- Replace `USER_ID` with your Azure Communication Services user ID.
 - Replace `USER_ACCESS_TOKEN` with your token.
 
-### Get a Teams meeting chat thread for a Communication Services user
+### Get a Teams meeting chat thread for an Azure Communication Services user
 
-You can retrieve Teams meeting details by using Graph APIs, as described in the [Graph documentation](/graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, which is accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property.
+You can retrieve Teams meeting details by using Graph APIs, as described in the [Graph documentation](/graph/api/onlinemeeting-createorget). The Azure Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, which is accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property.
 
 With the Graph APIs, you can also obtain the `threadID` value. The response has a `chatInfo` object that contains the `threadID` value.
 
@@ -228,7 +227,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         callComposite.addOnCallStateChangedEventHandler { callState ->
-            // When a user is admitted to the the Teams meeting, the call state becomes connected.
+            // When a user is admitted to the Teams meeting, the call state becomes connected.
             // Only users admitted to the meeting can connect to the meeting's chat thread.
             if (callState.code == CallCompositeCallStateCode.CONNECTED) {
                 connectChat()
@@ -361,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         callComposite.addOnCallStateChangedEventHandler(callState -> {
-                    // When a user is admitted to the the Teams meeting, the call state becomes connected.
+                    // When a user is admitted to the Teams meeting, the call state becomes connected.
                     // Only users admitted to the meeting can connect to the meeting's chat thread.
                     if (callState.getCode() == CallCompositeCallStateCode.CONNECTED) {
                         connectChat();
