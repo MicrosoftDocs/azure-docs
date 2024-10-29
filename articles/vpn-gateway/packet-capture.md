@@ -11,17 +11,26 @@ ms.author: cherylmc
 
 # Configure packet capture for VPN gateways
 
-Connectivity and performance-related problems are often complex. It can take significant time and effort just to narrow down the cause of the problem. Packet capture can help you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the customer side of the network, the Azure side of the network, or somewhere in between. After you narrow down the problem, it's more efficient to debug and take remedial action.
+Connectivity and performance related problems are often complex. It can take significant time and effort to narrow down the cause of the problem. 
 
-There are some commonly available packet capture tools. Getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by Azure VPN Gateway packet capture are a major differentiator. You can use VPN Gateway packet capture together with commonly available packet capture tools.
+Packet capture can help narrow down the scope of a problem to certain parts of the networ, by helping determine whether the problem is on the customer side of the network, the Azure side of the network, or somewhere in between. 
 
-## About packet capture for VPN Gateway
+After narrowing down the problem, it can be more efficient to debug and and take remediative action.
 
-You can run VPN Gateway packet capture on the gateway, or on a specific connection, depending on your needs. You can also run packet capture on multiple tunnels at the same time. You can capture one-way or bi-directional traffic, IKE and ESP traffic, and inner packets along with filtering on a VPN gateway.
+There are some commonly available packet capture tools, such as TCPDump, NetFlow Analyzer, and pktmon. Collecting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by Azure VPN Gateway packet capture, are a major differentiator. Using the Microsoft Azure VPN Gateway packet capture (MAVGP, also known as VPN Gateway) together with commonly available packet capture tools can enhance packet capture troubleshooting and resolution times.
 
-It's helpful to use a five-tuple filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) when you're isolating problems in high-volume traffic.
+## About Packet Capture for VPN Gateway
 
-The following examples of JSON and a JSON schema provide explanations of each property. Here are some limitations to keep in mind when you run packet captures:
+VPN Gateway'a "Packet Capture" can operate on the gateway (i.e. the device designated as the gateway) or on a specific connection, depending on your needs. Packet Capture can operate on multiple tunnels at the same time as well. 
+It can capture uni-directional or bi-directional traffic such as IKE and inner packets, along with filtering on a VPN gateway.
+
+It's helpful to use a five-tuple filter and TCP flags when isolating problems in high-volume traffic. 
+
+Five-Tuple Filter = (source subnet, destination subnet, source port, destination port, protocol)
+
+TCP flags = (SYN, ACK, FIN, URG, PSH, RST).
+
+The following examples of JSON and a JSON schema provide explanations of each property. Here are some limitations to consider, while running packet captures:
 
 - In the schema shown here, the filter is an array, but currently only one filter can be used at a time.
 - You can't run multiple gateway-wide packet captures at the same time.
