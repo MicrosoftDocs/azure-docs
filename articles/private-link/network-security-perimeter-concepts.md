@@ -112,9 +112,6 @@ Network security perimeter is currently available in all Azure public cloud regi
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 
-> [!NOTE]
-> Refer to individual PaaS documentation for respective limitations.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
