@@ -19,15 +19,15 @@ The following are the major use cases:
 * Log Aggregation 
 * Stream Processing 
 
-Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The ASA Kafka input is backward compatible and supports all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
+Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The Kafka input is backward compatible and supports all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a virtual network and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
 
 ## Steps
 This article shows how to set up Kafka as an input source for Azure Stream Analytics. There are six steps:
 
 1. Create an Azure Stream Analytics job.
-2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSL security protocols.
-3. Configure Azure Key vault if you are using mTLS or SASL_SSL security protocols.
+2. Configure your Azure Stream Analytics job to use managed identity if you're using mTLS or SASL_SSL security protocols.
+3. Configure Azure Key vault if you're using mTLS or SASL_SSL security protocols.
 4. Upload certificates as secrets into Azure Key vault.
 5. Grant Azure Stream Analytics permissions to access the uploaded certificate.
 6. Configure Kafka input in your Azure Stream Analytics job.
@@ -48,8 +48,8 @@ The following table lists the property names and their description for creating 
 | Input/Output Alias            | A friendly name used in queries to reference your input or output                                                       |
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A named, ordered, and partitioned stream of data that allows for the publish-subscribe and event-driven processing of messages.|
-| Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
-| Consumer Group Id            | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
+| Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT, or None. |
+| Consumer Group ID            | The name of the Kafka consumer group that the input should be a part of. It's automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream.                              |
 
 :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
@@ -62,7 +62,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 |Property name   |Description   |
 |----------|-----------|
 |mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.    |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and Secure Sockets Layer (SSL) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None | No authentication and  encryption. |
 
@@ -71,7 +71,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics doesn't support OAuth or SAML single sign-on (SSO) authentication.
 > You can connect to the confluent cloud using an API Key with topic-level access via the SASL_SSL security protocol.
 
-For a step-by-step tutorial on connecting to confluent cloud kakfa, visit the documentation: 
+For a step-by-step tutorial on connecting to confluent cloud Kafka, visit the documentation: 
 
 * Confluent cloud kafka input: [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
 * Confluent cloud kafka output: [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
@@ -146,7 +146,7 @@ You can configure your ASA job to use managed identity by navigating to the **Ma
 
 :::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job." lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
 
-1.	Click on the **managed identity tab** under **configure**.
+1.	Select **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
 3.	For user-assigned identity, select the subscription where your user-assigned identity is located and select the name of your identity.
 4.	Review and **save**.
@@ -169,18 +169,18 @@ Use the following steps to grant special permissions to your stream analytics jo
  | Members | \<Name of your Stream Analytics job> or \<name of user-assigned identity> |
 
    
-### VNET integration
+### Virtual network integration
 
-If your Kafka cluster is inside a virtual network (VNET) or behind a firewall, you may have to configure your Azure Stream Analytics job to access your Kafka topic using a private link or a dedicated networking configuration.
+If your Kafka cluster is inside a virtual network or behind a firewall, configure your Azure Stream Analytics job to access your Kafka topic using a private link or a dedicated networking configuration.
 Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network documentation](../stream-analytics/run-job-in-virtual-network.md) for more information.
 
 
 
 ### Limitations
-* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit.
+* When configuring your Azure Stream Analytics jobs to use Virtual Network/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit.
 * When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
-* The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
-* Azure Stream Analytics does not support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol
+* The minimum version of Kafka you can configure Azure Stream Analytics to connect to be version 0.10.
+* Azure Stream Analytics doesn't support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol
 
 
 > [!NOTE]
