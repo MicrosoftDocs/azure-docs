@@ -121,6 +121,6 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
 1. Follow steps in [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy. *Add the `--trust-settings` parameter while initializing Azure IoT Operations.* For example:
 
    ```bash
-   az iot ops init --subscription <SUBSCRIPTION_id> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+   az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
    ```
   
