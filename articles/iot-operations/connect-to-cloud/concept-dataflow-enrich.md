@@ -34,6 +34,23 @@ For example, consider the following dataset with a few records, represented as J
 
 The mapper accesses the reference dataset stored in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the DSS correspond to a dataset in the dataflow configuration.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'position',
+    inputs: [
+      '$source.Position' // - $1
+      '$context.Position' // -$2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 datasets:
 - key: position
@@ -43,10 +60,30 @@ datasets:
   expression: $1 == $2
 ```
 
+---
+
 When a new record is being processed, the mapper performs the following steps:
 
 * **Data request:** The mapper sends a request to the DSS to retrieve the dataset stored under the key `Position`.
 * **Record matching:** The mapper then queries this dataset to find the first record where the `Position` field in the dataset matches the `Position` field of the incoming record.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$context(position).WorkingHours' //  - $1 
+]
+output: 'WorkingHours'
+
+inputs: [
+  'BaseSalary' // - - - - - - - - - - - - $1
+  '$context(position).BaseSalary' //  - - $2
+]
+output: 'BaseSalary'
+expression: 'if($1 == (), $2, $1)'
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -60,9 +97,36 @@ When a new record is being processed, the mapper performs the following steps:
   expression: if($1 == (), $2, $1)
 ```
 
+---
+
 In this example, the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally only when the incoming record doesn't contain the `BaseSalary` field (or the value is `null` if it's a nullable field). The request for the contextualization data doesn't happen with every incoming record. The mapper requests the dataset and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
 
 It's possible to use multiple datasets:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'position',
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  },
+  {
+    key: 'permissions',
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 datasets:
@@ -79,7 +143,20 @@ datasets:
   expression: $1 == $2
 ```
 
+---
+
 Then use the references mixed:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$context(position).WorkingHours'  // - $1
+  '$context(permissions).NightShift' // - $2
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -87,7 +164,26 @@ Then use the references mixed:
   - $context(permission).NightShift  #    - - $2
 ```
 
+---
+
 The input references use the key of the dataset like `position` or `permission`. If the key in DSS is inconvenient to use, you can define an alias:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'datasets.parag10.rule42 as position',
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 datasets:
@@ -97,5 +193,7 @@ datasets:
       - $context.Position # - $2
     expression: $1 == $2
 ```
+
+---
 
 The configuration renames the dataset with the key `datasets.parag10.rule42` to `position`.
