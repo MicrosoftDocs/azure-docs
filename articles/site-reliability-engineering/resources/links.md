@@ -24,6 +24,7 @@ Here are some good curated lists of links for SRE and SRE-related topics:
 * [Awesome Consensus](https://github.com/dgryski/awesome-consensus)
 * [awesome-monitoring](https://github.com/crazy-canux/awesome-monitoring)
 * [Awesome Observability](https://github.com/adriannovegil/awesome-observability)
+* [The SRE Manifesto](https://www.sre-manifesto.org)
 
 ## Weekly digests of interest to site reliability engineers
 
