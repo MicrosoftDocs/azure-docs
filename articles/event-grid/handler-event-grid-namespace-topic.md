@@ -102,7 +102,7 @@ Now, you're ready to create an event subscription to the system topic for the so
 1. On the **Create Event Subscription** page, follow these steps:
     1. For **Name**, enter the name for an event subscription.
     1. For **Event Schema**, select the event schema as **Cloud Events Schema v1.0**. It's the only schema type that the Event Grid Namespace Topic destination supports.
-    1. For **Filter to Event Types**, select types of events you want to subscribe too. 
+    1. For **Filter to Event Types**, select types of events you want to subscribe to. 
     1. For **Endpoint type**, select **Event Grid Namespace Topic**.
     1. Select **Configure an endpoint**.
     
