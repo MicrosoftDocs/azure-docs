@@ -179,7 +179,7 @@ In this step, you generate a managed identity based service connection, which yo
 :::row:::
     :::column span="2":::
         **Step 1: Create a managed identity.** 
-        1. In the top search bar, type *manageed identity*.
+        1. In the top search bar, type *managed identity*.
         1. Select the item labeled **Managed Identities** under the **Services** heading.
         1. Select **Create**.
         1. In **Resource group**, select **msdocs-jboss-mysql_group**.
@@ -325,7 +325,7 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured. 
-        1. Say, "*The data source in JBoss in Azure will use the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
+        1. Say, "*The data source in JBoss in Azure uses the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
@@ -655,7 +655,7 @@ azd down
 - [The Create connection dialog shows a Create On Cloud Shell button but it's not enabled.](#the-create-connection-dialog-shows-a-create-on-cloud-shell-button-but-its-not-enabled)
 - [My app failed to start, and I see 'Access denied for user... (using password: NO)' in the logs.](#my-app-failed-to-start-and-i-see-access-denied-for-user-using-password-no-in-the-logs)
 - [The deployed sample app doesn't show the tasks list app.](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
-- [I see an "Table 'Task' already exists" error in the diagnostic logs.](#i-see-an-table-task-already-exists-error-in-the-diagnostic-logs)
+- [I see a "Table 'Task' already exists" error in the diagnostic logs.](#i-see-a-table-task-already-exists-error-in-the-diagnostic-logs)
 
 #### I see the error 'not entitled to use the Bring Your Own License feature' in the creation wizard.
 
@@ -675,7 +675,7 @@ You might also see an error message in the dialog: `The database server is in Vi
 
 The service connector automation needs network access to the MySQL server. Look in the networking settings of your MySQL server resource and make sure **Allow public access to this resource through the internet using a public IP address** is selected at a minimum. Service Connector can take it from there. 
 
-If you don't see this checkbox, you might have created the deployment using the [Web App + Database wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) instead, and the deployment has locked down all public network access to the MySQL server. There's no way to modify the configuration. Since app's Linux container can access MySQL through the virtual network integration, you could install Azure CLI in the app's SSH session and run the supplied Cloud Shell commands there. 
+If you don't see this checkbox, you might have created the deployment using the [Web App + Database wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) instead, and the deployment locks down all public network access to the MySQL server. There's no way to modify the configuration. Since app's Linux container can access MySQL through the virtual network integration, you could install Azure CLI in the app's SSH session and run the supplied Cloud Shell commands there. 
 
 #### The deployed sample app doesn't show the tasks list app.
 
@@ -683,9 +683,9 @@ If you see the JBoss splash page instead of the tasks list app, App Service is m
 
 #### My app failed to start, and I see 'Access denied for user... (using password: NO)' in the logs.
 
-This error is most likely because you haven't added the passwordless authentication plugin to the connection string (see the Java sample code for [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql?tabs=java#default-environment-variable-names-or-application-properties-and-sample-code)). Change the MySQL connection string by following the instructions in [3. Create a passwordless connection](#3-create-a-passwordless-connection).
+This error is most likely because you didn't add the passwordless authentication plugin to the connection string (see the Java sample code for [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md?tabs=java#default-environment-variable-names-or-application-properties-and-sample-code)). Change the MySQL connection string by following the instructions in [3. Create a passwordless connection](#3-create-a-passwordless-connection).
 
-#### I see an "Table 'Task' already exists" error in the diagnostic logs.
+#### I see a "Table 'Task' already exists" error in the diagnostic logs.
 
 You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts (see *src/main/resources/META-INF/persistence.xml*). When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
 
