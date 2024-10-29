@@ -245,7 +245,7 @@ For more information about the default MQTT endpoint and creating an MQTT endpoi
 
 ### Use custom MQTT or Kafka dataflow endpoint as source
 
-If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, cannot be used as source.
+If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
 To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your custom endpoint name and topics.
 
@@ -511,7 +511,7 @@ You can load sample data into the DSS by using the [DSS set tool sample](https:/
 In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
 
 1. In the operations experience, select a dataflow then **Add transform (optional)**.
-1. Chose **Rename** or **New property** transforms then select **Add**.
+1. Choose **Rename** or **New property** transforms then select **Add**.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience to rename a datapoint and add a new property.":::
 
@@ -589,7 +589,8 @@ builtInTransformationSettings: {
     }
   ]
 }
-``` -->
+``` 
+-->
 
 For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
@@ -775,7 +776,7 @@ destinationSettings:
 
 ### Configure data destination (topic, container, or table)
 
-Similar to data sources, data destination is a concept that is used to keep the dataflow endpoints reusable across multiple dataflows. Essentially, it represents the sub-directory in the dataflow endpoint configuration. For example, if the dataflow endpoint is a storage endpoint, the data destination is the table in the storage account. If the dataflow endpoint is a Kafka endpoint, the data destination is the Kafka topic.
+Similar to data sources, data destination is a concept that is used to keep the dataflow endpoints reusable across multiple dataflows. Essentially, it represents the subdirectory in the dataflow endpoint configuration. For example, if the dataflow endpoint is a storage endpoint, the data destination is the table in the storage account. If the dataflow endpoint is a Kafka endpoint, the data destination is the Kafka topic.
 
 | Endpoint type | Data destination meaning | Description |
 | - | - | - |
@@ -790,7 +791,7 @@ To configure the data destination:
 
 # [Portal](#tab/portal)
 
-When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the dataflow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the dataflow endpoint is a MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
+When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the dataflow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the dataflow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
 
 :::image type="content" source="media/howto-create-dataflow/data-destination.png" alt-text="Screenshot showing the operations experience prompting the user to enter an MQTT topic given the endpoint type.":::
 
