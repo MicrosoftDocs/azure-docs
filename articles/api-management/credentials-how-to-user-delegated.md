@@ -66,7 +66,7 @@ You need to provision the Azure API Management Data Plane service principal to g
 1. Provision the Azure API Management Data Plane service principal with the following command:
 
     ```powershell
-    New-AzureADServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "Azure API Management Data Plane"
+    New-AzureADServicePrincipal -AppId c8623e40-e6ab-4d2b-b123-2ca193542c65 -DisplayName "Azure API Management Data Plane"
     ```
 
 ## Step 2: Create a Microsoft Entra app registration
