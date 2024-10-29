@@ -274,12 +274,13 @@ In this tutorial, you learned how to call Azure Maps REST APIs directly and visu
 
 For more information on the Azure Maps APIs used in this tutorial, see:
 
+* [Get Route Directions]
 * [Get Route Range]
+* [Post Route Matrix]
 * [Post Search Inside Geometry]
 * [Render - Get Map Image]
-* [Post Route Matrix]
-* [Get Route Directions]
-* [Azure Maps REST APIs]
+
+For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 
 ## Next steps
 
@@ -291,8 +292,8 @@ For more information on the Azure Maps APIs used in this tutorial, see:
 [Azure Maps REST APIs]: /rest/api/maps
 [AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [EVrouting.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
-[Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
+[Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range]: /rest/api/maps/route/getrouterange
 [IPython]: https://ipython.readthedocs.io/en/stable/index.html

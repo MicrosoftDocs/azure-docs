@@ -213,7 +213,7 @@ For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 > [Learn more about all the notebooks experiences from Microsoft and GitHub](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps REST APIs]: consumption-model.md
+[Azure Maps REST APIs]: /rest/api/maps
 [AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
@@ -225,7 +225,7 @@ For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Setting up your environment]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Visual Studio Code]: https://code.visualstudio.com/
 [Weather Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data
 [weather_dataset_demo.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data
-[Visual Studio Code]: https://code.visualstudio.com/
 [weatherDataMaps.ipynb]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/weatherDataMaps.ipynb
