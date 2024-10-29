@@ -198,7 +198,7 @@ In this section, you create a static custom route (user-defined route) in a rout
 
 1. In the search box at the top of the portal, enter ***route tables***. Select **Route tables** from the search results.
 
-1. Select **+ Create** to create a new route table. On the **Create Route table** page, enter or select the following values:
+1. Select **+ Create** to create a new route table. On the **Create Route table** page, enter, or select the following values:
 
     | Setting | Value  |
     | ------- | ------ |
