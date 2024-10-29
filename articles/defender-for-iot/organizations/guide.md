@@ -17,7 +17,7 @@ This guide provides a step-by-step approach to successfully deploying your netwo
 
 Follow these guidelines to optimize your sensor performance and achieve accurate and reliable network data collection.
 
-1. Network architecture review
+## Network architecture review
 
     Before the sensor can be applied to the network, it's crucial to review the network architecture. These steps include:
 
@@ -29,7 +29,7 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
 
-1. Sensor location
+## Sensor location
 
     Identify the best location to place the sensor in the network, to monitor the network traffic and provide the best discovery and security value possible. The location should give the sensor access to the following three important types of network traffic:
 
@@ -53,7 +53,7 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     This step is crucial to ensure effective monitoring of OT networks.  For more information, see Theo is there a link for this?
 
-1. Traffic Mirroring Methods
+## Traffic Mirroring Methods
 
     There are three types of traffic mirroring methods each designed for specific usage scenarios. Choose the best method based on the usage and size of your network.
 
@@ -79,11 +79,11 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     For more information, see [traffic mirroring process](traffic-mirroring/traffic-mirroring-overview.md#traffic-mirroring-processes).
 
-1. Deploy the sensors
+## Deploy the sensors
 
     After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](/ot-deploy/install-software-ot-sensor.md/).
 
-1. Post deployment validation
+## Post deployment validation
 
     It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks <!-- or network data?? Theo -->being sent to the sensor.  
 
@@ -103,18 +103,18 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     :::image type="content" source="media/guide/deployment-guide-post-deployment-analyze.png" alt-text="Screenshot of the OT sensor Analyze feature screen used to help validate the post OT sensor deployment.":::
 
-### Network diagram examples
+## Network diagram examples
 
 This needs an introduction or further descriptions.<!--Theo-->
 
-**L2 traffic**
+### L2 traffic
 
 :::image type="content" source="media/guide/deployment-guide-network-diagram-l2-traffic.png" alt-text="Diagram to demonstrate the components set up of the L2 traffic monitoring setup.":::
 
-**Cross L2 traffic**
+### Cross L2 traffic
 
 :::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l2-traffic.png" alt-text="Diagram to demonstrate the components set up of the cross L2 traffic monitoring setup.":::
 
-**Cross L3 traffic**
+### Cross L3 traffic
 
 :::image type="content" source="media/guide/deployment-guide-network-diagram-cross-l3-traffic.png" alt-text="Diagram to demonstrate the components set up of the cross L3 traffic monitoring setup.":::
