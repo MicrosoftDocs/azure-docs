@@ -27,26 +27,26 @@ In this quickstart, you learn how to:
 ## Prerequisites
 
 - An Azure account and an active subscription. Create an [account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/).
-- The latest version of .NET Core. In this quickstart, we use [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1). Be sure to install the version that corresponds with your instance of Visual Studio, 32-bit or 64-bit.
+- [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/). // TODO: Should this be visual studio 2022? Or VS Code?
+- The latest version of .NET Core. In this quickstart, we use [.NET Core 8.0](https://dotnet.microsoft.com/download/dotnet/8.0).
 - Bot framework [SDK](https://github.com/microsoft/botframework-sdk/#readme)
 
 ## Create and deploy a bot in Azure
 
 To use Azure Communication Services chat as a channel in Azure Bot Service, first deploy a bot. To deploy a bot, you complete these steps:
 
-- Create an Azure Bot Service resource
-- Get the bot's app ID and password
-- Create a web app to hold the bot logic
-- Create a messaging endpoint for the bot
+- [Create an Azure Bot Service resource](#create-an-azure-bot-service-resource)
+- [Get the bot's app ID and password](#get-the-bots-app-id-and-app-password)
+- [Create a web app to hold the bot logic](#create-a-web-app-to-hold-the-bot-logic)
+- [Create a messaging endpoint for the bot](#create-a-messaging-endpoint-for-the-bot)
 
 ### Create an Azure Bot Service resource
 
-First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).  Communication Services Chat channel supports single-tenant bots, managed identity bots, and multi-tenant bots. For the purposes of this quickstart we will use a *multi-tenant* bot. 
+First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).  Communication Services Chat channel supports single-tenant bots, managed identity bots, and multi-tenant bots. 
 
-To set up a single-tenant or managed identity bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
-
-For a managed identity bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
+- For the purposes of this quickstart we will use a `multi-tenant` bot. 
+- To set up a `single-tenant` or `managed identity` bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
+- For a `managed identity` bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
 ### Get the bot's app ID and app password
 
@@ -54,7 +54,11 @@ Next, [get the Microsoft app ID and password](/azure/bot-service/abs-quickstart?
 
 ### Create a web app to hold the bot logic
 
-To create a web app for your bot, you can revise [Bot Builder samples](https://github.com/Microsoft/BotBuilder-Samples) for your scenario or use the [Bot Builder SDK](/composer/introduction) to create a web app. One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot).
+To create a web app for your bot, you can do one of the following: 
+
+- Revise [Bot Builder samples](https://github.com/Microsoft/BotBuilder-Samples) for your scenario and deploy the bot to a web app.
+    - One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot).
+- Use the [Bot Builder SDK](/composer/introduction) to create and publish a bot to a web app. 
 
 Azure Bot Service typically expects the Bot Application Web App Controller to expose an endpoint in the form `/api/messages`. The endpoint handles all messages that are sent to the bot.
 
