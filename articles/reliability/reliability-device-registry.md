@@ -11,27 +11,22 @@ ms.date: 10/25/2024
 
 # Reliability in Azure Device Registry
 
-This article describes reliability support in Azure Device Registry (ADR) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Device Registry (ADR). It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
 
 Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
 
 ## Transient faults
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
+Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. 
+It's important that your applications handle transient faults, usually by retrying affected requests.
 
-<!-- correct? -->
-Azure Device Registry is built on top of Azure Cosmos DB, which is a highly available and resilient database service. Azure Cosmos DB is designed to handle transient faults and provide high availability and reliability. 
 
 ## Availability zone support
 
 Azure Device Registry is zone-redundant, which means that it automatically replicates across multiple [availability zones](../reliability/availability-zones-overview.md). This setup enhances the resiliency of the service by providing high availability. In the event of a failure in one zone, the service can continue to operate seamlessly from another zone. 
 
 Microsoft manages setup and configuration for zone redundancy in Azure Device Registry. You don't need to perform any more configuration to enable this zone redundancy. Microsoft ensures that the service is configured to provide the highest level of availability and reliability. 
-
-### Requirements
-
-Azure Device Registry has only one default SKU.
 
 ### Regions supported
 
@@ -48,22 +43,11 @@ The following list of regions support availability zones in Azure Device Registr
 
 ### Cost
 
-There's no more cost to use zone redundancy for Azure Device Registry.
+There's no extra cost to use zone redundancy for Azure Device Registry.
 
 ### Configure availability zone support
 
-**New resources:**  When you create an Azure Device Registry resource, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration. 
-
-
-<!-- Do we need this? -->
-In Azure IoT Operations, when you create an asset in the operations experience web UI or by using the Azure IoT Operations CLI extension, that asset is defined and created as an Azure resource in Azure Device Registry.  
-
-For detailed instructions on how to create an ADR resource in the cloud using Azure IoT Operations, see [Manage asset configurations remotely](/azure/iot-operations/discover-manage-assets/howto-manage-assets-remotely?tabs=portal). 
-
-### Data replication between zones
-
-Azure Device Registry zonal data replication is managed by Azure Cosmos DB. Azure Device Registry doesn't provide any more configuration options for data replication. Cosmos DB by default synchronously replicates across zones and so there's an RPO of 0 for a zone failure. For more information on geographical data replication in Cosmos DB, see [Reliability in Cosmos DB](./reliability-cosmos-db-nosql.md).
-
+**New resources:**  When you create an Azure Device Registry resource in Azure IoT Operations, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration. 
 
 
 ### Zone-down experience
@@ -72,41 +56,12 @@ During a zone-wide outage, you don't need to take any action to failover to a he
 
 **Detection and response:**  Because Azure Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
 
-<!-- Need? -->
-**Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
-
-<!-- Need? -->
-**Traffic rerouting:** New connections use Azure Bastion instances in the surviving availability zones. Overall, Azure Bastion continues to remain operational.
-
-### Failback
-
-<!-- What happens? -->
-
-When the availability zone recovers, Azure Device Registry:
-
-- Automatically restores instances in the availability zone.
-- Removes any temporary instances created in the other availability zones
-- Reroutes traffic between your instances as normal.
-
-### Testing for zone failures
-
-<!-- is this okay to say? -->
-The Azure Device Registry platform manages traffic routing, failover, and failback for zone-redundant Azure Device Registry resources. Because this feature is fully managed, you don't need to initiate anything or validate availability zone failure processes.
 
 ## Multi-region support
 
-Azure Device Registry is a regional service with geographical data replication. In a region-wide outage, Microsoft initiates compute failover from one region to another. If Azure Device Registry fails over, it continues to support its primary region, and no more actions by you're required. 
+Azure Device Registry is a regional service with automatic geographical data replication. In a region-wide outage, Microsoft initiates compute failover from one region to another. If Azure Device Registry fails over, it continues to support its primary region, and no more actions by you're required. 
 
 When using Azure IoT Operations (AIO), Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for asset metadata and asset management capabilities. However, AIO includes various other components beyond ADR. For detailed information on AIO-specific components' high availability and zero data loss features, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq#does-azure-iot-operations-offer-high-availability-and-zero-data-loss-features-). 
-
-## Region support
-
-Azure Device Registry multi-region redundancy is only supported in paired regions. To see a list of paired regions, see [Azure Paired Regions](./cross-region-replication-azure.md#azure-paired-regions)
-
-### Data replication between regions
-
-
-Azure Cosmos DB manages Azure Device Registry cross-region data replication. Azure Device Registry doesn't provide any more configuration options for data replication. Cosmos DB by default synchronously replicates across regions and so there's an RPO of 0 for a zone failure. For more information on geographical data replication in Cosmos DB, see [Reliability in Cosmos DB](./reliability-cosmos-db-nosql.md).
 
 
 ### Region down experience
@@ -115,8 +70,8 @@ During a region outage, Microsoft adheres to the Recovery Time Objective (RTO) t
 
 In a complete region loss scenario, you can expect a manual recovery from Microsoft. 
 
-<!-- Why 15 minutes?-->
-For Azure Device Registry, recovery Time Objective (RTO) is approximately 24 hours. For Recovery Point Objective (RPO), you can expect less than 15 minutes.
+
+For Azure Device Registry, Recovery Time Objective (RTO) is approximately 24 hours. For Recovery Point Objective (RPO), you can expect less than 15 minutes.
 
 
 ## Service-level agreement (SLA)
