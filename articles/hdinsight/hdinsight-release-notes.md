@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 10/28/2024
+ms.date: 10/29/2024
 ---
 
 # Azure HDInsight release notes
@@ -54,7 +54,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 ## Updated
 
 * MSI based authentication support available for Azure blob storage.
-  
+
 Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information about managed identities. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
@@ -64,7 +64,7 @@ Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob
    * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
 
 * HDInsight service is transitioning to use standard load balancers for all its cluster configurations because of deprecation announcement of Azure basic load balancer.
-  * This change will be rolled out in a phased manner for different regions between 7 November 2024 and 21 November 2024. Watch out our release notes for more updates.
+  * This change will be rolled out in a phased manner for different regions between November 07, 2024 and November 21, 2024. Watch out our release notes for more updates.
 
 * Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
  
