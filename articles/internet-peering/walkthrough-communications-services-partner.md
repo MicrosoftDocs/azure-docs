@@ -1,11 +1,11 @@
 ---
 title: Internet peering for Peering Service Voice walkthrough
-description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
+description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register a prefix.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 10/23/2024
 ---
 
 # Internet peering for Peering Service Voice walkthrough

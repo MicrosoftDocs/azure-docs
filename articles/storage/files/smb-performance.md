@@ -206,16 +206,30 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
+- Asia East
 - Australia Central
+- Brazil South
+- Canada Central
+- France Central
+- Germany West Central
+- Japan East
+- Japan West
 - Jio India West
+- India Central
 - India South
+- Korea Central
 - Mexico Central
 - Norway East
 - Poland Central
+- Qatar Central
 - Spain Central
 - Sweden Central
 - Switzerland North
 - UAE North
+- UK West
+- UK South
+- US South Central
+- US West Central
 - US West 3
 
 > [!TIP]

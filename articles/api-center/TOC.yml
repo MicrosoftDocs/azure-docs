@@ -56,6 +56,8 @@
         href: discover-shadow-apis-dev-proxy.md
       - name: Find nonproduction API requests with Dev Proxy
         href: find-nonproduction-api-requests-dev-proxy.md
+      - name: Workflow automation to set API status
+        href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
       - name: Discover and consume APIs - VS Code extension

@@ -26,7 +26,7 @@ Each listener port can have its own authentication and authorization rules that 
 
 Listeners have the following characteristics:
 
-- You can have up to three listeners. One listener per service type of `loadBalancer`, `clusterIp`, or `nodePort`. The default *BrokerListener* named *default* is service type `clusterIp`.
+- You can have up to three listeners. One listener per service type of `loadBalancer`, `clusterIp`, or `nodePort`. The default *BrokerListener* named *listener* is service type `clusterIp`.
 - Each listener supports multiple ports
 - BrokerAuthentication and BrokerAuthorization references are per port
 - TLS configuration is per port
@@ -59,7 +59,7 @@ To view or edit the listener:
 To view the default *BrokerListener* resource, use the following command:
 
 ```bash
-kubectl get brokerlistener default -n azure-iot-operations -o yaml
+kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
 The output should look similar to this, with most metadata removed for brevity:
@@ -68,14 +68,14 @@ The output should look similar to this, with most metadata removed for brevity:
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: default
+  name: listener
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceName: aio-broker
   serviceType: ClusterIp
   ports:
-  - authenticationRef: default
+  - authenticationRef: authn
     port: 18883
     protocol: Mqtt
     tls:
@@ -94,7 +94,7 @@ To learn more about the default BrokerAuthentication resource linked to this lis
 The default *BrokerListener* uses the service type *ClusterIp*. You can have only one listener per service type. If you want to add more ports to service type *ClusterIp*, you can update the default listener to add more ports. For example, you could add a new port 1883 with no TLS and authentication off with the following kubectl patch command:
 
 ```bash
-kubectl patch brokerlistener default -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/", "value": {"port": 1883, "protocol": "Mqtt"}}]'
+kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/", "value": {"port": 1883, "protocol": "Mqtt"}}]'
 ```
 
 ---
@@ -146,7 +146,7 @@ spec:
   - port: 1883
     protocol: Mqtt
   - port: 18883
-    authenticationRef: default
+    authenticationRef: authn
     protocol: Mqtt
     tls:
       mode: Automatic

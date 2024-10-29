@@ -10,7 +10,6 @@ ms.date: 10/16/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for Microsoft Fabric OneLake
@@ -38,36 +37,6 @@ First, in Azure portal, go to the Arc-connected Kubernetes cluster and select **
 Then, in the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Preview Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
 
 Finally, create the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
-
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iotoperations
-spec:
-  endpointType: FabricOneLake
-  fabricOneLakeSettings:
-    # The default Fabric OneLake host URL in most cases
-    host: https://onelake.dfs.fabric.microsoft.com
-    oneLakePathType: Tables
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
-    names:
-      workspaceName: <WORKSPACE_NAME>
-      lakehouseName: <LAKEHOUSE_NAME>
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
 
 # [Bicep](#tab/bicep)
    
@@ -115,7 +84,37 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iotoperations
+spec:
+  endpointType: FabricOneLake
+  fabricOneLakeSettings:
+    # The default Fabric OneLake host URL in most cases
+    host: https://onelake.dfs.fabric.microsoft.com
+    oneLakePathType: Tables
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+    names:
+      workspaceName: <WORKSPACE_NAME>
+      lakehouseName: <LAKEHOUSE_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
 ```
 
 ---
@@ -136,16 +135,6 @@ Using the system-assigned managed identity is the recommended authentication met
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-fabricOneLakeSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      {}
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -157,10 +146,6 @@ fabricOneLakeSettings: {
 }
 ```
 
----
-
-If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -168,8 +153,12 @@ fabricOneLakeSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://<ACCOUNT>.onelake.dfs.fabric.microsoft.com
+      {}
 ```
+
+---
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 # [Bicep](#tab/bicep)
 
@@ -184,22 +173,19 @@ fabricOneLakeSettings: {
 }
 ```
 
----
-
-#### User-assigned managed identity
-
 # [Kubernetes](#tab/kubernetes)
-
-To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 ```yaml
 fabricOneLakeSettings:
   authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://<ACCOUNT>.onelake.dfs.fabric.microsoft.com
 ```
+
+---
+
+#### User-assigned managed identity
 
 # [Bicep](#tab/bicep)
 
@@ -215,6 +201,19 @@ fabricOneLakeSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+
+```yaml
+fabricOneLakeSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <ID>
+      tenantId: <ID>
+```
+
 ---
 
 ## Advanced settings
@@ -225,19 +224,19 @@ You can set advanced settings for the Fabric OneLake endpoint, such as the batch
 
 The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that is not supported by the `Tables` path type.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-fabricOneLakeSettings:
-  oneLakePathType: Tables # Or Files
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 fabricOneLakeSettings: {
   oneLakePathType: 'Tables'
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  oneLakePathType: Tables # Or Files
 ```
 
 ---
@@ -253,15 +252,6 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-fabricOneLakeSettings:
-  batching:
-    latencySeconds: 100
-    maxMessages: 1000
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -273,4 +263,17 @@ fabricOneLakeSettings: {
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  batching:
+    latencySeconds: 100
+    maxMessages: 1000
+```
+
 ---
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

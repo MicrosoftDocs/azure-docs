@@ -10,7 +10,6 @@ ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow endpoints for local storage
@@ -28,28 +27,6 @@ To send data to local storage in Azure IoT Operations Preview, you can configure
 ## Create a local storage dataflow endpoint
 
 Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
-
-# [Kubernetes](#tab/kubernetes)
-
-Create a Kubernetes manifest `.yaml` file with the following content.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: <ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  endpointType: localStorage
-  localStorageSettings:
-    persistentVolumeClaimRef: <PVC_NAME>
-```
-
-Then apply the manifest file to the Kubernetes cluster.
-
-```bash
-kubectl apply -f <FILE>.yaml
-```
 
 # [Bicep](#tab/bicep)
 
@@ -86,7 +63,29 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: localStorage
+  localStorageSettings:
+    persistentVolumeClaimRef: <PVC_NAME>
+```
+
+Then apply the manifest file to the Kubernetes cluster.
+
+```bash
+kubectl apply -f <FILE>.yaml
 ```
 
 ---
@@ -97,3 +96,7 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 ## Supported serialization formats
 
 The only supported serialization format is Parquet.
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)

@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
-ms.service: azure-iot-operations
 ---
 
 # Configure dataflow profile
@@ -65,3 +64,7 @@ spec:
   diagnostics:
     # ...
 ```
+
+## Next steps
+
+- [Create a dataflow](howto-create-dataflow.md)
