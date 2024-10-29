@@ -95,7 +95,7 @@ Configuration for SAP **/hana/data** volume:
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
 | M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 130,000 | 9,120 GB | 1,250 MBps| 30,000 |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,300 MBps| 25,000 | 
-| M624(d)s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 13,680 GB | 1,300 MBps| 40,000 |
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 13,680 GB | 1,300 MBps| 40,000 |
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
 | M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 130,000 | 19,200 GB | 4,000 MBps<sup>2</sup> | 60,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
@@ -143,7 +143,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 130,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M624(d)s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 512 GB | 600 MBps | 6,000 | 1,024 GB |
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 512 GB | 600 MBps | 6,000 | 1,024 GB |
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 | M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 130,000 | 512 GB | 600 MBps | 10,000 | 1,024 GB |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
