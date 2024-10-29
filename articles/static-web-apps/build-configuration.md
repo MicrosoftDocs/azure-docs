@@ -43,7 +43,7 @@ By default, the configuration file is stored at the root of your repository with
 
 ## Security
 
-You can choose between two different deployment authorization policy to secure your build configuration. Static Web Apps supports either using an Azure deployment token (recommended), or a GitHub access token.
+You can choose between two different deployment authorization policies to secure your build configuration. Static Web Apps supports either using an Azure deployment token (recommended), or a GitHub access token.
 
 Use the following steps to set the deployment authorization policy in your app:
 
@@ -100,7 +100,7 @@ jobs:
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_WATER_030D91C1E }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_WATER }}
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
@@ -129,6 +129,7 @@ In this configuration:
 - The `main` branch is monitored for commits.
 - A GitHub Actions workflow is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
+- One of the `steps` makes an `idtoken` available to authenticate the build process with Azure services. 
 - The `app_location` points to the `src` folder that contains the source files for the web app. To set this value to the repository root, use `/`.
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. To set this value to the repository root, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. It's relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
@@ -141,7 +142,7 @@ When a pull request is opened, the Azure Static Web Apps GitHub Action builds an
 
 This job helps keep your pull request workflow organized and prevents stale pull requests. By the runtime automatically closing the pull request, your repository stays up-to-date and your team is notified of the status.
 
-The *Close Pull Request* job is part of the Azure Static Web Apps GitHub Actions workflow, closing the pull request after it is merged. The `Azure/static-web-apps-deploy` action deploys the app to Azure Static Web Apps, requiring the `azure_static_web_apps_api_token` for authentication.
+The *Close Pull Request* job is part of the Azure Static Web Apps GitHub Actions workflow, closing the pull request after it's merged. The `Azure/static-web-apps-deploy` action deploys the app to Azure Static Web Apps, requiring the `azure_static_web_apps_api_token` for authentication.
 
 # [Azure Pipelines](#tab/azure-devops)
 
@@ -346,7 +347,7 @@ inputs:
 
 ## Run workflow without deployment secrets
 
-Sometimes you need your workflow to continue to process even when some secrets are missing. Set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true` to configure your workflow to proceed without defined secrets.
+Sometimes you need your workflow to continue to process even when some secrets are missing. To configure your workflow to proceed without defined secrets, set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true`.
 
 When enabled, this feature allows the workflow to continue without deploying the site's content.
 
