@@ -268,7 +268,9 @@ resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/s
 After you've defined the schema content and resources, you can deploy the Bicep template to create the schema in the schema registry.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group 
+<RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou 
+deleteResources --yes
 ```
 
 ## Next steps

@@ -79,7 +79,7 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
 ```
 
 # [Kubernetes](#tab/kubernetes)

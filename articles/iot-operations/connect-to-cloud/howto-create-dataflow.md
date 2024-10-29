@@ -403,8 +403,8 @@ Once you have used the [schema registry to store the schema](concept-schema-regi
 
 ```bicep
 sourceSettings: {
-  serializationFormat: Json
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>
+  serializationFormat: 'Json'
+  schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>'
 }
 ```
 
@@ -415,7 +415,7 @@ Once you have used the [schema registry to store the schema](concept-schema-regi
 ```yaml
 sourceSettings:
   serializationFormat: Json
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>
+  schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA_NAME>:<VERSION>'
 ```
 
 ---
@@ -717,8 +717,8 @@ Once you [upload a schema to the schema registry](concept-schema-registry.md#upl
 
 ```bicep
 builtInTransformationSettings: {
-  serializationFormat: Delta
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>
+  serializationFormat: 'Delta'
+  schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>'
 }
 ```
 
@@ -729,7 +729,7 @@ Once you [upload a schema to the schema registry](concept-schema-registry.md#upl
 ```yaml
 builtInTransformationSettings:
   serializationFormat: Delta
-  schemaRef: aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>
+  schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>'
 ```
 
 ---

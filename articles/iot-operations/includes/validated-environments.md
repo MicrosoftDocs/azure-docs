@@ -14,8 +14,8 @@ Azure IoT Operations ships as a set of Azure Arc-enabled Kubernetes services and
 
 | Environment | Version |
 | ----------- | ------- |
-| AKS-EE on Windows 11 IoT Enterprise <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | AksEdge-K3s-1.28.5-1.8.202.0 |
-| K3s on Ubuntu 22.04.2 <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | K3s version 1.28.5 |
+| AKS-EE on Windows 11 IoT Enterprise <br> on a Lenovo ThinkStation P3 Tiny machine (16 core, 32 GB RAM) with single-node cluster | AksEdge-K3s-1.29.6-1.8.202.0 |
+| K3S on Ubuntu 24.04 <br> on a Lenovo ThinkStation P3 Tiny machine (16 core, 32 GB RAM) with a 3-node cluster | K3s version 1.31.1 |
 
 > [!IMPORTANT]
 > The environments listed previously are production-like environments that Microsoft has validated. They're not the only environments that Azure IoT Operations can run on. Azure IoT Operations can run on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.

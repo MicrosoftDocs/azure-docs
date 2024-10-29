@@ -114,7 +114,7 @@ az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RES
 # [PowerShell](#tab/powershell)
 
 ```powershell
-# wget https://dev.azure.com/msazure/One/_git/azure-iot-operations-tests?path=/.pipelines/bicep/quickstart.bicep -O quickstart.bicep
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/quickstart.bicep -OutFile quickstart.bicep
 
 $AIO_EXTENSION_NAME = (az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv) -split '/' | Select-Object -Last 1
 $AIO_INSTANCE_NAME = $(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
