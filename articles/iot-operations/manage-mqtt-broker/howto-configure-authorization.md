@@ -51,13 +51,13 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
   parent: aioInstanceName
   name: endpointName
   extendedLocation: {
@@ -205,13 +205,13 @@ In the **Broker authorization details** for your authorization policy, use the f
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
   parent: aioInstanceName
   name: endpointName
   extendedLocation: {
@@ -354,13 +354,13 @@ In the **Broker authorization details** for your authorization policy, use the f
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
   parent: aioInstanceName
   name: endpointName
   extendedLocation: {
