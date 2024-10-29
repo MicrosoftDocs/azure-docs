@@ -23,7 +23,7 @@ Azure Logic Apps supports scenarios where you need to use your own managed infra
 
 The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
-- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
+- Azure Arc-enabled Kubernetes clusters, Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
 - A SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 

@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 10/28/2024
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -31,11 +31,11 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 - The following capabilities currently aren't available in this preview release:
 
+  - The action named **Call local function in this logic app** for running C# .NET Framework code
   - SAP access through the SAP built-in connector
   - XSLT 1.0 for custom code
   - Custom code support with .NET Framework
   - Managed identity authentication
-  - File System connector
 
 - Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
 
@@ -63,7 +63,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 - To work in Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code with the [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   > [!TIP]
-  > 
+  >
   > If you have a new Visual Studio Code installation, confirm that you can locally run a 
   > basic Standard workflow before you try deploying to your own infrastructure. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
@@ -109,14 +109,28 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
    :::image type="content" source="media/create-standard-workflows-hybrid-deployment/logic-app-hybrid-portal.png" alt-text="Screenshot shows Azure portal with Standard logic app for hybrid deployment created as a Container app.":::
 
-   From this view in the Azure portal, you can create, edit, and manage workflows as usual.
-
    > [!NOTE]
    >
-   > Several known issues exist in the portal around how you find your Standard logic app, which is created 
-   > as a container app in this release. Your Standard logic app is also labeled differently from Standard 
-   > logic apps deployed to single-tenant Azure and App Service environment v3. For more information, see 
-   > [Known issues and troubleshooting - Azure portal](#known-issues-portal).
+   > Several known issues exist in the portal around Standard logic apps that use the hybrid hosting option. 
+   > These logic apps appear with the **Container App** label, which differs from Standard logic apps that 
+   > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
+   > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
+
+1. In the Azure portal, on the logic app menu, under **Workflows**, you can add, edit, and manage workflows as usual.
+
+   Standard logic apps that you create with the hybrid deployment model support multiple workflow *revisions* or versions. Each time that you save changes to your workflow, Azure creates a new workflow revision.
+
+   > [!TIP]
+   >
+   > After you save your workflow, wait for 1-2 minutes before you test your workflow.
+   > If your changes still don't appear in your workflow run, on the container app menu, 
+   > under **Revisions**, select **Revisions and replicas** to check whether the revision 
+   > was created and appears on the list.
+
+   For more information, see the following resources:
+
+   - [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md)
+   - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md)
 
 1. To review the app settings, on the container app menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
 
