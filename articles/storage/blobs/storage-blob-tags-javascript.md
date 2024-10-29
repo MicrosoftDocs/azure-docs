@@ -32,7 +32,7 @@ This article shows how to use blob index tags to manage and find data using the 
 
 [!INCLUDE [storage-dev-guide-auth-set-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-set-blob-tags.md)]
 
-To set tags at blob upload time, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method:
+To set tags at blob upload time, create a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) then use the following method:
 
 - [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
@@ -59,7 +59,7 @@ You can delete all tags by passing an empty JSON object into the `setTags` metho
 
 [!INCLUDE [storage-dev-guide-auth-get-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-get-blob-tags.md)]
 
-To get tags, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
+To get tags, use the following method: 
 
 - [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
@@ -93,7 +93,7 @@ The following table shows some query strings:
 |`@container = 'my-container' AND createdBy = 'Jill'`|**Filter by container** and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
 
 
-To find blobs, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
+To find blobs, use the following method: 
 
 - [BlobServiceClient.findBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
 

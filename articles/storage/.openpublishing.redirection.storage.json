@@ -2406,8 +2406,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-list-typescript.md",
-            "redirect_url": "/azure/storage/blobs/storage-blob-container-list-javascript",
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-containers-list-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-containers-list-javascript",
             "redirect_document_id": false
         },
         {
