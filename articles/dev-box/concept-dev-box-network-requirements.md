@@ -79,18 +79,32 @@ Although most of the configuration is for the cloud-based dev box network, end u
 |Azure Virtual Desktop session host virtual machine    |[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#session-host-virtual-machines) |Remote connectivity between dev boxes and the backend Azure Virtual Desktop service.|
 |Windows 365 service    |[Link](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service) |Provisioning and health checks.|
 
+Any device you use to connect to a dev box must have access to the following FQDNs and endpoints. Allowing these FQDNs and endpoints is essential for a reliable client experience. Blocking access to these FQDNs and endpoints is unsupported and affects service functionality.
+
+|Address    |Protocol    |Outbound port    |Purpose    |Clients |
+|---|---|---|---|---|
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services    |All |
+|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |All |
+|*.servicebus.windows.net    |TCP    |443    |Troubleshooting data    |All |
+|go.microsoft.com    |TCP    |443    |Microsoft FWLinks    |All |
+|aka.ms    |TCP    |443    |Microsoft URL shortener    |All |
+|learn.microsoft.com    |TCP    |443    |Documentation    |All |
+|privacy.microsoft.com    |TCP    |443    |Privacy statement    |All |
+|query.prod.cms.rt.microsoft.com    |TCP    |443    |Download an MSI to update the client. Required for automatic updates.    |Windows Desktop |
+
+These FQDNs and endpoints only correspond to client sites and resources.
+
 ## Required endpoints
 
 The following URLs and ports are required for the provisioning of dev boxes and the Azure Network Connection (ANC) health checks. All endpoints connect over port 443 unless otherwise specified.
 
-| Category                        | Endpoints                      | FQDN tag or Service tag                        | More information             |
-|---------------------------------|--------------------------------|-------------------------------------|------------------------------|
-| **Dev box communication endpoints** | - *.agentmanagement.dc.azure.com<br>- *.cmdagent.trafficmanager.net | N/A | N/A | 
-| **Windows 365 service endpoints** | - *.infra.windows365.microsoft.com<br>- *.cmdagent.trafficmanager.net<br>- UDP connectivity via TURN<br>- TURN connectivity | FQDN tag: *Windows365* | [Windows 365 network requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service). |
-| **Windows 365 Registration endpoints**      | For current W365 registration endpoints, see [Windows 365 service](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent) |
-| **Azure Virtual Desktop service endpoints** | For current AVD service endpoints, see [Session host virtual machines](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#session-host-virtual-machines) | FQDN tags: *WindowsVirtualDesktop*, *AzureMonitor*, *AzureFrontDoor.Frontend*, *AzureCloud*, *Internet* |  |
-| **Microsoft Entra ID** | FQDNs and endpoints for Microsoft Entra ID can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | Service tag: *AzureActiveDirectory* | [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
-| **Microsoft Intune** | For current FQDNs and endpoints for Microsoft Entra ID, see [Intune core service](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#endpoints)| FQDN tag: *MicrosoftIntune* | [Intune endpoints](/mem/intune/fundamentals/intune-endpoints) |
+| Category                        | Endpoints                      | FQDN tag or Service tag                        |
+|---------------------------------|--------------------------------|-------------------------------------|
+| **Dev box communication endpoints** | *.agentmanagement.dc.azure.com<br>*.cmdagent.trafficmanager.net | N/A |
+| **Windows 365 service and registration endpoints** | For current Windows 365 registration endpoints, see [Windows 365 network requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service). | FQDN tag: *Windows365* | 
+| **Azure Virtual Desktop service endpoints** | For current AVD service endpoints, see [Session host virtual machines](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#session-host-virtual-machines). | FQDN tags: *WindowsVirtualDesktop*, *AzureMonitor*, *AzureFrontDoor.Frontend*, *AzureCloud*, *Internet* |
+| **Microsoft Entra ID** | FQDNs and endpoints for Microsoft Entra ID can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | Service tag: *AzureActiveDirectory* |
+| **Microsoft Intune** | For current FQDNs and endpoints for Microsoft Entra ID, see [Intune core service](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service).| FQDN tag: *MicrosoftIntune* |
 
 The listed FQDNs and endpoints and tags only correspond to the most common resources. They don't include FQDNs and endpoints for all services. For service tags for other services, see [Available service tags](/azure/virtual-network/service-tags-overview#available-service-tags).
 
@@ -125,7 +139,6 @@ Configure your Azure Virtual Network where the dev boxes are provisioned as foll
 > Adding at least two DNS servers, as you would with a physical PC, helps mitigate the risk of a single point of failure in name resolution.
 For more information, see configuring [Azure Virtual Networks settings](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
-
 ## Connecting to on-premises resources
 
 You can allow dev boxes to connect to on-premises resources through a hybrid connection. Work with your Azure network expert to implement a [hub and spoke networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. Hub and spoke topology can help you manage network traffic and security. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources.
@@ -135,23 +148,6 @@ You can allow dev boxes to connect to on-premises resources through a hybrid con
 Some enterprise customers use traffic interception, TLS decryption, deep packet inspection, and other similar technologies for security teams to monitor network traffic. Dev box provisioning might need direct access to the virtual machine. These traffic interception technologies can cause issues with running Azure network connection checks or dev box provisioning. Make sure no network interception is enforced for dev boxes provisioned within Microsoft Dev Box.
 
 Traffic interception technologies can exacerbate latency issues. You can use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) to help minimize latency issues.
-
-## End user devices
-
-Any device on which you use one of the Remote Desktop clients to connect to Azure Virtual Desktop must have access to the following FQDNs and endpoints. Allowing these FQDNs and endpoints is essential for a reliable client experience. Blocking access to these FQDNs and endpoints is unsupported and affects service functionality.
-
-|Address    |Protocol    |Outbound port    |Purpose    |Clients |
-|---|---|---|---|---|
-|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services    |All |
-|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |All |
-|*.servicebus.windows.net    |TCP    |443    |Troubleshooting data    |All |
-|go.microsoft.com    |TCP    |443    |Microsoft FWLinks    |All |
-|aka.ms    |TCP    |443    |Microsoft URL shortener    |All |
-|learn.microsoft.com    |TCP    |443    |Documentation    |All |
-|privacy.microsoft.com    |TCP    |443    |Privacy statement    |All |
-|query.prod.cms.rt.microsoft.com    |TCP    |443    |Download an MSI to update the client. Required for automatic updates.    |Windows Desktop |
-
-These FQDNs and endpoints only correspond to client sites and resources. This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID or Office 365. Microsoft Entra FQDNs and endpoints can be found under ID 56, 59 and 125 in Office 365 URLs and IP address ranges.
 
 ## Troubleshooting 
 
