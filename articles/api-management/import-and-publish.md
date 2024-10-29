@@ -72,7 +72,7 @@ If you have problems importing an API definition, see the [list of known issues 
 You can call API operations directly from the Azure portal, which provides a convenient way to view and test the operations. In the portal's test console, by default, APIs are called by using a key from the built-in all-access subscription. You can also test API calls by using a subscription key scoped to a product.
 
 1. In the left navigation of your API Management instance, select **APIs** > **Swagger Petstore**.
-1. Select the **Test** tab, and then select **Finds Pets by status**. The page shows the *status* **Query parameter**. Select one of the available values, such as *Sold*. You can also add query parameters and headers here. 
+1. Select the **Test** tab, and then select **Finds Pets by status**. The page shows the *status* **Query parameter**. Select one of the available values, such as *pending*. You can also add query parameters and headers here. 
 
     In the **HTTP request** section, the **Ocp-Apim-Subscription-Key** header is filled in automatically for you, which you can see if you select the "eye" icon.
 1. Select **Send**.
