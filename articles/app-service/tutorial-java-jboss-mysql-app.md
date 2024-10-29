@@ -128,7 +128,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 1:** In the Azure portal:
-        1. Enter "app service" in the search bar at the top of the Azure portal.
+        1. In the top search bar, type *app service*.
         1. Select the item labeled **App Service** under the **Services** heading.
         1. Select **Create** > **Web App**.
         You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
@@ -146,7 +146,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Linux Plan*: **Create new** and use the name **msdocs-jboss-mysql**.
         1. *Pricing plan*: **Premium V3 P0V3**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
-        1. *Deploy with your app*: Select **Database**. Azure Database for MySQL - Flexible Servier is selected for you by default. It's a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+        1. *Deploy with your app*: Select **Database**. Azure Database for MySQL - Flexible Server is selected for you by default. It's a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -179,11 +179,11 @@ In this step, you generate a managed identity based service connection, which yo
 :::row:::
     :::column span="2":::
         **Step 1: Create a managed identity.** 
-        1. Enter "manageed identity" in the search bar at the top of the Azure portal.
+        1. In the top search bar, type *manageed identity*.
         1. Select the item labeled **Managed Identities** under the **Services** heading.
         1. Select **Create**.
         1. In **Resource group**, select **msdocs-jboss-mysql_group**.
-        1. In **Region**, select the same region thaty you used for your web app.
+        1. In **Region**, select the same region that you used for your web app.
         1. In **Name**, type **msdocs-jboss-mysql-serveri-identity**.
         1. Select **Review + create**.
         1. Select **Create**.
@@ -195,18 +195,18 @@ In this step, you generate a managed identity based service connection, which yo
 :::row:::
     :::column span="2":::
         **Step 2: Enable Microsoft Entra authentication in the MySQL server.** 
-        1. In the top search bar, type "msdocs-jboss-mysql-server".
+        1. In the top search bar, type *msdocs-jboss-mysql-server*.
         1. Select the Azure Database for MySQL flexible server resource called **msdocs-jboss-mysql-server**.
         1. From the left menu, select **Security** > **Authentication**.
         1. In **Assign access to**, select **Microsoft Entra authentication only**.
         1. In **User assigned managed identity**, select **Select**.
         1. Select **msdocs-jboss-mysql-server-identity**, then select **Add**. It takes a moment for the identity to be assigned to the MySQL server.
         1. In **Microsoft Entra Admin Name**, select **Select**.
-        1. Find your Azure login and select it, then select **Select**.
+        1. Find your Azure account and select it, then select **Select**.
         1. Select **Save** and wait for the operation to complete.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png" alt-text="A screenshot showing how to configure Microsft Entra authentication for Azure Database for MySQL flexible server." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png" alt-text="A screenshot showing how to configure Microsoft Entra authentication for Azure Database for MySQL flexible server." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -226,7 +226,7 @@ In this step, you generate a managed identity based service connection, which yo
         1. Select the **Review + Create** tab.
         1. When validation completes, select **Create on Cloud Shell** and wait for the operation to complete in the Cloud Shell.
         1. When you see the output JSON, you can close the Cloud Shell. Also, close the **Create connection** dialog.
-        1. Click **Refresh** to show the new service connector.
+        1. Select **Refresh** to show the new service connector.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-3.png" alt-text="A screenshot showing a completely configured service connector, ready to be created with cloud shell." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-3.png":::
@@ -266,8 +266,8 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
     :::column span="2":::
         **Step 2:** In the SSH terminal:
         1. Run `$JBOSS_HOME/bin/jboss-cli.sh --connect`.
-        1. In the JBoss CLI connection, run `ls subsystem=datasources/data-source`. You should see the automaically generated data source called `AZURE_MYSQL_CONNECTIONSTRING_DS`.
-        1. Get the JDNI name of the data source with `/subsystem=datasources/data-source=AZURE_MYSQL_CONNECTIONSTRING_DS:read-attribute(name=jndi-name)`.
+        1. In the JBoss CLI connection, run `ls subsystem=datasources/data-source`. You should see the automatically generated data source called `AZURE_MYSQL_CONNECTIONSTRING_DS`.
+        1. Get the JNDI name of the data source with `/subsystem=datasources/data-source=AZURE_MYSQL_CONNECTIONSTRING_DS:read-attribute(name=jndi-name)`.
         You now have a JNDI name `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which you can use in your application code later.
     :::column-end:::
     :::column:::
@@ -687,7 +687,7 @@ This error is most likely because you haven't added the passwordless authenticat
 
 #### I see an "Table 'Task' already exists" error in the diagnostic logs.
 
-You can ignore this Hibernate error because it demontrates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts (see *src/main/resources/META-INF/persistence.xml*). When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
+You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts (see *src/main/resources/META-INF/persistence.xml*). When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
 
 ## Frequently asked questions
 
