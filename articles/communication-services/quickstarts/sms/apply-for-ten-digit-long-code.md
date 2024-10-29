@@ -69,7 +69,9 @@ Select **Add ** and begin by filling in the **Application Type** details:
    - **Phone Number Type**: Choose the type of phone number for your campaign (e.g., Local).
    - **Application Type**: Select the Campaign application type.
 
-Click **Next** to proceed to the **Campaign Details** section:
+:::image type="content" source="./media/apply-for-campaign-registration/campaign-registration-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-campaign-registration/campaign-registration-1.png":::
+
+Click **Next** to proceed to the **Campaign Details** section.
 
 ### Campaign Details
 
@@ -77,12 +79,72 @@ Click **Next** to proceed to the **Campaign Details** section:
    - **Description**: Add a description for the campaign, explaining its purpose and target audience.
    - **Call-to-Action / Message Flow**: Describe how end users are expected to engage with this campaign (e.g., opt-in process, expected interaction).
 
-Click **Next** to proceed to the **Use Case** section:
+:::image type="content" source="./media/apply-for-campaign-registration/campaign-registration-2.png" alt-text="Screenshot showing campaign registration form 2." lightbox="./media/apply-for-campaign-registration/campaign-registration-2.png":::
+
+Click **Next** to proceed to the **Use Case** section
 ### Use Case
    - **Content Type**: Select the type of content you intend to send (e.g., Marketing, Customer Care).
    - **Sub-content Type**: Choose a more specific content category if applicable.
    - **Sample Message**: Provide a sample message that aligns with the campaign's use case. You can add multiple sample messages if needed by clicking **Add Sample Message**.
 
-2. Submit your campaign application. Campaign approval may take 2–3 business days.
+:::image type="content" source="./media/apply-for-campaign-registration/campaign-registration-3.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-campaign-registration/campaign-registration-3.png":::
 
-   ![Screenshot showing campaign registration form.](./media/register-10dlc/campaign-registration-form.png)
+After completing the **Use Case** tab, proceed to the **Campaign and Content Attributes** tab:
+
+### Campaign and Content Attributes
+Fill in the campaign and content attributes as follows:
+   - **Subscriber Opt-in**: Select **Yes** or **No** to indicate if subscriber opt-in is required.
+   - **Subscriber Opt-in Message**: If **Yes** is selected, enter the message subscribers will receive when opting into the campaign.
+   - **Subscriber Opt-out**: Select **Yes** or **No** to indicate if subscribers can opt out.
+   - **Subscriber Opt-out Answer**: If **Yes** is selected, enter the response message subscribers will receive when opting out.
+   - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
+   - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
+
+#### Additional Attributes:
+   - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
+   - **Embedded Link**: Select **Yes** or **No** to specify if the campaign includes an embedded link.
+   - **Embedded Phone Number**: Select **Yes** or **No** to specify if a phone number is embedded within the campaign content.
+   - **Age-gated Content**: Select **Yes** or **No** to indicate if the content is age-restricted.
+
+#### Terms and Conditions:
+   - Affiliate marketing is not permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
+
+:::image type="content" source="./media/apply-for-campaign-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-campaign-registration/campaign-registration-4.png":::
+
+Once all fields are completed, click **Next** to proceed to the **Review** tab.
+
+> **Note**: Providing accurate information in the attributes section ensures compliance with regulatory requirements and reduces the risk of rejection.
+
+### Review and Submit
+Review all information on the **Review** tab and submit your campaign application. Campaign approval may take 2–3 business days.
+
+### Linking number to the brand and campaign
+
+### Checking Status of Brand and Campaign Registration
+
+After submitting your brand and campaign registration, you can check the status in the **Regulatory Documents** blade. Follow these steps:
+
+1. **Open the Regulatory Documents Blade**:
+   - Go to the **Azure Communication Services** portal.
+   - In the left navigation pane, select **Regulatory Documents**.
+
+2. **View Brand Status**:
+   - Under the **Brand Registration** section, locate your brand name.
+   - The status will display as one of the following:
+     - **Pending**: Your brand registration is under review.
+     - **Approved**: Your brand registration has been approved, and you may proceed with campaign registration.
+     - **Rejected**: Your brand registration was rejected. Review the reason provided, make any necessary updates, and resubmit.
+
+3. **View Campaign Status**:
+   - In the **Campaign Registration** section of the Regulatory Documents blade, find the campaign you submitted.
+   - Campaign status options include:
+     - **Pending**: Your campaign is under review.
+     - **Approved**: Your campaign is approved, and you are authorized to start messaging.
+     - **Rejected**: Your campaign was rejected. Check the details for the reason, make corrections, and resubmit as needed.
+
+4. **Receive Notifications**:
+   - You will also receive email notifications with updates on your registration statuses, including any required actions if issues are identified.
+
+> **Warning**: Providing incorrect information may result in brand or campaign rejection, leading to potential delays. Ensure all details are accurate to avoid interruptions.
+
+Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration allows you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
