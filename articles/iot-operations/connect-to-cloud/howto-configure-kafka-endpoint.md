@@ -672,7 +672,10 @@ kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-io
 
 ### Consumer group ID
 
-The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker.
+The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker. 
+
+> [!IMPORTANT]
+> When the Kafka endpoint is used as [source](howto-create-dataflow.md#source), the consumer group ID is required. Otherwise, the dataflow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
 
 # [Portal](#tab/portal)
 
@@ -695,8 +698,6 @@ spec:
 ```
 
 ---
-
-<!-- TODO: check for accuracy -->
 
 This setting takes effect only if the endpoint is used as a source (that is, the dataflow is a consumer).
 
