@@ -7,7 +7,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 10/29/2024
 ms.author: gasinh
 ms.subservice: b2c
 
@@ -81,7 +81,7 @@ Learn more: [Azure Web Application Firewall DRS rule groups and rules](../web-ap
 
 ### Bot Manager Ruleset
 
-By default, the Azure Front Door WAF deploys with the latest version of our Bot Manager ruleset. This ruleset categories bot traffic into good, bad, and unknown bots. The bot signatures behind this ruleset are managed by the WAF platform and are updated dynamically.
+By default, the Azure Front Door WAF deploys with the latest version of our Bot Manager ruleset. This ruleset categorizes bot traffic into good, bad, and unknown bots. The bot signatures behind this ruleset are managed by the WAF platform and are updated dynamically.
 
 Learn more: [What is Azure Web Application Firewall on Azure Front Door?](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set)
 
@@ -95,7 +95,7 @@ Learn more:
 
 ### Detection and Prevention modes
 
-When you create WAF policy, the policy starts in Detection mode. We recommend you leave the WAF Detection mode while you tune the WAF for your traffic. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged by the WAF once logging is enabled.
+When you create a WAF policy, the policy starts in "Detection mode." We recommend you leave the WAF policy in Detection mode while you tune the WAF for your traffic. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged by the WAF once logging is enabled.
 
 Enable logging: [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md#logs-and-diagnostics)
 
@@ -113,9 +113,9 @@ AzureDiagnostics
 | project RuleID=ruleName_s, DetailMsg=details_msg_s, Action=action_s, Mode=policyMode_s, DetailData=details_data_s
 ```
 
-![Screenshot of blocked requests.](./media/partner-web-application-firewall/blocked-requests-query.png)
-
-![Screenshot of blocked requests details, such as Rule ID, Action, Mode, etc.](./media/partner-web-application-firewall/blocked-requests-details.png)
+|RuleID|DetailMsg|Action|Mode|DetailData|
+|---|---|---|---|---|
+|DefaultRuleSet-1.0-SQLI-942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Block|detection|Matched Data: CfDJ8KQ8bY6D|
 
 Review the WAF logs to determine if policy rules cause false positives. Then, exclude the WAF rules based on the WAF logs.
 
@@ -123,7 +123,7 @@ Learn more
 - [Configure WAF exclusion lists for Azure Front Door](../web-application-firewall/afds/waf-front-door-exclusion-configure.md)
 - [Web application firewall exclusion lists in Azure Front Door](../web-application-firewall/afds/waf-front-door-exclusion.md)
  
-Once you have logging set up and your WAF is receiving traffic, you can check the efficacy of your bot manager rules at dealing with bot traffic. The following query shows actions taken by your bot manager ruleset by category of bot. While in detection mode, the WAF only takes log actions on bot traffic but, once you switch to prevention mode, the WAF starts taking additional actions to block unwanted bot traffic.
+Once logging is set up and your WAF is receiving traffic, you can assess the effectiveness of your bot manager rules in handling bot traffic. The following query shows the actions taken by your bot manager ruleset, categorized by bot type. While in detection mode, the WAF logs bot traffic actions only. However, once switched to prevention mode, the WAF begins actively blocking unwanted bot traffic.
 
 ```json
 AzureDiagnostics
@@ -140,12 +140,12 @@ AzureDiagnostics
 
 To see WAF take action on request traffic, select **Switch to prevention mode** from the Overview page, which changes the mode from Detection to Prevention. Requests that match the rules in the DRS are blocked and logged in the WAF logs. The WAF takes the prescribed action when a request matches one, or more, rules in the DRS and log the results. By default, the DRS is set to anomaly scoring mode; this means that the WAF doesn't take any action on a request unless the anomaly score threshold is met.
 
-Learn more: Anomaly scoring ([Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md#anomaly-scoring-mode))
+Learn more: Anomaly scoring [Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md#anomaly-scoring-mode)
 
 To revert to Detection mode, select **Switch to detection mode** from the Overview page.
 
 ## Next steps
 
-* [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
-* [Web application firewall exclusion lists in Azure Front Door](../web-application-firewall/afds/waf-front-door-exclusion.md)
+* [Azure Web Application Firewall monitoring and logging](../web-application-firewall/ag/create-waf-policy-ag.md)
+* [Web application firewall exclusion lists in Azure Front Door](../web-application-firewall/afds/waf-front-door-tuning.md)
 * [Best practices for Azure Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md)
