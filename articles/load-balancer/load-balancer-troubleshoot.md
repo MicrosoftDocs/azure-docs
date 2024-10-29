@@ -28,23 +28,23 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 Standard internal load balancers (ILBs) have default security features. Basic ILBs allow connecting to the internet via a hidden public IP address called the *default outbound access IP*. We don't recommend connecting via default outbound access IP for production workloads, because the IP address isn't static or locked down via network security groups that you own.
 
-If you recently moved from a Basic ILB to a Standard ILB, you should create a public IP explicitly by using an [outbound only](egress-only.md) configuration. This configuration locks down the IP via network security groups. You can also use [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. We recommend NAT Gateway as the solution for outbound access.
+If you recently moved from a Basic ILB to a Standard ILB and need outbound connectivity to the internet from your VMs, you can configure [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. We recommend NAT Gateway for all outbound access in production scenarios.
 
 ## Problem: No inbound connectivity to Standard external load balancers
 
 ### Cause
 
-Standard load balancers and standard public IP addresses are closed to inbound connections unless network security groups open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your VM resource, traffic isn't allowed to reach the resource.
+Standard load balancers and standard public IP addresses are closed to inbound connections unless network security groups open them. You use NSGs to explicitly permit allowed traffic. You must configure your NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your VM resource, traffic isn't allowed to reach the resource.
 
 ### Resolution
 
-To allow the ingress traffic, [add a network security group](../virtual-network/manage-network-security-group.md) to the subnet or interface for your virtual resource.
+To allow ingress traffic, [add a network security group](../virtual-network/manage-network-security-group.md) to the subnet or interface for your virtual resource.
 
 ## Problem: Can't change the backend port for an existing load-balancing rule of a load balancer that has a virtual machine scale set deployed in the backend pool
 
 ### Cause
 
-You can't modify the backend port for a load-balancing rule that a health probe uses for a load balancer referenced by virtual machine scale set.
+When a load balancer is configured with a virtual machine scale set, you can't modify the backend port of a load-balancing rule while it's associated with a health probe.
 
 ### Resolution
 

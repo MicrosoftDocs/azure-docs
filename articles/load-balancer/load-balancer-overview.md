@@ -18,9 +18,9 @@ ms.custom: template-overview, engagement-fy23
 
 Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or virtual machine scale sets.
 
-A [public load balancer](./components.md#frontend-ip-configurations) can provide outbound connections for VMs inside your virtual network. Azure Load Balancer accomplishes these connections by translating the VMs' private IP addresses to public IP addresses. The service uses public load balancers to load balance internet traffic to your VMs.
+A [public load balancer](./components.md#frontend-ip-configurations) can provide both inbound and outbound connectivity for the VMs inside your virtual network. For inbound traffic scenarios, Azure Load Balancer can load balance internet traffic to your VMs. For outbound traffic scenarios, the service can translate the VMs' private IP addresses to public IP addresses for any outbound connections that originate from your VMs.
 
-Azure Load Balancer uses an [internal (or private) load balancer](./components.md#frontend-ip-configurations) in scenarios where private IPs are needed at the frontend only. The service uses internal load balancers to load balance traffic inside a virtual network. Users can access a load balancer frontend from an on-premises network in a hybrid scenario.
+Alternatively, an [internal (or private) load balancer](./components.md#frontend-ip-configurations) can provide inbound connectivity to your VMs in private network connectivity scenarios, such as accessing a load balancer frontend from an on-premises network in a hybrid scenario. Internal load balancers are used to load balance traffic inside a virtual network.
 
 :::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram that depicts a load balancer directing traffic.":::
 
