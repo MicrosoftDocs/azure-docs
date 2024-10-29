@@ -46,6 +46,41 @@ Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource n
 
 To add new authentication methods, select **Add method**.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authenticationMethods: [
+      {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audiences: [
+            'aio-internal'
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 To inspect the default broker authentication resource, run:
@@ -135,6 +170,84 @@ To add an authentication method to a policy:
 1. Choose the method type from the dropdown list then select **Add details** to configure the method.
 
     :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot using the Azure portal to add an MQTT broker authentication policy method.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authenticationMethods: [
+      {
+        method: 'Custom'
+        customSettings: {
+          endpoint: 'https://auth-server-template'
+          caCertConfigMap: 'custom-auth-ca'
+          auth: {
+            x509: {
+              secretRef: 'custom-auth-client-cert'
+            }
+          }
+          headers: {
+            header_key: 'header_value'
+          }
+        }
+      }
+      {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audiences: [
+            'aio-internal'
+            'my-audience'
+          ]
+        }
+      }
+      {
+        method: 'X509'
+        x509Settings: {
+          authorizationAttributes: {
+            trustedClientCaCert: 'client-ca'
+            root: {
+              attributes: {
+                organization: 'contoso'
+              }
+              subject: 'CN = Contoso Root CA Cert, OU = Engineering, C = US'
+            }
+            intermediate: {
+              attributes: {
+                city: 'seattle'
+                foo: 'bar'
+              }
+              subject: 'CN = Contoso Intermediate CA'
+            }
+            smart-fan: {
+              attributes: {
+                building: '17'
+              }
+              subject: 'CN = smart-fan'
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -236,6 +349,59 @@ X.509 attributes can be specified in the *BrokerAuthentication* resource, and th
 1. Choose the method type **X.509** from the dropdown list then select **Add details** to configure the method.
 
     :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authenticationMethods: [
+      {
+        method: 'X509'
+        x509Settings: {
+          authorizationAttributes: {
+            root: {
+              subject: 'CN = Contoso Root CA Cert, OU = Engineering, C = US'
+              attributes: {
+                organization: 'contoso'
+              }
+            }
+            intermediate: {
+              subject: 'CN = Contoso Intermediate CA'
+              attributes: {
+                city: 'seattle'
+                foo: 'bar'
+              }
+            }
+            smart-fan: {
+              subject: 'CN = smart-fan'
+              attributes: {
+                building: '17'
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -346,6 +512,42 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 1. Choose the method type **Kubernetes SAT** from the dropdown list then select **Add details** to configure the method.
 
 :::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker SAT authentication method.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authenticationMethods: [
+      {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audiences: [
+            'aio-internal'
+            'my-audience'
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -485,9 +687,13 @@ For testing, you can disable authentication for a broker listener port. Disablin
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authentication, select **None** in the authentication dropdown.
 
+# [Bicep](#tab/bicep)
+
+To disable authentication, omit the `authenticationRef` in the `ports` setting of your *BrokerListener* resource.
+
 # [Kubernetes](#tab/kubernetes)
 
-by omitting `authenticationRef` in the `ports` setting of a BrokerListener resource.
+To disable authentication, omit the `authenticationRef` in the `ports` setting of your *BrokerListener* resource.
 
 ---
 

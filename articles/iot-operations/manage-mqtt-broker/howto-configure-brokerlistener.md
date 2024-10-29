@@ -59,9 +59,6 @@ To view or edit the listener:
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param aioBrokerHostName string = '<HOSTNAME>:<PORT>'
-param trustedCA string = '<TRUST_BUNDLE>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
   name: aioInstanceName
