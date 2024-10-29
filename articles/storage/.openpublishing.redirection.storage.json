@@ -2386,6 +2386,106 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-create-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-create-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-delete-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-delete-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-lease-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-lease-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-properties-metadata-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-properties-metadata-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-list-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-list-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-async-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-async-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-url-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-url-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-delete-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-delete-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-download-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-download-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-get-url-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-get-url-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-get-started-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-get-started-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-lease-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-lease-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-properties-metadata-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-properties-metadata-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-tags-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-tags-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-upload-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-upload-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-use-access-tier-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-use-access-tier-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blobs-list-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-list-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blobs-tune-upload-download-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-tune-upload-download-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-retry-policy-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-tune-upload-download-javascript",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
             "redirect_document_id": false
