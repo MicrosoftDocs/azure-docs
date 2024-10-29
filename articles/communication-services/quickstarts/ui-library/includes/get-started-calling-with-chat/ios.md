@@ -13,18 +13,15 @@ ms.service: azure-communication-services
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
-## A complete sample
-You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-ios) from the GitHub.
+## Get a complete sample
 
-## Set up the project
+You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-ios) from GitHub.
 
-Complete the following sections to set up the quickstart project.
-
-### Create a new Xcode project
+## Create a new Xcode project
 
 In Xcode, create a new project:
 
-1. In the **File** menu, select **New** > **Project**.
+1. On the **File** menu, select **New** > **Project**.
 
 1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
@@ -34,7 +31,7 @@ In Xcode, create a new project:
 
    :::image type="content" source="../../media/xcode-new-project-details.png" alt-text="Screenshot that shows setting new project options in Xcode.":::
 
-### Install the package and dependencies
+## Install the package and dependencies
 
 1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/HT211861) in Xcode.
 
@@ -56,7 +53,7 @@ In Xcode, create a new project:
 
 1. In Xcode, open the generated.xcworkspace* file.
 
-### Request access to device hardware
+## Request access to device hardware
 
 To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
 
@@ -77,13 +74,13 @@ To access the device's hardware, including the microphone, and camera, update yo
 
    :::image type="content" source="../../media/xcode-info-plist.png" alt-text="Screenshot that shows the camera and microphone device privacy in Xcode.":::
 
-### Turn off Bitcode
+## Turn off Bitcode
 
 In the Xcode project, under **Build Settings**, set the **Enable Bitcode** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
 
 :::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
 
-### Download a Chat Icon
+## Download a Chat icon
 
 - Download an icon from [here](https://github.com/microsoft/fluentui-system-icons/blob/master/assets/Chat/SVG/ic_fluent_chat_24_regular.svg).
 - Open downloaded file and change `fill` to the `fill="#FFFFFF"`.
@@ -91,19 +88,20 @@ In the Xcode project, under **Build Settings**, set the **Enable Bitcode** optio
 
 ## Initialize the composite
 
-To initialize the composite:
+To initialize the composite, go to `ViewController` and update connection settings:
 
-- Go to `ViewController` and update connection settings:
-    - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
-    - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
-    - Replace `DISPLAY_NAME` with your name.
-    - Replace `USER_ID` with ACS user ID.
-    - Replace `USER_ACCESS_TOKEN` with your token.
+- Replace `TEAM_MEETING_LINK` with the Teams meeting link.
+- Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
+- Replace `DISPLAY_NAME` with your name.
+- Replace `USER_ID` with ACS user ID.
+- Replace `USER_ACCESS_TOKEN` with your token.
 
 ### Get a Teams meeting chat thread for a Communication Services user
+
 The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](/graph/api/resources/onlinemeeting) property
 
 With the Graph APIs, you can also obtain the threadID. The response has a chatInfo object that contains the threadID.
+
 ```swift
 import UIKit
 import AzureCommunicationCalling
