@@ -5,10 +5,11 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 11/18/2024
+ms.custom: references_regions
 ---
 
-# Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview) 
+# Run your Azure Stream Analytics job in an Azure Virtual Network
 This article describes how to run your Azure Stream Analytics (ASA) job in an Azure virtual network. 
 
 ## Overview 
@@ -19,7 +20,7 @@ Virtual network support enables you to lock down access to Azure Stream Analytic
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select regions: **West US**, **Central Canada**, **East US**, **East US 2**, **Central US**, **West Europe**, and **North Europe**.
+Currently, this capability is only available in select **regions**: East US, East US 2, West US, West US 2, Central US, South-Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, and France Central.
 If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
 
 ## Requirements for virtual network integration support 
