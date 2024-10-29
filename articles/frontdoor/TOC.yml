@@ -454,6 +454,8 @@
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
     - name: Edgio
       items:
+      - name: Migrate to Azure Front Door
+        href: ../frontdoor/migrate-cdn-to-frontdoor.md
       - name: Standard
         items:
         - name: Optimize content
