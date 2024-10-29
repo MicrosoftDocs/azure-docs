@@ -790,8 +790,6 @@ The partition handling strategy controls how messages are assigned to Kafka part
 
 This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer.
 
-<!-- TODO: double check for accuracy -->
-
 By default, a dataflow assigns messages to random partitions, using a round-robin algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
 
 | Value | Description |
