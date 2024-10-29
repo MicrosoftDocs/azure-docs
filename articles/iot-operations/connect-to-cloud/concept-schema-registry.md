@@ -233,7 +233,7 @@ param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
   name: aioInstanceName
 }
 resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
@@ -275,4 +275,4 @@ deleteResources --yes
 
 ## Next steps
 
-To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+- [Create a dataflow](howto-create-dataflow.md)
