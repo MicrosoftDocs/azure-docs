@@ -26,8 +26,8 @@ You have two ways to modify the stripe count:
 
 - **Pre-registration script**: Run the preregistration script and specify your preferred value using the stripes-count parameter.
 
->[!Note]
->This parameter is optional.
+   >[!Note]
+   >This parameter is optional.
 
 - **Configuration file**: Manually update the stripesCount value in the configuration file at the following path: */opt/msawb/etc/config/SAPAse/config.json*
 

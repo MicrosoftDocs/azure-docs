@@ -43,8 +43,8 @@ There are two ways to update the compression level:
 
 - **Pre-registration script**: Run the script with the compression-level parameter and specify your desired value.
 
->[!Note]
->This parameter is optional.
+   >[!Note]
+   >This parameter is optional.
 
 - **Configuration file**: Manually update the compressionLevel value in the configuration file at the following path: */opt/msawb/etc/config/SAPAse/config.json*
 
