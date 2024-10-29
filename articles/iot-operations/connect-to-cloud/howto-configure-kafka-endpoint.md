@@ -72,13 +72,13 @@ param endpointName string = '<ENDPOINT_NAME>'
 param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
 param hostName string = '<HOST>.servicebus.windows.net:9093'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
   parent: aioInstanceName
   name: endpointName
   extendedLocation: {
@@ -233,7 +233,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {
@@ -284,7 +284,7 @@ spec:
 
 ---
 
-To customize the endpoint settings, see the following sections for more information.
+To customize the endpoint settings, use the following sections for more information.
 
 
 ### Available authentication methods
@@ -293,7 +293,7 @@ The following authentication methods are available for Kafka broker dataflow end
 
 #### SASL
 
-To use SASL for authentication, specify the SASL authentication method and configure SASL type as well as a secret reference with the name of the secret that contains the SASL token.
+To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
 
 # [Portal](#tab/portal)
 
@@ -414,7 +414,7 @@ In the operations experience dataflow endpoint settings page, select the **Basic
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
  ...
   properties: {
     ...
@@ -738,8 +738,8 @@ Aside from compression, you can also configure batching for messages before send
 | ----- | ----------- | -------- |
 | `mode` | Enable batching or not. If not set, the default value is Enabled because Kafka doesn't have a notion of *unbatched* messaging. If set to Disabled, the batching is minimized to create a batch with a single message each time. | No |
 | `latencyMs` | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
-| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered. If not set, the default value is 100000.  | No |
-| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered. The default value is 1000000 (1 MB). | No |
+| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large or how long they're buffered. If not set, the default value is 100000.  | No |
+| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many or how long they're buffered. The default value is 1000000 (1 MB). | No |
 
 For example, if you set latencyMs to 1000, maxMessages to 100, and maxBytes to 1024, messages are sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds elapse since the last send, whichever comes first.
 
@@ -829,20 +829,20 @@ This setting takes effect only if the endpoint is used as a destination (that is
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The dataflow doesn't wait for any acknowledgments from the Kafka broker. This is the fastest but least durable option. |
-| `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This is the slowest but most durable option. This is also the default option|
+| `None` | The dataflow doesn't wait for any acknowledgments from the Kafka broker. This setting is the fastest but least durable option. |
+| `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This setting is the slowest but most durable option. This setting is also the default option|
 | `One` | The dataflow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
 
 <!-- TODO: double check for accuracy -->
 
-For example, if you set the Kafka acknowledgement to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
+For example, if you set the Kafka acknowledgment to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
 
 To configure the Kafka acknowledgments:
 
 # [Portal](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Kafka acknowledgement** field to specify the Kafka acknowledgement level.
+In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Kafka acknowledgment** field to specify the Kafka acknowledgment level.
 
 # [Bicep](#tab/bicep)
 
@@ -915,7 +915,7 @@ When a dataflow receives an MQTT message with the Message Expiry Interval specif
 
 * Records the time the message was received.
 * Before the message is emitted to the destination, time is subtracted from the message has been queued from the original expiry interval time.
- * If the message has not yet expired (the operation above is > 0), then the message is emitted to the destination and contains the updated Message Expiry Time.
+ * If the message hasn't expired (the operation above is > 0), then the message is emitted to the destination and contains the updated Message Expiry Time.
  * If the message has expired (the operation above is <= 0), then the message isn't emitted by the Target.
 
 Examples:
@@ -1003,7 +1003,7 @@ Properties =
 
 The dataflow endpoint discards packets that contain the `"float-value"` field.
 
-Not all event data properties including propertyEventData.correlationId are not forwarded. For more information, see [Event User Properties](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
+Not all event data properties including propertyEventData.correlationId are forwarded. For more information, see [Event User Properties](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
 
 ### CloudEvents
 
@@ -1066,4 +1066,4 @@ CloudEvent properties are passed through for messages that contain the required 
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).

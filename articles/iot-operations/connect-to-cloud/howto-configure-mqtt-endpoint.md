@@ -54,13 +54,13 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' existing = {
+resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' existing = {
   parent: aioInstanceName
   name: 'default'
   extendedLocation: {
@@ -134,13 +134,13 @@ param endpointName string = '<ENDPOINT_NAME>'
 param aioBrokerHostName string = '<HOSTNAME>:<PORT>'
 param trustedCA string = '<TRUST_BUNDLE>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
   parent: aioInstanceName
   name: endpointName
   extendedLocation: {
@@ -253,7 +253,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param eventGridHostName string = '<EVENTGRID_HOSTNAME>'
 
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -987,4 +987,4 @@ CloudEvent properties are passed through for messages that contain the required 
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
