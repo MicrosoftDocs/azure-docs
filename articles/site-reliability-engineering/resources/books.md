@@ -40,3 +40,6 @@ After reading the books mentioned above, if you'd like to go deeper into the pra
 If you would like to explore the intersection of security and reliability engineering, this book provides a variety of good observations on the topic:
 
 [_Building Secure and Reliable Systems_](https://www.oreilly.com/library/view/building-secure-and/9781492083115/)
+
+This book offers insights on building a career in site reliability engineering:
+[_Becoming a Rockstar SRE_](https://www.amazon.com/Becoming-Rockstar-SRE-reliability-resiliency/dp/1803239220/)
