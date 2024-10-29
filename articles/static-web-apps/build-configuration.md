@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 05/16/2024
+ms.date: 10/29/2024
 ms.author: cshoe
 ---
 
@@ -41,9 +41,22 @@ By default, the configuration file is stored at the root of your repository with
 
 ---
 
+## Security
+
+You can choose between two different deployment authorization policy to secure your build configuration. Static Web Apps supports either using an Azure deployment token (recommended), or a GitHub access token.
+
+Use the following steps to set the deployment authorization policy in your app:
+
+- **New apps**: When you create your static web app, on the *Deployment configuration* tab, make a selection for the *Deployment authorization policy*.
+
+- **Existing apps**: To update an existing app, go to *Settings* > *Configuration* > *Deployment configuration*, and make a selection for the *Deployment authorization policy*.
+
 ## Build configuration
 
 The following sample configuration monitors the repository for changes. As commits are pushed to the `main` branch, the application is built from the `app_location` folder and files in the `output_location` are served to the public web. Additionally, the application in the *api* folder is available under the site's `api` path.
+
+> [!NOTE]
+> This example shows a sample configuration that uses an Azure deployment token to secure the build configuration.
 
 # [GitHub Actions](#tab/github-actions)
 
@@ -54,6 +67,7 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -64,21 +78,37 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    permissions:
+       id-token: write
+       contents: read
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
+          lfs: false
+      - name: Install OIDC Client from Core Package
+        run: npm install @actions/core@1.6.0 @actions/http-client
+      - name: Get Id Token
+        uses: actions/github-script@v6
+        id: idtoken
+        with:
+           script: |
+               const coredemo = require('@actions/core')
+               return await coredemo.getIDToken()
+           result-encoding: string
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_WATER_030D91C1E }}
           action: "upload"
-          ###### Repository/Build Configurations ######
-          app_location: "src" # App source code path relative to repository root
-          api_location: "api" # Api source code path relative to repository root - optional
-          output_location: "public" # Built app content directory, relative to app_location - optional
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "dist/angular-basic" # Built app content directory - optional
+          production_branch: "dev"
+          github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -90,7 +120,7 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_WATER_030D91C1E }}
           action: "close"
 ```
 
@@ -171,6 +201,7 @@ with:
   app_build_command: 'npm run build-ui-prod'
   api_build_command: 'npm run build-api-prod'
 ```
+
 # [Azure Pipelines](#tab/azure-devops)
 
 ```yaml
@@ -237,6 +268,7 @@ If you want to skip building the API, you can bypass the automatic build and dep
 Steps to skip building the API:
 
 - In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#select-the-api-language-runtime-version) for the list of supported runtimes and versions.
+
     ```json
     {
       "platform": {
@@ -244,6 +276,7 @@ Steps to skip building the API:
       }
     }
     ```
+
 - Set `skip_api_build` to `true`.
 - Set `api_location` to the folder containing the built API app to deploy. This path is relative to the repository root in GitHub Actions and `cwd` in Azure Pipelines.
 
@@ -263,7 +296,6 @@ with:
 ```
 
 # [Azure Pipelines](#tab/azure-devops)
-
 
 ```yml
 ...
