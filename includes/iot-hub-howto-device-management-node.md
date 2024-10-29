@@ -11,7 +11,7 @@ ms.date: 10/09/2024
 ms.custom: mqtt, devx-track-js
 ---
 
-  * **Node.js** - Requires Node.js version 10.0.x or later.
+  *  Requires Node.js version 10.0.x or later.
 
 ## Overview
 

@@ -11,7 +11,7 @@ ms.date: 10/09/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
-  * **Java** - Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+  * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
 
 ## Overview
 
