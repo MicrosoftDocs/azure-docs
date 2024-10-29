@@ -35,9 +35,9 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     | Type | Description|
     |---|---|
-    |Layer 2 (L2) Traffic | L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? --> |
-    | OT Protocols | OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security. |
-    | Inner Subnet Communication | In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.|
+    |Layer 2 (L2) Traffic | L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement.  Accessing L2 traffic also means that the sensor can gather precise and valuable data about the network's devices. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which enhances the sensor's ability to classify devices. |
+    | OT Protocols | OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage <!-- accurate device classification.-->. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security. |
+    | Inner Subnet Communication | OT networks devices communicate within a subnet, and the information found within the inner subnet communication ensures the quality of the data collected by the sensors. Sensors are placed where they have access to the inner subnet communication in order to monitor device interactions, which often include critical data. By capturing these data packets, the sensors build a detailed and accurate picture of the network.|
 
     For more information, see [placing OT sensors in your network](best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
@@ -51,7 +51,7 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     :::image type="content" source="media/guide/deployment-guide-protocols.png" alt-text="Screenshot of the wireshark program protocol output used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
-    This step is crucial to ensure effective monitoring of OT networks.
+    This step is crucial to ensure effective monitoring of OT networks.  For more information, see Theo is there a link for this?
 
 1. Traffic Mirroring Methods
 
@@ -91,13 +91,13 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     Key steps include:
 
-    - Verify that the number of devices in the inventory is reasonable.
+    - Verify that the number of devices in the inventory is reasonable.  For more information, see 
 
-    - Check the type classification for devices listed in the inventory.
+    - Check the type classification for devices listed in the inventory. For more information, see 
 
-    - Confirm the visibility of OT protocol names on the device's inventory.
+    - Confirm the visibility of OT protocol names on the device's inventory. For more information, see 
 
-    - Ensure L2 protocols are monitored by identifying MAC addresses in the inventory.
+    - Ensure L2 protocols are monitored by identifying MAC addresses in the inventory. For more information, see 
 
     If information doesn't appear, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
 
