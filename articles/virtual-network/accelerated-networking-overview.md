@@ -159,6 +159,8 @@ Unmanaged=yes
 EOF
 ```
 
+---
+
 #### Network traffic uses the Accelerated Networking data path
 
 For NVIDIA drivers: Verify that the packets are flowing over the VF interface
