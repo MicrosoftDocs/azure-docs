@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/28/2024
+ms.date: 10/29/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -42,6 +42,68 @@ The following example shows how to create a *BrokerAuthorization* resource using
 1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
 
     :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot using Azure portal to create broker authorization rules.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      cache: 'Enabled'
+      rules: [
+        {
+          principals: {
+            usernames: [
+              'temperature-sensor'
+              'humidity-sensor'
+            ]
+            attributes: [
+              {
+                city: 'seattle'
+                organization: 'contoso'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+            }
+            {
+              method: 'Publish'
+              topics: [
+                '/telemetry/{principal.username}'
+                '/telemetry/{principal.attributes.organization}'
+              ]
+            }
+            {
+              method: 'Subscribe'
+              topics: [
+                '/commands/{principal.attributes.organization}'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -127,6 +189,61 @@ In the **Broker authorization details** for your authorization policy, use the f
         }
     }
 ]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      cache: 'Enabled'
+      rules: [
+        {
+          principals: {
+            attributes: [
+              {
+                building: 'building22'
+              }
+              {
+                building: 'building23'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+              clientIds: [
+                '{principal.attributes.building}*' // client IDs must start with building22
+              ]
+            }
+            {
+              method: 'Publish'
+              topics: [
+                'sensors/{principal.attributes.building}/{principal.clientId}/telemetry'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 ```
  
 # [Kubernetes](#tab/kubernetes)
@@ -223,6 +340,62 @@ In the **Broker authorization details** for your authorization policy, use the f
 ]
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-08-15-preview' = {
+  parent: aioInstanceName
+  name: endpointName
+  extendedLocation: {
+    name: customLocationName
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      enableCache: false
+      rules: [
+        {
+          principals: {
+            attributes: [
+              {
+                group: 'authz-sat'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+            }
+            {
+              method: 'Publish'
+              topics: [
+                'odd-numbered-orders'
+              ]
+            }
+            {
+              method: 'Subscribe'
+              topics: [
+                'orders'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -280,9 +453,13 @@ kubectl edit brokerauthorization my-authz-policies
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authorization, select **None** in the authorization dropdown.
 
+# [Bicep](#tab/bicep)
+
+To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
+
 # [Kubernetes](#tab/kubernetes)
 
-To disable authorization, omit `authorizationRef` in the `ports` setting of a *BrokerListener* resource.
+To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
 
 ---
 
