@@ -4,7 +4,7 @@ description: Learn how to monitor your Gen2 cache using the Azure portal.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/20/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

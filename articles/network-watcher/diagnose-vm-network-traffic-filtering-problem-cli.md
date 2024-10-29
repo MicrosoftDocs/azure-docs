@@ -4,10 +4,11 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure CLI.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 08/23/2023
+ms.date: 09/30/2024
 ms.custom: devx-track-azurecli, mode-api
+
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
 
@@ -210,8 +211,7 @@ When no longer needed, use [az group delete](/cli/azure/group) to delete **myRes
 az group delete --name 'myResourceGroup' --yes
 ```
 
-## Next steps
+## Next step
 
-In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
-
-Even with the proper network traffic filters in place, communication to a virtual machine can still fail, due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem-powershell.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-powershell.md).
+> [!div class="nextstepaction"]
+> [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md)

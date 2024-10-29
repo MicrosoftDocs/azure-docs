@@ -2,8 +2,8 @@
 title: Secure Key Release with Azure Key Vault and application on Confidential VMs with AMD SEV-SNP
 description: Learn how to build an application that securely gets the key from AKV to a Confidential VM attested environment and in an Azure Kubernetes Service cluster
 author: ThomVanL
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 2/2/2023
 ms.author: simranparkhe
@@ -195,12 +195,12 @@ resource keyVaultCvmAccessPolicy 'Microsoft.KeyVault/vaults/accessPolicies@2022-
 
 ## Prepare the release policy
 
-Key Vault Secure Key Release Policies are modeled after __Azure Policy__, with a [slightly different grammar](../key-vault/keys/policy-grammar.md).
+Key Vault Secure Key Release Policies are modeled after __Azure Policy__, with a [slightly different grammar](/azure/key-vault/keys/policy-grammar).
 The idea is when we __pass the attested platform report__, in the form of a JSON Web Token (JWT), to Key Vault. It will, in turn, look at the JWT and check whether or not the attested platform report claims match the claims in the policy.
 
 For example, let's say we want to release a key only when our attested platform report has properties like:
 
--  Attested by [Microsoft Azure Attestation (MAA)](../attestation/overview.md) service endpoint "https://sharedweu.weu.attest.azure.net".
+-  Attested by [Microsoft Azure Attestation (MAA)](/azure/attestation/overview) service endpoint "https://sharedweu.weu.attest.azure.net".
   - This `authority` value from the policy is compared to the `iss` (issuer) property, in the token.
 - And that it also contains an object called `x-ms-isolation-tee` with a property called `x-ms-attestation-type`, which holds value `sevsnpvm`.
   - MAA as an Azure service has attested that the CVM is running in an AMD SEV-SNP genuine processor.
@@ -368,7 +368,7 @@ Attestation helps us to _cryptographically assess_ that something is running in 
 A [open sourced](https://github.com/Azure/confidential-computing-cvm-guest-attestation) Windows and Linux client binary that utilizes the guest attestation library can be chosen to make the guest attestation process easy with CVMs. The client binary returns the attested platform report as a JSON Web Token, which is what is needed for Key Vault's `release` key operation.
 
 > [!NOTE]
-> A token from the Azure Attestation service is valid for [8 hours](../attestation/faq.yml).
+> A token from the Azure Attestation service is valid for [8 hours](/azure/attestation/faq).
 
 ### [Linux]
 
@@ -545,7 +545,7 @@ The body of the guest attestation response will get validated by Azure Key Vault
 }
 ```
 
-The documentation for Microsoft Azure Attestation service has an extensive list containing descriptions of all of these [SEV-SNP-related claims](../attestation/claim-sets.md#sev-snp-attestation).
+The documentation for Microsoft Azure Attestation service has an extensive list containing descriptions of all of these [SEV-SNP-related claims](/azure/attestation/claim-sets#sev-snp-attestation).
 
 ## Performing the key release operation
 

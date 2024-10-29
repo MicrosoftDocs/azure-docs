@@ -2,17 +2,16 @@
 title: How to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 description: Learn how to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, passwordless-java, service-connector
 ---
 
 # Connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -70,7 +69,7 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md).
+1. Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
    ```azurecli
    export AZ_IDENTITY_RESOURCE_ID=$(az identity create \

@@ -3,7 +3,7 @@ title: Release notes for Microsoft Azure Data Manager for Energy
 description: This article provides release notes of Azure Data Manager for Energy releases, improvements, bug fixes, and known issues.
 author: nitinnms
 ms.author: nitindwivedi
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 09/20/2022
 ms.custom: template-concept
@@ -22,6 +22,24 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 
 <hr width = 100%>
+
+## August 2024
+
+### Compliant with M23 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M23 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M23](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M23-Release-Notes) The upgrade with the OSDU&reg; M23 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+### Syncing Reference Values
+We are releasing a Limited Preview for syncing Reference Values with your Azure Data Manager for Energy data partitions. Note that this feature is currently only available for newly created Azure Data Manager for Energy after feature enablement for your Azure subscription. Learn more about [Reference Values on Azure Data Manager for Energy](concepts-reference-data-values.md).
+
+### CNAME DNS Record Fix
+Previously, each ADME resource had an incorrect privatelink DNS record by default, causing inaccessibility issues for some SLB apps. This release resolves the issue for both new and existing instances, ensuring correct and secure configuration of private endpoints. For more details, see [How to setup private links](how-to-set-up-private-links.md).
+
+## June 2024
+
+### Azure Data Manager for Energy Developer Tier Price Update
+Effective June 1, 2024, the monthly base instance fee of the Developer tier of Azure Data Manager for Energy will be $2,898 (US East Region). This reflects a 75% cost savings to our customers/partners compared to the previous base instance price of $11,680 per month (US East) and provides ongoing support to our partners and customers as they continue their application modernization and interoperability efforts. The monthly cost above is based on an hourly rate of $3.97 (US East) and an assumption of 730 hours for a given month. These new cost savings will be reflected in all available regions where the product is available based on current regional rate adjustments. Regional differences and additional pricing details will be reflected on the product's [pricing](https://azure.microsoft.com/pricing/details/energy-data-services) page. Note that the pricing page will reflect the current price and will be updated to the new pricing amount on the effective date listed above.
+
 
 ## April 2024
 
@@ -99,7 +117,7 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 
 ### Monitoring and investigating actions with Audit logs
 
-Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/platform/deployment-and-operations/audit-and-metrics). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
 
 <hr width = 100%>
 

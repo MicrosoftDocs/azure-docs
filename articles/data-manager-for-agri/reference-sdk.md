@@ -3,7 +3,7 @@ title: Azure Data Manager for Agriculture SDK overview
 description: Learn how to install Azure Data Manager for Agriculture SDKs 
 author: BlackRider97
 ms.author: ramithar
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.custom: template-how-to

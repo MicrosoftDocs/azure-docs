@@ -1,7 +1,7 @@
 ---
 title: Quickstart for adding feature flags to .NET/.NET Framework apps
 titleSuffix: Azure App Configuration
-description: A quickstart for adding feature flags to .NET/.NET Framework apps and managing them in Azure App Configuration.
+description: Learn to implement feature flags in your .NET application using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
@@ -166,10 +166,21 @@ You can use Visual Studio to create a new console app project.
 
 In this quickstart, you created a feature flag in App Configuration and used it with a console app. To learn how to dynamically update feature flags and other configuration values without restarting the application, continue to the next tutorial.
 
-
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration in a .NET app](./enable-dynamic-configuration-dotnet-core.md)
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration in a .NET Framework app](./enable-dynamic-configuration-dotnet.md)
 
+To enable feature management capability for other types of apps, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

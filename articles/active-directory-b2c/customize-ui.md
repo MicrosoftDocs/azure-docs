@@ -6,13 +6,13 @@ description: Learn how to customize the user interface for your applications tha
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.custom: "b2c-support"
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.

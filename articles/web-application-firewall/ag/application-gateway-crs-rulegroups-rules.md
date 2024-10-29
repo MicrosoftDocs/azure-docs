@@ -1,11 +1,11 @@
 ---
-title: CRS rule groups and rules
+title: CRS and DRS rule groups and rules
 titleSuffix: Azure Web Application Firewall
-description: This page provides information on web application firewall CRS rule groups and rules.
+description: This page provides information on web application firewall CRS and DRS rule groups and rules.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.date: 01/25/2024
+ms.service: azure-web-application-firewall
+ms.date: 10/23/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -19,7 +19,7 @@ You also have the option of using rules that are defined based on the OWASP core
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When changing from one ruleset version to another all disabled and enabled rule settings will return to the default for the ruleset you're migrating to. This means that if you previously disabled or enabled a rule, you will need to disable or enable it again once you've moved to the new ruleset version.
+> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -101,31 +101,38 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
+### Upgrading or changing ruleset version
+
+If you are upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it is recommended to use PowerShell, CLI, REST API, or a templates to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It is recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+
+> [!NOTE]
+> If you are using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+
 ### DRS 2.1 
 
 DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes more rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
-DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set.
+DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set. DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team. 
 
-|Rule group|Description|
-|---|---|
-|**[General](#general-21)**|General group|
-|**[METHOD-ENFORCEMENT](#drs911-21)**|Lock-down methods (PUT, PATCH)|
-|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|Protect against protocol and encoding issues|
-|**[PROTOCOL-ATTACK](#drs921-21)**|Protect against header injection, request smuggling, and response splitting|
-|**[APPLICATION-ATTACK-LFI](#drs930-21)**|Protect against file and path attacks|
-|**[APPLICATION-ATTACK-RFI](#drs931-21)**|Protect against remote file inclusion (RFI) attacks|
-|**[APPLICATION-ATTACK-RCE](#drs932-21)**|Protect again remote code execution attacks|
-|**[APPLICATION-ATTACK-PHP](#drs933-21)**|Protect against PHP-injection attacks|
-|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|Protect against Node JS attacks|
-|**[APPLICATION-ATTACK-XSS](#drs941-21)**|Protect against cross-site scripting attacks|
-|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|Protect against SQL-injection attacks|
-|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|Protect against session-fixation attacks|
-|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|Protect against JAVA attacks|
-|**[MS-ThreatIntel-WebShells](#drs9905-21)**|Protect against Web shell attacks|
-|**[MS-ThreatIntel-AppSec](#drs9903-21)**|Protect against AppSec attacks|
-|**[MS-ThreatIntel-SQLI](#drs99031-21)**|Protect against SQLI attacks|
-|**[MS-ThreatIntel-CVEs](#drs99001-21)**|Protect against CVE attacks|
+|Rule group|ruleGroupName|Description|
+|---|---|---|
+|**[General](#general-21)**|General|General group|
+|**[METHOD-ENFORCEMENT](#drs911-21)**|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|**[PROTOCOL-ATTACK](#drs921-21)**|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](#drs930-21)**|LFI|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-21)**|RFI|Protect against remote file inclusion (RFI) attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-21)**|RCE|Protect again remote code execution attacks|
+|**[APPLICATION-ATTACK-PHP](#drs933-21)**|PHP|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|NODEJS|Protect against Node JS attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-21)**|XSS|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|SQLI|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|FIX|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|JAVA|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-21)**|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|**[MS-ThreatIntel-AppSec](#drs9903-21)**|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|**[MS-ThreatIntel-SQLI](#drs99031-21)**|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-21)**|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 
 ### OWASP CRS 3.2
@@ -135,7 +142,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-32)**|General group|
 |**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
@@ -160,7 +167,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-31)**|General group|
 |**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
@@ -181,7 +188,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-30)**|General group|
 |**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
@@ -202,9 +209,9 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS 3.2/DRS 2.1 and greater versions.  
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
 |**[crs_21_protocol_anomalies](#crs21)**|Protect against incorrect header information|
@@ -221,7 +228,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[BadBots](#bot100)**|Protect against bad bots|
 |**[GoodBots](#bot200)**|Identify good bots|
@@ -392,6 +399,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
+|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|

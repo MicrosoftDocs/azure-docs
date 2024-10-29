@@ -228,7 +228,7 @@ instance: 'https://login.microsoftonline.com/',
 tenant: ns.Configurations.Tenant,
 clientId: ns.Configurations.AADApplicationClientID,
 postLogoutRedirectUri: window.location.origin,
-cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionStorage does not work for localhost.
 };
 ```
 
@@ -262,7 +262,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Managing secrets in Service Fabric applications](../../service-fabric/service-fabric-application-secret-management.md) |
+| **References**              | [Managing secrets in Service Fabric applications](/azure/service-fabric/service-fabric-application-secret-management) |
 | **Steps** | Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. Use Azure Key Vault to manage keys and secrets in service fabric applications. |
 
 ## <a id="modeling-teams"></a>Perform security modeling and use Business Units/Teams where required

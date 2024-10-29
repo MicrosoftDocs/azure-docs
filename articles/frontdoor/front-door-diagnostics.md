@@ -3,7 +3,7 @@ title: Monitor metrics and logs - Azure Front Door
 description: This article describes the different metrics and logs that Azure Front Door records.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: duau
@@ -14,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration.
 
-Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/overview.md).
+Logs and metrics get stored and managed by [Azure Monitor](/azure/azure-monitor/overview).
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -22,23 +22,23 @@ Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/over
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).  
 
 The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
-| Metrics | Description | Dimensions |
-|--|--|--|
-| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint |
-| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group |
-| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin |
-| Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |
-| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
-| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
-| Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group |
-| Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
-| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
+| Metrics | Description | Dimensions | Recommended aggregations |
+|--|--|--|--|
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint | Avg, Min |
+| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group | Avg |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin | Avg, Max |
+| Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group | Avg, Sum |
+| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region | Avg, Max |
+| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region | Avg, Max |
+| Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Sum |
+| Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name | Avg, Sum |
 
 > [!NOTE]
 > If a request to the origin times out, the value of the *Http Status* dimension is **0**.
@@ -128,7 +128,7 @@ The following example JSON snippet shows a health probe log entry for a failed h
   "records": [
     {
       "time": "2021-02-02T07:15:37.3640748Z",
-      "resourceId": "/SUBSCRIPTIONS/27CAFCA8-B9A4-4264-B399-45D0C9CCA1AB/RESOURCEGROUPS/AFDXPRIVATEPREVIEW/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDXPRIVATEPREVIEW-JESSIE",
+      "resourceId": "/SUBSCRIPTIONS/mySubscriptionID/RESOURCEGROUPS/myResourceGroup/PROVIDERS/MICROSOFT.CDN/PROFILES/MyProfile",
       "category": "FrontDoorHealthProbeLog",
       "operationName": "Microsoft.Cdn/Profiles/FrontDoorHealthProbeLog/Write",
       "properties": {
@@ -137,9 +137,9 @@ The following example JSON snippet shows a health probe log entry for a failed h
         "httpVerb": "HEAD",
         "result": "OriginError",
         "httpStatusCode": "400",
-        "probeURL": "http://afdxprivatepreview.blob.core.windows.net:80/",
-        "originName": "afdxprivatepreview.blob.core.windows.net",
-        "originIP": "52.239.224.228:80",
+        "probeURL": "http://www.example.com:80/",
+        "originName": "www.example.com",
+        "originIP": "PublicI:Port",
         "totalLatencyMilliseconds": "141",
         "connectionLatencyMilliseconds": "68",
         "DNSLatencyMicroseconds": "1814"
@@ -217,7 +217,7 @@ Access activity logs in your Front Door or all the logs of your Azure resources 
 
 Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostic logs differ from activity logs.
 
-Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource has done. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
+Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource has done. For more information, see [Azure Monitor diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnostic logs":::
 

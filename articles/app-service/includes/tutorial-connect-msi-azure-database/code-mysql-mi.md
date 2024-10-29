@@ -26,7 +26,7 @@ using MySqlConnector;
 //     });
 
 var tokenRequestContext = new TokenRequestContext(
-    new[] { "https://server-name.database.windows.net/.default" });
+    new[] { "https://ossrdbms-aad.database.windows.net/.default" });
 AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);
 // Open a connection to the MySQL server using the access token.
 string connectionString =
@@ -65,7 +65,7 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
 # [Python](#tab/python-mysql-mi)
 
@@ -93,7 +93,7 @@ For more information, see [Use Java and JDBC with Azure Database for MySQL - Fle
     # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
 
     # acquire token
-    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     
     # open connect to Azure MySQL with the access token.
     host = os.getenv('AZURE_MYSQL_HOST')
@@ -136,7 +136,7 @@ For more information, see [Use Java and JDBC with Azure Database for MySQL - Fle
    // });
 
    // acquire token
-   var accessToken = await credential.getToken('https://server-name.database.windows.net/.default');
+   var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
    
    const connection = mysql.createConnection({
      host: process.env.AZURE_MYSQL_HOST,

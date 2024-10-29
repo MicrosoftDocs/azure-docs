@@ -5,7 +5,7 @@ author: heydh
 ms.author: dhsundar
 ms.reviewer: wiassaf, stwynant
 ms.date: 03/01/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

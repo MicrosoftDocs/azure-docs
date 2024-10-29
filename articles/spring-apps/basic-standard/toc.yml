@@ -6,6 +6,8 @@ items:
 - name: Overview
   expanded: true
   items:
+  - name: Retirement announcement
+    href: retirement-announcement.md
   - name: What is Azure Spring Apps?
     href: ../enterprise/overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: What's new
@@ -16,10 +18,6 @@ items:
     href: ../enterprise/cost-management.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-  - name: Migrate Spring Boot to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-  - name: Migrate Spring Cloud to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -69,7 +67,7 @@ items:
   - name: Memory
     items:
     - name: Java memory management
-      href: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: ../enterprise/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Fix app restart issues caused by OOM
@@ -113,7 +111,7 @@ items:
     - name: Prepare a Java Spring app for deployment
       href: ../enterprise/how-to-prepare-app-deployment.md?tabs=basic-standard-plan&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Set up a Config Server
-      href: how-to-config-server.md
+      href: ../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Enable Service Registration
       href: how-to-service-registration.md
   - name: Deploy
@@ -286,12 +284,6 @@ items:
     items:
     - name: Migrate Standard and Basic to Enterprise
       href: ../enterprise/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-    - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-    - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-    - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Architecture design

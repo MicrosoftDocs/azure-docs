@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article provides a tutorial on how to configure Rules engine in both the Azure portal and Azure CLI.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 06/06/2023

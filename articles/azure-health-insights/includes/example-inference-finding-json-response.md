@@ -12,25 +12,14 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "943",
+              "id": "1056",
               "status": "unknown",
-              "category": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "439401001",
-                      "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                    }
-                  ]
-                }
-              ],
               "code": {
                 "coding": [
                   {
@@ -171,7 +160,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "18782-3"
+                    "valueString": "30954-2"
                   },
                   {
                     "url": "codingSystem",
@@ -183,7 +172,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "Findings"
+                    "valueString": "RESULTS"
                   }
                 ],
                 "url": "section"
@@ -194,19 +183,8 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "944",
+              "id": "1057",
               "status": "unknown",
-              "category": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "439401001",
-                      "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                    }
-                  ]
-                }
-              ],
               "code": {
                 "coding": [
                   {
@@ -442,7 +420,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "18782-3"
+                    "valueString": "30954-2"
                   },
                   {
                     "url": "codingSystem",
@@ -454,7 +432,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "Findings"
+                    "valueString": "RESULTS"
                   }
                 ],
                 "url": "section"
@@ -465,19 +443,8 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "945",
+              "id": "1058",
               "status": "unknown",
-              "category": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "439401001",
-                      "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                    }
-                  ]
-                }
-              ],
               "code": {
                 "coding": [
                   {
@@ -714,7 +681,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "18782-3"
+                    "valueString": "30954-2"
                   },
                   {
                     "url": "codingSystem",
@@ -726,7 +693,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "Findings"
+                    "valueString": "RESULTS"
                   }
                 ],
                 "url": "section"
@@ -737,19 +704,8 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "946",
+              "id": "1059",
               "status": "unknown",
-              "category": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "439401001",
-                      "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                    }
-                  ]
-                }
-              ],
               "code": {
                 "coding": [
                   {
@@ -953,8 +909,8 @@ ms.service: azure-health-insights
                     {
                       "coding": [
                         {
-                          "code": "15240007",
-                          "display": "CURRENT"
+                          "code": "9130008",
+                          "display": "PREVIOUS"
                         }
                       ]
                     }
@@ -967,7 +923,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "18782-3"
+                    "valueString": "30954-2"
                   },
                   {
                     "url": "codingSystem",
@@ -979,7 +935,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "Findings"
+                    "valueString": "RESULTS"
                   }
                 ],
                 "url": "section"
@@ -990,19 +946,8 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "947",
+              "id": "1060",
               "status": "unknown",
-              "category": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "439401001",
-                      "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                    }
-                  ]
-                }
-              ],
               "code": {
                 "coding": [
                   {
@@ -1157,7 +1102,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "19005-8"
+                    "valueString": "51848-0"
                   },
                   {
                     "url": "codingSystem",
@@ -1169,7 +1114,140 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "Impresssions"
+                    "valueString": "ASSESSMENT"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
+          },
+          {
+            "kind": "finding",
+            "finding": {
+              "resourceType": "Observation",
+              "id": "1189",
+              "status": "unknown",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "404684003",
+                    "display": "CLINICAL FINDING (FINDING)"
+                  }
+                ]
+              },
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "46150521",
+                        "display": "MULTIPLE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueBoolean": false
+                }
+              ]
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "30954-2"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RESULTS"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
+          },
+          {
+            "kind": "finding",
+            "finding": {
+              "resourceType": "Observation",
+              "id": "1192",
+              "status": "unknown",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "404684003",
+                    "display": "CLINICAL FINDING (FINDING)"
+                  }
+                ]
+              },
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "46150521",
+                        "display": "MULTIPLE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueBoolean": false
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://radlex.org",
+                        "code": "246115007",
+                        "display": "SIZE (ATTRIBUTE)"
+                      }
+                    ]
+                  },
+                  "valueQuantity": {
+                    "value": 4,
+                    "unit": "CENTIMETER"
+                  },
+                  "interpretation": [
+                    {
+                      "coding": [
+                        {
+                          "code": "15240007",
+                          "display": "CURRENT"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "30954-2"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RESULTS"
                   }
                 ],
                 "url": "section"
@@ -1179,12 +1257,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "dbff77ce-e28f-4c24-a298-53db82c2e37c",
-  "createdDateTime": "2024-01-12T07:24:44.9837229Z",
-  "expirationDateTime": "2024-01-12T07:41:24.9837229Z",
-  "lastUpdateDateTime": "2024-01-12T07:24:52.5370766Z",
+  "id": "Finding",
+  "createdAt": "2024-05-14T15:33:37Z",
+  "expiresAt": "2024-05-15T15:33:37Z",
+  "updatedAt": "2024-05-14T15:33:40Z",
   "status": "succeeded"
 }
 ```

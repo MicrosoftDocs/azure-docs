@@ -1,13 +1,18 @@
 ---
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
-description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
+description: 'Quickstart uses Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 01/05/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api, build-2024
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result.
+In this article, you use the Azure CLI to create a custom topic in Azure Event Grid, subscribe to the custom topic, and trigger the event to view the result.
+
+
+> [!NOTE]
+> If you are new to Azure Event Grid, see [What's Azure Event Grid](overview.md) to get an overview of the service before going through this tutorial. 
+
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -15,7 +20,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 :::image type="content" source="./media/custom-event-quickstart/viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

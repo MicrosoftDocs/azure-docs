@@ -11,6 +11,8 @@ items:
     items:
     - name: General
       href: resources-faq.md
+    - name: RVTools XLSX import
+      href: common-questions-import.md
     - name: Azure Migrate appliance
       href: common-questions-appliance.md
     - name: Discovery and dependency analysis
@@ -186,7 +188,7 @@ items:
           href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Web apps migration support
       href: concepts-migration-webapps.md
@@ -222,12 +224,16 @@ items:
       href: set-discovery-scope.md
     - name: Create least privilege credentials for SQL Server discovery
       href: least-privilege-credentials.md  
+    - name: Enable Arc on discovered items
+      href: how-to-arc-enable-inventory.md
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
       href: how-to-discover-applications.md
     - name: Discover SQL instances and web apps in an existing project
       href: how-to-discover-sql-existing-project.md
+    - name: Migrate to Azure Monitor agent
+      href: azure-monitor-agent-migration.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
@@ -296,12 +302,10 @@ items:
     items:
     - name: Delete an Azure Migrate project
       href: how-to-delete-project.md
-    - name: Work with previous version of Azure Migrate
-      href: migrate-v1.md
     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
-      href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: General

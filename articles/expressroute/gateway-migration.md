@@ -4,8 +4,8 @@ titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
+ms.service: azure-expressroute
+ms.custom: ignite-2023
 ms.topic: conceptual
 ms.date: 04/26/2024
 ms.author: duau
@@ -39,6 +39,9 @@ Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell com
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
 
+> [!NOTE]
+> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
+
 Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
@@ -48,16 +51,13 @@ Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a n
 
 ## Supported migration scenarios
 
-### Azure portal
-
-The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
-
-### Azure PowerShell
+### Azure portal & Azure PowerShell
 
 The guided gateway migration experience supports:
 
 * Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
-* Non-Az-enabled SKU to Az-enabled SKU.
+* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP.
+* Non-Az-enabled SKU on Standard IP to Az-enabled SKU on Standard IP.
 
 It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
@@ -74,14 +74,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 ### Virtual network 
 
-* Gateway Subnet needs two or more prefixes for migration.
-* MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
-
-If your first address prefix is large enough for the second gateway creation and deployment, such as /24, you won't need to add a second prefix. 
-
-### Connection 
-
-The virtual network gateway connection resource isn't in a succeed state. 
+MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ## Next steps
 

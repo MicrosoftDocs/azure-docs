@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Use NSG diagnostics to check if traffic is allowed or denied by network security group rules or Azure Virtual Network Manager security admin rules. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 09/18/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -54,7 +54,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/diagnose-network-security-rules/virtual-networks-portal-search.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/diagnose-network-security-rules/virtual-networks-portal-search.png":::
 
@@ -135,7 +135,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
     ```azurepowershell-interactive
     # Create an Azure Bastion host.
-    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' --PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
+    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
     ```
 
 # [**Azure CLI**](#tab/cli)
@@ -191,7 +191,7 @@ In this section, you create a virtual machine and a network security group appli
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -271,7 +271,7 @@ In this section, you add a security rule to the network security group associate
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***network security groups***. Select **Network security groups** in the search results.
+1. In the search box at the top of the portal, enter ***network security groups***. Select **Network security groups** from the search results.
 
 1. From the list of network security groups, select **myVM-nsg**.
 

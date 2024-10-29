@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS Network Protection using - Azure portal'
+title: 'QuickStart: Create and configure Azure DDoS Network Protection using - Azure portal'
 description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
 author: AbdullahBell
 ms.author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 11/28/2023
+ms.date: 07/17/2024
 ms.custom: template-quickstart
 ---
 
-# Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal
+# QuickStart: Create and configure Azure DDoS Network Protection using the Azure portal
 
 Get started with Azure DDoS Network Protection by using the Azure portal.
 
@@ -17,7 +17,7 @@ A DDoS protection plan defines a set of virtual networks that have DDoS Network 
 
 In this QuickStart, you create a DDoS protection plan and link it to a virtual network.
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection.":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
 ## Prerequisites
 

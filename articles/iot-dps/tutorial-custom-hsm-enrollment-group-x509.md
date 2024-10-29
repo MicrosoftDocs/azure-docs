@@ -5,11 +5,12 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/12/2024
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps 
-ms.custom: mvc, devx-track-extended-java, devx-track-python
+ms.custom: mvc, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the Azure IoT device SDK.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
@@ -95,7 +96,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window.
 
 * Make sure that [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
@@ -1343,11 +1344,11 @@ In the following steps, you use both your Windows command prompt and your Git Ba
     2022-10-21 10:41:31,536 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
     2022-10-21 10:41:31,537 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-10-21 10:41:31,539 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
+    2022-10-21 10:41:31,539 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
     Press any key to exit...
-    2022-10-21 10:41:31,540 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
-    2022-10-21 10:41:31,844 DEBUG (MQTT Call: device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
-    2022-10-21 10:41:31,846 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [0d143280-dbc7-405f-a61e-fcc7a1d80b87] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] ) with status OK
+    2022-10-21 10:41:31,540 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-21 10:41:31,844 DEBUG (MQTT Call: device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-21 10:41:31,846 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] ) with status OK
     Message sent!
     ```
 

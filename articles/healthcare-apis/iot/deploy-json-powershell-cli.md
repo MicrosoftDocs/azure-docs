@@ -1,13 +1,13 @@
 ---
 title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI - Azure Health Data Services
 description: Learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI.
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 07/05/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
@@ -47,7 +47,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    Connect-AzAccount
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
 
    ```azurepowershell
    Set-AzContext <AzureSubscriptionId>
@@ -105,7 +105,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    az login
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
 
    ```azurecli
    az account set <AzureSubscriptionId>

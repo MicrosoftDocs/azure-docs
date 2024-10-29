@@ -1,3 +1,4 @@
+items:
 - name: Azure Cloud Services (extended support) documentation
   href: index.yml
 - name: Overview
@@ -10,17 +11,17 @@
     href: cloud-services-model-and-package.md
   - name: Frequently asked questions
     href: faq.yml
-- name: Tutorials
+- name: Quickstarts
   items: 
-  - name: Deploy a cloud service - Portal
+  - name: Deploy the cloud service - Portal
     href: deploy-portal.md
-  - name: Deploy a cloud service - PowerShell
+  - name: Deploy the cloud service - PowerShell
     href: deploy-powershell.md
-  - name: Deploy a cloud service - Template
+  - name: Deploy the cloud service - ARM template
     href: deploy-template.md
-  - name: Deploy a cloud service - SDK
+  - name: Deploy the cloud service - SDK
     href: deploy-sdk.md
-  - name: Deploy a cloud service - Visual Studio
+  - name: Deploy the cloud service - Visual Studio
     href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concepts

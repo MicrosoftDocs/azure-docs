@@ -24,7 +24,7 @@ Then, you use Curl to do the following tasks to test the setup.
 1. Receive the event from the subscription. 
 1. Acknowledge the event in the subscription.  
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 
 ## Create a namespace

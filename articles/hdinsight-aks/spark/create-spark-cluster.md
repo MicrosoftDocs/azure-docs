@@ -1,14 +1,17 @@
 ---
 title: How to create Spark cluster in HDInsight on AKS
 description: Learn how to create Spark cluster in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create Spark cluster in HDInsight on AKS (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Once the  [subscription prerequisites](../prerequisites-subscription.md) and [resource prerequisites](../prerequisites-resources.md)  steps are complete, and you have a cluster pool deployed, continue to use the Azure portal to create a Spark cluster. 
 You can use the Azure portal to create an Apache Spark cluster in cluster pool. You can then create a Jupyter Notebook and use it to run Spark SQL queries against Apache Hive tables.

@@ -4,11 +4,12 @@ titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps by using shared access signatures and security tokens.
 author: kgremban
 
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 09/22/2021
 ms.author: kgremban
 ms.custom: devx-track-csharp
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens
@@ -33,7 +34,7 @@ In some cases you may need to use the HTTP Device Provisioning Service REST APIs
 
 ## Device API authentication
 
-The [Device API](/rest/api/iot-dps/device/device-registration-state) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
+The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
 >[!NOTE]
 >In order to receive an authenticated connection, devices must first be registered in the Device Provisioning Service through an enrollment. Use the Service API to programmatically register a device through an enrollment.
@@ -252,15 +253,12 @@ Here are the service functions exposed on the endpoints:
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Provides operations for managing device enrollment groups. |
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Provides operations for retrieving and managing the status of device registrations. |
 
-
 As an example, a service generated using a pre-created shared access policy called `enrollmentread` would create a token with the following parameters:
 
 * resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
 * policy name: `enrollmentread`,
 * any expiration time.backn
-
-![Create a shared access policy for your Device Provisioning Service instance in the portal][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -299,7 +297,6 @@ The following table lists the permissions you can use to control access to your 
 
 <!-- links and images -->
 
-[img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: /rest/api/iot-dps/

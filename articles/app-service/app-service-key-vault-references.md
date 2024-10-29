@@ -4,35 +4,37 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: cephalin
 
 ms.topic: article
-ms.date: 07/31/2023
+ms.date: 09/30/2024
 ms.author: cephalin
 ms.custom: AppServiceConnectivity
 ---
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your App Service or Azure Functions apps. 
 
-[Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
+[Azure Key Vault](/azure/key-vault/general/overview) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
 
 ## Grant your app access to a key vault
 
 In order to read secrets from a key vault, you need to have a vault created and give your app permission to access it.
 
-1. Create a key vault by following the [Key Vault quickstart](../key-vault/secrets/quick-create-cli.md).
+1. Create a key vault by following the [Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli).
 
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
     Key vault references use the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
-1. Authorize [read access to secrets in your key vault](../key-vault/general/security-features.md#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
+1. Authorize [read access to secrets in your key vault](/azure/key-vault/general/security-features#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
 
-    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md).
-    - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).
+    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
+    - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy).
 
 ### Access network-restricted vaults
 
-If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), ensure that the application has network access. Vaults shouldn't depend on the app's public outbound IPs because the origin IP of the secret request could be different. Instead, the vault should be configured to accept traffic from a virtual network used by the app.
+If your vault is configured with [network restrictions](/azure/key-vault/general/overview-vnet-service-endpoints), ensure that the application has network access. Vaults shouldn't depend on the app's public outbound IPs because the origin IP of the secret request could be different. Instead, the vault should be configured to accept traffic from a virtual network used by the app.
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
@@ -100,13 +102,13 @@ A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, for example `https://myvault.vault.azure.net/secrets/mysecret`. Optionally, include a version, such as `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and is the vault name. The **SecretName** is required and is the secret name. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
-For example, a complete reference would look like the following string:
+For example, a complete reference without a specific version would look like the following string:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 Alternatively:
@@ -128,7 +130,7 @@ As part of creating the app, attempted mounting of the content share could fail 
 
 ### Considerations for Application Insights instrumentation
 
-Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](../azure-monitor/app/app-insights-overview.md). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences aren't available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](../azure-monitor/app/sdk-connection-string.md#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using key vault references.
+Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences aren't available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](/azure/azure-monitor/app/sdk-connection-string#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using key vault references.
 
 ### Azure Resource Manager deployment
 

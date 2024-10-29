@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to route traffic through Network Virtual Appliances (NVAs). In this scenario, you route traffic through NVAs by using a different NVA for internet-bound traffic and custom settings.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: cherylmc

@@ -4,11 +4,11 @@ titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 03/20/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to understand how to configure the SAML identity provider options, so that I can enable sign-in with the identity provider and map the claims correctly.
@@ -422,7 +422,7 @@ Upon an application sign-out request, Azure AD B2C attempts to sign out from you
 
 ## Debug SAML protocol
 
-To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Microsoft Edge or IE Developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
+To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Microsoft Edge or Internet Explorer developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
 Using these tools, you can check the integration between Azure AD B2C and your SAML identity provider. For example:
 

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Apache Spark clusters with Azure CLI - Azure HDInsight'
 description: This quickstart shows how to use Azure CLI to create an Apache Spark cluster in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.date: 11/23/2023
 ms.custom: devx-track-azurecli, mode-api
@@ -14,7 +14,7 @@ In this quickstart, you learn how to create an Apache Spark cluster in Azure HDI
 
 If you're using multiple clusters together, you can create a virtual network, and if you're using a Spark cluster you can use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

@@ -51,7 +51,7 @@ This table categorizes each role and provides a brief description of their permi
 ---|---|---
 **Owner** | Privileged administrator role | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
 **Contributor** | Privileged administrator role | Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
-**Security Admin** | Job function role | Allows the user to upload and analyze firmware images in Defender for IoT, add/assign security initiatives, and edit the security policy. [Learn more](../../../articles/defender-for-cloud/permissions.md).
+**Security Admin** | Job function role | Allows the user to upload and analyze firmware images in Defender for IoT, add/assign security initiatives, and edit the security policy. [Learn more](/azure/defender-for-cloud/permissions).
 **Firmware Analysis Admin** | Job function role | Allows the user to upload and analyze firmware images in Defender for IoT. The user has no access beyond firmware analysis (can't access other resources in the subscription, create or delete resources, or invite other users).
 
 ## Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities

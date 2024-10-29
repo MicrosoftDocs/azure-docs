@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom: devx-track-js
+ms.subservice: web-sdk
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # Use Azure Maps TypeScript REST SDK

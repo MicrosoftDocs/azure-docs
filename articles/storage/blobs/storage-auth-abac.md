@@ -1,7 +1,7 @@
 ---
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions
 titleSuffix: Azure Storage
-description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
+description: Authorize access to Azure Blob Storage and Azure Data Lake Storage using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
@@ -37,7 +37,7 @@ The benefits of using role assignment conditions are:
 
 The trade-off of using conditions is that you need a structured and consistent taxonomy when using attributes across your organization. Attributes must be protected to prevent access from being compromised. Also, conditions must be carefully designed and reviewed for their effect.
 
-Role-assignment conditions in Azure Storage are supported for Azure blob storage. You can also use conditions with accounts that have the [hierarchical namespace](data-lake-storage-namespace.md) (HNS) feature enabled on them (Data Lake Storage Gen2).
+Role-assignment conditions in Azure Storage are supported for Azure blob storage. You can also use conditions with accounts that have the [hierarchical namespace](data-lake-storage-namespace.md) (HNS) feature enabled on them (Data Lake Storage).
 
 ## Supported attributes and operations
 
@@ -54,7 +54,7 @@ You can use conditions with custom roles as long as the role includes [actions t
 If you're working with conditions based on [blob index tags](storage-manage-find-blobs.md), you should use the *Storage Blob Data Owner* since permissions for tag operations are included in this role.
 
 > [!NOTE]
-> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace. You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
+> Blob index tags are not supported for Data Lake Storage storage accounts, which use a hierarchical namespace. You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
 
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows the use of `@Principal`, `@Resource`, `@Request` or `@Environment` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute or parameter included in a storage operation request. An `@Environment` attribute refers to the network environment or the date and time of a request.
 
@@ -62,21 +62,21 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 ## Status of condition features in Azure Storage
 
-Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in both the standard and premium storage account performance tiers. Currently, the container metadata resource attribute and the list blob include request attribute are in PREVIEW.
+Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access to Azure Blob Storage, Azure Data Lake Storage, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in both the standard and premium storage account performance tiers. Currently, the container metadata resource attribute and the list blob include request attribute are in PREVIEW.
 
 The following table shows the current status of ABAC by storage resource type and attribute type. Exceptions for specific attributes are also shown.
 
 | Resource types | Attribute types    | Attributes                | Availability |
 |---|---|---|---|
-| Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Environment<br/>Principal | All attributes except those noted in this table | GA |
-| Data Lake Storage Gen2                      | Resource        | [Snapshot](storage-auth-abac-attributes.md#snapshot)           | Preview |
-| Blobs<br/>Data Lake Storage Gen2            | Resource        | [Container metadata](storage-auth-abac-attributes.md#container-metadata) | Preview |
+| Blobs<br/>Data Lake Storage<br/>Queues | Request<br/>Resource<br/>Environment<br/>Principal | All attributes except those noted in this table | GA |
+| Data Lake Storage                      | Resource        | [Snapshot](storage-auth-abac-attributes.md#snapshot)           | Preview |
+| Blobs<br/>Data Lake Storage            | Resource        | [Container metadata](storage-auth-abac-attributes.md#container-metadata) | Preview |
 | Blobs                                       | Request         | [List blob include](storage-auth-abac-attributes.md#list-blob-include)  | Preview |
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE] 
-> Some storage features aren't supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace (HNS). To learn more, see [Blob storage feature support](storage-feature-support-in-storage-accounts.md).
+> Some storage features aren't supported for Data Lake Storage storage accounts, which use a hierarchical namespace (HNS). To learn more, see [Blob storage feature support](storage-feature-support-in-storage-accounts.md).
 >
 >The following ABAC attributes aren't supported when hierarchical namespace is enabled for a storage account:
 >

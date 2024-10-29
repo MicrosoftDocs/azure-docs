@@ -2,8 +2,8 @@
 title: Azure NAT Gateway resource
 description: Learn about the NAT gateway resource of the Azure NAT Gateway service.
 author: asudbring
-ms.service: nat-gateway
-ms.topic: article
+ms.service: azure-nat-gateway
+ms.topic: concept-article
 ms.custom: FY23 content-maintenance
 ms.date: 04/29/2024
 ms.author: allensu

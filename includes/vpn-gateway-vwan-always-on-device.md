@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 05/26/2021
  ms.author: cherylmc
 
@@ -14,7 +14,7 @@ The following requirements must be met in order to successfully establish a devi
 * The tunnel is only configurable for the Windows built-in VPN solution and is established using IKEv2 with computer certificate authentication.
 * Only one device tunnel can be configured per device.
 
-1. Install client certificates on the Windows 10 or later client using the [point-to-site VPN client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate needs to be in the Local Machine store.
+1. Install client certificates on the Windows 10 or later client using the [point-to-site VPN client](/azure/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert) article. The certificate needs to be in the Local Machine store.
 1. Create a VPN Profile and configure device tunnel in the context of the LOCAL SYSTEM account using [these instructions](/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
 ### Configuration example for device tunnel

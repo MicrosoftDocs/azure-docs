@@ -15,7 +15,7 @@ using Azure.Core;
 using Azure.Identity;
 using MySqlConnector;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned managed identity.
 // var credential = new DefaultAzureCredential();
 
@@ -33,7 +33,7 @@ using MySqlConnector;
 // var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 var tokenRequestContext = new TokenRequestContext(
-    new[] { "https://server-name.database.windows.net/.default" });
+    new[] { "https://ossrdbms-aad.database.windows.net/.default" });
 AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);
 // Open a connection to the MySQL server using the access token.
 string connectionString =
@@ -71,7 +71,7 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
 ### [SpringBoot](#tab/springBoot)
 
@@ -96,7 +96,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     import mysql.connector
     import os
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
     # cred = ManagedIdentityCredential()    
 
@@ -111,7 +111,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
     
     # acquire token
-    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     
     # open connect to Azure MySQL with the access token.
     host = os.getenv('AZURE_MYSQL_HOST')
@@ -139,7 +139,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     import os
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -154,7 +154,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
     
     # acquire token
-    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     ```
 
 1. In setting file, get Azure MySQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
@@ -199,7 +199,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    func main() {
        
-     // Uncomment the following lines according to the authentication type.
+     // Uncomment the following lines corresponding to the authentication type you want to use.
      // for system-assigned managed identity
      // cred, err := azidentity.NewDefaultAzureCredential(nil)
 
@@ -220,7 +220,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
      ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
      token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-       Scopes: []string("https://server-name.database.windows.net/.default"),
+       Scopes: []string("https://ossrdbms-aad.database.windows.net/.default"),
      })
      
      connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING") + ";Password=" + token.Token
@@ -242,7 +242,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    const mysql = require('mysql2');
 
-   // Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines corresponding to the authentication type you want to use.
    // for system-assigned managed identity
    // const credential = new DefaultAzureCredential();
 
@@ -259,7 +259,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
    
    // acquire token
-   var accessToken = await credential.getToken('https://server-name.database.windows.net/.default');
+   var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
    
    const connection = mysql.createConnection({
      host: process.env.AZURE_MYSQL_HOST,

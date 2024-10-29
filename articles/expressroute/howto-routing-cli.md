@@ -3,7 +3,7 @@ title: 'Configure peering for Expressroute circuit - Azure CLI'
 description: This article shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau
@@ -23,7 +23,7 @@ This article shows you how to create and manage routing configuration/peering fo
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit." lightbox="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png":::
 
 ## Prerequisites
 

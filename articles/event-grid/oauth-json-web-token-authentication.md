@@ -14,6 +14,9 @@ This article shows how to authenticate with Azure Event Grid namespace using JSO
 
 OAuth 2.0 (JSON Web Token) authentication allows clients to authenticate and connect with the MQTT broker using JSON Web Tokens (JWT) issued by any OpenID Connect identity provider, apart from Microsoft Entra ID. MQTT clients can get their token from their identity provider and provide the token in the MQTTv5 or MQTTv3.1.1 CONNECT packets to authenticate with the MQTT broker. This authentication method provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.  
 
+> [!NOTE]
+> This feature is currently in preview. 
+
 ## High-level steps 
 
 To use custom JWT authentication for namespaces, follow these steps: 

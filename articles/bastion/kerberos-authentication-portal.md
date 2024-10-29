@@ -3,7 +3,7 @@ title: 'Configure Bastion for Kerberos authentication: Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion to use Kerberos authentication via the Azure portal.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 09/14/2023
 ms.author: cherylmc

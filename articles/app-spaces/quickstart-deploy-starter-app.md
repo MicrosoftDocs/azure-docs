@@ -12,8 +12,9 @@ zone_pivot_groups: app-spaces-frontend-backend
 
 # Quickstart: Deploy a starter app with App Spaces
 
-[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a starter app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
+[!include [preview note](./includes/preview-note.md)]
 
+[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a starter app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
 
 ## Prerequisites
 
@@ -26,12 +27,15 @@ To deploy a sample app for App Spaces, you must have the following items:
 
 While Express.JS (back end) and React (front end) apps are used in this quickstart, other starter apps are also available in App Spaces. See [App Spaces in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView) for a full list of starter apps in App Spaces.
 
-Follow these steps to deploy a sample app to App Spaces. 
+Follow these steps to deploy a starter app to App Spaces. 
 
-1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotHome.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotHome.ReactView).
+1. Browse to the [Azure portal](https://portal.azure.com/).
+1. In the search bar, search for **app spaces** and select it in the results.
+:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of App Space in Azure portal.":::
+1. In the *App Spaces page*, select **+ Create App Space**.
 
 ::: zone pivot="frontend"  
-2. Under *Use a starter app*, select **React App**.
+4. Under *Use a starter app*, select **React App**.
 
 ## Connect to GitHub
 
@@ -60,7 +64,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 [!include [deployment note](./includes/provision-text-swa.md)]
 ::: zone-end  
 ::: zone pivot="backend"  
-2. Under *Use a starter app*, select **Express.JS App**.
+4. Under *Use a starter app*, select **Express.JS App**.
 ## Connect to GitHub
 
 - Enter the following values in the *Connect to GitHub* section.

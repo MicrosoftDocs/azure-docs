@@ -4,11 +4,11 @@ description: Learn how to import a gRPC service definition as an API to an API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: danlep
-ms.custom: devx-track-arm-template, devx-track-bicep, build-2024
+ms.custom: devx-track-arm-template, devx-track-bicep, build-2024, devx-track-dotnet
 ---
 # Import a gRPC API
 

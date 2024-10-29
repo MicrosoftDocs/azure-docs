@@ -175,7 +175,7 @@ For more information, see:
 
 Define an Azure virtual machine scale set to create and manage a group of load-balanced virtual machine, where you can automatically increase or decrease the number of virtual machines as needed.
 
-For more information, see [What are virtual machine scale sets?](../../virtual-machine-scale-sets/overview.md)
+For more information, see [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 
 **To create a scale set to use with your sensor connection**:
 

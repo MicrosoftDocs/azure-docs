@@ -51,6 +51,10 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
             (value.isPresent) ? this.setState({ canRaiseHands: true }) : this.setState({ canRaiseHands: false });
             continue;
         }
+        if(key === 'muteOthers' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canMuteOthers: true }) : this.setState({ canMuteOthers: false });
+            continue;
+        }
         if(key === 'reaction' && value.reason != 'FeatureNotSupported') {
             (value.isPresent) ? this.setState({ canReact: true }) : this.setState({ canReact: false });
             continue;
@@ -74,5 +78,6 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *startLiveCaptions*: Ability to start live captions (beta only)
 - *stopLiveCaptions*: Ability to stop live captions (beta only)
 - *raiseHand*: Ability to raise hand (beta only)
+- *muteOthers*: Ability to soft mute remote participant(s) in the meeting 
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting

@@ -3,16 +3,15 @@ title: How to use gRPC in Azure Spring Apps
 description: Shows you how to use gRPC in Azure Spring Apps.
 author: KarlErickson
 ms.author: caihuarui
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 5/24/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
 # How to use gRPC in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 

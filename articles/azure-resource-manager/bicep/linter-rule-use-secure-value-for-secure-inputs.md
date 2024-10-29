@@ -3,7 +3,7 @@ title: Linter rule - adminPassword should be assigned a secure value
 description: Linter rule - adminPassword should be assigned a secure value.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/06/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - adminPassword should be assigned a secure value.
@@ -23,7 +23,7 @@ Assign a secure value to the property with the property path `properties.osProfi
 The following examples fail this test because the `adminPassword` is not a secure value.
 
 ```bicep
-resource ubuntuVM 'Microsoft.Compute/virtualMachineScaleSets@2023-09-01' = {
+resource ubuntuVM 'Microsoft.Compute/virtualMachineScaleSets@2024-03-01' = {
   name: 'name'
   location: 'West US'
   properties: {
@@ -38,7 +38,7 @@ resource ubuntuVM 'Microsoft.Compute/virtualMachineScaleSets@2023-09-01' = {
 ```
 
 ```bicep
-resource ubuntuVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
+resource ubuntuVM 'Microsoft.Compute/virtualMachines@2024-03-01' = {
   name: 'name'
   location: 'West US'
   properties: {
@@ -54,7 +54,7 @@ resource ubuntuVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
 ```bicep
 param adminPassword string
 
-resource ubuntuVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
+resource ubuntuVM 'Microsoft.Compute/virtualMachines@2024-03-01' = {
   name: 'name'
   location: 'West US'
   properties: {
@@ -76,7 +76,7 @@ param adminPassword string
 param adminUsername string
 param location string = resourceGroup().location
 
-resource ubuntuVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
+resource ubuntuVM 'Microsoft.Compute/virtualMachines@2024-03-01' = {
   name: 'name'
   location: location
   properties: {

@@ -1,9 +1,9 @@
 ---
 title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
-ms.topic: conceptual
-ms.date: 07/13/2022
-ms.service: backup
+ms.topic: overview
+ms.date: 09/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -18,7 +18,7 @@ Azure Backup offers the following key capabilities:
 * Ability to write custom alert rules on these metrics to efficiently monitor the health of your backup items
 * Ability to route fired metric alerts to different notification channels supported by Azure Monitor, such as email, ITSM, webhook, logic apps, and so on.
 
-[Learn more about Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
+[Learn more about Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ## Supported scenarios
 
@@ -113,7 +113,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 1. To configure notifications for these alerts using Action Groups, configure an Action Group as part of the alert rule, or create a separate action rule.
 
-   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](../azure-monitor/alerts/action-groups.md).
+   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](/azure/azure-monitor/alerts/action-groups).
 
    :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Screenshot showing the process to configure notifications for these alerts using Action Groups." lightbox="./media/metrics-overview/action-group-expanded.png":::
 
@@ -122,7 +122,7 @@ To configure alerts and notifications on your metrics, follow these steps:
    - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
    - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
 
-[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](../azure-monitor/alerts/alerts-troubleshoot-metric.md#the-metric-alert-is-not-triggered-every-time-the-condition-is-met).
+[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#the-metric-alert-is-not-triggered-every-time-the-condition-is-met).
 
 :::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
@@ -156,7 +156,7 @@ Based on the alert rules configuration, the fired alert appears under the **Data
 
 ### Accessing metrics programmatically
 
-You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](../azure-monitor/essentials/rest-api-walkthrough.md) for more details.
+You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](/azure/azure-monitor/essentials/rest-api-walkthrough) for more details.
 
 ### Sample alert scenarios
 
@@ -189,5 +189,5 @@ Dimensions["DatasourceId"]= "All current and future values"
 ## Next steps
 
 - [Learn more about monitoring and reporting in Azure Backup](monitoring-and-alerts-overview.md).
-- [Learn more about Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
-- [Learn more about Azure alerts](../azure-monitor/alerts/alerts-overview.md).
+- [Learn more about Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+- [Learn more about Azure alerts](/azure/azure-monitor/alerts/alerts-overview).

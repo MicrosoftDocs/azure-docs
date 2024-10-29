@@ -3,7 +3,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 08/19/2022
 ms.author: ryanwi
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Add Microsoft Graph API permissions to a managed identity.
 > * Call Microsoft Graph from a web app by using managed identities.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
     # Install-Module Microsoft.Graph -Scope CurrentUser
     
     # The tenant ID
-    $TenantId = "11111111-1111-1111-1111-111111111111"
+    $TenantId = "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     
     # The name of your web app, which has a managed identity.
     $webAppName = "SecureWebApp-20201106120003" 

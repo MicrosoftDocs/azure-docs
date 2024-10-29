@@ -3,19 +3,15 @@ title: "Quickstart - Introduction to the sample app - Azure Spring Apps"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 08/28/2024
 ms.custom: devx-track-java, mode-other
 ---
 
 # Introduction to the sample app
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
-
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -43,15 +39,15 @@ PetClinic is decomposed into four core Spring apps. All of them are independentl
 
 There are several common patterns in distributed systems that support core services. Azure Spring Apps provides tools that enhance Spring Boot applications to implement the following patterns:
 
-### [Enterprise plan](#tab/enterprise-plan)
-
-* **Application Configuration Service for Tanzu**: Application Configuration Service for Tanzu is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
-* **Tanzu Service Registry**: Tanzu Service Registry is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
-
 ### [Basic/Standard plan](#tab/basic-standard-plan)
 
 * **Config service**: Azure Spring Apps Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
 * **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures, and upgrades.
+
+### [Enterprise plan](#tab/enterprise-plan)
+
+* **Application Configuration Service for Tanzu**: Application Configuration Service for Tanzu is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+* **Tanzu Service Registry**: Tanzu Service Registry is one of the commercial VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a Spring-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
 
 ---
 
@@ -65,14 +61,14 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 
 ## Next steps
 
-### [Enterprise plan](#tab/enterprise-plan)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)
-
 ### [Basic/Standard plan](#tab/basic-standard-plan)
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md)
+
+### [Enterprise plan](#tab/enterprise-plan)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)
 
 ---

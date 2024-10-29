@@ -5,10 +5,11 @@ author: kgremban
 ms.author: kgremban
 ms.date: 10/27/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 services: iot-dps
 manager: lizross
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to use symmetric keys over HTTPS without an SDK
@@ -27,7 +28,7 @@ There are different paths through this article depending on the type of enrollme
 
 * Make sure [Python 3.7](https://www.python.org/downloads/) or later is installed on your machine. You can check your version of Python by running `python --version`.
 
-* If you're running in Windows, install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
+* If you're running in Windows, install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
 
 * Azure CLI. You have two options for running Azure CLI commands in this article:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
@@ -238,7 +239,7 @@ To learn more about using SAS tokens with DPS and their structure, see [Control 
   
 ## Register your device
 
-You call the [Register Device](/rest/api/iot-dps/device/device-registration-state) REST API to provision your device through DPS.
+You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) REST API to provision your device through DPS.
 
 Use the following curl command:
 

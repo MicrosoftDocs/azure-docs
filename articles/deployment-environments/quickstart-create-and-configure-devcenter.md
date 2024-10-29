@@ -5,7 +5,7 @@ description: Learn how to set up the resources to get started with Azure Deploym
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.date: 03/22/2024
 ---

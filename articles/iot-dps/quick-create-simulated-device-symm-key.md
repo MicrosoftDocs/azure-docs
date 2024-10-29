@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 04/06/2023
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
-ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python
+ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT hub using the SDK, to learn how secure provisioning works with symmetric keys.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Provision a simulated symmetric key device
@@ -62,7 +63,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 
 <a id="setupdevbox"></a>

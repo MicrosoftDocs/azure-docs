@@ -4,7 +4,7 @@ description: Learn how Dedicated SQL pool (formerly SQL DW) in Azure Synapse Ana
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/20/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -107,4 +107,4 @@ Now that you know a bit about Azure Synapse, learn how to quickly [create a dedi
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
-- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [X](https://x.com/hashtag/SQLDW)

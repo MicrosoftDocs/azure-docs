@@ -4,7 +4,7 @@ description: How to publish applications with RemoteApp in Azure Virtual Desktop
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 12/08/2023
+ms.date: 03/05/2024
 ms.author: daknappe
 ---
 
@@ -22,7 +22,7 @@ This article shows you how to publish applications that are installed locally wi
 
 ## Prerequisites
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 In order to publish an application to a RemoteApp application group, you need the following things:
 
@@ -60,7 +60,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 To add applications to a RemoteApp application group, select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to add applications to a RemoteApp application group using the Azure portal.
 
@@ -124,10 +124,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add applications to a RemoteApp application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add applications to a RemoteApp application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -178,7 +175,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
       New-AzWvdApplication @parameters
       ```
 
-   - To add an MSIX or Appx application from *MSIX app attach* or *app attach (preview)*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
+   - To add an MSIX or Appx application from *app attach* or *MSIX app attach*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
    
       - For **MSIX app attach**, get the application details and store them in a variable:
       
@@ -259,13 +256,13 @@ Applications aren't assigned individually to users unless you're using app attac
 
 ## Publish Microsoft Store applications
 
-Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
+Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location as the path in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
 
 Using `shell:appsFolder` means the application icon isn't picked up automatically from the application. You should provide an icon file on a local drive on each session host in a path that doesn't change, unlike the application installation directory. 
 
 Select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to publish a Microsoft Store application using the Windows user interface and the Azure portal:
 
@@ -281,20 +278,19 @@ Here's how to publish a Microsoft Store application using the Windows user inter
 
 # [Azure PowerShell](#tab/powershell)
 
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to publish a Microsoft Store application using PowerShell and Azure PowerShell. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
 2. You also need to connect to a session host to run PowerShell commands as an administrator. On a session host, get a list of installed applications from the Microsoft Store by running the following commands:
 
-   ```azurepowershell
+   ```powershell
    Get-AppxPackage -AllUsers | Sort-Object Name | Select-Object Name, PackageFamilyName
    ```
 
 3. Make a note of the value for `PackageFamilyName`, then run the following command to get the `AppId` value:
 
-   ```azurepowershell
+   ```powershell
    $packageFamilyName = '<PackageFamilyName>'
    
    (Get-AppxPackage -AllUsers | ? PackageFamilyName -eq $packageFamilyName | Get-AppxPackageManifest).Package.Applications.Application.Id
@@ -317,7 +313,7 @@ Here's how to publish a Microsoft Store application using the Windows user inter
    New-AzWvdApplication @parameters
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name
@@ -331,7 +327,7 @@ Here's how to publish a Microsoft Store application using the Windows user inter
 
 [Windows Sandbox](/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview) provides a lightweight desktop environment to safely run applications in isolation. You can use Windows Sandbox with Azure Virtual Desktop in a desktop or RemoteApp session.
 
-Your session hosts need to use a virtual machine (VM) size that supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To check if a VM series supports nested virtualization, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md), go to the relevant article for the series of the VM, and check the list of supported features.
+Your session hosts need to use a virtual machine (VM) size that supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To check if a VM series supports nested virtualization, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes), go to the relevant article for the series of the VM, and check the list of supported features.
 
 1. To install Windows Sandbox on your session hosts, follow the steps in [Windows Sandbox overview](/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview). We recommend you install Windows Sandbox in a custom image you can use when creating your session hosts.
 

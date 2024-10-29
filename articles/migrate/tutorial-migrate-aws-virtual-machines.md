@@ -5,14 +5,11 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/24/2024
-ms.custom: MVC, engagement-fy23
+ms.date: 07/05/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
@@ -177,7 +174,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
@@ -240,7 +237,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
@@ -349,7 +346,7 @@ After you verify that the test migration works as expected, you can migrate the 
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
@@ -383,7 +380,7 @@ After you verify that the test migration works as expected, you can migrate the 
 
 **Question:** Can I migrate AWS VMs running the Amazon Linux operating system?<br>
 **Answer:** VMs running Amazon Linux can't be migrated as is because the Amazon Linux OS is only supported on AWS.
-To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
+To migrate workloads running on Amazon Linux, you can spin up a RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
 
 ## Next steps
 

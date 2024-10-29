@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 04/11/2024
+ms.date: 05/29/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,16 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.0.18.1251   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
-| Beta    | 10.0.18.1251   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+| Public  | 10.0.19.1279   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
+| Beta    | 10.0.19.1279   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+
+## Updates for version 10.0.19.1279
+
+*Published: May 29, 2024*
+
+In this release, we made the following changes:
+
+- Added Microsoft Intune MAM support for configuring redirection settings. It includes MAM SDK version 9.7.1.
 
 ## Updates for version 10.0.18.1251
 

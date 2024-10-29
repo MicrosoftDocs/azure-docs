@@ -3,7 +3,7 @@ title: 'End-to-end TLS with Azure Front Door'
 description: Learn about end-to-end TLS encryption when using Azure Front Door.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 03/15/2024
 ms.author: duau

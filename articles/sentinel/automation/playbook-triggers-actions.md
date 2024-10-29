@@ -1,7 +1,7 @@
 ---
 title: Supported triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
 description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
-ms.topic: concept
+ms.topic: concept-article
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
@@ -9,7 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I want to understand the types of triggers and actions available for use in Microsoft Sentinel playbooks.
+#Customer intent: As a security analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
+
 ---
 
 # Supported triggers and actions in Microsoft Sentinel playbooks

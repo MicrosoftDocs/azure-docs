@@ -1,16 +1,16 @@
 ---
 title: Overview of Azure Native ISV Services
 description: Introduction to the Azure Native ISV Services.
-author: flang-msft
+
 
 ms.topic: conceptual
 ms.date: 04/08/2024
-ms.author: franlanglois
+
 ---
 
 # Azure Native ISV Services overview
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate *independent software vendor* (ISV) software and services on Azure. Azure Native ISV Services is developed and managed by Microsoft and the ISV. Currently, several services are publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner services, see [Extend Azure with Azure Native ISV Services](partners.md).
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate *independent software vendor (ISV)* software and services on Azure. Azure Native ISV Services is developed and managed by Microsoft and the ISV. Currently, several services are publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner services, see [Extend Azure with Azure Native ISV Services](partners.md).
 
 ## Features of Azure Native ISV Services
 

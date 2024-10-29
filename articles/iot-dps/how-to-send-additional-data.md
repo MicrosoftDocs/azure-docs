@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to transfer payloads between devices and DPS
@@ -26,7 +27,7 @@ Common scenarios for sending optional payloads are:
 
 ## Device sends data payload to DPS
 
-When your device calls [Register Device](/rest/api/iot-dps/device/device-registration-state) to register with DPS, it can include additional data in the **payload** property. For example, the following JSON shows the body for a request to register using TPM attestation:
+When your device calls [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) to register with DPS, it can include additional data in the **payload** property. For example, the following JSON shows the body for a request to register using TPM attestation:
 
 ```json
 { 
@@ -43,7 +44,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## DPS returns data to the device
 
-DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **registrationState.payload** property in the [Register Device response](/rest/api/iot-dps/device/device-registration-state). For example, the following JSON shows the body of a successful response to register using TPM attestation.
+DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **registrationState.payload** property in the [Register Device response](/rest/api/iot-dps/device/runtime-registration/register-device). For example, the following JSON shows the body of a successful response to register using TPM attestation.
 
 ```json
 {

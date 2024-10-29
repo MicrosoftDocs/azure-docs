@@ -3,9 +3,9 @@ title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNe
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 05/29/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -18,7 +18,7 @@ This article walks you through the steps to configure a custom IPsec/IKE policy 
 
 The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following diagram.
 
-:::image type="content" source="./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png" alt-text="Diagram showing IPsec/IKE policy architecture." border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram showing IPsec/IKE policies for both VNet-to-VNet and Site-to-Site VPN gateways." lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
 1. Create a virtual network and a VPN gateway.
 1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.

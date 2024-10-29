@@ -1,7 +1,7 @@
 ---
-title: "include file for TSI retirement" 
+title: "Include file for Time Series Insights retirement" 
 description: "include file" 
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 ms.topic: conceptual
@@ -10,4 +10,4 @@ ms.custom: tvilutis
 ---
 
 >[!NOTE]
->The Time Series Insights (TSI) service will no longer be supported after March 2025. Consider migrating existing TSI environments to alternative solutions as soon as possible. For more information on the deprecation and migration, visit our [documentation](../articles/time-series-insights/migration-to-adx.md).
+>The Time Series Insights service will be retired on 7 July 2024. Consider migrating existing environments to alternative solutions as soon as possible. For more information on the deprecation and migration, visit our [documentation](../articles/time-series-insights/migration-to-fabric.md).

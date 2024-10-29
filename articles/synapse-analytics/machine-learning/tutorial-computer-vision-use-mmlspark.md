@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Vision with Azure AI services'
 description: Learn how to use Azure AI Vision in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/02/2021
@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Vision with Azure AI services
 
-[Azure AI Vision](../../ai-services/computer-vision/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](../../ai-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
+[Azure AI Vision](/azure/ai-services/computer-vision/) is an [Azure AI service](/azure/ai-services/) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](/azure/ai-services/computer-vision/) to analyze images on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 

@@ -3,11 +3,11 @@ title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.date: 02/13/2024
 ms.topic: concept-article
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-support
 
 #Customer intent: As a developer or IT administrator, I want to understand the different types of user accounts available Azure AD B2C, so that I can properly manage and configure user accounts for my tenant.
@@ -69,7 +69,7 @@ You can also use the [Microsoft Graph API](/graph/api/invitation-post) to invite
 
 ## Consumer user
 
-The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal. The consumer user can use a local account or federated accounts, such as Facebook or Twitter. A consumer account is created by using a [sign-up or sign-in user flow](user-flow-overview.md), using the Microsoft Graph API, or by using the Azure portal.
+The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal. The consumer user can use a local account or federated accounts, such as Facebook or X. A consumer account is created by using a [sign-up or sign-in user flow](user-flow-overview.md), using the Microsoft Graph API, or by using the Azure portal.
 
 You can specify the data that is collected when a consumer user account is created. For more information, see [Add user attributes and customize user input](configure-user-input.md).
 

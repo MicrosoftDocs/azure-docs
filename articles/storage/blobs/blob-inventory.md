@@ -172,9 +172,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 ### Custom schema fields supported for blob inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -232,9 +232,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 ### Custom schema fields supported for container inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -265,9 +265,6 @@ Most inventory runs complete within 24 hours. For hierarchical namespace enabled
 Runs don't overlap so a run must complete before another run of the same rule can begin. For example, if a rule is scheduled to run daily, but the previous day's run of that same rule is still in progress, then a new run won't be initiated that day. Rules that are scheduled to run weekly will run each Sunday regardless of whether a previous run succeeds or fails. If a run doesn't complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
 
 Inventory policies are read or written in full. Partial updates aren't supported. Inventory rules are evaluated daily. Therefore, if you change the definition of a rule, but the rules of a policy have already been evaluated for that day, then your updates won't be evaluated until the following day.
-
-> [!IMPORTANT]
-> If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 ## Inventory completed event
 

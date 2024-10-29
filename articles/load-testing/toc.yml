@@ -61,12 +61,18 @@ items:
           href: how-to-create-load-test-app-service.md
         - name: Test Azure Functions
           href: how-to-create-load-test-function-app.md
+        - name: Optimize Azure Functions
+          href: how-to-optimize-azure-functions.md          
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
         - name: Test secure endpoints
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
+        - name: Run tests in debug mode
+          href: how-to-run-tests-in-debug-mode.md
+        - name: Schedule load tests
+          href: how-to-schedule-tests.md          
     - name: Automation
       items:
         - name: Run load tests in CI/CD
@@ -91,6 +97,8 @@ items:
           href: how-to-use-a-managed-identity.md
         - name: Configure customer-managed keys
           href: how-to-configure-customer-managed-keys.md
+        - name: Secure Azure Load Testing with Azure Policy
+          href: how-to-use-azure-policy.md
     - name: Manage resources
       items:
         - name: Create & manage tests (Azure portal)
@@ -111,6 +119,11 @@ items:
     - name: Examples repository
       href: /samples/?expanded=azure&products=azure-load-testing
 
+- name: Troubleshoot and debug
+  items:
+    - name: Troubleshoot issues in private endpoints tests
+      href: troubleshoot-private-endpoint-tests.md
+      
 - name: Reference
   items:
     - name: Azure CLI

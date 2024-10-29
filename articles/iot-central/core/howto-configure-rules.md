@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/16/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # This article applies to operators, builders, and administrators.
@@ -186,9 +186,9 @@ If you have one or more webhooks created and saved before **3 April 2020**, dele
 
 ## Create an Azure Monitor group action
 
-This section describes how to use [Azure Monitor](../../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../../azure-monitor/alerts/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
+This section describes how to use [Azure Monitor](/azure/azure-monitor/overview) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription.
 
-You can [create and manage action groups in the Azure portal](../../azure-monitor/alerts/action-groups.md) or with an [Azure Resource Manager template](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md).
+You can [create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups) or with an [Azure Resource Manager template](/azure/azure-monitor/alerts/action-groups-create-resource-manager-template).
 
 An action group can:
 

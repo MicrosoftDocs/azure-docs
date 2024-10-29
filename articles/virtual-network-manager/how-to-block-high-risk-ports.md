@@ -3,7 +3,7 @@ title: 'Protect high-risk network ports with Security Admin Rules in Azure Virtu
 description: Learn to deploy security admin rules to protect high-risk security ports and create exceptions for management traffic with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 03/15/2024
 ms.custom: template-how-to
@@ -13,8 +13,6 @@ ms.custom: template-how-to
 In this article, you learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You deploy a general block rule for high risk ports. Then you create an exception rule for managing a specific application's VNet using network security groups.
 
 While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 
@@ -78,13 +76,7 @@ With your virtual network manager created, you now create a network group contai
 It’s time to construct our security admin rules within a configuration in order to apply those rules to all the VNets within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add rules for high risks ports like SSH or RDP. This configuration denies network traffic to all virtual networks in the network group.
 1. Return to your virtual network manager resource.
 1. Select **Configurations** under *Settings* and then select **+ Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a security admin configuration.":::
-
 1. Select **Security configuration** from the drop-down menu.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/security-admin-dropdown.png" alt-text="Screenshot of add a configuration drop-down.":::
-
 1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/security-configuration-name.png" alt-text="Screenshot of security configuration name field.":::

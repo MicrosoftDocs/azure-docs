@@ -1,7 +1,7 @@
 ---
  title: include file
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 09/26/2023
  ms.author: cherylmc
 ---

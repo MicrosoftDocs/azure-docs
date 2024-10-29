@@ -4,7 +4,7 @@ description: Understand the data redundancy options available in Azure file shar
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 08/08/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -54,7 +54,7 @@ With ZRS, your data is still accessible for both read and write operations even 
 
 A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
 
-An advantage of using ZRS for Azure Files workloads is that if a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required. We recommend using ZRS in the primary region for scenarios that require high availability and low RPO/RTO. We also recommend ZRS for restricting replication of data to a particular country or region to meet data governance requirements.
+An advantage of using ZRS for Azure Files workloads is that if a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required. We recommend using ZRS in the primary region for scenarios that require high availability. We also recommend ZRS for restricting replication of data to a particular country or region to meet data governance requirements.
 
 > [!NOTE]
 > Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia. In most cases, we recommend that Azure File Sync users configure storage accounts to use ZRS or GZRS.

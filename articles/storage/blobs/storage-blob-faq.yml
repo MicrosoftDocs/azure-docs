@@ -4,7 +4,7 @@ metadata:
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
   ms.service: azure-blob-storage
-  ms.date: 08/10/2023
+  ms.date: 08/27/2024
   ms.author: normesta
   author: normesta
 title: Azure Blob Storage frequently asked questions
@@ -17,7 +17,7 @@ sections:
       - question: |
           I created a new policy. Why do the actions not run immediately?
         answer: |
-          The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
+          Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
       - question: |
           If I update an existing policy, how long does it take for the actions to run?
         answer: |
@@ -35,7 +35,7 @@ sections:
         answer: |
           If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There are three ways to prevent this from happening:
 
-          - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
+          - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
 
           - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
 
@@ -121,7 +121,11 @@ sections:
       - question: |
           How do I track availability of my storage account?
         answer: |
-          You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+          You can configure a resource health alert based on the [Azure Resource Health](/azure/service-health/resource-health-overview) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+      - question: |
+          How often does the blob count and blob capacity metric get updated?
+        answer: |
+          The blob capacity and blob count metric are emitted hourly. A background process computes these metrics and updates them multiple times a day.
   - name: Change feed support
     questions:
       - question: |
@@ -181,9 +185,9 @@ sections:
   - name: Managing costs
     questions:
       - question: |
-         If I use Azure Storage for only a few days a month, is the cost prorated?
+         If I use Azure Blob Storage for only a few days a month, is the cost prorated?
         answer: |
-         Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+         Storage capacity for Blob Storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
 additionalContent: |
 
   ## Next steps
@@ -191,4 +195,4 @@ additionalContent: |
   You can learn more about Azure Blob Storage by visiting the following links:
 
   - [Introduction to Azure Storage](../common/storage-introduction.md)
-  - [What is Azure Blob storage](storage-blobs-overview.md)
+  - [What is Azure Blob Storage](storage-blobs-overview.md)

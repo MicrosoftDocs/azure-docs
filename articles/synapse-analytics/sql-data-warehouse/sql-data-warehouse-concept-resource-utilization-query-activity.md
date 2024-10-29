@@ -3,9 +3,9 @@ title: Manageability and monitoring - query activity, resource utilization
 description: Learn what capabilities are available to manage and monitor Azure Synapse Analytics. Use the Azure portal and Dynamic Management Views (DMVs) to understand query activity and resource utilization of your data warehouse.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 04/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
@@ -39,7 +39,7 @@ To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool D
 
 ## Metrics and diagnostics logging
 
-Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes.
+Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](/azure/azure-monitor/logs/log-analytics-tutorial?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes.
 
 ## Related content
 

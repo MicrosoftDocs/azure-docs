@@ -20,7 +20,7 @@ Learn the basics developing Java applications that use Azure Files to store data
 - Enumerate files and directories in an Azure file share
 - Upload, download, and delete a file
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-check-out-samples-java](~/reusable-content/ce-skilling/azure/includes/storage-check-out-samples-java.md)]
 
 ## Applies to
 | File share type | SMB | NFS |

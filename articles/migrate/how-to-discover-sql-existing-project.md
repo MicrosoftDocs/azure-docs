@@ -1,9 +1,8 @@
 ---
 title: Discover SQL Server instances in an existing Azure Migrate project
 description: Learn how to discover SQL Server instances in an existing Azure Migrate project. 
-author: vineetvikram
-ms.author: vivikram
-ms.manager: abhemraj
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/27/2023
@@ -55,11 +54,15 @@ This discovery process is agentless that is, nothing is installed on the target 
          
     - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered or have [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
-    You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).
+    You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).    
 
-    Some points to note:
-    - Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
-    - The appliance attempts to validate the domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
+> [!Note]
+> For WebApp discovery, you might need to add credentials in DLL format (`netbiosdomain\user`) so that the discovery can complete successfully.
+
+Some points to note:
+
+- Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
+- The appliance attempts to validate the domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
 
 3. Once the desired credentials are added, select Start Discovery, to begin the scan.
 

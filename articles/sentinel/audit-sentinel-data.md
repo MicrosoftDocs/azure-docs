@@ -1,10 +1,14 @@
 ---
 title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
-author: limwainstein
+author: batamig
 ms.topic: how-to
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: bagol
+
+
+#Customer intent: As a security analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
+
 ---
 
 # Audit Microsoft Sentinel queries and activities
@@ -24,7 +28,7 @@ Microsoft Sentinel provides access to:
 
 ## Auditing with Azure Activity logs
 
-Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
+Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
 
 You can use the **AzureActivity** table when auditing activity in your SOC environment with Microsoft Sentinel.
 
@@ -79,7 +83,7 @@ AzureActivity
 
 ### Microsoft Sentinel data included in Azure Activity logs
 
-Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), and include the following types of information:
+Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview), and include the following types of information:
 
 |Operation  |Information types  |
 |---------|---------|
@@ -114,7 +118,7 @@ For example, the following table lists selected operations found in Azure Activi
 |Update settings |Microsoft.SecurityInsights/settings|
 
 
-For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Auditing with LAQueryLogs
 
@@ -136,7 +140,7 @@ LAQueryLogs data includes information such as:
 
 1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Microsoft Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
 
-    For more information, see [Audit queries in Azure Monitor logs](../azure-monitor/logs/query-audit.md).
+    For more information, see [Audit queries in Azure Monitor logs](/azure/azure-monitor/logs/query-audit).
 
 1. Then, query the data using KQL, like you would any other table.
 

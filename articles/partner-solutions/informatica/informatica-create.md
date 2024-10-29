@@ -6,9 +6,9 @@ ms.topic: quickstart
 ms.date: 04/02/2024
 
 ---
-# QuickStart: Get started with Informatica (Preview) – An Azure Native ISV Service
+# QuickStart: Get started with Informatica – An Azure Native ISV Service
 
-In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Informatica Intelligent Data Management Cloud (Preview) - Azure Native ISV Service.
+In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Informatica Intelligent Data Management Cloud - Azure Native ISV Service.
 
 ## Prerequisites
 

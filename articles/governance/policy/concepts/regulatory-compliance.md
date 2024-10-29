@@ -37,7 +37,7 @@ definitions in the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance).
 
 To link a custom Regulatory Compliance initiative to your Microsoft Defender for Cloud dashboard, see
-[Create custom security initiatives and policies](../../../defender-for-cloud/custom-security-policies.md).
+[Create custom security initiatives and policies](/azure/defender-for-cloud/custom-security-policies).
 
 ## Regulatory Compliance in portal
 

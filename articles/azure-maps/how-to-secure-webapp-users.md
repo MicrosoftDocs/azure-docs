@@ -2,13 +2,12 @@
 title: How to secure a web application with interactive single sign-in
 titleSuffix: Azure Maps
 description: How to configure a web application that supports Microsoft Entra single sign-in with Azure Maps Web SDK using OpenID Connect protocol.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: authentication
 ---
 
 # Secure a web application with user sign-in
@@ -44,7 +43,7 @@ You must create the web application in Microsoft Entra ID for users to sign in. 
    * This step may be skipped if the application already has a Microsoft Entra app registration and secret configured.
 
     > [!TIP]
-    > If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and an Azure Key Vault instance to access secrets by [acquiring an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for accessing Azure Key Vault secrets or certificates. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect through managed identity](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
+    > If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and an Azure Key Vault instance to access secrets by [acquiring an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for accessing Azure Key Vault secrets or certificates. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect through managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
 7. Implement a secure token endpoint for the Azure Maps Web SDK to access a token.
 

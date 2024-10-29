@@ -2,12 +2,12 @@
 title: Create and list blob versions in .NET
 titleSuffix: Azure Storage
 description: Learn how to use the .NET client library to create a previous version of a blob.
-author: akashdubey-ms
+author: pauljewellmsft
 
-ms.author: akashdubey
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

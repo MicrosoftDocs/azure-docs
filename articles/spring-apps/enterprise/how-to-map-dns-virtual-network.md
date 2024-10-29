@@ -3,16 +3,15 @@ title: Map DNS names to applications in multiple Azure Spring Apps service insta
 description: Learn how to map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network.
 author: KarlErickson
 ms.author: wenhaozhang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 6/29/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 
 # Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -213,7 +212,7 @@ When an application in an Azure Spring Apps service instance with assigned endpo
 
 To use the private DNS zone to translate and resolve DNS names, you must create an "A" type record in the zone for each of your applications. In this example, the app name is `hello-vnet` and the Azure Springs Apps service instance name is `azure-spring-apps-1`.
 
-You need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
+You need the IP address for each application. Copy it as described in the [Find the IP address for your application](access-app-virtual-network.md#find-the-ip-address-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -347,7 +346,7 @@ az spring app custom-domain update \
 
 To use the private DNS zone to translate and resolve DNS names, you must create an "A" type record in the zone for each of your Azure Spring Apps service instances. In this example, the app name is `hello-vnet` and the Azure Springs Apps service instance name is `azure-spring-apps-1`.
 
-You need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
+You need the IP address for each application. Copy it as described in the [Find the IP address for your application](access-app-virtual-network.md#find-the-ip-address-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
 
 #### [Azure portal](#tab/azure-portal)
 

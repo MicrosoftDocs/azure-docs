@@ -1,7 +1,8 @@
 ---
 title: Component version validation error in Azure Resource Manager templates
 description: Component version validation error in ARM templates Known Issue
-ms.service: hdinsight
+ms.service: azure-hdinsight
+ms.custom: devx-track-arm-template
 ms.topic: troubleshooting-known-issue
 ms.date: 03/26/2024
 ---

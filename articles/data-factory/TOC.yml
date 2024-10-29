@@ -350,8 +350,6 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
-      - name: Automate with GitHub Actions
-        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -371,7 +369,7 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
-    - name: Amazon Marketplace Web Service
+    - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
       href: connector-amazon-rds-for-oracle.md
@@ -599,7 +597,11 @@ items:
     - name: SAP Table
       href: connector-sap-table.md
     - name: ServiceNow
-      href: connector-servicenow.md
+      items:
+      - name: ServiceNow
+        href: connector-servicenow.md
+      - name: ServiceNow (legacy)
+        href: connector-servicenow-legacy.md
     - name: SFTP
       href: connector-sftp.md
     - name: SharePoint Online List
@@ -1100,7 +1102,7 @@ items:
     - name: Azure Machine Learning
       items:
       - name: Data ingestion
-        href: ../machine-learning/v1/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
+        href: /azure/machine-learning/how-to-data-ingest-adf?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files
@@ -1304,6 +1306,9 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+    - name: Azure Data Factory known issues
+      href: known-issues-troubleshoot-guide.md
+      displayName: troubleshooting
 - name: SAP knowledge center
   items:
   - name: Overview
@@ -1394,6 +1399,12 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
+  - name: Important changes (deprecations) coming
+    items: 
+    - name: Connector upgrade and deprecations
+      href: connector-deprecation-plan.md
+    - name: Connector deprecation FAQ
+      href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

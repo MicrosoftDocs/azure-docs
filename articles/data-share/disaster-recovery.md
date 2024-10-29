@@ -3,7 +3,7 @@ title: Disaster recovery for Azure Data Share
 description: Disaster recovery for Azure Data Share
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 12/19/2023
 ---

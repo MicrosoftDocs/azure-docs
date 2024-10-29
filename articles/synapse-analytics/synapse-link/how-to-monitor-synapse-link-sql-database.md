@@ -2,10 +2,10 @@
 title: Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor
 description: Learn how to monitor your Azure Synapse Link for Azure SQL Database link connections.
 author: shaween18
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/10/2022
+ms.date: 10/23/2024
 ms.author: sbahadur
 ms.reviewer: imotiwala, yexu
 ---
@@ -55,8 +55,6 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
 
 1. After clicking on your link connection, you'll see the tables and their corresponding table-level metrics that summarize a few details about the tables that you're replicating over in your link connection.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png" alt-text="Screenshot that shows the details of each of the tables under a particular Azure Synapse Link connection." lightbox="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png":::
-
 1. The table-level connection grid contains the following columns: 
     
     | **Column Name** | **Description** |
@@ -67,7 +65,8 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
     | Link table ID | ID of the table in the link connection. *Helpful when troubleshooting any issues and contacting Microsoft support. |
     | Processed rows | Row counts processed by Synapse Link for SQL |
     | Processed data volume | Data volume in bytes processed by Synapse Link for SQL |
-    | Time of last processed data | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last processed data | Time when last processed change data arrived in data warehouse (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last data commit on source store | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
 
 1. You need to manually select the **Refresh** button to refresh the list of tables in the link connections and their corresponding monitoring details. Autorefresh is currently not supported.
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-refresh-tables.png" alt-text="Screenshot that shows where to press the Refresh button to refresh the statuses and details of the tables under a particular Azure Synapse Link connection.":::
@@ -83,19 +82,11 @@ In this section, we'll deep dive into setting up metrics, alerts, and logs in Az
 
 ### Metrics
 
-The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting. 
+The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-Azure Synapse Link emits the following metrics to Azure Monitor: 
-    
-| **Metric**  | **Aggregation types**  | **Description**  |
-|---------|---------|---------|
-| Link connection events | Sum | Number of Synapse Link connection events, including start, stop, and failure |
-| Link latency in seconds | Max, Min, Avg | Synapse Link data processing latency in seconds |
-| Link processed data volume (bytes) | Sum | Data volume in bytes processed by Synapse Link |
-| Link processed rows | Sum | Row counts processed by Synapse Link |
-| Link table events | Sum | Number of Synapse Link table events, including snapshot, removal, and failure |
+For a list of metrics that Azure Synapse Link emits to Azure Monitor, see [Azure Synapse Link metrics](../monitor-synapse-analytics-reference.md#azure-synapse-link-metrics).
 
-Now let’s step through how we can see these metrics in the Azure portal. 
+Now let’s step through how we can see these metrics in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -135,9 +126,7 @@ Now let’s step through how we can see these metrics in the Azure portal.
 
 ### Alerts
 
-Azure Monitor has set up built-in functionality to set up alerts to monitor all your Azure resources efficiently. Alerts allow you to monitor your telemetry and capture signals that indicate that something is happening on the specified resource. Once the signals are captured, an alert rule a defined to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, and notifications are sent through the appropriate channels.  
-
-In this section, we're going to walk through how you can set up alerts for your Azure Synapse Link connection through Azure Synapse Analytics. Let’s say, for example, that you're running your link connection and realize that you want to monitor the latency of your link connection. The workload requirements for this scenario require that any link connection with a maximum latency over 900 seconds (or 15 minutes) needs to be alerted to your Engineering team. Let’s walk through how we would set up an alert for this example: 
+In this section, we're going to walk through how you can set up [alerts](../monitor-synapse-analytics.md#alerts) for your Azure Synapse Link connection through Azure Synapse Analytics. Let’s say, for example, that you're running your link connection and realize that you want to monitor the latency of your link connection. The workload requirements for this scenario require that any link connection with a maximum latency over 900 seconds (or 15 minutes) needs to be alerted to your Engineering team. Let’s walk through how we would set up an alert for this example: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -239,6 +228,6 @@ Now let’s step through how we can see logs for our Azure Synapse Link connecti
 
 If you're using a database other than an Azure SQL database, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)

@@ -9,6 +9,8 @@ ms.topic: how-to
 
 This article explains how to configure the DMI decoder, and alternative configurations for devices that do not support it.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Overview
 
 The Microsoft Defender for IoT **Device inventory** provides an overview of all IoT devices in your environment. The device inventory table can be customized to your preferences by adding or removing information fields, and filtering the fields.

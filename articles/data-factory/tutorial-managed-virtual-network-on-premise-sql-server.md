@@ -3,10 +3,9 @@ title: Access on-premises SQL Server from Data Factory Managed VNet using Privat
 description: This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
 author: lrtoyou1223
 ms.author: lle
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 03/21/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint

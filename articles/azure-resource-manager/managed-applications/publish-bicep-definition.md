@@ -3,7 +3,7 @@ title: Use Bicep to create and publish an Azure Managed Application definition
 description: Describes how to use Bicep to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/24/2024
+ms.date: 09/22/2024
 ---
 
 # Quickstart: Use Bicep to create and publish an Azure Managed Application definition
@@ -49,74 +49,49 @@ param appServicePlanName string
 @maxLength(47)
 param appServiceNamePrefix string
 
-@description('Storage account name prefix.')
-@maxLength(11)
-param storageAccountNamePrefix string
-
-@description('Storage account type allowed values')
-@allowed([
-  'Premium_LRS'
-  'Standard_LRS'
-  'Standard_GRS'
-])
-param storageAccountType string
-
-var appServicePlanSku = 'F1'
+var appServicePlanSku = 'B1'
 var appServicePlanCapacity = 1
 var appServiceName = '${appServiceNamePrefix}${uniqueString(resourceGroup().id)}'
-var storageAccountName = '${storageAccountNamePrefix}${uniqueString(resourceGroup().id)}'
-var appServiceStorageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};Key=${storageAccount.listKeys().keys[0].value}'
+var linuxFxVersion = 'DOTNETCORE|8.0'
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: appServicePlanName
   location: location
   sku: {
     name: appServicePlanSku
     capacity: appServicePlanCapacity
   }
+  kind: 'linux'
+  properties: {
+    zoneRedundant: false
+    reserved: true
+  }
 }
 
-resource appServiceApp 'Microsoft.Web/sites@2023-12-01' = {
+resource appService 'Microsoft.Web/sites@2023-01-01' = {
   name: appServiceName
   location: location
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
+    redundancyMode: 'None'
     siteConfig: {
-      appSettings: [
-        {
-          name: 'AppServiceStorageConnectionString'
-          value: appServiceStorageConnectionString
-        }
-      ]
+      linuxFxVersion: linuxFxVersion
+      minTlsVersion: '1.2'
+      ftpsState: 'Disabled'
     }
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: storageAccountType
-  }
-  kind: 'StorageV2'
-  properties: {
-    accessTier: 'Hot'
-    allowSharedKeyAccess: false
-    minimumTlsVersion: 'TLS1_2'
-  }
-}
-
-output appServicePlan string = appServicePlan.name
-output appServiceApp string = appServiceApp.properties.defaultHostName
-output storageAccount string = storageAccount.properties.primaryEndpoints.blob
+output appServicePlan string = appServicePlanName
+output appServiceApp string = appService.properties.defaultHostName
 ```
 
 ## Convert Bicep to JSON
 
 Use PowerShell or Azure CLI to build the _mainTemplate.json_ file. Go to the directory where you saved your Bicep file and run the `build` command.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 bicep build mainTemplate.bicep
@@ -141,8 +116,8 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.27.1.19265",
-      "templateHash": "1262990362980206722"
+      "version": "0.30.3.12046",
+      "templateHash": "16466621031230437685"
     }
   },
   "parameters": {
@@ -163,79 +138,48 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
       "metadata": {
         "description": "App Service name prefix."
       }
-    },
-    "storageAccountNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "metadata": {
-        "description": "Storage account name prefix."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "allowedValues": [
-        "Premium_LRS",
-        "Standard_LRS",
-        "Standard_GRS"
-      ],
-      "metadata": {
-        "description": "Storage account type allowed values"
-      }
     }
   },
   "variables": {
-    "appServicePlanSku": "F1",
+    "appServicePlanSku": "B1",
     "appServicePlanCapacity": 1,
     "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
-    "storageAccountName": "[format('{0}{1}', parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+    "linuxFxVersion": "DOTNETCORE|8.0"
   },
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2023-12-01",
+      "apiVersion": "2023-01-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('appServicePlanSku')]",
         "capacity": "[variables('appServicePlanCapacity')]"
+      },
+      "kind": "linux",
+      "properties": {
+        "zoneRedundant": false,
+        "reserved": true
       }
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2023-12-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "httpsOnly": true,
+        "redundancyMode": "None",
         "siteConfig": {
-          "appSettings": [
-            {
-              "name": "AppServiceStorageConnectionString",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-04-01').keys[0].value)]"
-            }
-          ]
+          "linuxFxVersion": "[variables('linuxFxVersion')]",
+          "minTlsVersion": "1.2",
+          "ftpsState": "Disabled"
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
       ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-04-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "accessTier": "Hot",
-        "allowSharedKeyAccess": false,
-        "minimumTlsVersion": "TLS1_2"
-      }
     }
   ],
   "outputs": {
@@ -245,11 +189,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
     },
     "appServiceApp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-12-01').defaultHostName]"
-    },
-    "storageAccount": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-04-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-01-01').defaultHostName]"
     }
   }
 }
@@ -259,7 +199,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-In this example, the user interface prompts you to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
+In this example, the user interface prompts you to input the App Service name prefix and App Service plan's name. During deployment of _mainTemplate.json_ the `appServiceName` variables uses the `uniqueString` function to append a 13-character string to the name prefix so the name is globally unique across Azure.
 
 Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
 
@@ -312,47 +252,12 @@ Add the following JSON code to the file and save it.
             "visible": true
           }
         ]
-      },
-      {
-        "name": "storageConfig",
-        "label": "Storage settings",
-        "subLabel": {
-          "preValidation": "Configure the storage settings",
-          "postValidation": "Completed"
-        },
-        "elements": [
-          {
-            "name": "storageAccounts",
-            "type": "Microsoft.Storage.MultiStorageAccountCombo",
-            "label": {
-              "prefix": "Storage account name prefix",
-              "type": "Storage account type"
-            },
-            "toolTip": {
-              "prefix": "Enter maximum of 11 lowercase letters or numbers.",
-              "type": "Available choices are Standard_LRS, Standard_GRS, and Premium_LRS."
-            },
-            "defaultValue": {
-              "type": "Standard_LRS"
-            },
-            "constraints": {
-              "allowedTypes": [
-                "Premium_LRS",
-                "Standard_LRS",
-                "Standard_GRS"
-              ]
-            },
-            "visible": true
-          }
-        ]
       }
     ],
     "outputs": {
       "location": "[location()]",
       "appServicePlanName": "[steps('webAppSettings').appServicePlanName]",
-      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]",
-      "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-      "storageAccountType": "[steps('storageConfig').storageAccounts.type]"
+      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]"
     }
   }
 }
@@ -366,7 +271,7 @@ Add the two files to a package file named _app.zip_. The two files must be at th
 
 Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<pkgstorageaccountname>` including the angle brackets (`<>`), with your unique storage account name.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 In Visual Studio Code, open a new PowerShell terminal and sign in to your Azure subscription.
 
@@ -379,12 +284,12 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
 $pkgstorageparms = @{
   ResourceGroupName = "packageStorageGroup"
   Name = "<pkgstorageaccountname>"
-  Location = "westus3"
+  Location = "westus"
   SkuName = "Standard_LRS"
   Kind = "StorageV2"
   MinimumTlsVersion = "TLS1_2"
@@ -397,7 +302,7 @@ $pkgstorageaccount = New-AzStorageAccount @pkgstorageparms
 
 The `$pkgstorageparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the new storage account. Splatting is used in other PowerShell commands that use multiple parameter values.
 
-After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then create the context needed to create the container and upload the file.
 
@@ -435,12 +340,12 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
   --name <pkgstorageaccountname> \
   --resource-group packageStorageGroup \
-  --location westus3 \
+  --location westus \
   --sku Standard_LRS \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
@@ -501,7 +406,7 @@ This example uses a security group, and your Microsoft Entra account should be a
 
 To create a new Microsoft Entra group, go to [Manage Microsoft Entra groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $principalid=(Get-AzADGroup -DisplayName <managedAppDemo>).Id
@@ -517,7 +422,7 @@ principalid=$(az ad group show --group <managedAppDemo> --query id --output tsv)
 
 Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use the variable's value when you deploy the managed application definition.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $roleid=(Get-AzRoleDefinition -Name Owner).Id
@@ -602,7 +507,7 @@ The following table describes the parameter values for the managed application d
 | Parameter | Value |
 | ---- | ---- |
 | `managedApplicationDefinitionName` | Name of the managed application definition. For this example, use  _sampleBicepManagedApplication_.|
-| `packageFileUri` | Enter the URI for your _.zip_ package file. Use your `packageuri` variable's value. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
+| `packageFileUri` | Enter the URI for your _.zip_ package file. Use your `packageuri` variable's value. |
 | `principalId` | The publishers principal ID that needs permissions to manage resources in the managed resource group. Use your `principalid` variable's value. |
 | `roleId` | Role ID for permissions to the managed resource group. For example Owner, Contributor, Reader. Use your `roleid` variable's value. |
 
@@ -616,10 +521,10 @@ When you deploy the managed application's definition, it becomes available in yo
 
 Create a resource group named _bicepDefinitionGroup_ and deploy the managed application definition.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name bicepDefinitionGroup -Location westus3
+New-AzResourceGroup -Name bicepDefinitionGroup -Location westus
 
 $deployparms = @{
   ResourceGroupName = "bicepDefinitionGroup"
@@ -634,7 +539,7 @@ New-AzResourceGroupDeployment @deployparms
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name bicepDefinitionGroup --location westus3
+az group create --name bicepDefinitionGroup --location westus
 
 az deployment group create \
   --resource-group bicepDefinitionGroup \
@@ -649,7 +554,7 @@ az deployment group create \
 
 Run the following command to verify the definition is published in your service catalog.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionGroup
@@ -677,7 +582,7 @@ If you're going to deploy the definition, continue with the **Next steps** secti
 
 If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_ and _bicepDefinitionGroup_.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The command prompts you to confirm that you want to remove the resource group.
 

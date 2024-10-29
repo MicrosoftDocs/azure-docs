@@ -1,10 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Evaluate data integration design"
 description: "Learn how to evaluate the data integration design and validate that it meets guidelines and requirements."
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -41,7 +41,7 @@ You should perform a thorough fit gap analysis of your data integration strategy
 - Review security requirements, networking and firewall configuration of the environment and compare them to the security, networking and firewall configuration design:
     - Review how the data sources are secured and networked.
     - Review how the target data stores are secured and networked. Azure Synapse pipelines have different [data access strategies](../../data-factory/data-access-strategies.md) that provide a secure way to connect data stores via private endpoints or virtual networks.
-    - Use [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store credentials whenever applicable.
+    - Use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to store credentials whenever applicable.
     - Use ADF for customer-managed key (CMK) encryption of credentials and store them in the self-hosted IR.
 - Review the design for ongoing monitoring of all data integration components.
 
@@ -54,7 +54,7 @@ As you review the data integration design, consider the following recommendation
 For operational excellence, evaluate the following points.
 
 - **Environment:** When planning your environments, segregate them by development/test, user acceptance testing (UAT), and production. Use the folder organizational options to organize your pipelines and datasets by business/ETL jobs to support better maintainability. Use [annotations](https://azure.microsoft.com/resources/videos/azure-friday-enhanced-monitoring-capabilities-and-tagsannotations-in-azure-data-factory/) to tag your pipelines so you can easily monitor them. Create reusable pipelines by using parameters, and iteration and conditional activities.
-- **Monitoring and alerting:** Synapse workspaces include the [Monitor Hub](../get-started-monitor.md), which has rich monitoring information of each and every pipeline run. It also integrates with [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) for further log analysis and alerting. You should implement these features to provide proactive error notifications. Also, use *Upon Failure* paths to implement customized [error handling](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+- **Monitoring and alerting:** Synapse workspaces include the [Monitor Hub](../get-started-monitor.md), which has rich monitoring information of each and every pipeline run. It also integrates with [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for further log analysis and alerting. You should implement these features to provide proactive error notifications. Also, use *Upon Failure* paths to implement customized [error handling](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 - **Automated deployment and testing:** Azure Synapse pipelines are built into Synapse workspace, so you can take advantage of workspace automation and deployment. Use [ARM templates](../quickstart-deployment-template-workspaces.md) to minimize manual activities when creating Synapse workspaces. Also, [integrate Synapse workspaces with Azure DevOps](../cicd/continuous-integration-delivery.md#set-up-a-release-pipeline-in-azure-devops) to build code versioning and automate publication.
 
 ### Performance efficiency

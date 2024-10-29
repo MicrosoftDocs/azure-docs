@@ -1,26 +1,30 @@
 ---
 title: Manage script actions on Azure HDInsight on AKS clusters 
 description: An introduction on how to manage script actions in Azure HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Script actions during cluster creation
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Azure HDInsight on AKS provides a mechanism called **Script Actions** that invoke custom scripts to customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be provisioned only during cluster creation as of now. Post cluster creation, Script Actions are part of the roadmap.
 This article explains how you can provision script actions when you create an HDInsight on AKS cluster.
 
 ## Use a script action during cluster creation using Azure portal
 
-1. Upload the script action in a `ADLS/WASB` storage(does not have to be the primary cluster storage). In this example we will consider an `ADLS` storage.
+1. Upload the script action in a `ADLS/WASB` storage(doesn't have to be the primary cluster storage). In this example we consider an `ADLS` storage.
    To upload a script into your storage, navigate into the target storage and the container where you want to upload it.
 
-   :::image type="content" source="./media/manage-script-actions/upload-script-action-1.png" alt-text="Screenshot showing the how to select container." border="true" lightbox="./media/manage-script-actions/upload-script-action-1.png":::
+   :::image type="content" source="./media/manage-script-actions/upload-script-action-1.png" alt-text="Screenshot showing how to select container." border="true" lightbox="./media/manage-script-actions/upload-script-action-1.png":::
 
 1. To upload a script into your storage, navigate into the target storage and the container. Click on the upload button and select the script from your local drive.
-   After the script gets uploaded you should be able to see it in the container(see below image).
+   After the script gets uploaded you should be able to see it in the container(see following image).
 
    :::image type="content" source="./media/manage-script-actions/upload-script-action-2.png" alt-text="Screenshot showing how to upload the script." border="true" lightbox="./media/manage-script-actions/upload-script-action-2.png":::
    
@@ -32,7 +36,7 @@ This article explains how you can provision script actions when you create an HD
 
    This action opens the Script Action window. Provide the following details:
 
-   :::image type="content" source="./media/manage-script-actions/manage-script-action-add-step-2.png" alt-text="Screenshot showing the Add Script action window opens in the Azure portal.":::
+   :::image type="content" source="./media/manage-script-actions/manage-script-action-add-step-2.png" alt-text="Screenshot showing how to add Script action window opens in the Azure portal.":::
     
     |Property|Description|
     |-|-|
@@ -45,7 +49,7 @@ This article explains how you can provision script actions when you create an HD
     :::image type="content" source="./media/manage-script-actions/manage-script-action-add-node-type-step-3.png" alt-text="Screenshot showing the list of services where to the apply the script actions." border="true" lightbox="./media/manage-script-actions/manage-script-action-add-node-type-step-3.png":::
 
    > [!NOTE]
-   > * All the Script Actions will be persisted.
+   > * All the Script Actions persisted.
    > * Script actions are available only for Apache Spark cluster type.
    
 1. Select ‘OK’ to save the script.

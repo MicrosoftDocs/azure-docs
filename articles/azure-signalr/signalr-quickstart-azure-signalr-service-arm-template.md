@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -13,7 +13,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart walks you through the process of creating an Azure SignalR Service using an Azure Resource Manager (ARM) template. You can deploy the Azure SignalR Service through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal once you sign in.
 

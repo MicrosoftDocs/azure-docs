@@ -1,31 +1,32 @@
 ---
-title: Configure Traffic Collector for ExpressRoute Direct
+title: Configure Traffic Collector for ExpressRoute
 titleSuffix: Azure ExpressRoute
 description: This article shows you how to create an ExpressRoute Traffic Collector resource and import logs into a Log Analytics workspace.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 06/19/2024
 ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
 ---
 
-# Configure Traffic Collector for ExpressRoute Direct
+# Configure Traffic Collector for ExpressRoute
 
-This article helps you deploy an ExpressRoute Traffic Collector using the Azure portal. You learn how to add and remove an ExpressRoute Traffic Collector, associate it to an ExpressRoute Direct circuit and Log Analytics workspace. Once the ExpressRoute Traffic Collector is deployed, sampled flow logs get imported into a Log Analytics workspace. For more information, see [About ExpressRoute Traffic Collector](traffic-collector.md).
+This article helps you deploy an ExpressRoute Traffic Collector using the Azure portal. You learn how to add and remove an ExpressRoute Traffic Collector, associate it to an ExpressRoute circuit and Log Analytics workspace. Once the ExpressRoute Traffic Collector is deployed, sampled flow logs get imported into a Log Analytics workspace. For more information, see [About ExpressRoute Traffic Collector](traffic-collector.md).
 
 ## Prerequisites
 
-- An ExpressRoute Direct circuit with Private or Microsoft peering configured.
-- A Log Analytics workspace (Create new or use existing workspace).
-- For ExpressRoute provider support contact ErTCasks@microsoft.com.
+- An ExpressRoute circuit with bandwidth 1 Gbps or greater and Private or Microsoft peering configured.
 
+- A Log Analytics workspace (Create new or use existing workspace).
 ## Limitations
 
-- ExpressRoute Traffic Collector supports a maximum ExpressRoute Direct circuit size of 100 Gbps.
-- You can associate up to 20 ExpressRoute Direct circuits with ExpressRoute Traffic Collector. The total circuit bandwidth can't exceed 100 Gbps.
-- The ExpressRoute Direct circuit, Traffic Collector and the Log Analytics workspace must be in the same geo-political region. Cross geo-political resource association isn't supported.  
+- ExpressRoute Traffic Collector supports a maximum ExpressRoute circuit size of 100 Gbps.
+
+- You can associate up to 20 ExpressRoute circuits with ExpressRoute Traffic Collector. The total circuit bandwidth can't exceed 100 Gbps.
+
+- The ExpressRoute circuit, Traffic Collector and the Log Analytics workspace must be in the same geo-political region. Cross geo-political resource association isn't supported.  
 
 > [!NOTE]
 > - Log Analytics and ExpressRoute Traffic Collector can be deployed in a different subscription.
@@ -34,8 +35,11 @@ This article helps you deploy an ExpressRoute Traffic Collector using the Azure 
 ## Permissions
 
 - Minimum of **contributor** access is required to deploy ExpressRoute Traffic Collector.
-- Minimum of **contributor** access is required to associate ExpressRoute Direct circuit with ExpressRoute Traffic Collector.
+- Minimum of **contributor** access is required to associate ExpressRoute circuit with ExpressRoute Traffic Collector.
+
 - **Monitor contributor** role is required to associate Log Analytics workspace with ExpressRoute Traffic Collector.
+
+- Minimum of **contributor** access is required in both subscriptions to associate an ExpressRoute Traffic Collector with an ExpressRoute circuit in a different subscription.
 
 For more information, see [Identity and access management](../active-directory/fundamentals/active-directory-ops-guide-iam.md).
 
@@ -51,14 +55,14 @@ For more information, see [Identity and access management](../active-directory/f
 
     :::image type="content" source="./media/how-to-configure-traffic-collector/basics.png" alt-text="Screenshot of the basics page for create an ExpressRoute Traffic Collector.":::
 
-    | Setting | Description |
-    | --- | --- |
-    | Subscription | Select the subscription to create the ExpressRoute Traffic Collector resource. This resource needs to be in the same subscription as the ExpressRoute Direct circuit. |
-    | Resource group | Select the resource group to deploy this resource into. |
-    | Name | Enter a name to identify this ExpressRoute Traffic Collector resource. |
-    | Region | Select a region to deploy this resource into. This resource needs to be in the same geo-political region as the Log Analytics workspace and the ExpressRoute Direct circuits. |
-    | Collector Policy | This value is automatically filled in as **Default**. |
-
+   | Setting | Description |
+   | --- | --- |
+   | Subscription | Select the subscription to create the ExpressRoute Traffic Collector resource. This resource needs to be in the same subscription as the ExpressRoute circuit. |
+   | Resource group | Select the resource group to deploy this resource into. |
+   | Name | Enter a name to identify this ExpressRoute Traffic Collector resource. |
+   | Region | Select a region to deploy this resource into. This resource needs to be in the same geo-political region as the Log Analytics workspace and the ExpressRoute circuits. |
+   | Collector Policy | This value is automatically filled in as **Default**. |
+   
 1. On the **Select ExpressRoute circuit** tab, select **+ Add ExpressRoute Circuits**. 
 
 1. On the **Add Circuits** page, select the checkbox next to the circuit you would like Traffic Collector to monitor and then select **Add**. Select **Next** to configure where logs get forwarded to.

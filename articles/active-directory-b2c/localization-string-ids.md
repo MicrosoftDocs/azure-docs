@@ -5,12 +5,12 @@ description: Specify the IDs for a content definition with an ID of api.signupor
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 02/24/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing user interface localization in Azure AD B2C, I want to access the list of localization string IDs, so that I can use them in my policy to support multiple locales or languages in the user journeys.
@@ -532,7 +532,7 @@ The following IDs are used for an [Microsoft Entra ID multifactor authentication
 | `UserMessageIfMaxAllowedCodeRetryReached` | Wrong code entered too many times, please try again later.|
 | `UserMessageIfServerError` | Cannot use MFA service, please try again later.|
 | `UserMessageIfThrottled` | Your request has been throttled, please try again later.|
-| `UserMessageIfWrongCodeEntered` |Wrong code entered, please try again.|
+| `UserMessageIfIncorrectOTPCodeEntered` |Wrong code entered, please try again.|
 
 <a name='azure-ad-mfa-example'></a>
 

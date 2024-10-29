@@ -5,7 +5,7 @@ description: Learn about public IP address prefixes and how to create, change, o
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ---

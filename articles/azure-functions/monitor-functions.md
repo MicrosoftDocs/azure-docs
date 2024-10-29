@@ -19,7 +19,7 @@ ms.service: azure-functions
 Azure Functions offers built-in integration with Application Insights to monitor functions executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
 
 - [Monitor executions in Azure Functions](functions-monitoring.md)
-- [How to configure monitoring for Azure Functions](configure-monitoring.md)
+- [Configure monitoring for Azure Functions](configure-monitoring.md)
 - [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
 - [Monitor Azure Functions with Application Insights](/azure/azure-monitor/app/monitor-functions)
 

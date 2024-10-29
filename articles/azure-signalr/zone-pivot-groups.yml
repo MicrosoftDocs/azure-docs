@@ -1,0 +1,10 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: azure-signalr-service-mode
+  title: Azure SignalR Service Mode
+  prompt: Choose your Azure SignalR Service mode
+  pivots:
+  - id: default-mode
+    title: Default
+  - id: serverless-mode
+    title: Serverless

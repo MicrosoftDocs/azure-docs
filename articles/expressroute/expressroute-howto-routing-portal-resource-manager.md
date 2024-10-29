@@ -3,7 +3,7 @@ title: 'Configure peering for ExpressRoute circuit - Azure portal'
 description: This guide shows you how to create and provision ExpressRoute private and Microsoft peering using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau
@@ -24,7 +24,7 @@ This article shows you  how to create and manage routing configuration for an Az
 
 You can configure private peering and Microsoft peering for an ExpressRoute circuit. Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit." lightbox="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png":::
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ These instructions only apply to circuits created with service providers offerin
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all Microsoft Office service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
 > 
 > 
 

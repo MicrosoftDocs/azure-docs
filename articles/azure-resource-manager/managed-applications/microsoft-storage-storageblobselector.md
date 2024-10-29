@@ -2,7 +2,7 @@
 title: StorageBlobSelector UI element
 description: Describes the Microsoft.Storage.StorageBlobSelector UI element for Azure portal.
 ms.topic: reference
-ms.date: 10/27/2020
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Storage.StorageBlobSelector UI element
@@ -15,7 +15,7 @@ The user is presented with the option to browse for available storage blobs.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-browse.png" alt-text="Microsoft.Storage.StorageBlobSelector - browse":::
 
-After selecting **Browse**, the user can select a storage account.
+After **Browse** is selected, the user can select a storage account.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft.Storage.StorageBlobSelector - select storage":::
 
@@ -61,9 +61,9 @@ The control is updated to display the selected file name.
 
 ## Remarks
 
-The **constraints.allowedFileExtensions** property specifies the allowed file types.
+The `constraints.allowedFileExtensions` property specifies the allowed file types.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

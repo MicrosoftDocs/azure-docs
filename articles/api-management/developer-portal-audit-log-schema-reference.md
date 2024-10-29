@@ -4,7 +4,7 @@ description: Schema reference for the Azure API Management DeveloperPortalAuditL
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc
 ms.topic: reference
 ms.date: 05/14/2024
@@ -53,5 +53,5 @@ The following fields are logged for each request to the developer portal.
 ## Related content
 
 * [ApiManagementGatewayLogs schema reference](gateway-log-schema-reference.md)
-* Learn more about [Common and service-specific schema for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md)
+* Learn more about [Common and service-specific schema for Azure Resource Logs](/azure/azure-monitor/essentials/resource-logs-schema)
 

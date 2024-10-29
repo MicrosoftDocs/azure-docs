@@ -3,7 +3,7 @@ title: Packet core and Azure Stack Edge compatibility
 description: Discover which Azure Stack Edge models and versions are compatible with each packet core version
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 11/21/2023
 ---

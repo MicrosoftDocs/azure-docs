@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
+title: Use the Azure portal to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that have a hierarchical namespace (HNS) enabled.
 author: normesta
@@ -10,13 +10,13 @@ ms.date: 03/09/2023
 ms.author: normesta
 ---
 
-# Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
+# Use the Azure portal to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use [Azure portal](https://portal.azure.com/) to manage the access control list (ACL) of a directory or blob in storage accounts that have the hierarchical namespace featured enabled on them.
 
-For information about the structure of the ACL, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+For information about the structure of the ACL, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
-To learn about how to use ACLs and Azure roles together, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+To learn about how to use ACLs and Azure roles together, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
 
    > [!NOTE]
-   > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+   > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
 8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook.
 
@@ -84,7 +84,7 @@ You can find the complete list of guides here: [How to set ACLs](data-lake-stora
 
 ## Next steps
 
-Learn about the Data Lake Storage Gen2 permission model.
+Learn about the Data Lake Storage permission model.
 
 > [!div class="nextstepaction"]
-> [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md)
+> [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md)

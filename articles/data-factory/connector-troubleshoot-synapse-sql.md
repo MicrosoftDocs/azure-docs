@@ -6,7 +6,6 @@ author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
 ms.date: 01/05/2024
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, synapse, devx-track-extended-java
@@ -135,7 +134,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
-- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program utility (bcp) client.
+- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program (bcp) utility client.
 
 - **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md).
 
@@ -306,4 +305,4 @@ For more troubleshooting help, try these resources:
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

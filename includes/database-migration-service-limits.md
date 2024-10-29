@@ -1,6 +1,6 @@
 ---
 author: douglaslMS
-ms.service: sql-database
+ms.service: azure-sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl

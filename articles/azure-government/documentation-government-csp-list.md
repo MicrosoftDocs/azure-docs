@@ -1,18 +1,18 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+description: Comprehensive list of all the authorized Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
 author: todorgb
-ms.author: todorb
+ms.author: eliotgra
 ms.date: 10/31/2023
 ---
 
 # Azure Government authorized reseller list
 
-Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we've worked with the partner community to bring them the benefits of this channel. Our goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
+From the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), Microsoft worked with the partner community to bring them the benefits of this channel. The goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
 
-Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
+The following tables contain lists of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. We update this list as new partners are onboarded. 
 
 ## Approved direct CSPs
 
@@ -32,7 +32,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
 |[ADNET Technologies](https://thinkadnet.com/)|
-|[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Advisicon, Inc](https://advisicon.com/)|
 |[Advizex Technologies](https://advizex.com/)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|
@@ -52,11 +51,11 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|Applied Information Sciences, Inc.|
+|[Applied Information Sciences, Inc.](https://www.ais.com)|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
-|[Apptus](https://apttus.com)|
+|[Apptus](https://conga.com/)|
 |[ArcherPoint, Inc.](https://www.archerpoint.com)|
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
@@ -143,18 +142,16 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Datastrong](https://www.datastrong.com)|
 |[Daymark Solutions Inc.](https://www.daymarksi.com/)|
 |[Deborgem Enterprises Incorporated](https://deborgem.com)|
-|[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
-|[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|[DOT Personable Inc](http://solutions.personable.com/)|
+|[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
 |Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
@@ -163,6 +160,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
+|[Enavate](https://www.enavate.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
 |[Enterprise Computing Services](https://thinkecs.com/)|
@@ -190,7 +188,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
-|[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[Go Full Cloud](https://www.gofullcloud.com/)|
@@ -217,7 +214,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
-|[i3 LLC](http://i3llc.net/)|
+|[i3 LLC](https://i3llc.us/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
 |[Illuminative Strategies Inc](https://illum-strat.com)|
 |[ImageSource](https://imagesourceinc.com/)|
@@ -258,7 +255,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Kosh Solutions, LLC](https://www.koshsolutions.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[Ladlas Prince LLC](https://www.ladlasprince.com)|
-|[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
@@ -332,7 +328,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |Phacil (By Light) |
-|[Pharicode LLC](https://pharicode.com)|
+|[Pharicode LLC](https://glidefast.com/)|
 |Philistin & Heller Group, Inc.|
 |[Picis Envision](https://www.picis.com/en/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
@@ -381,6 +377,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Saasplaza](https://www.intwo.cloud/)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
+|[Sela Cloud](https://www.selacloud.com)|
 |[Selex Galileo Inc](http://www.selexgalileo.com/)|
 |[Sentinel Blue](https://www.sentinelblue.com/)|
 |[Sev1Tech](https://www.sev1tech.com/)|
@@ -393,7 +390,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Sieena, Inc.](https://siennatech.com/)|
 |[Simeon Networks](https://simeonnetworks.com)|
 |[SimpleHelix](https://simplehelix.com/)|
-|[Simons Advisors, LLC](https://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[SKY Terra Technologies LLC](https://www.skyterratech.com)|
@@ -501,8 +497,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
 |[Pax8](https://www.pax8.com/en-us/microsoft/)|
-|[Synnex](https://www.synnexcorp.com)|
-|[Tech Data Corporation](https://www.techdata.com/)|
+|[TD Synnex](https://tdsynnex.com/)|
 
 ## Approved LSPs
 

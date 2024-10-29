@@ -35,7 +35,7 @@ ms.author: robece
 1. Select **Configure an endpoint** link.
 1. On the **Select Monitor Alert Configuration** page, follow these steps.
     1. Select the alert **severity**.
-    1. [Optional] Select the **action group**. See [Create an action group in the Azure portal](../azure-monitor/alerts/action-groups.md).
+    1. [Optional] Select the **action group**. See [Create an action group in the Azure portal](/azure/azure-monitor/alerts/action-groups).
     1. Enter a **description** for the alert.
     1. Select **Confirm Selection**.    
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. For detailed steps, see [subscribe to events through portal](subscribe-through-portal.md).
@@ -56,7 +56,7 @@ In Azure monitor alerts, the Event Grid alerts appear as shown in the following 
 :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/resource-annotated-alert.png" alt-text="Screenshot that shows the sample Resource Annotated alert in Azure Monitor.":::
 
 ## Event Filters
-The event filter enables users to receive alerts for a specific resource group, specific transitions (when the availability state changes), or specific annotations (see [Resource Health virtual machine Health Annotations](../service-health/resource-health-vm-annotation.md) for the full list of annotations). Users can use this feature to customize their alerts based on their specific monitoring needs.
+The event filter enables users to receive alerts for a specific resource group, specific transitions (when the availability state changes), or specific annotations (see [Resource Health virtual machine Health Annotations](/azure/service-health/resource-health-vm-annotation) for the full list of annotations). Users can use this feature to customize their alerts based on their specific monitoring needs.
 
 
 1. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
@@ -77,7 +77,9 @@ The event filter enables users to receive alerts for a specific resource group, 
   
 ## Sample JSON events
 
-Here's the sample JSON event:
+### Sample ResourceAnnotated event
+
+Here's a sample `ResourceAnnotated` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`.
 
 ```json
 {
@@ -110,6 +112,13 @@ Here's the sample JSON event:
         "apiVersion": "2022-08-01"
     }
 }
+```
+
+### Sample AvailabilityStatusChanged event
+
+Here's a sample `AvailabilityStatusChanged` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`.
+
+```json
 {
     "id": "sample-id",
     "source": "/subscriptions/sample-subscription",
@@ -144,8 +153,8 @@ Here's the sample JSON event:
 
 See the following articles:
 
-- [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md)
-- [Manage Azure Monitor alert rules](../azure-monitor/alerts/alerts-manage-alert-rules.md)
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
+- [Manage Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules)
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)
 - [Concepts](concepts.md)

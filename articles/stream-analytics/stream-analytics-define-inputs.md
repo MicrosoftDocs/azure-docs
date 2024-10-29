@@ -1,15 +1,15 @@
 ---
 title: Stream data as input into Azure Stream Analytics
-description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
+description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events and also reference data.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 01/25/2024
 ---
 # Stream data as input into Stream Analytics
 
-Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
+Stream Analytics has first-class integration with Azure data streams as inputs from four kinds of resources:
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
@@ -50,7 +50,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Event Hub namespace** | The Event Hubs namespace is a container for event hubs. When you create an event hub, you also create the namespace. |
 | **Event Hub name** | The name of the event hub to use as input. |
 | **Event Hub consumer group** (recommended) | We recommend that you use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the `$Default` consumer group. |
-| **Authentication mode** | Specify the type of the authentication you want to use to connect to the event hub. You can use a connection string or a managed identity to authenticate with the event hub. For the managed identity option, you can either create a system-assigned managed identity to the Stream Analytics job or a user-assigned managed identity to authenticate with the event hub. When you use a managed identity, the managed identity must be a member of [Azure Event Hubs Data Receiver or Azure Event Hubs Data Owner roles](../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs). | 
+| **Authentication mode** | Specify the type of the authentication you want to use to connect to the event hub. You can use a connection string or a managed identity to authenticate with the event hub. For the managed identity option, you can either create a system-assigned managed identity for the Stream Analytics job or a user-assigned managed identity to authenticate with the event hub. When you use a managed identity, the managed identity must be a member of [Azure Event Hubs Data Receiver or Azure Event Hubs Data Owner roles](../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs). | 
 | **Event Hub policy name** | The shared access policy that provides access to the Event Hubs. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hubs settings manually.|
 | **Partition key** | It's an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It's used for improving the performance of your query if it includes a `PARTITION BY` or `GROUP BY` clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to `PartitionId.` |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
@@ -63,7 +63,7 @@ When your data comes from an Event Hubs stream input, you have access to the fol
 | Property | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |The date and time when Stream Analytics processes the event. |
-| **EventEnqueuedUtcTime** |The date and time that when Event Hubs receives the events. |
+| **EventEnqueuedUtcTime** |The date and time when Event Hubs receives the events. |
 | **PartitionId** |The zero-based partition ID for the input adapter. |
 
 For example, using these fields, you can write a query like the following example:

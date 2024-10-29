@@ -3,9 +3,9 @@ title: 'Add or remove site-to-site connections'
 description: Learn how to add or remove site-to-site connections from a VPN gateway.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 07/08/2024
 ms.author: cherylmc
 
 ---
@@ -33,11 +33,9 @@ Verify the following items:
 
 ## <a name="local"></a>Create a local network gateway
 
-Create a local network gateway that represents the branch or location you want to connect to.
+The local network gateway is a specific object deployed to Azure that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you'll create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
-The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you'll create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
-
-In this example, we create a local network gateway using the following values.
+Create a local network gateway using the following example values:
 
 * **Name:** Site1
 * **Resource Group:** TestRG1
@@ -56,9 +54,7 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 ## <a name="configure"></a>Configure a connection
 
-Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device.
-
-Create a connection using the following values:
+Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. In this section, we use the following example values:
 
 * **Local network gateway name:** Site1
 * **Connection name:** VNet1toSite1

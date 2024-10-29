@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance with the policy.
-ms.date: 11/30/2023
+ms.date: 09/30/2024
 ms.topic: how-to
 ---
 
@@ -194,7 +194,7 @@ Begin by following the same steps in the [Compliance details](#compliance-detail
 
 In the Compliance details pane view, select the link **Last evaluated resource**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot of viewing the auditIfNotExists definition compliance details." :::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot of viewing the auditIfNotExists definition compliance details." lightbox="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png":::
 
 The **Guest Assignment** page displays all available compliance details. Each row in the view
 represents an evaluation that was performed inside the machine. In the **Reason** column, a phrase
@@ -202,7 +202,7 @@ is shown describing why the Guest Assignment is _Non-compliant_. For example, if
 password policies, the **Reason** column would display text including the current value for each
 setting.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." :::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." lightbox="../media/determine-non-compliance/guestconfig-compliance-details.png":::
 
 ### View configuration assignment details at scale
 

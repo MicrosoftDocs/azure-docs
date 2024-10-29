@@ -6,9 +6,9 @@ author: abhinavsriram
 ms.author: victorh
 ms.date: 05/20/2024
 ms.topic: conceptual
-ms.service: firewall
+ms.service: azure-firewall
 ms.localizationpriority: high
-ms.collection: Tier1
+ms.collection: Tier1, ce-skilling-ai-copilot
 ---
 
 # Azure Firewall integration in Microsoft Copilot for Security (preview)
@@ -24,7 +24,7 @@ Microsoft Copilot for Security is a generative AI-powered security solution that
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
-The Azure Firewall integration helps analysts perform detailed investigations of the malicious traffic intercepted by the IDPS and/or threat intelligence features of their firewalls across their entire fleet using natural language questions in the Copilot for Security standalone experience.
+The Azure Firewall integration helps analysts perform detailed investigations of the malicious traffic intercepted by the IDPS feature of their firewalls across their entire fleet using natural language questions in the Copilot for Security standalone experience.
 
 This article introduces you to Copilot and includes sample prompts that can help Azure Firewall users.
 
@@ -51,17 +51,17 @@ For more information about writing effective Copilot for Security prompts, see [
     - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and these logs must be sent to a Log Analytics workspace.
     - [Role Based Access Control for Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/role-based-access-control-for-azure-firewall/ba-p/2245598) – the users using the Azure Firewall plugin in Copilot for Security must have the appropriate Azure RBAC roles to access the Firewall and associated Log Analytics workspace(s).
 2.	Go to [Microsoft Copilot for Security](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
-3.	Ensure that the Azure Firewall plugin is turned on. In the prompt bar, select the **Sources** icon.
+1. In the prompt bar, select the **Sources** icon.
 
-    :::image type="content" source="media/firewall-copilot/copilot-prompts-bar-sources.png" alt-text="Screenshot of the prompt bar in Microsoft Copilot for Security with the Sources icon highlighted.":::
+  :::image type="content" source="media/firewall-copilot/copilot-prompts-bar-sources.png" alt-text="Screenshot of the prompt bar in Microsoft Copilot for Security with the Sources icon highlighted.":::
 
-  
-    In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on, then close the window.
 
-    :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
+   In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on, then close the window. No additional configuration is necessary, as long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot will find the data it needs to answer your questions.
+   
+  :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
-    > [!NOTE]
-    > Some roles can turn the toggle on or off for plugins like Azure Firewall. For more information, see [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins?tabs=securitycopilotplugin).
+  > [!NOTE]
+  > Some roles can turn the toggle on or off for plugins like Azure Firewall. For more information, see [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins?tabs=securitycopilotplugin).
 
 
 4. Enter your prompt in the prompt bar.
@@ -105,9 +105,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 - I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE.
 
 > [!NOTE]
->The Microsoft Defender Threat Intelligence plugin is another source that Copilot for Security may use to provide threat intelligence for IDPS signatures.
-
-
+> The Microsoft Threat Intelligence plugin is another source that Copilot for Security may use to provide threat intelligence for IDPS signatures.
 ### Look for a given IDPS signature across your tenant, subscription, or resource group
 
 Perform a **fleet-wide search** (over any scope) for a threat across all your Firewalls instead of searching for the threat manually.

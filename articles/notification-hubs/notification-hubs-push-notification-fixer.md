@@ -4,7 +4,7 @@ description: Learn how to diagnose common issues with dropped notifications in A
 services: notification-hubs
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.devlang: csharp
 ms.topic: article
 ms.date: 06/08/2023

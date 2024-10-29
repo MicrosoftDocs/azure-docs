@@ -3,7 +3,7 @@ title: Entitlement concepts in Azure Data Manager for Energy
 description: This article describes various concepts of the entitlement service in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 02/10/2023
 ms.custom: template-concept
@@ -70,7 +70,7 @@ Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_
 And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
 ### Unknown OID
-You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy instance ID that is used for system to system communication. This OID gets created uniquely for each instance. 
+You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy GUID that is used for internal system to system communication. This GUID gets created uniquely for each instance and is enforced by the system to not be deleted or removed by you.
 
 ## Users
 

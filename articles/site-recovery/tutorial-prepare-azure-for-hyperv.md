@@ -1,7 +1,7 @@
 ---
 title: Prepare Azure resources for Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to prepare Azure resources for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/22/2022
 ms.custom: MVC, engagement-fy23
@@ -128,4 +128,4 @@ It takes a few minutes for the virtual network to be created. After it's created
 
 - [Prepare the on-premises Hyper-V infrastructure](hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure.
 - Learn about [Azure networks](../virtual-network/virtual-networks-overview.md).
-- Learn about [Managed disks](../virtual-machines/managed-disks-overview.md).
+- Learn about [Managed disks](/azure/virtual-machines/managed-disks-overview).

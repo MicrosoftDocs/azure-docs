@@ -56,8 +56,10 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported.
 - For Teams Interop scenarios, it's the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
 - When creating a chat thread, you can set the retention policy between 30 and 90 days.
-- For Teams Interop scenarios, the typing indicator event might contain a blank display name when sent from Teams user.
-- For Teams Interop scenarios, read receipts aren't supported for Teams users.
+- Moreover, in Teams Interop scenarios, there are the following limitations:
+    - The Teams user's display name in typing indicator event is blank.
+    - Read receipt isn't supported.
+    - Certain identities are not supported (i.e. [Bot users](/microsoftteams/platform/bots/what-are-bots), [Skype users](https://support.microsoft.com/en-us/office/use-skype-in-microsoft-teams-4382ea15-f963-413d-8982-491c1b9ae3bf), [non-enterprise users](https://support.microsoft.com/en-us/office/learn-more-about-subscriptions-for-microsoft-teams-free-1061bbd0-6d97-46a6-8ca0-21059be3eee3), etc.)
   
 ## Chat architecture
 

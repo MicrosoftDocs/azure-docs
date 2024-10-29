@@ -3,11 +3,10 @@ title: Copy data from Xero
 description: Learn how to copy data from Xero to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/12/2024
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -15,6 +14,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Xero. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> The Xero connector requires OAuth authentication and is not intended for server-to-server use.
 
 ## Supported capabilities
 
@@ -31,8 +33,9 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 Specifically, this Xero connector supports:
 
-- OAuth 2.0 and OAuth 1.0 authentication. For OAuth 1.0, the connector supports Xero [private application](https://developer.xero.com/documentation/getting-started/getting-started-guide) but not public application.
+- OAuth 2.0 authentication.
 - All Xero tables (API endpoints) except "Reports".
+- Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 ## Getting started
 

@@ -1,14 +1,14 @@
 ---
 title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # Enterprise security general information and guidelines in Azure HDInsight
 
-When deploying a secure HDInsight cluster, there are some best practices that should make the deployment and cluster management easier. Some general information and guidelines are discussed here.
+When you deploy a secure HDInsight cluster, there are some best practices that should make the deployment and cluster management easier. Some general information and guidelines are discussed here.
 
 ## Use of secure cluster
 
@@ -66,7 +66,7 @@ When hierarchical name space in not enabled:
 If the url auth is enabled:
 
 * The config will contain what prefixes are covered in the url auth (like `adl://`).
-* If the access is for this url, then Ranger will check if the user is in the allow list.
+* If the access is for this url, then Ranger will check if the user is in the allowlist.
 * Ranger won't check any of the fine grained policies.
 
 ### Manage Ranger audit logs
@@ -139,7 +139,7 @@ HDInsight can't depend on on-premises domain controllers or custom domain contro
 
 ### Choose correct Microsoft Entra Domain Services SKU 
 
-When creating your managed domain, [you can choose from different SKUs](/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the Microsoft Entra Domain Services instance for authentication requests determines which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
+When creating your managed domain, [you can choose from different SKUs](/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The number of ESP clusters and other applications that will be using the Microsoft Entra Domain Services instance for authentication requests determines which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
 
 <a name='azure-ad-ds-instance'></a>
 
@@ -183,14 +183,14 @@ For more information, see [Microsoft Entra UserPrincipalName population](../../a
 
 ### Set Ambari LDAP sync to run daily
 
-The process of syncing new LDAP users to Ambari is automatically configured to run every hour. Running this every hour can cause excess load on the cluster's headnodes and the AD instance. For improved performance, we recommend changing the /opt/startup_scripts/start_ambari_ldap_sync.py script that runs the Ambari LDAP sync to run once a day. This script is run through a crontab job, and it is stored the in the directory "/etc/cron.hourly/" on the cluster headnodes.  
+The process of syncing new LDAP users to Ambari is automatically configured to run every hour. Running this every hour can cause excess load on the cluster's headnodes and the AD instance. For improved performance, we recommend changing the /opt/startup_scripts/start_ambari_ldap_sync.py script that runs the Ambari LDAP sync to run once a day. This script is run-through a crontab job, and it is stored in the directory "/etc/cron.hourly/" on the cluster headnodes.  
 
 To make it run once a day, perform the following steps: 
 
 1. ssh to hn0
 2. Move the script to the cron daily folder: `sudo mv /etc/cron.hourly/ambarildapsync /etc/cron.daily/ambarildapsync`
 3. Apply the change in the crontab job: `sudo service cron reload`
-4. ssh to hn1 and repeat stepts 1 - 3 
+4. ssh to hn1 and repeat steps 1 - 3 
 
 If needed, you can [use the Ambari REST API to manually synchronize new users and groups](/azure/hdinsight/hdinsight-sync-aad-users-to-cluster#use-the-apache-ambari-rest-api-to-synchronize-users) immediately. 
 
@@ -200,7 +200,7 @@ Each cluster is associated with a single OU. An internal user is provisioned in 
 
 ### Active Directory administrative tools
 
-For steps on how to install the Active Directory administrative tools on a Windows Server VM, see [Install management tools](../../active-directory-domain-services/tutorial-create-management-vm.md).
+For more information, see [Install management tools](../../active-directory-domain-services/tutorial-create-management-vm.md).
 
 ## Troubleshooting
 

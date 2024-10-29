@@ -1,7 +1,7 @@
 ---
 title: Connect to dedicated SQL pool (formerly SQL DW) with SSMS
 description: Use SQL Server Management Studio (SSMS) to connect to and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018

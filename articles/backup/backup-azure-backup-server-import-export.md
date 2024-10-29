@@ -3,7 +3,7 @@ title: Offline seeding workflow for DPM and MABS using customer-owned disks with
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
 ms.topic: how-to
 ms.date: 05/24/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -50,7 +50,7 @@ Ensure that the following prerequisites are met before you start the offline bac
 
 * On the DPM or MABS server, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled.
 * Create an Azure Storage account in the same subscription as the Recovery Services vault.
-* Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administratorl) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
+* Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 * Register the Microsoft.DataBox resource provider with the subscription containing the Azure Storage account. To register the resource provider:
     1. In the main menu, select **Subscriptions**.
     2. If you're subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.

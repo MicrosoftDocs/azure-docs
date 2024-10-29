@@ -3,7 +3,6 @@ title: Copy and transform data from Microsoft 365 (Office 365)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -13,7 +12,7 @@ ms.author: jianleishen
 # Copy from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Please refer to [this link](/graph/data-connect-concept-overview) for an overview of Microsoft Graph data connect.
+Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Refer to [this link](/graph/data-connect-concept-overview) for an overview of Microsoft Graph data connect.
 
 This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
 
@@ -33,7 +32,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
-For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). When copying to Azure Blob Storage, the output is a blob containing JSON text. If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
+For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). When you copy to Azure Blob Storage, the output is a blob containing JSON text. If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Microsoft Entra tenant as Microsoft 365 (Office 365) tenant.
@@ -49,17 +48,17 @@ To copy and transform data from Microsoft 365 (Office 365) into Azure, you need 
 
 - Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Create and configure a Microsoft Entra web application in Microsoft Entra ID.  For instructions, see [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-- Make note of the following values, which you will use to define the linked service for Microsoft 365 (Office 365):
+- Make note of the following values, which you use to define the linked service for Microsoft 365 (Office 365):
   - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
   - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
-- Add the user identity who will be making the data access request as the owner of the Microsoft Entra web application (from the Microsoft Entra web application > Settings > Owners > Add owner).
-  - The user identity must be in the Microsoft 365 (Office 365) organization you are getting data from and must not be a Guest user.
+- Add the user identity who is making the data access request as the owner of the Microsoft Entra web application (from the Microsoft Entra web application > Settings > Owners > Add owner).
+  - The user identity must be in the Microsoft 365 (Office 365) organization you're getting data from and must not be a Guest user.
 
 ## Approving new data access requests
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request.
 
 
 ## Getting started

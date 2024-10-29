@@ -1,9 +1,9 @@
 ---
 title: Migrate on-premises machines with Azure Migrate
 description: This article summarizes how to migrate on-premises machines to Azure, and recommends Azure Migrate.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2023
+ms.date: 05/24/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -23,6 +23,7 @@ Follow these links to migrate with Azure Migrate:
 - Migrate [physical servers or other VMs](../migrate/tutorial-migrate-physical-virtual-machines.md), including [AWS instances](../migrate/tutorial-migrate-aws-virtual-machines.md) to Azure.
 
 ## Migrate with Site Recovery
+
 Site Recovery should be used for disaster recovery only, and not migration.
 
 If you're already using Azure Site Recovery, and you want to continue using it for migration, follow the same steps that you use for disaster recovery.
@@ -36,7 +37,6 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
 
   

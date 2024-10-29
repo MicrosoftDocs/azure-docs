@@ -3,9 +3,9 @@ title: 'Deploy a React app on Azure Static Web Apps'
 description: Learn to deploy a React app to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
-ms.date: 08/02/2023
+ms.date: 05/23/2024
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
@@ -42,13 +42,13 @@ This article uses an Azure DevOps repository to make it easy for you to get star
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.
-3. In the *Create new project* window, expand **Advanced** menu and make the following selections:
+3. In the *Create new project* window, expand the **Advanced** menu and make the following selections:
 
     | Setting | Value |
     |--|--|
     | Project | Enter **my-first-web-static-app**. |
     | Visibility | Select **Private**. |
-    | Version control | Select **Git**.  |
+    | Version control | Select **Git**. |
     | Work item process | Select the option that best suits your development methods. |
 
 4. Select **Create**.

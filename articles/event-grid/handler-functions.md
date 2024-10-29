@@ -16,11 +16,11 @@ To use a function in Azure as a handler for events, follow one of these approach
 -	Use [HTTP trigger](../azure-functions/functions-bindings-http-webhook.md).  Specify **Web Hook** as the **endpoint type**. Then, specify the URL for the function that will handle events. 
 
 We recommend that you use the first approach (Event Grid trigger) as it has the following advantages over the second approach:
--	Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md) yourself.
+-	Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](end-point-validation-event-grid-events-schema.md) yourself.
 -	Event Grid automatically adjusts the rate at which events are delivered to a function triggered by an Event Grid event based on the perceived rate at which the function can process events. This rate match feature averts delivery errors that stem from the inability of a function to process events as the function’s event processing rate can vary over time. To improve efficiency at high throughput, enable batching on the event subscription. For more information, see [Enable batching](#enable-batching).
 
 > [!NOTE]
-> - When you an Event Grid trigger to add an event subscription using an Azure function, Event Grid fetches the access key for the target function using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. 
+> - When you use an Event Grid trigger to add an event subscription using an Azure function, Event Grid fetches the access key for the target function using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. 
 > - If you protect your Azure function with an **Microsoft Entra ID** application, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
 
 ## Tutorials
@@ -28,7 +28,6 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: Handle events with function](custom-event-to-function.md) | Sends a custom event to a function for processing. |
-| [Tutorial: automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
 | [Tutorial: stream big data into a data warehouse](event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to a function app and a logic app. |
 
@@ -77,7 +76,7 @@ You can use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
 > [!NOTE]
-> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your azure function with a Microsoft Entra application, you have to take the generic web hook approach and use the HTTP Trigger.
+> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your Azure function with a Microsoft Entra application, you have to take the generic web hook approach and use the HTTP Trigger.
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers.

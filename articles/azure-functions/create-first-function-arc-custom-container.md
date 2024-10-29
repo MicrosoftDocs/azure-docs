@@ -3,14 +3,14 @@ title: Create your first containerized Azure Functions on Azure Arc
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 06/05/2023
-ms.custom: mode-other, devx-track-azurecli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content
+ms.custom: mode-other, devx-track-azurecli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
 ms.devlang: azurecli
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Create your first containerized Azure Functions on Azure Arc (preview)
 
-In this article, you create a function app running in a Linux container and deploy it to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from a container registry. When you create your own container, you can customize the execution environment for your function app. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).
+In this article, you create a function app running in a Linux container and deploy it to an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) from a container registry. When you create your own container, you can customize the execution environment for your function app. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).
 
 > [!NOTE]
 > Support for deploying a custom container to an Azure Arc-enabled Kubernetes cluster is currently in preview.  

@@ -4,9 +4,9 @@ metadata:
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
   author: vhorne
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/29/2024
   ms.author: victorh
 title: Azure Firewall FAQ
@@ -40,7 +40,7 @@ sections:
 
           * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
           * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
-          * *NAT rules*: Configure DNAT rules to allow incoming Internet connections.
+          * *NAT rules*: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.
 
           For more information, see [Configure Azure Firewall rules](rule-processing.md).
 
@@ -172,15 +172,15 @@ sections:
         answer: |
           For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
-      - question: Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
-        answer: Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
+      - question: Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?
+        answer: Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
       - question: Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
         answer: Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires more attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.
 
       - question: Does Azure Firewall outbound SNAT between private networks?
         answer: |
-          Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+          Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) or [IANA RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
           In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
       - question: Is forced tunneling/chaining to a Network Virtual Appliance supported?
@@ -192,7 +192,11 @@ sections:
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
       - question: Are there any firewall resource group restrictions?
-        answer: Yes. The firewall, VNet, and the public IP address all must be in the same resource group.
+        answer: |
+          Yes. 
+          - The firewall and VNet must be in the same resource group.
+          - The public IP address can be in any resource group.
+          - The firewall, VNet, and the public IP address all must be in the same subscription.
 
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |
