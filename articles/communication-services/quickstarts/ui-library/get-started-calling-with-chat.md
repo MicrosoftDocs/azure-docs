@@ -15,11 +15,9 @@ zone_pivot_groups: acs-plat-ios-android
 #Customer intent: As a developer, I want to add calling and chat functionality to my app.
 ---
 
-# Integrate Calling and Chat UI Libraries
+# Integrate calling and chat by using the UI Library
 
 In this article, you learn how to integrate calling and chat functionality in your Android or iOS app by using the Azure Communication Services UI Library.
-
-## Set up the feature
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Integrate Calling with Chat in the Android UI Library](./includes/get-started-calling-with-chat/android.md)]
