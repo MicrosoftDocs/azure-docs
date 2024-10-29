@@ -17,8 +17,6 @@ ms.date: 08/29/2024
 
 By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
 
-<!-- TODO: link to reference docs -->
-
 ## Default dataflow profile
 
 By default, a dataflow profile named "default" is created when Azure IoT Operations is deployed.
