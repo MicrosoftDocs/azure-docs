@@ -27,6 +27,7 @@ Take a closer look at the features across the three Azure Firewall versions:
 
 You can use the following flow chart to help you choose the Azure Firewall version that best fits you needs.
 
+<!-- Art Library Source# ConceptArt-0-000-011 -->
 :::image type="content" source="media/choose-firewall-sku/firewall-sku-flow.svg" alt-text="Flow diagram to help you choose a firewall version." lightbox="media/choose-firewall-sku/firewall-sku-flow.svg":::
 
 ## Next steps
