@@ -25,9 +25,9 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     - Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
-    - Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](/how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
+    - Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](how-to-control-what-traffic-is-monitored#customize-a-vlan-name).
 
-    - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](/concept-supported-protocols.md).
+    - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
 
 1. Sensor location
 
@@ -77,7 +77,7 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
     By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
 
-    For more information, see [traffic mirroring process](/traffic-mirroring/traffic-mirroring-overview.md#traffic-mirroring-processes).
+    For more information, see [traffic mirroring process](traffic-mirroring/traffic-mirroring-overview.md#traffic-mirroring-processes).
 
 1. Deploy the sensors
 
