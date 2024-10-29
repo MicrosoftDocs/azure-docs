@@ -59,7 +59,7 @@ Download then open the Notebook used in this tutorial:
 1. Open the file [weatherDataMaps.ipynb] in the [AzureMapsJupyterSamples] repository in GitHub.
 1. Select the **Download raw file** button in the upper-right corner of the screen to save the file locally.
 
-    ![A screenshot showing how to download the Notebook file named weatherDataMaps.ipynb from the GitHub repository.](./media/weather-service-tutorial/download-notebook.png)
+    :::image type="content" source="./media/weather-service-tutorial/download-notebook.png"alt-text="A screenshot showing how to download the Notebook file named weatherDataMaps.ipynb from the GitHub repository.":::
 
 1. Open the downloaded Notebook in Visual Studio Code by right-clicking on the file then selecting **Open with > Visual Studio Code**, or through the VS Code File Explorer.
 
@@ -76,7 +76,7 @@ import datetime
 from IPython.display import Image, display
 ```
 
-![A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.](./media/weather-service-tutorial/import-libraries.png)
+:::image type="content" source="./media/weather-service-tutorial/import-libraries.png"alt-text="A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.":::
 
 ## Import weather data
 
@@ -145,7 +145,7 @@ await session.close()
 display(Image(poi_range_map))
 ```
 
-![Turbine locations](./media/weather-service-tutorial/location-map.png)
+:::image type="content" source="./media/weather-service-tutorial/location-map.png"alt-text="A screenshot showing turbine locations on a map.":::
 
 Group the forecast data with the demo data based on the station ID. The station ID is for the weather data center. This grouping augments the demo data with the forecast data.
 
@@ -194,11 +194,11 @@ windsPlot.set_ylabel("Wind direction")
 
 The following graphs visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
 
-![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)
+:::image type="content" source="./media/weather-service-tutorial/speed-date-plot.png"alt-text="A screenshot showing wind speed plots.":::
+
+:::image type="content" source="./media/weather-service-tutorial/direction-date-plot.png"alt-text="A screenshot showing wind direction plots.":::
 
 In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
-
-To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks].
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
@@ -210,14 +210,13 @@ For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about all the notebooks experiences from Microsoft and GitHub]: https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/
+> [Learn more about all the notebooks experiences from Microsoft and GitHub](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps REST APIs]: consumption-model.md
 [AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
-[EV routing using Azure Notebooks]: tutorial-ev-routing.md
 [free account]: https://azure.microsoft.com/free/
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [Jupyter Notebook in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks

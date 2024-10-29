@@ -57,7 +57,7 @@ Download then open the Notebook used in this tutorial:
 1. Open the file [EVrouting.ipynb] in the [AzureMapsJupyterSamples] repository in GitHub.
 1. Select the **Download raw file** button in the upper-right corner of the screen to save the file locally.
 
-    ![A screenshot showing how to download the Notebook file named EVrouting.ipynb from the GitHub repository.](./media/tutorial-ev-routing/download-notebook.png)
+    :::image type="content" source="./media/tutorial-ev-routing/download-notebook.png"alt-text="A screenshot showing how to download the Notebook file named EVrouting.ipynb from the GitHub repository.":::
 
 1. Open the downloaded Notebook in Visual Studio Code by right-clicking on the file then selecting **Open with > Visual Studio Code**, or through the VS Code File Explorer.
 
@@ -74,13 +74,13 @@ import urllib.parse
 from IPython.display import Image, display
 ```
 
-![A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.](./media/tutorial-ev-routing/import-libraries.png)
+:::image type="content" source="./media/tutorial-ev-routing/import-libraries.png"alt-text="A screenshot showing how to download the first cell in the Notebook containing the required import statements with the run button highlighted.":::
 
 ## Request the reachable range boundary
 
 A package delivery company operates a fleet that includes some electric vehicles. These vehicles need to be recharged during the day without returning to the warehouse. When the remaining charge drops below an hour, a search is conducted to find charging stations within a reachable range. The boundary information for the range of these charging stations is then obtained.
 
-The requested routeType is eco to balance economy and speed. The following script calls the [Get Route Range] API of the Azure Maps routing service, using parameters related to the vehicle's consumption model. The script then parses the response to create a polygon object in GeoJSON format, representing the car's maximum reachable range.
+The requested `routeType` is _eco_ to balance economy and speed. The following script calls the [Get Route Range] API of the Azure Maps routing service, using parameters related to the vehicle's consumption model. The script then parses the response to create a polygon object in GeoJSON format, representing the car's maximum reachable range.
 
 ```python
 subscriptionKey = "Your Azure Maps key"
@@ -179,7 +179,7 @@ poiRangeMap = await staticMapResponse.content.read()
 display(Image(poiRangeMap))
 ```
 
-![A map showing the location range](./media/tutorial-ev-routing/location-range.png)
+:::image type="content" source="./media/tutorial-ev-routing/location-range.png"alt-text="A screenshot that shows the location range.":::
 
 ## Find the optimal charging station
 
@@ -268,7 +268,7 @@ await session.close()
 display(Image(staticMapImage))
 ```
 
-![A map showing the route](./media/tutorial-ev-routing/route.png)
+:::image type="content" source="./media/tutorial-ev-routing/route.png"alt-text="A screenshot that shows a map showing the route.":::
 
 In this tutorial, you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data by using Python.
 
@@ -284,7 +284,7 @@ For more information on the Azure Maps APIs used in this tutorial, see:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about all the notebooks experiences from Microsoft and GitHub]: https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/
+> [Learn more about all the notebooks experiences from Microsoft and GitHub](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
 
 [aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
