@@ -577,13 +577,25 @@
       - name: Instance snapshot
         href: sap-hana-database-instances-restore.md
     - name: Manage
-      href: sap-hana-database-manage.md
+      items:
+      - name: Manage SAP ASE database
+        href: sap-ase-database-manage.md
+      - name: Striping
+        href: configure-striping.md
+      - name: Compression
+        href: enable-native-compression.md
   - name: SAP ASE database on Azure VM backup
     items:
     - name: Restore
       href: sap-ase-database-restore.md
     - name: Manage
-      href: sap-ase-database-manage.md
+      items:
+      - name: Manage SAP ASE database
+        href: sap-ase-database-manage.md
+      - name: Striping
+        href: configure-striping.md
+      - name: Compression
+        href: enable-native-compression.md
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
