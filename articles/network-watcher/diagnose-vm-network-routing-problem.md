@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 10/26/2023
+ms.date: 10/29/2024
 
 #CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
 ---
@@ -15,7 +15,7 @@ ms.date: 10/26/2023
 
 In this tutorial, you use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a VM routing problem that's preventing it from correctly communicating with other resources. Next hop shows you that a [custom route](../virtual-network/virtual-networks-udr-overview.md?toc=/azure/network-watcher/toc.json#custom-routes) caused the routing problem.
 
-:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png":::
+:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -45,7 +45,9 @@ In this section, you create a virtual network.
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
-1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
+1. Select **+ Create**.
+
+1. Enter or select the following values on the **Basics** tab of **Create virtual network**:
 
     | Setting | Value |
     | --- | --- |
@@ -54,11 +56,11 @@ In this section, you create a virtual network.
     | Resource Group | Select **Create new**. </br> Enter ***myResourceGroup*** in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
     | Virtual network name | Enter ***myVNet***. |
-    | Region | Select **East US**. |
+    | Region | Select **(US) East US**. |
 
 1. Select the **IP Addresses** tab, or select **Next** button at the bottom of the page twice.
 
-1. Enter the following values in the **IP Addresses** tab:
+1. Enter the following values on the **IP Addresses** tab:
 
     | Setting | Value |
     | --- | --- |
@@ -72,7 +74,9 @@ In this section, you create a virtual network.
 
 ## Create virtual machines
 
-In this section, you create two virtual machines: **myVM** and **myNVA**. You use **myVM** virtual machine to test the communication from. **myNVA** virtual machine is used as a network virtual appliance in the scenario.
+In this section, you create two virtual machines:
+- **myVM**: to test the communication from.
+- **myNVA**: to use as a network virtual appliance.
 
 ### Create first virtual machine
 
@@ -80,17 +84,17 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
-1. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
+1. Enter or select the following values on the **Basics** tab of **Create a virtual machine**:
 
     | Setting | Value |
     | --- | --- |
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **myResourceGroup**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Virtual machine name | Enter ***myVM***. |
     | Region | Select **(US) East US**. |
-    | Availability Options | Select **No infrastructure redundancy required**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
     | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |
     | Size | Choose a size or leave the default setting. |
@@ -101,7 +105,7 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 
-1. In the Networking tab, enter or select the following values:
+1. On the Networking tab, enter or select the following values:
 
     | Setting | Value |
     | --- | --- |
@@ -194,7 +198,7 @@ In this section, you create a static custom route (user-defined route) in a rout
 
 1. In the search box at the top of the portal, enter ***route tables***. Select **Route tables** from the search results.
 
-1. Select **+ Create** to create a new route table. In the **Create Route table** page, enter or select the following values:
+1. Select **+ Create** to create a new route table. On the **Create Route table** page, enter or select the following values:
 
     | Setting | Value  |
     | ------- | ------ |
