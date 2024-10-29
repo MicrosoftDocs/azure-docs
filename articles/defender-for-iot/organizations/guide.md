@@ -5,45 +5,41 @@ ms.topic: install-set-up-deploy
 ms.date: 10/15/2024
 ---
 
-# Deployment guide for network sensor
+# Deployment guide for the network sensor - WHERE SHOULD THIS BE PLACED IN THE TOC
 
-Deploying sensors effectively is crucial for ensuring comprehensive network monitoring and security. This guide provides a step-by-step approach to successful sensor deployment, covering essential aspects such as:
+This guide provides a step-by-step approach to successfully deploying your network sensor deployment, and ensuring comprehensive network monitoring and security. The five deployment steps are as follows:
 
-- network architecture review,  
-
-- sensor placement,  
-
-- traffic mirroring methods,  
-
-- and post-deployment validation.  
+1. Network architecture review
+1. Sensor location
+1. Traffic Mirroring Methods
+1. Deploy the sensors
+1. Post-deployment validation
 
 Follow these guidelines to optimize your sensor performance and achieve accurate and reliable network data collection.
-
-## Deployment Steps
-
-These are the following five deployment steps
 
 1. Network architecture review
 
     Before the sensor can be applied to the network, it's crucial to review the network architecture. These steps include:
 
-    - Reviewing the network diagram.
+    - Review the network diagram. For more information, see [review architecture](best-practices/understand-network-architecture.md) or [create a network diagram](best-practices/plan-prepare-deploy.md#create-a-network-diagram).
 
-    - Estimating the total number of devices to be monitored.
+    - Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
-    - Identifying VLANs that contain OT networks.
+    - Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](/how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
 
-    - Determining the OT protocols expected to be monitored (Profinet, S7, Modbus etc..).
+    - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](/concept-supported-protocols.md).
 
 1. Sensor location
 
-    The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following three important types of network traffic:
+    Identify the best location to place the sensor in the network, to monitor the network traffic and provide the best discovery and security value possible. The location should give the sensor access to the following three important types of network traffic:
 
     | Type | Description|
     |---|---|
     |Layer 2 (L2) Traffic | L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? --> |
     | OT Protocols | OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security. |
     | Inner Subnet Communication | In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.|
+
+    For more information, see [placing OT sensors in your network](best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
     **Validation of the sensor location**
 
@@ -69,41 +65,6 @@ These are the following five deployment steps
     | **Benefits** | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
     | **Limitations** | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
 
-    1. Switched Port Analyzer (SPAN)
-
-        :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the setup of the local SPAN traffic mirroring between the OT network and the sensor.":::
-
-        |Mirroring type| Switched Port Analyzer (SPAN) |
-        |---|---|
-        |Usage Scenario | Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|
-        |Description| SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. |
-        |Mirroring set up | - Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.<br>  - Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.|
-        | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|
-        | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|
-
-    1. Remote SPAN (RSPAN)
-
-        :::image type="content" source="media/guide/deployment-guide-RSPAN.png" alt-text="Diagram to explain the set up of the remote SPAN (RSPAN) traffic mirroring between the OT network and the sensor":::
-
-        |Mirroring type| Remote SPAN (RSPAN)  |
-        |---|---|
-        |Usage Scenario | Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|
-        |Description| RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks. |
-        |Mirroring set up | - Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.<br> - RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches. <br> - Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.|
-        | Benefits | - Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. |
-        |Complexity | Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.|
-
-    1. Encapsulated Remote SPAN (ERSPAN)
-
-        :::image type="content" source="media/guide/deployment-guide-ERSPAN.png" alt-text="Diagram to explain the set up of the encapuslated remote SPAN (ERSPAN) traffic mirroring between the OT network and the sensor":::
-
-        |Mirroring type| Encapsulated Remote SPAN (ERSPAN)  |
-        |---|---|
-        |Usage Scenario | Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|
-        |Description| ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet. |
-        |Mirroring set up | - Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
-        | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
-
     **Select mirroring method**
 
     When selecting a mirroring method, consider the following factors:
@@ -116,9 +77,11 @@ These are the following five deployment steps
 
     By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
 
+    For more information, see [traffic mirroring process](/traffic-mirroring/traffic-mirroring-overview.md#traffic-mirroring-processes).
+
 1. Deploy the sensors
 
-    After choosing the sensor location and mirroring method, install the sensors.
+    After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](/ot-deploy/install-software-ot-sensor.md/).
 
 1. Post deployment validation
 
