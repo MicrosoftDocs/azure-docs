@@ -29,7 +29,7 @@ In this scenario we'll use the following naming convention:
 * "Non-NVA VNets" for virtual networks connected to Virtual WAN that don't have an NVA or other VNets peered with them (VNet 1 and VNet 3 in the **Figure 2** further down in the article).
 * "Hubs" for Microsoft-managed Virtual WAN Hubs, where NVA VNets are connected to. NVA spoke VNets don't need to be connected to Virtual WAN hubs, only to NVA VNets.
 
-The following connectivity matrix, summarizes the flows supported in this scenario:
+The following connectivity matrix summarizes the flows supported in this scenario:
 
 **Connectivity matrix**
 

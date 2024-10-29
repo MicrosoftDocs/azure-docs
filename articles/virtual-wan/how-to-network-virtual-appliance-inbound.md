@@ -131,7 +131,7 @@ The following section describes some common troubleshooting scenarios.
 * **Option to associate IP to NVA resource not available through Azure portal** : Only NVAs that are created with DNAT/Internet Inbound IPs at deployment time are eligible to use DNAT capabilities. Delete and re-create the NVA with an Internet Inbound IP assigned at deployment time.
 * **IP address not showing up in dropdown Azure portal**: Public IPs only show up in the dropdown menu if the IP address is IPv4, in the same region as the NVA and isn't in use/assigned to another Azure resource. Ensure the IP address you're trying to use meets the above requirements, or create a new IP address.
 * **Can't delete/disassociate Public IP from NVA**: Only IP addresses that have no rules associated with them can be deleted. Use the NVA orchestration software to remove any DNAT rules associated to that IP address.
-* **NVA provisioning state not succeeded**: If there are on-going operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
+* **NVA provisioning state not succeeded**: If there are ongoing operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
 
 ### <a name="healthprobeconfigs"></a> Load balancer health probes
 
