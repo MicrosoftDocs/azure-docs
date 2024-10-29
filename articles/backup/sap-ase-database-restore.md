@@ -61,15 +61,15 @@ To restore a database, you need the following permissions:
 
 1. Navigate to the Recovery Services Vault, select **Backup Items**, and then select **SAP ASE (Sybase) in Azure VM** under the **Backup Management Type**. 
 
-    :::image type="content" source="media/sap-ase-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-ase-db-restore/select-backup-items.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
 2. Select **View Details** for the database to perform operations such as **Backup** or **Restore**.
 
-    :::image type="content" source="media/sap-ase-db-restore/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-ase-db-restore/view-details.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-restore/view-details.png":::
 
 3. Select **Restore** at the top of the page.
 
-    :::image type="content" source="media/sap-ase-db-restore/select-restore.png" alt-text="Screenshot showing how to select restore." lightbox="media/sap-ase-db-restore/select-restore.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore.png" alt-text="Screenshot showing how to select restore." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore.png":::
 
 4. Choose the recovery type: **Alternate Location**, **Original Location**, or **Restore as File**.
 
@@ -77,7 +77,7 @@ To restore a database, you need the following permissions:
 
 1. On the **Restore** pane, under **Where and how to Restore?**, select **Alternate Location**.
 
-    :::image type="content" source="media/sap-ase-db-restore/select-alternate-location.png" alt-text="Screenshot showing how to select alternate location." lightbox="media/sap-ase-db-restore/select-alternate-location.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png" alt-text="Screenshot showing how to select alternate location." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png":::
 
 2. Select the SAP ASE hostname and instance name to which you want to restore the database.
 
@@ -87,13 +87,13 @@ To restore a database, you need the following permissions:
 
 5. In **Select restore point**, select **Logs (Point in Time) to** restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
 
-    :::image type="content" source="media/sap-ase-db-restore/select-restore-point.png" alt-text="Screenshot showing how to select restore point." lightbox="media/sap-ase-db-restore/select-restore-point.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png" alt-text="Screenshot showing how to select restore point." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png":::
 
 ## Restore to Original Location
 
 For an in-place restore, if the database is corrupted and you wish to restore it to the original location (source), select **Original Location**.
 
-:::image type="content" source="media/sap-ase-db-restore/restore-original-location.png" alt-text="Screenshot showing how to restore to original location." lightbox="media/sap-ase-db-restore/restore-original-location.png":::
+:::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/restore-original-location.png" alt-text="Screenshot showing how to restore to original location." lightbox="media/sap-adaptive-server-enterprise-db-restore/restore-original-location.png":::
 
 ## Restore as files
 
@@ -114,7 +114,7 @@ The files that are dumped are:
 
 Typically, a network share path, or the path of a mounted Azure file share that's specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share that's mounted on them.
 
-   :::image type="content" source="media/sap-ase-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-ase-db-restore/restore-files.png":::
+   :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-adaptive-server-enterprise-db-restore/restore-files.png":::
 
    > [!Note]
    > To restore the database backup files on an Azure file share mounted on the target registered VM, make sure that the root account has read/write permissions on the share.
