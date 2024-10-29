@@ -6,7 +6,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 05/29/2024
+ms.date: 10/28/2024
 ms.custom: template-concept
 
 #Customer intent: As a platform engineer, I want to understand Dev Box networking requirements so that developers can access the resources they need.
@@ -53,6 +53,7 @@ You can check that your dev boxes can connect to these FQDNs and endpoints by fo
 > [!IMPORTANT] 
 > Microsoft doesn't support dev box deployments where the FQDNs and endpoints listed in this article are blocked.
 
+## Physical device network connectivity
 Although most of the configuration is for the cloud-based dev box network, end user connectivity occurs from a physical device. Therefore, you must also follow the connectivity guidelines on the physical device network.
 
 |Device or service    |Network connectivity required URLs and ports    |Description |
@@ -66,59 +67,14 @@ Although most of the configuration is for the cloud-based dev box network, end u
 
 The following URLs and ports are required for the provisioning of dev boxes and the Azure Network Connection (ANC) health checks. All endpoints connect over port 443 unless otherwise specified.
 
-# [Windows 365 service endpoints](#tab/W365)
-- *.infra.windows365.microsoft.com
-- cpcsaamssa1prodprap01.blob.core.windows.net
-- cpcsaamssa1prodprau01.blob.core.windows.net
-- cpcsaamssa1prodpreu01.blob.core.windows.net
-- cpcsaamssa1prodpreu02.blob.core.windows.net
-- cpcsaamssa1prodprna01.blob.core.windows.net
-- cpcsaamssa1prodprna02.blob.core.windows.net
-- cpcstcnryprodprap01.blob.core.windows.net
-- cpcstcnryprodprau01.blob.core.windows.net
-- cpcstcnryprodpreu01.blob.core.windows.net
-- cpcstcnryprodpreu02.blob.core.windows.net
-- cpcstcnryprodprna01.blob.core.windows.net
-- cpcstcnryprodprna02.blob.core.windows.net
-- cpcstprovprodpreu01.blob.core.windows.net
-- cpcstprovprodpreu02.blob.core.windows.net
-- cpcstprovprodprna01.blob.core.windows.net
-- cpcstprovprodprna02.blob.core.windows.net
-- cpcstprovprodprap01.blob.core.windows.net
-- cpcstprovprodprau01.blob.core.windows.net
-- prna01.prod.cpcgateway.trafficmanager.net
-- prna02.prod.cpcgateway.trafficmanager.net
-- preu01.prod.cpcgateway.trafficmanager.net
-- preu02.prod.cpcgateway.trafficmanager.net
-- prap01.prod.cpcgateway.trafficmanager.net
-- prau01.prod.cpcgateway.trafficmanager.net
-
-# [Dev box communication endpoints](#tab/DevBox)
-- *.agentmanagement.dc.azure.com
-
-- endpointdiscovery.cmdagent.trafficmanager.net
-- registration.prna01.cmdagent.trafficmanager.net
-- registration.preu01.cmdagent.trafficmanager.net
-- registration.prap01.cmdagent.trafficmanager.net
-- registration.prau01.cmdagent.trafficmanager.net
-- registration.prna02.cmdagent.trafficmanager.net
-
-# [Registration endpoints](#tab/Registration)
-- login.microsoftonline.com
-- login.live.com
-- enterpriseregistration.windows.net
-- global.azure-devices-provisioning.net (443 & 5671 outbound)
-- hm-iot-in-prod-prap01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-prod-prau01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-prod-preu01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-prod-prna01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-prod-prna02.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-2-prod-preu01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-2-prod-prna01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-3-prod-preu01.azure-devices.net (443 & 5671 outbound)
-- hm-iot-in-3-prod-prna01.azure-devices.net (443 & 5671 outbound)
-
----
+| Category                        | Endpoints                      | How to apply                        | More information             |
+|---------------------------------|--------------------------------|-------------------------------------|------------------------------|
+| **Dev box communication endpoints** | - *.agentmanagement.dc.azure.com<br>- *.cmdagent.trafficmanager.net | Line by line in your firewall rules. | N/A | 
+| **Windows 365 service endpoints** | - *.infra.windows365.microsoft.com<br>- *.cmdagent.trafficmanager.net<br>- UDP connectivity via TURN<br>- TURN connectivity | FQDN tag: *Windows365*<br> or <br>Line by line in your firewall rules. | [Windows 365 network requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service). |
+| **Windows 365 Registration endpoints**      | - login.microsoftonline.com<br>- login.live.com<br>- enterpriseregistration.windows.net<br>- global.azure-devices-provisioning.net (443 & 5671 outbound)<br>- hm-iot-in-prod-prap01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-prod-prau01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-prod-preu01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-prod-prna01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-prod-prna02.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-2-prod-preu01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-2-prod-prna01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-3-prod-preu01.azure-devices.net (443 & 5671 outbound)<br>- hm-iot-in-3-prod-prna01.azure-devices.net (443 & 5671 outbound) |
+| **Azure Virtual Desktop service endpoints** | - login.microsoftonline.com<br> - *.wvd.microsoft.com<br> - *.prod.warm.ingest.monitor.core.windows.net<br> - catalogartifact.azureedge.net<br> - gcs.prod.monitoring.core.windows.net<br> - azkms.core.windows.net<br> - mrsglobalsteus2prod.blob.core.windows.net<br> - wvdportalstorageblob.blob.core.windows.net<br> - 169.254.169.254<br> - 168.63.129.16<br> - oneocsp.microsoft.com<br> - www.microsoft.com | FQDN tags: *WindowsVirtualDesktop*, *AzureMonitor*, *AzureFrontDoor.Frontend*, *AzureCloud*, *Internet* | [Session host virtual machines](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#session-host-virtual-machines). |
+| **Microsoft Entra ID** | FQDNs and endpoints for Microsoft Entra ID can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | Add service tag `AzureActiveDirectory` | [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| **Microsoft Intune** | For current FQDNs and endpoints for Microsoft Entra ID, see [Intune core service](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#endpoints)| FQDN tag: *MicrosoftIntune* | [Intune endpoints](/mem/intune/fundamentals/intune-endpoints) |
 
 ## Use FQDN tags and service tags for endpoints through Azure Firewall
 
@@ -127,6 +83,8 @@ Managing network security controls for dev boxes can be complex. To simplify con
 - **FQDN tags**
 
    An [FQDN tag](/azure/firewall/fqdn-tags) is a predefined tag in Azure Firewall that represents a group of fully qualified domain names. By using FQDN tags, you can easily create and maintain egress rules for specific services like Windows 365 without manually specifying each domain name. 
+
+  The groupings defined by FQDN tags can overlap. For example, the Windows365 FQDN tag includes AVD endpoints for standard ports, see [reference](/windows-365/enterprise/azure-firewall-windows-365#windows365-tag). 
 
    Non-Microsoft firewalls don't usually support FQDN tags or service tags. There might be a different term for the same functionality; check your firewall documentation.
 
