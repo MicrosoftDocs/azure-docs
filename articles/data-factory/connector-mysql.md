@@ -312,7 +312,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `year` |`Int` |`Int` |
 
 >[!NOTE]
->Storing bit(1) as Boolean in the legacy version was a bug and it was fixed in the recommended version. If you still use Boolean value in the recommended version, set the column type as tinybit(1).
+>Storing bit(1) as Boolean in the legacy version was a bug and it was fixed in the recommended version. If you still have Boolean value in the recommended version, use tinybit(1) data type.
 
 ## Lookup activity properties
 
@@ -330,21 +330,21 @@ Here are steps that help you upgrade your MySQL connector:
 
 ### MySQL best practices
 
-This section introduces some best practices for MySQL connector.
+This section introduces some best practices for MySQL connector recommended version.
 
 #### Cannot load SSL key
 
 If you are using MySQL connector recommended version with SSL Key as a connection property, you might hit the following issues:
-- Could not load the client key from your_pem_file
-- Unrecognized PEM header: -----BEGIN PRIVATE KEY-----
+- `Could not load the client key from your_pem_file`
+- `Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
 
 The reason for these issues is the recommended version cannot decrypt the PCKS#8 format. You need to convert the PEM format to PCKS#1.
 
 #### Treat tiny as Boolean
 
-The recommended version treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html).
+The recommended version treats tinyint(1) as Boolean type by default, which is by design. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html).
 
-To have the connector return this as numeric, set `treatTinyAsBoolean=false` in the connection properties.
+To return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.
 
 #### Treat char(36) as GUID
 
@@ -360,9 +360,9 @@ The recommended version cannot read zero or invalid date value. It is by default
 
 MySQL permits you to store a "zero" value of '0000-00-00' as a "dummy date." In some cases, this is more convenient than using NULL values, and uses less data and index space. To disallow '0000-00-00', enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).
 
-For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
+To allow zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
 
-For an invalid date value, you can modify your SQL to wrap the column as String type.
+To allow an invalid date value, you can modify your SQL to wrap the column as String type.
 
 ## Differences between the recommended and the legacy driver version
 
