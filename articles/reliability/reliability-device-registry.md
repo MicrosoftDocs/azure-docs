@@ -20,7 +20,7 @@ Because resiliency is a shared responsibility between you and Microsoft, this ar
 
 Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
 
-If transient faults affect your virtual machine or Azure Bastion host, clients using the secure sockets host (SSH) and remote desktop connection (RDP) protocols typically retry automatically.
+Azure Device Registry is built on top of Azure CosmosDB, which is a highly available and resilient database service. Azure CosmosDB is designed to handle transient faults and provide high availability and reliability. For more information on how Azure CosmosDB handles transient faults, see [Reliability in CosmosDB](./reliability-cosmos-db-nosql.md).
 
 ## Availability zone support
 
