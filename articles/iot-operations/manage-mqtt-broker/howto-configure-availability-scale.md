@@ -32,7 +32,7 @@ To configure the scaling settings MQTT broker, you need to specify the `cardinal
 
 ### Automatic deployment cardinality
 
-To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware. This is useful for non-production scenarios where you don't need high-availability or scale.
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This is useful for non-production scenarios where you don't need high-availability or scale.
 
 However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
 
