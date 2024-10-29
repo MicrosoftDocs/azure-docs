@@ -231,7 +231,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 - Input claims:
   - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"
-  - **objectId**, transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, transformation claim type **customerEntity.userObjectId** "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
   - **givenName**, transformation claim type **customerEntity.firstName** "John"
   - **surname**, transformation claim type **customerEntity.lastName** "Smith"
 - Input parameter:
@@ -244,7 +244,7 @@ The following claims transformation outputs a JSON string claim that will be the
     {
        "customerEntity":{
           "email":"john.s@contoso.com",
-          "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+          "userObjectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "firstName":"John",
           "lastName":"Smith",
           "role":{
@@ -264,7 +264,7 @@ The **GenerateJson** claims transformation accepts plain strings. If an input cl
     {
        "customerEntity":{
           "email":"[\"someone@contoso.com\"]",
-          "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+          "userObjectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "firstName":"John",
           "lastName":"Smith",
           "role":{
