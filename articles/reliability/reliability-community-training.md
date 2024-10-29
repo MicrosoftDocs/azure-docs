@@ -5,8 +5,9 @@ author: atulsoni87AI
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: reliability
+ms.service: azure
 ms.date: 12/06/2023
+ms.subservice: azure-reliability
 ---
 
 

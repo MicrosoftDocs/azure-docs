@@ -7,7 +7,7 @@ ms.author: daknappe
 ms.date: 10/01/2024
 ---
 
-# Update session hosts in host pool with a session host configuration using session host update in Azure Virtual Desktop (preview)
+# Update session hosts using session host update in Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
 > Session host update for Azure Virtual Desktop is currently in PREVIEW. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
