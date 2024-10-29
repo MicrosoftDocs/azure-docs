@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 10/14/2024
+ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -107,7 +107,7 @@ Configuration for SAP **/hana/data** volume:
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M624(d)s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
-| M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 6 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
@@ -143,7 +143,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M624s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
-| M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
@@ -179,7 +179,7 @@ For the other volumes, the configuration would look like:
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M624s_12_v3, M832s_12_v3 | 11,400 GiB | 4,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
-| M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
 | M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |  
 | M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
