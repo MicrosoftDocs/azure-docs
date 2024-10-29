@@ -47,7 +47,7 @@ Pools with duplicate names don't show the resource name in the developer portal;
 
 ## Find resource names in the developer portal 
 
-Developers see the display names for projects on the dev box tiles in the Developer Portal. 
+Developers see the display names for projects on the dev box tiles in the developer portal. 
 
 :::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-display-names-small.png" alt-text="Screenshot showing the dev box tile in the developer portal." lightbox="media/how-to-add-project-pool-display-name/dev-portal-display-names-large.png":::
 
