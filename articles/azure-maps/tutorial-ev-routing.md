@@ -283,10 +283,8 @@ For more information on the Azure Maps APIs used in this tutorial, see:
 
 ## Next steps
 
-To learn more about Azure Notebooks, see
-
 > [!div class="nextstepaction"]
-> [Azure Notebooks]
+> [Learn more about all the notebooks experiences from Microsoft and GitHub]: https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/
 
 [aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
