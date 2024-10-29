@@ -47,50 +47,6 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 
 [!INCLUDE [supported-versions](./includes/kubernetes-cluster/supported-versions.md)]
 
-## Nexus Kubernetes release schedule Gantt chart
-
-```mermaid
-%%{init: {'gantt': {'titleTopMargin': 25, 'barHeight': 20, 'barGap': 4, 'topPadding': 75, 'sidePadding': 75}}}%%
-gantt
-  title       Kubernetes Versions Supported on NAKS
-  dateFormat  %b/%y
-  axisFormat  %b/%y
-
-  
-  section K8s 1.26
-    Upstream              : milestone, Dec 2022, 1d
-    Live                  : active, Sep 2023, 152d
-    Extended Availability : crit, Mar 2024, 517d
-    
-  
-  section K8s 1.27
-    Upstream              : milestone, Apr 2023, 1d
-    Live                  : active, Sep 2023, 274d
-    Extended Availability : crit, Jul 2024, 609d
-    
-    Long Term Support     : special, 2026-03-02 00:00:00, 335d
-    
-  
-  section K8s 1.28
-    Upstream              : milestone, Aug 2023, 1d
-    Live                  : active, Nov 2023, 305d
-    Extended Availability : crit, Oct 2024, 670d
-    
-  
-  section K8s 1.29
-    Upstream              : milestone, Dec 2023, 1d
-    Live                  : active, Aug 2024, 154d
-    Extended Availability : crit, Feb 2025, 519d
-    
-  
-  section K8s 1.30
-    Upstream              : milestone, Apr 2024, 1d
-    Live                  : active, Oct 2024, 458d
-    Extended Availability : crit, Feb 2026, 823d
-    
-  
-```
-
 ## Nexus Kubernetes service version components
 
 An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:

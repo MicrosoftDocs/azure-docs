@@ -2,7 +2,7 @@
 title: Supported Kubernetes versions in Azure Operator Nexus Kubernetes service
 description: Learn the Kubernetes version support policy and lifecycle of clusters in Azure Operator Nexus Kubernetes service
 ms.topic: article
-ms.date: 10/04/2023
+ms.date: 10/29/2024
 author: dramasamy, t-pasaxena
 ms.author: dramasamy, t-pasaxena
 ms.service: azure-operator-nexus
