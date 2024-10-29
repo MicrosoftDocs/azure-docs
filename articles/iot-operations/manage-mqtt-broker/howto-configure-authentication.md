@@ -48,6 +48,8 @@ To add new authentication methods, select **Add method**.
 
 # [Bicep](#tab/bicep)
 
+To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
@@ -79,6 +81,12 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
 ```
 
 # [Kubernetes](#tab/kubernetes)

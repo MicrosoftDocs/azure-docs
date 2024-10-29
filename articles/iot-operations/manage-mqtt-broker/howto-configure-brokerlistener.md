@@ -56,6 +56,8 @@ To view or edit the listener:
 
 # [Bicep](#tab/bicep)
 
+To edit the default listener, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
@@ -97,6 +99,12 @@ resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@202
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
 ```
 
 # [Kubernetes](#tab/kubernetes)
