@@ -839,6 +839,8 @@ This setting takes effect only if the endpoint is used as a destination (that is
 | `One` | The dataflow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
 
+<!-- TODO: double check for accuracy -->
+
 For example, if you set the Kafka acknowledgement to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
 
 To configure the Kafka acknowledgments:
