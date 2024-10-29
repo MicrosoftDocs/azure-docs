@@ -48,7 +48,7 @@ You can also configure diagnostics settings for your vaults using the following 
 
 1. Navigate to the chosen the Recovery Services vault, then select **Monitoring** > **Diagnostic settings**.
 1. Specify the target for the Recovery Services Vault's diagnostic data. Learn more about [using diagnostic events](../backup/backup-azure-diagnostic-events.md) for Recovery Services vaults.
-1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details** options to populate the reports. 
+1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details**, and on the **Destination** table **Resource Specific** options to populate the reports. 
     :::image type="content" source="./media/report-site-recovery/logs.png" alt-text="Screenshot of logs options.":::
 
     > [!NOTE]

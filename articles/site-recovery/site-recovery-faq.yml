@@ -180,6 +180,10 @@ sections:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
+               Cache storage account is not supported for managed identity.
+
+
+
       - question: |
          Can Azure Site Recovery track source virtual machine changes outside the Source OS?
         answer: |
