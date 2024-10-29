@@ -1,6 +1,6 @@
 ---
 title: Trouble shooting guide for OT sensor deployment - Microsoft Defender for IoT
-description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT.
+description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT back up.
 ms.topic: install-set-up-deploy
 ms.date: 10/15/2024
 ---
