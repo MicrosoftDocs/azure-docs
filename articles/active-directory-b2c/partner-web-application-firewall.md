@@ -75,13 +75,13 @@ Create a WAF policy with Azure-managed default rule set (DRS). See [Web Applicat
 
 ### Default Ruleset
 
-When you create a new WAF policy for Azure Front Door, it automatically deploys with the latest version of our default ruleset (DRS). This ruleset protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures. The DRS includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+When you create a new WAF policy for Azure Front Door, it automatically deploys with the latest version of Azure-managed default ruleset (DRS). This ruleset protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures. The DRS includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 Learn more: [Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md#default-rule-sets)
 
 ### Bot Manager Ruleset
 
-By default, the Azure Front Door WAF deploys with the latest version of our Bot Manager ruleset. This ruleset categorizes bot traffic into good, bad, and unknown bots. The bot signatures behind this ruleset are managed by the WAF platform and are updated dynamically.
+By default, the Azure Front Door WAF deploys with the latest version of Azure-managed Bot Manager ruleset. This ruleset categorizes bot traffic into good, bad, and unknown bots. The bot signatures behind this ruleset are managed by the WAF platform and are updated dynamically.
 
 Learn more: [What is Azure Web Application Firewall on Azure Front Door?](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set)
 
@@ -146,6 +146,6 @@ To revert to Detection mode, select **Switch to detection mode** from the Overvi
 
 ## Next steps
 
-* [Azure Web Application Firewall monitoring and logging](../web-application-firewall/ag/create-waf-policy-ag.md)
-* [Web application firewall exclusion lists in Azure Front Door](../web-application-firewall/afds/waf-front-door-tuning.md)
-* [Best practices for Azure Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md)
+- [Best practices for Azure Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md)
+- [Manage Web Application Firewall policies](../firewall-manager/manage-web-application-firewall-policies.md)
+- [Tune Azure Web Application Firewall for Azure Front Door](../web-application-firewall/afds/waf-front-door-tuning.md)
