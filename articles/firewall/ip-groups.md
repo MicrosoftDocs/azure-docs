@@ -66,7 +66,7 @@ You can now update multiple IP Groups in parallel at the same time. This is part
 
 With this support, you can now:
 
-- Update 20 IP Groups at a time
+- Update 50 IP Groups at a time
 - Update the firewall and firewall policy during IP Group updates
 - Use the same IP Group in parent and child policy
 - Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
