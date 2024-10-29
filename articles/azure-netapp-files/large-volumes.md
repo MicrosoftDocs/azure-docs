@@ -36,7 +36,7 @@ Large volumes have the following limits:
 
 In many cases, a regular volume can handle the performance needs for a production workload, particularly when dealing with database workloads, general file shares, and Azure VMware Service or virtual desktop infrastructure (VDI) workloads. When workloads are metadata heavy or require scale beyond what a regular volume can handle, a large volume can increase performance needs with minimal cost impact.
 
-For instance, the following graphs show that a large volume can deliver 2-3x the performance at scale of a regular volume.
+For instance, the following graphs show that a large volume can deliver two to three times the performance at scale of a regular volume.
 
 For more information about performance tests, see [Large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Regular volume performance benchmarks for Linux](performance-benchmarks-linux.md).
 
