@@ -243,7 +243,7 @@ sections:
       - question: |
            Azure Front Door Privatelink integration is not supported in the region where my origin is located. What do I do?
         answer:  |   
-           Azure Front Door Private Link feature is region agnostic and will work even if you choose a region that is different from the region where your origin is located. In such cases, to ensure lower latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](/blue-green-deployment.md) to gradually shift traffic to the new region.
+           Azure Front Door Private Link feature is region agnostic and will work even if you choose a region that is different from the region where your origin is located. In such cases, to ensure lower latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
   - name: Performance
     questions:
