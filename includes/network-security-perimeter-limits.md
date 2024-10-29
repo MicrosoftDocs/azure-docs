@@ -34,4 +34,4 @@ Network security perimeter has other limitations as follows:
 | **Service endpoint traffic is not supported.** | It's recommended to use private endpoints for IaaS to PaaS communication. Currently even in the presence of inbound rule allowing 0.0.0.0/0, service endpoint traffic may be denied. |
 
 > [!NOTE]
-> For individual PaaS limits, see the respective service documentation for each service.
+> Refer to individual PaaS documentation for respective limitations for each service.
