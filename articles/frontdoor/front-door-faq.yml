@@ -49,9 +49,9 @@ sections:
       - question: |
           Can I deploy another CDN from an external vendor behind or in front of Front Door?
         answer:  |
-          Chaining two CDNs is a generally not a recommended approach, it would work but comes with the following cons
+          Chaining two CDNs is generally not a recommended approach, it would work but comes with the following cons
           1. CDN’s last mile acceleration utilizes keeping the connection stream with the origin, and finding optimal path to the origin to achieve best results. Chaining two CDNs together typically negates some of the benefits from last mile acceleration.
-          2. Security controls become less effective at the second CDN. Any client IP based ACLing will not work at the second CDN as the second CDN will see thw first CDN’s exit node as Client IPs. Content payload will still be inspected.
+          2. Security controls become less effective at the second CDN. Any client IP based ACLing will not work at the second CDN as the second CDN will see the first CDN’s exit node as Client IPs. Content payload will still be inspected.
           3. Many organizations can’t handle the complexity of troubleshooting two CDNs being chained and when a problem it becomes hard to figure out which CDN is having the issue.
 
       - question: |
