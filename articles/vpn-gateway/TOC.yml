@@ -32,7 +32,7 @@
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: Roles and permissions
-    href: roles-and-permissions.md
+    href: roles-permissions.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
   - name: About gateway SKU consolidation
