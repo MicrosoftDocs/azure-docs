@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 10/29/2024
 ms.author: malev
 ---
 
@@ -43,7 +43,7 @@ Assign the proper App Configuration role assignments to the credentials being us
 
 This section covers how to use the Azure App Configuration Import task in an Azure DevOps build pipeline.
 
-1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For more information about build pipelines got to [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
+1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For more information about build pipelines go to [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
         > [!div class="mx-imgBorder"]
         > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
@@ -65,7 +65,7 @@ This section covers how to use the Azure App Configuration Import task in an Azu
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For more information about release pipelines, go to [Create your first relase pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in[Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
@@ -125,7 +125,7 @@ A 409 Conflict error message occurs if the task tries to remove or overwrite a k
 
 ## Next step
 
-For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
+For a complete reference of the parameters or to use this pipeline task in YAML pipelines, refer to the following document.
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration Import Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-import-v10)

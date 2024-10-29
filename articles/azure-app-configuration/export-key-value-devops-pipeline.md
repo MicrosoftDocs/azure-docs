@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 10/29/2024
 ms.author: malev
 ---
 
@@ -115,7 +115,7 @@ There are times when configuration may need to be composed from multiple labels,
 
 ## Next step
 
-For a complete reference of the parameters or to use this pipeline task in YAML pipelines, please refer to the following document.
+For a complete reference of the parameters or to use this pipeline task in YAML pipelines, refer to the following document.
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration Export Task reference](/azure/devops/pipelines/tasks/reference/azure-app-configuration-export-v10)
