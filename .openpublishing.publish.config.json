@@ -597,6 +597,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "msdocs-jboss-mysql-sample-app",
+            "url": "https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "playwright-testing-service",
             "url": "https://github.com/microsoft/playwright-testing-service",
             "branch": "main",

@@ -234,12 +234,13 @@ The following examples show the part of the workflow that builds the web app, in
 
 ## Frequently Asked Questions
 
-- [How do I deploy a WAR file through Maven plugin and OpenID Connect](#how-do-i-deploy-a-war-file-through-maven-plugin-and-openid-connect)
-- [How do I deploy a WAR file through Az CLI and OpenID Connect](#how-do-i-deploy-a-war-file-through-az-cli-and-openid-connect)
-- [How do I deploy to a Container](#how-do-i-deploy-to-a-container)
-- [How do I update the Tomcat configuration after deployment](#how-do-i-update-the-tomcat-configuration-after-deployment)
+- [How do I deploy a WAR file through Maven plugin?](#how-do-i-deploy-a-war-file-through-maven-plugin)
+- [How do I deploy a WAR file through Az CLI?](#how-do-i-deploy-a-war-file-through-az-cli)
+- [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
+- [How do I deploy to a Container?](#how-do-i-deploy-to-a-container)
+- [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
 
-### How do I deploy a WAR file through Maven plugin and OpenID Connect 
+### How do I deploy a WAR file through Maven plugin?
 
 In case you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli) it will make use of your Azure login credentials.
 
@@ -254,26 +255,38 @@ In case you configured your Java Tomcat project with the [Maven plugin](https://
 More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
 
-### How do I deploy a WAR file through Az CLI and OpenID Connect 
+### How do I deploy a WAR file through Az CLI?
 
-If you use prefer the Azure CLI to deploy to App Service, you can use the GitHub Action for CLI.
+If you use prefer the Azure CLI to deploy to App Service, you can use the GitHub Action for Azure CLI.
 
 ```yaml
-    - name: Azure CLI script
-      uses: azure/cli@v2
-      with:
-        inlineScript: |
-          az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
+- name: Azure CLI script
+  uses: azure/cli@v2
+  with:
+    inlineScript: |
+      az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
 ```
 
 More information on the GitHub Action for CLI and how to use and configure it can be found in the [Azure CLI GitHub action](https://github.com/Azure/cli). 
 More information on the az webapp deploy command, how to use and the parameter details can be found in the [az webapp deploy documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
 
-### How do I deploy to a Container
+### How do I deploy a startup file?
+
+Use the GitHub Action for CLI. For example:
+
+```yaml
+- name: Deploy startup script
+  uses: azure/cli@v2
+  with:
+    inlineScript: |
+      az webapp deploy --src-path ${{ github.workspace }}/src/main/azure/createPasswordlessDataSource.sh --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }} --type startup --track-status false
+```
+
+### How do I deploy to a Container?
 
 With the Azure Web Deploy action, you can automate your workflow to deploy custom containers to App Service using GitHub Actions. Detailed information on the steps to deploy using GitHub Actions, can be found in the [Deploy to a Container](/azure/app-service/deploy-container-github-action).
 
-### How do I update the Tomcat configuration after deployment
+### How do I update the Tomcat configuration after deployment?
 
 In case you would like to update any of your web apps settings after deployment, you can use the [App Service Settings](https://github.com/Azure/appservice-settings) action. 
 
