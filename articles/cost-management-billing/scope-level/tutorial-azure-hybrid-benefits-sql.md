@@ -36,7 +36,7 @@ Have read and understand the [What is centrally managed Azure Hybrid Benefit?](o
 Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see:
 
 - [Register SQL Server VM with SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm)
-- [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
+- [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk)
 
 ## Gather license usage and availability details
 
@@ -124,7 +124,7 @@ Then, do the following steps.
 
 1. Use the preceding instructions to make sure self-installed SQL VMs are registered. They include talking to subscription owners to complete the registration for the subscriptions where you don't have sufficient permissions.
 1. You review Azure resource usage data from recent months and you talk to others in Contoso. You determine that 2000 SQL Server Enterprise Edition and 750 SQL Server Standard Edition core licenses, or 8,750 normalized cores, are needed to cover expected Azure SQL usage for the next year. Expected usage also includes migrating workloads (1500 SQL Server Enterprise Edition + 750 SQL Server Standard Edition = 6750 normalized) and net new Azure SQL workloads (another 500 SQL Server Enterprise Edition or 2000 normalized cores).
-1. Next, confirm with your with procurement team that the needed licenses are available. Or, that they're planned to get purchased. The confirmation ensures that the licenses are available to assign to Azure.
+1. Next, confirm with your with procurement team that the licenses required are available. Or, that they're planned to get purchased. The confirmation ensures that the licenses are available to assign to Azure.
    - Licenses you have in use on premises can be considered available to assign to Azure if the associated workloads are being migrated to Azure. As mentioned previously, Azure Hybrid Benefit allows dual use for up to 180 days.
    - You determine that there are 1800 SQL Server Enterprise Edition licenses and 2000 SQL Server Standard Edition licenses available to assign to Azure. The available licenses equal 9,200 normalized cores. That value is a little more than the 8750 needed (2000 x 4 + 750 = 8750).
 1. Then, you assign the 1800 SQL Server Enterprise Edition and 2000 SQL Server Standard Edition to Azure. That action results in 9,200 normalized cores that the system can apply to Azure SQL resources as they run each hour. Assigning more licenses than are required now provides a buffer if usage grows faster than you expect.
