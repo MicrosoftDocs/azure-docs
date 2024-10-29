@@ -137,7 +137,7 @@ Azure Update Manager is not charged for:
  - [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
  
 All other resources including, but not limited to the following will be charged.
- - Management of individual Azure Local machine . For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
+ - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
  - All VMs on Azure Local that are not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled SCVMM.
  
 
