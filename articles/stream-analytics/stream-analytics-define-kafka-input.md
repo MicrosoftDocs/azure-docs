@@ -5,10 +5,10 @@ author: AliciaLiMicrosoft
 ms.author: ali 
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 02/20/2024
+ms.date: 11/18/2024
 ---
 
-# Stream data from Kafka into Azure Stream Analytics (Preview)
+# Stream data from Kafka into Azure Stream Analytics
 
 Kafka is a distributed streaming platform used to publish and subscribe to streams of records. Kafka is designed to allow your apps to process records as they occur. It's an open-source system developed by the Apache Software Foundation and written in Java and Scala. 
 

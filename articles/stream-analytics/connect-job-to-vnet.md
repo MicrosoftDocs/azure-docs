@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 11/18/2024
 ms.custom:
 ---
 # Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNET)
@@ -13,13 +13,13 @@ ms.custom:
 Your Stream Analytics jobs make outbound connections to your input and output Azure resources to process data in real time and produce results. These input and output resources (for example, Azure Event Hubs and Azure SQL Database) could be behind an Azure firewall or in an Azure Virtual Network (VNET). Stream Analytics service operates from networks that can't be directly included in your network rules.
 
 However, there are several ways to securely connect your Stream Analytics jobs to your input and output resources in such scenarios.
-* [Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview)](../stream-analytics/run-job-in-virtual-network.md)  
+* [Run your Azure Stream Analytics job in an Azure Virtual Network](../stream-analytics/run-job-in-virtual-network.md)  
 * Use private endpoints in Stream Analytics clusters.
 * Use Managed Identity authentication mode coupled with 'Allow trusted services' networking setting.
 
 Your Stream Analytics job does not accept any inbound connection.
 
-## Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview)
+## Run your Azure Stream Analytics job in an Azure Virtual Network
 Virtual network (VNET) support enables you to lock down access to Azure Stream Analytics to your virtual network infrastructure. This capability provides you with the benefits of network isolation and can be accomplished by [deploying a containerized instance of your ASA job inside your Virtual Network](../virtual-network/virtual-network-for-azure-services.md). Your VNET injected ASA job can then privately access your resources within the virtual network via: 
 
 - [Private endpoints](../private-link/private-endpoint-overview.md), which connect your VNet injected ASA job to your data sources over private links powered by Azure Private Link.   
