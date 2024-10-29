@@ -973,6 +973,8 @@ View, edit projects and train the models, including the ability to publish, unpu
 
 Lets you read Cognitive Services data.
 
+[Learn more](/azure/ai-services/speech-service/role-based-access-control)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
