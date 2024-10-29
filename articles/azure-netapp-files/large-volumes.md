@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Understand large volumes in Azure NetApp Files 
 
-Volumes in Azure NetApp Files are the way you present high performance, cost-effective storage to your network attached storage (NAS) clients in the Azure cloud. Volumes act as independent file systems with their own capacity, file counts, ACLs, snapshots and file system IDs, which provides a way to separate datasets into individual secure tenants.
+Volumes in Azure NetApp Files are the way you present high performance, cost-effective storage to your network attached storage (NAS) clients in the Azure cloud. Volumes act as independent file systems with their own capacity, file counts, ACLs, snapshots, and file system IDs. These qualities provide a way to separate datasets into individual secure tenants.
 
 :::image type="content" source="./media/large-volumes/large-volumes-diagram.png" alt-text="Diagram of large and regular volume size." lightbox="./media/large-volumes/large-volumes-diagram.png":::
 
@@ -21,7 +21,7 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | - | - | 
 | Capacity | <ul><li>50 GiB minimum</li><li>100 TiB maximum</li></ul> |
 | File count | 2,147,483,632 |
-| Performance | <ul><li>Standard:1,600</li><li>Premium: 1,600</li><li>Ultra: 4,500</li></ul> |
+| Performance | <ul><li>Standard: 1,600</li><li>Premium: 1,600</li><li>Ultra: 4,500</li></ul> |
 
 Large volumes have the following limits: 
 
@@ -40,7 +40,7 @@ For instance, the following graphs show that a large volume can deliver 2-3x the
 
 For more information about performance tests, see [Large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Regular volume performance benchmarks for Linux](performance-benchmarks-linux.md).
 
-For example, in benchmark tests using Flexible I/O Tester (FIO), a large volume achieved higher IOPS and throughput than a regular volume.
+For example, in benchmark tests using Flexible I/O Tester (FIO), a large volume achieved higher I/OPS and throughput than a regular volume.
 
 :::image type="content" source="./media/large-volumes/large-regular-volume-comparison.png" alt-text="Diagram comparing large and regular volumes with random I/O." lightbox="./media/large-volumes/large-regular-volume-comparison.png":::
 
@@ -55,7 +55,7 @@ Large volumes allow workloads to extend beyond the current limitations of regula
 | Volume type | Primary use cases | 
 | - | -- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Service</li><li>Capacities less than 50 TiB</li></ul> |
-| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, FSI)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
+| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, FSI)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
 
 ## More information
 
