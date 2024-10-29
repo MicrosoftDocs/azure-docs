@@ -54,9 +54,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<Location>`                     | The region where the new resources will be created. |
 | `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 | `<AutoScalePolicyEnforcement>`   | The setting that determines whether or not autoscaling is enabled for the Elastic SAN. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
-| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional, but it is required to enable autoscaling. |
-|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but required to enable autoscaling. |
-|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. |
+| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional but is required to enable autoscaling. |
+|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but is required to enable autoscaling. |
+|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. This parameter is optional but is required to enable autoscaling. |
 
 The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
@@ -125,9 +125,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<Location>`                     | The region where the new resources will be created. |
 | `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 | `<AutoScalePolicyEnforcement>`   | The setting that determines whether or not autoscaling is enabled for the Elastic SAN. <br>*This value is optional but if passed in, must be 'Enabled' or 'Disabled'* |
-| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional, but it is required to enable autoscaling. |
-|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but required to enable autoscaling. |
-|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. |
+| `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional but is required to enable autoscaling. |
+|`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but is required to enable autoscaling. |
+|`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. This parameter is optional but is required to enable autoscaling. |
 
 
 The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.

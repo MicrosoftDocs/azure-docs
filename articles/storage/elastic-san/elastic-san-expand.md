@@ -40,18 +40,19 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ## Autoscale (preview)
 
-As a preview feature, you can choose to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. So when autoscaling, your performance won't automatically scale up as your storage does. A sample autoscale policy would look like this:  
+As a preview feature, you can automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. So when autoscaling, your performance won't automatically scale up as your storage does. Here's an example of setting an autoscale policy using Azure CLI:  
   
-If spare capacity (unused capacity) is less than 20 TiB of space, increase capacity by 5 TiB, up to a maximum of 150 TiB.
+`az elastic-san update -n mySanName -g myVolGroupName --auto-scale-policy-enforcement "Enabled" --unused-size-tib 20 --increase-capacity-unit-by-tib 5 --capacity-unit-scale-up-limit-tib 150`
   
-Here, 20 TiB is the amount of storage capacity you require to be unused. 5 TiB is the increment by which you're increasing the capacity of the SAN, with a minimum increment requirement of 1 TiB. 150 TiB is the maximum capacity up to which you want the SAN to scale up via autoscale. If your SAN is 100 TiB, the policy will trigger when you have less than 20 TiB of unused space on your SAN, which means when you have used 80 TiB or more. Space is consumed at the SAN level via provisioning volumes and taking snapshots. Therefore, if your usage exceeds the required value of unused space at the SAN level, the policy triggers and the SAN size increases by 5 TiB as defined.
+Running that example command would set the following policy on the SAN it's run on: If your SAN's unused capacity (free space) is less than 20 TiB, increase the SAN's additional capacity by 5 TiB, until its unused capacity is at least 20 TiB. Don't allow the SAN's total capacity to exceed 150 TiB.
   
-A SAN can't automatically scale down. To reduce the size of your SAN, follow the manual process in the previous section. If you have configured an autoscaling policy and the amount in TiB by which you are scaling down the SAN is greater than the value of the unused capacity field set in the policy, the request fails and you'll have to edit or disable your policy to complete this action. For example, if you have a SAN of size 6 TiB and a policy that states that the unused capacity should be 2 TiB, you can't reduce the total size of the SAN by 4 TiB because it would leave less than 2 TiB of unused capacity.
+You can't use an autoscale policy to scale down. To reduce the size of your SAN, follow the manual process in the previous section. If you have configured an autoscaling policy, disable it before reducing the size of your SAN.
 
 
+
+The following script can be run to enable an autoscale policy for an existing Elastic SAN.
 
 # [PowerShell](#tab/azure-powershell-autoscale)
-Here is a script you can run to enable autoscale for a SAN that has already been created.
 ```azurepowershell
 # Define some variables.
 autoscalePolicyEnforcement = "Enabled" # Whether autoscale is enabled or disabled at the SAN level
@@ -63,7 +64,6 @@ Update-AzElasticSan -ResourceGroupName myresourcegroup -Name myelasticsan -AutoS
 ```
 
 # [Azure CLI](#tab/azure-cli-autoscale)
-Here is a script you can run to enable autoscale for a SAN that has already been created.
 ```azurecli
 # Define some variables.
 autoscalePolicyEnforcement = "Enabled" # Whether autoscale is enabled or disabled at the SAN level

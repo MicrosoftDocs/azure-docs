@@ -40,7 +40,11 @@ Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. S
 
 ### Autoscaling (preview)
 
-As a preview feature, you can choose to automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. So when autoscaling, your performance won't automatically scale up as your storage does. For example, if you have a SAN of 100 TiB and you want your storage to scale up in 5 TiB increments, you can set a policy so that whenever the unused capacity is less than or equal to 20 TiB of space, the additional capacity units on your SAN increase by 5 TiB, up to a maximum of 150 TiB. This is useful for environments using snapshots, because you can ensure that you have extra space for your snapshots, and guard against your snapshots failing due to having run out of space on your SAN. The last parameter allows you to set a size limit for your SAN, beyond which the capacity will not expand via autoscale. You can modify your autoscaling policy at any point. 
+As a preview feature, you can automatically scale up your SAN by specific increments until a specified maximum size using an autoscale policy. An autoscale policy is helpful for environments where storage consumption continually increases, like environments using volume snapshots. Volume snapshots consume some of the total capacity of an elastic SAN, and having an autoscale policy helps ensure your SAN doesn't run out of space to store volume snapshots.
+
+When setting an autoscale policy, there's a minimum capacity increment of 1 TiB, and you can only automatically scale additional capacity, rather than base capacity. So when autoscaling, the IOPS and throughput of your SAN won't automatically scale up.
+
+Here's an example of how an autoscale policy works. Say you have an elastic SAN that has 100 TiB total storage capacity. This SAN has volume snapshots configured, so you want the capacity to automatically scale to accommodate your snapshots. You can set a policy so that whenever the unused capacity is less than or equal to 20 TiB, additional capacity on your SAN increases by 5 TiB, up to a maximum of 150 TiB total storage. So, if you use 80 TiB of space, 5 more TiB is automatically provisioned, so your SAN now has a total storage capacity of 105 TiB.
 
 ## Networking
 
