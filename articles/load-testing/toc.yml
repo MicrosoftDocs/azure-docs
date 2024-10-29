@@ -70,7 +70,9 @@ items:
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
         - name: Run tests in debug mode
-          href: how-to-run-tests-in-debug-mode.md  
+          href: how-to-run-tests-in-debug-mode.md
+        - name: Schedule load tests
+          href: how-to-schedule-tests.md          
     - name: Automation
       items:
         - name: Run load tests in CI/CD

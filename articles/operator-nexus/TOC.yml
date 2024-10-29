@@ -302,8 +302,6 @@
     - name: Storage Array
       expanded: false
       items:
-        - name: Enable node down cleaner
-          href: troubleshoot-enable-node-down-cleaner.md
     - name: Tenant Workload
       expanded: false
       items:
