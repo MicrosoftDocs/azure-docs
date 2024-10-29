@@ -1,6 +1,6 @@
 ---
 title: Enable SAP ASE native compression from Azure Backup 
-description: In this article, you'll learn how to enable SAP ASE native compression from Azure Backup.
+description: In this article, you learn how to enable SAP ASE native compression from Azure Backup.
 ms.topic: how-to
 ms.date: 11/12/2024
 ms.service: azure-backup

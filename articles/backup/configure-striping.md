@@ -1,6 +1,6 @@
 ---
 title: Configure striping for higher backup throughput for SAP ASE databases
-description: In this article, you'll learn how to configure striping for higher backup throughput for SAP ASE databases.
+description: In this article, you learn how to configure striping for higher backup throughput for SAP ASE databases.
 ms.topic: how-to
 ms.date: 11/12/2024
 ms.service: azure-backup
@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Configure striping for higher backup throughput for SAP ASE databases
 
-Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This is particularly beneficial for large databases, where the time required to complete a backup can be significant. By distributing the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. There is 30-40% increase in throughput performance, and we recommend you to test the striping configuration before making changes on production.
+Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This is beneficial for large databases, where the time required to complete a backup can be significant. By distributing the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. There's 30-40% increase in throughput performance, and we recommend you to test the striping configuration before making changes on production.
 
 ## How to Enable Striping
 
@@ -18,7 +18,7 @@ During the execution of the preregistration script, you can control the enable-s
 
 ## Recommended Configuration
 
-For databases smaller than 4TB, we suggest using a stripe count of 4. This configuration provides an optimal balance between performance and resource utilization, ensuring a smooth and efficient backup process.
+For databases smaller than 4 TB, we suggest using a stripe count of 4. This configuration provides an optimal balance between performance and resource utilization, ensuring a smooth and efficient backup process.
 
 ## Changing the Stripe Count
 
@@ -31,7 +31,7 @@ You have two ways to modify the stripe count:
 
 - **Configuration file**: Manually update the stripesCount value in the configuration file at the following path: */opt/msawb/etc/config/SAPAse/config.json*
 
-For more details, refer to the [official documentation](/azure/sap/workloads/dbms-guide-sapase).
+For more information, refer to the [official documentation](/azure/sap/workloads/dbms-guide-sapase).
 
 >[!Note]
 >Setting the above ASE parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization, as overutilization can  impact the backup and other ASE operations negatively.
