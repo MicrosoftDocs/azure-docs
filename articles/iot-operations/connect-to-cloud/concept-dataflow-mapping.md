@@ -72,8 +72,8 @@ inputs: [
 output: 'Employee.DateOfBirth'
 
 inputs: [
-  'Position', // - - - $1
-  'Office', // - - - - $2
+  'Position'  // - - - $1
+  'Office'  // - - - - $2
 ]
 output: 'Employment.Position'
 expression: '$1 + ", " + $2'
@@ -482,9 +482,11 @@ Mapping configuration that uses wildcards:
 
 ```bicep
 inputs: [
-  '*.Max', // - $1
-  '*.Min', // - $2
+  '*.Max'  // - $1
+  '*.Min'  // - $2
 ]
+output: 'ColorProperties.*'
+expression: '($1 + $2) / 2'
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -552,10 +554,10 @@ Initial mapping configuration that uses wildcards:
 
 ```bicep
 inputs: [
-  '*.Max',    // - $1
-  '*.Min',    // - $2
-  '*.Avg',    // - $3
-  '*.Mean',   // - $4
+  '*.Max'    // - $1
+  '*.Min'    // - $2
+  '*.Avg'    // - $3
+  '*.Mean'   // - $4
 ]
 ```
 
@@ -590,10 +592,10 @@ Corrected mapping configuration:
 
 ```bicep
 inputs: [
-  '*.Max',        // - $1
-  '*.Min',        // - $2
-  '*.Mid.Avg',    // - $3
-  '*.Mid.Mean',   // - $4
+  '*.Max'        // - $1
+  '*.Min'        // - $2
+  '*.Mid.Avg'    // - $3
+  '*.Mid.Mean'   // - $4
 ]
 ```
 
@@ -621,15 +623,15 @@ When you use the previous example from multi-input wildcards, consider the follo
 
 ```bicep
 inputs: [
-  '*.Max',   // - $1
-  '*.Min',   // - $2
+  '*.Max'   // - $1
+  '*.Min'   // - $2
 ]
 output: 'ColorProperties.*.Avg'
 expression: '($1 + $2) / 2'
 
 inputs: [
-  '*.Max',   // - $1
-  '*.Min',   // - $2
+  '*.Max'   // - $1
+  '*.Min'   // - $2
 ]
 output: 'ColorProperties.*.Diff'
 expression: 'abs($1 - $2)'
@@ -682,15 +684,15 @@ Now, consider a scenario where a specific field needs a different calculation:
 
 ```bicep
 inputs: [
-  '*.Max',   // - $1
-  '*.Min',   // - $2
+  '*.Max'   // - $1
+  '*.Min'   // - $2
 ]
 output: 'ColorProperties.*'
 expression: '($1 + $2) / 2'
 
 inputs: [
-  'Opacity.Max',   // - $1
-  'Opacity.Min',   // - $2
+  'Opacity.Max'   // - $1
+  'Opacity.Min'   // - $2
 ]
 output: 'ColorProperties.OpacityAdjusted'
 expression: '($1 + $2 + 1.32) / 2'
@@ -725,15 +727,15 @@ Consider a special case for the same fields to help decide the right action:
 
 ```bicep
 inputs: [
-  '*.Max',   // - $1
-  '*.Min',   // - $2
+  '*.Max'   // - $1
+  '*.Min'   // - $2
 ]
 output: 'ColorProperties.*'
 expression: '($1 + $2) / 2'
 
 inputs: [
-  'Opacity.Max',   // - $1
-  'Opacity.Min',   // - $2
+  'Opacity.Max'   // - $1
+  'Opacity.Min'   // - $2
 ]
 ```
 
