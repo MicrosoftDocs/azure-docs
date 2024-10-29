@@ -62,7 +62,7 @@ The following table shows all the imported data in your App Configuration store.
 
 | Key | Value | Label | Content type |
 |---------|---------|---------|---------|
-| .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled":false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
+| .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled": false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | Warning | dev |  |
 | Database:ConnectionString | {\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
