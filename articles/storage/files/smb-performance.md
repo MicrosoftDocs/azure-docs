@@ -201,6 +201,8 @@ Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-
 Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -ProviderNamespace Microsoft.Storage 
 ```
 ---
+> [!Information]
+> Please allow 1-2 days for accounts to be onboarded once registration is complete.
 
 ### Regional availability
 
@@ -208,8 +210,12 @@ Currently the metadata caching preview is only available in the following Azure 
 
 - Asia East
 - Australia Central
+- Australia East
+- Australia Southeast
 - Brazil South
 - Canada Central
+- Canada East
+- Europe North
 - France Central
 - Germany West Central
 - Japan East
@@ -217,7 +223,11 @@ Currently the metadata caching preview is only available in the following Azure 
 - Jio India West
 - India Central
 - India South
+- India West
+- Israel Central
+- Italy North
 - Korea Central
+- Korea South
 - Mexico Central
 - Norway East
 - Poland Central
@@ -228,8 +238,10 @@ Currently the metadata caching preview is only available in the following Azure 
 - UAE North
 - UK West
 - UK South
+- US North Central
 - US South Central
 - US West Central
+- US West 2
 - US West 3
 
 > [!TIP]
