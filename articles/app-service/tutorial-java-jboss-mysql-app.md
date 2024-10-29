@@ -22,9 +22,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL flexible server.
 > * Secure database connectivity using a passwordless connection string.
+> * Verify JBoss data sources in App Service using JBoss CLI.
 > * Deploy a JBoss sample app to App Service from a GitHub repository.
-> * Upload scripts to App Service using GitHub Actions.
-> * Create a data source in the JBoss server.
 > * Acces App Service app settings in the application code.
 > * Make updates and redeploy the application code.
 > * Stream diagnostic logs from App Service.
