@@ -4,7 +4,7 @@ description: Learn how to protect against common API-based vulnerabilities, as i
 author: mikebudzynski
 ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 10/18/2024
+ms.date: 10/29/2024
 ms.author: mibudz
 ---
 
@@ -12,12 +12,12 @@ ms.author: mibudz
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
+> [!NOTE]
+> This article has been updated to reflect the latest OWASP API Security Top 10 list for 2023.
+
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we discuss the latest recommendations to mitigate the top 10 API threats identified by OWASP in their *2023* list using Azure API Management.
-
-> [!NOTE]
-> This article has been updated to reflect the latest OWASP API Security Top 10 list for 2023.
 
 Even though API Management provides comprehensive controls for API security, other Microsoft services provide complementary functionality to detect or protect against OWASP API threats:
 
@@ -34,7 +34,7 @@ Even though API Management provides comprehensive controls for API security, oth
 
 API objects that aren't protected with the appropriate level of authorization may be vulnerable to data leaks and unauthorized data manipulation through weak object access identifiers. For example, an attacker could exploit an integer object identifier, which can be iterated. 
 
-More information about this threat: [API1:2019 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/editions/2023/en/0xa1-broken-object-level-authorization.md)
+More information about this threat: [API1:2023 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/editions/2023/en/0xa1-broken-object-level-authorization.md)
 
 ### Recommendations 
 
