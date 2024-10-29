@@ -586,6 +586,8 @@
         href: enable-native-compression.md
   - name: SAP ASE database on Azure VM backup
     items:
+    - name: configure backup
+      href: sap-ase-database-backup.md
     - name: Restore
       href: sap-ase-database-restore.md
     - name: Manage
