@@ -6,7 +6,8 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 10/23/2023 
+ms.date: 10/23/2024
+#customer intent: I want to grant the Azure Monitor role to an Azure Managed Grafana instance so that I can start monitoring an Azure service in Grafana.
 ---
 
 # How to modify access permissions to Azure Monitor

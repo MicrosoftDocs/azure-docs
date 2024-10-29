@@ -17,7 +17,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
 * The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 
 ## Download the code
 

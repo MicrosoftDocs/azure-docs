@@ -6,7 +6,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 10/22/2024
+ms.date: 10/23/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to prevent my subscriptions from getting blocked or deleted.
 ---
@@ -20,7 +20,7 @@ Unused and abandoned subscriptions can increase potential security risks to your
 > - Microsoft Online Service Program (MOSP)
 > - Cloud Solution Provider (CSP)
 > - Microsoft Customer Agreement (MCA) that you bought through the Azure website or Azure portal
-> - Microsoft Customer Agreement (MCA) that you bought through a Microsoft representative
+> - Microsoft Customer Agreement (MCA) that your partner manages
 
 ## What is an unused subscription?
 
