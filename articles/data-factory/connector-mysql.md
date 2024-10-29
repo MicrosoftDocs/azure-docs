@@ -312,7 +312,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `year` |`Int` |`Int` |
 
 >[!NOTE]
->Storing bit(1) as Boolean in the legacy version was a bug and it was fixed in the recommended version. If you still have Boolean value in the recommended version, use tinybit(1) data type.
+>Storing bit(1) as Boolean in the legacy version was improved in the recommended version. If you still want to have Boolean value by using the recommended version, use tinybit(1) data type.
 
 ## Lookup activity properties
 
@@ -328,7 +328,7 @@ Here are steps that help you upgrade your MySQL connector:
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
-### MySQL best practices
+### Best practices for MySQL connector recommended version
 
 This section introduces some best practices for MySQL connector recommended version.
 
@@ -344,13 +344,13 @@ The reason for these issues is the recommended version cannot decrypt the PCKS#8
 
 The recommended version treats tinyint(1) as Boolean type by default, which is by design. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html).
 
-To return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.
+To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.
 
 #### Treat char(36) as GUID
 
 The recommended version will treat Char(36) as GUID type by default for better performance.
 
-The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations like inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers, providing better performance.
+The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance.
 
 You can also change this behavior by setting `guidFromat=none` in connection property. 
 
@@ -360,9 +360,9 @@ The recommended version cannot read zero or invalid date value. It is by default
 
 MySQL permits you to store a "zero" value of '0000-00-00' as a "dummy date." In some cases, this is more convenient than using NULL values, and uses less data and index space. To disallow '0000-00-00', enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).
 
-To allow zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
+For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
 
-To allow an invalid date value, you can modify your SQL to wrap the column as String type.
+For invalid date value, you can modify your SQL to wrap the column as String type.
 
 ## Differences between the recommended and the legacy driver version
 
