@@ -270,7 +270,7 @@ This means that an external IP has been assigned to the load balancer service, a
 mosquitto_pub --host <EXTERNAL_IP> --port 1883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
 ```
 
-If the external IP is not assigned, you might need to use use port forwarding or a virtual switch to access the broker.
+If the external IP is not assigned, you might need to use port forwarding or a virtual switch to access the broker.
 
 #### Use port forwarding
 

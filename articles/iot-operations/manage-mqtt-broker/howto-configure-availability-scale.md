@@ -48,7 +48,7 @@ To configure the cardinality settings directly, specify the `cardinality` field.
   - `redundancyFactor`: The number of backend pods to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
   - `workers`: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to 2 CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
-Generally, increasing these values increases the broker's capacity to handle more connections and messages, and it also provides high availability in case one of the pods or nodes fails. However, increasing these values also increases the resource consumption of the broker. Combined with memory profile settings, carefully consider to tune the resource consumption of the broker when increasing these values.
+When you increase these values, the broker's capacity to handle more connections and messages improves, and it enhances high availability in case of pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
 
 ## Configure memory profile
 
