@@ -12,16 +12,17 @@ ms.custom: devx-track-azurecli
 
 # Synchronize APIs from an API Management instance
 
-This article shows how to create a link (preview) to an API Management instance so that the instances's APIs are synchronized in your [API center](overview.md).APIs in a linked API Management instance are continuously kept up to date in your API center inventory. 
+This article shows how to create a link (preview) to an API Management instance so that the instances's APIs are synchronized in your [API center](overview.md). APIs in a linked API Management instance are continuously kept up to date in your API center inventory. 
 
-## About linking API Management 
+## About linking an API Management instance
 
 Although you can use the Azure CLI to [import](import-api-management-apis.md) APIs on demand from Azure API Management to Azure API Center, linking an API Management instance enables continuous synchronization so that the API inventory stays up to date.
 
 When you link an API Management instance, the following happens:
 
 * All APIs, and optionally API definitions, from the API Management instance are added to the API center inventory.
-* You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
+* You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
+* An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
 
 API Management APIs automatically synchronize to the API center whenever existing APIs' settings change, new versions are added, new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
@@ -29,12 +30,11 @@ API Management APIs automatically synchronize to the API center whenever existin
 > * API updates in API Management can take a few minutes to synchronize to your API center.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of linked API Management instances.
 
-
 ### Entities synchronized from API Management
 
 You can add or update metadata properties and documentation in your API center to help stakeholders discover, understand, and consume the synchronized APIs. Learn more about Azure API Center's [built-in and custom metadata properties](add-metadata-properties.md).
 
-The following table shows entity properties that can be modified in Azure API Center and those that are determined based on their values in a linked Azure API Management instance. Also, entities' resource or system identifiers in Azure API Center are generated automatically and can't be modified.
+The following table shows entity properties that can be modified in Azure API Center and properties that are determined based on their values in a linked Azure API Management instance. Also, entities' resource or system identifiers in Azure API Center are generated automatically and can't be modified.
 
 | Entity       | API Center                     | API Management                                           |
 |--------------|-----------------------------------------|-----------------|
@@ -56,7 +56,7 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
-Select
+
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
