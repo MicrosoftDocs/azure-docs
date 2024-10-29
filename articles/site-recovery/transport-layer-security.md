@@ -55,6 +55,9 @@ Use the following registry keys to configure .NET Framework that supports strong
     "SchUseStrongCrypto" = dword:00000001
 ```
 
+> [!NOTE]
+> If the registry keys are absent, you don't need to create them for Windows Server 2012 R2 or later versions if TLS 1.2 is enabled in SChannel protocols.
+
 ## Frequently asked questions
 
 ### Why enable TLS 1.2?
