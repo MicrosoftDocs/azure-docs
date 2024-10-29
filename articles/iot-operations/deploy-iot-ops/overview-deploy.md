@@ -26,7 +26,7 @@ Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployment
   * 32-GB RAM
   * 8 vCPUs
 
-[!INCLUDE [validated-environments](includes/validated-environments.md)]
+[!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
 ## Choose your features
 
