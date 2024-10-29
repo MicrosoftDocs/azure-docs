@@ -46,7 +46,7 @@ To enable sign-in for users with Mobile ID in Azure AD B2C, you need to create a
 
     |Key  |Note  |
     |---------|---------|
-    | Client ID | The Mobile ID client ID. For example, 11111111-2222-3333-4444-555555555555. |
+    | Client ID | The Mobile ID client ID. For example, 00001111-aaaa-2222-bbbb-3333cccc4444. |
     | Client Secret| The Mobile ID client secret.| 
 
 
