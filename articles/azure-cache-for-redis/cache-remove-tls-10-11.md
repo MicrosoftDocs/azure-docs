@@ -20,7 +20,7 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 > Starting November 1, 2024, the TLS 1.2 requirement is enforced.
 
 > [!IMPORTANT]
-> The TLS 1.0/1.1 retirement content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
+> The TLS 1.0/1.1 retirement content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2 or newer.
 
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
