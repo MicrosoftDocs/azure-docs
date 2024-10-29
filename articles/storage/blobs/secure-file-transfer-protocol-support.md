@@ -48,6 +48,10 @@ Local users must use either a password or a Secure Shell (SSH) private key crede
 
 To set up access permissions, you create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
 
+> [!IMPORTANT]
+> If you have any feedback on scenarios that require Entra Identities-based authorization, please reach out to us at BlobSFTP@microsoft.com.
+>
+
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
 >
