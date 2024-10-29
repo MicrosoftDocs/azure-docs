@@ -371,7 +371,6 @@ When you publish to the `tutorial/local` topic on the local Azure IoT Operations
 
 To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. In a new file named `client.yaml`, specify the client deployment:
 
-
 <!-- TODO: put this in the explore-iot-operations repo? -->
 
 # [Bicep](#tab/bicep)

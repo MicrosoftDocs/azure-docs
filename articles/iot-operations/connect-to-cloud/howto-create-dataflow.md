@@ -375,7 +375,7 @@ sourceSettings:
 ---
 
 > [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
+> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
 
 <!-- TODO: Details -->
 
