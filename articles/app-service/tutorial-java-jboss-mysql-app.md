@@ -94,7 +94,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 3:** In the codespace terminal:
         1. Run `mvn clean wildfly:run`.
-        1. When you see the notification `Your application running on port 8080 is available.`, select **Open in Browser**.
+        1. When you see the notification `Your application running on port 8080 is available.`, wait a few seconds longer for the WildFly server to finish loading the application. Then, select **Open in Browser**.
         You should see the sample application in a new browser tab.
         To stop the WildFly server, type `Ctrl`+`C`.
     :::column-end:::
@@ -147,7 +147,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Linux Plan*: **Create new** and use the name **msdocs-jboss-mysql**.
         1. *Pricing plan*: **Premium V3 P0V3**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
         1. *Deploy with your app*: Select **Database**. Azure Database for MySQL - Flexible Servier is selected for you by default. It's a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. Select **Next: Deployment**.
+        1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
@@ -156,21 +156,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** In the **Deployment** tab, fill out the form as follows.
-        1. *Continuous deployment*: **Enable**.
-        1. *Oranization*: Select your GitHub alias.
-        1. *Repository*: **msdocs-jboss-mysql-sample-app**.
-        1. *Branch*: **main**.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing how to configure Deployment tab in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group**: The container for all the created resources.
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
@@ -180,7 +166,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         <!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -339,7 +325,7 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured. 
-        1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in JBoss but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
+        1. Say, "*The data source in JBoss in Azure will use the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
@@ -440,7 +426,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row:::
     :::column span="2":::
         **Step 1:** In the search bar at the top of the Azure portal:
-        1. Enter the resource group name.
+        1. Enter the resource group name *msdocs-jboss-mysql_group*.
         1. Select the resource group.
     :::column-end:::
     :::column:::
