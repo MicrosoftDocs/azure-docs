@@ -169,7 +169,7 @@ To obtain the values, look at the OpenID Connect discovery metadata for each of 
 
 Perform these steps for each Microsoft Entra tenant that should be used to sign in:
 
-1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/v2.0`.
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/ aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
