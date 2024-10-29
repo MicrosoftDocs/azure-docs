@@ -29,7 +29,7 @@ In Android Studio, create a new project:
 
 1. Select **Next**.
 
-1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 26: Android 8.0 (Oreo)** or later.
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java** or **Kotlin**. For the minimum SDK, select **API 26: Android 8.0 (Oreo)** or later.
 
 1. Select **Finish**.
 

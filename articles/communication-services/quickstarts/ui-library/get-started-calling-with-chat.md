@@ -33,7 +33,7 @@ To build and run your app on the device.
 
 ### More features
 
-The list of [use cases](../../concepts/ui-library/ui-library-use-cases.md?branch=main&pivots=platform-mobile) has detailed information about more features.
+The [list of use cases](../../concepts/ui-library/ui-library-use-cases.md?branch=main&pivots=platform-mobile) has detailed information about more features.
 
 ## Add notifications to your mobile app
 
