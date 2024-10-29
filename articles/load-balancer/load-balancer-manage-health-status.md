@@ -96,7 +96,7 @@ Health status can be retrieved on a per load balancing rule basis. This is suppo
 To retrieve the health status information via REST API, you need to do a two request process.
 
 > [!NOTE]
-> Using the REST API method requres that you have a **Bearer access token** for autorization. For assistance retrieving the access token, see [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken?view=azps-12.4.0&viewFallbackFrom=azps-12.2.0) for details.
+> Using the REST API method requres that you have a **Bearer access token** for autorization. For assistance retrieving the access token, see [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) for details.
 
 1. Use the following POST request to obtain the Location URI from the Response Headers.
 
