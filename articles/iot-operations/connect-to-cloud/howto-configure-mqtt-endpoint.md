@@ -522,6 +522,8 @@ In the operations experience dataflow endpoint settings page, select the **Basic
 
 Enter the user assigned managed identity client ID, tenant ID, and scope in the appropriate fields.
 
+Here, the scope is optional, and defaults to `https://eventgrid.azure.net/.default`, which is the same for all Event Grid namespaces. If you're using a different MQTT broker, you can specify the scope as needed.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -531,7 +533,8 @@ mqttSettings: {
     userAssignedManagedIdentitySettings: {
       cliendId: '<ID>'
       tenantId: '<ID>'
-      scope: '<SCOPE>'
+      // Optional, defaults to 'https://eventgrid.azure.net/.default'
+      // scope: 'https://<SCOPE_URL>' 
     }
   }
 }
@@ -546,7 +549,8 @@ mqttSettings:
     userAssignedManagedIdentitySettings:
       clientId: <ID>
       tenantId: <ID>
-      scope: <SCOPE>
+      # Optional, defaults to 'https://eventgrid.azure.net/.default'
+      # scope: https://<SCOPE_URL>
 ```
 
 ---

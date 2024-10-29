@@ -346,6 +346,39 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
 
 ---
 
+##### Shared subscriptions
+
+To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
+
+# [Portal](#tab/portal)
+
+In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+sourceSettings: {
+  dataSources: [
+    '$shared/<GROUP_NAME>/<TOPIC_FILTER>'
+  ]
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+sourceSettings:
+  dataSources:
+    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
+```
+
+---
+
+> [!NOTE]
+> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
+
+<!-- TODO: Details -->
+
 #### Kafka topics
 
 When the source is a Kafka (Event Hubs included) endpoint, specify the individual kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
@@ -419,42 +452,6 @@ sourceSettings:
 ```
 
 ---
-
-
-#### Shared subscriptions
-
-<!-- TODO: may not be final -->
-
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
-
-# [Portal](#tab/portal)
-
-In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-sourceSettings: {
-  dataSources: [
-    '$shared/<GROUP_NAME>/<TOPIC_FILTER>'
-  ]
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-sourceSettings:
-  dataSources:
-    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
-```
-
----
-
-> [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, then the shared subscription topic prefix is automatically added to the topic filter.
-
-<!-- TODO: Details -->
 
 ## Transformation
 
