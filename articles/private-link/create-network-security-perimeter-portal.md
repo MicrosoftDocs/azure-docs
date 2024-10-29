@@ -35,7 +35,7 @@ Before creating a network security perimeter, you create a resource group to hol
 > Azure Key Vault requires a unique name. If you receive an error that the name is already in use, try a different name. In our example, we use a unique name by appending Year (YYYY), Month (MM), and Day (DD) to the name - **key-vault-YYYYDDMM**.
 
 1. In the search box at the top of the portal, enter **Key vaults**. Select **Key vaults** in the search results.
-1. In the Key vaults accounts window that appears, select **Create +**.
+1. In the Key vaults accounts window that appears, select **+ Create**.
 1. In the **Create a key vault** window, enter the following information:
 
     |**Setting**| **Value** |
@@ -44,16 +44,15 @@ Before creating a network security perimeter, you create a resource group to hol
     | Resource group | Select **Create new**, then enter **resource-group** as the name. |
     | Key vault name |  Enter **key-vault-`<RandomNameInformation>`**. |
     | Region | Select the region in which you want your key vault to be created. For this quickstart, **(US) West Central US** is used. |
-    | Days to retain deleted vaults | Enter **7**. |
 
-1. Leave the remaining default settings, and select **Review + Create** > **Create**.
+2. Leave the remaining default settings, and select **Review + Create** > **Create**.
 
 ## Create a network security perimeter
 
 Once you create a key vault, you can proceed to create a network security perimeter.
 
 > [!NOTE]
-> > For organizational and informational safety, it's advised **not to include  any personally identifiable or sensitive data** in the network security perimeter rules or other network security perimeter configuration.
+> For organizational and informational safety, it's advised **not to include any personally identifiable or sensitive data** in the network security perimeter rules or other network security perimeter configuration.
 
 1. In the search box of the Azure portal, enter **network security perimeters**. Select **network security perimeters** from the search results.
 2. In the **network security perimeters** window, select **+ Create**.
@@ -91,14 +90,17 @@ Once you create a key vault, you can proceed to create a network security perime
 11. Select **Review + create** and then **Create**.
 12. Select **Go to resource** to view the newly created network security perimeter.
 
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+
 ## Delete a network security perimeter
 
 When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
 
 1. From your network security perimeter, select **Associated resources** under **Settings**.
-2. Select **key-vault-YYYYDDMM** and select **Settings ** > **Remove** from the action bar.
-3. Navigate back to the **Overview** page of your network security perimeter.
-4. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
+2. Select **key-vault-YYYYDDMM** from the list of associated resources.
+3. From the action bar,select **Settings ** and then select **Remove** in the .
+4. Navigate back to the **Overview** page of your network security perimeter.
+5. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
 
 ## Next steps
 

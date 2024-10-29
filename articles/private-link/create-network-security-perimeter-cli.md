@@ -29,20 +29,18 @@ Get started with network security perimeter by creating a network security perim
 
 To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use your local CLI environment.
 
-1. For Azure Cloud Shell, sign in and select your subscription.
+1. If using Azure Cloud Shell, sign in and select your subscription.
 1. If you installed CLI locally, sign in with the following command: 
 
     ```azurecli-interactive
     az login 
     ```
 
-1. Select your active subscription locally with the following command: 
+1. Once in your shell, select your active subscription locally with the following command: 
 
     ```azurecli-interactive
     az account set --subscription "Azure Subscription"
     ```
-
-1. Now you can create your resources in the next steps.
    
 ## Create a resource group and key vault
 
@@ -94,8 +92,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     az network perimeter profile create \
         --name network-perimeter-profile \
         --resource-group test-rg \
-        --perimeter-name network-security-perimeter \
-        --location westcentralus
+        --perimeter-name network-security-perimeter
 
     ```
 2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile with the following commands. 
@@ -140,9 +137,9 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ## Create and update network security perimeter access rules
 
-In this step, you create and update network security perimeter access rules with the `az network perimeter profile access-rule create` command.
+In this step, you create and update network security perimeter access rules with public IP address prefixes using the `az network perimeter profile access-rule create` command.
 
-1. Create an inbound access rule for the profile created with the following command:
+1. Create an inbound access rule with a public IP address prefix for the profile created with the following command:
 
     ```azurecli-interactive
 
@@ -152,11 +149,11 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "[10.10.0.0/16]"
+        --address-prefixes "[192.0.2.0/24]"
 
     ```
 
-1. Update your inbound access rule with another IP address range with the following command:
+1. Update your inbound access rule with another public IP address prefix with the following command:
 
     ```azurecli-interactive
     
@@ -166,9 +163,10 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "['10.11.0.0/16', '10.10.0.0/16']"
+        --address-prefixes "['198.51.100.0/24', '192.0.2.0/24']"
 
     ```
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources
 

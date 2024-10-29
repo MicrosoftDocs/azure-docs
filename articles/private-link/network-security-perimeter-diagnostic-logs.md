@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: conceptual
-ms.date: 09/16/2024
+ms.date: 10/30/2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
@@ -23,24 +23,23 @@ Access logs categories for a network security perimeter are based on the results
 | --- | --- | --- |
 | **nspPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
 | **nspPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter. | Enforced |
-| **nspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security. perimeter access rules | Learning/Enforced |
+| **nspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
 | **nspPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter. | Enforced |
 | **nspOutboundAttempt** | Outbound attempt within network security perimeter. | Learning/Enforced |
-| **nspIntraPerimeterInboundAllowed** | Inbound access within perimeter. | Learning/Enforced |
-| **nspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, and Inbound access allowed based on PaaS resource rules. | Learning |
+| **nspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Learning/Enforced |
+| **nspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Learning |
 | **nspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Learning |
-| **nspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, Outbound access allowed based on PaaS resource rules. | Learning |
-| **nspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, Outbound access denied by PaaS resource rules. | Learning |
-| **nspCrossPerimeterInboundAllowed** | Inbound access based on *Link* rules. | Learning/Enforced |
-| **nspPrivateInboundAllowed** | Private endpoint traffic. | Learning/Enforced |
+| **nspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Learning |
+| **nspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, outbound access denied by PaaS resource rules. | Learning |
+| **nspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Learning/Enforced |
 
-## Storage options for access logs
+## Logging destination options for access logs  
 
 You can store the diagnostic logs in the following locations:
 
 | **Service** | **Description** |
 | --- | --- |
-| **Log Analytic workspace** | Log Analytic workspaces are recommended since they all you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
+| **Log Analytic workspace** | Log Analytic workspaces are recommended since they allow you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
 |** Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
 | **Azure Event Hubs** | Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources. |
 
@@ -51,7 +50,7 @@ You can enable diagnostic logging for a network security perimeter by using the 
 :::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for a network security perimeter.":::
   
 > [!NOTE]
-> The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, storage account and/or event hubs to save the diagnostic logs. 
+> The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, a storage account and/or event hubs to save the diagnostic logs. 
 
 ## Next steps
 

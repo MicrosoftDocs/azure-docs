@@ -11,7 +11,7 @@ ms.date: 09/16/2024
 
 # Quickstart: Create a network security perimeter - Azure PowerShell
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -29,9 +29,16 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
 - Use `Az.Tools.Installer` to install the preview build of the `Az.Network`:
 
     ```azurepowershell-interactive
-    Install-Module -Name Az.Tools.Installer -Repository PSGallery -Force -AllowPrerelease
+    Install-Module -Name Az.Tools.Installer -Repository PSGallery -allowprerelease -force
     Install-AzModule -Name Az.Network -AllowPrerelease -Force
     Install-AzModule -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
+    ```
+
+- Register the Microsoft.Network resource provider:
+
+    ```azurepowershell-interactive
+    # Register the Microsoft.Network resource provider
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 * If you choose to use Azure PowerShell locally:
@@ -39,7 +46,7 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
   * Connect to your Azure account using the
     [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 * If you choose to use Azure Cloud Shell:
-  * See [Overview of Azure Cloud Shell](/azure/cloud-shell/overview) for more information.
+  * For more information on Azure Cloud Shell, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
 
 ## Sign in to your Azure account and select your subscription
 
@@ -52,7 +59,7 @@ Connect-AzAccount
 Then, connect to your subscription:
 
 ```azurepowershell
-Set-AzContext -Subscription 6a5f35e9-6951-499d-a36b-83c6c6eed44a
+Set-AzContext -Subscription <subscriptionId>
 ```
 
 ## Create a resource group and key vault
@@ -152,31 +159,33 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ## Create and update network security perimeter access rules
 
-In this step, you create and update network security perimeter access rules.
+In this step, you create and update network security perimeter access rules with public IP address prefixes.
 
 ```azurepowershell-interactive
-    # Create an inbound access rule for the profile created
+    # Create an inbound access rule for a public IP address prefix
     $inboundRule = @{ 
         Name = 'nsp-inboundRule' 
         ProfileName = $nspprofile.Name  
         ResourceGroupName = $rgParams.Name  
         SecurityPerimeterName = $nsp.Name  
         Direction = 'Inbound'  
-        AddressPrefix = "10.1.0.0/24" 
+        AddressPrefix = '192.0.2.0/24' 
         } 
 
     New-AzNetworkSecurityPerimeterAccessRule @inboundrule | format-list
 
-    # Update the inbound access rule to add more address prefixes
+    # Update the inbound access rule to add more public IP address prefixes
     $updateInboundRule = @{ 
         Name = $inboundrule.Name 
         ProfileName = $nspprofile.Name  
         ResourceGroupName = $rgParams.Name  
         SecurityPerimeterName = $nsp.Name  
-        AddressPrefix = @('10.1.0.0/24','10.2.0.0/24')
+        AddressPrefix = @('192.0.2.0/24','198.51.100.0/24')
         }
     Update-AzNetworkSecurityPerimeterAccessRule @updateInboundRule | format-list
 ```
+
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete a network security perimeter 
 
@@ -185,11 +194,11 @@ To delete a network security perimeter, use the following commands:
 ```azurepowershell-interactive
 
     # Retrieve the network security perimeter and place it in a variable
-    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.ResourceGroupName
+    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.name
 
     # Delete the network security perimeter and all associated resources
     $removeNsp = @{ 
-        Name = nsp-association
+        Name = 'nsp-association'
         ResourceGroupName = $rgParams.Name
         SecurityPerimeterName = $nsp.Name
         }
