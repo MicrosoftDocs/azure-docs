@@ -301,9 +301,7 @@ dataLakeStorageSettings:
 
 #### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 # [Bicep](#tab/bicep)
 
@@ -314,8 +312,6 @@ dataLakeStorageSettings: {
     userAssignedManagedIdentitySettings: {
       cliendId: '<ID>'
       tenantId: '<ID>'
-      // Optional, defaults to 'https://storage.azure.com/.default'
-      // scope: 'https://<SCOPE_URL>'
     }
   }
 }
@@ -330,8 +326,6 @@ dataLakeStorageSettings:
     userAssignedManagedIdentitySettings:
       clientId: <ID>
       tenantId: <ID>
-      # Optional, defaults to 'https://storage.azure.com/.default'
-      # scope: https://<SCOPE_URL>
 ```
 
 ---

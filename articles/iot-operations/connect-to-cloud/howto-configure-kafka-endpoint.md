@@ -484,8 +484,6 @@ In the operations experience dataflow endpoint settings page, select the **Basic
 
 Enter the user assigned managed identity client ID, tenant ID, and scope in the appropriate fields.
 
-Here, the scope is the audience of the managed identity. The default value is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the scope field to the desired value.
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -495,9 +493,7 @@ kafkaSettings: {
     UserAssignedManagedIdentitySettings: {
       clientId: '<CLIENT_ID>'
       tenantId: '<TENANT_ID>'
-      // Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      // Matching the Event Hub namespace you configured as host
-      // scope: 'https://<SCOPE_URL>'
+      scope: '<SCOPE>'
     }
   }
   ...
@@ -513,9 +509,7 @@ kafkaSettings:
     userAssignedManagedIdentitySettings:
       clientId: <CLIENT_ID>
       tenantId: <TENANT_ID>
-      # Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      # Matching the Event Hub namespace you configured as host
-      # scope: https://<SCOPE_URL>
+      scope: <SCOPE>
 ```
 
 ---
