@@ -97,7 +97,7 @@ The Azure Device Registry platform manages traffic routing, failover, and failba
 
 Azure Device Registry is a regional service with geographical data replication. In a region-wide outage, Microsoft initiates compute failover from one region to another. If Azure Device Registry fails over, it continues to support its primary region, and no more actions by you are required. 
 
-When using Azure IoT Operations (AIO), Azure Device Registry projects assets as Azure resources in the cloud within a single registry, providing a single source of truth for asset metadata and asset management capabilities. However, AIO includes various other components beyond ADR. For detailed information on AIO-specific components' high availability and zero data loss features, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq#does-azure-iot-operations-offer-high-availability-and-zero-data-loss-features-). 
+When using Azure IoT Operations (AIO), Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for asset metadata and asset management capabilities. However, AIO includes various other components beyond ADR. For detailed information on AIO-specific components' high availability and zero data loss features, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq#does-azure-iot-operations-offer-high-availability-and-zero-data-loss-features-). 
 
 ## Region support
 
