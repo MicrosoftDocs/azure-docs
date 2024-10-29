@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure Device Registry
 description: Find out about reliability in Azure Device Registry, including availability zones and multi-region deployments.
-author: isabellaecr, rohankhandelwal, marcodalessandro
+author: isabellaecr 
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
