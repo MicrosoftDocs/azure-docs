@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Manage Azure Load Balancer Health Status
 
-Health status is an Azure Load Balancer feature that gives detailed health information about the backend instances in your Azure Load Balancer backend pool linked to your load balancing rule. This status provides insights into the health state and reasoning of these backend instances.
+Health status is an Azure Load Balancer feature that gives detailed health information about the backend instances in your Azure Load Balancer backend pool. Linked to your load balancing rule, this status provides insights into the health state and reasoning of these backend instances. 
 
 ## State of backend instances
 
@@ -25,7 +25,7 @@ Health status exposes the state of your backend instances. There are two state v
 
 ## Reason codes
 
-Health status also exposes various reason codes, categorized into User Triggered Reason Codes and Platform Triggered Reason Codes. These codes help you understand the precise reasons for the health probe state of your backend instances and why they're being probed being Up or Down.
+Health status also exposes reason codes, categorized into User Triggered Reason Codes and Platform Triggered Reason Codes. These codes help you understand the precise reasons for the health probe state of your backend instances and why they're being probed Up or Down.
 
 ### User Triggered Reason Codes
 
@@ -68,16 +68,17 @@ Platform triggered reason codes are triggered based on the Azure Load Balancerâ€
 | **Up_Platform** | The backend instance is responding to the health probe successfully, but there may be an infrastructure related issue. The Azure service team is alerted and will resolve the issue.| The backend instance is responding to the health probe successfully, but there can be an infrastructure related issue. The Azure service team is alerted and will resolve the issue. |
 | **Down_Platform** | The backend instance is unhealthy due to an infrastructure related issue. The Azure service team is alerted and will resolve the issue. | The backend instance is unhealthy due to an infrastructure related issue. The Azure service team is alerted and will resolve the issue. |
 
-# [Azure portal](#tab/azure-portal)
 ## How to retrieve health status
 
 Health status can be retrieved on a per load balancing rule basis. This is supported via Azure port and REST API.
+
+# [Azure portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal.
 2. In the search bar, enter **Load Balancers** and select **Load Balancers** from the search results.
 3. On the **Load Balancers** page, select your load balancer from the list.
 4. In your load balancer's **Settings** section, select **Load balancing rules**.
-5. In the **Load balancing rules** page, select **View details** under the **Health state** column for the rule you want to view.
+5. In the **Load balancing rules** page, select **View details** under the **Health status** column for the rule you want to view.
    
    :::image type="content" source="media/load-balancer-manage-health-status/load-balancing-rules-list-small.png" alt-text="Screenshot of list of load balancing rules with health status link." lightbox="media/load-balancer-manage-health-status/load-balancing-rules-list.png":::
 
