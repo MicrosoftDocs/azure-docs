@@ -63,10 +63,11 @@ To execute the pre-registration script for SAP ASE database backup, run the foll
 1. [Download the ASE Pre-Registration Script file](https://aka.ms/preregscriptsapase).
 2. Copy the file to the virtual machine (VM).
 
-   
->[!NOTE]
->Replace `<script name>` in the following commands with the name of the script file you downloaded and copied to the VM.
-3.	Convert the script to the Unix format.
+  
+   >[!NOTE]
+   >Replace `<script name>` in the following commands with the name of the script file you downloaded and copied to the VM.
+
+3. Convert the script to the Unix format.
 
    ```bash
     dos2unix <script name>
@@ -87,14 +88,14 @@ To execute the pre-registration script for SAP ASE database backup, run the foll
     sudo ./<script name> -us
    ```
 
-6.	Run the script.
+6. Run the script.
 
-   >[!Note]
-   >Before running the following command, provide the required values for the placeholders.
+    >[!Note]
+    >Before running the following command, provide the required values for the placeholders.
 
-   ```bash
-    sudo ./<script name> -aw SAPAse --sid <sid> --sid-user <sid-user> --db-port <db-port> --db-user <db-user> --db-host <private-ip-of-vm> --enable-striping <enable-striping>
-   ```
+    ```bash
+     sudo ./<script name> -aw SAPAse --sid <sid> --sid-user <sid-user> --db-port <db-port> --db-user <db-user> --db-host <private-ip-of-vm> --enable-striping <enable-striping>
+    ```
 
    List of parameters:
 
@@ -107,8 +108,8 @@ To execute the pre-registration script for SAP ASE database backup, run the foll
    - `<stripes-count>`: Stripes count (default: '4')
    - `<compression-level>`: Compression level (default: '101')
 
-   >[!NOTE]
-   >To find the `<private-ip-of-vm>`, open the VM in the Azure portal and check the private IP under the **Networking** section.
+    >[!NOTE]
+    >To find the `<private-ip-of-vm>`, open the VM in the Azure portal and check the private IP under the **Networking** section.
 
 7. View details of the parameters.
 
