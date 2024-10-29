@@ -13,9 +13,11 @@ ms.service: azure-communication-services
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
-
 ## A complete sample
+
 You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-android) from the GitHub.
+
+   :::image type="content" source="../../media/call-chat-android-experience.gif" alt-text="animation to showcase the experience on Android using call and chat in the same app.":::
 
 ## Set up the project
 
