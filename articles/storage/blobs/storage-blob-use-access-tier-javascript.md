@@ -1,5 +1,5 @@
 ---
-title: Set or change a blob's access tier with JavaScript/TypeScript
+title: Set or change a blob's access tier with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the JavaScript client library.
 services: storage
@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Set or change a block blob's access tier with JavaScript/TypeScript
+# Set or change a block blob's access tier with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
 

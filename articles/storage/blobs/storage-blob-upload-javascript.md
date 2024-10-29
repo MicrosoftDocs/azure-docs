@@ -1,5 +1,5 @@
 ---
-title: Upload a blob with JavaScript/TypeScript
+title: Upload a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
@@ -12,7 +12,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Upload a blob with JavaScript/TypeScript
+# Upload a blob with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
 

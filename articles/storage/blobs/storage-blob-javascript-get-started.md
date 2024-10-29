@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Blob Storage and JavaScript/TypeScript
+title: Get started with Azure Blob Storage and JavaScript or TypeScript
 titleSuffix: Azure Storage
-description: Get started developing a JavaScript/TypeScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
+description: Get started developing a JavaScript or TypeScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -12,7 +12,7 @@ ms.date: 10/28/2024
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js, devx-track-ts, devguide-ts
 ---
 
-# Get started with Azure Blob Storage and JavaScript/TypeScript
+# Get started with Azure Blob Storage and JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 

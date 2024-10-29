@@ -1,5 +1,5 @@
 ---
-title: List blob containers with JavaScript/TypeScript
+title: List blob containers with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
@@ -14,7 +14,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# List blob containers with JavaScript/TypeScript
+# List blob containers with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
 

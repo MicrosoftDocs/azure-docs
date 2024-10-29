@@ -1,5 +1,5 @@
 ---
-title: Create a blob container with JavaScript/TypeScript
+title: Create a blob container with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 author: pauljewellmsft
@@ -12,7 +12,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Create a blob container with JavaScript/TypeScript
+# Create a blob container with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
 

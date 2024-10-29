@@ -1,5 +1,5 @@
 ---
-title: Download a blob with JavaScript/TypeScript
+title: Download a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the JavaScript client library.
 services: storage
@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Download a blob with JavaScript/TypeScript
+# Download a blob with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
 

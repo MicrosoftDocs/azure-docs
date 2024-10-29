@@ -1,5 +1,5 @@
 ---
-title: Use JavaScript/TypeScript to manage properties and metadata for a blob container
+title: Use JavaScript or TypeScript to manage properties and metadata for a blob container
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
@@ -14,7 +14,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Manage container properties and metadata with JavaScript/TypeScript
+# Manage container properties and metadata with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-manage-properties-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-container.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Delete and restore a blob with JavaScript/TypeScript
+title: Delete and restore a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the JavaScript client library
 services: storage
@@ -12,7 +12,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Delete and restore a blob with JavaScript/TypeScript
+# Delete and restore a blob with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
