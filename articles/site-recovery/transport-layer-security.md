@@ -48,11 +48,6 @@ Use the following registry keys to configure .NET Framework that supports strong
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
     "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-    "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
 ```
 
 > [!NOTE]
