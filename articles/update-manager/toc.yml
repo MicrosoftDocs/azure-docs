@@ -121,7 +121,7 @@ items:
         href: guidance-patching-sql-server-azure-vm.md
       - name: Guidance on patching for SQL Server on Azure VMs
         href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
-    - name: Azure Stack HCI patching
+    - name: Azure Local patching
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Move Azure VMs from Microsoft Configuration Manager to Azure Update Manager
       href: guidance-migration-azure.md

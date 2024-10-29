@@ -31,7 +31,7 @@ You can use Update Manager in Azure to:
     - [Hybrid machines](/azure/azure-arc/servers/)
     - [VMWare machines](/azure/azure-arc/vmware-vsphere/)
     - [SCVMM machines](/azure/azure-arc/system-center-virtual-machine-manager/)
-    - [Azure Stack HCI VMs](/azure-stack/hci/)
+    - [Azure Local VMs](/azure-stack/hci/)
 
 ## Key benefits
 
