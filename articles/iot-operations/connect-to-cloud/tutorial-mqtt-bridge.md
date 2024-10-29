@@ -373,7 +373,6 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 
 
 <!-- TODO: put this in the explore-iot-operations repo? -->
-<!-- TODO: make the service account part of the YAML? -->
 
 # [Bicep](#tab/bicep)
 
