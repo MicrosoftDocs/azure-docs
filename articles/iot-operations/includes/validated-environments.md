@@ -10,11 +10,11 @@ ms.custom:
   - ignite-2023
 ---
 
-Currently, Microsoft has validated Azure IoT Operations against the following fixed-set of infrastructures and environments:
+Currently, Microsoft validates Azure IoT Operations against the following fixed-set of infrastructures and environments:
 
 | Environment | Version |
 | ----------- | ------- |
 | AKS-EE on Windows 11 IoT Enterprise <br> on a Lenovo ThinkStation P3 Tiny machine (16 core, 32 GB RAM) with single-node cluster | AksEdge-K3s-1.29.6-1.8.202.0 |
 | K3S on Ubuntu 24.04 <br> on a Lenovo ThinkStation P3 Tiny machine (16 core, 32 GB RAM) with a 3-node cluster | K3s version 1.31.1 |
 
-Currently Azure IoT Operations doesn't support ARM64 architectures.
+Azure IoT Operations doesn't support ARM64 architectures.

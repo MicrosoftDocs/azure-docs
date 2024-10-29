@@ -24,19 +24,6 @@ Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployment
 
 If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
 
-### [AKS Edge Essentials](#tab/aks-edge-essentials)
-
-To prepare an Azure Arc-enabled Kubernetes cluster, you need:
-
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* Hardware that meets the system requirements:
-
-  * Ensure that your machine has a minimum of 16-GB available RAM, 8 available vCPUs, and 52-GB free disk space reserved for Azure IoT Operations.
-  * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
-  * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
-  * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
-
 ### [Ubuntu](#tab/ubuntu)
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
@@ -60,19 +47,24 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 * If you're going to deploy Azure IoT Operations to a multi-node cluster with fault tolerance enabled, review the hardware and storage requirements in [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/prepare-linux-edge-volumes).
 
+### [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+To prepare an Azure Arc-enabled Kubernetes cluster, you need:
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Hardware that meets the system requirements:
+
+  * Ensure that your machine has a minimum of 16-GB available RAM, 8 available vCPUs, and 52-GB free disk space reserved for Azure IoT Operations.
+  * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
+  * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
+  * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
+
 ---
 
 ## Create and Arc-enable a cluster
 
 This section provides steps to create clusters in validated environments on Linux and Windows.
-
-### [AKS Edge Essentials](#tab/aks-edge-essentials)
-
-[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
-
-The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
-
-For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks/hybrid/aks-edge-howto-deploy-azure-iot).
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -207,6 +199,14 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```bash
    systemctl restart k3s
    ```
+
+### [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
+
+The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
+
+For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks/hybrid/aks-edge-howto-deploy-azure-iot).
 
 ---
 

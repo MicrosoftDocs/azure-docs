@@ -16,7 +16,17 @@ ms.date: 10/23/2024
 
 ## Supported environments
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
+
+* Minimum hardware requirements:
+  * 16-GB RAM
+  * 4 vCPUs
+
+* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
+  * 32-GB RAM
+  * 8 vCPUs
+
+[!INCLUDE [validated-environments](includes/validated-environments.md)]
 
 ## Choose your features
 
