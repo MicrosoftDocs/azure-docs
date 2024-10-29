@@ -53,7 +53,7 @@ For example, a role assigned at the subscription level can cascade down to all r
 For more information, see [Scope levels](../role-based-access-control/scope-overview.md#scope-levels).
 
 > [!NOTE]
-> Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting?tabs=bicep#symptom---role-assignment-changes-are-not-being-detected.md) to refresh after role assignment changes.
+> Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md#symptom-role-assignment-changes-are-not-being-detected.md) to refresh after role assignment changes.
 
 ## Next steps
 
