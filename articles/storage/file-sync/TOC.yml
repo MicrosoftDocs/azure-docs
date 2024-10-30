@@ -71,7 +71,7 @@
       href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/file-sync/toc.json
   - name: Security
     items:
-    - name: Configure managed identities (preview)
+    - name: Configure managed identities
       href: file-sync-managed-identities.md
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
