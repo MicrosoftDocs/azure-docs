@@ -16,9 +16,6 @@ This article describes how to configure and back up Azure Kubernetes Service (AK
 
 You can use Azure Backup to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) by using the Backup extension, which must be installed in the cluster. The Backup vault communicates with the cluster via the Backup extension to perform backup and restore operations.
 
-> [!NOTE]
-> Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-
 ## Before you begin
 
 - Currently, AKS Backup supports only Azure Disk Storage-based persistent volumes enabled by CSI driver. The backups are stored in an operational datastore only (backup data is stored in your tenant and isn't moved to a vault). The Backup vault and AKS cluster must be in the same region.

@@ -19,13 +19,11 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North, China East 2, China East 3, China North 2, China North 3, USGov Virginia, USGov Arizona and USGov Texas.
 
-- Vault Tier and Cross Region Restore support (preview) for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East.
+- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East.
 
 
   >[!Note]
-  >Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-  >
-  >To access backups stored in Vault Tier in the Azure paired region, enable Cross Region Restore capability for your Backup Vault. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+  >Enable Cross Region Restore capability for your Backup Vault to have your backups available in an Azure paired region. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Limitations
 
@@ -48,6 +46,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 - You can only install the Backup Extension on agent nodes with Ubuntu and Azure Linux as Operating System. AKS Clusters with Windows based agent nodes don't allow Backup Extension installation.
 
 - You can't install Backup Extension in AKS Cluster with Arm64 based agent nodes irrespective of Operating System (Ubuntu/Azure Linux/Windows) running on these nodes.
+
+- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup  
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
@@ -79,17 +79,17 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Configuration of a storage account with private endpoint is supported.
 
-### Additional limitations for Vaulted backup and Cross Region Restore (preview)
+### Additional limitations for Vaulted backup and Cross Region Restore
 
-- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; otherwise, they are skipped in the backup data. 
+- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
 
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
 
-- Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
+- Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours in the primary region. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
 
-- During restore from Vault Tier, the provided staging location shouldn't have a *Read*/*Delete Lock*; otherwise, hydrated resources aren't cleaned after restore. 
+- During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They will have to be deleted manually.
 
-- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup
+- If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version . In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.  
 
 ## Next steps
 

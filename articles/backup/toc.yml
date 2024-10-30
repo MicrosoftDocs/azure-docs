@@ -36,8 +36,30 @@
     items:
     - name: From the Azure portal
       href: quick-backup-aks.md
+    - name: With Azure CLI
+      href: quick-kubernetes-backup-cli.md
+    - name: With PowerShell
+      href: quick-kubernetes-backup-powershell.md
+    - name: With Azure Resource Manager
+      href: quick-kubernetes-backup-arm.md
+    - name: With Bicep
+      href: quick-kubernetes-backup-bicep.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
+  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+    items:
+    - name: With Azure portal
+      href: quick-backup-postgresql-flexible-server-portal.md
+    - name: With Azure CLI
+      href: quick-backup-postgresql-flexible-server-cli.md
+    - name: With PowerShell
+      href: quick-backup-postgresql-flexible-server-powershell.md    
+    - name: With Terraform
+      href: quick-backup-postgresql-flexible-server-terraform.md
+    - name: With Azure Resource Manager template
+      href: quick-backup-postgresql-flexible-server-arm.md
+    - name: With Azure Bicep template
+      href: quick-backup-postgresql-flexible-server-bicep.md
   - name: Configure vaulted backup for Azure Blob
     items: 
     - name: From the Azure portal
@@ -408,6 +430,20 @@
         href: backup-azure-database-postgresql-flex.md
       - name: Restore
         href: restore-azure-database-postgresql-flex.md
+      - name: Manage
+        href: backup-azure-database-postgresql-flex-manage.md
+    - name: With Azure CLI
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql-flex-backup-cli.md
+      - name: Restore
+        href: restore-azure-database-postgresql-flex-restore-cli.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql-flex-backup-powershell.md
+      - name: Restore
+        href: restore-azure-database-postgresql-flex-restore-powershell.md
     - name: With REST API
       items:
       - name: Create a policy

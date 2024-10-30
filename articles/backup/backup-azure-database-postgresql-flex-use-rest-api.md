@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Database for PostgreSQL - Flexible servers using REST API (preview)
+# Back up Azure Database for PostgreSQL - Flexible servers using REST API
 
 This article describes how to manage backups for Azure PostgreSQL flexible servers via REST API.
 
@@ -31,9 +31,9 @@ Once the vault and policy are created, there're three critical points to conside
 
   The following example uses bash:
 
-	```bash
-	"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver"
-	```
+  ```bash
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver"
+  ```
 
 - **Backup vault**
 

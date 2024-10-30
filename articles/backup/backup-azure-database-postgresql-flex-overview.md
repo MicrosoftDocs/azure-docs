@@ -1,5 +1,5 @@
 ---
-title: About Azure Database for PostgreSQL Flexible server backup (preview)
+title: About Azure Database for PostgreSQL Flexible server backup
 description: An overview on Azure Database for PostgreSQL Flexible server backup
 ms.topic: overview
 ms.date: 09/09/2024
@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# About Azure Database for PostgreSQL - Flexible server backup (preview) 
+# About Azure Database for PostgreSQL - Flexible server backup
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. The feature offers the following capabilities:
 
@@ -57,4 +57,4 @@ You incur charges for:
 
 ## Next steps
 
-[Azure Database for PostgreSQL -Flex backup (preview)](backup-azure-database-postgresql-flex.md).
+[Azure Database for PostgreSQL -Flex backup](backup-azure-database-postgresql-flex.md).
