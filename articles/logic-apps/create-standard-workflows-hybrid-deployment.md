@@ -118,7 +118,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
    > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 
-1. In the Azure portal, on the logic app menu, under **Workflows**, select **Workflows**. add an empty stateful or stateless workflow. You then build your workflow by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
+1. In the Azure portal, on the resource menu, under **Workflows**, select **Workflows**. add an empty stateful or stateless workflow. You then build your workflow by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
 
    > [!NOTE]
    >
@@ -280,7 +280,22 @@ You can control the automatic scaling for the range of replicas that deploy in r
 
 ## Control inbound traffic to your logic app in Azure portal
 
+You can expose your logic app to the public web, your virtual network, and other logic apps in your environment by enabling ingress. Azure enforces ingress settings through a set of rules that control the routing of external and internal traffic to your logic app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.   For more information, see [Ingress in Container Apps](../container-apps/ingress-overview.md).
 
+> [!NOTE]
+>
+> When you enable ingress, all of the traffic will be directed to your latest revision by default. Go to Revision management page to change traffic settings.
+
+1. On the resource menu, under **Settings**, select **Ingress**.
+
+1. On the **Ingress** page, next to **Igress**, select the **Enabled** box.
+
+1. Based on your scenario, configure the remaining options.
+
+   For more information, see the following documentation:
+
+   - [Configure ingress for your app in Azure Container Apps](../container-apps/ingress-how-to.md?pivots=azure-portal)
+   - [Set up IP ingress restrictions in Azure Container Apps](../container-apps/ip-restrictions.md?pivots=azure-portal)
 
 <a name="authenticate-managed-api-connections"></a>
 
