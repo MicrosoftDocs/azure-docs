@@ -28,6 +28,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The below regions are currently supported in the public preview.
 >
+> |                     |                      |                    |
 > |---------------------|----------------------|--------------------|
 > | Australia Central   | Germany West Central | Poland Central     |
 > | Australia East      | Israel Central       | South Africa North |
