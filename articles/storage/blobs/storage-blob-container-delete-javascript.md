@@ -43,7 +43,7 @@ The following example uses a `BlobServiceClient` object to delete the specified 
 
 ## [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.ts" id="snippet_delete_container_immediately" :::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.js" id="snippet_delete_container_immediately" :::
 
 ## [TypeScript](#tab/typescript)
 
@@ -55,7 +55,7 @@ The following example shows how to delete all containers that start with a speci
 
 ## [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.ts" id="snippet_deleteContainersWithPrefix" :::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.js" id="snippet_deleteContainersWithPrefix" :::
 
 ## [TypeScript](#tab/typescript)
 
@@ -73,7 +73,7 @@ The following example finds a deleted container, gets the version ID of that del
 
 ## [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.ts" id="snippet_undeleteContainer" :::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.js" id="snippet_undeleteContainer" :::
 
 ## [TypeScript](#tab/typescript)
 

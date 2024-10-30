@@ -42,7 +42,7 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/delete-blob.ts" id="snippet_deleteBlob":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-delete.ts" id="snippet_deleteBlob":::
 
 ---
 
@@ -66,7 +66,7 @@ This method restores soft-deleted blobs and any deleted snapshots associated wit
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/delete-blob.ts" id="snippet_undeleteBlob":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-delete.ts" id="snippet_undeleteBlob":::
 
 ---
 

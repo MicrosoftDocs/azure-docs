@@ -43,7 +43,7 @@ The following example downloads a blob by using a file path with the [BlobClient
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/download-blob-to-file.ts" id="snippet_downloadBlobToFile":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-file.ts" id="snippet_downloadBlobToFile":::
 
 ---
 
@@ -57,7 +57,7 @@ The following example downloads a blob by creating a Node.js writable stream obj
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/download-blob-to-stream.ts" id="snippet_downloadBlobAsStream":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-stream.ts" id="snippet_downloadBlobAsStream":::
 
 ---
 
@@ -71,7 +71,7 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/download-blob-to-string.ts" id="snippet_downloadBlobToString":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-string.ts" id="snippet_downloadBlobToString":::
 
 ---
 

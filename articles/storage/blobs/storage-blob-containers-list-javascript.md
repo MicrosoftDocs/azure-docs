@@ -62,7 +62,7 @@ The following example asynchronously lists the containers in a storage account t
 
 ## [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/list-containers.ts" id="snippet_listContainers":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/containers-list.ts" id="snippet_listContainers":::
 
 ---
 
