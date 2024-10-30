@@ -37,7 +37,7 @@ Azure Communication Services UI Library renders a full chat experience right in 
 
 ## Clean up resources
 
-If you want to clean up and remove a Azure Communication Services subscription, you can delete the resource or resource group.
+If you want to clean up and remove an Azure Communication Services subscription, you can delete the resource or resource group.
 
 Deleting the resource group also deletes any other resources associated with it.
 

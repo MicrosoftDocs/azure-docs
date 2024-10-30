@@ -13,12 +13,12 @@ ms.subservice: chat
 
 # Enable inline image by using UI Library in Teams Interoperability Chat
 
-With Teams Interoperability Chat ("Interop Chat"), you can enable Azure Communication Service users to receive inline images sent by Teams users. When a rich text editor is enabled, Azure Communication Service users can send inline images to Teams users. To learn more, see [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md).
+With Teams Interoperability Chat ("Interop Chat"), you can enable Azure Communication Services users to receive inline images sent by Teams users. When a rich text editor is enabled, Azure Communication Services users can send inline images to Teams users. To learn more, see [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md).
 
-The receiving inline image feature comes with the `CallWithChat` composite without extra setup. To enable the sending inline images feature, set `richTextEditor` to `true` under `CallWithChatCompositeOptions`.
+The feature in Azure Communication Services for receiving inline images comes with the `CallWithChat` composite without extra setup. To enable the feature in Azure Communication Services for sending inline images, set `richTextEditor` to `true` under `CallWithChatCompositeOptions`.
 
 > [!IMPORTANT]
-> The sending inline image feature of Azure Communication Services is currently in preview.
+> The feature in Azure Communication Services for sending inline images is currently in preview.
 >
 > Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
 >
@@ -34,15 +34,15 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active Long-Term Support (LTS) and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md).
-- Use the UI Library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest for receiving inline images. Use the UI Library version [1.19.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.19.0-beta.1) or the latest beta version for sending inline images.
-- Have a Teams meeting created and the meeting link ready.
-- Be familiar with how [ChatWithChat composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
+- UI Library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest version for receiving inline images. Use the UI Library version [1.19.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.19.0-beta.1) or the latest beta version for sending inline images.
+- A Teams meeting created and the meeting link ready.
+- A familiarity with how [ChatWithChat composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
 ## Background
 
-First of all, Teams Interop Chat must be part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread is created and associated with the meeting. To enable the Azure Communication Service user to join the chat and start to send or receive messages, a meeting participant (a Teams user) must admit them to the call first. Otherwise, they don't have access to the chat.
+First of all, Teams Interop Chat must be part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread is created and associated with the meeting. To enable the Azure Communication Services user to join the chat and start to send or receive messages, a meeting participant (a Teams user) must admit them to the call first. Otherwise, they don't have access to the chat.
 
-After the Azure Communication Service user is admitted to the call, they can start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop Chat.
+After the Azure Communication Services user is admitted to the call, they can start to chat with other participants on the call. In this tutorial, you learn how the feature for sending and receiving inline images works in Interop Chat.
 
 ## Overview
 
@@ -97,9 +97,9 @@ Select the chat button located at the bottom of the pane to open the chat pane. 
 
 !["Screenshot that shows a Teams client sending two inline images."](./media/inline-image-tutorial-interop-chat-1.png "Screenshot that shows a Teams client sending two inline images.")
 
-![Screenshot that shows Azure Communication Services UI Library receiving two inline images.](./media/inline-image-tutorial-interop-chat-2.png "Screenshot that shows Azure Communication Services UI Library receiving 2 inline images.")
+![Screenshot that shows Azure Communication Services UI Library receiving two inline images.](./media/inline-image-tutorial-interop-chat-2.png "Screenshot that shows Azure Communication Services UI Library receiving two inline images.")
 
-When sending inline images is enabled, you should see something like the following screenshot.
+When the feature for sending inline images is enabled, you should see something like the following screenshot.
 
 ![Screenshot that shows Azure Communication Services UI Library sending two inline images and editing messages.](./media/inline-image-tutorial-interop-chat-3.png "Screenshot that shows Azure Communication Services UI Library sending two inline images and editing messages.")
 
@@ -123,5 +123,5 @@ You might also want to:
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
-- [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)

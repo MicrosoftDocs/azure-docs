@@ -44,10 +44,10 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------ | ------------------------------------------------ | ------------------------------------------- |
 | Chat types   | Join an Azure Communication Services chat thread.       | Join a Microsoft Teams meeting chat.         |
 | Chat actions | Send and receive text messages.                  | Send and receive text messages.              |
-|              | Send and receive rich text messages\*.           | Send and receive rich text messages\*.       |
+|              | Send and receive rich text messages.\*           | Send and receive rich text messages.\*       |
 |              | -                                                | [Receive inline images](../../../tutorials/inline-image-tutorial-interop-chat.md).                       |
-|              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md).                   | [Receive file attachments\*](../../../tutorials/file-sharing-tutorial-interop-chat.md).                 |
-| Chat events  | Send and receive typing indicators.                  | Send and receive typing indicators\*\*.             |
+|              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md).                   | [Receive file attachments.\*](../../../tutorials/file-sharing-tutorial-interop-chat.md)                 |
+| Chat events  | Send and receive typing indicators.                  | Send and receive typing indicators.\*\*             |
 |              | Send and receive read receipts.                      | Send and receive read receipts.                 |
 |              | Show when a participant is added or removed.      | Show when a participant is added or removed. |
 | Participants | Show a participant roster.                        | Show a participant roster.                   |
@@ -73,8 +73,8 @@ If you use UI components to deliver Teams interoperability experiences, begin by
 - [Lobby example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby): A sample lobby where a participant can wait to be admitted to a call.
 - [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner): A sample banner that shows the user if the call is being recorded.
 - [Teams theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams): A sample theme that makes UI Library elements look like Microsoft Teams.
-- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md): A sample that shows how an Azure Communication Service user can receive images sent by the Teams user.
-- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md): A sample that shows how an Azure Communication Service user can receive file attachments sent by the Teams user.
+- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md): A sample that shows how an Azure Communication Services user can receive images sent by the Teams user.
+- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md): A sample that shows how an Azure Communication Services user can receive file attachments sent by the Teams user.
 
 ## Customization
 
@@ -100,9 +100,9 @@ The following table compares composites and UI components for observability use 
 
 | Use case                                  | Composites | UI components |
 | ----------------------------------------- | ---------- | ------------- |
-| Access call and chat client state    | X          | X             |
-| Access and handle client events | X          | X             |
-| Access and handle UI events     | X          | X             |
+| Access call and chat client state.    | X          | X             |
+| Access and handle client events. | X          | X             |
+| Access and handle UI events.     | X          | X             |
 
 ## Recommended architecture
 
@@ -125,11 +125,11 @@ The following table summarizes initialization and resource management functions 
 
 | SDK    | Windows            | macOS                | Ubuntu   | Linux    | Android  | iOS        |
 | ------ | ------------------ | -------------------- | -------- | -------- | -------- | ---------- |
-| UI SDK | Chrome\*, Microsoft Edge | Chrome\*, Safari\*\* | Chrome\* | Chrome\* | Chrome\* | Safari\*\* |
+| UI SDK | Chrome,\* Microsoft Edge | Chrome,\* Safari\*\* | Chrome\* | Chrome\* | Chrome\* | Safari\*\* |
 
-\* The current version of Chrome and the two preceding releases are supported.
+\*The current version of Chrome and the two preceding releases are supported.
 
-\*\* Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS isn't yet supported, but it's supported for iOS. Outgoing screen sharing is supported only on desktop iOS.
+\*\*Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS isn't yet supported, but it's supported for iOS. Outgoing screen sharing is supported only on desktop iOS.
 
 ## Accessibility
 
