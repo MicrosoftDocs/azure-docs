@@ -32,11 +32,11 @@ This article shows how to use blob index tags to manage and find data using the 
 
 [!INCLUDE [storage-dev-guide-auth-set-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-set-blob-tags.md)]
 
-To set tags at blob upload time, create a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) then use the following method:
+You can set tags by using the following method:
 
 - [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
-The following example performs this task.
+The specified tags in this method will replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
 ### [JavaScript](#tab/javascript)
 
@@ -50,20 +50,15 @@ The following example performs this task.
 
 You can delete all tags by passing an empty JSON object into the `setTags` method.
 
-| Related articles |
-|--|
-| [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
-| [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API) |
-
 ## Get tags
 
 [!INCLUDE [storage-dev-guide-auth-get-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-get-blob-tags.md)]
 
-To get tags, use the following method: 
+You can get tags by using the following method: 
 
 - [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
-The following example shows how to get and iterate over the blob's tags.
+The following example shows how to retrieve and iterate over the blob's tags.
 
 ### [JavaScript](#tab/javascript)
 
@@ -93,7 +88,7 @@ The following table shows some query strings:
 |`@container = 'my-container' AND createdBy = 'Jill'`|**Filter by container** and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
 
 
-To find blobs, use the following method: 
+You can find data by using the following method: 
 
 - [BlobServiceClient.findBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
 
