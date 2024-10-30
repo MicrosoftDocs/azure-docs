@@ -17,7 +17,7 @@ ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 
 [!INCLUDE [storage-dev-guide-selector-delete-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-container.md)]
 
-This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).  If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ You can also delete a container using the following method from the [ContainerCl
 - [ContainerClient.delete](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer)
 - [ContainerClient.deleteIfExists](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-containerclient-deleteifexists)
 
-After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains will fail with HTTP error code `404 (Not Found)`.
+After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name fails with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains fail with HTTP error code `404 (Not Found)`.
 
-The following example use a `BlobServiceClient` object to delete the specified container:
+The following example uses a `BlobServiceClient` object to delete the specified container:
 
 ## [JavaScript](#tab/javascript)
 
@@ -65,7 +65,7 @@ The following example shows how to delete all containers that start with a speci
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object:
+When container soft delete is enabled for a storage account, a container and its contents can be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object:
 
 - [BlobServiceClient.undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
 

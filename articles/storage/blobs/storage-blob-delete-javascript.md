@@ -48,7 +48,7 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 
 ## Restore a deleted blob
 
-Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period expires, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
 You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. 
 
@@ -58,7 +58,7 @@ To restore soft-deleted blobs, call the following method:
 
 - [BlobClient.undelete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-undelete)
 
-This method restores soft-deleted blobs and any deleted snapshots associated with it. Calling this method for a blob that has not been deleted has no effect.
+This method restores soft-deleted blobs and any deleted snapshots associated with it. Calling this method for a blob that hasn't been deleted has no effect.
 
 ## [JavaScript](#tab/javascript)
 

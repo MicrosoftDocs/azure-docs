@@ -28,7 +28,7 @@ This article shows how to list blobs using the [Azure Storage client library for
 
 ## About blob listing options
 
-When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
+When you list blobs from your code, you can specify several options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
 To list the blobs in a container using a flat listing, call the following method:
 
@@ -60,7 +60,7 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 ## Use a flat listing
 
-By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
+By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
 The following example lists the blobs in the specified container using a flat listing. This example includes blob snapshots and blob metadata, if they exist:
 

@@ -39,7 +39,7 @@ The following method wraps the [Put Blob From URL](/rest/api/storageservices/put
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For large objects, you may choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
+For large objects, you might choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
 
 - [BlockBlobClient.stageBlockFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-stageblockfromurl)
 

@@ -152,7 +152,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 As you build apps to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-The following guides show you how to access data and perform specific actions using the Azure Storage client library for Javascript:
+The following guides show you how to access data and perform specific actions using the Azure Storage client library for JavaScript:
 
 | Guide | Description |
 | --- | --- |

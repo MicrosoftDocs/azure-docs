@@ -36,7 +36,7 @@ You can set tags by using the following method:
 
 - [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
-The specified tags in this method will replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
+The specified tags in this method replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
 ### [JavaScript](#tab/javascript)
 
