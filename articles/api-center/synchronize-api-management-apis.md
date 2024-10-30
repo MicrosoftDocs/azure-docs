@@ -4,7 +4,7 @@ description: Link an API Management instance to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -18,17 +18,17 @@ This article shows how to create a link (preview) to an API Management instance 
 
 Although you can use the Azure CLI to [import](import-api-management-apis.md) APIs on demand from Azure API Management to Azure API Center, linking an API Management instance enables continuous synchronization so that the API inventory stays up to date.
 
-When you link an API Management instance, the following happens:
+When you link an API Management instance as an API source, the following happens:
 
-* All APIs, and optionally API definitions, from the API Management instance are added to the API center inventory.
+* All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory.
 * You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
 * An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
 
-API Management APIs automatically synchronize to the API center whenever existing APIs' settings change, new versions are added, new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
+API Management APIs automatically synchronize to the API center whenever existing APIs' settings change (for example, new versions are added), new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
 > [!NOTE]
 > * API updates in API Management can take a few minutes to synchronize to your API center.
-> * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of linked API Management instances.
+> * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of linked API Management instances (API sources).
 
 ### Entities synchronized from API Management
 
@@ -41,7 +41,7 @@ The following table shows entity properties that can be modified in Azure API Ce
 | API          | summary<br/>lifecycleStage<br/>termsOfService<br/>license<br/>externalDocumentation<br/>customProperties    | title<br/>description<br/>kind                   |
 | API version  | lifecycleStage      | title                                                |
 | Environment  | title<br/>description<br/>kind</br>server.managementPortalUri<br/>onboarding<br/>customProperties      | server.type
-| Deployment   |  title<br/>description<br/>server<br/>state<br/>customProperties    |      server.runtimeUri<br/>environmentId<br/>definitionId |
+| Deployment   |  title<br/>description<br/>server<br/>state<br/>customProperties    |      server.runtimeUri |
 
 For property details, see the [Azure API Center REST API reference](/rest/api/apicenter).
 
@@ -73,8 +73,6 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
 
 You can link an API Management instance using the portal.
 
-#### [Portal](#tab/portal)
-
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 1. Under **Assets**, select **Environments**.
 1. Select **Links (preview)** > **+ New link**.
@@ -90,7 +88,7 @@ You can link an API Management instance using the portal.
 The environment is added in your API center. The API Management APIs are imported to the API center inventory.
 
 :::image type="content" source="media/synchronize-api-management-apis/environment-link-list.png" alt-text="Screenshot of environment list in the portal.":::
----
+
 
 ## Delete a link
 
