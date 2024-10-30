@@ -138,6 +138,31 @@ kubectl apply -f <FILE>.yaml
 
 ---
 
+## OneLake path type
+
+The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
+
+# [Portal](#tab/portal)
+
+The OneLake path type is set in the **Basic** tab for the dataflow endpoint.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+  oneLakePathType: 'Tables' // Or 'Files'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  oneLakePathType: Tables # Or Files
+```
+
+---
+
 ## Available authentication methods
 
 The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
@@ -257,34 +282,11 @@ fabricOneLakeSettings:
 
 ---
 
+Here, the scope is optional and defaults to `https://storage.azure.com/.default`. If you need to override the default scope, specify the `scope` setting using Bicep or Kubernetes.
+
 ## Advanced settings
 
 You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
-
-### OneLake path type
-
-The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
-
-# [Portal](#tab/portal)
-
-The OneLake path type is set in the **Basic** tab for the dataflow endpoint.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-fabricOneLakeSettings: {
-  oneLakePathType: 'Tables' // Or 'Files'
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-fabricOneLakeSettings:
-  oneLakePathType: Tables # Or Files
-```
-
----
 
 ### Batching
 

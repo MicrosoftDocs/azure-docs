@@ -29,7 +29,9 @@ To set up bi-directional communication between Azure IoT Operations Preview and 
 
 ### Create an Azure Event Hubs namespace and event hub in it
 
-First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md) and a event hub for each Kafka topic. 
+First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md)
+
+Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.md#create-an-event-hub). Each individual event hub corresponds to a Kafka topic. You can create multiple event hubs in the same namespace to represent multiple Kafka topics. 
 
 ### Assign the managed identity to the Event Hubs namespace
 
@@ -52,10 +54,7 @@ Finally, create the *DataflowEndpoint* resource. Use your own values to replace 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *SASL*. |
-    | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
-    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
-    | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
+    | Authentication method| The method used for authentication. Choose *System assigned managed identity* |
 
 1. Select **Apply** to provision the endpoint.
 

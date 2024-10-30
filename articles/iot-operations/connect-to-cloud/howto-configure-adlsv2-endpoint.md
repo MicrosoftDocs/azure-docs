@@ -411,7 +411,6 @@ In the operations experience, select the **Advanced** tab for the dataflow endpo
 
 ```bicep
 dataLakeStorageSettings: {
-  ...
   batching: {
     latencySeconds: 100
     maxMessages: 1000
@@ -422,7 +421,7 @@ dataLakeStorageSettings: {
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-fabricOneLakeSettings:
+dataLakeStorageSettings:
   batching:
     latencySeconds: 100
     maxMessages: 1000

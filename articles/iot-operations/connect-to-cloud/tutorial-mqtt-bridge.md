@@ -183,11 +183,11 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
   properties: {
     endpointType: 'Mqtt'
     mqttSettings: {
+      host: eventGridHostName
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
-      host: eventGridHostName
       tls: {
         mode: 'Enabled'
       }
@@ -274,9 +274,6 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
-```
-
-```bicep
 resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
