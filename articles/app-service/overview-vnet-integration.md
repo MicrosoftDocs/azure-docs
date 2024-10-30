@@ -76,12 +76,6 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
->[!NOTE]
-> Multi plan subnet join is currently in public preview. During preview the following known limitations should be observed:
-> 
-> * The minimum requirement for subnet size of `/26` is currently not enforced, but will be enforced at GA. If you have joined multiple plans to a smaller subnet during preview they will still work, but you cannot connect additional plans and if you disconnect you will not be able to connect again.
-> * There is currently no validation if the subnet has available IPs, so you might be able to join N+1 plan, but the instances will not get an IP. You can view available IPs in the Virtual network integration page in Azure portal in apps that are already connected to the subnet.
-
 ### Windows Containers specific limits
 
 Windows Containers uses an extra IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have, for example, 10 Windows Container App Service plan instances with four apps running, you need 50 IP addresses and extra addresses to support horizontal (in/out) scale.
