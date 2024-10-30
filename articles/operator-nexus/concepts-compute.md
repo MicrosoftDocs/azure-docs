@@ -5,7 +5,7 @@ author: mukeshdua
 ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 10/25/2024
 ms.custom: template-concept
 ---
 
@@ -113,3 +113,7 @@ The following properties reflect the operational state of a BMM:
 ## Form-factor-specific information
 
 Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments.
+
+### Operator Nexus Network Cloud SKUs
+
+For Stock Keeping Unit (SKU) information please see [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skus-us.md).
