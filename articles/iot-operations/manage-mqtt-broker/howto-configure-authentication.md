@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -728,5 +728,3 @@ Successful reauthentication updates the client's credential expiry with the expi
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
-- [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
-- [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -479,5 +479,3 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
-- [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
-- [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -648,7 +648,7 @@ The `--cafile` argument enables TLS on the mosquitto client and specifies that t
 
 Replace `$HOST` with the appropriate host:
 
-- If connecting from [within the same cluster](howto-test-connection.md#connect-from-a-pod-within-the-cluster-with-default-configuration), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
+- If connecting from [within the same cluster](howto-test-connection.md#connect-to-the-default-listener-inside-the-cluster), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
 - If connecting from outside the cluster, the service `EXTERNAL-IP`.
 
 Remember to specify authentication methods if needed.
