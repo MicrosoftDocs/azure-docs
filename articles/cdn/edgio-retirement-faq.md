@@ -32,7 +32,7 @@ You need to determine if Azure Front Door suits your workloads. We recommend set
 
 ### What alternative solutions does Microsoft offer?
 
-We encourage you to consider migrating your workloads to Azure Front Door. For a feature comparison between Azure Front Door and Azure CDN from Edgio, see [Azure CDN Features](cdn-features.md). For a pricing comparison, visit [Azure CDN Pricing](https://azure.microsoft.com/en-us/pricing/details/cdn/).
+We encourage you to consider migrating your workloads to Azure Front Door. For a feature comparison between Azure Front Door and Azure CDN from Edgio, see [Azure CDN Features](cdn-features.md). For a pricing comparison, visit [Azure CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ### If I determined my workload isn't a match for Azure Front Door, what are my options?
 

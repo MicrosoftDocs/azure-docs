@@ -88,7 +88,7 @@ The followings steps assume you're using an Azure Blob Storage account as your o
 
 1. Select **Review + create** and then select **Create**.
 
-1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](../frontdoor/how-to-add-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
+1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](how-to-add-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
 
 ### Set up Traffic Manager
 
