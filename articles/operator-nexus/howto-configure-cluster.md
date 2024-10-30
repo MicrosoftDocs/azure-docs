@@ -147,7 +147,7 @@ You can find examples for an 8-Rack 2M16C SKU cluster using these two files:
 
 ### Cluster validation
 
-A successful Operator Nexus Cluster creation results in the creation of an Azure Kubernetes Service (AKS) cluster
+A successful Operator Nexus Cluster creation results in the creation of a Azure resource
 inside your subscription. The cluster ID, cluster provisioning state, and
 deployment state are returned as a result of a successful `cluster create`.
 
@@ -271,6 +271,7 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
 ```
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
+See the article [Troubleshoot BMM provisioning](./troubleshoot-bare-metal-machine-provisioning.md) for more information that may be helpful when specific machines fail validation or deployment.
 
 ## Cluster deployment validation
 
