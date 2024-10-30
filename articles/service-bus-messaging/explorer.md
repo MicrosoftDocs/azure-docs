@@ -187,7 +187,7 @@ After a message has been dead-lettered, it will be available from the **Dead-let
 
 ### Purge messages
 
-1. To Purge messages, select the **Purge messages** button of Service Bus explorer. 
+To Purge messages, select the **Purge messages** button of Service Bus explorer. 
  
  :::image type="content" source="./media/service-bus-explorer/purge-messages.png" alt-text="Screenshot indicating the purge messages button." lightbox="./media/service-bus-explorer/purge-messages.png":::
 
