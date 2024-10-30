@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NIST SP 800-53 Rev. 4
 description: Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/21/2024
+ms.date: 10/30/2024
 ms.topic: sample
 ms.custom: generated
 ---
