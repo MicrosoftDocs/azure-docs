@@ -37,9 +37,9 @@ These examples aren't meant to be exhaustive, but are provided to illustrate how
 
 ##  Trigger and binding definitions
 
-Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
+A function has a single trigger and one or more bindings. The type of binding is either input or output. Not all services support both input and output bindings. See your specific binding extension for [specific bindings code examples](#bindings-code-examples).
 
-Bindings can be either input or output bindings. Not all services support both input and output bindings. See your specific binding extension for [specific bindings code examples](#bindings-code-examples).
+Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
 
 This example shows an HTTP triggered function with an output binding that writes a message to an Azure Storage queue.
 
