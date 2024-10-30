@@ -1,7 +1,7 @@
 ---
 title: Azure Web Application Firewall integration in Microsoft Copilot for Security (preview)
 description: Learn about using Microsoft Copilot for Security to investigate traffic flagged by Azure Web Application Firewall.
-keywords: security copilot, copilot for security, threat intelligence, intrusion detection and prevention system, plugin, integration, azure web application firewall, copilot, open ai, openai co-pilot
+keywords: copilot for security, copilot for security, threat intelligence, intrusion detection and prevention system, plugin, integration, azure web application firewall, copilot, open ai, openai co-pilot
 author: sowmyam2019
 ms.author: victorh
 ms.date: 05/20/2024
@@ -17,7 +17,7 @@ ms.collection: Tier1, ce-skilling-ai-copilot
 > Azure Web Application Firewall integration in Microsoft Copilot for Security is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals in different scenarios, like incident response, threat hunting, and intelligence gathering. For more information, see [What is Microsoft Copilot for Security?](/security-copilot/microsoft-security-copilot)
+Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals in different scenarios, like incident response, threat hunting, and intelligence gathering. For more information, see [What is Microsoft Copilot for Security?](/security-copilot/microsoft-security-copilot)
 
 Azure Web Application Firewall (WAF) integration in Copilot for Security enables deep investigation of Azure WAF events. It can help you investigate WAF logs triggered by Azure WAF in a matter of minutes and provide related attack vectors using natural language responses at machine speed. It provides visibility into your environment’s threat landscape. It allows you to retrieve a list of most frequently triggered WAF rules  and identify the top offending IPaddresses in your environment. 
 
@@ -32,11 +32,11 @@ If you're new to Copilot for Security, you should familiarize yourself with it b
 - [Understand authentication in Microsoft Copilot for Security](/security-copilot/authentication)
 - [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot)
 
-## Azure WAF integration in Copilot for Security
+## Copilot for Security integration in Azure WAF 
 
 This integration supports the standalone experience and is accessed through [https://securitycopilot.microsoft.com](https://securitycopilot.microsoft.com). This is a chat-like experience that you can use to ask questions and get answers about your data. For more information, see [Microsoft Copilot for Security experiences](/security-copilot/experiences-security-copilot#standalone-and-embedded-experiences).
 
-### Features in the standalone experience
+## Key features 
 
 The preview standalone experience in Azure WAF can help you with:
 
@@ -55,20 +55,20 @@ The preview standalone experience in Azure WAF can help you with:
    This Azure WAF skill helps you understand why Azure WAF blocked Cross Site Scripting(XSS) attacks to web applications. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked.
 
 
-## Enable the Azure WAF integration in Microsoft Copilot for Security
+## Enable the Azure WAF integration in Copilot for Security
 
 To enable the integration, follow these steps:
 
 1.	Ensure that you have at least Copilot contributor permissions.
 2.	Open [https://securitycopilot.microsoft.com/](https://securitycopilot.microsoft.com).
-3.	Open the Microsoft Copilot for Security menu.
+3.	Open the Copilot for Security menu.
  4.	Open **Sources** in the prompt bar.  
 5.	On the Plugins page, set the Azure Web Application Firewall toggle to **On**.
 6.	Select the Settings on the Azure Web Application Firewall plugin to configure the Log Analytics workspace, Log Analytics subscription ID, and the Log Analytics resource group name for Azure Front Door WAF and/or the Azure Application Gateway WAF. You can also configure the Application Gateway WAF policy URI and/or Azure Front Door WAF policy URI.
 7.	To start using the skills, use the prompt bar.
-:::image type="content" source="media/waf-copilot/prompt-bar.png" alt-text="Screenshot showing the Security copilot prompt bar.":::
+:::image type="content" source="media/waf-copilot/prompt-bar.png" alt-text="Screenshot showing the Copilot for Security prompt bar.":::
 
-## Sample prompts
+## Sample Azure WAF prompts
 
 You can create your own prompts in Copilot for Security to perform analysis on the attacks based on WAF logs. This section shows some ideas and examples.
 
@@ -122,14 +122,13 @@ For each feedback item, you can provide more information in the next dialog box 
 
 If you've migrated to Azure Log Analytics dedicated tables in the Application Gateway WAF V2 version, the Copilot for Security WAF Skills aren't functional. As a temporary workaround, enable Azure Diagnostics as the destination table in addition to the resource-specific table.
 
-## Privacy and data security in Microsoft Copilot for Security
+## Privacy and data security in Copilot for Security
 
-To understand how Microsoft Copilot for Security handles your prompts and the data that’s retrieved from the service(prompt output), see [Privacy and data security in Microsoft Copilot for Security](/security-copilot/privacy-data-security).
+To understand how Copilot for Security handles your prompts and the data that’s retrieved from the service(prompt output), see [Privacy and data security in Microsoft Copilot for Security](/security-copilot/privacy-data-security).
 
 ## Related content
 
 - [What is Microsoft Copilot for Security?](/copilot/security/microsoft-security-copilot)
-
 
 
 

@@ -1,24 +1,30 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications systemconfig.json container configuration file reference
-description: Description of settings available in systemconfig.json file
+title: Microsoft Sentinel solution for SAP applications systemconfig.json file reference
+description: Learn about the settings available in Microsoft Sentinel for SAP applications systemconfig.json file.
 author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.custom: devx-track-extended-java
-ms.date: 06/03/2023
-
-
+ms.date: 09/15/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
 
 ---
-# Systemconfig.json file reference
+# Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference
 
-The *systemconfig.json* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
+The *systemconfig.json* file is used to configure the behavior of the Microsoft Sentinel for SAP applications data connector agent. This article describes the options available in each section of the configuration file.
+
+Content in this article is intended for your **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
+> Microsoft Sentinel solution for SAP applications uses the *systemconfig.json* file for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
 
-## File structure
+## Overall file structure
+
+The following code shows the overall structure of the `systemconfig.json` file:
 
 ```json
 { 
@@ -46,20 +52,20 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 }
 ```
 
-## Systemconfig configuration file sections
+The following table describes each overall section in the `systemconfig.json` file:
 
 | Section name | Description |
 | ------------ | ----------- |
-| [Secrets Source](#secrets-source-section) | This section defines where credentials are stored. |
-| [ABAP Central Instance](#abap-central-instance-section) | This section defines general options of the SAP instance to connect to. |
-| [Azure Credentials](#azure-credentials-section) | This section defines credentials to connect to Azure Log Analytics. |
-| [File Extraction ABAP](#file-extraction-abap-section) | This section defines logs and credentials that are extracted from ABAP server using SAPControl interface. |
-| [File Extraction JAVA](#file-extraction-java-section) | This section defines logs and credentials that are extracted from JAVA server using SAPControl interface. |
-| [Logs Activation Status](#logs-activation-status-section) | This section defines which logs are extracted from ABAP. |
-| [Connector Configuration](#connector-configuration-section) | This section defines miscellaneous connector options. |
-| [ABAP Table Selector](#abap-table-selector-section) | This section defines which User Master Data logs get extracted from the ABAP system. |
+| [Secrets source](#secrets-source) | Defines where credentials are stored. |
+| [ABAP central instance](#abap-central-instance) | Defines general options of the SAP instance to connect to. |
+| [Azure credentials](#azure-credentials) | Defines credentials to connect to Azure Log Analytics. |
+| [File extraction ABAP](#file-extraction-abap) | Defines logs and credentials that are extracted from ABAP servers using the SAPControl interface. |
+| [File extraction JAVA](#file-extraction-java) | Defines logs and credentials that are extracted from JAVA servers using the SAPControl interface. |
+| [Logs activation status](#logs-activation-status) | Defines which logs are extracted from ABAP. |
+| [Connector configuration](#connector-configuration) | Defines miscellaneous connector options. |
+| [ABAP table selector](#abap-table-selector) | Defines which user master data logs get extracted from the ABAP system. |
 
-## Secrets Source section
+## Secrets source
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -69,7 +75,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
   "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
   # Storage location of SAP credentials and Log Analytics workspace ID and key
   # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
-  # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
+  # DOCKER_FIXED - store in systemconfig.json file. Requires user, passwd, loganalyticswsid and publickey options
 
   "keyvault": "<vaultname>",
   # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
@@ -80,7 +86,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-## ABAP Central Instance section
+## ABAP central instance
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -139,7 +145,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-## Azure Credentials section
+## Azure credentials
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -155,7 +161,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-## File Extraction ABAP section
+## File extraction ABAP
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -183,7 +189,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-## File Extraction JAVA section
+## File extraction JAVA
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -212,7 +218,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-### Logs Activation Status section
+## Logs activation status
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -242,7 +248,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       "JAVAFilesLogs": "<True/False>",
 ```
 
-### Connector Configuration section
+## Connector configuration
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -258,7 +264,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
     },
 ```
 
-### ABAP Table Selector section
+## ABAP table selector
 
 > [!NOTE]
 > Remove all comments before you use this file for configuration and deployment.
@@ -286,6 +292,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       "AGR_DEFINE_FULL": "<True/False>",
       "AGR_DEFINE_INCREMENTAL": "<True/False>",
       "PAHI_FULL": "<True/False>",
+      "PAHI_INCREMENTAL": "<True/False>",
       "AGR_AGRS_FULL": "<True/False>",
       "USRSTAMP_FULL": "<True/False>",
       "USRSTAMP_INCREMENTAL": "<True/False>",
@@ -293,29 +300,11 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       "USRACL_FULL": "<True/False>"
     }
 ```
-## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+## Related content
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+For more information, see:
+
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Enable and configure SAP auditing](configure-audit.md)
-- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-
-Troubleshooting:
-
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
-
-Reference files:
-
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
 - [Kickstart script reference](reference-kickstart.md)
-- [Update script reference](reference-update.md)
-
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
