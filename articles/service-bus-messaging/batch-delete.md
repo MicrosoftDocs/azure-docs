@@ -32,9 +32,9 @@ You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messa
 
 Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.purgemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
 
-### Using Azure Portal 
+### Using Azure portal 
 
-You can also purge messages from entity using Service Bus explorer available on Azure Portal. You can follow following steps to purge messages:
+You can also purge messages from entity using Service Bus explorer available on Azure portal. You can follow following steps to purge messages:
 
 1. Navigate to 'Service Bus explorer' blade on the entity you want to delete messages from.
 2. Choose 'Receive mode' in Service Bus explorer dropdown.
