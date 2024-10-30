@@ -57,7 +57,7 @@ Developers also see the display names for projects and pools during dev box crea
 
 To view information on the pool resource name for the associated dev box, view the Support panel of the developer portal. You  see both the resource name and display name for the associated pool. 
 
-:::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-support-panel.png" alt-text="Screenshot showing the support panel in the developer portal." lightbox="media/how-to-add-project-pool-display-name/dev-portal-support-panel.png":::
+:::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-support-panel-small.png" alt-text="Screenshot showing the support panel in the developer portal." lightbox="media/how-to-add-project-pool-display-name/dev-portal-support-panel.png":::
 
 > [!Note]
 > Changes to display names in the Azure portal may take a few minutes to update everywhere.
