@@ -437,13 +437,13 @@
       - name: Backup
         href: backup-azure-database-postgresql-flex-backup-cli.md
       - name: Restore
-        href: restore-azure-database-postgresql-flex-restore-cli.md
+        href: backup-azure-database-postgresql-flex-restore-cli.md
     - name: With PowerShell
       items:
       - name: Backup
         href: backup-azure-database-postgresql-flex-backup-powershell.md
       - name: Restore
-        href: restore-azure-database-postgresql-flex-restore-powershell.md
+        href: backup-azure-database-postgresql-flex-restore-powershell.md
     - name: With REST API
       items:
       - name: Create a policy
