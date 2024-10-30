@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 06/18/2024
 ms.author: mbender
@@ -22,9 +22,7 @@ A **[public load balancer](./components.md#frontend-ip-configurations)** can pro
 
 An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used in scenarios where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts public and internal load balancers directing traffic to web and business tiers.":::
-
-*Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
 For more information on the individual load balancer components, see [Azure Load Balancer components](./components.md).
 
@@ -48,7 +46,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Enable support for **[load-balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ip-services/ipv6-overview.md)**.
 
-- Standard load balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md). These metrics can be filtered, grouped, and broken out for a given dimension. They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
+- Standard load balancer provides multi-dimensional metrics through [Azure Monitor](/azure/azure-monitor/overview). These metrics can be filtered, grouped, and broken out for a given dimension. They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 
 - Load balance services on **[multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md)**.
 

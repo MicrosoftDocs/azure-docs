@@ -22,7 +22,7 @@ In this documentation, you review each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## How Resource Graph complements Azure Resource Manager
 
@@ -64,7 +64,7 @@ When an Azure resource is updated, Azure Resource Manager notifies Azure Resourc
 > Resource Graph uses a `GET` to the latest non-preview application programming interface (API) of each resource provider to gather
 > properties and values. As a result, the property expected may not be available. In some cases, the
 > API version used has been overridden to provide more current or widely used properties in the
-> results. See the [Show API version for each resource type](./samples/advanced.md#show-resource-types-and-api-versions)
+> results. See the [Show API version for each resource type](./samples/advanced.md#show-api-version-for-each-resource-type)
 > sample for a complete list in your environment.
 
 ## The query language

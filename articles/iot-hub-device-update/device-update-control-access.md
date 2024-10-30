@@ -5,7 +5,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 10/21/2022
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Azure role-based access control (RBAC) and Device Update
@@ -51,6 +52,9 @@ To integrate an application or service with Microsoft Entra ID, first [register 
 
 * Mobile or desktop application, add **Mobile and desktop applications** platform with `https://login.microsoftonline.com/common/oauth2/nativeclient` for the Redirect URI.
 * Website with implicit sign-on, add **Web** platform and select **Access tokens (used for implicit flows)**.
+
+>[!NOTE]
+>Microsoft recommends that you use the most secure authentication flow available. Implicit flow authentication requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ### Configure permissions
 

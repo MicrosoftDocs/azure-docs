@@ -95,7 +95,7 @@ Your logic app resource uses this Microsoft Entra application identity to authen
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can perform this task through Azure Resource Manager with PowerShell. In PowerShell, run the following commands:
 

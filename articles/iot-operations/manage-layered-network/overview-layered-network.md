@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want understand how to use Azure IoT Layered Network Management to secure my devices.
+ms.service: azure-iot-operations
 ---
 
 # What is Azure IoT Layered Network Management Preview?

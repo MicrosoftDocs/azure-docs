@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This tutorial shows how to enable the HTTPS protocol for a custom domain associated with an Azure CDN endpoint.
 
 The HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site's certificate. The browser verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
@@ -39,7 +41,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Before you can complete the steps in this tutorial, create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
@@ -74,13 +76,12 @@ To enable HTTPS on a custom domain, follow these steps:
 
 3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
-    ![Endpoints list](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
-
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png" alt-text="Screenshot of endpoints list.":::
     The **Endpoint** page appears.
 
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain.png" alt-text="Screenshot of the custom domain page with the option to use my own certificate.":::
 
     The **Custom domain** page appears.
 
@@ -88,7 +89,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 6. Select **On** to enable HTTPS.
 
-    ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png" alt-text="Screen shot of the custom domain HTTPS status.":::
 
 7. Continue to [Validate the domain](#validate-the-domain).
 
@@ -189,11 +190,11 @@ DigiCert sends a verification email to the following email addresses. Verify tha
 
 You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
 
-![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
+:::image type="content" source="./media/cdn-custom-ssl/domain-validation-email.png" alt-text="Screenshot of the domain validation email.":::
 
 When you select the approval link, you're directed to the following online approval form:
 
-![Domain validation form](./media/cdn-custom-ssl/domain-validation-form.png)
+:::image type="content" source="./media/cdn-custom-ssl/domain-validation-form.png" alt-text="Screenshot of the domain validation form.":::
 
 Follow the instructions on the form; you have two verification options:
 
@@ -201,13 +202,16 @@ Follow the instructions on the form; you have two verification options:
 
 - You can approve just the specific host name used in this request. Another approval is required for later requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be autorenewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year.  If the CNAME record for your custom domain is added or updated to map to your endpoint hostname after verification, then it will be autorenewed before it's expired.
+
+>[!NOTE]
+> Managed certificate autorenewal requires that your custom domain be directly mapped to your CDN endpoint by a CNAME record.
 
 ## Wait for propagation
 
 After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process completes, the custom HTTPS status in the Azure portal is changed to **Enabled**. The four operation steps in the custom domain dialog are marked as complete. Your custom domain is now ready to use HTTPS.
 
-![Enable HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+:::image type="content" source="./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png" alt-text="Screenshot of the enable HTTPS dialog.":::
 
 ### Operation progress
 
@@ -249,27 +253,15 @@ In this section, you learn how to disable HTTPS for your custom domain.
 
 4. Choose the custom domain for which you want to disable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain-certificate-deployed.png" alt-text="Screenshot of the custom domains list.":::
 
 5. Choose **Off** to disable HTTPS, then select **Apply**.
 
-    ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-disable-custom-ssl.png" alt-text="Screenshot of the custom HTTPS dialog.":::
 
 ### Wait for propagation
 
-After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is changed to **Disabled**. The three operation steps in the custom domain dialog are marked as complete. Your custom domain can no longer use HTTPS.
-
-![Disable HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
-
-#### Operation progress
-
-The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the custom domain dialog. When a step becomes active, details appear under the step. After a step successfully completes, a green check mark appears next to it.
-
-| Operation progress | Operation details |
-| --- | --- |
-| 1 Submitting request | Submitting your request |
-| 2 Certificate deprovisioning | Deleting certificate |
-| 3 Complete | Certificate deleted |
+After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is changed to **Disabled**. Your custom domain can no longer use HTTPS.
 
 ## Frequently asked questions
 

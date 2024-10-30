@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 06/30/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -16,7 +16,7 @@ This quickstart describes how to use Bicep to create an ExpressRoute circuit wit
 
 :::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using bicep." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

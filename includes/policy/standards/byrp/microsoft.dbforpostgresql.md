@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/20/2024
+ms.date: 10/30/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -11,7 +11,7 @@ ms.custom: generated
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
+[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.1.0](/azure/governance/policy/samples/cis-azure-1-1-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -27,7 +27,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md).
+[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0](/azure/governance/policy/samples/cis-azure-1-3-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -43,7 +43,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for CIS v1.4.0](../../../../articles/governance/policy/samples/cis-azure-1-4-0.md).
+[Azure Policy Regulatory Compliance details for CIS v1.4.0](/azure/governance/policy/samples/cis-azure-1-4-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -59,7 +59,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for CIS v2.0.0](../../../../articles/governance/policy/samples/cis-azure-2-0-0.md).
+[Azure Policy Regulatory Compliance details for CIS v2.0.0](/azure/governance/policy/samples/cis-azure-2-0-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -78,7 +78,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CMMC Level 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+[Azure Policy Regulatory Compliance - CMMC Level 3](/azure/governance/policy/samples/cmmc-l3).
 For more information about this compliance standard, see
 [Cybersecurity Maturity Model Certification (CMMC)](https://dodcio.defense.gov/CMMC/).
 
@@ -108,7 +108,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+[Azure Policy Regulatory Compliance - FedRAMP High](/azure/governance/policy/samples/fedramp-high).
 For more information about this compliance standard, see
 [FedRAMP High](https://www.fedramp.gov/).
 
@@ -135,7 +135,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+[Azure Policy Regulatory Compliance - FedRAMP Moderate](/azure/governance/policy/samples/fedramp-moderate).
 For more information about this compliance standard, see
 [FedRAMP Moderate](https://www.fedramp.gov/).
 
@@ -162,7 +162,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
 For more information about this compliance standard, see
 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
@@ -183,7 +183,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for MCfS Sovereignty Baseline Confidential Policies](../../../../articles/governance/policy/samples/mcfs-baseline-confidential.md).
+[Azure Policy Regulatory Compliance details for MCfS Sovereignty Baseline Confidential Policies](/azure/governance/policy/samples/mcfs-baseline-confidential).
 For more information about this compliance standard, see
 [Microsoft Cloud for Sovereignty Policy portfolio](/industry/sovereignty/policy-portfolio-baseline).
 
@@ -200,7 +200,7 @@ Microsoft cloud security benchmark, see the
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](/azure/governance/policy/samples/azure-security-benchmark).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -221,7 +221,7 @@ standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](../../../../articles/governance/policy/samples/nist-sp-800-171-r2.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](/azure/governance/policy/samples/nist-sp-800-171-r2).
 For more information about this compliance standard, see
 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
@@ -249,7 +249,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](/azure/governance/policy/samples/nist-sp-800-53-r4).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
@@ -276,7 +276,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](/azure/governance/policy/samples/nist-sp-800-53-r5).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
@@ -303,7 +303,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](../../../../articles/governance/policy/samples/nl-bio-cloud-theme.md).
+[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](/azure/governance/policy/samples/nl-bio-cloud-theme).
 For more information about this compliance standard, see
 [Baseline Information Security Government Cybersecurity - Digital Government (digitaleoverheid.nl)](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/).
 
@@ -323,7 +323,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Reserve Bank of India - IT Framework for NBFC](../../../../articles/governance/policy/samples/rbi-itf-nbfc-2017.md).
+[Azure Policy Regulatory Compliance - Reserve Bank of India - IT Framework for NBFC](/azure/governance/policy/samples/rbi-itf-nbfc-2017).
 For more information about this compliance standard, see
 [Reserve Bank of India - IT Framework for NBFC](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10999&Mode=0#C1).
 
@@ -345,7 +345,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](../../../../articles/governance/policy/samples/rbi-itf-banks-2016.md).
+[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](/azure/governance/policy/samples/rbi-itf-banks-2016).
 For more information about this compliance standard, see
 [RBI ITF Banks v2016 (PDF)](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/NT41893F697BC1D57443BB76AFC7AB56272EB.PDF).
 
@@ -354,7 +354,7 @@ For more information about this compliance standard, see
 |Secure Mail And Messaging Systems | |Secure Mail And Messaging Systems-10.1 |[Enforce SSL connection should be enabled for PostgreSQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd158790f-bfb0-486c-8631-2dc6b4e8e6af) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableSSL_Audit.json) |
 |Advanced Real-Timethreat Defenceand Management | |Advanced Real-Timethreat Defenceand Management-13.3 |[Geo-redundant backup should be enabled for Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 |Maintenance, Monitoring, And Analysis Of Audit Logs | |Maintenance, Monitoring, And Analysis Of Audit Logs-16.1 |[Log duration should be enabled for PostgreSQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e8f3) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDuration_Audit.json) |
-|Metrics | |Metrics-21.1 |[PostgreSQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F18adea5e-f416-4d0f-8aa8-d24321e3e274) |[1.0.4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableByok_Audit.json) |
+|Advanced Real-Timethreat Defenceand Management | |Advanced Real-Timethreat Defenceand Management-13.4 |[PostgreSQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F18adea5e-f416-4d0f-8aa8-d24321e3e274) |[1.0.4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableByok_Audit.json) |
 |Patch/Vulnerability & Change Management | |Patch/Vulnerability & Change Management-7.7 |[Private endpoint should be enabled for PostgreSQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
 |Data Leak Prevention Strategy | |Data Leak Prevention Strategy-15.2 |[Public network access should be disabled for PostgreSQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5e1de0e3-42cb-4ebc-a86d-61d0c619ca48) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_FlexibleServers_DisablePublicNetworkAccess_Audit.json) |
 |Patch/Vulnerability & Change Management | |Patch/Vulnerability & Change Management-7.7 |[Public network access should be disabled for PostgreSQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb52376f7-9612-48a1-81cd-1ffe4b61032c) |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_DisablePublicNetworkAccess_Audit.json) |
@@ -363,7 +363,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RMIT Malaysia](../../../../articles/governance/policy/samples/rmit-malaysia.md).
+[Azure Policy Regulatory Compliance - RMIT Malaysia](/azure/governance/policy/samples/rmit-malaysia).
 For more information about this compliance standard, see
 [RMIT Malaysia](https://www.bnm.gov.my/documents/20124/963937/Risk+Management+in+Technology+(RMiT).pdf/810b088e-6f4f-aa35-b603-1208ace33619?t=1592866162078).
 
@@ -390,7 +390,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for Spain ENS](../../../../articles/governance/policy/samples/spain-ens.md).
+[Azure Policy Regulatory Compliance details for Spain ENS](/azure/governance/policy/samples/spain-ens).
 For more information about this compliance standard, see
 [CCN-STIC 884](https://www.ccn-cert.cni.es/es/comunicacion-eventos/comunicados-ccn-cert/9519-disponible-la-guia-ccn-stic-884-perfil-de-cumplimiento-especifico-para-azure-servicio-de-cloud-corporativo).
 
@@ -407,7 +407,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](../../../../articles/governance/policy/samples/swift-csp-cscf-2021.md).
+[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](/azure/governance/policy/samples/swift-csp-cscf-2021).
 For more information about this compliance standard, see
 [SWIFT CSP CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
 
@@ -423,7 +423,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](../../../../articles/governance/policy/samples/soc-2.md).
+[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](/azure/governance/policy/samples/soc-2).
 For more information about this compliance standard, see
 [System and Organization Controls (SOC) 2](/azure/compliance/offerings/offering-soc-2).
 

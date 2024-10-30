@@ -2,7 +2,7 @@
 title: Migrate Azure SQL Managed Instance to availability zone support 
 description: Learn how to migrate your Azure SQL Managed Instance to availability zone support.
 author: vladai78
-ms.service: sql-database
+ms.service: azure-sql-database
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: anaharris 
@@ -28,9 +28,6 @@ This guide describes how to migrate SQL Managed Instances that use Business Crit
 
 
 1. Confirm that your instance is located in a supported region. To see the list of supported regions, see [Premium and Business Critical service tier zone redundant availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&preserve-view=true&tabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability):
-
-    
-1. Your instances must be running on standard-series (Gen5) hardware.
 
 ## Downtime requirements
 

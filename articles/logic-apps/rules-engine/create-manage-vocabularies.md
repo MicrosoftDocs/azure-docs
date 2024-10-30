@@ -1,7 +1,7 @@
 ---
 title: Create and manage vocabularies for rulesets
 description: Learn how to build and manage vocabularies for use with rulesets using the Microsoft Rules Composer.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos

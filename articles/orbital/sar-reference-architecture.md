@@ -1,12 +1,12 @@
 ---
-title: Process Synthetic Aperture Radar (SAR) data - Azure Orbital Analytics
+title: Process Synthetic Aperture Radar (SAR) data
 description: View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse.
 author: meaghanlewis
-ms.service: orbital
-ms.topic: conceptual
+ms.service: azure-orbital
+ms.topic: article
 ms.custom: ga
 ms.date: 10/20/2022
-ms.author: harjsin
+ms.author: mosagie
 ---
 
 # Process Synthetic Aperture Radar (SAR) data in Azure
@@ -24,7 +24,7 @@ container, and then run at scale. While the performance of processing a given im
 pipeline that utilizes vendor provided binaries and/or open-source software. While processing of any individual file or image won't occur any faster, many files can be processed simultaneously in parallel. With the flexibility of AKS, each step in the pipeline can execute on the hardware best suited for the tool, for example, GPU, high core
 count, or increased memory.
 
-:::image type="content" source="media/aks-argo-diagram.png" alt-text="Diagram of AKS and Argo Workflows." lightbox="media/aks-argo-diagram.png":::
+:::image type="content" source="media/aks-argo-diagram.png" alt-text="Diagram of AKS and Argo Workflows that allows for horizontal scaling of a processing pipeline." lightbox="media/aks-argo-diagram.png":::
 
 Raw products are received by a ground station application, which, in turn, writes the data into Azure Blob Storage. Using an Azure Event Grid subscription, a notification is supplied to Azure Event Hubs when a new product image is written to blob storage. Argo Events, running on Azure Kubernetes Service, subscribes to the Azure Event Hubs notification and upon receipt of the event, triggers an Argo Workflows workflow to process the image.
 
@@ -52,7 +52,7 @@ Remote Sensing Data is sent to a ground station. The ground station app collects
 
 Under this approach using Apache Spark, we're gluing the library that has algorithms with JNA. JNA requires you to define the interfaces for your native code and does the heavy lifting to converting your data to and from the native library to usable Java Types. Now without any major rewriting, we can distribute the computation of data on nodes vs a single machine. Typical Spark Execution under this model looks like as follows.
 
-:::image type="content" source="media/spark-execution-model.png" alt-text="Diagram of the Spark execution model." lightbox="media/spark-execution-model.png":::
+:::image type="content" source="media/spark-execution-model.png" alt-text="Diagram of the Spark execution model that uses JNA to convert data to and from the native library to usable Java Types." lightbox="media/spark-execution-model.png":::
 
 ## Considerations
 
@@ -143,7 +143,6 @@ Additional contributors:
 
 ## See also
 
-- [Geospatial data processing and analytics](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 - [Geospatial analysis for the telecommunications industry](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
 - [Big data architectures](https://github.com/MicrosoftDocs/architecture-center/tree/main/docs/data-guide/big-data)
 

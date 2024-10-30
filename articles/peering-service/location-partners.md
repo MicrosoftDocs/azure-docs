@@ -3,9 +3,9 @@ title: Azure Peering Service locations and partners
 description: Learn about the available locations and partners globally for the Azure Peering Service.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 07/23/2023
+ms.date: 10/28/2024
 ms.custom: references_regions
 ---
 
@@ -33,14 +33,14 @@ The following table provides information on the Peering Service connectivity par
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
 | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | Asia, North America |
-| [France-IX](https://www.franceix.net/en/english-services/cloud-access/microsoft-azure-peering-service) | Europe |
+| [France-IX](https://www.franceix.net/en/english-services/cloud/microsoft-azure-peering-service) | Europe |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://www.intercloud.com/partners/microsoft-azure)| Europe |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe, North America |
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
-| [MainOne](https://www.mainone.net/connectivity-services/cloud-connect/) | Africa |
+| [MainOne](https://mainone.net/products-and-services/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
@@ -117,7 +117,7 @@ The following table provides information on the Peering Service connectivity par
 | Marseilles | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
-| Paris | [France-IX](https://www.franceix.net/en/english-services/cloud-access/microsoft-azure-peering-service) |
+| Paris | [France-IX](https://www.franceix.net/en/english-services/cloud/microsoft-azure-peering-service) |
 | San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Santiago | [PIT Chile](https://www.pitchile.cl/wp/maps/) |
 | Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
@@ -126,12 +126,10 @@ The following table provides information on the Peering Service connectivity par
 ---
 
 > [!NOTE]
-> For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> For more information about enlisting with the Peering Service Partner program, reach out to `peeringservice@microsoft.com`.
 
-## Next steps
+## Related content
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-

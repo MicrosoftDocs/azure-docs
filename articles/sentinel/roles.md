@@ -9,6 +9,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security operations manager, I want to assign appropriate roles and permissions in Microsoft Sentinel so that my team can effectively manage incidents, automate responses, and access necessary data without compromising security.
+
 ---
 
 # Roles and permissions in Microsoft Sentinel
@@ -104,7 +108,7 @@ Review the [role recommendations](#role-and-permissions-recommendations) for whi
 
 - **Log Analytics RBAC**. You can use the Log Analytics advanced Azure RBAC across the data in your Microsoft Sentinel workspace. This includes both data type-based Azure RBAC and resource-context Azure RBAC. To learn more:
 
-    - [Manage log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md#azure-rbac)
+    - [Manage log data and workspaces in Azure Monitor](/azure/azure-monitor/logs/manage-access#azure-rbac)
     - [Resource-context RBAC for Microsoft Sentinel](resource-context-rbac.md)
     - [Table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
 
@@ -122,7 +126,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
 
-More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Global Administrator or Security Administrator roles, to set up data connectors for services in other Microsoft portals.
+More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Security Administrator role, to set up data connectors for services in other Microsoft portals.
 
 ## Resource-based access control
 

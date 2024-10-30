@@ -3,9 +3,10 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/28/2022
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Runbook execution in Azure Automation
@@ -24,7 +25,7 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Runbook execution environment
 
@@ -34,7 +35,7 @@ When runbooks are designed to authenticate and run against resources in Azure, t
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >- To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
@@ -62,7 +63,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you can't use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
 
-With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you shouldn't use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you shouldn't use the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
 ## Resources
 
@@ -70,7 +71,7 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 
 ## Security
 
-Azure Automation uses the [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
 Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you're a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
@@ -85,18 +86,18 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md).
+Azure Automation makes use of [Azure Monitor](/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
+The [Log Analytics agent for Windows](/azure/azure-monitor/agents/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
+The [Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
 
 The Log Analytics agent log is located at `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
@@ -148,6 +149,7 @@ The following table describes the statuses that are possible for a job. You can 
 | Stopping |The system is stopping the job. |
 | Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the `ErrorActionPreference` variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
+| New | The job has been submitted recently but is not yet activated.|
 
 ## Activity logging
 

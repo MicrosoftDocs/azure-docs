@@ -4,7 +4,6 @@ description: This article shows how to estimate pricing for Azure Data Factory t
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024

@@ -1,7 +1,7 @@
 ---
 title: Phoenix performance in Azure HDInsight 
 description: Best practices to optimize Apache Phoenix performance for Azure HDInsight clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/04/2024

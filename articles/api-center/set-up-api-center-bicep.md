@@ -2,7 +2,7 @@
 title: Quickstart - Create your Azure API center - Bicep
 description: In this quickstart, use Bicep to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.custom: devx-track-azurepowershell, devx-track-bicep
 ms.topic: quickstart
 ms.date: 05/13/2024
@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
 
-[!INCLUDE [resource-manager-quickstart-bicep-introduction](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [resource-manager-quickstart-bicep-introduction](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 [!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
 
@@ -21,7 +21,7 @@ ms.author: danlep
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * For Azure PowerShell: 
-    [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 

@@ -1,23 +1,26 @@
 ---
-title: 'Configure P2S VPN clients: certificate authentication: OpenVPN Client - Windows'
+title: 'Configure P2S VPN clients: certificate authentication: OpenVPN Client 2.x - Windows'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows and the OpenVPN Client.
+description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows and the OpenVPN Client 2.x series - 2.4 and higher.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 10/08/2024
 ms.author: cherylmc
 ---
 
-# Configure OpenVPN client for P2S certificate authentication connections - Windows
+# Configure OpenVPN 2.x client for P2S certificate authentication connections - Windows
 
-If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN client** and connect to your virtual network.
+If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN client 2.4 and higher** and connect to your virtual network.
 
 ## Before you begin
 
 Before beginning client configuration steps, verify that you're on the correct VPN client configuration article. The following table shows the configuration articles available for VPN Gateway point-to-site VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
+
+> [!NOTE]
+> The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft does not oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and have not been validated by OpenVPN Inc. They are intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN Gateway in a Point-to-Site VPN setup.
 
 ### Prerequisites
 
@@ -63,7 +66,7 @@ Each computer needs a client certificate in order to authenticate. If the client
 
 The VPN client profile configuration package contains specific folders. The files within the folders contain the settings needed to configure the VPN client profile on the client computer. The files and the settings they contain are specific to the VPN gateway and the type of authentication and tunnel your VPN gateway is configured to use.
 
-Locate and unzip the VPN client profile configuration package you generated. For Certificate authentication and OpenVPN, you should see an OpenVPN folder. If you don't see the folder, verify the following items:
+Locate and unzip the VPN client profile configuration package you generated. For Certificate authentication and OpenVPN, you should see  the **OpenVPN** folder. If you don't see the folder, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
 * If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client-windows.md) configuration article instead.

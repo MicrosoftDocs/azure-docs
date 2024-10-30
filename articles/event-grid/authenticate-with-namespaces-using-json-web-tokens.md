@@ -57,7 +57,7 @@ For information configuring system and user-assigned identities using the Azure 
     az keyvault certificate import --vault-name "<your-key-vault-name>" -n "<cert name>" -f "<path to your certificate pem file> " 
     ```
      > [!NOTE]
-    > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
+    > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 
 ## Add role assignment in Azure Key Vault for the namespace’s managed identity 
@@ -79,7 +79,7 @@ You need to provide access to the namespace to access your Azure Key Vault accou
     az role assignment create --role "Key Vault Certificate User" --assignee $principalId --scope $keyVaultResourceId 
     ```
 
-    For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md). 
+    For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). 
 
 ## Configure custom authentication settings on your Event Grid namespace 
 In this step, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.

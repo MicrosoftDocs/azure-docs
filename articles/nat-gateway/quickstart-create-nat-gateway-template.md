@@ -3,7 +3,7 @@ title: 'Create a NAT gateway - Resource Manager Template'
 titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 07/21/2023
 ms.author: allensu
@@ -17,7 +17,7 @@ Get started with Azure NAT Gateway by using an Azure Resource Manager template (
 
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

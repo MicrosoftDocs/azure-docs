@@ -3,7 +3,7 @@ title: 'Tutorial: Inspect private endpoint traffic with Azure Firewall'
 description: Learn how to inspect private endpoint traffic with Azure Firewall.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
 ms.date: 10/13/2023
@@ -41,17 +41,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [virtual-network-create-private-endpoint.md](../../includes/virtual-network-create-private-endpoint.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 ## Deploy Azure Firewall
 
@@ -409,7 +409,7 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. In the log query output, verify **server-name.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **Rule**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

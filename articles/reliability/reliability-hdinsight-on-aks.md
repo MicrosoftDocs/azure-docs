@@ -5,12 +5,20 @@ author: fengzhou-msft
 ms.author: fenzhou
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: hdinsight-aks
-ms.date: 04/15/2024
+ms.service: azure-hdinsight-on-aks
+ms.date: 10/28/2024
 CustomerIntent: As a cloud architect/engineer, I want to understand reliability support for Azure HDInsight on Azure Kubernetes Service so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
 # Reliability in Azure HDInsight on Azure Kubernetes Service
+
+> [!Note]
+> We will retire Azure HDInsight on AKS on January 31, 2025. Before January 31, 2025, you will need to migrate your workloads to [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) or an equivalent Azure product to avoid abrupt termination of your workloads. The remaining clusters on your subscription will be stopped and removed from the host.
+>
+> Only basic support will be available until the retirement date.
+
+> [!IMPORTANT]
+> This feature is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include more legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability. For information about this specific preview, see [Azure HDInsight on AKS preview information](/azure/hdinsight-aks/preview). For questions or feature suggestions, please submit a request on [AskHDInsight](https://aka.ms/askhdinsight) with the details and follow us for more updates on [Azure HDInsight Community](https://www.linkedin.com/groups/14313521/).
 
 This article describes reliability support in [Azure HDInsight on Azure Kubernetes Service (AKS)](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -80,7 +88,7 @@ Azure HDInsight on AKS currently doesn't support cross-region failover. Improvin
 
 - Use Azure monitoring tools on HDInsight on AKS to detect abnormal behavior in the cluster and set corresponding alert notifications. You can enable Log Analytics in various ways and use managed Prometheus service with Azure Grafana dashboards for monitoring. For more information, see [Azure Monitor integration](../hdinsight-aks/concept-azure-monitor-integration.md).  
 
-- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Manage service health](../hdinsight-aks/service-health.md) and [Azure Service Health documentation](../service-health/index.yml).
+- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Manage service health](../hdinsight-aks/service-health.md) and [Azure Service Health documentation](/azure/service-health/).
 
 ### Single-region disaster recovery
 

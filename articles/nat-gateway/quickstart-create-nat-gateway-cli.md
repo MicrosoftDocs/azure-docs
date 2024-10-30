@@ -4,7 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: Get started creating a NAT gateway using the Azure CLI.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: quickstart 
 ms.date: 06/22/2023
 ms.custom: template-quickstart, devx-track-azurecli
@@ -16,7 +16,7 @@ In this quickstart, learn how to create a NAT gateway by using the Azure CLI. Th
 
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -106,7 +106,7 @@ az network public-ip create \
 
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host.
 
-[!INCLUDE [Pricing](../../includes/bastion-pricing.md)] For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)] For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
 ```azurecli-interactive
 az network bastion create \

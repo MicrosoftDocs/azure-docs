@@ -2,12 +2,12 @@
 title: Available Azure services by region types and categories 
 description: Learn about region types and service categories in Azure.
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Available services by region types and categories 
@@ -121,6 +121,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: HBv3-series                        |
 > | Virtual Machines: HCv1-series                        |
 > | Virtual Machines: LSv2-series                        |
+> | Virtual Machines: LSv3-series                        |
 > | Virtual Machines: Mv2-series                         |
 > | Virtual Machines: NCv3-series                        |
 > | Virtual Machines: NCasT4 v3-series                   |
@@ -133,7 +134,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: SAP HANA on Azure Large Instances  |
 
 
-Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
+Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
 To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](availability-zones-service-support.md).
 

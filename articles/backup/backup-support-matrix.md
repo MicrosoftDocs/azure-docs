@@ -1,10 +1,10 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-ms.topic: conceptual
-ms.date: 06/18/2024
+ms.topic: reference
+ms.date: 09/11/2024
 ms.custom: references_regions, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -19,9 +19,11 @@ Other support matrices are available:
 - Support matrix for backup by using [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Support matrix for backup by using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Vault support
+
+Azure Backup supports both Recovery Services vault and Backup vault, and enables you to back up and restore different datasources. You need to create the appropriate vault based on the datasource type that you want to protect. Learn more about [the supported vaults](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
 
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 

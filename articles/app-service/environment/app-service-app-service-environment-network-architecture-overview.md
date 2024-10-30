@@ -11,47 +11,53 @@ ms.author: madsd
 # Network Architecture Overview of App Service Environments
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
-App Service Environments are always created within a subnet of a [virtual network][virtualnetwork] - apps running in an App Service Environment can communicate with private endpoints located within the same virtual network topology.  Since customers may lock down parts of their virtual network infrastructure, it is important to understand the types of network communication flows that occur with an App Service Environment.
+App Service Environments are always created within a subnet of a [virtual network][virtualnetwork] - apps running in an App Service Environment can communicate with private endpoints located within the same virtual network topology.  Since customers might lock down parts of their virtual network infrastructure, it's important to understand the types of network communication flows that occur with an App Service Environment.
 
 ## General Network Flow
-When an App Service Environment (ASE) uses a public virtual IP address (VIP) for apps, all inbound traffic arrives on that public VIP.  This includes HTTP and HTTPS traffic for apps, and other traffic for FTP, remote debugging functionality, and Azure management operations.  For a full list of the specific ports (both required and optional) that are available on the public VIP see the article on [controlling inbound traffic][controllinginboundtraffic] to an App Service Environment. 
 
-App Service Environments also support running apps that are bound only to a virtual network internal address, also referred to as an ILB (internal load balancer) address.  On an ILB enabled ASE, HTTP and HTTPS traffic for apps and remote debugging calls, arrive on the ILB address.  For most common ILB-ASE configurations, FTP/FTPS traffic will also arrive on the ILB address.  However Azure management operations will still flow to ports 454/455 on the public VIP of an ILB enabled ASE.
+When an App Service Environment (ASE) uses a public virtual IP address (VIP) for apps, all inbound traffic arrives on that public VIP.  This traffic includes HTTP and HTTPS traffic for apps, and other traffic for FTP, remote debugging functionality, and Azure management operations.  For a full list of the specific ports (both required and optional) that are available on the public VIP see the article on [controlling inbound traffic][controllinginboundtraffic] to an App Service Environment.
 
-The diagram below shows an overview of the various inbound and outbound network flows for an App Service Environment where the apps are bound to a public virtual IP address:
+App Service Environments also support running apps that are bound only to a virtual network internal address, also referred to as an ILB (internal load balancer) address.  On an ILB enabled ASE, HTTP, and HTTPS traffic for apps and remote debugging calls, arrive on the ILB address.  For most common ILB-ASE configurations, FTP/FTPS traffic also arrives on the ILB address.  However Azure management operations flow to ports 454/455 on the public VIP of an ILB enabled ASE.
+
+The following diagram shows an overview of the various inbound and outbound network flows for an App Service Environment where the apps are bound to a public virtual IP address:
 
 ![General Network Flows][GeneralNetworkFlows]
 
-An App Service Environment can communicate with private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.
+An App Service Environment can communicate with private customer endpoints.  For example, apps running in the App Service Environment can connect to database servers running on IaaS virtual machines in the same virtual network topology.
 
 > [!IMPORTANT]
 > Looking at the network diagram, the "Other Compute Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
-> 
-> 
+>
+>
 
-App Service Environments also communicate with Sql DB and Azure Storage resources necessary for managing and operating an App Service Environment.  Some of the Sql and Storage resources that an App Service Environment communicates with are located in the same region as the App Service Environment, while others are located in remote Azure regions.  As a result, outbound connectivity to the Internet is always required for an App Service Environment to function properly. 
+App Service Environments also communicate with Sql DB and Azure Storage resources necessary for managing and operating an App Service Environment.  Some of the Sql and Storage resources that an App Service Environment communicates with are located in the same region as the App Service Environment, while others are located in remote Azure regions.  As a result, outbound connectivity to the Internet is always required for an App Service Environment to function properly.
 
 Since an App Service Environment is deployed in a subnet, network security groups can be used to control inbound traffic to the subnet.  For details on how to control inbound traffic to an App Service Environment, see the following [article][controllinginboundtraffic].
 
 For details on how to allow outbound Internet connectivity from an App Service Environment, see the following article about working with [Express Route][ExpressRoute].  The same approach described in the article applies when working with Site-to-Site connectivity and using forced tunneling.
 
 ## Outbound Network Addresses
-When an App Service Environment makes outbound calls, an IP Address is always associated with the outbound calls.  The specific IP address that is used depends on whether the endpoint being called is located within the virtual network topology, or outside of the virtual network topology.
 
-If the endpoint being called is **outside** of the virtual network topology, then the outbound address (also known as the outbound NAT address) that is used is the public VIP of the App Service Environment.  This address can be found in the portal user interface for the App Service Environment in Properties section.
+When an App Service Environment makes outbound calls, an IP Address is always associated with the outbound calls.  The specific IP address depends on whether the endpoint being called is located within the virtual network topology, or outside of the virtual network topology.
+
+If the endpoint being called is **outside** of the virtual network topology, then the outbound address (also known as the outbound NAT address) is the public VIP of the App Service Environment.  This address can be found in the portal user interface for the App Service Environment in Properties section.
 
 ![Outbound IP Address][OutboundIPAddress]
 
-This address can also be determined for ASEs that only have a public VIP by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is both the public VIP, as well as the App Service Environment's outbound NAT address.
+This address can also be determined for ASEs that only have a public VIP by creating an app in the App Service Environment, and then performing a *nslookup* on the app's address. The resultant IP address is both the public VIP, and the App Service Environment's outbound NAT address.
 
-If the endpoint being called is **inside** of the virtual network topology, the outbound address of the calling app will be the internal IP address of the individual compute resource running the app.  However there is not a persistent mapping of virtual network internal IP addresses to apps.  Apps can move around across different compute resources, and the pool of available compute resources in an App Service Environment can change due to scaling operations.
+If the endpoint being called is **inside** of the virtual network topology, the outbound address of the calling app is the internal IP address of the individual compute resource running the app.  However there isn't a persistent mapping of virtual network internal IP addresses to apps.  Apps can move around across different compute resources, and the pool of available compute resources in an App Service Environment can change due to scaling operations.
 
 However, since an App Service Environment is always located within a subnet, you're guaranteed that the internal IP address of a compute resource running an app will always lie within the CIDR range of the subnet.  As a result, when fine-grained ACLs or network security groups are used to secure access to other endpoints within the virtual network, the subnet range containing the App Service Environment needs to be granted access.
 
@@ -65,20 +71,22 @@ In the above diagram:
 * The CIDR range of the containing subnet for the App Service Environment is 10.0.1.0/26.  Other endpoints within the same virtual network infrastructure will see calls from apps as originating from somewhere within this address range.
 
 ## Calls Between App Service Environments
+
 A more complex scenario can occur if you deploy multiple App Service Environments in the same virtual network, and make outbound calls from one App Service Environment to another App Service Environment.  These types of cross App Service Environment calls will also be treated as "Internet" calls.
 
-The following diagram shows an example of a layered architecture with apps on one App Service Environment (for example "Front door" web apps) calling apps on a second App Service Environment (for example internal back-end API apps not intended to be accessible from the Internet). 
+The following diagram shows an example of a layered architecture with apps on one App Service Environment (for example "Front door" web apps) calling apps on a second App Service Environment (for example internal back-end API apps not intended to be accessible from the Internet).
 
-![Calls Between App Service Environments][CallsBetweenAppServiceEnvironments] 
+![Calls Between App Service Environments][CallsBetweenAppServiceEnvironments]
 
 In the example above the App Service Environment "ASE One" has an outbound IP address of 192.23.1.2.  If an app running on this App Service Environment makes an outbound call to an app running on a second App Service Environment ("ASE Two") located in the same virtual network, the outbound call will be treated as an "Internet" call.  As a result the network traffic arriving on the second App Service Environment will show as originating from 192.23.1.2 (that is, not the subnet address range of the first App Service Environment).
 
-Even though calls between different App Service Environments are treated as "Internet" calls, when both App Service Environments are located in the same Azure region the network traffic will remain on the regional Azure network and will not physically flow over the public Internet.  As a result you can use a network security group on the subnet of the second App Service Environment to only allow inbound calls from the first App Service Environment (whose outbound IP address is 192.23.1.2), thus ensuring secure communication between the App Service Environments.
+Even though calls between different App Service Environments are treated as "Internet" calls, when both App Service Environments are located in the same Azure region the network traffic will remain on the regional Azure network and won't physically flow over the public Internet.  As a result you can use a network security group on the subnet of the second App Service Environment to only allow inbound calls from the first App Service Environment (whose outbound IP address is 192.23.1.2), thus ensuring secure communication between the App Service Environments.
 
 ## Additional Links and Information
+
 Details on inbound ports used by App Service Environments and using network security groups to control inbound traffic is available [here][controllinginboundtraffic].
 
-Details on using user-defined routes to grant outbound Internet access to App Service Environments is available in this [article][ExpressRoute]. 
+Details on using user-defined routes to grant outbound Internet access to App Service Environments is available in this [article][ExpressRoute].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/

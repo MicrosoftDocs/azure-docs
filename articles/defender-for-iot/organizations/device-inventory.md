@@ -11,14 +11,13 @@ Defender for IoT's device inventory helps you identify details about specific de
 
 - **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
 
-- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling
+- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities, and prioritize fixes based on risk scoring and automated threat modeling
 
 - **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
 
 For example:
 
 :::image type="content" source="media/device-inventory/azure-device-inventory.png" alt-text="Screenshot of the Defender for IoT Device inventory page in the Azure portal." lightbox="media/device-inventory/azure-device-inventory.png":::
-
 
 ## Supported devices
 
@@ -49,7 +48,6 @@ Defender for IoT device inventory is available in the following locations:
 | **Microsoft Defender XDR** | Enterprise IoT devices detected by Microsoft Defender for Endpoint agents | Correlate devices across Microsoft Defender XDR in purpose-built alerts, vulnerabilities, and recommendations. |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
-| 
 
 For more information, see:
 
@@ -60,7 +58,7 @@ For more information, see:
 
 ## Automatically consolidated devices
 
-When you've deployed Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
+When you deploy Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
 
 For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses aren't merged, and continue to be listed as unique devices.
 
@@ -96,60 +94,60 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 ## Device inventory column data
 
-The following table lists the columns available in the Defender for IoT device inventory on the Azure portal. Starred items **(*)** are also available from the OT sensor.
+The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editible. Starred items **(*)** are also available from the OT sensor.
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-|Name  |Description
-|---------|---------|
-|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes.  |
-|**Business Function**     | Editable. Describes the device's business function. |
-| **Class** | Editable. The device's class. <br>Default: `IoT` |
-|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
-|**Description** * | Editable. The device's description.  |
-| **Device Id** | The device's Azure-assigned ID number. |
-|  **Firmware model** |  The device's firmware model.|
-| **Firmware vendor** | Editable. The vendor of the device's firmware. |
-| **Firmware version** * |Editable.  The device's firmware version. |
-|**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|
-|**Importance** | Editable. The device's important level: `Low`, `Medium`, or `High`.   |
-| **IPv4 Address** | The device's IPv4 address. |
-|**IPv6 Address** | The device's IPv6 address.|
-|**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |
-|**Location** | Editable. The device's physical location.  |
-| **MAC Address** * | The device's MAC address.  |
-|**Model**  *| Editable The device's hardware model. |
-|**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |
-|**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |
-|**OS architecture** | Editable. The device's operating system architecture.  |
-|**OS distribution** | Editable. The device's operating system distribution, such as Android, Linux, and Haiku.   |
-|**OS platform** * | Editable. The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |
-|**OS version** | Editable. The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |
-|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |
-|**Programming device**  *   | Editable.  Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |
-|**Protocols**  *| The protocols that the device uses.  |
-| **Purdue level** | Editable. The Purdue level in which the device exists.|
-|**Scanner device**  * | Editable. Defines whether the device performs scanning-like activities in the network. |
-|**Sensor**| The sensor the device is connected to. |
-|**Serial number**  *| The device's serial number.  |
-| **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |
-| **Slots** | The number of slots the device has.  |
-| **Subtype** | Editable. The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |
-| **Tags** | Editable. The device's tags.  |
-|**Type** * | Editable. The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |
-|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  |
-| **VLAN**  * | The device's VLAN.  |
-|**Zone** | The device's zone.  |
+|Name  |Description | Editable|
+|---------|---------|----|
+|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in Azure and OT Sensor|
+|**Business Function**     | Describes the device's business function. |Editable in Azure|
+| **Class** | The device's class. <br>Default: `IoT` |Editable in Azure|
+|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` | Not editable|
+|**Description** * |The device's description.  |Editable in both Azure and the OT Sensor|
+| **Device Id** | The device's Azure-assigned ID number. |Not editable|
+| **Firmware model** |  The device's firmware model. |Editable in Azure|
+| **Firmware vendor** |  The vendor of the device's firmware. |Not editable|
+| **Firmware version** * |The device's firmware version. |Editable in Azure |
+|**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|Not editable|
+|**Importance** | The device's important level: `Low`, `Medium`, or `High`.   |Editable in Azure|
+| **IPv4 Address** *| The device's IPv4 address. |Not editable|
+|**IPv6 Address** | The device's IPv6 address.|Not editable|
+|**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |Not editable|
+|**Location** | The device's physical location.  |Editable in Azure|
+| **MAC Address** * | The device's MAC address.  |Not editable|
+|**Model** *| The device's hardware model. |Editable in Azure |
+|**Name** * | Mandatory. The device's name as the sensor discovered it, or as entered by the user. |Editable in Azure and OT sensor|
+|**Network location** (Public preview) * | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
+|**OS architecture** |The device's operating system architecture.  |Not editable|
+|**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Not editable|
+|**OS platform** * | The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |Editable in OT Sensor|
+|**OS version** | The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |Not editable|
+|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   | Editable in OT Sensor|
+|**Programming device**  *   | Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |Editable in Azure and OT sensor |
+|**Protocols**  *| The protocols that the device uses.  |Not editable|
+| **Purdue level** | The Purdue level in which the device exists.| Editable in OT sensor |
+|**Scanner device**  * |Defines whether the device performs scanning-like activities in the network. |Editable in OT Sensor|
+|**Sensor**| The sensor the device is connected to. |Not editable|
+|**Serial number**  *| The device's serial number.  |Not editable|
+| **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |Not editable|
+| **Slots** * | The number of slots the device has.  |Not editable|
+| **Subtype** | The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |Editable in Azure|
+| **Tags** | The device's tags.  |Editable in Azure|
+|**Type** * | The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |Editable in Azure and OT sensor |
+|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|Editable in Azure |
+| **VLAN**  * | The device's VLAN.  |Not editable|
+|**Zone** | The device's zone.  |Not editable|
 
-The following columns are available on OT sensors only:
+The following columns are available in the OT sensors only, and aren't editible.
 
-- The device's **DHCP Address**
-- The device's **FQDN** address and **FQDN Last Lookup Time**
-- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group)
-- The device's **Module address**
-- The device's **Rack** and **Slot**
-- The number of **Unacknowledged Alerts** alerts associated with the device
+- The device's **DHCP Address**.
+- The device's **FQDN** address and **FQDN Last Lookup Time**.
+- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group).
+- The device's **Module address**.
+- The device's **Rack**.
+- The number of **Unacknowledged Alerts** alerts associated with the device.
 
 > [!NOTE]
 > The additional **Agent type** and **Agent version** columns are used for by device builders. For more information, see [Microsoft Defender for IoT for device builders documentation](../device-builders/index.yml).

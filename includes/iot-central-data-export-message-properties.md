@@ -3,7 +3,7 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
  ms.date: 05/22/2023
  ms.author: dobett
@@ -12,7 +12,7 @@
 
 #### Message properties
 
-Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of D2C IoT Hub messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of device-to-cloud IoT Hub messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
 
 You can add properties to telemetry messages if you need to add custom metadata to your telemetry messages. For example, you need to add a timestamp when the device creates the message.
 

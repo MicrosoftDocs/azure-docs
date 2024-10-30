@@ -6,7 +6,7 @@ ms.author: harmeetgill
 manager: santoshb
 ms.reviewer: omafnan, wiassaf
 ms.date: 06/14/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

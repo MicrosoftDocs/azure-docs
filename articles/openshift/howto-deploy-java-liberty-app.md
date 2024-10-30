@@ -10,9 +10,9 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 # Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
 
-This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift using the Azure portal.
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to Azure Red Hat OpenShift. The offer automatically provisions several resources including an Azure Red Hat OpenShift cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on Azure Red Hat OpenShift that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -24,21 +24,16 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-- When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
+  - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
 - A Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-
-> [!NOTE]
-> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
->
-> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 ## Get a Red Hat pull secret
 
@@ -67,7 +62,7 @@ The Azure Marketplace offer you're going to use in this article requires a Micro
 Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
 > [!NOTE]
-> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 
 1. Sign in to your Azure account through the [Azure portal](https://portal.azure.com/).
 1. Select **Microsoft Entra ID**.
@@ -221,7 +216,7 @@ The following steps guide you through creating an Azure SQL Database single data
    export DB_RESOURCE_GROUP_NAME=<db-resource-group>
    ```
 
-Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
+Now that you created the database and Azure Red Hat OpenShift cluster, you can prepare the Azure Red Hat OpenShift cluster to host your WebSphere Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -235,7 +230,7 @@ Clone the sample code for this guide by using the following commands. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20240223
+git checkout 20240920
 cd 3-integration/connect-db/mssql
 ```
 
@@ -408,7 +403,7 @@ Use the following steps to deploy and test the application:
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, ARO cluster, Azure SQL Database, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, Azure Red Hat OpenShift cluster, Azure SQL Database, and all related resources.
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

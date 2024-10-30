@@ -8,9 +8,9 @@ metadata:
   description: Microsoft Azure Red Hat OpenShift allows you to deploy a production ready Red Hat OpenShift cluster in Azure. Learn how with these tutorials and how-to guides.
   ms.service: azure-redhat-openshift
   ms.topic: landing-page
-  author: jimzim
-  ms.author: jzim
-  ms.date: 03/06/2020
+  author: johnmarco
+  ms.author: johnmarc
+  ms.date: 06/25/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -34,6 +34,10 @@ landingContent:
             url: connect-cluster.md
           - text: Delete an Azure Red Hat OpenShift cluster
             url: delete-cluster.md
+      - linkListType: tutorial
+        links:
+          - text: Introduction to Red Hat on Azure
+            url: https://learn.microsoft.com/en-us/training/modules/introduction-to-red-hat-azure/
 
   # Card
   - title: Set up
@@ -42,6 +46,8 @@ landingContent:
         links:
           - text: Create a private Azure Red Hat OpenShift cluster
             url: ./howto-create-private-cluster-4x.md
+          - text: Deploy a Red Hat OpenShift cluster with an ARM template or Bicip file
+            url: quickstart-openshift-arm-bicep-template.md
           - text: Configure DNS Forwarding for an Azure Red Hat OpenShift cluster
             url: dns-forwarding.md
           - text: Configure built-in container registry for Azure Red Hat OpenShift

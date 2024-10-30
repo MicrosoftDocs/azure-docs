@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article is about how Front Door manager can help you manage your routing and security policy for an endpoint.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 08/09/2023
 ms.author: duau

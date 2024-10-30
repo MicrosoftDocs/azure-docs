@@ -50,7 +50,7 @@ To examine the blobs associated with this used capacity, you can use Storage Exp
 
 If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml).
 
-You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more about the storage logs schema, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
+You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial). To learn more about the storage logs schema, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
 
 Here's a query to get the number of read transactions and the number of bytes read on each container.
 
@@ -90,7 +90,7 @@ The section shows you how to identify the "when", "who", "what" and "how" inform
 
 ### Auditing control plane operations
 
-Resource Manager operations are captured in the [Azure activity log](../../azure-monitor/essentials/activity-log.md). To view the activity log, open your storage account in the Azure portal, and then select **Activity log**.
+Resource Manager operations are captured in the [Azure activity log](/azure/azure-monitor/essentials/activity-log). To view the activity log, open your storage account in the Azure portal, and then select **Activity log**.
 
 > [!div class="mx-imgBorder"]
 > ![Activity Log](./media/blob-storage-monitoring-scenarios/activity-log.png)
@@ -109,7 +109,7 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md) to export logs to Log Analytics workspace for a native query experience.
+Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings) to export logs to Log Analytics workspace for a native query experience.
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries.
 
@@ -189,7 +189,7 @@ You can export logs to Log Analytics for rich native query capabilities. When yo
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly.
 
-1. Export logs to storage account. For more information, see [Creating a diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md).
+1. Export logs to storage account. For more information, see [Creating a diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings).
 
 2. Create and configure a Synapse workspace. For more information, see [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 
@@ -220,4 +220,4 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
 - [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
-- [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+- [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).

@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 3/22/2024
-ms.custom: engagement-fy23
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment overview (migrate to Azure VMware Solution)
@@ -35,10 +35,10 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 
 Azure VMware Solution assessment provides two sizing criteria options:
 
-| **Assessment** | **Details** | **Data** |
-| - | - | - |
-| **Performance-based** | Assessments based on collected performance data of on-premises VMs. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment. |
-| **As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises VM size along with the node type, storage type, and FTT setting that you select for the assessment. |
+**Assessment** | **Details** | **Data**
+--- | --- | --- 
+**Performance-based** | Assessments based on collected performance data of on-premises VMs. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
+**As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises VM size along with the node type, storage type, and FTT setting that you select for the assessment.
 
 ## How do I run an assessment?
 
@@ -113,24 +113,24 @@ Calculations are in the preceding order. A server moves to a later stage only if
 
 Here's what's included in an Azure VMware Solution assessment:
 
-| **Property** | **Details** |
-| - | - |
-| **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate. |
-| **Storage type** | Specifies the storage engine to be used in Azure VMware Solution. Azure VMware Solution currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap. |
-| **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates will take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify “Discount (%)”.|
-| **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
-| **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes a) space reserved for management objects such as vCenter Server and b) 25% storage slack required for vSAN operations. |
-| **Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based. |
-| **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria is *performance-based*. |
-| **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based. |
-| **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of server utilization data for VMs (CPU, memory and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
-| **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. |
-| **Currency** | Shows the billing currency for your account. |
-| **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
-| **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware Solution pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors will have to provide their own licensing terms, such as RHEL for example. |
-| **vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU:1 physical core in Azure VMware Solution. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing, we always assume 100% utilization of the cores chosen. |
-| **Memory overcommit factor** | Specifies the ratio of memory overcommit on the cluster. A value of 1 represents 100% memory use, 0.5, for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. |
-| **Deduplication and compression factor** | Specifies the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage configurations. These vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no deduplication or compression. You can only add values from 1 to 10 up to one decimal place. |
+**Property** | **Details**
+--- | --- 
+**Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
+**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. Azure VMware Solution currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap.
+**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates will take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify “Discount (%)”.
+**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution.
+**FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
+**Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based.
+**Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria is *performance-based*.
+**Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.
+**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of server utilization data for VMs (CPU, memory and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. 
+**Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. 
+**Currency** | Shows the billing currency for your account. 
+**Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. 
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware Solution pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors will have to provide their own licensing terms, such as RHEL for example. 
+**vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU:1 physical core in Azure VMware Solution. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing, we always assume 100% utilization of the cores chosen.
+**Memory overcommit factor** | Specifies the ratio of memory overcommit on the cluster. A value of 1 represents 100% memory use, 0.5, for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. 
+**Deduplication and compression factor** | Specifies the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage configurations. These vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no deduplication or compression. You can only add values from 1 to 10 up to one decimal place.
 
 ## Azure VMware Solution suitability analysis
 
@@ -147,11 +147,10 @@ The assessment reviews the server properties to determine the Azure readiness of
 
 The assessment reviews the following property of the on-premises vSphere VM to determine whether it can run on Azure VMware Solution.
 
-| **Property** | **Details** | **Azure VMware Solution readiness status** |
-| - | - | - |
-| **Internet Protocol** | Azure VMware Solution currently does not support end to end IPv6 internet addressing. Contact your local MSFT Azure VMware Solution GBB team for guidance on remediation guidance if your server is detected with IPv6. | Unsupported IPv6 |
-| **Operating System** | Support for certain Operating System versions have been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software)
- | Unsupported OS |
+**Property** | **Details** | **Azure VMware Solution readiness status**
+--- | --- | ---
+**Internet Protocol** | Azure VMware Solution currently does not support end to end IPv6 internet addressing. Contact your local MSFT Azure VMware Solution GBB team for guidance on remediation guidance if your server is detected with IPv6. | Unsupported IPv6 
+**Operating System** | Support for certain Operating System versions have been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software) | Unsupported OS.
 
 ## Sizing
 
@@ -168,13 +167,13 @@ After a vSphere server is marked as ready for Azure VMware Solution, Azure VMwar
 
 The storage engine used in Azure VMware Solution is vSAN. vSAN storage policies define storage requirements for your servers. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. The available FTT-Raid Combinations are:
 
-| **Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration** |
-| - | - | - | - |
-| 1 | RAID-1 (Mirroring) | 3 | A 100GB VM would consume 200GB. |
-| 1 | RAID-5 (Erasure Coding) | 4 | A 100GB VM would consume 133.33GB |
-| 2 | RAID-1 (Mirroring) | 5 | A 100GB VM would consume 300GB. |
-| 2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB. |
-| 3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB. |
+**Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration** 
+--- | --- | --- | ---
+1 | RAID-1 (Mirroring) | 3 | A 100GB VM would consume 200GB.
+1 | RAID-5 (Erasure Coding) | 4 | A 100GB VM would consume 133.33GB
+2 | RAID-1 (Mirroring) | 5 | A 100GB VM would consume 300GB.
+2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
+3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
 
 ### Performance-based sizing
 
@@ -248,13 +247,13 @@ Each performance-based assessment in Azure Migrate is associated with a confiden
 
 Depending on the percentage of data points available, the confidence rating for the assessment goes as follows.
 
-| **Availability of data points** | **Confidence rating** |
-| - | - |
-| 0-20% | 1 star |
-| 21-40% | 2 stars |
-| 41-60% | 3 stars |
-| 61-80% | 4 stars |
-| 81-100% | 5 stars |
+**Availability of data points** | **Confidence rating**
+--- | --- 
+0-20% | 1 star
+21-40% | 2 stars
+41-60% | 3 stars
+61-80% | 4 stars
+81-100% | 5 stars
 
 ### Low confidence ratings
 

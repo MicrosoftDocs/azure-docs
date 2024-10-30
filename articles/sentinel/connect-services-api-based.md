@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to connect various Microsoft services to Microsoft Sentinel using API-based data connectors so that I can centralize and streamline security event monitoring and incident management.
+
 ---
 
 # Connect Microsoft Sentinel to other Microsoft services with an API-based data connector
@@ -18,7 +22,7 @@ This article presents information that is common to the group of API-based data 
 ## Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace.
-- You must have the Global administrator or Security administrator role on your Microsoft Sentinel workspace's tenant.
+- You must have a Security administrator role on your Microsoft Sentinel workspace's tenant, or the equivalent permissions.
 - Data connector specific requirements:
   
   |Data connector  |Licensing, costs, and other prerequisites  |

@@ -73,7 +73,8 @@ The message-sending functionality of a queue maps directly to a topic and its me
 Creating a topic is similar to creating a queue, as described in the previous section. You can create topics and subscriptions using one of the following options:
 
 - [Azure portal](service-bus-quickstart-topics-subscriptions-portal.md)
-- [PowerShell](service-bus-quickstart-powershell.md)
+- [PowerShell](/powershell/module/az.servicebus/new-azservicebustopic)
+
 - [CLI](service-bus-tutorial-topics-subscriptions-cli.md)
 - [ARM templates](service-bus-resource-manager-namespace-topic.md). 
 
@@ -94,12 +95,12 @@ For a full working example, see the [TopicFilters sample](https://github.com/Azu
 
 The following entities are accessible through the Java message service (JMS) 2.0 API.
 
-  * Temporary queues
-  * Temporary topics
-  * Shared durable subscriptions
-  * Unshared durable subscriptions
-  * Shared non-durable subscriptions
-  * Unshared non-durable subscriptions
+* Temporary queues
+* Temporary topics
+* Shared durable subscriptions
+* Unshared durable subscriptions
+* Shared non-durable subscriptions
+* Unshared non-durable subscriptions
 
 Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [use them](how-to-use-java-message-service-20.md).
 

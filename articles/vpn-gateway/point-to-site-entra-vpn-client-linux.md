@@ -3,10 +3,10 @@ title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Linux'
 description: Learn how to configure the Linux Azure VPN Client for Microsoft Entra ID authentication for gateways configured to use the Microsoft-registered Azure VPN Client App ID.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 
@@ -59,19 +59,25 @@ sudo apt-get update
 sudo apt-get install microsoft-azurevpnclient
 ```
 
-## Download VPN client profile configuration files
+## Extract the VPN client profile configuration package
 
 To configure your Azure VPN Client profile, you download a VPN Client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
 
 If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files you'll need. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
-## About VPN client profile configuration files
+If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered App ID for Azure VPN Client](point-to-site-entra-gateway.md).
+
+Locate and extract the zip file that contains the VPN client profile configuration package. The zip file contains the **AzureVPN** folder. In the AzureVPN folder, you'll see either the **azurevpnconfig_aad.xml** file, or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. The .xml file contains the settings you use to configure the VPN client profile.
+
+### Modify profile configuration files
+
+If your P2S configuration uses a custom audience with your Microsoft-registered App ID, you might receive error message **AADSTS650057** when you try to connect. Retrying authentication usually resolves the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
+
+[!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
+
+## Import client profile configuration settings
 
 In this section, you configure the Azure VPN client for Linux.
-
-* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered App ID for Azure VPN Client](point-to-site-entra-gateway.md).
-
-* For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
 1. On the Azure VPN Client page, select **Import**.
 

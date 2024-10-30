@@ -4,16 +4,15 @@ title:  "Tutorial: Deploy Spring Boot applications using IntelliJ"
 description: Use IntelliJ to deploy applications to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
 # Deploy Spring Boot applications using IntelliJ
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ❌ C#
 

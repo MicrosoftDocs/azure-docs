@@ -20,6 +20,8 @@ You can configure Azure DevTest Labs to use ARM templates from a public or priva
 
 :::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with DevTest Labs by using an ARM template in a template repository." border="false" lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
 
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
 ## Prerequisites
 
 - It's helpful to have experience configuring lab environments in DevTest Labs. If you're new to working with labs, start by reviewing the instructions in the [Configure public environment settings](#configure-public-environment-settings) section. You need to understand how to configure template repositories, enable or disable public environments, and select templates to create labs. 
@@ -164,7 +166,7 @@ If you need to create multiple environments for development or testing scenarios
 
 Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates. You can also automate deployment through the Azure CLI by using the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create environments. For more information, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Automate ARM environment template deployment with Azure PowerShell with these steps:
 

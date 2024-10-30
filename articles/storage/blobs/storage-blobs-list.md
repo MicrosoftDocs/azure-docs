@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
@@ -83,7 +83,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
 
 ## Use a hierarchical listing
 
@@ -141,3 +141,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

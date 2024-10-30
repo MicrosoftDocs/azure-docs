@@ -2,8 +2,8 @@
 title: Use Microsoft Entra ID in Azure Automation to authenticate to Azure
 description: This article tells how to use Microsoft Entra ID within Azure Automation as the provider for authentication to Azure. 
 services: automation
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 

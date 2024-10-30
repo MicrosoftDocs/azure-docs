@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 09/14/2023
+ms.date: 10/16/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -282,7 +282,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
 > |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
 > |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
-> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
 > |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
 > |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
 > |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
@@ -336,7 +336,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux custom containers: set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for Linux custom containers.<br/><br/>For Windows containers: set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers.||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time in seconds to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120` ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable isn't passed on to the container. | `https://<server-name>.azurecr.io` |
@@ -375,7 +375,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | Setting name| Description | Example |
 |-|-|-|
 | `WEBSITE_HTTPLOGGING_ENABLED` | Read-only. Shows whether the web server logging for Windows native apps is enabled (`1`) or not (`0`). ||
-| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs for Windows native apps, if web server logs are enabled. | `10` |
+| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs, if web server logs are enabled for a Windows native or Linux app. | `10` |
 | `WEBSITE_HTTPLOGGING_CONTAINER_URL` | SAS URL of the blob storage container to store web server logs for Windows native apps, if web server logs are enabled. If not set, web server logs are stored in the app's file system (default shared storage). | |
 | `DIAGNOSTICS_AZUREBLOBRETENTIONINDAYS` | Retention period in days of application logs for Windows native apps, if application logs are enabled. | `10` |
 | `DIAGNOSTICS_AZUREBLOBCONTAINERSASURL` | SAS URL of the blob storage container to store application logs for Windows native apps, if application logs are enabled. | |
@@ -485,7 +485,7 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](/azure/key-vault/general/overview-vnet-service-endpoints).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon isn't deleted until it exits. |
 <!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 

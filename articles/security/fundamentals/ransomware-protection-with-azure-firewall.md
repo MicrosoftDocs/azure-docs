@@ -9,8 +9,8 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/24/2022
-ms.author: terrylan
+ms.date: 06/28/2024
+ms.author: mbaldwin
 ---
 # Improve your security defenses for ransomware attacks with Azure Firewall Premium
 In this article, you learn how Azure Firewall Premium can help you protect against ransomware.

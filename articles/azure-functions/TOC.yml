@@ -21,7 +21,7 @@
       expanded: true
       items:
         - name: C#
-          items: 
+          items:
           - name: Visual Studio
             displayName: C#, quickstart, get started
             href: functions-create-your-first-function-visual-studio.md
@@ -31,21 +31,24 @@
           - name: Command line
             displayName: C#, quickstart, get started
             href: create-first-function-cli-csharp.md
-        - name: Java  
+          - name: Azure Developer CLI
+            displayName: C#, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
+        - name: Java
           items:
           - name: Eclipse
             displayName: Java, quickstart, get started
-            href: functions-create-maven-eclipse.md          
+            href: functions-create-maven-eclipse.md
           - name: Gradle
             displayName: Java, quickstart, get started
             href: functions-create-first-java-gradle.md
           - name: IntelliJ IDEA
             displayName: Java, quickstart, get started
-            href: functions-create-maven-intellij.md 
-          - name: Maven 
+            href: functions-create-maven-intellij.md
+          - name: Maven
             displayName: Java, quickstart, get started
             href: create-first-function-cli-java.md
-          - name: Quarkus 
+          - name: Quarkus
             displayName: Java, quickstart, get started
             href: functions-create-first-quarkus.md
           - name: Spring Cloud
@@ -53,15 +56,21 @@
             href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
           - name: Visual Studio Code
             displayName: Java, quickstart, get started
-            href: create-first-function-vs-code-java.md 
+            href: create-first-function-vs-code-java.md
+          - name: Azure Developer CLI
+            displayName: Java, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-java
         - name: JavaScript
           items:
           - name: Visual Studio Code
             displayName: JavaScript, quickstart, get started
             href: create-first-function-vs-code-node.md
-          - name: Command line  
+          - name: Command line
             displayName: JavaScript, quickstart, get started
             href: create-first-function-cli-node.md
+          - name: Azure Developer CLI
+            displayName: JavaScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
         - name: PowerShell
           items:
           - name: Visual Studio Code
@@ -70,6 +79,9 @@
           - name: Command line
             displayName: PowerShell, quickstart, get started
             href: create-first-function-cli-powershell.md
+          - name: Azure Developer CLI
+            displayName: PowerShell, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
         - name: Python
           items:
           - name: Visual Studio Code
@@ -78,6 +90,9 @@
           - name: Command line
             displayName: Python, quickstart, get started
             href: create-first-function-cli-python.md
+          - name: Azure Developer CLI
+            displayName: Python, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
         - name: TypeScript
           items:
           - name: Visual Studio Code
@@ -86,11 +101,12 @@
           - name: Command line
             displayName: TypeScript, quickstart, get started
             href: create-first-function-cli-typescript.md
+          - name: Azure Developer CLI
+            displayName: TypeScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
-          items:
-          - name: Visual Studio Code
-            displayName: Go, Rust, quickstart, get started
-            href: create-first-function-vs-code-other.md
+          displayName: Go, Rust, quickstart, get started
+          href: create-first-function-vs-code-other.md   
         - name: Resource Manager
           items:
           - name: Bicep
@@ -106,14 +122,14 @@
               href: create-first-function-arc-cli.md
             - name: Custom container
               displayName: Arc, container, Kubernetes, Docker
-              href: create-first-function-arc-custom-container.md  
+              href: create-first-function-arc-custom-container.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
-          displayName: container, Docker, ACA 
+          displayName: container, Docker, ACA
     - name: Connect to storage
       items:
         - name: C#
-          items: 
+          items:
           - name: Visual Studio
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs.md
@@ -124,7 +140,7 @@
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
         - name: Java
-          items: 
+          items:
           - name: Visual Studio Code
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java
@@ -132,7 +148,7 @@
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java
         - name: JavaScript
-          items: 
+          items:
           - name: Visual Studio Code
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript
@@ -140,7 +156,7 @@
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript
         - name: PowerShell
-          items: 
+          items:
           - name: Visual Studio Code
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell
@@ -148,7 +164,7 @@
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-powershell
         - name: Python
-          items: 
+          items:
           - name: Visual Studio Code
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python
@@ -156,7 +172,7 @@
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
         - name: TypeScript
-          items: 
+          items:
           - name: Visual Studio Code
             displayName: Connect to storage
             href: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-typescript
@@ -189,6 +205,26 @@
           - name: Azure SQL
             displayName: Connect to a database, Azure SQL
             href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
+    - name: Connect to OpenAI
+      items:
+        - name: C#
+          href: functions-add-openai-text-completion.md?pivots=programming-language-csharp
+          displayName: Connect to OpenAI, text completion
+        - name: Java
+          href: functions-add-openai-text-completion.md?pivots=programming-language-java
+          displayName: Connect to OpenAI, text completion
+        - name: JavaScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-javascript
+          displayName: Connect to OpenAI, text completion
+        - name: PowerShell
+          href: functions-add-openai-text-completion.md?pivots=programming-language-powershell
+          displayName: Connect to OpenAI, text completion
+        - name: Python
+          href: functions-add-openai-text-completion.md?pivots=programming-language-python
+          displayName: Connect to OpenAI, text completion
+        - name: TypeScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-typescript
+          displayName: Connect to OpenAI, text completion
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -222,10 +258,14 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
-    - name: Machine learning with TensorFlow
-      href: functions-machine-learning-tensorflow.md
-    - name: Image classification with PyTorch
-      href: machine-learning-pytorch.md
+    - name: Data + AI
+      items:
+        - name: Azure OpenAI for text completion
+          href: functions-add-openai-text-completion.md
+        - name: Machine learning with TensorFlow
+          href: functions-machine-learning-tensorflow.md
+        - name: Image classification with PyTorch
+          href: machine-learning-pytorch.md
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -305,7 +345,7 @@
         - name: Consumption plan
           href: consumption-plan.md
         - name: Flex Consumption plan (preview)
-          href: flex-consumption-plan.md  
+          href: flex-consumption-plan.md
         - name: Premium plan
           href: functions-premium-plan.md
         - name: Dedicated plan
@@ -315,12 +355,12 @@
             - name: Containerized functions
               href: container-concepts.md
             - name: Azure Container Apps hosting
-              href: functions-container-apps-hosting.md   
+              href: functions-container-apps-hosting.md
     - name: Deployment options
-      href: functions-deployment-technologies.md 
+      href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
-        - name: Connect to services 
+        - name: Connect to services
           href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
@@ -341,12 +381,8 @@
           displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
-        - name: Use binding return values
-          href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
-        - name: Binding definitions for Python v2
-          href: functions-bindings-triggers-python.md  
     - name: Frameworks
       items:
         - name: Express.js
@@ -360,11 +396,11 @@
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Reliability
       items:
-        - name: Availability zones and disaster recovery 
+        - name: Availability zones and disaster recovery
           href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
           displayName: availability zones, high-availability, zone redundancy, disaster recovery
         - name: Migrate to a zone-redundant plan
-          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Diagnostics
       href: functions-diagnostics.md
     - name: Consumption plan costs
@@ -383,8 +419,8 @@
     - name: Supported languages
       href: supported-languages.md
     - name: C#
-      items: 
-        - name: Isolated worker model 
+      items:
+        - name: Isolated worker model
           displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
         - name: In-process model
@@ -406,23 +442,25 @@
         - name: Developer reference guide
           displayName: python
           href: functions-reference-python.md
-        - name: Programming models 
+        - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
         - name: Python worker extensions
           href: develop-python-worker-extensions.md
-        - name: Scale and performance recommendations 
+        - name: Scale and performance recommendations
           displayName: python
           href: python-scale-performance-reference.md
         - name: Troubleshooting
-          items: 
+          items:
             - name: General troubleshooting
               displayName: python
               href: recover-python-functions.md
             - name: Memory profiling
               displayName: python
               href: python-memory-profiler-reference.md
-        - name: Python library API reference for Functions    
+        - name: Python library API reference for Functions
           href: /python/api/azure-functions/azure.functions
         - name: Samples
           displayName: python
@@ -480,7 +518,7 @@
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Storage
-              items: 
+              items:
                 - name: Azure portal
                   href: functions-integrate-storage-queue-output-binding.md
                 - name: Visual Studio Code
@@ -519,10 +557,10 @@
         - name: Deployment slots
           href: functions-deployment-slots.md
         - name: Containers
-          items: 
-            - name: Work with containers 
-              href: functions-how-to-custom-container.md 
-            - name: Create functions in containers  
+          items:
+            - name: Work with containers
+              href: functions-how-to-custom-container.md
+            - name: Create functions in containers
               href: functions-create-container-registry.md
             - name: Functions in Kubernetes
               href: functions-kubernetes-keda.md
@@ -555,10 +593,10 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Move across regions
-          href: functions-move-across-regions.md
+        - name: Relocate to another region
+          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
-          href: legacy-proxies.md  
+          href: legacy-proxies.md
     - name: Migrate
       items:
         - name: Migrate .NET apps to the isolated model
@@ -572,11 +610,11 @@
             - name: Migrate to model v4.x
               href: functions-node-upgrade-v4.md
         - name: Update language versions
-          href: update-language-versions.md  
+          href: update-language-versions.md
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitoring options
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -592,7 +630,7 @@
           href: streaming-logs.md
           displayName: monitoring
         - name: Work with OpenTelemetry
-          href: opentelemetry-howto.md  
+          href: opentelemetry-howto.md
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -605,7 +643,7 @@
               href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
               href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
-            - name: Authenticate with Twitter
+            - name: Authenticate with X
               href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
@@ -623,6 +661,8 @@
           href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
+        - name: Work with access keys
+          href: function-keys-how-to.md
         - name: Add SSL cert
           href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
@@ -641,9 +681,9 @@
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Azure Cache for Redis
               items:
-                - name: Get started with VS Code 
+                - name: Get started with VS Code
                   href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
-                - name: Create a write-behind cache 
+                - name: Create a write-behind cache
                   href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
@@ -668,7 +708,7 @@
             - name: Web PubSub
               href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
-              href: event-grid-how-tos.md  
+              href: event-grid-how-tos.md
         - name: Start/Stop VMs
           items:
             - name: Overview
@@ -707,7 +747,7 @@
           href: functions-recover-storage-account.md
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
-          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
+          href: /azure/cosmos-db/troubleshoot-changefeed-functions?toc=/azure/azure-functions/toc.json
           displayName: troubleshoot
         - name: Node.js
           href: functions-node-troubleshoot.md
@@ -727,7 +767,7 @@
           href: /azure/templates/microsoft.web/2022-03-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
-        - name: Azure Functions Core Tools 
+        - name: Azure Functions Core Tools
           href: functions-core-tools-reference.md
         - name: Azure PowerShell
           href: /powershell/module/az.functions/
@@ -740,12 +780,12 @@
     - name: Triggers and bindings
       items:
         - name: Azure Cache for Redis
-          items: 
+          items:
             - name: Overview
               href: functions-bindings-cache.md
               displayName: Azure Cache for Redis
             - name: Trigger
-              items: 
+              items:
               - name: Pub Sub
                 href: functions-bindings-cache-trigger-redispubsub.md
                 displayName: Azure Cache for Redis
@@ -799,35 +839,35 @@
           items:
             - name: Overview
               href: functions-bindings-openai.md
-              displayName: OpenAI    
-            - name: Assistants 
-              items: 
+              displayName: OpenAI
+            - name: Assistants
+              items:
                 - name: Trigger
-                  href: functions-bindings-openai-assistant-trigger.md  
-                  displayName: assistants, OpenAI     
+                  href: functions-bindings-openai-assistant-trigger.md
+                  displayName: assistants, OpenAI
                 - name: Query input
-                  href: functions-bindings-openai-assistantquery-input.md 
-                  displayName: assistants, OpenAI 
+                  href: functions-bindings-openai-assistantquery-input.md
+                  displayName: assistants, OpenAI
                 - name: Create output
                   href: functions-bindings-openai-assistantcreate-output.md
-                  displayName: assistants, OpenAI    
+                  displayName: assistants, OpenAI
                 - name: Post input
-                  href: functions-bindings-openai-assistantpost-input.md 
-                  displayName: assistants, OpenAI 
-            - name: Embeddings  
-              items: 
+                  href: functions-bindings-openai-assistantpost-input.md
+                  displayName: assistants, OpenAI
+            - name: Embeddings
+              items:
                 - name: Input
-                  href: functions-bindings-openai-embeddings-input.md 
+                  href: functions-bindings-openai-embeddings-input.md
                   displayName: embeddings, OpenAI
                 - name: Store output
-                  href: functions-bindings-openai-embeddingsstore-output.md  
+                  href: functions-bindings-openai-embeddingsstore-output.md
                   displayName: embeddings, OpenAI
             - name: Semantic search input
-              href: functions-bindings-openai-semanticsearch-input.md 
-              displayName: OpenAI  
+              href: functions-bindings-openai-semanticsearch-input.md
+              displayName: OpenAI
             - name: Text Completion input
-              href: functions-bindings-openai-textcompletion-input.md                      
-              displayName: OpenAI  
+              href: functions-bindings-openai-textcompletion-input.md
+              displayName: OpenAI
         - name: Azure SQL
           items:
             - name: Overview
@@ -855,14 +895,14 @@
               href: functions-bindings-storage-blob-input.md
             - name: Output
               displayName: Blob storage
-              href: functions-bindings-storage-blob-output.md              
+              href: functions-bindings-storage-blob-output.md
         - name: Dapr
-          items: 
+          items:
             - name: Overview
               href: functions-bindings-dapr.md
               displayName: Dapr
             - name: Trigger
-              items: 
+              items:
               - name: Binding
                 href: functions-bindings-dapr-trigger.md
                 displayName: Dapr
@@ -873,7 +913,7 @@
                 href: functions-bindings-dapr-trigger-topic.md
                 displayName: Dapr
             - name: Input
-              items: 
+              items:
               - name: State
                 href: functions-bindings-dapr-input-state.md
                 displayName: Dapr
@@ -881,18 +921,18 @@
                 href: functions-bindings-dapr-input-secret.md
                 displayName: Dapr
             - name: Output
-              items: 
+              items:
               - name: State
                 href: functions-bindings-dapr-output-state.md
                 displayName: Dapr
               - name: Invoke
-                href: functions-bindings-dapr-output-invoke.md 
+                href: functions-bindings-dapr-output-invoke.md
                 displayName: Dapr
               - name: Publish
-                href: functions-bindings-dapr-output-publish.md 
+                href: functions-bindings-dapr-output-publish.md
                 displayName: Dapr
               - name: Binding
-                href: functions-bindings-dapr-output.md 
+                href: functions-bindings-dapr-output.md
                 displayName: Dapr
         - name: Event Grid
           items:
@@ -926,7 +966,7 @@
               displayName: HTTP, keys, authorization keys, function keys, access keys
             - name: Output
               href: functions-bindings-http-webhook-output.md
-              displayName: HTTP              
+              displayName: HTTP
         - name: IoT Hub
           items:
             - name: Overview
@@ -1020,7 +1060,19 @@
         - name: Warmup
           href: functions-bindings-warmup.md
         - name: Web PubSub
-          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
+          items:
+            - name: Overview
+              href: functions-bindings-web-pubsub.md
+              displayName: Web PubSub
+            - name: Trigger
+              href: functions-bindings-web-pubsub-trigger.md
+              displayName: Web PubSub
+            - name: Input
+              href: functions-bindings-web-pubsub-input.md
+              displayName: Web PubSub
+            - name: Output
+              href: functions-bindings-web-pubsub-output.md
+              displayName: Web PubSub
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules
@@ -1046,25 +1098,27 @@
           - name: AZFD0005
             href: errors-diagnostics/diagnostic-events/azfd0005.md
           - name: AZFD0006
-            href: errors-diagnostics/diagnostic-events/azfd0006.md        
+            href: errors-diagnostics/diagnostic-events/azfd0006.md
           - name: AZFD0007
-            href: errors-diagnostics/diagnostic-events/azfd0007.md 
+            href: errors-diagnostics/diagnostic-events/azfd0007.md
           - name: AZFD0008
-            href: errors-diagnostics/diagnostic-events/azfd0008.md  
+            href: errors-diagnostics/diagnostic-events/azfd0008.md
           - name: AZFD0009
-            href: errors-diagnostics/diagnostic-events/azfd0009.md     
+            href: errors-diagnostics/diagnostic-events/azfd0009.md
           - name: AZFD0010
             href: errors-diagnostics/diagnostic-events/azfd0010.md
           - name: AZFD0011
             href: errors-diagnostics/diagnostic-events/azfd0011.md
           - name: AZFD0012
             href: errors-diagnostics/diagnostic-events/azfd0012.md
+          - name: AZFD0013
+            href: errors-diagnostics/diagnostic-events/azfd0013.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
     - name: Monitoring data reference
-      href: monitor-functions-reference.md  
+      href: monitor-functions-reference.md
     - name: Networking FAQ
       href: functions-networking-faq.yml
 - name: Resources
@@ -1086,13 +1140,13 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
-      href: https://www.youtube.com/c/AzureFunctions
+      href: https://www.youtube.com/@AzureDevelopers/search?query=functions
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-functions
-    - name: Twitter
-      href: https://twitter.com/azurefunctions
+    - name: X
+      href: https://x.com/azurefunctions
     - name: Provide product feedback
       href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository

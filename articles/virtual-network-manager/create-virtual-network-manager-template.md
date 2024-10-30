@@ -4,9 +4,9 @@ description: In this article, you deploy various network topologies with Azure V
 services: virtual-network-manager
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/15/2023
+ms.date: 10/23/2024
 ms.topic: quickstart
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -16,7 +16,7 @@ Get started with Azure Virtual Network Manager by using Azure Resource Manager t
 
 In this quickstart, an Azure Resource Manager template is used to deploy Azure Virtual Network Manager with different connectivity topology and network group membership types. Use deployment parameters to specify the type of configuration to deploy.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
@@ -95,6 +95,7 @@ When you no longer need the resources that you created with the private endpoint
 1. To delete the resource group, open the resource group in the Azure portal and select **Delete resource group**.
 1. Enter the name of the resource group, and then select **Delete**.
 1. One the resource group is deleted, verify the network manager instance and all related resources are deleted.
+1. If you used **Dynamic Network Group Membership**, delete the deployed Azure Policy Definition and Assignment by navigating to your Subscription in the Portal and selecting the **Policies**. In Policies, find the **Assignment** named `AVNM quickstart dynamic group membership Policy` and delete it, then do the same for the **Definition** named `AVNM quickstart dynamic group membership Policy`.
 
 ## Next steps
 

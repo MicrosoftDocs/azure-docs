@@ -4,7 +4,7 @@ description: Reference for the required and optional settings to configure when 
 services: api-management
 author: tomkerkhove
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 06/04/2023
 ms.author: danlep

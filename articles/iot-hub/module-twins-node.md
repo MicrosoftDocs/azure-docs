@@ -5,7 +5,7 @@ description: Learn how to create module identities and update module twins using
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 08/23/2021
@@ -31,7 +31,7 @@ At the end of this article, you have two Node.js apps:
 
 ## Prerequisites
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
@@ -49,9 +49,13 @@ openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 ## Create a device identity and a module identity in IoT Hub
 
 In this section, you create a Node.js app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. The ID and key are case-sensitive. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. Create a directory to hold your code.
 
@@ -134,7 +138,7 @@ In this section, you create a Node.js app on your simulated device that updates 
 
    ![Azure portal module detail](./media/module-twins-node/module-detail.png)
 
-2. Similar to what you did in the previous section, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
+2. Similar to what you did in the previous section, create a directory for your device code and use npm to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
    > The npm install command may feel slow. Be patient; it's pulling down lots of code from the package repository.

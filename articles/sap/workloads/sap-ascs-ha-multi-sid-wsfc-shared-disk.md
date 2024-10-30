@@ -32,7 +32,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 
 For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].  
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

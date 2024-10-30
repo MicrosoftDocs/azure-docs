@@ -1,14 +1,17 @@
 ---
 title: Configure caching
 description: Learn how to configure caching in Trino
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 11/03/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Configure caching
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 

@@ -18,7 +18,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - At least one application hosted by Azure Spring Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [deploy your first application to Azure Spring Apps](../spring-apps/enterprise/quickstart.md).
 
@@ -55,7 +55,7 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 ### [Managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
+> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
 
 1. Run the `az spring connection create` command to create a service connection to a Blob Storage with a system-assigned managed identity
 
@@ -77,6 +77,9 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 > If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your application hosted by Azure Spring Apps using a managed identity.
 
 ### [Access key](#tab/Using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and an Azure Blob Storage using an access key.
 

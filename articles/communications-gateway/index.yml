@@ -5,10 +5,10 @@ summary: Learn about Azure Communications Gateway for telecommunications operato
 metadata:
   title: Azure Communications Gateway documentation
   description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering services.
-  ms.service: communications-gateway
+  ms.service: azure-communications-gateway
   ms.topic: landing-page
-  author: rcdun
-  ms.author: rdunstan
+  author: GemmaWakeford 
+  ms.author: gwakeford
   ms.date: 04/25/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

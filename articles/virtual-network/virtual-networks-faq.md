@@ -3,9 +3,9 @@ title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/22/2024
 ms.author: allensu
 ---
 
@@ -130,10 +130,10 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 Azure virtual networks provide DHCP service and DNS to Azure Virtual Machines. However, you can also deploy a DHCP Server in an Azure VM to serve the on-prem clients via a DHCP Relay Agent.
 
-DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
+DHCP Server in Azure was previously marked not feasible since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
 
 > [!NOTE]
-> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. This will result in timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure. The DHCP RENEW will succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ### Can I ping a default gateway in a virtual network?
 
@@ -430,6 +430,10 @@ No. You can't enable virtual network peering if address spaces overlap.
 
 No. You can enable the **Use Remote Gateway** option on only one peering to one of the virtual networks.
 
+### Can I move a virtual network that has a peering connection to another virtual network?
+
+No. You can't move a virtual network that has a peering connection to another virtual network. You must delete the peering connection before moving the virtual network.
+
 ### How much do virtual network peering links cost?
 
 There's no charge for creating a virtual network peering connection. Data transfer across peering connections is charged. For more information, see the [Azure Virtual Network pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -478,7 +482,7 @@ The virtual network TAP resource and the destination load balancer or destinatio
 
 Virtual network TAP is in preview. During preview, there is no service-level agreement. You shouldn't use the capability for production workloads.
 
-When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for Linux or Windows supported with virtual network TAP?
 
@@ -694,7 +698,7 @@ Scenarios that aren't supported include:
 
 ### Where can I find more information about migration from classic to Resource Manager?
 
-See [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
+See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
 
 ### How can I report a problem?
 

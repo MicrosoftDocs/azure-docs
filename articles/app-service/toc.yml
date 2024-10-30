@@ -41,7 +41,9 @@
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
     - name: App settings reference
-      href: reference-app-settings.md      
+      href: reference-app-settings.md  
+    - name: Configure error pages
+      href: configure-error-pages.md   
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -54,8 +56,16 @@
           href: configure-language-php.md
         - name: Configure Python
           href: configure-language-python.md
-        - name: Configure Java
-          href: configure-language-java.md
+        - name: Configure Java SE, Tomcat, or JBoss
+          items:
+            - name: Deployment and runtime
+              href: configure-language-java-deploy-run.md
+            - name: Data sources
+              href: configure-language-java-data-sources.md
+            - name: APM integration
+              href: configure-language-java-apm.md
+            - name: Security
+              href: configure-language-java-security.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
@@ -94,14 +104,12 @@
           href: /azure/templates/microsoft.web/allversions
 - name: Logs and monitoring
   items:
-    - name: Monitor
+    - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Monitoring options
-      href: overview-monitoring.md
     - name: Stream diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
@@ -154,14 +162,14 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres
+        - name: Python with Postgres (Flask/Django)
           href: tutorial-python-postgresql-app.md
+        - name: Python with Postgres (FastAPI)
+          href: tutorial-python-postgresql-app-fastapi.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
-        - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -184,6 +192,8 @@
                   href: tutorial-connect-msi-key-vault-javascript.md    
                 - name: Use PHP
                   href: tutorial-connect-msi-key-vault-php.md                            
+                - name: Use Python
+                  href: tutorial-connect-msi-key-vault-python.md                         
     - name: Connect by using app identity
       items:
         - name: Managed identity overview
@@ -198,6 +208,8 @@
                   href: tutorial-connect-msi-sql-database.md
                 - name: Connect Java Tomcat to Postgres
                   href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+                - name: Connect Python Flask app to Postgres
+                  href: /azure/developer/python/tutorial-python-managed-identity-cli?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
             - name: Connect to Microsoft Graph with managed identity
               items: 
                 - name: Use .NET
@@ -231,7 +243,7 @@
     - name: Scale out automatically
       href: manage-automatic-scaling.md      
     - name: Scale out with rules
-      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
+      href: /azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: About high density hosting
@@ -259,7 +271,7 @@
           href: configure-authentication-provider-github.md
         - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Use Twitter
+        - name: Use X
           href: configure-authentication-provider-twitter.md
         - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
@@ -355,8 +367,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted app
       href: app-service-undelete.md
-    - name: Move app between regions
-      href: manage-move-across-regions.md
+    - name: Relocate app to another region
+      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management
@@ -367,8 +379,6 @@
       href: configure-custom-container.md
     - name: CI/CD to custom container
       href: deploy-ci-cd-custom-container.md
-    - name: Deploy a multi-container app
-      href: quickstart-multi-container.md
     - name: About GitHub Actions for containers
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
@@ -381,8 +391,20 @@
           href: app-service-sql-github-actions.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
-        - name: Deploy a multi-container WordPress app
-          href: tutorial-multi-container-app.md
+- name: Integrate AI with App Service
+  items:
+    - name: Deploy an application that uses OpenAI on App Service
+      href: deploy-intelligent-apps.md
+- name: WebJobs
+  items:
+    - name: Create WebJobs
+      href: webjobs-create.md
+    - name: Develop WebJobs using VS
+      href: webjobs-dotnet-deploy-vs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md          
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -429,14 +451,14 @@
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance
       href: routine-maintenance.md
+    - name: Routine maintenance, Restarts, and Downtime
+      href: routine-maintenance-downtime.md
     - name: Language support policy
       href: language-support-policy.md
     - name: OS functionality
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
-    - name: Deploy an application that uses OpenAI on App Service
-      href: deploy-intelligent-apps.md
     - name: gRPC configuration
       href: configure-grpc.md
     - name: Recommended services (preview)
@@ -449,16 +471,6 @@
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
-    - name: WebJobs
-      items:
-        - name: Create WebJobs
-          href: webjobs-create.md
-        - name: Develop WebJobs using VS
-          href: webjobs-dotnet-deploy-vs.md
-        - name: Get started with WebJobs SDK
-          href: webjobs-sdk-get-started.md
-        - name: Use WebJobs SDK
-          href: webjobs-sdk-how-to.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

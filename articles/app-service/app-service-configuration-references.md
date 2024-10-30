@@ -1,5 +1,5 @@
 ---
-title: Use App Configuration references (Preview)
+title: Use App Configuration references
 description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key-values available to your application code without changing it.
 author: muksvso
 
@@ -9,7 +9,7 @@ ms.author: mubatra
 
 ---
 
-# Use App Configuration references for App Service and Azure Functions (preview)
+# Use App Configuration references for App Service and Azure Functions
 
 This topic shows you how to work with configuration data in your App Service or Azure Functions application without requiring any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is a service to centrally manage application configuration. Additionally, it's an effective audit tool for your configuration values over time or releases.
 
@@ -18,9 +18,6 @@ This topic shows you how to work with configuration data in your App Service or 
 To get started with using App Configuration references in App Service, you'll first need  an App Configuration store, and provide your app permission to access the configuration key-values in the store.
 
 1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
-
-    > [!NOTE]
-    > App Configuration references do not yet support network-restricted configuration stores.
 
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
@@ -58,7 +55,7 @@ In addition to storing raw configuration values, Azure App Configuration has its
 
 1. Identify the identity that you used for the App Configuration reference. Access to the vault must be granted to that same identity.
 
-1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+1. Create an [access policy in Key Vault](/azure/key-vault/general/security-features#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
 ## Reference syntax
 

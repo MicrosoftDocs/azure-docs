@@ -4,7 +4,7 @@ description: Understand the process to creating private endpoints for Azure Back
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

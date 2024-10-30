@@ -4,10 +4,9 @@ description: Learn how to control flow of data in Azure Data Factory by branchin
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/11/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Branching and chaining activities in a Data Factory pipeline

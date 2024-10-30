@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/10/2023
 ms.topic: quickstart
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -30,7 +30,7 @@ The scene will look like this:
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download a sample glTF (Graphics Language Transmission Format) 3D file to use for the scene in this quickstart. [Select this link to download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb).
+You'll also need to download a sample glTF (Graphics Language Transmission Format) 3D file to use for the scene in this quickstart. Download the following sample file from GitHub: [RobotArms.glb](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/3dscenes/RobotArms.glb).
 
 ## Set up Azure Digital Twins and sample data
 
@@ -263,7 +263,7 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
         1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.aws.armstreams.com/${PrimaryTwin.$dtId}*. There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.armstreams.com/${PrimaryTwin.$dtId}*. There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.
     
         1. Select **Create widget**.
     

@@ -1,5 +1,5 @@
 ---
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan

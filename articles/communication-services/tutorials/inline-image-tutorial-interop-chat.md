@@ -13,12 +13,19 @@ ms.subservice: chat
 
 # Enable inline image using UI Library in Teams Interoperability Chat
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable Azure Communication Service end users to receive inline images sent by Teams users. Currently, the Azure Communication Service end user is able to only receive inline images from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
+In a Teams Interoperability Chat ("Interop Chat"), we can enable Azure Communication Service end users to receive inline images sent by Teams users. Additionally, when rich text editor is enabled, Azure Communication Service end users can send inline images to Teams users. Refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >
->Inline image feature comes with the CallWithChat Composite without additional setups. 
+> Receiving inline images feature comes with the CallWithChat Composite without additional setups. 
+> Sending inline images feature can be enabled by set `richTextEditor` to true under the CallWithChatCompositeOptions.
+
+> [!IMPORTANT]
+> The sending inline image feature of Azure Communication Services is currently in preview.
 >
+> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
+>
+> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Download code
@@ -31,14 +38,14 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- Using the UI library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest.
+- Using the UI library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest for receiving inline images. Using the UI library version [1.19.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.19.0-beta.1) or the latest beta version for sending inline images.
 - Have a Teams meeting created and the meeting link ready.
 - Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat has to part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
+First of all, we need to understand that Teams Interop Chat has to be part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
 
 Once the Azure Communication Service end user is admitted to the call, they would be able to start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop chat.
 
@@ -66,6 +73,15 @@ export type CallWithChatExampleProps = {
 };
 
 ```
+There no specific setup needed to enable receiving inline images. However, to be able to send inline images, `richTextEditor` function need to be enabled through the `CallWithChatExampleProps`. Here's a code snippet on how to enable it:
+```js
+<CallWithChatExperience
+  // ...any other call with chat props
+  compositeOptions={{ richTextEditor: true }}
+/>
+
+```
+
 
 To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator`, which looks like this:
 
@@ -73,7 +89,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-This is all you need - and there's no other setup needed to enable inline image specifically. 
+This is all you need - and there's no other setup needed. 
 
 
 ## Run the code
@@ -88,12 +104,19 @@ Simply click on the chat button located in the bottom to reveal the chat panel a
 
 ![Screenshot of Azure Communication Services UI library receiving two inline images.](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of Azure Communication Services UI library receiving 2 inline images.")
 
-Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
+
+When sending inline images is enabled, you should see something like the following screenshot:
+![Screenshot of Azure Communication Services UI library sending two inline images and editing messages.](./media/inline-image-tutorial-interop-chat-3.png "Screenshot of Azure Communication Services UI library sending 2 inline images and editing messages.")
+
+!["Screenshot of a Teams client receiving 2 inline images."](./media/inline-image-tutorial-interop-chat-4.png "Screenshot of a Teams client receiving 2 inline images.")
+
 
 ## Known Issues
 
 * The UI library might not support certain GIF images at this time. The user might receive a static image instead.
-* the Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.
+* The Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.
+* For certain Android devices, pasting of a single image is only supported when long pressing on the rich text editor and choosing
+paste. Selecting from the clipboard view from keyboard may not be supported.
 
 
 ## Next steps

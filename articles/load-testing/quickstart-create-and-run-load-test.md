@@ -2,7 +2,7 @@
 title: 'Quickstart: Create and run a load test with Azure Load Testing'
 description: 'This quickstart shows how to create an Azure Load Testing resource and run a high-scale load test for an external website by using the Azure portal.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: quickstart
 author: ninallam
 ms.author: ninallam

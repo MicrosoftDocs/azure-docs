@@ -3,7 +3,7 @@ title: 'Configure P2S User VPN clients -certificate authentication - macOS and i
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the VPN client for Virtual WAN User VPN configurations that use certificate authentication and IKEv2 or OpenVPN tunnel. This article applies to macOS and iOS.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/28/2023
 ms.author: cherylmc

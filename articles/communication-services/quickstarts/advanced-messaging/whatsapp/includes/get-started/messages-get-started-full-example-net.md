@@ -4,7 +4,7 @@ description: Include file
 services: azure-communication-services
 author: glorialimicrosoft
 ms.service: azure-communication-services
-ms.subservice: messages
+ms.subservice: advanced-messaging
 ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
@@ -61,10 +61,10 @@ namespace AdvancedMessagingQuickstart
 
             // Send a media message
             Uri uri = new Uri("https://aka.ms/acsicon1");
-            MediaNotificationContent mediaContent =
-                new MediaNotificationContent(channelRegistrationId, recipientList, uri);
+            ImageNotificationContent imageContent =
+                new ImageNotificationContent(channelRegistrationId, recipientList, uri);
             Response<SendMessageResult> sendMediaMessageResult =
-                await notificationMessagesClient.SendAsync(mediaContent);
+                await notificationMessagesClient.SendAsync(imageContent);
 
             PrintResult(sendMediaMessageResult);
             Console.WriteLine("Media message sent.\nPress any key to exit.\n");

@@ -389,15 +389,19 @@ The following table shows the PowerShell versions available to each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 4.x | PowerShell 7.2 | .NET 6 |
+| 4.x | PowerShell 7.4 | .NET 8 |
+| 4.x | PowerShell 7.2 (support ending) | .NET 6 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
 To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
+> [!NOTE]
+> Support for PowerShell 7.2 in Azure Functions ends on November 8, 2024. You might have to resolve some breaking changes when upgrading your PowerShell 7.2 functions to run on PowerShell 7.4. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4. 
+
 ### Running local on a specific version
 
-Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
+When running your PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example: 
 
 ```json
 {
@@ -405,18 +409,20 @@ Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To u
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "powershell",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.2"
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"
   }
 }
 ```
 
 > [!NOTE]
-> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We do not automatically upgrade PowerShell Function apps that have "~7" to "7.2". Going forward, for PowerShell Function Apps, we will require that apps specify both the major and minor version they want to target. Hence, it is necessary to mention "7.2" if you want to target "7.2.x"
+> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We do not automatically upgrade PowerShell Function apps that have "~7" to "7.4". Going forward, for PowerShell Function Apps, we will require that apps specify both the major and minor version they want to target. Hence, it is necessary to mention "7.4" if you want to target "7.4.x"
 
 ### Changing the PowerShell version
 
-Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To upgrade your Function App to PowerShell 7.2, ensure the value of FUNCTIONS_EXTENSION_VERSION is set to ~4. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
+Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4: 
++ Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
 
++ Make sure that your function app is running on the latest version of the Functions runtime in Azure, which is version 4.x. For more information, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
@@ -430,6 +436,9 @@ Use the following steps to change the PowerShell version used by your function a
  
 1. Choose your desired **PowerShell Core version** and select **Save**. When warned about the pending restart choose **Continue**. The function app restarts on the chosen PowerShell version. 
 
+> [!NOTE]
+> Azure Functions support for PowerShell 7.4 is generally available (GA). You may see PowerShell 7.4 still indicated as preview in the Azure portal, but this will be updated soon to reflect the GA status.
+
 # [PowerShell](#tab/powershell)
 
 Run the following script to change the PowerShell version: 
@@ -439,7 +448,7 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `7.2`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `7.4`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
 
@@ -493,6 +502,8 @@ The following considerations apply when using dependency management:
 + Managed dependencies requires access to `https://www.powershellgallery.com` to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+
++ Managed dependencies aren't supported when you host your function app in a [Flex Consumption plan](flex-consumption-plan.md). You must instead [define your own custom modules](#custom-modules).
 
 ### Dependency management app settings
 

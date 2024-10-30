@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/17/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 #customer intent: As an operator, I want configure device groups so that I can analyze my device telemetry.
@@ -122,10 +122,3 @@ To learn more about analytics, see [How to use data explorer to analyze device d
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
-
-## Next steps
-
-Now that you've learned how to use device groups in your Azure IoT Central application, here's the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Connect an IoT Edge device to your Azure IoT Central application](tutorial-connect-iot-edge-device.md)

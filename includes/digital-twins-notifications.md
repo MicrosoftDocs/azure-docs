@@ -1,6 +1,6 @@
 ---
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: baanders

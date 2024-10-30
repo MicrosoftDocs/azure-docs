@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
@@ -17,8 +17,7 @@ In this quickstart, you use Azure PowerShell to create an application gateway. T
 
 The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
-:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
-
+:::image type="content" source="./media/quick-create-portal/application-gateway-qs-resources.png" alt-text="Conceptual diagram of the quickstart setup." lightbox="./media/quick-create-portal/application-gateway-qs-resources.png":::
 
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
@@ -30,9 +29,9 @@ You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-azure-powershell) (if you run Azure PowerShell locally).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Connect to Azure
 

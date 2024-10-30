@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -80,7 +80,7 @@ This article lists significant updates and new features available in Azure Conta
 | [Generally Available: Session affinity](./sticky-sessions.md) | Session affinity enables you to route all requests from a single client to the same Container Apps replica. This is useful for stateful workloads that require session affinity. |
 | [Generally Available: Azure Key Vault references for secrets](https://azure.microsoft.com/updates/generally-available-azure-key-vault-references-for-secrets-in-azure-container-apps/) | Azure Key Vault references enable you to source a container app’s secrets from secrets stored in Azure Key Vault. Using the container app's managed identity, the platform automatically retrieves the secret values from Azure Key Vault and injects it into your application's secrets. |
 | [Public preview: additional TCP ports](./ingress-overview.md#additional-tcp-ports) | Azure Container Apps now support additional TCP ports, enabling applications to accept TCP connections on multiple ports. This feature is in preview. |
-| [Public preview: environment level mTLS encryption](./networking.md#mtls) | When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. |
+| [Public preview: environment level peer-to-peer encryption](./networking.md#peer-to-peer-encryption) | When end-to-end encryption is required, peer-to-peer encryption will encrypt data transmitted between applications within an environment. |
 | [Retirement: ACA preview API versions 2022-06-01-preview and 2022-11-01-preview](https://azure.microsoft.com/updates/retirement-azure-container-apps-preview-api-versions-20220601preview-and-20221101preview/) | Starting on November 16, 2023, Azure Container Apps control plane API versions 2022-06-01-preview and 2022-11-01-preview will be retired. Before that date, migrate to the latest stable API version (2023-05-01) or latest preview API version (2023-04-01-preview). |
 | [Dapr: Stable Configuration API](https://docs.dapr.io/developing-applications/building-blocks/configuration/) | Dapr's Configuration API is now stable and supported in Azure Container Apps. Learn how to do [Dapr integration with Azure Container Apps](./dapr-overview.md)|
 

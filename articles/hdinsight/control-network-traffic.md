@@ -1,7 +1,7 @@
 ---
 title: Control network traffic in Azure HDInsight
 description: Learn techniques for controlling inbound and outbound traffic to Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/15/2024
 ---

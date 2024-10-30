@@ -2,9 +2,9 @@
 title: Cloud Services (classic) Role config XPath cheat sheet | Microsoft Docs
 description: The various XPath settings you can use in the cloud service role config to expose settings as an environment variable.
 ms.topic: article
-ms.service: cloud-services
-ms.subservice: deployment-files
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.subservice: config-package-files
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -116,7 +116,7 @@ Retrieves the endpoint port for the instance.
 | Code |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
 ## Example
-Here is an example of a worker role that creates a startup task with an environment variable named `TestIsEmulated` set to the [@emulated xpath value](#app-running-in-emulator). 
+Here's an example of a worker role that creates a startup task with an environment variable named `TestIsEmulated` set to the [@emulated xpath value](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">

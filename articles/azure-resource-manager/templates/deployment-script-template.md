@@ -29,7 +29,7 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md). Currently, deployment script only uses public networking.
+The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 > [!IMPORTANT]
 > The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically-created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
@@ -353,13 +353,13 @@ For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with output
 
 ### Pass secured strings to deployment script
 
-Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values). For an example, see [Sample templates](#sample-templates).
+Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](/azure/container-instances/container-instances-environment-variables#secure-values). For an example, see [Sample templates](#sample-templates).
 
 The max allowed size for environment variables is 64 KB.
 
 ## Monitor and troubleshoot deployment scripts
 
-The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
+The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](/azure/container-instances/container-instances-overview) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
 
 :::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-resources.png" alt-text="Screenshot of Resource Manager template deployment script resource names.":::
 
@@ -640,7 +640,7 @@ After the script is tested successfully, you can use it as a deployment script i
 | DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
 | DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance (ACI), ACI threw a service unavailable error. |
 | DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope (same subscription, resource group name, and resource name). |
-| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
+| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-deployment).|
 
 ## Use Microsoft Graph within a deployment script
 

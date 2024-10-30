@@ -3,7 +3,7 @@ title: Troubleshoot outbound connectivity with Azure services
 titleSuffix: Azure NAT Gateway
 description: Get started learning how to troubleshoot issues with Azure NAT Gateway and Azure resources and services.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/15/2024
 ms.author: allensu
@@ -65,7 +65,14 @@ NAT gateway can be deployed with AKS clusters in order to allow for explicit out
 
 - **User-Assigned NAT gateway**: You deploy a NAT gateway to an existing virtual network for the AKS cluster. 
 
-Learn more at [Managed NAT Gateway](../aks/nat-gateway.md).
+Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
+
+### Connecting from AKS cluster to the AKS API server over the internet
+
+To manage an AKS cluster, you interact with its API server. When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. After you attach a NAT Gateway to the subnets of your AKS cluster, NAT Gateway will be used to connect to the public IP of the AKS API server. See the following documentation for additional information and design guidance:
+* [Access an AKS API server](/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server)
+* [Use API Management with AKS](/azure/api-management/api-management-kubernetes)
+* [Define API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges)
 
 ### Can't update my NAT gateway IPs or idle timeout timer for an AKS cluster 
 

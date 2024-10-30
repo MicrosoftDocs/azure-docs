@@ -2,8 +2,8 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 06/24/2024
-ms.topic: conceptual
+ms.date: 10/28/2024
+ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
@@ -23,15 +23,15 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 
 ## Prerequisites for scheduled patching
 
-1. See [Prerequisites for Update Manager](./overview.md#prerequisites).
+1. See [Prerequisites for Update Manager](prerequisites.md).
 1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](./overview.md#prerequisites).
+	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
 ## Schedule patching in an availability set
 
-All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
 VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
 
@@ -46,14 +46,14 @@ The registry keys listed in [Configure Automatic Updates by editing the registry
 
 We recommend the following limits for the indicators.
 
-| Indicator    | Limit          |
-|----------|----------------------------|
-| Number of schedules per subscription per region     | 250  |
-| Total number of resource associations to a schedule | 3,000 |
-| Resource associations on each dynamic scope    | 1,000 |
-| Number of dynamic scopes per resource group or subscription per region     | 250  |
-| Number of dynamic scopes per schedule   | 30  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 30  |
+| Indicator    | Public Cloud Limit          | Mooncake/Fairfax Limit |
+|----------|----------------------------|--------------------------|
+| Number of schedules per subscription per region     | 250  | 250 |
+| Total number of resource associations to a schedule | 3,000 | 3,000 |
+| Resource associations on each dynamic scope    | 1,000 | 1,000 |
+| Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
+| Number of dynamic scopes per schedule   | 200  | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
 
 For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
 

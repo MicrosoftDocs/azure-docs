@@ -525,7 +525,7 @@ If you set the variable `use_msi_for_clusters` to `true`, the fencing agent uses
 
 If you want to use a service principal for the fencing agent, set that variable to false.
 
-The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create a fencing agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device).
+The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create a fencing agent](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-an-azure-fence-agent-device).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"

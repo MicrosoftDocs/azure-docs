@@ -2,13 +2,13 @@
 title: Azure threat protection | Microsoft Docs
 description: Learn about built-in threat protection functionality for Azure, such as the Microsoft Entra ID Protection service. 
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
-ms.author: terrylan
+ms.date: 06/27/2024
+ms.author: mbaldwin
 
 ---
 
@@ -68,16 +68,16 @@ PIM helps you:
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
+[Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
 
 ### Holistic security and compliance posture
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) provides a comprehensive view into your organization's IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides a comprehensive view into your organization's IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
 ### Insight and analytics
-At the center of [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is the repository, which is hosted by Azure.
+At the center of [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -86,8 +86,8 @@ You collect data into the repository from connected sources by configuring data 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
-* [Log searches](../../azure-monitor/logs/log-query-overview.md) where you construct queries to analyze collected data.
-* [Dashboards](../../azure-monitor/visualize/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
+* [Log searches](/azure/azure-monitor/logs/log-query-overview) where you construct queries to analyze collected data.
+* [Dashboards](/azure/azure-monitor/visualize/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
 * [Solutions](/previous-versions/azure/azure-monitor/insights/solutions), which provide additional functionality and analysis tools.
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
@@ -104,18 +104,18 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 ## Microsoft Defender for Cloud
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
 
 Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](/azure/defender-for-cloud/enhanced-security-features-overview). 
 
 The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/defender-for-cloud/sample-defender-dashboard-numbered.png" alt-text="An example of Defender for Cloud's workload protections dashboard." lightbox="~/reusable-content/ce-skilling/azure/media/defender-for-cloud/sample-defender-dashboard-numbered.png":::
 
 > [!TIP]
-> Learn more about the numbered sections in [The workload protections dashboard](../../defender-for-cloud/workload-protections-dashboard.md).
+> Learn more about the numbered sections in [The workload protections dashboard](/azure/defender-for-cloud/workload-protections-dashboard).
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
@@ -328,4 +328,4 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next step
 
-- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.yml): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today's threats](/azure/defender-for-cloud/managing-and-responding-alerts): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.

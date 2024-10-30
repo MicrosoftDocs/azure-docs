@@ -3,9 +3,9 @@ title: Manage organizations with the REST API in Azure IoT Central
 description: How to use the IoT Central REST API to manage organizations in an application. Oganizations let you manage access to application resources.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -19,8 +19,6 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Organizations REST API
 

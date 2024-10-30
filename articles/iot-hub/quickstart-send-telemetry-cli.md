@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub, send telemetry, and view messages between a device and the hub.
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: quickstart
 ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, 'Role: Cloud Development', devx-track-azurecli, mode-api]
 ms.author: timlt
 author: timlt
-ms.date: 11/30/2022
+ms.date: 10/11/2024
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this codeless quickstart, you use the Azure CLI to create an IoT hub and a simulated device.  You'll send device telemetry to the hub, and send messages, call methods, and update properties on the device. You'll also use the Azure portal to visualize device metrics. This article shows a basic workflow for developers who use the CLI to interact with an IoT Hub application.
+IoT Hub is an Azure service designed to collect large volumes of telemetry data from IoT devices for storage or processing in the cloud. In this codeless quickstart, you use the Azure CLI to create an IoT hub and a simulated device. You send device telemetry to the hub, and also send messages, call methods, and update properties on the device. Additionally, you use the Azure portal to visualize device metrics. This article provides a basic workflow for developers using the CLI to interact with an IoT Hub application.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ To launch the Cloud Shell:
 
 ## Prepare two CLI sessions
 
-Next, you prepare two Azure CLI sessions. If you're using the Cloud Shell, you'll run these sessions in separate Cloud Shell tabs. If using a local CLI client, you'll run separate CLI instances. Use the separate CLI sessions for the following tasks:
+Next, you prepare two Azure CLI sessions. If you're using the Cloud Shell, you run these sessions in separate Cloud Shell tabs. If using a local CLI client, you run separate CLI instances. Use the separate CLI sessions for the following tasks:
 - The first session simulates an IoT device that communicates with your IoT hub. 
 - The second session either monitors the device in the first session, or sends messages, commands, and property updates. 
 
@@ -71,10 +71,7 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 
 ## Create an IoT hub
 
-In this section, you use the Azure CLI to create a resource group and an IoT hub.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices.
-
-> [!TIP]
-> Optionally, you can create an Azure resource group, an IoT hub, and other resources by using the [Azure portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md), or other programmatic methods.  
+In this section, you use the Azure CLI to create a resource group and an IoT hub. An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices.
 
 1. In the first CLI session, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location.
 
@@ -98,7 +95,7 @@ To create and start a simulated device:
 
 1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command. This command creates the simulated device identity.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
 
     *simDevice*. You can use this name directly for the simulated device in the rest of this quickstart. Optionally, use a different name.
 
@@ -106,9 +103,9 @@ To create and start a simulated device:
     az iot hub device-identity create -d simDevice -n {YourIoTHubName} 
     ```
 
-1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command.  This command starts the simulated device. The device sends telemetry to your IoT hub and receives messages from it.  
+1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command. This command starts the simulated device. The device sends telemetry to your IoT hub and receives messages from it.  
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -118,7 +115,7 @@ To monitor a device:
 
 1. In the second CLI session, run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. This command continuously monitors the simulated device. The output shows telemetry such as events and property state changes that the simulated device sends to the IoT hub.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
     
     ```azurecli
     az iot hub monitor-events --output table -p all -n {YourIoTHubName}
@@ -134,7 +131,7 @@ In this section, you send a message to the simulated device.
 
 1. In the first CLI session, confirm that the simulated device is still running. If the device stopped, run the following command to restart it:
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -142,13 +139,13 @@ In this section, you send a message to the simulated device.
 
 1. In the second CLI session, run the [az iot device c2d-message send](/cli/azure/iot/device/c2d-message#az-iot-device-c2d-message-send) command. This command sends a cloud-to-device message from your IoT hub to the simulated device. The message includes a string and two key-value pairs.  
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
 
     ```azurecli
     az iot device c2d-message send -d simDevice --data "Hello World" --props "key0=value0;key1=value1" -n {YourIoTHubName}
     ```
 
-    Optionally, you can send cloud-to-device messages by using the Azure portal. To do this, browse to the overview page for your IoT Hub, select **IoT Devices**, select the simulated device, and select **Message to Device**.
+    Optionally, you can send cloud-to-device messages by using the Azure portal. To send messages through the Azure portal, browse to the overview page for your IoT Hub, select **IoT Devices**, select the simulated device, and select **Message to Device**.
 
 1. In the first CLI session, confirm that the simulated device received the message.
 
@@ -163,7 +160,7 @@ In this section, you call a direct method on the simulated device.
 
 1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command. In this example, there's no preexisting method for the device. The command calls an example method name on the simulated device and returns a payload.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
     
     ```azurecli
     az iot hub invoke-device-method --mn MySampleMethod -d simDevice -n {YourIoTHubName}
@@ -181,9 +178,9 @@ In this section, you update the state of the simulated device by setting propert
 1. In the second CLI session, run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command. This command updates the properties to the desired state on the IoT hub device twin that corresponds to your simulated device. In this case, the command sets example temperature condition properties.
 
     > [!IMPORTANT]
-    > If you're using PowerShell in the CLI shell, use the PowerShell version of the command below. PowerShell requires you to escape the characters in the JSON payload. 
+    > If you're using PowerShell in the CLI shell, use the PowerShell version of the command in the following code. PowerShell requires you to escape the characters in the JSON payload. 
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
     
     ```azurecli
     az iot hub device-twin update -d simDevice --desired '{"conditions":{"temperature":{"warning":98, "critical":107}}}' -n {YourIoTHubName}
@@ -198,7 +195,7 @@ In this section, you update the state of the simulated device by setting propert
 
 1. In the second CLI session, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command. This command reports changes to the device properties. 
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    *YourIotHubName*. Replace this placeholder in the following code with the name you chose for your IoT hub.
     
     ```azurecli
     az iot hub device-twin show -d simDevice --query properties.reported -n {YourIoTHubName}
@@ -236,7 +233,7 @@ To visualize messaging metrics in the Azure portal:
 
 If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete them.
 
-If you continue to the next recommended article, you can keep the resources you've already created and reuse them.
+If you continue to the next recommended article, you can keep the resources you already created and reuse them.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.

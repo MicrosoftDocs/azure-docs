@@ -5,8 +5,7 @@ description: In this tutorial, learn how to connect to Azure Data Box Blob stora
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
@@ -24,7 +23,7 @@ ms.author: shaas
 > The information contained within this section applies to orders placed after April 1, 2024.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
 

@@ -4,7 +4,7 @@ description: This article describes the Azure Application Gateway WAF monitoring
 services: appgateway
 author: tobystic
 manager: gunjan.jain 
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 07/14/2022
 ms.author: olotolor
@@ -16,7 +16,7 @@ Azure Web Application Firewall (WAF) monitoring and logging are provided through
 
 ## Azure Monitor
 
-WAF with Application Gateway log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
+WAF with Application Gateway log is integrated with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
 
 ## Logs and diagnostics
 
@@ -79,7 +79,7 @@ For metrics supported by Application Gateway V1 SKU, see [Application Gateway v1
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Next steps
 

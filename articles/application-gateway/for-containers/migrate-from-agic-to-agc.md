@@ -3,10 +3,9 @@ title: Migration Overview - Move Application Gateway Ingress Controller (AGIC) s
 description: Learn how to migrate services from AGIC to Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 06/20/2024
+ms.date: 10/28/2024
 ms.author: greglin
 ---
 
@@ -44,7 +43,6 @@ Prior to migration, it is important to identify any dependencies on Application 
 Such dependencies include:
 
 - Web Application Firewall (WAF)
-- Frontend Mutual Authentication
 - Private IP
 - Ports other than 80 and 443
 - Configurable request timeout values
@@ -68,7 +66,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
 | [WAF](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | Not supported | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
-| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port | Not supported | Not supported |
+| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port |  [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-path | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-status-codes | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-interval | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
@@ -228,7 +226,7 @@ Application Gateway for Containers implementation
 
 Direct certificate upload and reference to a certificate in Azure Key Vault is not available.
 
-Secrets should be stored in [AKS Secret Store](../../aks/concepts-security.md#kubernetes-secrets) and referenced by name.
+Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 
 ### Establishing backend certificate chain trust
 

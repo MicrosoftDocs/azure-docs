@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to s
 author: sethmanheim
 manager: femila
 services: notification-hubs
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: csharp
 ms.topic: tutorial

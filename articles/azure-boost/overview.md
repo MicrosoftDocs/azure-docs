@@ -2,8 +2,8 @@
 title: Overview of Azure Boost
 description: Learn more about how Azure Boost can Learn more about how Azure Boost can improve security and performance of your virtual machines.
 author: mattmcinnes
-ms.service: virtual-machines
-ms.topic: conceptual
+ms.service: azure-virtual-machines
+ms.topic: overview
 ms.custom:
   - ignite-2023
 ms.date: 11/07/2023
@@ -98,5 +98,5 @@ Azure Boost is currently available on several VM size families:
 
 ## Next Steps
 - Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-- Look into [Azure Dedicated Hosts](../virtual-machines/dedicated-hosts.md).
+- Look into [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts).
 - Learn more about [Azure Storage](../storage/common/storage-introduction.md).

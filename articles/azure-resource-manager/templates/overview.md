@@ -3,7 +3,7 @@ title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: overview
 ms.custom: devx-track-arm-template
-ms.date: 06/23/2023
+ms.date: 10/10/2024
 ---
 
 # What are ARM templates?
@@ -17,17 +17,38 @@ To implement infrastructure as code for your Azure solutions, use Azure Resource
 > [!TIP]
 > We've introduced a new language named [Bicep](../bicep/overview.md) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../bicep/overview.md).
 
-To learn about how you can get started with ARM templates, see the following video.
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
-
 ## Why choose ARM templates?
 
 If you're trying to decide between using ARM templates and one of the other infrastructure as code services, consider the following advantages of using templates:
 
 * **Declarative syntax**: ARM templates allow you to create and deploy an entire Azure infrastructure declaratively. For example, you can deploy not only virtual machines, but also the network infrastructure, storage systems, and any other resources you may need.
 
-* **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Templates are idempotent, which means you can deploy the same template many times and get the same resource types in the same state. You can develop one template that represents the desired state, rather than developing lots of separate templates to represent updates.
+* **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Templates are idempotent, which means you can deploy the same template many times and get the same resource types in the same state. You can develop one template that represents the desired state, rather than developing lots of separate templates to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists, no changes are made.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "mystore": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-04-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    }
+  }
+}
+```
 
 * **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the template through one command, rather than through multiple imperative commands.
 
@@ -142,6 +163,8 @@ For information about nested templates, see [Using linked templates with Azure R
 After creating your template, you may wish to share it with other users in your organization. [Template specs](template-specs.md) enable you to store a template as a resource type. You use role-based access control to manage access to the template spec. Users with read access to the template spec can deploy it, but not change the template.
 
 This approach means you can safely share templates that meet your organization's standards.
+
+[!INCLUDE [Request ARM template support](../../../includes/template-support.md)]
 
 ## Next steps
 

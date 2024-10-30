@@ -5,12 +5,12 @@ description: In this Quickstart, run a sample single-page application that uses 
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: quickstart
 ms.date: 02/23/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: mode-other
 
 #Customer Intent: As a developer building a single-page app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social accounts and call a protected web API to retrieve user information.

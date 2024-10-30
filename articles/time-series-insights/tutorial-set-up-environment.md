@@ -3,7 +3,7 @@ title: 'Tutorial: Set up a Gen2 environment - Azure Time Series Insights Gen2| M
 description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Gen2.'
 author: riserrad
 ms.author: riserrad
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: tutorial
 ms.date: 04/23/2021
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior.

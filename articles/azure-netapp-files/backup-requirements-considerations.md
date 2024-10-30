@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 08/13/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -36,15 +36,15 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
-* In a [cross-region replication](cross-region-replication-introduction.md) (CRR) or [cross-zone replication](cross-zone-replication-introduction.md) (CZR) setting, Azure NetApp Files backup can be configured on a source volume only. Azure NetApp Files backup isn't supported on a CRR or CZR *destination* volume.
+* In a [cross-region replication](cross-region-replication-introduction.md) (CRR) or [cross-zone replication](cross-zone-replication-introduction.md) (CZR) setting, Azure NetApp Files backup can be configured on a source volume. 
+
+    Backups on a destination volume are only supported for manually created snapshots. To take backups of a destination volume, create a snapshot on the source volume then wait for the snapshot to be replicated to the destination volume. From the destination volume, you select the snapshot for backup. Scheduled backups on a destination volume aren't supported.
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
 * If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
-* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups.
-
-* If you use the standard storage with cool access, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
+* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
 
 ## Next steps
 

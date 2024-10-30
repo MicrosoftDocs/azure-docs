@@ -4,12 +4,78 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 5/31/2024
+ms.date: 10/08/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
-We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
+We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## September 2024
+
+In September 2024, we made the following changes to the documentation:
+
+- Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) for the support of the High Efficiency Video Coding (HEVC), also known as H.265, which is in preview.
+
+- Updated [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md), which is generally available.
+
+- Published a new article where you can learn [What's new in the Azure Virtual Desktop SxS Network Stack](whats-new-sxs.md).
+
+## August 2024
+
+In August 2024, we made the following changes to the documentation:
+
+- Published a new set of documentation to learn about peripheral and resource redirection and how to configure different classes of redirection:
+   - [Peripheral and resource redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md)
+   - [Configure audio and video redirection over the Remote Desktop Protocol](redirection-configure-audio-video.md).
+   - [Configure camera, webcam, and video capture redirection over the Remote Desktop Protocol](redirection-configure-camera-webcam-video-capture.md).
+   - [Configure clipboard redirection over the Remote Desktop Protocol](redirection-configure-clipboard.md).
+   - [Configure fixed, removable, and network drive redirection over the Remote Desktop Protocol](redirection-configure-drives-storage.md).
+   - [Configure location redirection over the Remote Desktop Protocol](redirection-configure-location.md).
+   - [Configure Media Transfer Protocol and Picture Transfer Protocol redirection on Windows over the Remote Desktop Protocol](redirection-configure-plug-play-mtp-ptp.md).
+   - [Configure printer redirection over the Remote Desktop Protocol](redirection-configure-printers.md).
+   - [Configure serial or COM port redirection over the Remote Desktop Protocol](redirection-configure-serial-com-ports.md).
+   - [Configure smart card redirection over the Remote Desktop Protocol](redirection-configure-smart-cards.md).
+   - [Configure USB redirection on Windows over the Remote Desktop Protocol](redirection-configure-usb.md).
+   - [Configure WebAuthn redirection over the Remote Desktop Protocol](redirection-configure-webauthn.md).
+
+- Updated [Set custom Remote Desktop Protocol (RDP) properties on a host pool in Azure Virtual Desktop](customize-rdp-properties.md) to include rewritten steps for Azure PowerShell and added steps for Azure CLI.
+
+- Updated [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include information on how to publish new Teams as a RemoteApp.
+
+- Published a new article for [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md).
+
+- Published a new article to [Configure the session lock behavior for Azure Virtual Desktop](configure-session-lock-behavior.md) and updated [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md) to include the relevant information.
+
+- Published a new article to [Onboard Azure Virtual Desktop session hosts to forensic evidence from Microsoft Purview Insider Risk Management](purview-forensic-evidence.md).
+
+- Updated [Configure the clipboard transfer direction and data types that can be copied in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md?tabs=intune) to include the steps for using the Microsoft Intune settings catalog.
+
+## July 2024
+
+In July 2024, there were no significant changes to the documentation.
+
+## June 2024
+
+In June 2024, we made the following changes to the documentation:
+
+- Published a new article to [Configure the default chroma value](configure-default-chroma-value.md).
+
+- Published two new articles about the [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md) and how to [Set the preferred application group type for a pooled host pool](set-preferred-application-group-type.md).
+
+- Added information about TLS 1.3 support in [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+
+- Updated [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include New Teams SlimCore changes.
+
+- Added a section to [Use cases for Azure Virtual Desktop Insights](insights-use-cases.md) for how you can view [connection reliability](insights-use-cases.md#connection-reliability) information.
+
+- Rewrote [Configure RDP Shortpath](configure-rdp-shortpath.md) to include host pool settings and a better flow.
+
+- Rewrote [Compare Remote Desktop app features across platforms and devices](compare-remote-desktop-clients.md) to include more comprehensive information. This article is shared for Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PC connections.
+
+- Combined host pool load balancing information to the single article [Configure host pool load balancing](configure-host-pool-load-balancing.md) and added Azure CLI steps.
+
+- Consolidated information on [Azure Virtual Desktop business continuity and disaster recovery concepts](disaster-recovery-concepts.md) in the product documentation, focusing more on the more comprehensive information for Azure Virtual Desktop in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) and the [Azure Architecture Center](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr).
 
 ## May 2024
 
@@ -126,7 +192,7 @@ In July 2023, we made the following changes to the documentation:
 
 - Updated autoscale articles for the preview of autoscale for personal host pools. Learn more at [Autoscale scaling plans and example scenarios](autoscale-scenarios.md) and [Create an autoscale scaling plan](autoscale-scaling-plan.md).
 
-- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Understanding multimedia redirection](multimedia-redirection-intro.md).
+- Updated multimedia redirection articles for the preview of call redirection. Learn more at [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
 
 - Updated [Watermarking](watermarking.md) for general availability.
 
@@ -144,7 +210,7 @@ In June 2023, we made the following changes to the documentation:
 
 - Updated [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md) to include simulcast, mirror my video, manage breakout rooms, call health panel.
 
-- Published a new article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+- Published a new article to [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 - Added Intune to [Administrative template for Azure Virtual Desktop](administrative-template.md).
 

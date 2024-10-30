@@ -233,7 +233,7 @@ When you link the deployment of the managed application to existing resources, b
             "type": "Microsoft.Common.TextBox",
             "label": "Network interface resource ID",
             "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
             "visible": true
           },
           {
@@ -241,7 +241,7 @@ When you link the deployment of the managed application to existing resources, b
             "type": "Microsoft.Common.TextBox",
             "label": "User-assigned managed identity resource ID",
             "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
             "visible": true
           }
         ]

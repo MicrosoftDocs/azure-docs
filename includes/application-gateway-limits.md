@@ -1,6 +1,6 @@
 ---
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: include
 ms.date: 06/19/2024
 ms.author: greglin

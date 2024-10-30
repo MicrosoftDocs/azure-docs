@@ -3,7 +3,7 @@ title: IP Groups in Azure Firewall
 description: IP groups allow you to group and manage IP addresses for Azure Firewall rules.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 10/10/2023
@@ -66,7 +66,7 @@ You can now update multiple IP Groups in parallel at the same time. This is part
 
 With this support, you can now:
 
-- Update 20 IP Groups at a time
+- Update 50 IP Groups at a time
 - Update the firewall and firewall policy during IP Group updates
 - Use the same IP Group in parent and child policy
 - Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously

@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/18/2024
+ms.date: 08/22/2024
 ms.author: radeltch
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -17,7 +17,6 @@ ms.author: radeltch
 [planning-guide]:planning-guide.md
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
@@ -30,7 +29,7 @@ ms.author: radeltch
 [2235581]:https://launchpad.support.sap.com/#/notes/2235581
 [2684254]:https://launchpad.support.sap.com/#/notes/2684254
 
-[sles-for-sap-bp]:https://documentation.suse.com/sbp-supported.html
+[sles-for-sap-bp]:https://documentation.suse.com/en-us/?tab=sbp
 [sles-for-sap-bp12]:https://documentation.suse.com/sbp/sap-12/
 [sles-for-sap-bp15]:https://documentation.suse.com/sbp/sap-15/
 
@@ -53,7 +52,7 @@ Before you begin, read the following SAP Notes and papers:
   - The required SAP kernel versions for Windows and Linux on Microsoft Azure.
 - SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
 - SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server 12 (SLES 12) for SAP Applications.
--  SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
+- SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
 - SAP Note [2235581] has SAP HANA supported Operating systems
 - SAP Note [2178632] has detailed information about all the monitoring metrics that are reported for SAP in Azure.
 - SAP Note [2191498] has the required SAP host agent version for Linux in Azure.
@@ -67,7 +66,7 @@ Before you begin, read the following SAP Notes and papers:
 - [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] guide.
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
 - [SUSE Linux Enterprise Server for SAP Applications 15 best practices guides][sles-for-sap-bp15] and [SUSE Linux Enterprise Server for SAP Applications 12 best practices guides][sles-for-sap-bp12]:
-  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
+  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications). The guide contains all the required information to set-up SAP HANA system replication for on-premises development. Use this guide as a baseline.
   - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications).
 
 ## Plan for SAP HANA high availability
@@ -266,53 +265,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
       10.0.0.6 hn1-db-1
       ```
 
-1. **[A]** Install the SAP HANA high availability packages:
-
-   - Run the following command to install the high availability packages:
-
-     ```bash
-     sudo zypper install SAPHanaSR
-     ```
-
-   To install SAP HANA system replication, review chapter 4 in the [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/) guide.
-
-1. **[A]** Run the **hdblcm** program from the HANA installation media.
-
-   When you're prompted, enter the following values:
-
-   1. Choose installation: Enter **1**.
-   1. Select additional components for installation: Enter **1**.
-   1. Enter installation path: Enter **/hana/shared** and select Enter.
-   1. Enter local host name: Enter **..** and select Enter.
-   1. Do you want to add additional hosts to the system? (y/n): Enter **n** and select Enter.
-   1. Enter the SAP HANA system ID: Enter your HANA SID.
-   1. Enter the instance number: Enter the HANA instance number. If you deployed by using the Azure template or if you followed the manual deployment section of this article, enter **03**.
-   1. Select the database mode / Enter the index: Enter or select **1** and select Enter.
-   1. Select the system usage / Enter the index: Select the system usage value **4**.
-   1. Enter the location of the data volumes: Enter **/hana/data/\<HANA SID\>** and select Enter.
-   1. Enter the location of the log volumes: Enter **/hana/log/\<HANA SID\>** and select Enter.
-   1. Restrict maximum memory allocation?: Enter **n** and select Enter.
-   1. Enter the certificate host name for the host: Enter **...** and select Enter.
-   1. Enter the SAP host agent user (sapadm) password: Enter the host agent user password, and then select Enter.
-   1. Confirm the SAP host agent user (sapadm) password: Enter the host agent user password again, and then select Enter.
-   1. Enter the system administrator (hdbadm) password: Enter the system administrator password, and then select Enter.
-   1. Confirm the system administrator (hdbadm) password: Enter the system administrator password again, and then select Enter.
-   1. Enter the system administrator home directory: Enter **/usr/sap/\<HANA SID\>/home** and select Enter.
-   1. Enter the system administrator login shell: Enter **/bin/sh** and select Enter.
-   1. Enter the system administrator user ID: Enter **1001** and select Enter.
-   1. Enter ID of the user group (sapsys): Enter **79** and select Enter.
-   1. Enter the database user (SYSTEM) password: Enter the database user password, and then select Enter.
-   1. Confirm the database user (SYSTEM) password: Enter the database user password again, and then select Enter.
-   1. Restart the system after machine reboot? (y/n): Enter **n** and select Enter.
-   1. Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
-
-1. **[A]** Upgrade the SAP host agent.
-
-   Download the latest SAP host agent archive from the [SAP Software Center][sap-swcenter]. Run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded.
-
-   ```bash
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP host agent SAR>
-   ```
+1. **[A]** Install SAP HANA, following [SAP's documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/2d4de94c8bf14cda8d37278647fff8ab.html).
 
 ## Configure SAP HANA 2.0 system replication
 
@@ -368,167 +321,192 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> 
    ```
 
-## Configure SAP HANA 1.0 system replication
+## Implement HANA resource agents
 
-The steps in this section use the following prefixes:
+SUSE provides two different software packages for the Pacemaker resource agent to manage SAP HANA. Software packages SAPHanaSR and SAPHanaSR-angi are using slightly different syntax and parameters and aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html) for details and differences between SAPHanaSR and SAPHanaSR-angi. This document covers both packages in separate tabs in the respective sections.
 
-- **[A]**: The step applies to all nodes.
-- **[1]**: The step applies only to node 1.
-- **[2]**: The step applies only to node 2 of the Pacemaker cluster.
+> [!WARNING]
+> Don't replace the package SAPHanaSR by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure.
 
-Replace `<placeholders>` with the values for your SAP HANA installation.
+1. **[A]** Install the SAP HANA high availability packages:
 
-1. **[1]** Create the required users.
+### [SAPHanaSR](#tab/saphanasr)
+Run the following command to install the high availability packages:
 
-   Run the following command as root:
+```bash
+sudo zypper install SAPHanaSR
+```
 
-   ```bash
-   PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbsql -u system -i <instance number> 'CREATE USER hdbhasync PASSWORD "<password>"'
-   hdbsql -u system -i <instance number> 'GRANT DATA ADMIN TO hdbhasync'
-   hdbsql -u system -i <instance number> 'ALTER USER hdbhasync DISABLE PASSWORD LIFETIME'
-   ```
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+> [!IMPORTANT]
+> SAPHanaSR-angi has a minimum version requirement of SAP HANA 2.0 SPS 05 and SUSE SLES for SAP Applications 15 SP4 or higher.
 
-1. **[A]** Create the keystore entry.
+Run the following command to install the high availability packages:
 
-   Run the following command as root to create a new keystore entry:
+```bash
+sudo zypper install SAPHanaSR-angi
+```
 
-   ```bash
-   PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbuserstore SET hdbhaloc localhost:3<instance number>15 hdbhasync <password>
-   ```
+---
 
-1. **[1]** Back up the database.
+### Set up SAP HANA HA/DR providers
 
-   Back up the databases as root:
+The SAP HANA HA/DR providers optimize the integration with the cluster and improve detection when a cluster failover is needed. The main hook script is SAPHanaSR (for SAPHanaSR package) / susHanaSR (for SAPHanaSR-angi). We highly recommend that you configure the SAPHanaSR/susHanaSR Python hook. For HANA 2.0 SPS 05 and later, we recommend that you implement both SAPHanaSR/susHanaSR and the susChkSrv hooks.  
 
-   ```bash
-   PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbsql -d SYSTEMDB -u system -i <instance number> "BACKUP DATA USING FILE ('<name of initial backup file>')"
-   ```
-
-   If you use a multi-tenant installation, also back up the tenant database:
-
-   ```bash
-   hdbsql -d <HANA SID> -u system -i <instance number> "BACKUP DATA USING FILE ('<name of initial backup file>')"
-   ```
-
-1. **[1]** Configure system replication on the first node.
-
-   Create the primary site as \<HANA SID\>adm:
-
-   ```bash
-   su - hdbadm
-   hdbnsutil -sr_enable --name=<site 1>
-   ```
-
-1. **[2]** Configure system replication on the secondary node.
-
-   Register the secondary site as \<HANA SID\>adm:
-
-   ```bash
-   sapcontrol -nr <instance number> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> 
-   ```
-
-## Implement HANA hooks SAPHanaSR and susChkSrv
-
-In this important step, you optimize the integration with the cluster and improve detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. For HANA 2.0 SP5 and later, we recommend that you implement the SAPHanaSR hook and the susChkSrv hook.  
-
-The susChkSrv hook extends the functionality of  the main SAPHanaSR HA provider. It acts when the HANA process hdbindexserver crashes. If a single process crashes, HANA typically tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive.
+The susChkSrv hook extends the functionality of the main SAPHanaSR/susHanaSR HA provider. It acts when the HANA process hdbindexserver crashes. If a single process crashes, HANA typically tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive.
 
 With susChkSrv implemented, an immediate and configurable action is executed. The action triggers a failover in the configured timeout period instead of waiting for the hdbindexserver process to restart on the same node.
 
-1. **[A]** Install the HANA system replication hook. The hook must be installed on both HANA database nodes.
+1. **[A]** Stop HANA on both nodes.
+
+Run the following code as \<sap-sid\>adm:  
+
+```bash
+sapcontrol -nr <instance number> -function StopSystem
+```
+
+2. **[A]** Install the HANA system replication hooks. The hooks must be installed on both HANA database nodes.
 
    > [!TIP]
-   > The SAPHanaSR Python hook can be implemented only for HANA 2.0. The SAPHanaSR package must be at least version 0.153.
-   >
-   > The susChkSrv Python hook requires SAP HANA 2.0 SP5, and SAPHanaSR version 0.161.1_BF or later must be installed.  
+   > The SAPHanaSR Python hook can be implemented only for HANA 2.0. The SAPHanaSR package must be at least version 0.153.  
+   > The SAPHanaSR-angi Python hook can be implemented only for HANA 2.0 SPS 05 and later.  
+   > The susChkSrv Python hook requires SAP HANA 2.0 SPS 05, and SAPHanaSR version 0.161.1_BF or later must be installed.  
 
-   1. Stop HANA on both nodes.
+   #### [SAPHanaSR](#tab/saphanasr)
 
-      Run the following code as \<sapsid\>adm:  
+   1. **[A]** Adjust *global.ini* on each cluster node. 
 
-      ```bash
-      sapcontrol -nr <instance number> -function StopSystem
-      ```
-
-   1. Adjust *global.ini* on each cluster node. If the requirements for the susChkSrv hook aren't met, remove the entire `[ha_dr_provider_suschksrv]` block from the following parameters.
-
-      You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
+      If the requirements for the susChkSrv hook aren't met, remove the entire `[ha_dr_provider_suschksrv]` block from the following parameters. You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
 
       ```bash
-      # add to global.ini
       [ha_dr_provider_SAPHanaSR]
       provider = SAPHanaSR
       path = /usr/share/SAPHanaSR
       execution_order = 1
-       
+
       [ha_dr_provider_suschksrv]
       provider = susChkSrv
       path = /usr/share/SAPHanaSR
       execution_order = 3
       action_on_lost = fence
-   
+
       [trace]
       ha_dr_saphanasr = info
       ```
 
-      If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version that you use.
+      If you point parameter path to the default `/usr/share/SAPHanaSR` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that you use.
 
-1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<SAP SID\>adm. In this example, that's achieved by creating a new file.
+   1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<sap-sid\>adm. In this example, that's achieved by creating a new file.
 
-   Run the following command as root:
+      Run the following command as root. Replace \<sid\> by lowercase SAP system ID, \<SID\> by uppercase SAP system ID and \<siteA/B\> with HANA site names chosen.
+
+      ```bash
+      cat << EOF > /etc/sudoers.d/20-saphana
+      # Needed for SAPHanaSR and susChkSrv Python hooks
+      Cmnd_Alias SOK_SITEA      = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEA    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias SOK_SITEB      = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEB    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias HELPER_TAKEOVER = /usr/sbin/SAPHanaSR-hookHelper --sid=<SID> --case=checkTakeover
+      Cmnd_Alias HELPER_FENCE    = /usr/sbin/SAPHanaSR-hookHelper --sid=<SID> --case=fenceMe
+      
+      <sid>adm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HELPER_TAKEOVER, HELPER_FENCE
+      EOF
+      ```
+  
+     For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#cha.s4s.hana-hook).
+
+   #### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+   1. **[A]** Adjust *global.ini* on each cluster node. 
+
+      If you choose not to use the recommended susChkSrv hook, remove the entire `[ha_dr_provider_suschksrv]` block from the following parameters. You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
+  
+      ```bash
+      [ha_dr_provider_sushanasr]
+      provider = susHanaSR
+      path = /usr/share/SAPHanaSR-angi
+      execution_order = 1
+
+      [ha_dr_provider_suschksrv]
+      provider = susChkSrv
+      path = /usr/share/SAPHanaSR-angi
+      execution_order = 3
+      action_on_lost = fence
+  
+      [trace]
+      ha_dr_sushanasr = info
+      ha_dr_saphanasr = info
+      ```
+  
+      If you point parameter path to the default `/usr/share/SAPHanaSR-angi` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that you use.
+
+   1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<sap-sid\>adm. In this example, that's achieved by creating a new file.
+   
+      Run the following command as root. Replace \<sid\> by lowercase SAP system ID, \<SID\> by uppercase SAP system ID and \<siteA/B\> with HANA site names chosen.
+
+      ```bash
+      cat << EOF > /etc/sudoers.d/20-saphana
+      # Needed for susHanaSR and susChkSrv Python hooks
+      Cmnd_Alias SOK_SITEA    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEA  = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias SOK_SITEB    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEB  = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias HELPER_TAKEOVER  = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=checkTakeover
+      Cmnd_Alias HELPER_FENCE     = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=fenceMe
+      
+      <sid>adm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HELPER_TAKEOVER, HELPER_FENCE
+      EOF
+      ```
+
+      For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html#cha.s4s.hana-hook).
+
+---
+
+3. **[A]** Start SAP HANA on both nodes.
+   Run the following command as \<sap-sid\>adm:
 
    ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR and susChkSrv Python hooks
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
-    EOF
+   sapcontrol -nr <instance number> -function StartSystem 
    ```
 
-   For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers).
-
-1. **[A]** Start SAP HANA on both nodes.
-
-   Run the following command as \<SAP SID\>adm:
-
+4. **[1]** Verify the hook installation.
+   Run the following command as \<sap-sid\>adm on the active HANA system replication site:
+   #### [SAPHanaSR](#tab/saphanasr)
    ```bash
-    sapcontrol -nr <instance number> -function StartSystem 
+   cdtrace
+   awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+   { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+   # Example output
+   # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+   # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+   # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
    ```
 
-1. **[1]** Verify the hook installation.
-
-   Run the following command as \<SAP SID\>adm on the active HANA system replication site:
-
+   #### [SAPHanaSR-angi](#tab/saphanasr-angi)
    ```bash
-    cdtrace
-    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-    # Example output
-    # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
-    # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
-    # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+   cdtrace
+   grep HADR.*load.*SAPHanaSR nameserver_*.trc
+   # Example output
+   # ha_dr_provider HADRProviderManager.cpp(00083) : loading HA/DR Provider 'susHanaSR' from /usr/share/SAPHanaSR-angi
    ```
 
-    Verify the susChkSrv hook installation.
+---
 
-   Run the following command as \<SAP SID\>adm on all HANA VMs:
-
+5. **[1]** Verify the susChkSrv hook installation.
+   Run the following command as \<sap-sid\>adm on HANA VMs:
    ```bash
-    cdtrace
-    egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
-    # Example output
-    # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
-    # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
-    # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
+   cdtrace
+   egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+   # Example output
+   # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+   # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
+   # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
    ```
-
 ## Create SAP HANA cluster resources
 
-First, create the HANA topology.
+1. **[1]** First, create the HANA topology resource.
+### [SAPHanaSR](#tab/saphanasr)
 
 Run the following commands on one of the Pacemaker cluster nodes:
 
@@ -548,25 +526,36 @@ sudo crm configure clone cln_SAPHanaTopology_<HANA SID>_HDB<instance number> rsc
   meta clone-node-max="1" target-role="Started" interleave="true"
 ```
 
-Next, create the HANA resources:
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
 
-> [!IMPORTANT]
-> In recent testing, `netcat` stops responding to requests due to a backlog and because of its limitation of handling only one connection. The `netcat` resource stops listening to the Azure Load Balancer requests, and the floating IP becomes unavailable.
->
-> For existing Pacemaker clusters, we previously recommended that you replace `netcat` with `socat`. Currently, we recommend that you use the `azure-lb` resource agent, which is part of a package of `resource-agents`. The following package versions are required:
->
-> - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
-> - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
->
-> Making this change requires a brief downtime.
->
-> For existing Pacemaker clusters, if your configuration was already changed to use `socat` as described in [Azure Load Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), you don't need to immediately switch to the `azure-lb` resource agent.
+Run the following commands on one of the Pacemaker cluster nodes:
+
+```bash
+sudo crm configure property maintenance-mode=true
+
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaTopology_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaTopology \
+  op monitor interval="50" timeout="600" \
+  op start interval="0" timeout="600" \
+  op stop interval="0" timeout="300" \
+  params SID="<HANA SID>" InstanceNumber="<instance number>"
+
+sudo crm configure clone cln_SAPHanaTopology_<HANA SID>_HDB<instance number> rsc_SAPHanaTopology_<HANA SID>_HDB<instance number> \
+  meta clone-node-max="1" interleave="true"
+```
+
+---
+
+2. **[1]** Next, create the HANA resources:
+
+### [SAPHanaSR](#tab/saphanasr)
 
 > [!NOTE]
 > This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 ```bash
-# Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+# Replace <placeholders> with your instance number and HANA system ID.
 
 sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:suse:SAPHana \
   operations \$id="rsc_sap_<HANA SID>_HDB<instance number>-operations" \
@@ -578,12 +567,62 @@ sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:sus
   params SID="<HANA SID>" InstanceNumber="<instance number>" PREFER_SITE_TAKEOVER="true" \
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
+# Run the following command if the cluster nodes are running on SLES 12 SP05.
 sudo crm configure ms msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
+# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
+sudo crm configure clone msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
+  meta notify="true" clone-max="2" clone-node-max="1" \
+  target-role="Started" interleave="true" promotable="true"
+
 sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 100
 
+```
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID. 
+sudo crm configure primitive rsc_SAPHanaCon_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaController \
+  op start interval="0" timeout="3600" \
+  op stop  interval="0" timeout="3600" \
+  op promote interval="0" timeout="3600" \
+  op demote  interval="0" timeout="320"  \
+  op monitor interval="60" role="Promoted" timeout="700" \
+  op monitor interval="61" role="Unpromoted" timeout="700" \
+  params SID="<HANA SID>" InstanceNumber="<instance number>" PREFER_SITE_TAKEOVER="true" \
+  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \
+  meta priority=100
+
+sudo crm configure clone mst_SAPHanaCon_<HANA SID>_HDB<instance number> rsc_SAPHanaCon_<HANA SID>_HDB<instance number> \
+  meta clone-node-max="1" interleave="true" promotable="true"
+```
+
+SAPHanaSR-angi adds a new resource agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. OS static mounts the /hana/shared/SID filesystem with each host having entries in /etc/fstab. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA.
+
+We recommend implementing SAPHanaFilesystem if using NFS for /hana/shared/SID location. When /hana/shared/SID is located on a block device, such as Azure managed disk, the use of  SAPHanaFilesystem is optional.
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID. 
+sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaFilesystem \
+  op start interval="0" timeout="10" \
+  op stop interval="0" timeout="20" \
+  op monitor interval="120" timeout="120" \
+  params SID="<HANA SID>" InstanceNumber="<instance number>" ON_FAIL_ACTION="fence"
+
+sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPHanaFil_<HANA SID>_HDB<instance number> \
+  meta clone-node-max="1" interleave="true"
+```
+
+---
+
+3. **[1]** Continue with cluster resources for virtual IPs, defaults, and constraints.
+
+### [SAPHanaSR](#tab/saphanasr)
+
+```bash
+# Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
   operations \$id="rsc_ip_<HANA SID>_HDB<instance number>-operations" \
@@ -611,6 +650,39 @@ sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 ```
+
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+# Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
+  meta target-role="Started" \
+  op monitor interval="10s" timeout="20s" \
+  params ip="<front-end IP address>"
+
+sudo crm configure primitive rsc_nc_<HANA SID>_HDB<instance number> azure-lb port=625<instance number> \
+  op monitor timeout=20s interval=10 \
+  meta resource-stickiness=0
+
+sudo crm configure group g_ip_<HANA SID>_HDB<instance number> rsc_ip_<HANA SID>_HDB<instance number> rsc_nc_<HANA SID>_HDB<instance number>
+
+sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
+  mst_SAPHanaCon_<HANA SID>_HDB<instance number>:Promoted  
+
+sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: cln_SAPHanaTopology_<HANA SID>_HDB<instance number> \
+  mst_SAPHanaCon_<HANA SID>_HDB<instance number>
+
+# Clean up the HANA resources. The HANA resources might have failed because of a known issue.
+sudo crm resource cleanup rsc_SAPHanaCon_<HANA SID>_HDB<instance number>
+
+sudo crm configure property priority-fencing-delay=30
+
+sudo crm configure property maintenance-mode=false
+sudo crm configure rsc_defaults resource-stickiness=1000
+sudo crm configure rsc_defaults migration-threshold=5000
+```
+
+---
 
 > [!IMPORTANT]
 > We recommend that you set `AUTOMATED_REGISTER` to `false` only while you complete thorough failover tests, to prevent a failed primary instance from automatically registering as secondary. When the failover tests are successfully completed, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication automatically resumes.
@@ -687,6 +759,8 @@ hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> 
 
 You can set up the second virtual IP and the appropriate colocation constraint by using the following commands:
 
+#### [SAPHanaSR](#tab/saphanasr)
+
 ```bash
 crm configure property maintenance-mode=true
 
@@ -707,6 +781,30 @@ crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000:
 
 crm configure property maintenance-mode=false
 ```
+
+#### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+crm configure property maintenance-mode=true
+
+crm configure primitive rsc_secip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
+ op monitor interval="10s" timeout="20s" \
+ params ip="<secondary IP address>"
+
+crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=626<instance number> \
+ op monitor timeout=20s interval=10 \
+ meta resource-stickiness=0
+
+crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
+
+crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
+ mst_SAPHanaCon_<HANA SID>_HDB<instance number>:Unpromoted 
+
+crm configure property maintenance-mode=false
+```
+
+---
+
 
 Make sure that the cluster status is `OK` and that all the resources started. The second virtual IP runs on the secondary site along with the SAPHana secondary resource.
 
@@ -752,6 +850,8 @@ This section describes how you can test your setup. Every test assumes that you'
 
 Before you start the test, make sure that Pacemaker doesn't have any failed action (run `crm_mon -r`), that there are no unexpected location constraints (for example, leftovers of a migration test), and that HANA is in sync state, for example, by running `SAPHanaSR-showAttr`.
 
+#### [SAPHanaSR](#tab/saphanasr)
+
 ```bash
 hn1-db-0:~ # SAPHanaSR-showAttr
 Sites    srHook
@@ -765,6 +865,37 @@ Hosts    clone_state lpa_hn1_lpt node_state op_mode   remoteHost    roles       
 hn1-db-0 PROMOTED    1534159564  online     logreplay nws-hana-vm-1 4:P:master1:master:worker:master 150   SITE1 sync   PRIM       2.00.030.00.1522209842 nws-hana-vm-0
 hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:master:worker:master 100   SITE2 sync   SOK        2.00.030.00.1522209842 nws-hana-vm-1
 ```
+
+#### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+hn1-db-0:~ # SAPHanaSR-showAttr
+Global cib-update dcid prim      sec sid topology
+--------------------------------------------------
+global 0.130728.2 1    SITE1 -   HN1 ScaleUp
+
+Resource                      promotable
+-----------------------------------------
+mst_SAPHanaCon_HN1_HDB03      true
+cln_SAPHanaTopology_HN1_HDB03
+
+Site        lpt        lss mns      opMode    srHook srMode srPoll srr
+-----------------------------------------------------------------------
+SITE1       1722604101 4   hn1-db-0 logreplay PRIM   sync   PRIM   P
+SITE2       30         4   hn1-db-1 logreplay SWAIT  sync   SOK    S
+
+Host     clone_state roles                        score site    sra srah version     vhost
+---------------------------------------------------------------------------------------------
+hn1-db-0 PROMOTED    master1:master:worker:master 150   SITE1   -   -    2.00.074.00 hn1-db-0
+hn1-db-1 DEMOTED     master1:master:worker:master 100   SITE2       -    2.00.074.00 hn1-db-1
+
+Host     clone_state roles                        score site      sra srah version     vhost
+------------------------------------------------------------------------------------------------
+hn1-db-0 PROMOTED    master1:master:worker:master 150   SITE1     -   -    2.00.074.00 hn1-db-0
+hn1-db-1                                                SITE2                          hn1-db-1
+```
+
+---
 
 You can migrate the SAP HANA master node by running the following command:
 
@@ -794,7 +925,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 ```
 
-With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running this command:
+With `AUTOMATED_REGISTER="false"`, the cluster wouldn't restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
 su - <hana sid>adm
@@ -1360,7 +1491,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
 1. Test 10: Crash primary database indexserver
 
-   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv).
+   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA resource agents](#implement-hana-resource-agents).
 
    The resource state before starting the test:
 
@@ -1381,7 +1512,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
    hn1-db-0:~ # killall -9 hdbindexserver
    ```
 
-   When the indexserver is terminated, the susChkSrv hook detects the event and trigger an action to fence 'hn1-db-0' node and initiate a takeover process.
+   When the indexserver is terminated, the susChkSrv hook detects the event and triggers an action to fence 'hn1-db-0' node and initiate a takeover process.
 
    Run the following commands to register `hn1-db-0` node as secondary and clean up the failed resource:
 
@@ -1406,7 +1537,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    ```
 
-   You can execute a comparable test case by causing the indexserver on the secondary node to crash. In the event of indexserver crash, the susChkSrv hook will recognize the occurrence and initiate an action to fence the secondary node.
+   You can execute a comparable test case by causing the indexserver on the secondary node to crash. In the event of indexserver crash, the susChkSrv hook recognizes  the occurrence and initiate an action to fence the secondary node.
 
 ## Next steps
 

@@ -4,16 +4,18 @@ description: Learn how to copy data from Salesforce Marketing Cloud to supported
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 10/12/2024
 ---
 
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!IMPORTANT]
+> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
 
 This article outlines how to use the Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from Salesforce Marketing Cloud. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

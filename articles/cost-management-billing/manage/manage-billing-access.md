@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
@@ -14,18 +14,16 @@ ms.author: banders
 
 You can provide others access to the billing information for your account in the Azure portal. The type of billing roles and the instructions to provide access to the billing information vary by the type of your billing account. To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-billing-account).
 
-The article applies to customers with Microsoft Online Service program accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Azure portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you're a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
+The article applies to customers with Microsoft Online Service Program (MOSP) accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Azure portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you're a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
 ## Account administrators for Microsoft Online Service program accounts
 
-An Account Administrator is the only owner for a Microsoft Online Service Program billing account. The role is assigned to a person who signed up for Azure. Account Administrators are authorized to perform various billing tasks like create subscriptions, view invoices or change the billing for a subscription.
+By default, the Account Administrator is the only owner for an MOSP billing account. When a user creates an MOSP subscription, they get the Account Administrator role for the subscription. They also get the Azure Role-based access control (RBAC) Owner role for it. The role is assigned to a person who signed up for Azure. Account Administrators are authorized to perform various billing tasks like create subscriptions, view invoices or change the billing for a subscription.
 
 ## Give others access to view billing information
 
 Account administrator can grant others access to Azure billing information by assigning one of the following roles on a subscription in their account.
 
-- Service Administrator
-- Coadministrator
 - Owner
 - Contributor
 - Reader

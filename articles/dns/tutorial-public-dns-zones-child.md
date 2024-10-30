@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to create child DNS zones in Azure portal.
 author: greg-lindsay
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
-ms.service: dns
+ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
 ms.author: greglin

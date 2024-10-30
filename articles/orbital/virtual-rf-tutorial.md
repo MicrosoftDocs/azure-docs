@@ -1,12 +1,12 @@
 ---
-title: Azure Orbital Ground Station - Understand virtual RF through demodulation of Aqua using GNU Radio
+title: Virtual RF via demodulation of Aqua using GNU Radio
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
 author: 777arc
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 04/21/2023
-ms.author: marclichtman
+ms.author: mosagie
 # Customer intent: As an Azure Orbital customer I want to understand documentation for virtual RF.
 ---
 

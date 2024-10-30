@@ -10,6 +10,8 @@ ms.custom: mode-other
 
 This tutorial will help you learn how to create an individual `DefenderIotMicroAgent` module twin for new devices.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Device twins
 
 Device twins play a key role in both device management and process automation, for IoT solutions that are built in to Azure.

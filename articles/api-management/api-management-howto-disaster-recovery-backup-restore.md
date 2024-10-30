@@ -5,7 +5,7 @@ description: Learn how to use backup and restore operations in Azure API Managem
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: danlep 
@@ -32,7 +32,7 @@ This article shows how to automate backup and restore operations of your API Man
 > Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
-1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
 
 
 ## Back up an API Management service

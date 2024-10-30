@@ -6,7 +6,7 @@ author: vaboya
 ms.author: victorh
 ms.date: 08/16/2021
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ In this quickstart, you use Azure PowerShell to create an Azure Firewall policy 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Sign in to Azure
 

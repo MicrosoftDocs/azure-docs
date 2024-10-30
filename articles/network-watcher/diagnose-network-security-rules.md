@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Use NSG diagnostics to check if traffic is allowed or denied by network security group rules or Azure Virtual Network Manager security admin rules. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 10/29/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -22,13 +22,13 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -38,7 +38,7 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -135,7 +135,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
     ```azurepowershell-interactive
     # Create an Azure Bastion host.
-    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' --PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
+    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
     ```
 
 # [**Azure CLI**](#tab/cli)
@@ -822,6 +822,6 @@ az group delete --name 'myResourceGroup' --yes --no-wait
 
 ---
 
-## Next steps
+## Related content
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

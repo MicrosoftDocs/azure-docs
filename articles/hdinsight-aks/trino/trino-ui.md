@@ -1,14 +1,17 @@
 ---
 title: Trino UI
 description: Using Trino UI
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Trino UI
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article covers the details around the Trino UI provided for monitoring the cluster nodes and queries submitted to Trino.
 

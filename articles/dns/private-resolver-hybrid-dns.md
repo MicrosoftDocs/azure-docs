@@ -3,7 +3,7 @@ title: Resolve Azure and on-premises domains.
 description: Configure Azure and on-premises DNS to resolve private DNS zones and on-premises domains.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: greglin
@@ -90,19 +90,19 @@ Next, create a rule in your ruleset for your on-premises domain. In this example
 
 The procedure to configure on-premises DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
 
-![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-forwarders.png) 
+![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-forwarders.png#lightbox)
 
 ## Demonstrate hybrid DNS
 
 Using a VM located in the virtual network where the Azure DNS Private Resolver is provisioned, issue a DNS query for a resource record in your on-premises domain. In this example, a query is performed for the record **testdns.contoso.com**:
 
-![Verify Azure to on-premise](./media/private-resolver-hybrid-dns/azure-to-on-premises-lookup.png) 
+![Verify Azure to on-premise](./media/private-resolver-hybrid-dns/azure-to-on-premises-lookup.png#lightbox)
 
 The path for the query is: Azure DNS > inbound endpoint > outbound endpoint > ruleset rule for contoso.com > on-premises DNS (10.100.0.2). The DNS server at 10.100.0.2 is an on-premises DNS resolver, but it could also be an authoritative DNS server.
 
 Using an on-premises VM or device, issue a DNS query for a resource record in your Azure private DNS zone. In this example, a query is performed for the record **test.azure.contoso.com**:
 
-![Verify on-premises to Azure](./media/private-resolver-hybrid-dns/on-premises-to-azure-lookup.png) 
+![Verify on-premises to Azure](./media/private-resolver-hybrid-dns/on-premises-to-azure-lookup.png#lightbox) 
 
 The path for this query is: client's default DNS resolver (10.100.0.2) > on-premises conditional forwarder rule for azure.contoso.com > inbound endpoint (10.10.0.4) 
 

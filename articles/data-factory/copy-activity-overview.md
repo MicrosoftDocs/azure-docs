@@ -3,11 +3,10 @@ title: Copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy activity in Azure Data Factory and Azure Synapse Analytics. You can use it to copy data from a supported source data store to a supported sink data store.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 08/02/2024
 ms.author: jianleishen
 ---
 
@@ -168,6 +167,9 @@ Few points to note:
 - When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
 
 For other scenarios than binary file copy, copy activity rerun starts from the beginning.
+
+>[!Note]
+>Resuming from last failed run via self-hosted integration runtime is now only supported in the self-hosted integration runtime version 5.43.8935.2 or above.
 
 ## Preserve metadata along with data
 

@@ -3,7 +3,7 @@ title: Design virtual networks with Azure NAT Gateway
 description: Learn about how to design virtual networks with Azure NAT Gateway.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
 ---
@@ -61,11 +61,11 @@ The following examples demonstrate coexistence of a load balancer or instance-le
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
-| Virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
-| VMs (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| VM (Subnet 1) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | NA </br> NAT gateway |
+| VMs (Subnet 2) | Inbound </br> Outbound |  NA </br> NAT gateway |
 
-The virtual machine uses the NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The virtual machine scale set from subnet B and VMs from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
+The virtual machine uses the NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet 1. The virtual machine scale set from subnet 1 and VMs from subnet 2 can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with a standard public load balancer
 
@@ -75,10 +75,10 @@ The virtual machine uses the NAT gateway for outbound and return traffic. Inboun
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VMs in backend pool | Inbound </br> Outbound | Load balancer </br> NAT gateway |
-| VM and virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+|VM and virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
+|VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use the NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the load balancer’s backend pool. VM and the virtual machine scale set from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
+NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use the NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances (Subnet 1) within the load balancer’s backend pool. VMs from subnet 2 can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with an instance-level public IP and a standard public load balancer
 
@@ -88,22 +88,24 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VM (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
-| Virtual machine scale set | Inbound </br> Outbound | NA </br> NAT gateway |
-| VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+| VM (Subnet 1) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
+| VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets A and B use the NAT gateway exclusively for outbound and return traffic. Instance level public IPs take precedence over load balancer. The VM in subnet A uses the instance level public IP for inbound originating traffic.
+The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. VMSS do not have instance-level public IPs.
 
-## Monitor outbound network traffic with NSG flow logs
+## Monitor outbound network traffic with VNet flow logs
 
-A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable NSG flow logs.
+ [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable VNet flow logs.
 
-For information about NSG flow logs, see [NSG flow log overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
+For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
+It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+
+For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
 > [!NOTE]
-> NSG flow logs will only show the private IPs of your VM instances connecting outbound to the internet. NSG flow logs will not show you which NAT gateway public IP address the VM’s private IP has SNATed to prior to connecting outbound.
+> Virtual network flow logs will only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs will not show you which NAT gateway public IP address the VM’s private IP has SNATed to prior to connecting outbound.
 
 ## Limitations
 

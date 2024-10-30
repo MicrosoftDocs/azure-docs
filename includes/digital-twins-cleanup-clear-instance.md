@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for clearing the models, twins, and relationships from an Azure Digital Twins instance
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 11/1/2023
 ms.author: baanders

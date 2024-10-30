@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Connectivity models'
 description: Review connectivity between the customer's network, Microsoft Azure, and Microsoft 365 services. Customers can use MPLS providers, cloud exchanges, and Ethernet.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 12/28/2023
 ms.author: duau
@@ -22,7 +22,7 @@ If you're colocated in a facility with a cloud exchange, you can request for vir
 
 ## <a name="Ethernet"></a>Point-to-point Ethernet connections
 
-You can connect your on-premises datacenters or offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
+You can connect your on-premises datacenters or offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections.
 
 ## <a name="IPVPN"></a>Any-to-any (IPVPN) networks
 

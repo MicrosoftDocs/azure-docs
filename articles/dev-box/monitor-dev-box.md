@@ -85,7 +85,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace)** for more information.
     
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -101,7 +101,7 @@ To use Log Analytics for the logs, follow these steps:
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 #### Enable diagnostic logs in a storage account
 
@@ -147,7 +147,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 ## Analyzing Logs
 This section describes existing tables for DevCenter diagnostic logs and how to query them.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema).
 
 DevCenter stores data in the following tables.
 
@@ -188,5 +188,5 @@ These examples are just a small sample of the rich queries that can be performed
 ## Related content
 
 - [Monitor Dev Box](monitor-dev-box.md)
-- [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
-- [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+- [Azure Diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview)
+- [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview)

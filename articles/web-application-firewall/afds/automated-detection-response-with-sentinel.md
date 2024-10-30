@@ -3,7 +3,7 @@ title: Automated detection and response for Azure WAF with Microsoft Sentinel
 description: Use WAF detection templates in Sentinel, deploy a playbook, and configure the detection and response in Sentinel.
 author: vhorne
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/27/2023
 ---

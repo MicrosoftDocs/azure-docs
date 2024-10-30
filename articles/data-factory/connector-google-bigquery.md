@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/22/2024
+ms.date: 10/09/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -34,6 +33,10 @@ This Google BigQuery connector is supported for the following capabilities:
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes#bigquery_6).
 
 >[!NOTE]
 >This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
@@ -221,9 +224,10 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google BigQuery linked service
 
-To upgrade the Google BigQuery linked service, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+## <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector
+
+To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Differences between Google BigQuery and Google BigQuery (legacy)
 

@@ -3,7 +3,7 @@ title: Stream data from Kafka into Azure Stream Analytics
 description: Learn about setting up Azure Stream Analytics as a consumer from Kafka
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/20/2024
 ---
@@ -87,7 +87,7 @@ Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key vault with permissions
 
-You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal)
 You must have "**Key Vault Administrator**" access to your Key vault to upload certificates. 
 Follow the following to grant admin access:
 

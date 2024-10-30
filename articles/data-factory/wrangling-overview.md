@@ -3,7 +3,6 @@ title: Data wrangling in Azure Data Factory
 description: An overview of Data Wrangling in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -12,6 +11,8 @@ ms.date: 05/15/2024
 # What is data wrangling?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[Data wrangling](https://en.wikipedia.org/wiki/Data_wrangling) involves transforming and reformatting data from its original source to make it more suitable and useful for various downstream applications.
 
 Organizations need to have the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
 

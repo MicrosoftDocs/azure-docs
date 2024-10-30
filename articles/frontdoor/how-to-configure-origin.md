@@ -4,9 +4,9 @@ titleSuffix: Azure Front Door
 description: This article explains how to configure origins in an origin group to use with your Azure Front Door profile.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 07/16/2024
 ms.author: duau
 ---
 
@@ -54,8 +54,8 @@ Before you can create an Azure Front Door origin, you must have an Azure Front D
     * **Status** - Select this option to enable the origin.
 
     > [!IMPORTANT]
-    > During configuration, the Azure portal doesn't validate if the origin is accessible from Azure Front Door environments. You need to verify that Azure Front Door can reach your origin.
-    >
+    > * During configuration, the Azure portal doesn't validate if the origin is accessible from Azure Front Door environments. You need to verify that Azure Front Door can reach your origin.
+    > * When an origin is **disabled**, both routing and health probes to the origin are also disabled.
 
 1. Select **Add** once you have completed the origin settings. The origin should now appear in the origin group. 
 

@@ -4,7 +4,7 @@ description: Historic query analysis is one of the crucial needs of data enginee
 author: mariyaali
 ms.author: mariyaali
 ms.reviewer: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.custom: template-concept
@@ -105,6 +105,6 @@ Known Limitation:
 
  - [Azure Data Explorer](/azure/data-explorer/)
  - [Azure Data Factory](../../data-factory/index.yml)
- - [Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
+ - [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
  - [Azure Synapse SQL architecture](overview-architecture.md)
  - [Get Started with Azure Synapse Analytics](../get-started.md)

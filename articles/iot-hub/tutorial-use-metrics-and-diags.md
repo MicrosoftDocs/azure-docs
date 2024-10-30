@@ -2,7 +2,7 @@
 title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
 description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub to provide data to analyze and diagnose problems your hub may be having.
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 07/21/2022
@@ -66,6 +66,8 @@ For this tutorial, we've provided a CLI script that performs the following steps
 3. Create a Log Analytics workspace.
 
 4. Register a device identity for the simulated device that sends messages to your IoT hub. Save the device connection string to use to configure the simulated device.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Set up resources using Azure CLI
 

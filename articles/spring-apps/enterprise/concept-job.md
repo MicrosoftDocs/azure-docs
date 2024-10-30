@@ -3,7 +3,7 @@ title: Job in Azure Spring Apps
 description: Learn more about the Job concept in Azure Spring Apps.
 author: KarlErickson
 ms.author: ninpan
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/06/2024
 ms.custom: devx-track-java, devx-track-extended-java
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Job in Azure Spring Apps (Preview)
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

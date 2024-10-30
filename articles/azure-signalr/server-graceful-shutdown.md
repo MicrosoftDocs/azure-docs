@@ -4,7 +4,7 @@ description: This article provides information about gracefully shutdown SignalR
 author: vicancy
 ms.author: lianwei
 ms.date: 08/16/2021
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ---
 

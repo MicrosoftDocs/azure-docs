@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to a storage account privately.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.custom: template-tutorial
@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
-[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
+[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 
 ## Disable public access to storage account
 
@@ -118,7 +118,7 @@ Before you create the private endpoint, it's recommended to disable public acces
 
 1. Select **Create**.
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
 
 ## Storage access key
 
@@ -201,7 +201,7 @@ In this section, you use the virtual machine you created in the previous steps t
 
 1. Close the connection to **vm-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Front Door sensitive data protection
 description: Learn about sensitive data protection for logs in Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/30/2024
 

@@ -1,10 +1,11 @@
 ---
 title: Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 
@@ -25,8 +26,6 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 ## Considerations 
 
 * To optimize performance and scalability, the number of _concurrent_ users accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000. Having more than 3,000 _concurrent_ users on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 _concurrent_ users, divide users across multiple regular volumes or use a large volume. A single large volume can store FSLogix profiles for up to 50,000 _concurrent_ users. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
-
-* FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
 
 * To protect your FSLogix profile containers, consider using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md) and [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
 
@@ -132,10 +131,7 @@ After you create the volume, configure the volume access parameters.
 
 5.  At this point, the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
 
-6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+6.  To see the mount path, select **Go to resource** and look for it in the Overview tab. The mount path is in the format `\\<share-name>\<folder-name>`.
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -185,10 +181,4 @@ This section is based on [Create a profile container for a host pool using a fil
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
-(in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
-
-   Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a `.VHD` or .`VHDX` file for the profile.

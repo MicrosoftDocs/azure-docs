@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 05/30/2023
+  ms.date: 09/17/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -89,10 +89,11 @@ procedureSection:
         Enter the new address and then select **Save**.  
           ![Screenshot that shows updating the address.](./media/change-azure-account-profile/update-bill-to-save-mca.png)
   - title: |
-      Update a PO number
+      Add a PO number
     summary: |
-      By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
-      To add or change the PO number for a billing profile, use the following steps.
+      By default, invoices for the billing profile don't have an associated PO number. After you add a PO number for a billing profile, the system uses the updated PO number in the next invoice. Afterward, the PO number appears in invoices for the billing profile.
+      
+      To add a PO number for a billing profile, use the following steps.
     steps:
       - |
         Sign in to the [Azure portal](https://portal.azure.com).
@@ -111,13 +112,40 @@ procedureSection:
       - |  
         Enter a PO number and then select **Update**.
   - title: |
+      Update a PO number
+    summary: |
+      If you want to update a PO number from an unpaid invoice, select the invoice ID and update the PO number from the invoice. The system regenerates the invoices within 24 hours.
+      
+      To change the PO number for a billing profile, use the following steps.
+    steps:
+      - |
+        Sign in to the [Azure portal](https://portal.azure.com).
+      - |  
+        Search for **Cost Management + Billing** and then select **Billing scopes**.
+      - |  
+        Select your billing scope.
+      - |  
+        In the left menu under **Billing**, select **Billing profiles**.
+      - |  
+        Select the appropriate billing profile.
+      - |  
+        Select **Invoices**.
+      - |  
+        Select the Invoice ID that you want to update.
+      - |  
+        Select **Change Bill to + PO number** and then select **Update PO number**.
+      - |  
+        In the Update PO number window, enter a PO number and the select **Update**.
+
+        
+  - title: |
       Update your tax ID
     summary: |
       Ensure you update your tax ID after moving your subscriptions. The tax ID is used for tax exemption calculations and appears on your invoice.
       **To update billing account information**
     steps: 
       - |
-        Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://educationstore.microsoft.com/).
+        Sign in to the [Microsoft Store for Education](https://www.microsoft.com/store/b/education).
       - |  
         Select **Manage**, and then select **Billing accounts**.
       - |  
@@ -125,11 +153,10 @@ procedureSection:
       - |  
         Make your updates, and then select **Save**.
         
-        [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
   - title: |
       Service and marketing emails
     summary: |
-      You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
+      You get prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
       - Service notifications
       - Security alerts
       - Billing purposes
@@ -167,15 +194,17 @@ procedureSection:
       - |
         For an MCA billing account, you can give the new email address permissions on your account.
   - title: |
-      Update your country or region
+      Update your country/region
     summary: |
-      Changing the country or region for an existing account isn't supported. However, you can work around this issue.
+      Changing the country/region for an existing account isn't supported. However, you can work around this issue.
     steps: 
       - |
          You can create a new account in a different country or region and then contact Azure support to transfer your subscription to the new account.
   - title: | 
       Change the subscription name
     summary: |
+      To protect Azure subscriptions from misuse, renaming a subscription is monitored for suspicious activity. You can only rename a subscription twice in a five-minute period.
+      
       Follow these steps: 
     steps: 
       - |

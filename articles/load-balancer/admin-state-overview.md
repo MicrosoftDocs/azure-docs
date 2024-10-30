@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of Administrative State (Admin State) in Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 05/29/2024
 ms.author: mbender
@@ -52,7 +52,7 @@ When deploying a load balancer with admin state, consider the following limitati
 
 - Admin state isn't supported with inbound NAT rule. 
 - Admin state isn't supported for nonprobed load balancing rules.
-- Admin state can't be set as part of the NIC-based Load Balancer backend pool Create experiences. 
+- Admin state can't be configured during the creation of a NIC-based Load Balancer backend pool. 
 
 
 ## Next steps

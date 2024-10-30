@@ -7,7 +7,7 @@ ms.author: duau
 manager: kumud
 ms.date: 06/30/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -17,7 +17,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 :::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using ARM template. " lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

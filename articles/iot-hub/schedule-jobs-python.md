@@ -5,7 +5,7 @@ description: Use the device SDK for Python to schedule a job that invokes a dire
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: how-to
 ms.date: 09/17/2022
@@ -45,7 +45,7 @@ This article shows you how to create two Python apps:
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
@@ -54,6 +54,8 @@ This article shows you how to create two Python apps:
 ## Create a simulated device app
 
 In this section, you create a Python console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
@@ -163,6 +165,8 @@ To create a shared access policy that grants **service connect**, **registry rea
    :::image type="content" source="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png" alt-text="Screenshot of how to get the primary connection string from an access policy in the IoT Hub of the Azure portal." lightbox="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png":::
 
 For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 

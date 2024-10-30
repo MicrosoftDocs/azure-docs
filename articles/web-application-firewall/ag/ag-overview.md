@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of Web Application Firewall (WAF) on Application Gateway
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 01/26/2024
 ms.author: victorh
 ms.topic: conceptual
@@ -45,7 +45,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 ### Monitoring
 
-* Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](../../azure-monitor/overview.md) to track WAF alerts and easily monitor trends.
+* Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](/azure/azure-monitor/overview) to track WAF alerts and easily monitor trends.
 
 * The Application Gateway WAF is integrated with Microsoft Defender for Cloud. Defender for Cloud provides a central view of the security state of all your Azure, hybrid, and multicloud resources.
 
@@ -188,7 +188,7 @@ It's important to monitor the health of your application gateway. You can suppor
 
 #### Azure Monitor
 
-Application Gateway logs are integrated with [Azure Monitor](../../azure-monitor/overview.md). This allows you to track diagnostic information, including WAF alerts and logs. You can access this capability on the **Diagnostics** tab in the Application Gateway resource in the portal or directly through Azure Monitor. To learn more about enabling logs, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md).
+Application Gateway logs are integrated with [Azure Monitor](/azure/azure-monitor/overview). This allows you to track diagnostic information, including WAF alerts and logs. You can access this capability on the **Diagnostics** tab in the Application Gateway resource in the portal or directly through Azure Monitor. To learn more about enabling logs, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md).
 
 #### Microsoft Defender for Cloud
 
@@ -203,8 +203,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 With the built-in Azure WAF firewall events workbook, you can get an overview of the security events on your WAF. This includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. More information on logging follows. 
 
 
-![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
-
+:::image type="content" source="../media/ag-overview/sentinel.png" lightbox= "../media/ag-overview/sentinel.png" alt-text="Screenshot of WAF Firewall events.":::
 
 #### Azure Monitor Workbook for WAF
 
@@ -225,7 +224,7 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
   "properties": {
     {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.145",
+      "clientIp": "203.0.113.145",
       "clientPort": "0",
       "requestUri": "/",
       "ruleSetType": "OWASP",
@@ -243,7 +242,7 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
       },
       "hostname": "127.0.0.1",
       "transactionId": "16861477007022634343"
-      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/globalWafPolicy",
+      "policyId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/globalWafPolicy",
       "policyScope": "Global",
       "policyScopeName": " Global "
     }

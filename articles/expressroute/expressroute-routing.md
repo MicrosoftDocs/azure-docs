@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/20/2024
 ms.author: duau
@@ -125,9 +125,7 @@ ExpressRoute can't be configured as transit routers. You have to rely on your co
 
 Default routes are permitted only on Azure private peering sessions. In such a case, ExpressRoute routes all traffic from the associated virtual networks to your network. Advertising default routes into private peering results in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
 
-To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
-
-* You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+Some services are not able to be accessed from your corporate edge.  To enable connectivity to other Azure services and infrastructure services, you must use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity for these services.
 
 > [!NOTE]
 > Advertising default routes will break Windows and other VM license activation. For information about a work around, see [use user defined routes to enable KMS activation](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).

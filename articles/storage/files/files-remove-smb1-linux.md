@@ -16,7 +16,7 @@ Many organizations and internet service providers (ISPs) block the port that SMB
 SMB 1 is an outdated, inefficient, and insecure protocol. The good news is that Azure Files doesn't support SMB 1. Also, starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that will no longer be supported after June 2024. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that will no longer be supported after June 2024. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 ## Linux distribution status
 

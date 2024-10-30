@@ -2,7 +2,7 @@
 title: Azure HPC Cache scenarios
 description: Describes how to know whether your computing job works well with Azure HPC Cache
 author: femila
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: femila

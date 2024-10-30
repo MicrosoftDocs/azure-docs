@@ -1,8 +1,6 @@
 ---
-title: Azure PowerShell script sample - Create custom topic | Microsoft Docs
+title: Azure PowerShell script sample - Create custom topic
 description: This article provides a sample Azure PowerShell script that shows how to create an Event Grid custom topic.
-services: event-grid
-
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
@@ -13,9 +11,9 @@ ms.date: 09/15/2021
 
 This script creates an Event Grid custom topic.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
