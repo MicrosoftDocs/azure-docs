@@ -88,7 +88,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API] of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast] API of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 ```python
 subscription_key = "Your Azure Maps key"
@@ -212,13 +212,14 @@ For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 > [!div class="nextstepaction"]
 > [Learn more about all the notebooks experiences from Microsoft and GitHub](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
 
+[aiohttp]: https://pypi.org/project/aiohttp/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps REST APIs]: /rest/api/maps
 [AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
-[Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
 [free account]: https://azure.microsoft.com/free/
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
+[IPython]: https://ipython.readthedocs.io/en/stable/index.html
 [Jupyter Notebook in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 [Jupyter Notebooks in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
