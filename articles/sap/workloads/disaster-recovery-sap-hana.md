@@ -23,7 +23,7 @@ Pacemaker and the HANA cluster resource agent manage only the first two sites in
 SAP HANA supports additional secondary sites system replication in two modes:
 
 - [Multitarget](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/ba457510958241889a459e606bbcf3d3.html) replicates data changes from primary to more than one target system. The additional sites are connected to primary replication in a star topology.
-- [Multitier](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/f730f308fede4040bcb5ccea6751e74d.html) is a two-tier replication. A cascading, or chained, set up of HANA system replication. The third site connects to the secondary.
+- [Multitier](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/f730f308fede4040bcb5ccea6751e74d.html) is a cascading, or chained, set up of HANA system replication. The third site connects to the secondary.
 
 For more conceptual details about HANA HSR within one region and across different regions, see [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions).
 
@@ -57,7 +57,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 - **HANA scale-out only**: HANA multitarget replication isn't supported on Azure with a Pacemaker cluster.
 
 > [!Tip]
-> The configuration illustrates how to setup third site outside Pacemaker cluster. However, if the Linux distribution supports more than one additional sites outside the Pacemaker cluster, you would need to extend the setup to those other sites as well.
+> The configuration illustrates how to setup third site outside Pacemaker cluster. On RHEL, if you have more than one additional sites outside the Pacemaker cluster, you would need to extend the setup to those other sites as well.
 
 ## HANA scale-up: Add HANA multitarget system replication for DR purposes
 
