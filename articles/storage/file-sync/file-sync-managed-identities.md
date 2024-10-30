@@ -68,7 +68,7 @@ If the value for the **ActiveAuthType** property is **Certificate** and the **La
 > Once a server is configured to use the system-assigned managed identity by following the steps in the following section, the **LatestApplicationId** property is no longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity**, and the **ApplicationId** property will have a GUID which is the system-assigned managed identity.
 
 ## Configure your Azure File Sync deployment to use system-assigned managed identities
-To configure the Storage Sync Service and registered servers to use a system-assigned managed identities, run the following command from an elevated PowerShell window:
+To configure the Storage Sync Service and registered servers to use system-assigned managed identities, run the following command from an elevated PowerShell window:
 
 ```powershell
 Set-AzStorageSyncServiceIdentity -ResourceGroupName <string> -StorageSyncServiceName <string> -Verbose
