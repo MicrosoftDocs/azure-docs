@@ -276,6 +276,47 @@ If you're using Azure Firewall, create an application rule by using the AzureBac
 
 If you choose to allow access service IPs, see the [IP ranges in the JSON file](https://www.microsoft.com/download/confirmation.aspx?id=56519). You need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
+### Allow access to service FQDNs
+
+You can also use the following FQDNs to allow access to the required services from your servers:
+
+| Service | Domain names to be accessed | Ports |
+| --- | --- | --- |
+| Azure Backup | `*.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443 |
+| Azure AD | `*.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | 443 <br><br> As applicable. |
+
+#### Use an HTTP proxy server to route traffic.
+
+>[! Note]
+>Currently, we only support HTTP Proxy for Microsoft Entra traffic for SAP ASE. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
+
+#### Use an HTTP proxy server for Microsoft Entra traffic
+
+To use an HTTP proxy server to route traffic for Microsoft Entra, follow these steps:
+
+1. In the database, go to the `opt/msawb/bin` folder.
+2. Create a new JSON file named `ExtensionSettingsOverrides.json`.
+3. Add a key-value pair to the JSON file as follows:
+
+      ```json
+      {
+         "UseProxyForAAD":true,
+         "UseProxyForAzureBackup":false,
+         "UseProxyForAzureStorage":false,
+         "ProxyServerAddress":"http://xx.yy.zz.mm:port"
+      }
+      ```
+
+4. Change the permissions and ownership of the file as follows:
+
+      ```bash
+      chmod 750 ExtensionSettingsOverrides.json
+      chown root:msawb ExtensionSettingsOverrides.json
+      ```
+
+>[!Note]
+>No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
 
 
 
