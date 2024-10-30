@@ -45,12 +45,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "acr-tasks",
-            "url": "https://github.com/Azure-Samples/acr-tasks",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
             "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
             "branch": "master",
@@ -72,12 +66,6 @@
             "path_to_root": "api-management-policy-samples",
             "url": "https://github.com/Azure/api-management-policy-snippets",
             "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure_arc_sample",
-            "url": "https://github.com/microsoft/azure_arc",
-            "branch": "main",
             "branch_mapping": {}
         },
         {
@@ -263,12 +251,6 @@
         {
             "path_to_root": "azure-proactive-resiliency-library",
             "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-reference-other-repo",
-            "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
             "branch": "main",
             "branch_mapping": {}
         },

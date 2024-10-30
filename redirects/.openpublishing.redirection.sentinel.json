@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/sap/select-ingestion-profiles.md",
+            "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-audit.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-audit-log-rules.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configuration-file-reference.md",
+            "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/sap-incident-response-playbooks.md",
+            "redirect_url": "/azure/sentinel/sap/sap-solution-security-content#available-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-snc.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-your-system-to-use-snc-for-secure-connections",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/best-practices-workspace-architecture.md",
             "redirect_url": "/azure/azure-monitor/logs/workspace-design",
             "redirect_document_id": false
@@ -13,162 +43,167 @@
         {
             "source_path_from_root": "/articles/sentinel/notebooks-troubleshoot.md",
             "redirect_url": "/azure/sentinel/notebooks-hunt",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
             "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/detect-threats-built-in.md",
             "redirect_url": "/azure/sentinel/threat-detection",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/detect-threats-custom.md",
             "redirect_url": "/azure/sentinel/create-analytics-rules",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/enable-enrichment-widgets.md",
+            "redirect_url": "/azure/sentinel/whats-new#third-party-enrichment-widgets-to-be-retired-in-february-2025",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
             "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md#how-to-run-a-playbook",
             "redirect_url": "/azure/sentinel/playbooks/run-manage-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md#recommended-playbooks",
             "redirect_url": "/azure/sentinel/playbooks/playbooks-recommendations",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/authenticate-playbooks-to-sentinel.md",
             "redirect_url": "/azure/sentinel/automation/authenticate-playbooks-to-sentinel",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md",
             "redirect_url": "/azure/sentinel/automation/automate-responses-with-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/automation.md",
             "redirect_url": "/azure/sentinel/automation/automation",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/create-playbooks.md",
             "redirect_url": "/azure/sentinel/automation/create-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/create-tasks-playbook.md",
             "redirect_url": "/azure/sentinel/automation/create-tasks-playbook",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/define-playbook-access-restrictions.md",
             "redirect_url": "/azure/sentinel/automation/define-playbook-access-restrictions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/logic-apps-playbooks.md",
             "redirect_url": "/azure/sentinel/automation/logic-apps-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/migrate-playbooks-to-automation-rules.md",
             "redirect_url": "/azure/sentinel/automation/migrate-playbooks-to-automation-rules",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/playbook-recommendations.md",
             "redirect_url": "/azure/sentinel/automation/playbook-recommendations",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/playbook-triggers-actions.md",
             "redirect_url": "/azure/sentinel/automation/playbook-triggers-actions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/run-playbooks.md",
             "redirect_url": "/azure/sentinel/automation/run-playbooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/tutorial-respond-threats-playbook.md",
             "redirect_url": "/azure/sentinel/automation/tutorial-respond-threats-playbook",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/use-playbook-templates.md",
             "redirect_url": "/azure/sentinel/automation/use-playbook-templates",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/sap/deploy-data-connector-agent-container-other-methods.md",
             "redirect_url": "/azure/sentinel/sap/deploy-data-connector-agent-container",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/abnormalsecurity-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/abnormalsecurity-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/alicloud-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/alicloud-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/armorblox-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/armorblox-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/atlassian-confluence-audit-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/atlassian-confluence-audit-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/atlassian-jira-audit-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/atlassian-jira-audit-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/auth0-access-management-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/auth0-access-management-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/bitglass-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/bitglass-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-duo-security-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-duo-security-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-secure-endpoint-amp-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-secure-endpoint-amp-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cloudflare-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cloudflare-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cohesity-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cohesity-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
@@ -178,107 +213,107 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/digital-shadows-searchlight-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/digital-shadows-searchlight-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-apigeex-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-apigeex-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-cloud-monitoring-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-dns-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-dns-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-iam-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-workspace-g-suite-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-workspace-g-suite-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/holm-security-asset-data-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/holm-security-asset-data-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/imperva-cloud-waf-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/imperva-cloud-waf-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mulesoft-cloudhub-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/mulesoft-cloudhub-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/netskope-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/netskope-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/onelogin-iam-platform-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/onelogin-iam-platform-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/oracle-cloud-infrastructure-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/oracle-cloud-infrastructure-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/proofpoint-on-demand-email-security-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/proofpoint-on-demand-email-security-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/qualys-vulnerability-management-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/qualys-vulnerability-management-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/sentinelone-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/sentinelone-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/slack-audit-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/slack-audit-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-vision-one-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/trend-vision-one-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/vmware-carbon-black-cloud-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/vmware-carbon-black-cloud-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/zoom-reports-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/zoom-reports-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/store-logs-in-azure-data-explorer.md",
@@ -288,152 +323,152 @@
         {
             "source_path_from_root": "/articles/sentinel/review-fine-tune-overview.md",
             "redirect_url": "/azure/sentinel/deploy-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/box-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/box-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/office-365.md",
             "redirect_url": "/azure/sentinel/data-connectors/microsoft-365",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/sophos-endpoint-protection-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/sophos-endpoint-protection-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/proofpoint-tap-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/proofpoint-tap-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/rubrik-security-cloud-data-connector-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/okta-single-sign-on-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/okta-single-sign-on-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/qualys-vm-knowledgebase-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/qualys-vm-knowledgebase-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/salesforce-service-cloud-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/salesforce-service-cloud-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/snowflake-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/snowflake-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/thehive-project-thehive-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/thehive-project-thehive-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/workplace-from-facebook-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/workplace-from-facebook-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/akamai-security-events.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-akamai-security-events-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/aruba-clearpass.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-aruba-clearpass-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/braodcom-symantec-dlp.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-broadcom-symantec-dlp-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-secure-email-gateway.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-cisco-secure-email-gateway-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/claroty.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-claroty-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/fireeye-network-security-nx.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-casb.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-casb-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-csg.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-csg-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-ngfw.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-ngfw-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/illumio-core.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-illumio-core-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/kaspersky-security-center.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-kaspersky-security-center-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/netwrix-auditor-formerly-stealthbits-privileged-activity-manager.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-netwrix-auditor-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/nozomi-networks-n2os.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-nozomi-networks-n2os-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/ossec.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-ossec-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/pingfederate.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-pingfederate-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-apex-one.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-trend-micro-apex-one-via-ama",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-wirex-network-forensics-platform-via-ama.md",
@@ -443,17 +478,17 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-wirex-network-forensics-platform-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/wirex-network-forensics-platform",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-umbrella-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-umbrella-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-varmour-application-controller-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/varmour-application-controller",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-varmour-application-controller-via-ama.md",
@@ -468,7 +503,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-contrast-protect-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/contrast-protect",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-morphisec-utpp-via-ama.md",
@@ -478,7 +513,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-morphisec-utpp-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/morphisec-utpp",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-citrix-waf-web-app-firewall-via-ama.md",
@@ -488,7 +523,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-citrix-waf-web-app-firewall-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/citrix-waf-web-app-firewall",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-extrahop-reveal-x-via-ama.md",
@@ -498,7 +533,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-extrahop-reveal-x-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/extrahop-reveal-x",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-illusive-platform-via-ama.md",
@@ -508,7 +543,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-illusive-platform-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/illusive-platform",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-ai-analyst-darktrace-via-ama.md",
@@ -518,7 +553,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-ai-analyst-darktrace-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/ai-analyst-darktrace",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-sonicwall-firewall-via-ama.md",
@@ -528,7 +563,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-sonicwall-firewall-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/sonicwall-firewall",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-delinea-secret-server-via-ama.md",
@@ -538,7 +573,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-delinea-secret-server-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/delinea-secret-server",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-iboss-via-ama.md",
@@ -558,7 +593,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-cyberark-enterprise-password-vault-epv-events-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/cyberark-enterprise-password-vault-epv-events",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-f5-networks-via-ama.md",
@@ -578,7 +613,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-cisco-firepower-estreamer-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-firepower-estreamer",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberpion-security-logs.md",
@@ -588,7 +623,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-active-directory-identity-protection.md",
             "redirect_url": "/azure/sentinel/data-connectors/microsoft-entra-id-protection",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/iot-solution.md",
@@ -1118,47 +1153,47 @@
         {
             "source_path_from_root": "/articles/sentinel/web-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-web",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/network-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-network",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dns",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/authentication-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-authentication",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/dhcp-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dhcp",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/user-management-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-user-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-file-event",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/registry-event-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-registry-event",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/process-events-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-process-event",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/connect-cef-ama.md",
@@ -1233,7 +1268,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
             "redirect_url": "/azure/sentinel/data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberark-enterprise-password-vault-epv-events.md",
@@ -1258,12 +1293,12 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/github-using-webhooks-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/github-using-webhooks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/greynoise-threat-intelligence",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/iboss.md",
@@ -1308,7 +1343,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/zscaler.md",
@@ -1318,137 +1353,137 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/abnormalsecurity-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/abnormalsecurity",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/alicloud-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/alicloud",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/armorblox-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/armorblox",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/atlassian-confluence-audit-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/atlassian-confluence-audit",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/atlassian-jira-audit-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/atlassian-jira-audit",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/auth0-access-management-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/auth0-access-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/bitglass-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/bitglass",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/box-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/box",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-duo-security-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-duo-security",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-secure-endpoint-amp-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-secure-endpoint-amp",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-umbrella-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-umbrella",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cloudflare-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cloudflare",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cohesity-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cohesity",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberarkepm-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cyberarkepm",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/cybersixgill-actionable-alerts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/dataminr-pulse-alerts-data-connector-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/dataminr-pulse-alerts-data-connector",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/digital-shadows-searchlight-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/digital-shadows-searchlight",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/exchange-security-insights-online-collector-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/exchange-security-insights-online-collector",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-apigeex-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-apigeex",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-cloud-monitoring-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-cloud-monitoring",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-dns-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-dns",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-iam",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/google-workspace-g-suite-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/google-workspace-g-suite",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/holm-security-asset-data-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/holm-security-asset-data",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/imperva-cloud-waf-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/imperva-cloud-waf",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/lookout-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/lookout",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mailrisk-by-secure-practice-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mailrisk-by-secure-practice",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-365-defender.md",
@@ -1458,157 +1493,157 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-active-directory.md",
             "redirect_url": "/azure/sentinel/data-connectors/microsoft-entra-id",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mimecast-audit-authentication-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mimecast-audit-authentication",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mimecast-secure-email-gateway-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mimecast-secure-email-gateway",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mimecast-targeted-threat-protection-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mimecast-targeted-threat-protection",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/mulesoft-cloudhub-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/mulesoft-cloudhub",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/netskope-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/netskope",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/okta-single-sign-on-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/okta-single-sign-on",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/onelogin-iam-platform-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/onelogin-iam-platform",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/oracle-cloud-infrastructure-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/oracle-cloud-infrastructure",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/proofpoint-on-demand-email-security-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/proofpoint-on-demand-email-security",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/proofpoint-tap-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/proofpoint-tap",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/qualys-vm-knowledgebase-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/qualys-vm-knowledgebase",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/qualys-vulnerability-management-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/qualys-vulnerability-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/rubrik-security-cloud-data-connector-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/rubrik-security-cloud-data-connector",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/sailpoint-identitynow-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/sailpoint-identitynow",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/salesforce-service-cloud-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/salesforce-service-cloud",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/sentinelone-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/sentinelone",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/slack-audit-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/slack-audit",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/snowflake-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/snowflake",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/sophos-endpoint-protection-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/sophos-endpoint-protection",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-for-cloud.md",
             "redirect_url": "/azure/sentinel/data-connectors/tenant-based-microsoft-defender-for-cloud",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/tenable-io-vulnerability-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/thehive-project-thehive-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/thehive-project-thehive",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/trend-vision-one-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/trend-vision-one",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/vectra-xdr-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/vectra-xdr",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/vmware-carbon-black-cloud-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/vmware-carbon-black-cloud",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/workplace-from-facebook-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/workplace-from-facebook",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/zoom-reports-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/zoom-reports",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-data-lake-storage-gen1.md",
@@ -1623,22 +1658,22 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/fortinet-fortiweb-web-application-firewall.md",
             "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/fortinet.md",
             "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-via-legacy-agent",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-stealthwatch.md",
@@ -1646,8 +1681,223 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "source_path_from_root": "/articles/sentinel/data-connectors/security-events-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/security-events-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/securitybridge-threat-detection-for-sap.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/securitybridge-threat-detection-for-sap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ai-vectra-stream.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ai-vectra-stream-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-common-event-format.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-common-event-format",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-custom-logs.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-custom-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-log-forwarder.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-log-forwarder",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-logstash.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-logstash",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/troubleshooting-cef-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/troubleshooting-cef-syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/create-codeless-connector-legacy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/create-codeless-connector-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/common-event-format-cef.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/common-event-format-cef",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-trend-micro-apex-one-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-apex-one-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/rsa-securid-authentication-manager.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/rsa-securid-authentication-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sonicwall-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sonicwall-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sophos-xg-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sophos-xg-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/squid-proxy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/squid-proxy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-endpoint-protection.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-endpoint-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-proxysg.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-proxysg",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-vip.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-vip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-deep-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-deep-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-tippingpoint.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-tippingpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ubiquiti-unifi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ubiquiti-unifi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-esxi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-esxi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-vcenter.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-vcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/watchguard-firebox.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/watchguard-firebox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/withsecure-elements-via-connector.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/withsecure-elements-via-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/zscaler-private-access.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/zscaler-private-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/digital-guardian-data-loss-prevention.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/digital-guardian-data-loss-prevention",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/eset-protect.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/eset-protect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/exabeam-advanced-analytics.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/exabeam-advanced-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/gitlab.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/gitlab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/isc-bind.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/isc-bind",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ivanti-unified-endpoint-management.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ivanti-unified-endpoint-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/jboss-enterprise-application-platform.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/jboss-enterprise-application-platform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/juniper-idp.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/juniper-idp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/juniper-srx.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/juniper-srx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/marklogic-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/marklogic-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-claroty-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/claroty-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/fireeye-network-security-nx-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-casb-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-casb-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-csg-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-csg-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-ngfw-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-ngfw-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-illumio-core-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/illumio-core-via-ama",
             "redirect_document_id": false
         },
         {
@@ -1766,6 +2016,91 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mcafee-epolicy-orchestrator-epo.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mcafee-epolicy-orchestrator-epo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mcafee-network-security-platform.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mcafee-network-security-platform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-sysmon-for-linux.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/microsoft-sysmon-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mongodb-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mongodb-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/nasuni-edge-appliance.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nasuni-edge-appliance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/nginx-http-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nginx-http-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/openvpn-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/openvpn-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/oracle-database-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/oracle-database-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/oracle-weblogic-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/oracle-weblogic-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/postgresql-events.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/postgresql-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/pulse-connect-secure.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/pulse-connect-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-netwrix-auditor-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/netwrix-auditor-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-nozomi-networks-n2os-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nozomi-networks-n2os-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-ossec-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ossec-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-pingfederate-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/pingfederate-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ridgebot-data-connector-for-microsoft-sentinel",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-ossec-via-legacy-agent.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ossec-via-legacy-agent",
             "redirect_document_id": false
@@ -1848,6 +2183,11 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyber-blind-spot-intergration.md",
             "redirect_url": "/azure/sentinel/data-connectors/cyber-blind-spot-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/awake-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/awake-security-via-legacy-agent",
             "redirect_document_id": false
         }
     ]

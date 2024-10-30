@@ -43,7 +43,7 @@ items:
     - name: Modify access permissions to Azure Monitor
       href: how-to-permissions.md
     - name: Sync teams with Microsoft Entra groups
-      href: how-to-sync-teams-with-azure-ad-groups.md
+      href: how-to-sync-teams-with-entra-groups.md
     - name: Share a workspace
       href: how-to-share-grafana-workspace.md
   - name: Data sources

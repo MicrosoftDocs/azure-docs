@@ -2,12 +2,12 @@
 title: Access control in Synapse workspace how to 
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 author: talk2rick
-ms.service: azure-synapse-analytics
-ms.topic: how-to 
-ms.subservice: security 
-ms.date: 9/12/2024
 ms.author: xurick
 ms.reviewer: whhender, wiassaf
+ms.topic: how-to
+ms.service: azure-synapse-analytics
+ms.subservice: security 
+ms.date: 09/26/2024
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -286,7 +286,7 @@ This guide has focused on setting up a basic access control system. You can supp
 
 **Disable local authentication**. By allowing only Microsoft Entra authentication, you can centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled during or after workspace creation. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md#disable-local-authentication).
 
-## Next steps
+## Related content
 
- - Learn [how to manage Azure Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
- - Create a [Synapse Workspace](../quickstart-create-workspace.md)
+ - [Manage Azure Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
+ - [Create aSynapse Workspace](../quickstart-create-workspace.md)

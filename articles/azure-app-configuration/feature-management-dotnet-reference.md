@@ -28,7 +28,6 @@ zone_pivot_groups: feature-management
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)<br>
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)<br>
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)<br>
-[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore/4.0.0-preview3)<br>
 
 :::zone-end
 
@@ -166,7 +165,7 @@ In the above example, `FeatureW` specifies a `RequirementType` of `All`, meaning
 
 #### Microsoft Feature Management Schema
 
-The feature management library also supports the usage of the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v1.0.0.schema.json) to declare feature flags. This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
+The feature management library also supports the usage of the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v1.0.0.schema.json) to declare feature flags. This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
 
 ``` JavaScript
 {
@@ -199,7 +198,7 @@ The feature management library also supports the usage of the [`Microsoft Featur
 
 :::zone target="docs" pivot="preview-version"
 
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
+The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
 
 Below we have an example of declaring feature flags in a json file.
 
@@ -1351,19 +1350,11 @@ The `telemetry` section of a feature flag has the following properties:
 | Property | Description |
 | ---------------- | ---------------- |
 | `enabled` | Specifies whether telemetry should be published for the feature flag. |
-| `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
+| `metadata` | A collection of key-value pairs, modeled as a dictionary, which can be used to attach custom metadata about the feature flag to evaluation events. |
 
 ### Custom Telemetry Publishing
 
-The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `"FeatureFlag"` to the current activity. The `"FeatureFlag"` event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the following fields:
-
-| Tag | Description |
-| ---------------- | ---------------- |
-| `FeatureName` | The feature flag name. |
-| `Enabled` | Whether the feature flag is evaluated as enabled. |
-| `Variant` | The assigned variant. |
-| `VariantAssignmentReason` | The reason why the variant is assigned. |
-| `TargetingId` | The user id used for targeting. |
+The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `FeatureFlag` to the current activity. The `FeatureFlag` event will have tags which include the information about the feature flag evaluation, following the fields defined in the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
 
 > [!NOTE]
 > All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.
@@ -1416,11 +1407,13 @@ To enable persistance of targeting context in the current activity, you can use 
 app.UseMiddleware<TargetingHttpContextMiddleware>();
 ```
 
-An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
+An example of its usage can be found in the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/VariantAndTelemetryDemo) example.
 
 #### Prerequisite
 
-This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/EvaluationDataToApplicationInsights/Program.cs#L20C1-L20C54) in the example application.
+This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
+
+This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service.
 
 :::zone-end
 

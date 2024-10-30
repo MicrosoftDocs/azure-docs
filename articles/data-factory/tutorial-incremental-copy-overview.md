@@ -4,7 +4,8 @@ description: These tutorials show you how to incrementally copy data from a sour
 author: dearandyxu
 ms.author: yexu
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally load data from a source data store to a destination data store

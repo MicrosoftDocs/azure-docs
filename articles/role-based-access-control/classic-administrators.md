@@ -6,7 +6,7 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 09/02/2024
+ms.date: 09/23/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -14,17 +14,17 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
-If you still have active Co-Administrator or Service Administrator role assignments, convert these roles to Azure RBAC immediately. This article describes the retirement of the Co-Administrator and Service Administrator roles and how to convert these role assignments.
+This article describes the retirement of the Co-Administrator and Service Administrator roles and how to convert these role assignments.
 
 ## Frequently asked questions
 
 What happens to classic administrator role assignments after August 31, 2024?
 
-- Co-Administrator and Service Administrator roles are retired and no longer supported. You should convert these roles to Azure RBAC immediately.
+- Co-Administrator and Service Administrator roles are retired and no longer supported. You should convert these role assignments to Azure RBAC immediately.
 
 How do I know what subscriptions have classic administrators?
 

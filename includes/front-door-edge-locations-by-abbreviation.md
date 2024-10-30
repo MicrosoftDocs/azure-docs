@@ -13,7 +13,7 @@
 | Abbreviation | Location | Region |
 | --- | --- | --- |
 | AKL | Auckland, New Zealand | New Zealand North, Asia |
-| AMS | Amsterdam, Netherlands | West Europe |
+| AMS / AM | Amsterdam, Netherlands | West Europe |
 | ASH | Ashburn, Virginia, USA | EAST US, United States |
 | ATA | Atlanta, Georgia, USA | East US, United States |
 | ATH | Athens, Greece | Greece Central, Europe |

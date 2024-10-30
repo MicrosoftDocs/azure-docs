@@ -17,7 +17,7 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
   - Trigger an email or alert based on your runbook job status (for example, failed or suspended).
   - Write advanced queries across your job streams.
   - Correlate jobs across Automation accounts.
-  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](../azure-portal/azure-portal-dashboards.md).
+  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
   - Get the audit logs related to Automation accounts, runbooks, and other asset create, modify and delete operations. 
 
 Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyze the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).

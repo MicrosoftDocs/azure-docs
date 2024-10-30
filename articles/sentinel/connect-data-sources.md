@@ -9,7 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security architect or SOC analyst, I want to understand what data connectors are in Microsoft Sentinel.
+
+
+#Customer intent: As a security eningeer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
+
 ---
 
 # Microsoft Sentinel data connectors
@@ -79,9 +82,6 @@ Microsoft Sentinel can use agents provided by the Azure Monitor service (on whic
 
 The following sections describe the different types of Microsoft Sentinel agent-based data connectors. To configure connections using agent-based mechanisms, follow the steps in each Microsoft Sentinel data connector page.
 
-> [!IMPORTANT]
-> The Log Analytics agent will be [**retired on 31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) and succeeded by the Azure Monitor Agent (AMA). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
-
 <a name="syslog"></a><a name="common-event-format-cef"></a>
 
 ### Syslog and Common Event Format (CEF)
@@ -102,7 +102,7 @@ For some data sources, you can collect logs as files on Windows or Linux compute
 
 To connect using the Log Analytics custom log collection agent, follow the steps in each Microsoft Sentinel data connector page. After successful configuration, the data appears in custom tables.
 
-For more information, see [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
+For more information, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md).
 
 ## Service-to-service integration for data connectors
 

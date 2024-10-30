@@ -89,6 +89,8 @@ Confidential VMs support the following VM sizes:
 - NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support
+OS images for confidential VMs must meet specific security requirements. These qualified images are designed to support an optional confidential OS disk encryption and ensure isolation from the underlying cloud infrastructure. Meeting these requirements helps protect sensitive data and maintain system integrity.
+
 Confidential VMs support the following OS options:
 
 | Linux | Windows Client | Windows Server |
@@ -96,7 +98,7 @@ Confidential VMs support the following OS options:
 | **Ubuntu** | **Windows 11**| **Windows Server Datacenter** |
 | 20.04 LTS (AMD SEV-SNP Only) | 21H2, 21H2 Pro, 21H2 Enterprise, 21H2 Enterprise N, 21H2 Enterprise Multi-session | 2019 Server Core              |
 | 22.04 LTS | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session  | 2019 Datacenter  |
-|  | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core|
+| 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core|
 | **RHEL**  | **Windows 10**  | 2022 Azure Edition|
 | 9.4 (AMD SEV-SNP Only) | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
 | | | 2022 Datacenter  |
@@ -119,11 +121,8 @@ Confidential VMs *don't support*:
 - Azure Batch
 - Azure Backup
 - Azure Site Recovery
-- Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
 - Limited Azure Compute Gallery support
 - Shared disks
-- Ultra disks
 - Accelerated Networking
 - Live migration
 - Screenshots under boot diagnostics

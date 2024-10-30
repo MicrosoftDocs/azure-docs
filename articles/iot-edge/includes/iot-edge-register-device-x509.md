@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 07/18/2023
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

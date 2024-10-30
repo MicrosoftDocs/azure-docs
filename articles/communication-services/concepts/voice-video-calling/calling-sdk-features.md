@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 
 Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
@@ -102,6 +102,7 @@ The following list presents the set of features that are currently available in 
 |      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
+| Custom context    | Add [User-to-User (UUI)](../../how-tos/calling-sdk/call-context.md) or custom headers to a call                                                                    | ✔️   | ❌       | ❌              | ❌                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 
@@ -118,7 +119,7 @@ The following table represents the set of supported browsers, which are currentl
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |  Electron |
 | ------------ | ------ | ------ | ------ | ------- | ------- |  ------- |
 | Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     | ❌      |
-| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      | ❌      |
+| iOS          | ✔️      | ✔️      | ✔️           | ❌      | ✔️      | ❌      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      | ✔️     |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      | ✔️     |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ❌     |
@@ -127,6 +128,7 @@ The following table represents the set of supported browsers, which are currentl
 - Firefox support is in public preview.
 - Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2. Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
+- iOS Edge browser support is available in public preview in WebJS SDK version [1.30.1-beta.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1301-beta1-2024-10-01) and higher.
 
 ## Calling client - browser security model
 

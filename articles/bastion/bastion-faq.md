@@ -31,11 +31,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
-
-If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
-
-For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
+For information on availability zone support in Azure Bastion, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -106,7 +102,7 @@ No, Bastion connectivity to Azure Virtual Desktop isn't supported.
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
-Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+Review any error messages and [raise a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 

@@ -56,7 +56,7 @@
         href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
-      - name: Azure Log Analytics workspaces
+      - name: Log Analytics Dedicated Cluster workspaces
         href: migrate-monitor-log-analytics.md
       - name: Azure Logic Apps
         href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
@@ -199,9 +199,9 @@
     - name: Azure Container Registry
       items:
       - name: Availability zones
-        href: ../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
-        href: ../container-registry/container-registry-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Explorer
       href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Factory
@@ -302,6 +302,12 @@
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Health Data Services
+      items:
+      - name: Workspace services (FHIR, DICOM, MedTech)
+        href: /azure/healthcare-apis/business-continuity-disaster-recovery
+      - name: De-identification service
+        href: reliability-health-data-services-deidentification.md
     - name: Azure HDInsight on AKS
       href: reliability-hdinsight-on-aks.md
     - name: Azure Health Data Services - Azure API for FHIR

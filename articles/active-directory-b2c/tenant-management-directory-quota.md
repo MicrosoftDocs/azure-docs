@@ -6,14 +6,14 @@ description: Learn how to manage directory size quota in your Azure AD B2C tenan
 author: alvesfabi
 manager: DavidHoerster
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.date: 07/31/2024
 ms.custom: b2c-docs-improvements
 ms.reviewer: kengaderdus
 ms.author: falves
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As an Azure AD B2C tenant administrator, I want to monitor and manage the directory size quota, so that I can ensure that I don't exceed the maximum number of objects allowed in the directory and take necessary actions such as removing inactive users or requesting a quota increase.
 

@@ -102,8 +102,8 @@ Note: If your desired region is not yet supported, you can deploy ExpressRoute T
 | ------ | ----------- |
 | North American | <ul><li>Canada East</li><li>Canada Central</li><li>Central US</li><li>Central US EUAP</li><li>North Central US</li><li>South Central US</li><li>West Central US</li><li>East US</li><li>East US 2</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul> |
 | South America | <ul><li>Brazil South</li><li>Brazil Southeast</li></ul> |
-| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li></ul> |
-| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li></ul> |
+| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li><li>Italy North</li><li>Poland Central</li></ul> |
+| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li><li>UAE Central</li></ul> |
 | Africa | <ul><li>South Africa North</li><li>South Africa West</li></ul> |
 | Pacific | <ul><li>Australia Central</li><li>Australia Central 2</li><li>Australia East</li><li>Australia Southeast</li></ul> |
 

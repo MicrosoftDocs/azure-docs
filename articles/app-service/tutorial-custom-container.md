@@ -21,7 +21,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md).
 
-You can deploy a custom-configured Windows image from Visual Studio to make OS changes that your app needs. This makes it easy to migrate an on-premises app that requires a custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml) and then run it in App Service.
+You can deploy a custom-configured Windows image from Visual Studio to make OS changes that your app needs. This makes it easy to migrate an on-premises app that requires a custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](/azure/container-registry/) and then run it in App Service.
 
 :::image type="content" source="media/tutorial-custom-container/app-running-newupdate.png" alt-text="Shows the web app running in a Windows container.":::
 
@@ -95,7 +95,7 @@ You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simpl
 
 ## Publish to Azure Container Registry
 
-[Azure Container Registry](../container-registry/index.yml) can store your images for container deployments. You can configure App Service to use images that are hosted in Azure Container Registry.
+[Azure Container Registry](/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images that are hosted in Azure Container Registry.
 
 ### Open the publish wizard
 

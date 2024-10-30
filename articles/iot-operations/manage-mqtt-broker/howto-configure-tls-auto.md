@@ -7,9 +7,10 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/13/2024
+ms.date: 10/18/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
+ms.service: azure-iot-operations
 ---
 
 # Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
@@ -45,7 +46,7 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [external](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported issuers. MQTT broker can be used with any type of cert-manager issuer.
 
 > [!IMPORTANT]
-> During initial deployment, Azure IoT Operations is installed with a default Issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer with Azure IoT Operations](#default-root-ca-and-issuer-with-azure-iot-operations-preview). The steps below are only required if you want to use a different issuer.
+> During initial deployment, Azure IoT Operations is installed with a default Issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer with Azure IoT Operations](#default-root-ca-and-issuer). The steps below are only required if you want to use a different issuer.
 
 The approach to create the issuer is different depending on your scenario. The following sections list examples to help you get started.
 
@@ -181,15 +182,17 @@ metadata:
   name: my-new-tls-listener
   namespace: azure-iot-operations
 spec:
-  brokerRef: broker
+  brokerRef: default
   serviceType: loadBalancer
-  serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-mq-dmqtt-frontend'
-  port: 8884 # Avoid conflicts with default port 8883
-  tls:
-    automatic:
-      issuerRef:
-        name: my-issuer
-        kind: Issuer
+  serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-broker'
+  ports:
+  - port: 8884 # Avoid conflicts with default port 18883
+    tls:
+      mode: Automatic
+      certManagerCertificateSpec:
+        issuerRef:
+          name: my-issuer
+          kind: Issuer
 ```
 
 Once the BrokerListener resource is configured, MQTT broker automatically creates a new service with the specified port and TLS enabled.
@@ -229,7 +232,7 @@ san:
   dns:
   - iotmq.example.com
   # To connect to the broker from a different namespace, add the following DNS name:
-  - aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
+  - aio-broker.azure-iot-operations.svc.cluster.local
   ip:
   - 192.168.1.1
 ```
@@ -256,88 +259,14 @@ The `--cafile` argument enables TLS on the mosquitto client and specifies that t
 
 Replace `$HOST` with the appropriate host:
 
-- If connecting from [within the same cluster](howto-test-connection.md#connect-from-a-pod-within-the-cluster-with-default-configuration), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
+- If connecting from [within the same cluster](howto-test-connection.md#connect-to-the-default-listener-inside-the-cluster), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
 - If connecting from outside the cluster, the service `EXTERNAL-IP`.
 
 Remember to specify authentication methods if needed.
 
-## Default root CA and issuer with Azure IoT Operations Preview
+## Default root CA and issuer
 
-To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
-
-* The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN = Azure IoT Operations Quickstart Root CA - Not for Production` and it expires in 30 days from the time of installation.
-
-* The root CA certificate is stored in a Kubernetes secret called `aio-ca-key-pair-test-only`.
-
-* The public portion of the root CA certificate is stored in a ConfigMap called `aio-ca-trust-bundle-test-only`. You can retrieve the CA certificate from the ConfigMap and inspect it with kubectl and openssl.
-
-    ```bash
-    kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o json | jq -r '.data["ca.crt"]' | openssl x509 -text -noout
-    ```
-
-    ```Output
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number:
-                <SERIAL-NUMBER>
-            Signature Algorithm: ecdsa-with-SHA256
-            Issuer: CN = Azure IoT Operations Quickstart Root CA - Not for Production
-            Validity
-                Not Before: Nov  2 00:34:31 2023 GMT
-                Not After : Dec  2 00:34:31 2023 GMT
-            Subject: CN = Azure IoT Operations Quickstart Root CA - Not for Production
-            Subject Public Key Info:
-                Public Key Algorithm: id-ecPublicKey
-                    Public-Key: (256 bit)
-                    pub:
-                        <PUBLIC-KEY>
-                    ASN1 OID: prime256v1
-                    NIST CURVE: P-256
-            X509v3 extensions:
-                X509v3 Basic Constraints: critical
-                    CA:TRUE
-                X509v3 Key Usage: 
-                    Certificate Sign
-                X509v3 Subject Key Identifier: 
-                    <SUBJECT-KEY-IDENTIFIER>
-        Signature Algorithm: ecdsa-with-SHA256
-            [SIGNATURE]
-    ```
-
-* By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
-
-    ```bash
-    kubectl get issuer aio-ca-issuer -n azure-iot-operations -o yaml
-    ```
-
-    ```Output
-    apiVersion: cert-manager.io/v1
-    kind: Issuer
-    metadata:
-      annotations:
-        meta.helm.sh/release-name: azure-iot-operations
-        meta.helm.sh/release-namespace: azure-iot-operations
-      creationTimestamp: "2023-11-01T23:10:24Z"
-      generation: 1
-      labels:
-        app.kubernetes.io/managed-by: Helm
-      name: aio-ca-issuer
-      namespace: azure-iot-operations
-      resourceVersion: "2036"
-      uid: <UID>
-    spec:
-      ca:
-        secretName: aio-ca-key-pair-test-only
-    status:
-      conditions:
-      - lastTransitionTime: "2023-11-01T23:10:59Z"
-        message: Signing CA verified
-        observedGeneration: 1
-        reason: KeyPairVerified
-        status: "True"
-        type: Ready
-    ```
+To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](./concept-default-root-ca.md).
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 

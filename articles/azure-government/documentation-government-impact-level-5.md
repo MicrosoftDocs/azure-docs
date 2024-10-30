@@ -227,9 +227,9 @@ For Containers services availability in Azure Government, see [Products availabl
 
 - Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). 
 
-### [Container Registry](../container-registry/index.yml) 
+### [Container Registry](/azure/container-registry/) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](/azure/container-registry/tutorial-enable-customer-managed-keys).
 
 ## Databases
 

@@ -49,10 +49,10 @@ items:
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
           href: ./hdinsight-component-versioning.md
+        - name: HDInsight version 4.0
+          href: ./hdinsight-40-component-versioning.md  
         - name: HDInsight version 5.x
           href: ./hdinsight-5x-component-versioning.md
-        - name: HDInsight version 4.0
-          href: ./hdinsight-40-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
@@ -172,7 +172,9 @@ items:
       - name: Ambari user configs migration
         href: ./migrate-ambari-recent-version-hdinsight.md
       - name: Upgrade to Apache Ranger in Azure HDInsight
-        href: ./hdinsight-ranger-5-1-migration.md   
+        href: ./hdinsight-ranger-5-1-migration.md
+      - name: Load balancer migration guidelines for Azure HDInsight
+        href: ./load-balancer-migration-guidelines.md
       - name: Hadoop
         items:
         - name: Motivation and benefits
@@ -197,24 +199,18 @@ items:
         items:
         - name: Migrate Apache HBase cluster to newer version
           href: ./hbase/apache-hbase-migrate-new-version.md
-        - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+        - name: Migrate an Apache HBase cluster to a HDInsight 5.1
           href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
         - name: Migrate Apache HBase version and storage account
           href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
-        - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+        - name: Migrate Apache HBase to a HDInsight 5.1 and new storage account
           href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
       - name: Interactive Query
         items:
         - name: Migrate default Hive metastore to external metastore on Azure HDInsight
           href: ./interactive-query/hive-default-metastore-export-import.md
-        - name: Migrate Hive workloads to HDInsight 4.0
-          href: ./interactive-query/apache-hive-migrate-workloads.md
         - name: Copy Hive tables across Storage Accounts
           href: ./interactive-query/hive-migration-across-storage-accounts.md 
-        - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
-          href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
-        - name: Significant version changes in HDInsight 4.0 and advantages
-          href: ./benefits-of-migrating-to-hdinsight-40.md    
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
@@ -251,7 +247,7 @@ items:
         href: ./hdinsight-use-external-metadata-stores.md
       - name: Custom Ambari DB
         href: ./hdinsight-custom-ambari-db.md          
-      - name: Manage logs for an HDInsight cluster
+      - name: Manage logs for a HDInsight cluster
         href: ./hdinsight-log-management.md
       - name: Add storage accounts
         href: ./hdinsight-hadoop-add-storage.md
@@ -287,14 +283,20 @@ items:
       items:
       - name: Tools for Visual Studio
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
-      - name: Spark and Hive Tools for VSCode
-        href: ./hdinsight-for-vscode.md
+      - name: Spark and Hive Tools for VS Code
+        href: ./hdinsight-for-VSCode.md
       - name: HDInsight Configuration Settings Reference
-        href: ./hdinsight-config-for-vscode.md
+        href: ./hdinsight-config-for-VSCode.md
     - name: Monitoring
       items:
       - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md  
       - name: Use Azure Monitor logs  
         items:
         - name: New Azure Monitor experience Migration
@@ -303,12 +305,6 @@ items:
           href: ./selective-logging-analysis-azure-logs.md
         - name: Enable new Azure Monitor integration
           href: ./log-analytics-migration.md  
-      - name: Use Azure Monitor Agent  
-        items:    
-        - name: Azure Monitor Agent Migration
-          href: ./azure-monitor-agent.md
-        - name: Selective Logging
-          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
@@ -375,10 +371,10 @@ items:
     items:
     - name: Releases
       items:
-      - name: What's new in HDInsight 4.0
-        href: ./hdinsight-version-release.md
       - name: Release notes
-        href: ./hdinsight-release-notes.md    
+        href: ./hdinsight-release-notes.md
+      - name: HDInsight retirements and action required
+        href: ./hdinsight-component-retirements-and-action-required.md 
       - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
@@ -393,6 +389,8 @@ items:
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Get help on the Microsoft Q&A question page
       href: /answers/topics/azure-hdinsight.html
+    - name: Preview features
+      href: ./what-are-preview-features.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -455,7 +453,7 @@ items:
         href: ./spark/apache-spark-intellij-tool-plugin.md
       - name: Tools for Eclipse
         href: ./spark/apache-spark-eclipse-tool-plugin.md
-      - name: PySpark for VSCode
+      - name: PySpark for VS Code
         href: ./set-up-pyspark-interactive-environment.md
     - name: Develop
       items:
@@ -523,7 +521,7 @@ items:
         items: 
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
-        - name: Run Azure ML workloads with AutoML
+        - name: Run Azure Machine Learning workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
@@ -1005,9 +1003,9 @@ items:
       href: ./hdinsight-virtual-network-architecture.md
     - name: Restrict public connectivity
       href: ./hdinsight-restrict-public-connectivity.md
-    - name: Enable private link on an HDInsight cluster
+    - name: Enable private link on a HDInsight cluster
       href: ./hdinsight-private-link.md
-    - name: Enable private link on an HDInsight Kafka Rest Proxy cluster
+    - name: Enable private link on a HDInsight Kafka Rest Proxy cluster
       href: ./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md 
     - name: Transport layer security
       href: ./transport-layer-security.md
@@ -1037,7 +1035,7 @@ items:
       href: ./connect-on-premises-network.md
     - name: Configure ESP clusters using Microsoft Entra Domain Services
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
-    - name: Synchronize Microsoft Entra users to an HDInsight cluster
+    - name: Synchronize Microsoft Entra users to a HDInsight cluster
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md

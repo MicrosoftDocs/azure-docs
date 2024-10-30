@@ -4,7 +4,7 @@ description: Overview of the SAP workload zone configuration process within SAP 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 3/5/2024
+ms.date: 3/9/2024
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -275,6 +275,20 @@ ANF_service_level         = "Ultra"
 > | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
 > | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
 > | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
+
+
+### NAT support
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                              | Description                                                              | Type     |
+> | ------------------------------------- | ------------------------------------------------------------------------ | -------- |
+> | `deploy_nat_gateway`                  | If set, deploys a NAT gateway.                                           | Optional |
+> | `nat_gateway_name`                  	| The name of the NAT Gateway.                                             | Optional |
+> | `nat_gateway_arm_id`                  | The Azure resource identifier of the NAT Gateway.                        | Optional |
+> | `nat_gateway_public_ip_zones`	        | The zones for the NAT Gateway public IP address                          | Optional |
+> | `nat_gateway_public_ip_arm_id`        | TThe Azure resource identifier for the NAT Gateway public IP address     | Optional |
+> | `nat_gateway_idle_timeout_in_minutes`	| The idle timeout in minutes for the NAT Gateway (default=4)              | Optional |
+> | `nat_gateway_public_ip_tags`	        | Tags for the public IP resource                                          | Optional |
 
 
 ## Other parameters

@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to administer your Azure Data
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: shaas
@@ -63,20 +62,6 @@ You can only delete orders that are completed or canceled. Perform the following
     ![Delete command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Enter the name of the order when prompted to confirm the order deletion. Click **Delete**.
-
-## Download shipping label
-
-You may need to download the shipping label if the E-ink display of your Data Box isn't working and doesn't display the return shipping label. There's no E-ink display on Data Box Heavy, so this workflow doesn't apply to Data Box Heavy.
-
-Perform the following steps to download a shipping label.
-
-1.	Go to **Overview > Download shipping label**. This option is available only after the device has shipped. 
-
-    ![Download shipping label](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
-
-2.	This downloads the following return shipping label. Save the label and print it out. Fold and insert the label into the clear sleeve on the device. Ensure that the label is visible. Remove any stickers that are on the device from previous shipping.
-
-    ![Example shipping label](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## Edit shipping address
 

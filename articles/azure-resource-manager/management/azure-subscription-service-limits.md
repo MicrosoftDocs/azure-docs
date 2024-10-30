@@ -324,9 +324,9 @@ If you use classic deployment model instead of the Azure Resource Manager deploy
 
 ## Container Registry limits
 
-The following table details the features and limits of the Basic, Standard, and Premium [service tiers](../../container-registry/container-registry-skus.md).
+The following table details the features and limits of the Basic, Standard, and Premium [service tiers](/azure/container-registry/container-registry-skus).
 
-[!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
+[!INCLUDE [container-registry-limits](~/reusable-content/ce-skilling/azure/includes/container-registry/container-registry-limits.md)]
 
 ## Content Delivery Network limits
 
@@ -397,7 +397,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)]
 
 ## Mobile Services limits
 

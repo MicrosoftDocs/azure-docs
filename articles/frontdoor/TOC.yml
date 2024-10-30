@@ -242,6 +242,8 @@
       href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
       href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
+    - name: Microsoft CDN (classic) retirement FAQ
+      href: ../cdn/classic-cdn-retirement-faq.md
     - name: Akamai retirement FAQ
       href: ../cdn/akamai-retirement-faq.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
@@ -322,6 +324,10 @@
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
+        - name: Connect to an application gateway
+          href: how-to-enable-private-link-application-gateway.md
+        - name: Connect to an API management
+          href: standard-premium/how-to-enable-private-link-apim.md
       - name: Monitor and reports
         items:
         - name: Configure diagnostic logs
@@ -378,6 +384,8 @@
         href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
     - name: Troubleshoot
       items:
+      - name: Troubleshooting with RefString
+        href: refstring.md
       - name: Troubleshooting Front Door issues
         href: troubleshoot-issues.md
       - name: Troubleshooting Front Door performance issues

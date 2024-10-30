@@ -1,13 +1,13 @@
 ---
-title: Migrate an HBase cluster to an HDInsight 5.1 - Azure HDInsight
-description: Learn how to migrate Apache HBase clusters in Azure HDInsight to an HDInsight 5.1.
+title: Migrate a HBase cluster to a HDInsight 5.1 - Azure HDInsight
+description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a HDInsight 5.1.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 10/03/2023
+ms.date: 10/17/2024
 ---
 
-# Migrate an Apache HBase cluster to an HDInsight 5.1
+# Migrate an Apache HBase cluster to a HDInsight 5.1
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version.
 
@@ -73,7 +73,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
 1. Check Hbase hbck to verify cluster health
    
-   1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
+   1. Verify HBCK Report page on HBase UI.  Healthy cluster doesn't show any inconsistencies
    :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
    1. If any inconsistencies exist, fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 

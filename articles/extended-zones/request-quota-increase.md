@@ -38,7 +38,7 @@ In this section, you request a quota increase in the Azure portal.
 1. On the **My quotas** page, select the quota you want to increase from the **Quota name** column. Make sure that the **Adjustable** column shows **Yes** for this quota.
 
     > [!TIP]
-    > You can request an increase for a quota that is non-adjustable by submitting a support request. For more information, see [Request an increase for non-adjustable quotas](../quotas/per-vm-quota-requests.md#request-an-increase-for-non-adjustable-quotas).
+    > You can request an increase for a quota that is non-adjustable by submitting a support request. For more information, see [Request an increase for non-adjustable quotas](/azure/quotas/per-vm-quota-requests#request-an-increase-for-non-adjustable-quotas).
 
 1. Select **New Quota Request**, then select **Enter a new limit**.
 

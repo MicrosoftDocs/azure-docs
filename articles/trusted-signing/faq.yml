@@ -95,13 +95,6 @@ sections:
       - question: How do we get the Authenticode certificate?  
         answer: |
           The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
-      - question: What are the common steps I should complete if I get a SignTool error (for example, if an unexpected internal error occurs)?  
-        answer: |
-          1. Check that the dlib and DLL files are in the correct path.
-          1. Check that the version of SignTool that's installed and the dlib are both 64-bit.
-          1. Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
-          1. Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
-          1. We recommend that you use [a specific version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
       - question: How do I check whether the time stamp service is healthy? 
         answer: |
           Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 
@@ -133,7 +126,7 @@ sections:
           If a certificate is misused or abused per the service Terms of Use, Trusted Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
       - question: What if I change my subscription ID or tenant ID?
         answer: |
-         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
+         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
       - question: Does Trusted Signing issue EV certificates?
         answer: |
           No, Trusted Signing doesn't issue Extended Validation (EV) certificates. We don't plan to issue EV certificates in the future.

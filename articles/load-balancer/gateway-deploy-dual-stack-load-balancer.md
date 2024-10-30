@@ -5,7 +5,7 @@ description: In this tutorial, you deploy IPv6 configurations to an existing IPv
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 09/25/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -38,29 +38,29 @@ Along with the Gateway Load Balancer, this scenario includes the following alrea
 
 ## Add IPv6 address ranges to an existing subnet
 
-This article assumes you already have a Gateway Load Balancer configured for IPv4 traffic, with a corresponding VNET and subnet. In this step, you add IPv6 ranges to your Gateway Load Balancer's VNET and subnet. This range is need when creating an IPv6 frontend configuration for your Gateway Load Balancer using a private IP address from this subnet/VNET.
+This article assumes you already have a Gateway Load Balancer configured for IPv4 traffic, with a corresponding virtual network and subnet. In this step, you add IPv6 ranges to your Gateway Load Balancer's virtual network and subnet. This range is need when creating an IPv6 frontend configuration for your Gateway Load Balancer using a private IP address from this subnet/virtual network.
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 
-#Add IPv6 ranges to the VNET and subnet
-#Retrieve the VNET object
+#Add IPv6 ranges to the virtual network and subnet
+#Retrieve the virtual network object
 $rg = Get-AzResourceGroup  -ResourceGroupName "myResourceGroup"
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVNet"  
 
-#Add IPv6 prefix to the VNET
+#Add IPv6 prefix to the virtual network
 $vnet.addressspace.addressprefixes.add("fd00:db8:deca::/48")
 
-#Update the running VNET
+#Update the running virtual network
 $vnet |  Set-AzVirtualNetwork
 
-#Retrieve the subnet object from the local copy of the VNET
+#Retrieve the subnet object from the local copy of the virtual network
 $subnet= $vnet.subnets[0]
 
 #Add IPv6 prefix to the subnet
 $subnet.addressprefix.add("fd00:db8:deca::/64")
 
-#Update the running VNET with the new subnet configuration
+#Update the running virtual network with the new subnet configuration
 $vnet |  Set-AzVirtualNetwork
 
 ```
@@ -79,7 +79,7 @@ az network vnet subnet update
 
 ## Add an IPv6 frontend to gateway load balancer
 
-Now that you've added IPv6 prefix ranges to your Gateway Load Balancer's subnet and VNET, we can create a new IPv6 frontend configuration on the Gateway Load Balancer, with an IPv6 address from your subnet's range.
+Now that you've added IPv6 prefix ranges to your Gateway Load Balancer's subnet and virtual network, we can create a new IPv6 frontend configuration on the Gateway Load Balancer, with an IPv6 address from your subnet's range.
 
 # [PowerShell](#tab/powershell)
 

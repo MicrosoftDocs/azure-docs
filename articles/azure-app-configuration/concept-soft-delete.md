@@ -42,14 +42,14 @@ With Purge protection enabled, soft deleted stores can't be purged in the retent
 
 - `Microsoft.AppConfiguration/configurationStores/write`
 
-To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "Owner" and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription or resource group scope.
+To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "App Configuration Contributor", "Owner", and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription or resource group scope.
 
 ## Permissions to read and purge deleted stores
 
 * Read: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read`
 * Purge: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action`
 
-To list deleted App Configuration stores, or get an individual store by name the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. The built-in "Owner" and "Contributor" roles contain these permissions by default. Permissions for reading and purging deleted App Configuration stores must be assigned at the subscription level. This is because deleted configuration stores exist outside of individual resource groups. 
+To list deleted App Configuration stores, or get an individual store by name the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. The built-in "App Configuration Contributor" and "App Configuration Reader" roles contain the permission for reading deleted App Configuration stores but not the permission for purging deleted App Configuration stores. The built-in "Owner" and "Contributor" roles contain these permissions by default. Permissions for reading and purging deleted App Configuration stores must be assigned at the subscription level. This is because deleted configuration stores exist outside of individual resource groups. 
 
 ## Billing implications
 

@@ -4,7 +4,7 @@ description: Describes how to retain IP addresses when failing over Azure VMs fo
 ms.service: azure-site-recovery
 ms.date: 07/25/2021
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
 
 ---

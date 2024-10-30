@@ -5,12 +5,12 @@ description: Learn how to create a proof of concept for funnel-based approach fo
 author: gargi-sinha
 manager: martinco
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As a developer, I want to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---

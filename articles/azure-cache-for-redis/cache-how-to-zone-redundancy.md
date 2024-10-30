@@ -11,9 +11,9 @@ ms.date: 08/05/2024
 
 # Enable zone redundancy for Azure Cache for Redis
 
-In this article, you'll learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
+In this article, you learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 
-Azure Cache for Redis Standard (Preview), Premium (Premium), and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard (preview), Premium (preview) and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
+Azure Cache for Redis Standard (preview), Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard (preview), Premium, and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
 
 ## Prerequisites
 
@@ -36,12 +36,15 @@ To create a cache, follow these steps:
     | **Subscription** | Select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
     | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
     | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
-    | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+    | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your cache. |
     | **Cache type** | Select a [Premium or Enterprise tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
 1. For Standard or Premium tier cache, select **Advanced** in the Resource menu. To enable zone resiliency with automatic zone allocation, select **(Preview) Select zones automatically**.
 
-   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-availability-zone.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones.:":::
+    > [!NOTE]
+    > On the Premium caches, only _automatic zone selection_ is in public preview. Manual selection of availability zones us unchanged. Manual selection is GA (General Availability).
+
+   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-availability-zone.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones.":::
 
    For an Enterprise tier cache, select **Advanced** in the Resource menu. For **Zone redundancy**, select **Zone redundant (recommended)**.
 
@@ -53,9 +56,9 @@ To create a cache, follow these steps:
     > Automatic Zone Allocation cannot be modified once enabled for a cache.
 
     > [!IMPORTANT]
-    > Enabling Automatic Zone Allocation is currently NOT supported for Geo Replicated caches or caches with VNET injection.
+    > Enabling Automatic Zone Allocation (preview) is currently NOT supported for Geo-replicated caches or caches with VNET injection.
 
-1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
+1. Availability zones can be selected manually for Premium tier caches. The number of availability zones must always be less than or equal to the total number of nodes for the cache. 
 
    :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
 
@@ -83,11 +86,11 @@ Zone redundancy is available only in Azure regions that have Availability Zones.
 
 ### Why can't I select all three zones during cache create?
 
-A Premium cache has one primary and one replica node by default. To configure zone redundancy for more than two Availability Zones, you need to add [more replicas](cache-how-to-multi-replicas.md) to the cache you're creating.
+A Premium cache has one primary and one replica node by default. To configure zone redundancy for more than two Availability Zones, you need to add [more replicas](cache-how-to-multi-replicas.md) to the cache you're creating. The total number of availability zones must not exceed the combined count of nodes within the cache, including both the primary and replica nodes.
 
 ### Can I update my existing Standard or Premium cache to use zone redundancy?
 
-Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You cannot disable zone redundancy once you have enabled it.
+Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You can't disable zone redundancy once you enable it.
 
   > [!IMPORTANT]
   > Automatic Zone Allocation cannot be modified once enabled for a cache.
@@ -97,7 +100,7 @@ Yes, updating an existing Standard or Premium cache to use zone redundancy is su
 
 ### How much does it cost to replicate my data across Azure Availability Zones?
 
-When your cache uses zone redundancy configured with multiple Availability Zones, data is replicated from the primary cache node in one zone to the other node(s) in another zone(s). The data transfer charge is the network egress cost of data moving across the selected Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+When your cache uses zone redundancy configured with multiple Availability Zones, data is replicated from the primary cache node in one zone to the other nodes in another zone. The data transfer charge is the network egress cost of data moving across the selected Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Next Steps
 

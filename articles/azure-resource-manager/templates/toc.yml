@@ -142,7 +142,7 @@
     - name: Container Instances
       href: /azure/container-instances/container-instances-quickstart-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
-      href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/container-registry/container-registry-get-started-geo-replication-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Fabric
       href: /azure/service-fabric/quickstart-cluster-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Databases
@@ -212,7 +212,7 @@
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal
-      href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-portal/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Role-based access control - custom roles
@@ -420,10 +420,13 @@
   - name: Export templates
     items:
     - name: Portal
+      displayName: export
       href: export-template-portal.md
     - name: Azure CLI
+      displayName: export
       href: export-template-cli.md
     - name: PowerShell
+      displayName: export
       href: export-template-powershell.md
   - name: Test templates
     items:
@@ -458,6 +461,7 @@
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
+      displayName: Visual Studio
       href: update-visual-studio-deployment-script.md
 - name: Reference
   items:

@@ -4,8 +4,7 @@ description: Describes how to create custom Windows and Linux VM images for depl
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/09/2022

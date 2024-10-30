@@ -45,6 +45,8 @@ Keep in mind the following points:
 
 - Settings related to event sources and bindings must be configured as [deployment slot settings](#manage-settings) *before you start a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
+- When you create a new staging slot, all existing settings from the production slot are created in the new slot, regardless of the *stickiness* of the setting.    
+
 ## Manage settings
 
 Some configuration settings are slot-specific. The following lists detail which settings change when you swap slots, and which remain the same.

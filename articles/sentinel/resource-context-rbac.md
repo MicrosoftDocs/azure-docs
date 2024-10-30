@@ -1,10 +1,13 @@
 ---
 title: Manage access to Microsoft Sentinel data by resource
 description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
-author: batamig
+author: cwatson-cat
 ms.topic: conceptual
-ms.date: 08/15/2024
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: cwatson
+
+
+#Customer intent: As a security administrator, I want to understand when to use Azure RBAC at the resource-context level so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
 ---
 
 # Manage access to Microsoft Sentinel data by resource
@@ -95,7 +98,7 @@ If you have multiple teams, make sure that you have separate log forwarding VMs 
 For example, separating your VMs ensures that Syslog events that belong to Team A are collected using the collector VM A.
 
 > [!TIP]
-> - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](../azure-arc/servers/overview.md).
+> - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](/azure/azure-arc/servers/overview).
 > - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
 
 

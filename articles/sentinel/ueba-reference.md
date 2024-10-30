@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand the data sources and enrichments used by the User and Entity Behavior Analytics service so that I can effectively detect and investigate anomalies in user and entity behavior.
+
 ---
 
 # Microsoft Sentinel UEBA reference
@@ -209,23 +213,27 @@ After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft 
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15 minutes.
-
-- Group and role information is synchronized between the **IdentityInfo** table and Microsoft Entra ID daily.
+- Changes made to your user profiles, groups, and roles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15-30 minutes.
 
 - Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated.
 
 - Default retention time in the **IdentityInfo** table is 30 days.
 
+#### Limitations
 
-> [!NOTE]
-> - Currently, only built-in roles are supported.
->
-> - Data about deleted groups, where a user was removed from a group, is not currently supported.
->
-> - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, in the *Log Analytics* schema, the other serving the Microsoft Defender portal via Microsoft Defender for Identity, in what's known as the *Advanced hunting* schema. Both versions of this table are fed by Microsoft Entra ID, but the Log Analytics version added a few fields.
-> 
->    [The unified security operations platform in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the *Advanced hunting* version of this table, so, to minimize the differences between the versions of the table, most of the unique fields in the Log Analytics version are gradually being added to the *Advanced hunting* version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to nearly all the same information, though there may be a small time lag in synchronization between the versions.
+- Currently, only built-in roles are supported.
+
+- Data about deleted groups, where a user was removed from a group, is not currently supported.
+
+#### Versions of the IdentityInfo table
+
+There are actually two versions of the *IdentityInfo* table:
+- The *Log Analytics* schema version serves Microsoft Sentinel in the Azure portal.
+- The *Advanced hunting* schema version serves Microsoft Sentinel in the Microsoft Defender portal via Microsoft Defender for Identity.
+
+Both versions of this table are fed by Microsoft Entra ID, but the Log Analytics version added a few fields.
+
+[The unified security operations platform](https://go.microsoft.com/fwlink/p/?linkid=2263690), being in the Defender portal, uses the *Advanced hunting* version of this table. To minimize the differences between the two versions of the table, most of the unique fields in the Log Analytics version are gradually being added to the *Advanced hunting* version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to nearly all the same information, though there may be a small time lag in synchronization between the versions. For more information, see the [documentation of the *Advanced hunting* version of this table](/defender-xdr/advanced-hunting-identityinfo-table).
 
 The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics in the Azure portal. The fourth column shows the corresponding fields in the *Advanced hunting* version of the table, that Microsoft Sentinel uses in the Defender portal. Field names in boldface are named differently in the *Advanced hunting* schema than they are in the Microsoft Sentinel Log Analytics version.
 
@@ -242,7 +250,7 @@ The following table describes the user identity data included in the **IdentityI
 | **AccountUPN**                  | string   | The user principal name of the user account.               | AccountUPN               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                | --                       |
 | **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. | AssignedRoles            |
-| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High*                                     | --                       |
+| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High*                | --                       |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*UEBA*<li>*Watchlist*<li>*FullSync*                    | ChangeSource             |
 | **CompanyName**                 |          | The company name to which the user belongs.                | --                       |
 | **City**                        | string   | The city of the user account.                              | City                     |
@@ -255,7 +263,7 @@ The following table describes the user identity data included in the **IdentityI
 | **JobTitle**                    | string   | The job title of the user account.                         | JobTitle                 |
 | **MailAddress**                 | string   | The primary email address of the user account.             | **EmailAddress**         |
 | **Manager**                     | string   | The manager alias of the user account.                     | Manager                  |
-| **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas.                                                  | **DistinguishedName**    |
+| **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas.                                | **DistinguishedName**    |
 | **Phone**                       | string   | The phone number of the user account.                      | Phone                    |
 | **SourceSystem**                | string   | The system where the user is managed. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*Hybrid* | **SourceProvider** |
 | **State**                       | string   | The geographical state of the user account.                | State                    |

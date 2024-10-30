@@ -214,7 +214,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * If possible, use [built-in triggers and actions](../connectors/built-in.md), which cost less to run per execution than [managed connector triggers and actions](../connectors/managed.md).
 
-  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](../logic-apps/logic-apps-azure-functions.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
+  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](call-azure-functions-from-workflows.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
 
 * [Specify precise trigger conditions](logic-apps-workflow-actions-triggers.md#trigger-conditions) for running a workflow.
 
