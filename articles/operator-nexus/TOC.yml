@@ -32,18 +32,27 @@
           href: concepts-network-fabric-read-write-commands.md
         - name: Disable Border Gateway Protocol neighbors
           href: concepts-disable-border-gateway-protocol-neighbors.md
-    - name: Isolation Domains
-      expanded: false
-      items:
-        - name: Isolation Domains overview
-          href: concepts-isolation-domain.md
-        - name: Isolation Domain configuration
-          href: reference-isolation-domain-configuration.md
-        - name: Technical requirements for Isolation Domains
-          href: reference-isolation-domain-technical-requirements.md
-    - name: Access Control Lists
-      href: concepts-access-control-lists.md
-    - name: Nexus Kubernetes
+        - name: Network Packet Broker
+          href: concepts-nexus-network-packet-broker.md
+        - name: Route Policy
+          expanded: false
+          items:
+          - name: Route Policy Overview
+            href: concepts-nexus-route-policies-overview.md
+          - name: IP Prefixes Overview
+            href: concepts-nexus-ip-prefix.md
+        - name: Isolation Domains
+          expanded: false
+          items:
+          - name: Isolation Domains overview
+            href: concepts-isolation-domain.md
+          - name: Isolation Domain configuration
+            href: reference-isolation-domain-configuration.md
+          - name: Technical requirements for Isolation Domains
+            href: reference-isolation-domain-technical-requirements.md
+        - name: Access Control Lists
+          href: concepts-access-control-lists.md
+    - name: Nexus Kubernetes Cluster
       expanded: false
       items:
         - name: Overview
@@ -71,17 +80,8 @@
       href: concepts-rack-resiliency.md
     - name: Access and Identity
       href: concepts-security-access-identity.md
-    - name: Route Policy
-      expanded: false
-      items:
-        - name: Route Policy Overview
-          href: concepts-nexus-route-policies-overview.md
-        - name: IP Prefixes Overview
-          href: concepts-nexus-ip-prefix.md
     - name: Availability
       href: concepts-nexus-availability.md
-    - name: Network Packet Broker
-      href: concepts-nexus-network-packet-broker.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
