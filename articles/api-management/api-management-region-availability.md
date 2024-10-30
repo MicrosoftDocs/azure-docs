@@ -20,7 +20,7 @@ API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [work
 
 ## Supported regions for v2 tiers and workspace gateways
 
-Information in the following table is updated regularly. 
+Information in the following table is updated regularly. Capacity availability in Azure regions may vary.
 
 
 | Region | Basic v2 | Standard v2 | Premium v2 (preview) | Workspace gateway (Premium) | 
@@ -32,7 +32,7 @@ Information in the following table is updated regularly.
 | Central India  | ✅ | ✅ | |  |
 | Central US  | |  | ✅ |  |
 | East Asia | ✅ | ✅ | ✅ | ✅ |
-| East US  |  |  |  |  |
+| East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ |  | ✅ |
 | France Central  | ✅ | ✅ | ✅ | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
