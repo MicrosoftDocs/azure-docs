@@ -78,16 +78,16 @@ await blockBlobClient.uploadFile(localFilePath, uploadOptions);
 
 ```typescript
 // Specify data transfer options
-  const uploadOptions: BlockBlobParallelUploadOptions = {
-    blockSize: 4 * 1024 * 1024, // 4 MiB max block size
-    concurrency: 2, // maximum number of parallel transfer workers
-    maxSingleShotSize: 8 * 1024 * 1024, // 8 MiB initial transfer size
-  };
+const uploadOptions: BlockBlobParallelUploadOptions = {
+  blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+  concurrency: 2, // maximum number of parallel transfer workers
+  maxSingleShotSize: 8 * 1024 * 1024, // 8 MiB initial transfer size
+};
 
-  // Create blob client from container client
-  const blockBlobClient: BlockBlobClient = containerClient.getBlockBlobClient(blobName);
+// Create blob client from container client
+const blockBlobClient: BlockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-  await blockBlobClient.uploadFile(localFilePath, uploadOptions);
+await blockBlobClient.uploadFile(localFilePath, uploadOptions);
 ```
 
 ---
@@ -128,26 +128,26 @@ The following code example shows how to set values for [BlobDownloadToBufferOpti
 
 ```javascript
 // Specify data transfer options
-    const downloadToBufferOptions = {
-        blockSize: 4 * 1024 * 1024, // 4 MiB max block size
-        concurrency: 2, // maximum number of parallel transfer workers
-    }
+const downloadToBufferOptions = {
+    blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+    concurrency: 2, // maximum number of parallel transfer workers
+}
 
-    // Download data to buffer
-    const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
+// Download data to buffer
+const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
 ```
 
 #### [TypeScript](#tab/typescript)
 
 ```typescript
 // Specify data transfer options
-    const downloadToBufferOptions: BlobDownloadToBufferOptions = {
-        blockSize: 4 * 1024 * 1024, // 4 MiB max block size
-        concurrency: 2, // maximum number of parallel transfer workers
-    }
+const downloadToBufferOptions: BlobDownloadToBufferOptions = {
+    blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+    concurrency: 2, // maximum number of parallel transfer workers
+}
 
-    // Download data to buffer
-    const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
+// Download data to buffer
+const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
 ```
 
 ---

@@ -44,7 +44,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 To set properties on a blob, use the following method:
 
-- [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). 
+- [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders) 
  
 The following code example sets the `blobContentType` and `blobContentLanguage` system properties on a blob.
 

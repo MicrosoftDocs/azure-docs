@@ -126,10 +126,6 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API)
 - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 ### See also
