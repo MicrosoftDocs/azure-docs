@@ -81,7 +81,7 @@ For more information, see [traffic mirroring process](traffic-mirroring/traffic-
 
 ## Deploy the sensors
 
-After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](../ot-deploy/install-software-ot-sensor.md/).
+After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md).
 
 ## Post deployment validation
 
