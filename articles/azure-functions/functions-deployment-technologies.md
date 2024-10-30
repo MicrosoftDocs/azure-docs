@@ -66,15 +66,15 @@ You must manually sync triggers when using these deployment options:
 + [Local Git](#local-git)
 + [FTPS](#ftps) 
 
-You can sync triggers in one of three ways:
+You can sync triggers in one of these ways:
 
 + Restart your function app in the Azure portal.
 
-+ Use the [az rest](/cli/azure/reference-index#az-rest) command to send an HTTP POST request that calls the `syncfunctiontriggers` API: 
++ Use the [`az rest`](/cli/azure/reference-index#az-rest) command to send an HTTP POST request that calls the `syncfunctiontriggers` API, as in this example: 
 
-```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>/syncfunctiontriggers?api-version=2016-08-01
-```
+    ```azurecli
+    az rest --method post --url https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>/syncfunctiontriggers?api-version=2016-08-01
+    ```
 When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
 The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
 
