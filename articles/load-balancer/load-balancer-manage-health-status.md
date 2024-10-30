@@ -87,8 +87,8 @@ Health status can be retrieved on a per load balancing rule basis. This is suppo
 
     :::image type="content" source="media/load-balancer-manage-health-status/load-balancing-rule-health-status.png" alt-text="Screenshot of health status for load balancing rule.":::
 
-> [!IMPORTANT]
-> The Load balancing rule health status window may take a few minutes to load the health status of your backend instances.
+   > [!IMPORTANT]
+   > The Load balancing rule health status window may take a few minutes to load the health status of your backend instances.
 
 1. Select **Close** to exit the **Load balancing rule health status** window.
 
