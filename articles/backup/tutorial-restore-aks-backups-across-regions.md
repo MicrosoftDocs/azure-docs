@@ -20,10 +20,6 @@ Azure Backup allows you to store AKS cluster backups in both **Operational Tier*
 
 For backups to be available in Secondary region (Azure Paired Region), [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) with **Storage Redundancy** enabled as **Globally Redundant** and Cross Region Restore enable.
 
-:::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-backup-storage-redundancy-parameter.png" alt-text="Screenshot shows how to enable the Backup Storage Redundance parameter.":::
-
-:::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-cross-region-restore-parameter.png" alt-text="Screenshot shows how to enable the Cross Region Restore parameter.":::
-
 ## Configure Vault Tier backup
 
 To use AKS backup for regional disaster recovery, store the backups in Vault Tier. You can enable this capability by [creating a backup policy](azure-kubernetes-service-cluster-backup.md#create-a-backup-policy) with retention policy set for Vault-standard datastore.
@@ -49,10 +45,7 @@ To set the retention policy in a backup policy, follow these steps:
 
    - **First successful backup taken every day**: In addition to the default rule, every first successful backup of the day can be retained in the Operational datastore and Vault-standard store. You can edit and delete this rule (if you want to retain backups in Operational datastore).
 
-     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-configuration-for-vault-operational-tiers.png" alt-text="Screenshot that shows the retention configuration for Vault Tier and Operational Tier.":::
-
-
-With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore that can be used when during regional outage.
+With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore that can be used when during regional outage.
 
 
 ## Restore in secondary region
