@@ -184,8 +184,8 @@ The following message shows an example for Bicep version.
   }
   ```
 
-For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](../../src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
-For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](../../src/Bicep.Cli.E2eTests/src/jsonrpc.test.ts).
+For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
+For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli.E2eTests/src/jsonrpc.test.ts).
 
 ### Usage for named pipe
 
