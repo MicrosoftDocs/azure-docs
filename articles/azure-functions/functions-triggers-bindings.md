@@ -2,9 +2,10 @@
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
 ms.topic: conceptual
-ms.date: 09/06/2024
+ms.date: 10/28/2024
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ai-usage: ai-assisted
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -194,9 +195,12 @@ In Python for Functions version 1, this example `function.json` file defines an 
 ---
 
 ::: zone-end  
+
 ## Add bindings to a function
 
 You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).  
+
+Azure Functions supports multiple bindings, which must be configured correctly. For example, a function can read data from a queue (input binding) and write data to a database (output binding) simultaneously. 
 
 ## Supported bindings
 
