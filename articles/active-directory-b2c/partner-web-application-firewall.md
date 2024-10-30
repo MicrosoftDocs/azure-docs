@@ -95,7 +95,7 @@ Learn more:
 
 ### Detection and Prevention modes
 
-When you create a WAF policy, the policy starts in "Detection mode." We recommend you leave the WAF policy in Detection mode while you tune the WAF for your traffic. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged by the WAF once logging is enabled.
+When you create a WAF policy, the policy starts in **Detection mode**. We recommend you leave the WAF policy in **Detection mode** while you tune the WAF for your traffic. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged by the WAF once logging is enabled.
 
 Enable logging: [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md#logs-and-diagnostics)
 
@@ -123,7 +123,7 @@ Learn more
 - [Configure WAF exclusion lists for Azure Front Door](../web-application-firewall/afds/waf-front-door-exclusion-configure.md)
 - [Web application firewall exclusion lists in Azure Front Door](../web-application-firewall/afds/waf-front-door-exclusion.md)
  
-Once logging is set up and your WAF is receiving traffic, you can assess the effectiveness of your bot manager rules in handling bot traffic. The following query shows the actions taken by your bot manager ruleset, categorized by bot type. While in detection mode, the WAF logs bot traffic actions only. However, once switched to prevention mode, the WAF begins actively blocking unwanted bot traffic.
+Once logging is set up and your WAF is receiving traffic, you can assess the effectiveness of your bot manager rules in handling bot traffic. The following query shows the actions taken by your bot manager ruleset, categorized by bot type. While in **Detection mode**, the WAF logs bot traffic actions only. However, once switched to prevention mode, the WAF begins actively blocking unwanted bot traffic.
 
 ```json
 AzureDiagnostics
@@ -142,7 +142,7 @@ To see WAF take action on request traffic, select **Switch to prevention mode** 
 
 Learn more: Anomaly scoring [Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md#anomaly-scoring-mode)
 
-To revert to Detection mode, select **Switch to detection mode** from the Overview page.
+To revert to **Detection mode**, select **Switch to detection mode** from the Overview page.
 
 ## Next steps
 
