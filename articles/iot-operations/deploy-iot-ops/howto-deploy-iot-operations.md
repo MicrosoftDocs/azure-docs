@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure IoT Operations to a cluster
-description: Use the Azure CLI or Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
+description: Use the Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 10/23/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI or Azure portal.
+Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure portal.
 
 In this article, we discuss Azure IoT Operations *deployments* and *instances*, which are two different concepts:
 
