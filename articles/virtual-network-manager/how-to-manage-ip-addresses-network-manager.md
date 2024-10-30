@@ -176,7 +176,7 @@ In this step, you create a virtual network with a nonoverlapping CIDR range usin
 2. In the **Custom deployment** window, select **Build your own template in the editor**.
 3. Copy the following template into the editor:
 
-    ```json
+```json
    {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -230,7 +230,8 @@ In this step, you create a virtual network with a nonoverlapping CIDR range usin
             }
         }
     ]
-}
+  }
+
 ```
 
 1. In the **Custom deployment** windows, enter or select the following information::
