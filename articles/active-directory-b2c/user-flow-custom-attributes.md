@@ -78,7 +78,7 @@ Extension attributes can only be registered on an application object, even thoug
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
 1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
-1. Copy the **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
+1. Copy the **Application ID**. Example: `00001111-aaaa-2222-bbbb-3333cccc4444`.
  
 ::: zone-end
 
@@ -92,8 +92,8 @@ Extension attributes can only be registered on an application object, even thoug
 1. Select **App registrations**, and then select **All applications**.
 1. Select the **b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.** application.
 1. Copy the following identifiers to your clipboard and save them:
-    * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
-    * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
+    * **Application ID**. Example: `00001111-aaaa-2222-bbbb-3333cccc4444`.
+    * **Object ID**. Example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`.
 
 ## Modify your custom policy
 
@@ -112,9 +112,9 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
         <TechnicalProfiles>
           <TechnicalProfile Id="AAD-Common">
             <Metadata>
-              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->  
               <Item Key="ClientId"></Item>
-              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
               <Item Key="ApplicationObjectId"></Item>
             </Metadata>
           </TechnicalProfile>
@@ -184,7 +184,7 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Microsoft Entra extensions.
 
-Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the attribute name is `loyaltyId`, then the custom attribute is named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
+Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `11112222-bbbb-3333-cccc-4444dddd5555` and the attribute name is `loyaltyId`, then the custom attribute is named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
 
 Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-directory-extension-properties) using the Microsoft Graph API. 
 

@@ -200,9 +200,9 @@ For more information, see [Customize the button bar](../../../how-tos/ui-library
 
 UI Library provides the capability to join a call by skipping the setup screen of the call join experience. By default, you go through a setup screen to join a call. Here, you set the call configuration, such as camera turn on or off, microphone turn on or off, and audio device selection before you join a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [Skip setup screen feature](../../../how-tos/ui-library-sdk/skip-setup-screen.md).
 
-### Theming
+### Theming and colors
 
-Use UI Library call composite for iOS and Android to create a custom theme of a caller's experience. To create the platform experience, pass a set of theming colors, as shown in the following table. For more information, see [Create your theme](../../../how-tos/ui-library-sdk/theming.md).
+Use the UI Library call composite for iOS and Android to create a custom theme of a caller's experience. You have the flexibility to customize the primary colors so that you can tailor the color scheme to match your specific branding needs. By adjusting primary colors, you can ensure that the interface integrates with your brand's visual identity. You can enhance user experience while you maintain consistency across your applications. For more information, see [Create your theme](../../../how-tos/ui-library-sdk/theming.md).
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
