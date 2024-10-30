@@ -34,12 +34,7 @@ To set the retention policy in a backup policy, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-frequency.png" alt-text="Screenshot that shows selection of backup frequency.":::
 
-   **Retention Setting**: A new backup policy has two retention rules.
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
-
-   You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
-
+   **Retention Setting**: A new backup policy has two retention rules. You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
 
    - **Default**: This  rule defines the default retention duration for all the operational tier backups taken. You can only edit this rule and  can’t delete it.
 
