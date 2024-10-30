@@ -29,8 +29,8 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 - [Team customizations](https://developercommunity.visualstudio.com/t/Share-customization-files-across-my-team/10729596?sort=newest): as a project lead or a dev center admin, set up a config-as-code Dev Box configuration for an entire team, allowing quicker onboarding of developers without having them deal with onboarding complexity.
 - [Dev Center Imaging](https://developercommunity.visualstudio.com/t/Speed-up-Dev-Box-customization-using-a-c/10729598): as a project lead or a dev center admin, tailor customizations to each team without losing out Dev Box creation performance. Optimize these team customizations into an image without investing in and maintaining your own custom image generation capabilities. 
 - [Secrets & variables](https://developercommunity.visualstudio.com/t/Customization-YAMLs:-Use-secrets-from-a/10729608?sort=newest): as a project lead or a dev center admin, you can now source secrets from subscriptions that are different from the one your DevCenter is in, allowing you to reuse centralized secret stores with Dev Box
-- [Native Run as user support for Dev Box customizations](https://developercommunity.visualstudio.com/t/Improve-run-as-user-support-for-Dev-Box/10719951): some of your Dev Box customization tasks require to be run as the signed in user. Native run as user support provides capability of executing customization under the user context with improved reliability, status tracking, and error reporting. 
-- [Project Policy](https://developercommunity.visualstudio.com/t/Curation-for-Dev-Center-and-Projects-und/10719953): as a dev center admin, set up guardrails around resources that different projects should and shouldn't access.
+- [Native Run as user support](https://developercommunity.visualstudio.com/t/Improve-run-as-user-support-for-Dev-Box/10719951): some of your Dev Box customization tasks require to be run as the signed in user. Native run as user support provides capability of executing customization under the user context with improved reliability, status tracking, and error reporting. 
+
 
 **Enhanced user provided customizations**
 
@@ -59,6 +59,7 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 
 **Security and privacy**
 
+- [Project Policy](https://developercommunity.visualstudio.com/t/Curation-for-Dev-Center-and-Projects-und/10719953): as a dev center admin, set up guardrails around resources that different projects should and shouldn't access.
 - [Customer Managed Keys (CMK):](https://developercommunity.visualstudio.com/t/Encryption-with-customer-managed-keys-fo/10720463) as a dev center admin, have a greater control over your data encryption by managing your own encryption keys.
 - [Privileged Identity Management (PIM)](https://developercommunity.visualstudio.com/t/Only-allows-Dev-Box-projects-to-utilize-/10502335): as a dev center admin, get just-in-time admin access to project configurations.
 - [Developer offboarding](https://developercommunity.visualstudio.com/t/Provide-a-means-to-do-external-cleanup/10670632?q=delete+unused+): as a dev center admin, configure your Dev Box service to offload users from Dev Boxes when they leave the organization and switch between teams. 
