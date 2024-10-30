@@ -598,6 +598,10 @@ To store artifacts such as maps, schemas, and assemblies for your container app 
 
 - Your SMB file share requires inbound and outbound connectivity with your Kubernetes cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your Kubernetes cluster or in a peered virtual network.
 
+- Don't use the same exact file share path for multiple logic apps.
+
+- You can use separate SMB file shares for each logic app, or you can use different folders in the same SMB file share as long as those folders aren't nested. For example, don't have a logic app use the root path, and then have another logic app use a subfolder.
+
 - To deploy your logic app using Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share.
 
 ### Set up your SMB file share on Windows
