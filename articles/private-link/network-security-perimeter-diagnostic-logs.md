@@ -40,7 +40,7 @@ You can store the diagnostic logs in the following locations:
 | **Service** | **Description** |
 | --- | --- |
 | **Log Analytic workspace** | Log Analytic workspaces are recommended since they allow you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
-|** Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
+|**Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
 | **Azure Event Hubs** | Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources. |
 
 ## Enable logging through the Azure portal

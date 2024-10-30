@@ -53,13 +53,19 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
 To begin your configuration, sign in to your Azure account:
 
 ```azurepowershell
+# Sign in to your Azure account
 Connect-AzAccount
 ```
 
 Then, connect to your subscription:
 
 ```azurepowershell
+# List all subscriptions
 Set-AzContext -Subscription <subscriptionId>
+
+# Register the Microsoft.Network resource provider
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+
 ```
 
 ## Create a resource group and key vault

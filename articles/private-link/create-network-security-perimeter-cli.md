@@ -5,22 +5,26 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 09/16/2024
+ms.date: 10/30/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
-# Quickstart: Create a network security perimeter - Azure CLI
+# Quickstart: Create a network security perimeter - Azure CLI~
 
 Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
   - This article requires version 2.38.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version, you can import the network security perimeter commands using `az extension add --name nsp`.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+
 
 [!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
@@ -33,13 +37,18 @@ To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use y
 1. If you installed CLI locally, sign in with the following command: 
 
     ```azurecli-interactive
+    # Sign in to your Azure account
     az login 
     ```
 
 1. Once in your shell, select your active subscription locally with the following command: 
 
     ```azurecli-interactive
+    # List all subscriptions
     az account set --subscription "Azure Subscription"
+
+    # Register the Microsoft.Network resource provider
+    az provider register --namespace Microsoft.Network    
     ```
    
 ## Create a resource group and key vault
