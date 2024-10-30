@@ -62,5 +62,4 @@ We communicate the retirement of Azure CDN from Edgio through multiple channels,
 
 ## Next steps
 
-- Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-- Create an [Azure CDN from Edgio](cdn-create-endpoint-how-to.md) profile.
+Migrate your Azure CDN from Edgio workloads to Azure Front Door by following the steps in the [Azure CDN to Azure Front Door migration guide](../frontdoor/migrate-cdn-to-front-door.md).
