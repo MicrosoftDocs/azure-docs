@@ -5,18 +5,18 @@ ms-service: azure-functions
 ms.topic: conceptual
 ms.date: 06/28/2024
 
-# Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.
+# Customer intent: As a function developer, I want to understand how to run my function app from a package, so I can make my function app run faster and easier to update.
 ---
 
-# Run your functions from a package file in Azure
+# Run your functions from a package in Azure
 
-In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
+In Azure, you can run your functions directly from a .zip file. The other option is to deploy your files in the `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
-## Benefits of running from a package file
+## Benefits of running from a package
   
-There are several benefits to running functions from a package file:
+There are several benefits to running functions from a package:
 
 + Reduces the risk of file copy locking issues.
 + Can be deployed to a production app (with restart).
@@ -32,8 +32,8 @@ To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKA
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
-|**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
+| **`1`**  | Indicates that the function app runs from a local package deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
+|**`<URL>`**  | Sets a URL that is the remote location of the specific package you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values for deployment to a specific operating system and hosting plan:
 
@@ -45,11 +45,11 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 ## General considerations
 
-+ The package file must be .zip formatted. Tar and gzip formats aren't supported.
++ Only .zip is formatted. Tar and gzip formats aren't supported.
 + [Zip deployment](#integration-with-zip-deployment) is recommended.
 + When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 + When you run from a package, the `wwwroot` folder is read-only and you receive an error if you write files to this directory. Files are also read-only in the Azure portal.
-+ The maximum size for a deployment package file is 1 GB.
++ The maximum size for a .zip file is 1 GB.
 + You can't use the local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead, add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
@@ -66,7 +66,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 ## Use WEBSITE_RUN_FROM_PACKAGE = 1
 
-This section provides information about how to run your function app from a local package file.
+This section provides information about how to run your function app from a local package.
 
 ### Considerations for deploying from an on-site package
 
@@ -74,7 +74,7 @@ This section provides information about how to run your function app from a loca
 
 + Using an on-site package is the recommended option for running from the deployment package, except when running on Linux hosted in a Consumption plan.
 + [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site.
-+ When not using zip deployment, make sure the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running.
++ When not using zip deployment, make sure the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package in this folder that's currently running.
 
 ### Integration with zip deployment
 
