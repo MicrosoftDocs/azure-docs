@@ -61,8 +61,6 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
 1. When validation is finished, if necessary roles aren't assigned to the vault in the snapshot resource group, an error appears.
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png":::  
-
 1. To resolve the error, under **Datasource name**, select the datasource, and then select **Assign missing roles**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png" alt-text="Screenshot that shows how to resolve a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png":::
