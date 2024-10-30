@@ -53,7 +53,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |No|Yes|Yes|Yes|Yes|
 | Data encryption in transit |Yes|Yes|Yes|Yes|Yes|
 | [Network isolation](cache-private-link.md) |Yes|Yes|Yes|Yes|Yes|
-| [Scaling](cache-how-to-scale.md) |Yes|Yes|Yes|Preview|Preview|
+| [Scaling](cache-how-to-scale.md) |Yes|Yes|Yes|Yes|Yes|
 | OSS clustering |No|No|Yes|Yes|Yes|
 | [Data persistence](cache-how-to-premium-persistence.md) |No|No|Yes|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |No|Preview|Preview|Available|Available|
@@ -66,6 +66,9 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 
 > [!NOTE]
 > The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module.
+
+> [!NOTE]
+> The Enterprise and Enterprise Flash tiers currently only support scaling up and scaling out. Scaling down and scaling in is not yet supported.
 
 ### Choosing the right tier
 

@@ -50,6 +50,11 @@
             "redirect_url": "concepts-storage",
 
             "redirect_document_id": false
+        },
+        {
+            "source_path": "troubleshoot-bmm-node-reboot.md",
+            "redirect_url": "troubleshoot-vm-error-after-reboot",
+            "redirect_document_id": false
         }
     ]
 }
