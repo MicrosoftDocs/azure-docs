@@ -246,6 +246,8 @@
       href: ../cdn/classic-cdn-retirement-faq.md
     - name: Akamai retirement FAQ
       href: ../cdn/akamai-retirement-faq.md?toc=/azure/frontdoor/TOC.json
+    - name: Edgio retirement FAQ
+      href: ../cdn/edgio-retirement-faq.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
