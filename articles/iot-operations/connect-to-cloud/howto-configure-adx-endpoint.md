@@ -136,13 +136,13 @@ kubectl apply -f <FILE>.yaml
 
 The following authentication methods are available for Azure Data Explorer endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-To use these authentication methods, the Azure IoT Operations Arc extension must be given **Ingestor** permissions on the Azure Data Explorer database. For more information, see [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions.md).
+### Permissions
+
+To use these authentication methods, the Azure IoT Operations Arc extension must be given **Ingestor** permission on the Azure Data Explorer database. For more information, see [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions).
 
 ### System-assigned managed identity
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
-
-Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
