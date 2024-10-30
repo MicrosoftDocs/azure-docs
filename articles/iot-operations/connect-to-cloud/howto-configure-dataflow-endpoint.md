@@ -3,6 +3,7 @@ title: Configure dataflow endpoints in Azure IoT Operations
 description: Configure dataflow endpoints to create connection points for data sources.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 09/17/2024
@@ -16,8 +17,6 @@ ms.date: 09/17/2024
 
 To get started with dataflows, first create dataflow endpoints. A dataflow endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
 
-## Get started
-
 To get started, use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination |
@@ -26,7 +25,7 @@ To get started, use the following table to choose the endpoint type to configure
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes |
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
-| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Edge Storage Accelerator edge volumes. | No | Yes |
+| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
 
 ## Reuse endpoints
 
@@ -38,7 +37,7 @@ For example, you can use the default MQTT broker dataflow endpoint. You can use 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience portal to create a dataflow from MQTT to MQTT.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to MQTT.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -68,7 +67,7 @@ Similarly, you can create multiple dataflows that use the same MQTT endpoint for
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience portal to create a dataflow from MQTT to Kafka.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to Kafka.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -95,3 +94,12 @@ spec:
 ---
 
 Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
+
+## Next steps
+
+- Create a dataflow endpoint: 
+  - [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
+  - [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
+  - [Data Lake](howto-configure-adlsv2-endpoint.md)
+  - [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
+  - [Local storage](howto-configure-local-storage-endpoint.md)

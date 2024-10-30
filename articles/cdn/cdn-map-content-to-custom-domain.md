@@ -21,7 +21,7 @@ This tutorial shows how to add a custom domain to an Azure Content Delivery Netw
 
 The endpoint name in your content delivery network profile is a subdomain of azureedge.net. By default when delivering content, the content delivery network profile domain gets included in the URL.
 
-For example, `https://contoso.azureedge.net/photo.png`.
+For example, `https://*.azureedge.net/photo.png`.
 
 Azure Content Delivery Network provides the option of associating a custom domain with a content delivery network endpoint. This option delivers content with a custom domain in your URL instead of the default domain.
 

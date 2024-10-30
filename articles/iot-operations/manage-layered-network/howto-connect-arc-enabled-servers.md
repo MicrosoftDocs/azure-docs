@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/09/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolated devices.
+ms.service: azure-iot-operations
 ---
 
 # Connect Azure Arc-enabled servers from an Azure IoT Layered Network Management Preview isolated network

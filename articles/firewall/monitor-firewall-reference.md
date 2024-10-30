@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Firewall
 description: This article contains important reference material you need when you monitor Azure Firewall by using Azure Monitor.
-ms.date: 08/08/2024
+ms.date: 10/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: vhorne
@@ -53,13 +53,30 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 - Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.  
 - There might be various reasons that can cause high latency in Azure Firewall. For example, high CPU utilization, high throughput, or a possible networking issue.
 
-  This metric doesn't measure end-to-end latency of a given network path. In other words, this latency health probe doesn't measure how much latency Azure Firewall adds.
+**What the AZFW Latency Probe Metric Measures (and Doesn't):**
 
-- When the latency metric isn't functioning as expected, a value of 0 appears in the metrics dashboard.
-- As a reference, the average expected latency for a firewall is approximately 1 ms. This value might vary depending on deployment size and environment.
-- The latency probe is based on Microsoft's Ping Mesh technology. So, intermittent spikes in the latency metric are to be expected. These spikes are normal and don't signal an issue with the Azure Firewall. They're part of the standard host networking setup that supports the system.
+- What it measures: The latency of the Azure Firewall within the Azure platform
+- What it doesn't meaure: The metric does not capture end-to-end latency for the entire network path. Instead, it reflects the performance within the firewall, rather than how much latency Azure Firewall introduces into the network. 
+- Error reporting: If the latency metric isn't functioning correct, it reports a value of 0 in the metrics dashboard, indicating a probe failure or interruption.
 
-  As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.
+**Factors that impact latency:**
+- High CPU utilization
+- High throughput or traffic load
+- Networking issues within the Azure platform
+
+**Latency Probes: From ICMP to TCP**
+The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protcol). ICMP is suitable for quick health checks, like ping requests, but it may not accurately represent real-world application traffic, which typically relis on TCP.However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs. To reduce these discrepancies, Azure Firewall plans to transition to TCP-based probes. 
+
+- Latency spikes: With ICMP probes, intermittent spikes are normal and are part of the host network's standard behavior. These should not be misinterpreted as firewall issues unless they are persistent.
+- Average latency: On average, the latency of Azure Firewall is expected to range from 1ms to 10 ms, dpending on the Firewall SKU and deployment size.
+
+**Best Practices for Monitoring Latency**
+- Set a baseline: Establish a latency baseline under light traffic conditions for accurate comparisons during normal or peak usage.
+- Monitor for patterns: Expect occasional latency spikes as part of normal operations. If high latency persists beyond these normal variations, it may indicate a deeper issue requiring investigation.
+- Recommended latency threshold: A recommended guideline is that latency should not exceed 3x the baseline. If this threshold is crossed, further investigation is recommended.
+- Check the rule limit: Ensure that the network rules are within the 20K rule limit. Exceeding this limit can affect performance. 
+- New application onboarding: Check for any newly onboarded applications that could be adding significant load or causing latency issues.
+- Support request: If you observe continuous latency degredation that does not align with expected behavior, consider filing a support ticket for further assistance. 
 
   :::image type="content" source="media/metrics/latency-probe.png" alt-text="Screenshot showing the Azure Firewall Latency Probe metric.":::
 
@@ -77,10 +94,11 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
-
+Azure Firewall has two new diagnostic logs that can help monitor your firewall, but these logs currently do not show application rule details.
 - Top flows
 - Flow trace
+
+
 
 ## Top flows
 
@@ -117,6 +135,8 @@ There are a few ways to verify the update was successful, but you can navigate t
 :::image type="content" source="media/enable-top-ten-and-flow-trace/firewall-log-verification.png" alt-text="Screenshot of JSON showing additional log verification.":::
 
 To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
+
+## Flow trace
 
 The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, such an entry doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
 

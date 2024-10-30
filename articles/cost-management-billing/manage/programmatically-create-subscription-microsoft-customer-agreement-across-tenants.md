@@ -91,7 +91,7 @@ az ad sp show --id aaaaaaaa-bbbb-cccc-1111-222222222222 --query 'id'
 Sign in to Azure PowerShell and use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) cmdlet:
 
 ```sh
-Get-AzADServicePrincipal -ApplicationId aaaaaaaa-bbbb-cccc-1111-222222222222 | Select-Object -Property Id
+Get-AzADServicePrincipal -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 | Select-Object -Property Id
 ```
 
 Save the `Id` value returned by the command.

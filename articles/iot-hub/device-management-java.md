@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Java SDK for devic
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/30/2023

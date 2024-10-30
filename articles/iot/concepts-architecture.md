@@ -6,7 +6,7 @@ ms.author: rmpablos
 ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: mvc
-ms.service: iot
+ms.service: azure-iot
 ---
 
 # IoT Plug and Play architecture

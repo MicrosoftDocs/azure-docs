@@ -3,7 +3,7 @@ title: Watermarking in Azure Virtual Desktop
 description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 10/08/2024
 ms.author: daknappe
 ---
 
@@ -42,6 +42,7 @@ You'll need the following things before you can use watermarking:
       - Windows
       - macOS
       - iOS and iPadOS
+      - Android/Chrome OS (preview)
       - Web browser
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.

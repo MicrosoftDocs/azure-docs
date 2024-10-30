@@ -28,7 +28,7 @@ The following tips might help you optimize performance:
 - Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
+- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
 - Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
@@ -201,21 +201,47 @@ Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-
 Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -ProviderNamespace Microsoft.Storage 
 ```
 ---
+> [!Information]
+> Please allow 1-2 days for accounts to be onboarded once registration is complete.
 
 ### Regional availability
 
 Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
+- Asia East
 - Australia Central
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Europe North
+- France Central
+- Germany West Central
+- Japan East
+- Japan West
 - Jio India West
+- India Central
 - India South
+- India West
+- Israel Central
+- Italy North
+- Korea Central
+- Korea South
 - Mexico Central
 - Norway East
 - Poland Central
+- Qatar Central
 - Spain Central
 - Sweden Central
 - Switzerland North
 - UAE North
+- UK West
+- UK South
+- US North Central
+- US South Central
+- US West Central
+- US West 2
 - US West 3
 
 > [!TIP]

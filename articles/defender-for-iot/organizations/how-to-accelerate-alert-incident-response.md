@@ -1,7 +1,7 @@
 ---
 title: Accelerate OT alert workflows - Microsoft Defender for IoT
 description: Learn how to improve Microsoft Defender for IoT OT alert workflows on an OT network sensor or the on-premises management console.
-ms.date: 01/31/2024
+ms.date: 10/11/2024
 ms.topic: how-to
 ---
 
@@ -141,9 +141,7 @@ For example:
 
 :::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png" alt-text="Screenshot of how to generate a custom data mining report for the allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png":::
 
-The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert. For example:
-
-:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
+The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert.
 
 ## Create alert comments on an OT sensor
 

@@ -83,11 +83,11 @@ items:
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
         - name: MQTT and Event Grid
           href: connect-to-cloud/howto-configure-mqtt-endpoint.md
-        - name: Kafka and Event Hub
+        - name: Kafka and Event Hubs
           href: connect-to-cloud/howto-configure-kafka-endpoint.md
         - name: ADLSv2 Blob Storage
           href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
-        - name: Microsoft Fabric
+        - name: Microsoft Fabric OneLake
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
@@ -129,8 +129,6 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
-      - name: Upload MQTT data to a lakehouse
-        href: view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md
     - name: Configure observability and monitoring
       items:
       - name: Deploy observability resources with a script
@@ -159,7 +157,7 @@ items:
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials
       items:
-      - name: MQTT bridge
+      - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:

@@ -25,7 +25,7 @@ Azure FHIR service supports data ingestion through the import operation, which o
 
 To achieve optimal performance with the import operation, consider the following best practices.
 
-* **Do** use large files while ingesting data. The optimal DNJSON file size for import is 50 MB or larger (or 20,000 resources or more, with no upper limit). Combining smaller files into larger ones can enhance performance.
+* **Do** use large files while ingesting data. The optimal NDJSON file size for import is 50 MB or larger (or 20,000 resources or more, with no upper limit). Combining smaller files into larger ones can enhance performance.
 * **Consider** using the import operation over HTTP API requests to ingest the data into FHIR service. The import operation provides a high throughput and is a scalable method for loading data.
 * **Consider** importing all FHIR resource files in a single import operation for optimal performance. Aim for a total file size of 100 GB or more (or 100 million resources, no upper limit) in one operation. Maximizing an import in this way helps reduce the overhead associated with managing multiple import jobs.
 * **Consider** running multiple concurrent imports only if necessary, but limit parallel import jobs. A single large import is designed to consume all available system resources, and processing throughput doesn't increase with concurrent import jobs.

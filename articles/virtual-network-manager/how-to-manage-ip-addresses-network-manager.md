@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 10/2/2024
+ms.date: 10/08/2024
 ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn how to manage IP addresses with Azure Virtual Network Manager so that I can create and assign IP address pools to my virtual networks.
 ---
@@ -14,7 +14,7 @@ ms.custom:  references_regions
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
-Azure Virtual Network Manager allows you to manage IP addresses by creating and assigning IP address pools to your virtual networks. This article shows you how to create and assign IP address pools to your virtual networks with IP address management in Azure Virtual Network Manager.
+Azure Virtual Network Manager allows you to manage IP addresses by creating and assigning IP address pools to your virtual networks. This article shows you how to create and assign IP address pools to your virtual networks with IP address management (IPAM) in Azure Virtual Network Manager.
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ In this step, you review the allocation usage of the IP address pool. This helps
     
     :::image type="content" source="media/how-to-manage-ip-addresses/review-ip-address-pool-allocations-by-resource.png" alt-text="Screenshot of ip address pool allocations highlighting individual resource information.":::
 
-## Delegating permissions for IP address management
+## Delegating permissions for IP address management (IPAM)
 
 In this step, you delegate permissions to other users to manage IP address pools in your network manager using [Azure role-based access control (RBAC)](../role-based-access-control/check-access.md). This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
 
@@ -169,5 +169,5 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is IP address management in Azure Virtual Network Manager](./concept-ip-address-management.md)
+> [What is IP address management (IPAM) in Azure Virtual Network Manager](./concept-ip-address-management.md)
 
