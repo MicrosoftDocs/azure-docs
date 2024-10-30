@@ -76,17 +76,17 @@
 			"redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/container-apps/java-admin-for-spring-usage.md",
+            "source_path_from_root": "/articles/container-apps/java-admin-for-spring-usage.md",
 			"redirect_url": "/azure/container-apps/java-admin",
 			"redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/container-apps/java-config-server-usage.md",
+            "source_path_from_root": "/articles/container-apps/java-config-server-usage.md",
 			"redirect_url": "/azure/container-apps/java-config-server",
 			"redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/container-apps/java-eureka-server-usage.md",
+            "source_path_from_root": "/articles/container-apps/java-eureka-server-usage.md",
 			"redirect_url": "/azure/container-apps/java-eureka-server",
 			"redirect_document_id": false
         }
