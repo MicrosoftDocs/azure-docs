@@ -21,6 +21,11 @@ Get started with network security perimeter by creating a network security perim
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
   - This article requires version 2.38.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version, you can import the network security perimeter commands using `az extension add --name nsp`.
+- Re-register the Microsoft.Network resource provider with the following command:
+    
+    ```azure
+    az provider register --namespace Microsoft.Network 
+    ```
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -47,7 +52,7 @@ To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use y
     # List all subscriptions
     az account set --subscription "Azure Subscription"
 
-    # Register the Microsoft.Network resource provider
+    # Re-register the Microsoft.Network resource provider
     az provider register --namespace Microsoft.Network    
     ```
    
