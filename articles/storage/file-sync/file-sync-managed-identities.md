@@ -19,7 +19,7 @@ When you enable this configuration, the system-assigned managed identities will 
 -	Registered server authentication to Azure file share
 -	Registered server authentication to Storage Sync Service 
 
-To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](../../entra/identity/managed-identities-azure-resources/overview.md).
 
 To configure your Azure File Sync deployment to utilize system-assigned managed identities, please follow the guidance in the subsequent sections.
 
@@ -38,11 +38,11 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
     ```
 
 ## Enable a system-assigned managed identity on your registered servers
-Before you can configure Azure File Sync to use managed identities, your registered servers must have a system-assigned managed identity that will be used to access the Azure File Sync service and Azure file shares. 
+Before you can configure Azure File Sync to use managed identities, your registered servers must have a system-assigned managed identity that will be used to authenticate to the Azure File Sync service and Azure file shares. 
 
 To enable a system-assigned managed identity on a registered server that has the Azure File Sync v19 agent installed, perform the following steps:
-- If the server is hosted outside of Azure, it must be an **Azure Arc-enabled server** to have a system-assigned managed identity. For more information on Azure Arc-enabled servers and how to install the Azure Connected Machine agent, see: [Azure Arc-enabled servers Overview](https://learn.microsoft.com/azure/azure-arc/servers/overview). 
-- If the server is an Azure virtual machine, **enable the system-assigned managed identity setting on the VM**. For more information, see: [Configure managed identities on Azure virtual machines](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm).
+- If the server is hosted outside of Azure, it must be an **Azure Arc-enabled server** to have a system-assigned managed identity. For more information on Azure Arc-enabled servers and how to install the Azure Connected Machine agent, see: [Azure Arc-enabled servers Overview](../../azure-arc/servers/overview.md).  
+- If the server is an Azure virtual machine, **enable the system-assigned managed identity setting on the VM**. For more information, see: [Configure managed identities on Azure virtual machines](../../entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 
 > [!NOTES]
 > - At least one registered server must have a system-assigned managed identity before you can configure the Storage Sync Service to use a system-assigned identity.
@@ -61,7 +61,7 @@ Verify the **LatestApplicationId** property has a GUID which indicates the serve
 If the value for the **ActiveAuthType** property is **Certificate** and the **LatestApplicationId** does not have a GUID, the server does not have a system-assigned managed identity and will use shared keys to authenticate to the Azure file share.
 
 > [!NOTE]
-> Once a server is configured to use the system-assigned managed identity by following the steps in the section below, the **LatestApplicationId** property is longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity** and the **ApplicationId** property will have the GUID for the system-assigned managed identity.
+> Once a server is configured to use the system-assigned managed identity by following the steps in the section below, the **LatestApplicationId** property is longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity** and the **ApplicationId** property will have a GUID which is the system-assigned managed identity.
 
 ## Configure your Azure File Sync deployment to use system-assigned managed identities
 To configure the Storage Sync Service and registered servers to use a system-assigned managed identities, run the following command from an elevated PowerShell window:
@@ -104,6 +104,6 @@ Verify the **ApplicationId** property has a GUID which indicates the server is c
 > Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
 
 ## More Information
-Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity, new endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share. 
-
-If you experience issues, see Troubleshoot Azure File Sync managed identity issues.
+Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity:
+  - New endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share.
+  - Use the Set-AzStorageSyncServiceIdentity cmdlet anytime you need to configure additional registered servers to use managed identities.
