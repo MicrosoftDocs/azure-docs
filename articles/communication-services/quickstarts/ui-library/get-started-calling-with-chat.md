@@ -29,7 +29,7 @@ In this article, you learn how to integrate calling and chat functionality in yo
 
 ## Run the code
 
-To build and run your app on the device.
+Run the code to build and run your app on the device.
 
 ### More features
 

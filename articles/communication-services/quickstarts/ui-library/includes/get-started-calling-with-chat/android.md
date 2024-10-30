@@ -17,6 +17,8 @@ ms.service: azure-communication-services
 
 You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-android) from GitHub.
 
+:::image type="content" source="../../media/call-chat-android-experience.gif" alt-text="Animation to showcase the experience on Android using call and chat in the same app.":::
+
 ## Set up the project
 
 In Android Studio, create a new project:

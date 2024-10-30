@@ -17,6 +17,8 @@ ms.service: azure-communication-services
 
 You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-ios) from GitHub.
 
+:::image type="content" source="../../media/call-chat-ios-experience.gif" alt-text="Animation to showcase the experience on iOS using call and chat in the same app.":::
+
 ## Set up the project
 
 Complete the following sections to set up the quickstart project.
