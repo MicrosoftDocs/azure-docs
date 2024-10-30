@@ -46,7 +46,7 @@ Before you can configure Azure File Sync to use managed identities, your registe
 
 To enable a system-assigned managed identity on a registered server that has the Azure File Sync v19 agent installed, perform the following steps:
 - If the server is hosted outside of Azure, it must be an **Azure Arc-enabled server** to have a system-assigned managed identity. For more information on Azure Arc-enabled servers and how to install the Azure Connected Machine agent, see: [Azure Arc-enabled servers Overview](/entra/identity/managed-identities-azure-resources/overview).  
-- If the server is an Azure virtual machine, **enable the system-assigned managed identity setting on the VM**. For more information, see: [Configure managed identities on Azure virtual machines](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm).
+- If the server is an Azure virtual machine, **enable the system-assigned managed identity setting on the VM**. For more information, see: [Configure managed identities on Azure virtual machines](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm).
 
 > [!NOTE]
 > - At least one registered server must have a system-assigned managed identity before you can configure the Storage Sync Service to use a system-assigned identity.
