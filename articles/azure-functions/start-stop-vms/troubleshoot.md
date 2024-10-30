@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Troubleshoot common issues with Start/Stop VMs
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to install and configure Start/Stop VMs. For general information, see [Start/Stop VMs overview](overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to install and configure Start/Stop VMs.
 
 ## General validation and troubleshooting
 
