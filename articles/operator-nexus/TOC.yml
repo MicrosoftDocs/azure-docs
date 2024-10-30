@@ -276,8 +276,6 @@
       items:
         - name: Troubleshoot Bare Metal Machine
           href: troubleshoot-reboot-reimage-replace.md
-        - name: Troubleshoot BMM reboot issues
-          href: troubleshoot-bmm-node-reboot.md
         - name: Troubleshoot Bare Metal Machine Provisioning
           href: troubleshoot-bare-metal-machine-provisioning.md
         - name: Troubleshoot Hardware Validation Failure
@@ -313,6 +311,8 @@
           href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
         - name: Troubleshoot Internet host virtual machine
           href: troubleshoot-internet-host-virtual-machine.md
+        - name: Troubleshoot VM errors after BMM restart
+          href: troubleshoot-vm-error-after-reboot.md
         - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
           href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
 - name: FAQ

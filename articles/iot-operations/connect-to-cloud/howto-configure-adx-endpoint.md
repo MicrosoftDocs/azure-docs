@@ -60,6 +60,23 @@ Create the dataflow endpoint resource with your cluster and database information
 
 <!-- TODO: use the data ingest URI for host? -->
 
+# [Portal](#tab/portal)
+
+1. In the operations experience, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Explorer** > **New**.
+
+    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Data Explorer dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                                        |
+    | Host                  | The hostname of the Azure Data Explorer endpoint in the format `<cluster>.<region>.kusto.windows.net`. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity* or *User assigned managed identity*  |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -71,13 +88,13 @@ param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = 'https://<CLUSTER>.<region>.kusto.windows.net'
 param databaseName string = '<DATABASE_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -146,6 +163,10 @@ Using the system-assigned managed identity is the recommended authentication met
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -169,6 +190,11 @@ dataExplorerSettings:
 ---
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+
+# [Portal](#tab/portal)
+
+In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 # [Bicep](#tab/bicep)
 
@@ -201,6 +227,12 @@ To use user-managed identity for authentication, you must first deploy Azure IoT
 
 Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
 
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -232,6 +264,8 @@ dataExplorerSettings:
 
 ---
 
+Here, the scope is optional and defaults to `https://api.kusto.windows.net/.default`. If you need to override the default scope, specify the `scope` setting via Bicep or Kubernetes.
+
 ## Advanced settings
 
 You can set advanced settings for the Azure Data Explorer endpoint, such as the batching latency and message count. 
@@ -244,6 +278,12 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
+
+# [Portal](#tab/portal)
+
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations experience to set Azure Data Explorer advanced settings.":::
 
 # [Bicep](#tab/bicep)
 
@@ -269,4 +309,4 @@ dataExplorerSettings:
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).

@@ -42,8 +42,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-> [!NOTE]
-> During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version. For more information, see [Update Azure IoT Operations](./deploy-iot-ops/howto-manage-update-uninstall.md#update).
+During public preview, Azure IoT Operations supports upgrading instances from version 0.7.x to 0.8.x. For more information, see [Manage Azure IoT Operations](./deploy-iot-ops/howto-manage-update-uninstall.md#upgrade).
 
 ## Manage devices and assets
 
@@ -85,9 +84,6 @@ To connect to the cloud from Azure IoT Operations, you can use the following dat
 
 [Dataflows](connect-to-cloud/overview-dataflow.md) provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Dataflows can use schemas stored in the schema registry to deserialize and serialize messages.
 
-> [!NOTE]
-> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0 or newer. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure/iot-operations/process-data/overview-data-processor).
-
 ## Visualize and analyze telemetry
 
 To visualize and analyze telemetry from your devices and assets, you can use cloud services such as:
@@ -105,7 +101,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Supported regions
 
-In the 0.7.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
+In the 0.8.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
 
 | Region       | CLI value   |
 |--------------|-------------|

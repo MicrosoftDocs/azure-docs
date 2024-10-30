@@ -167,9 +167,10 @@ Similar to the MQTT example, you can create multiple dataflows that use the same
 
 ## Next steps
 
-- Create a dataflow endpoint: 
-  - [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
-  - [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
-  - [Data Lake](howto-configure-adlsv2-endpoint.md)
-  - [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
-  - [Local storage](howto-configure-local-storage-endpoint.md)
+Create a dataflow endpoint: 
+
+- [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
+- [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
+- [Data Lake](howto-configure-adlsv2-endpoint.md)
+- [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
+- [Local storage](howto-configure-local-storage-endpoint.md)
