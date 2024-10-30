@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/29/2024
+ms.date: 10/30/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
@@ -48,6 +48,10 @@ Azure VPN gateways can be configured as active-standby or active-active. In an a
 
 * [About active-active gateways](about-active-active-gateways.md)
 * [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md)
+
+## Gateway Private IPs
+
+This setting is used for certain ExpressRoute private peering configurations. For more information, see [Configure a Site-to-Site VPN connection over ExpressRoute private peering](site-to-site-vpn-private-peering?toc=%2Fazure%2Fexpressroute%2Ftoc.json&view=o365-worldwide).
 
 ## <a name="connectiontype"></a>Connection types
 
