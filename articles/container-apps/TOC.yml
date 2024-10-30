@@ -229,7 +229,7 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-- name: Resiliency (preview)
+- name: Resiliency
   items:
     - name: Service discovery resiliency
       href: service-discovery-resiliency.md
@@ -266,7 +266,7 @@
         items:
         - name: Dapr components
           href: dapr-components.md
-        - name: Dapr component resiliency (preview)
+        - name: Dapr component resiliency
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep
           href: dapr-keda-scaling.md
