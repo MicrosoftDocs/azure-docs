@@ -185,7 +185,7 @@ The following message shows an example for Bicep version.
   ```
 
 For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](../../src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
-For an example establinging a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](../../src/Bicep.Cli.E2eTests/src/jsonrpc.test.ts).
+For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](../../src/Bicep.Cli.E2eTests/src/jsonrpc.test.ts).
 
 ### Usage for named pipe
 
@@ -197,13 +197,13 @@ bicep jsonrpc --pipe <named_pipe>`
 
 `<named_pipe>` is an existing named pipe to connect the JSONRPC client to.
 
-To connect to a named pipe (OSX/Linux) :
+To connect to a named pipe on OSX/Linux :
 
 ```bicep cli
 bicep jsonrpc --pipe /tmp/bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock
 ```
 
-To connect to a named pipe (Windows) :
+To connect to a named pipe on Windows :
 
 ```bicep cli
 bicep jsonrpc --pipe \\.\pipe\\bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock`
@@ -219,7 +219,7 @@ Use the following syntax to connect to an existing TCP socket as a JSONRPC clien
 bicep jsonrpc --socket <tcp_socket>
 ```
 
-`<tcp_socket>` is a a socket number to connect the JSONRPC client to.
+`<tcp_socket>` is a socket number to connect the JSONRPC client to.
 
 To connect to a TCP socket
 
