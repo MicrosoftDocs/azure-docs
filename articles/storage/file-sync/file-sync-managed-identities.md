@@ -19,7 +19,7 @@ When you enable this configuration, the system-assigned managed identities will 
 -	Registered server authentication to Azure file share
 -	Registered server authentication to Storage Sync Service 
 
-To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 To configure your Azure File Sync deployment to utilize system-assigned managed identities, please follow the guidance in the subsequent sections.
 
