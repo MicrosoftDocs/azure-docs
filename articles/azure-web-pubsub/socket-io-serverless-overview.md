@@ -17,7 +17,7 @@ With the increasing adoption of serverless computing, we're introducing a new mo
 
 ## Differences Between Default Mode and Serverless Mode
 
-:::image type="content" source="./media/socket-io-serverless-overview/socketio-serverless-default-modes.jpg" alt-text="Diagram of how the default mode compares with the serverless when using Web PubSub for Socket.IO":::
+:::image type="content" source="./media/socket-io-serverless-overview/socket-io-serverless-default-modes.jpg" alt-text="Diagram of how the default mode compares with the serverless when using Web PubSub for Socket.IO.":::
 
 | Feature | Default Mode | Serverless Mode |
 |------------|------------|------------|
