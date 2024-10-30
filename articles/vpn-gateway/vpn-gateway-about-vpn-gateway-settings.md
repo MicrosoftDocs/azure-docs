@@ -51,7 +51,7 @@ Azure VPN gateways can be configured as active-standby or active-active. In an a
 
 ## Gateway Private IPs
 
-This setting is used for certain ExpressRoute private peering configurations. For more information, see [Configure a Site-to-Site VPN connection over ExpressRoute private peering](site-to-site-vpn-private-peering?toc=%2Fazure%2Fexpressroute%2Ftoc.json&view=o365-worldwide).
+This setting is used for certain ExpressRoute private peering configurations. For more information, see [Configure a Site-to-Site VPN connection over ExpressRoute private peering](site-to-site-vpn-private-peering.md).
 
 ## <a name="connectiontype"></a>Connection types
 
