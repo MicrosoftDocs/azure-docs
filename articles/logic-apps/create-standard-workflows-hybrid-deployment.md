@@ -118,13 +118,12 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
    > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 
-1. In the Azure portal, on the logic app menu, under **Workflows**, you can add, edit, and manage workflows as usual.
+1. In the Azure portal, on the logic app menu, under **Workflows**, select **Workflows**. add an empty stateful or stateless workflow. You then build your workflow by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
 
    > [!NOTE]
    >
    > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
    > or a version of the logic app resource, whenever you save changes to a child workflow.
-   >
    > This revision might take a little time to activate, which means that after you save 
    > any changes, you might want to wait several moments before you test your workflow.
    >
@@ -134,15 +133,11 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    >
    > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
    >    a new revision appears on the list.
-
-   For more information, see the following resources:
-
-   - [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md)
-   - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md)
-
-1. To review the app settings, on the container app menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
-
-   For more information about app settings and host settings, see [Edit app settings and host settings](edit-app-settings-host-settings.md).
+   >
+   > For more information, see the following resources:
+   >
+   > - [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md)
+   > - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md) 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -217,7 +212,7 @@ After you finish building your workflow, you can deploy your logic app to your C
 
 1. To monitor deployment status and Azure activity logs, from the **View** menu, select **Output**. In the window that opens, select **Azure**.
 
-After deployment completes, you can go to the Azure portal to view your logic app workflow.
+   After deployment completes, you can go to the Azure portal to view your deployed Standard logic app and workflow.
 
 > [!NOTE]
 >
@@ -225,6 +220,19 @@ After deployment completes, you can go to the Azure portal to view your logic ap
 > These logic apps appear with the **Container App** label, which differs from Standard logic apps that 
 > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
 > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
+>
+> A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
+> or a version of the logic app resource, whenever you save changes to a child workflow.
+>
+> This revision might take a little time to activate, which means that after you save 
+> any changes, you might want to wait several moments before you test your workflow.
+>
+> If your changes still haven't appeared in the workflow, you can check whether the revision exists:
+>
+> 1. In the [Azure portal](https://portal.azure.com), open your On the resource menu, under **Revisions**, and select **Revisions and replicas**.
+>
+> 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
+>    a new revision appears on the list.
 
 ---
 
@@ -328,6 +336,8 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
 1. On the resource menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
+
+   For more information about app settings and host settings, see [Edit app settings and host settings](edit-app-settings-host-settings.md).
 
 1. On the toolbar, select **Edit and deploy**.
 
