@@ -32,7 +32,7 @@ To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKA
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app. This is the default option when you use [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local).  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app. This is the default option when you use [Azure Functions Core Tools](/azure/azure-functions/functions-run-local).  |
 |**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values for deployment to a specific operating system and hosting plan:
