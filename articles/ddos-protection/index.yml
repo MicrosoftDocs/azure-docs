@@ -40,7 +40,7 @@ landingContent:
           - text: Security baseline
             url: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
           - text: Reliability
-            url: reliability-ddos.md
+            url: reliability.md
       - linkListType: architecture
         links:
           - text: Features
