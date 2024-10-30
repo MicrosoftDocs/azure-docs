@@ -29,7 +29,7 @@ The following architectural overview shows where Standard logic app workflows ar
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
-For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged* infrastructure (HCI)](/azure-stack/hci/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/aks/hybrid/kubernetes-walkthrough-powershell).
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged* infrastructure (HCI)](/azure-stack/hci/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
 
 For more information, see the following documentation:
 
@@ -68,14 +68,14 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > [!NOTE]
 >
 > You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
-> or [Kubernetes cluster on Windows Server](/aks/hybrid/overview) and apply the steps in this how-to guide 
+> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this how-to guide 
 > to connect your cluster to Azure Arc and set up your connected environment. For more information 
 > about Azure Stack HCI and AKS on Windows Server, see the following resources:
 >
 > - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
 > - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
 > - [Create Kubernetes clusters on Azure Stack HCI using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
-> - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/aks/hybrid/kubernetes-walkthrough-powershell)
+> - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
