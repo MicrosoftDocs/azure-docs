@@ -373,20 +373,8 @@
         displayName: java
       - name: Tutorials
         items:
-          - name: Use Eureka Server for Spring
-            href: java-eureka-server-usage.md
-            displayName: java
-          - name: Use Admin for Spring
-            href: java-admin-for-spring-usage.md
-            displayName: java
           - name: Integrate Eureka Server with Admin for Spring
             href: java-admin-eureka-integration.md
-            displayName: java
-          - name: Use Config Server for Spring
-            href: java-config-server-usage.md
-            displayName: java
-          - name: Use Gateway for Spring
-            href: java-gateway-for-spring-usage.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
