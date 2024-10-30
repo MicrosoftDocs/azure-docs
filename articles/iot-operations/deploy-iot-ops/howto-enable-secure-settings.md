@@ -102,7 +102,7 @@ Secrets Management for Azure IoT Operations uses Secret Store extension to sync 
 
 Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
-1. Create an [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli) which will be used to store secrets.
+1. Create an [Azure Key Vault](/azure/key-vault/secrets/quick-create-cli) which will be used to store secrets.
 2. Make sure you have `Key Vaults Secrets Officer` role on the Azure Key Vault.
 3. Create a [User Assigned Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) for secret store extension.
 5. Use the [az iot ops secretsync enable](/cli/azure/iot/ops) command to set up the Azure IoT Operations instance for secret synchronization.
