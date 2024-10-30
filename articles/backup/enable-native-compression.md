@@ -35,7 +35,7 @@ SAP ASE supports various compression levels, allowing you to choose based on you
 
 ## Recommended Setup
 
-For best results, we recommend using compression level 101. When the pre-registration script runs, it adds the compressionLevel parameter to the configuration file, with the default set to 101. You can modify this based on your needs.
+For best results, we recommend using compression level 101. When the preregistration script runs, it adds the compressionLevel parameter to the configuration file, with the default set to 101. You can modify this based on your needs.
 
 ## Changing the Compression Level
 
