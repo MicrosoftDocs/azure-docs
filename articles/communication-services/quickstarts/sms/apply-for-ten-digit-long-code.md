@@ -118,7 +118,27 @@ Once all fields are completed, click **Next** to proceed to the **Review** tab.
 ### Review and Submit
 Review all information on the **Review** tab and submit your campaign application. Campaign approval may take 2–3 business days.
 
-### Linking number to the brand and campaign
+### Linking a Phone Number to an Approved Campaign
+
+Once your campaign is approved, follow these steps to link a phone number to it:
+
+1. **Access the Phone Numbers Blade**:
+   - Go to the **Azure Communication Services** portal.
+   - Select **Phone Numbers** from the left navigation pane.
+
+2. **Select the Phone Number**:
+   - Choose the phone number you want to associate with the approved campaign by clicking on it.
+
+3. **Set SMS Capability and Campaign**:
+   - Under **Features**, select **Send SMS** or **Send and receive SMS** as needed.
+   - In the **Campaign** section, select the appropriate campaign ID from the dropdown list.
+
+4. **Save Changes**:
+   - Click **Save** to apply the settings.
+
+> **Note**: It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
+
+:::image type="content" source="./media/link-number-to-campaign/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/link-number-to-campaign.png":::
 
 ### Checking Status of Brand and Campaign Registration
 
@@ -142,9 +162,6 @@ After submitting your brand and campaign registration, you can check the status 
      - **Approved**: Your campaign is approved, and you are authorized to start messaging.
      - **Rejected**: Your campaign was rejected. Check the details for the reason, make corrections, and resubmit as needed.
 
-4. **Receive Notifications**:
-   - You will also receive email notifications with updates on your registration statuses, including any required actions if issues are identified.
-
-> **Warning**: Providing incorrect information may result in brand or campaign rejection, leading to potential delays. Ensure all details are accurate to avoid interruptions.
-
 Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration allows you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
+
+:::image type="content" source="./media/apply-for-campaign-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-campaign-registration/campaign-registration-status.png":::
