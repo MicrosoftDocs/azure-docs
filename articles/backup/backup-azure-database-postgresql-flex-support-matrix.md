@@ -19,15 +19,15 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 ## Support scenarios
 
-- PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to re-build the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
+- PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to rebuild the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 
-- Only weekly backups are supported with option to opt for one day in the week on which backup will be initiated on.
+- Only weekly backups are supported with option to opt for one day in the week on which backup is initiated.
 
 - Both Cross Region and Cross Subscription backups are supported.
 
 - Recommended limit for the maximum database size is 400 GB.
 
-- Recommended backup frequency for backing up a server is Weekly. In case you opt for Daily backup and observe failures, we recommend to decrease the frequency while relying on automated backup solution to achieve required RPO.  
+- Recommended backup frequency for backing up a server is Weekly. In case you opt for Daily backup and observe failures, we recommend decreasing the frequency while relying on automated backup solution to achieve required RPO.  
 
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 
@@ -36,9 +36,9 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 ## Limitation
 
--  Currently, restoring backups directly to flexible server is not supported.
+-  Currently, restoring backups directly to flexible server isn't supported.
 
--  Currently, backing up individual databases is not supported. You can only back up the entire server.
+-  Currently, backing up individual databases isn't supported. You can only back up the entire server.
 
 
 ## Next steps
