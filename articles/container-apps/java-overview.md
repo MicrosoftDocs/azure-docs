@@ -125,9 +125,9 @@ Cores are available in 0.25 core increments, with memory available at a 2:1 rati
 
 Azure Container Apps offers support for the following Spring Components as managed services:
 
-- **Eureka Server for Spring**: Service registration and discovery are key requirements for maintaining a list of live application instances. Your application uses this list to for routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Eureka Server simplifies the management of service discovery by functioning as a [service registry](java-eureka-server-usage.md) where microservices can register themselves and discover other services within the system.
+- **Eureka Server for Spring**: Service registration and discovery are key requirements for maintaining a list of live application instances. Your application uses this list to for routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Eureka Server simplifies the management of service discovery by functioning as a [service registry](java-eureka-server.md) where microservices can register themselves and discover other services within the system.
 
-- **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server-usage.md) in a cloud-native environment.
+- **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server.md) in a cloud-native environment.
 
 - **Admin for Spring**： The Admin for Spring managed component provides an administrative interface is designed for Spring Boot web applications that have actuator endpoints. A managed component provides integration and management to your container app by allowing you to bind your container app to the [Admin for Spring component](java-admin.md).
 

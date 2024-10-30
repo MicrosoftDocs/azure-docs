@@ -214,8 +214,8 @@ az group delete \
     --resource-group $RESOURCE_GROUP
 ```
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
-> [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
-> [Configure Admin for Spring settings](java-admin-for-spring-usage.md)
+> [Tutorial: Connect to a managed Admin for Spring in Azure Container Apps](java-admin.md)
+> [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](java-eureka-server.md)
