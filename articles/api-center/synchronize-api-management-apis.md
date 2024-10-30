@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/29/2024
 ms.author: danlep 
 ms.custom: devx-track-azurecli
-# Customer intent: As an API program manager, I want to integrate my Azure API Management instance to my API center and synchronize API Management APIs to my inventory.
+# Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
 # Synchronize APIs from an API Management instance
@@ -36,7 +36,7 @@ You can add or update metadata properties and documentation in your API center t
 
 The following table shows entity properties that can be modified in Azure API Center and properties that are determined based on their values in a linked Azure API Management instance. Also, entities' resource or system identifiers in Azure API Center are generated automatically and can't be modified.
 
-| Entity       | API Center                     | API Management                                           |
+| Entity       | Properties configurable in API Center                     | Properties determined in API Management                                           |
 |--------------|-----------------------------------------|-----------------|
 | API          | summary<br/>lifecycleStage<br/>termsOfService<br/>license<br/>externalDocumentation<br/>customProperties    | title<br/>description<br/>kind                   |
 | API version  | lifecycleStage      | title                                                |
