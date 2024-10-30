@@ -2441,8 +2441,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/storage/blobs/storage-blob-get-started-typescript.md",
-            "redirect_url": "/azure/storage/blobs/storage-blob-get-started-javascript",
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-typescript-get-started.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-javascript-get-started",
             "redirect_document_id": false
         },
         {
