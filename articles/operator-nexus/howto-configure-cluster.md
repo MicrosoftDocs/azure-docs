@@ -74,7 +74,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                            |
 | CLUSTER_LOCATION          | The local name of the Cluster                                                                                         |
 | AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                            |
-| AGGR_RACK_SKU             | Rack SKU for Aggregator Rack  *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skusus.md)                                                                                        |
+| AGGR_RACK_SKU             | Rack SKU for Aggregator Rack  *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skus-us.md)                                                                                        |
 | AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                |
 | AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                            |
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                            |
@@ -83,7 +83,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | SA_USER                   | Storage Appliance admin user                                                                                          |
 | SA_SN                     | Storage Appliance Serial Number                                                                                       |
 | COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                               |
-| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skusus.md)                                             |
+| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skus-us.md)                                             |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                   |
 | COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                               |
 | COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password; repeat for each rack in compute-rack-definitions and for each server in rack         |
