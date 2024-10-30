@@ -318,7 +318,19 @@ To use an HTTP proxy server to route traffic for Microsoft Entra, follow these s
 >[!Note]
 >No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
 
+#### Use outbound rules
 
+If the **Firewall** or **NSG** setting block the `management.azure.com` domain from Azure Virtual Machine, snapshot backups will fail.
+
+Create the following outbound rule and allow the domain name to back up the database. Learn [how to create the outbound rules](/azure/machine-learning/how-to-access-azureml-behind-firewall).
+
+- **Source**: IP address of the VM.
+- **Destination**: Service Tag.
+- **Destination Service Tag**: AzureResourceManager
+
+
+
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 
 
