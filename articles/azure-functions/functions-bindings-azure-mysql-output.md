@@ -40,7 +40,7 @@ This section contains the below example:
 The examples refer to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -73,10 +73,12 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.MySql;
+using Microsoft.Azure.Functions.Worker.Http;
+using AzureMySqlSamples.Common;
 
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.OutputBindingSamples
+namespace AzureMySqlSamples.OutputBindingSamples
 {
     public static class AddProduct
     {
@@ -84,7 +86,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.OutputBindingSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproduct")]
             [FromBody] Product prod,
-            [MySql("`Products`", "MySqlConnectionString")] out Product product)
+            [MySql("Products", "MySqlConnectionString")] out Product product)
         {
             product = prod;
             return new CreatedResult($"/api/addproduct", product);
@@ -104,7 +106,7 @@ This section contains the below example:
 The examples refer to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -137,10 +139,12 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
+using Microsoft.Azure.WebJobs.Extensions.MySql;
+using AzureMySqlSamples.Common;
 
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.OutputBindingSamples
+namespace AzureMySqlSamples.OutputBindingSamples
 {
     public static class AddProduct
     {
@@ -148,7 +152,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.OutputBindingSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproduct")]
             [FromBody] Product prod,
-            [MySql("`Products`", "MySqlConnectionString")] out Product product)
+            [MySql("Products", "MySqlConnectionString")] out Product product)
         {
             product = prod;
             return new CreatedResult($"/api/addproduct", product);
@@ -529,6 +533,11 @@ CREATE TABLE Products (
 	Cost int NULL
 );
 ```
+
+> [!NOTE]
+> Please note that Azure Functions version 1.22.0b4 must be used for Python .
+>
+
 
 <a id="http-trigger-write-records-to-table-python"></a>
 ### HTTP trigger, write records to a table

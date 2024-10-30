@@ -151,12 +151,12 @@ You can use the preview extension bundle with an update to the `pom.xml` file in
 
 ## MySQL connection string
 
-Azure Database for MySQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the MySql.Data.MySqlClient library and supports the connection string as defined in the [MySqlClient ConnectionString documentation](/dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html#connecting-using-uri).  Notable keywords include:
+Azure Database for MySQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the MySql.Data.MySqlClient library and supports the connection string as defined in the [MySqlClient ConnectionString documentation](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html).  Notable keywords include:
 
-- `user` the MySQL user account to provide for the authentication process
-- `host` the host on which the server instance is running. The value can be a host name, IPv4 address, or IPv6 address. 
-- `port` the TCP/IP network port on which the target MySQL server is listening for connections. 
-- `schema` The default database for the connection. If no database is specified, the connection has no default database
+- `server` the host on which the server instance is running. The value can be a host name, IPv4 address, or IPv6 address. 
+- `uid` the MySQL user account to provide for the authentication process
+- `pwd` the password to use for the authentication process. 
+- `database` The default database for the connection. If no database is specified, the connection has no default database
 
 ## Considerations
 

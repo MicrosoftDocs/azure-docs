@@ -41,7 +41,7 @@ This section contains the following examples:
 The examples refer to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -80,23 +80,25 @@ The following example shows a C# function that retrieves a single record. The fu
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.MySql;
+using Microsoft.Azure.Functions.Worker.Http;
+using AzureMySqlSamples.Common;
 
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+namespace AzureMySqlSamples.InputBindingIsolatedSamples
 {
-    public static class GetProducts
+    public static class GetProductById
     {
-        [FunctionName(nameof(GetProducts))]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{productid}")]
-            HttpRequest req,
-            [MySql("select * from Products where Cost = @Cost",
+        [Function(nameof(GetProductById))]
+        public static IEnumerable<Product> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{productId}")]
+            HttpRequestData req,
+            [MySqlInput("select * from Products where ProductId = @productId",
                 "MySqlConnectionString",
-                parameters: "@productId={productid}")]
+                parameters: "@ProductId={productId}")]
             IEnumerable<Product> products)
         {
-            return new OkObjectResult(products);
+            return products;
         }
     }
 }
@@ -111,23 +113,24 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.MySql;
+using Microsoft.Azure.Functions.Worker.Http;
+using AzureMySqlSamples.Common;
+ 
+namespace AzureMySqlSamples.InputBindingIsolatedSamples
 {
     public static class GetProducts
     {
-        [FunctionName(nameof(GetProducts))]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{cost}")]
-            HttpRequest req,
-            [MySql("select * from Products where Cost != @Cost",
-                "MySqlConnectionString",
-                parameters: "@Cost={cost}")]
+        [Function(nameof(GetProducts))]
+        public static IEnumerable<Product> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts")]
+            HttpRequestData req,
+            [MySqlInput("select * from Products",
+                "MySqlConnectionString")]
             IEnumerable<Product> products)
         {
-            return new OkObjectResult(products);
+            return products;
         }
     }
 }
@@ -150,7 +153,7 @@ END
 ```
 
 ```cs
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+namespace AzureMySqlSamples.InputBindingSamples
 {
     public static class GetProductsStoredProcedure
     {
@@ -183,7 +186,7 @@ This section contains the following examples:
 The examples refer to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -221,20 +224,21 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+using Microsoft.Azure.WebJobs.Extensions.MySql;
+using AzureMySqlSamples.Common;
+ 
+namespace AzureMySqlSamples.InputBindingSamples
 {
     public static class GetProductById
     {
-        [FunctionName(nameof(GetProducts))]
+        [FunctionName("GetProductById")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{productid}")]
-            HttpRequest req,
-            [MySql("select * from Products where ProductId= @productId",
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "getproducts/{productId}")] HttpRequest req,
+            [MySql("select * from Products where ProductId = @productId",
                 "MySqlConnectionString",
-                parameters: "@productId={productid")]
+                parameters: "@ProductId={productId}")]
             IEnumerable<Product> products)
         {
             return new OkObjectResult(products);
@@ -252,20 +256,20 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+using Microsoft.Azure.WebJobs.Extensions.MySql;
+using AzureMySqlSamples.Common;
+ 
+namespace AzureMySqlSamples.InputBindingSamples
 {
     public static class GetProducts
     {
-        [FunctionName(nameof(GetProducts))]
+        [FunctionName("GetProducts")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "getproducts/{cost}")]
-            HttpRequest req,
-            [MySql("select * from Products where Cost != @Cost",
-                "MySqlConnectionString",
-                parameters: "@Cost={cost}")]
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "getproducts")] HttpRequest req,
+            [MySql("select * from Products",
+                "MySqlConnectionString")]
             IEnumerable<Product> products)
         {
             return new OkObjectResult(products);
@@ -291,7 +295,7 @@ END
 ```
 
 ```cs
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.InputBindingSamples
+namespace AzureMySqlSamples.InputBindingSamples
 {
     public static class GetProductsStoredProcedure
     {
@@ -1118,6 +1122,10 @@ CREATE TABLE Products (
 );
 ```
 
+> [!NOTE]
+> Please note that Azure Functions version 1.22.0b4 must be used for Python .
+>
+
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
@@ -1492,7 +1500,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-The attribute's constructor takes the MySQL command text, the command type, parameters, and the connection string setting name. The command can be a MYSQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html#connecting-using-uri) to the Azure Database for MySQL.
+The attribute's constructor takes the MySQL command text, the command type, parameters, and the connection string setting name. The command can be a MYSQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.
 
 
 If an exception occurs when a MySQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.

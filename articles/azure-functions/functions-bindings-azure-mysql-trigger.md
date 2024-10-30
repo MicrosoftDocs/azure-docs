@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 > While input and output bindings will be supported on all plans, the MySQL Trigger binding will be available only on [dedicated and premium plans](functions-scale.md) during the public preview. Support for Consumption plans in the MySQL Trigger binding will be introduced at general availability.
 > 
 
-The Azure Database for MySQL trigger creates a new column to monitor when a row is created, or deleted. The Trigger bindings monitor the user table for changes (inserts, updates) and invokes the function with updated row data.
+The Azure Database for MySQL Trigger bindings monitor the user table for changes (inserts, updates) and invokes the function with updated row data.
 
 Azure MySQL Trigger bindings use "az_func_updated_at" and column's data, to monitor the user table for changes. As such, it is necessary to alter the table structure to allow change tracking on the MySQL table before using the trigger support. The change tracking can be enabled on a table through following query. For example, enable on ‘Products’ table:
 
@@ -53,7 +53,7 @@ Changes are processed in the order that they were made, with the oldest changes 
 2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop, then only the latest change entry exists for that row will be considered.
 
 > [!NOTE]
->Trigger Binding with table name containing alphanuemric & _(underscore) are supported. Apart from that Trigger Binding doesn't support any other special characters like (-, * $).
+>Trigger Binding with table name containing alphanuemric & _(underscore) are supported. Apart from that Trigger Binding doesn't support any other special characters like (-, *, $).
 >
 
 
@@ -71,7 +71,7 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 The example refers to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -122,11 +122,12 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 using System.Collections.Generic;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.MySql;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.TriggerBindingSamples
+namespace AzureMySqlSamples.TriggerBindingSamples
 {
     public static class ProductsTrigger
     {
@@ -153,7 +154,7 @@ More samples for the Azure Database for MySQL trigger are available in the [GitH
 The example refers to a `Product` class and a corresponding database table:
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common
+namespace AzureMySqlSamples.Common
 {
     public class Product
     {
@@ -202,11 +203,12 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 using System.Collections.Generic;
-using Microsoft.Azure.WebJobs.Extensions.MySql.Samples.Common;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.MySql;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Microsoft.Azure.WebJobs.Extensions.MySql.Samples.TriggerBindingSamples
+namespace AzureMySqlSamples.TriggerBindingSamples
 {
     public static class ProductsTrigger
     {
@@ -519,6 +521,11 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
+> [!NOTE]
+> Please note that Azure Functions version 1.22.0b4 must be used for Python .
+>
+
+
 The MySQL trigger binds to a variable `Product`, a list of objects each with two properties:
 - **item:** the item that was changed. The structure of the item will follow the table schema.
 - **operation:** The possible values is `Update` for both insert and update.
@@ -597,7 +604,7 @@ def main(changes):
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | Required. The name of the table monitored by the trigger.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
 
 
@@ -614,7 +621,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **name** | Required. The name of the parameter that the trigger binds to. |
 | **tableName** | Required. The name of the table monitored by the trigger.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
 
 ::: zone-end
@@ -631,7 +638,7 @@ The following table explains the binding configuration properties that you set i
 | **type** | Required. Must be set to `MysqlTrigger`. |
 | **direction** | Required. Must be set to `in`. |
 | **tableName** | Required. The name of the table monitored by the trigger.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/refman/8.4/en/connecting-using-uri-or-key-value-pairs.html) to the Azure Database for MySQL.|
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
 | **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name will be Leases_{FunctionId}_{TableId}. 
 
 ::: zone-end
