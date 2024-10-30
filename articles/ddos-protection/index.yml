@@ -37,7 +37,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security baseline
-            url: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
+            url: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline.md
           - text: Reliability
             url: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
       - linkListType: architecture
@@ -78,14 +78,15 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Deploy with Application Gateway 
+            url: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json  
+          - text: Deploy with Firewall 
+            url: ../firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json    
+          - text: Deploy with Load Balancer 
+            url: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json                
           - text: Deploy with Route Server 
             url: ../route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
-          - text: Deploy with Firewall 
-            url: ../firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json
-          - text: Deploy with Application Gateway 
-            url: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
-          - text: Deploy with Load Balancer 
-            url: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
+
     # Card
   - title: How-to guidance 
     linkLists:
