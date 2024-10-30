@@ -4,7 +4,7 @@ description: Learn what to do when you get VM errors on the Azure portal after y
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 06/13/2023
+ms.date: 10/30/2024
 ms.author: ssteinbrueck
 author: scottsteinbrueck
 ---
