@@ -128,7 +128,7 @@ Once logging is set up and your WAF is receiving traffic, you can assess the eff
 ```json
 AzureDiagnostics
 | where Category == "FrontDoorWebApplicationFirewallLog"
-| where action_s in ("Log", "Action", "Block", "JSChallenge", "Redirect") and ruleName_s contains "BotManager"
+| where action_s in ("Log", "Allow", "Block", "JSChallenge", "Redirect") and ruleName_s contains "BotManager"
 | extend RuleGroup = extract("Microsoft_BotManagerRuleSet-[\\d\\.]+-(.*?)-Bot\\d+", 1, ruleName_s)
 | extend RuleGroupAction = strcat(RuleGroup, " - ", action_s)
 | summarize Hits = count() by RuleGroupAction, bin(TimeGenerated, 30m)
