@@ -284,6 +284,8 @@
           href: troubleshoot-hardware-validation-failure.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot Accepted Cluster Resource
+          href: troubleshoot-accepted-cluster-hydration.md
         - name: BareMetal Actions
           expanded: false
           items:
