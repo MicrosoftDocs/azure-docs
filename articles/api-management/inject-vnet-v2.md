@@ -19,7 +19,7 @@ This article guides you through the requirements to inject your Azure API Manage
 
 When an API Management Premium v2 instance is injected in a virtual network: 
 
-* The API Management gateway and developer portal endpoints are accessible through the virtual network at a private IP address.
+* The API Management gateway endpoint is accessible through the virtual network at a private IP address.
 * API Management can make outbound requests to API backends that are isolated in the network. 
 
 This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
@@ -98,22 +98,20 @@ We recommend:
 
 Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
 
-### Endpoint access on default hostnames
+### Endpoint access on default hostname
 
-When you create an API Management instance in the Premium v2 tier, the following endpoints are assigned default hostnames:
+When you create an API Management instance in the Premium v2 tier, the following endpoint is assigned a default hostname:
 
 * **Gateway** - example: `contoso-apim.azure-api.net`
-* **Developer portal** - example: `contoso-apim.portal.azure-api.net`
 
-### Configure DNS records
+### Configure DNS record
 
-Create A records in your DNS server to access the API Management instance from within your virtual network. Map the endpoint records to the private VIP address of your API Management instance.
+Create an A record in your DNS server to access the API Management instance from within your virtual network. Map the endpoint record to the private VIP address of your API Management instance.
 
 For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the private virtual IP address for your API Management instance is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). For example:
 
 | Internal virtual IP address | Gateway hostname |
 | ----- | ----- |
-| 10.1.0.5 | `contoso-apim.azure-api.net` |
 | 10.1.0.5 | `contoso-apim.portal.azure-api.net` |
 
 ## Related content
