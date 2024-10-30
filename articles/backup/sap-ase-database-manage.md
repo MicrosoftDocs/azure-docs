@@ -42,6 +42,23 @@ Azure Backup shows all manually triggered jobs in the Backup jobs section of Rec
 
 :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/monitor-backup-jobs.png" alt-text="Screenshot showing how to monitor backup jobs." lightbox="media/sap-adaptive-server-enterprise-db-manage/monitor-backup-jobs.png":::
 
+## Review backup status 
+
+Azure Backup periodically synchronizes the datasource between the extension installed on the VM and Azure Backup service, and shows the backup status in the Azure portal. The following table lists the (four) backup status for a datasource: 
+
+| **Backup state** | **Description** |
+| ------------ | ----------- |
+| **Healthy** | The last backup is successful. |
+| **Unhealthy** | The last backup has failed. |
+| **NotReachable** | Currently, there's no synchronization occurring between the extension on the VM and the Azure Backup service. |
+| **IRPending** | The first backup on the datasource hasn't occurred yet. |
+
+Generally, synchronization occurs every *hour*. However, at the extension level, Azure Backup polls every *5 minutes* to check for any changes in the status of the latest backup compared to the previous one. For example, if the previous backup is successful but the latest backup has failed, Azure Backup syncs that information to the service to update the backup status in the Azure portal accordingly to *Healthy or Unhealthy*. 
+
+If no data sync occurs to the Azure Backup service for more than *2 hours*, Azure Backup shows the backup status as *NotReachable*. This scenario might occur if the VM is shut down for an extended period or there's a network connectivity issue on the VM, causing the synchronization to cease. Once the VM is operational again and the extension services restart, the data sync operation to the service resumes, and the backup status changes to *Healthy or Unhealthy* based on the status of the last backup. 
+
+:::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-items.png" alt-text="Screenshot showing the status of backed up items." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-items.png":::
+
 ## Change Backup policy
 
 You can change the underlying policy for an SAP ASE backup items > View details > Backup policy > Change Backup Policy.
