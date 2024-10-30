@@ -20,9 +20,9 @@ Although you can use the Azure CLI to [import](import-api-management-apis.md) AP
 
 When you link an API Management instance as an API source, the following happens:
 
-* All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory.
-* You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
-* An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
+1. All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory.
+1. You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
+1. An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
 
 API Management APIs automatically synchronize to the API center whenever existing APIs' settings change (for example, new versions are added), new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
