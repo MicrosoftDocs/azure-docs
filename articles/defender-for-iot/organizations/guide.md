@@ -41,8 +41,8 @@ Identify the best location to place the sensor in the network, to monitor the ne
 
 For more information, see [placing OT sensors in your network](best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
-**Validation of the sensor location**
-
+### Validate the sensor location
+<!-- THeo is the sensor actually set up now within the network? Not just decided on the location? Or is this done as a simulation? Doesnt e validation come after deployment? And choosing the mirror method? Should this be moved to Post validation section??-->
 After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
 
 :::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
@@ -65,7 +65,7 @@ There are three types of traffic mirroring methods each designed for specific us
 | **Benefits** | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 | **Limitations** | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
 
-**Select mirroring method**
+### Select the mirroring method
 
 When selecting a mirroring method, consider the following factors:
 
@@ -81,7 +81,7 @@ For more information, see [traffic mirroring process](traffic-mirroring/traffic-
 
 ## Deploy the sensors
 
-After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md/).
+After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](../ot-deploy/install-software-ot-sensor.md/).
 
 ## Post deployment validation
 
