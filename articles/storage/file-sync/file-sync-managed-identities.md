@@ -65,7 +65,7 @@ Verify the **LatestApplicationId** property has a GUID which indicates the serve
 If the value for the **ActiveAuthType** property is **Certificate** and the **LatestApplicationId** does not have a GUID, the server does not have a system-assigned managed identity and will use shared keys to authenticate to the Azure file share.
 
 > [!NOTE]
-> Once a server is configured to use the system-assigned managed identity by following the steps in the section below, the **LatestApplicationId** property is longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity** and the **ApplicationId** property will have a GUID which is the system-assigned managed identity.
+> Once a server is configured to use the system-assigned managed identity by following the steps in the following section, the **LatestApplicationId** property is no longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity**, and the **ApplicationId** property will have a GUID which is the system-assigned managed identity.
 
 ## Configure your Azure File Sync deployment to use system-assigned managed identities
 To configure the Storage Sync Service and registered servers to use a system-assigned managed identities, run the following command from an elevated PowerShell window:
