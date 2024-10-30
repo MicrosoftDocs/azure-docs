@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 Data compression in SAP ASE reduces storage consumption, accelerates backup and restore times, and enhances overall performance. It is supported for full, differential, and log backups, offering multiple compression levels to balance between performance and storage savings based on your priorities.
 
-## How to Use Compression
+## How to use compression
 
 You can enable or disable compression in the following scenarios:
 
@@ -24,7 +24,7 @@ You can enable or disable compression in the following scenarios:
 
     :::image type="content" source="media/enable-native-compression/enable-compression.png" alt-text="Screenshot showing how to enable compression.":::
 
-## Compression Levels
+## Compression levels
 
 SAP ASE supports various compression levels, allowing you to choose based on your specific needs:
 - **Levels 1-3**: Optimized for faster compression and decompression, prioritizing performance.
@@ -33,11 +33,11 @@ SAP ASE supports various compression levels, allowing you to choose based on you
 - **Level 100**: Specialized for certain data types.
 - **Level 101**: Advanced compression designed for improved performance with specific data patterns.
 
-## Recommended Setup
+## Recommended setup
 
 For best results, we recommend using compression level 101. When the preregistration script runs, it adds the compressionLevel parameter to the configuration file, with the default set to 101. You can modify this based on your needs.
 
-## Changing the Compression Level
+## Changing the compression Level
 
 There are two ways to update the compression level:
 
