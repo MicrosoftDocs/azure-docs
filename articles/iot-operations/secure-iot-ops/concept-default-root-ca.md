@@ -96,7 +96,13 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
   Cert-manager manages TLS certificates.
 
 1. Install [trust-manager](https://cert-manager.io/docs/trust/trust-manager/installation/).
-  Trust-manager is used to distribute a trust bundle to components.
+   While installing trust manager, set the `trust namespace` to cert-manager. For example:
+
+      ```bash
+      helm upgrade trust-manager jetstack/trust-manager --install --namespace cert-manager --set app.trust.namespace=cert-manager --wait
+      ```
+   
+      Trust-manager is used to distribute a trust bundle to components.
   
 1. Create the Azure IoT Operations namespace.
   
@@ -118,9 +124,17 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
       kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> --from-file=<CA_CERTIFICATE_FILENAME_PEM_OR_DER>
       ```
 
-1. Follow steps in [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy. *Add the `--trust-settings` parameter while initializing Azure IoT Operations.* For example:
+1. Follow steps in [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy, *with a few changes*.
+    1. Add the `--user-trust` parameter while preparing cluster. For example:
 
-   ```bash
-   az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
-   ```
+         ```bash
+             az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> ----user-trust
+          ```
+     
+    2.  Add the `--trust-settings` parameter while deploying Azure IoT Operations. For example:
+
+          ```bash
+           az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOME_LOCATION> -n <iNSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind= 
+          <CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+          ```
   
