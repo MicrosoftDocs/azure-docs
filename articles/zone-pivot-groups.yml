@@ -1020,7 +1020,7 @@ groups:
   prompt: Select a CI/CD system
   pivots:
   - id: azure-pipelines
-    title: Azure Pipelines agent
+    title: Azure Pipelines
   - id: github-actions
     title: GitHub Actions
 # Owner: cshoe
