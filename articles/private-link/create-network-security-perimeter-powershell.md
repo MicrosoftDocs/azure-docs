@@ -22,9 +22,10 @@ Get started with network security perimeter by creating a network security perim
 [!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 - The latest version of the Azure PowerShell module with tools for network security perimeter.
-```azurepowershell
-Install-Module -Name Az.Tools.Installer -Repository PSGallery
-```
+  
+    ```azurepowershell
+    Install-Module -Name Az.Tools.Installer -Repository PSGallery
+    ```
 
 - Use `Az.Tools.Installer` to install the preview build of the `Az.Network`:
 
@@ -121,47 +122,47 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 1. Create a new profile for your network security perimeter with the following command:
 
-```azurepowershell-interactive
-    # Create a new profile
-    
-    $nspProfile = @{ 
-        Name = 'nsp-profile' 
-        ResourceGroupName = $rgParams.name 
-        SecurityPerimeterName = $nsp.name 
-        }
-    
-    $demoProfileNSP=New-AzNetworkSecurityPerimeterProfile @nspprofile
-```
+    ```azurepowershell-interactive
+        # Create a new profile
+        
+        $nspProfile = @{ 
+            Name = 'nsp-profile' 
+            ResourceGroupName = $rgParams.name 
+            SecurityPerimeterName = $nsp.name 
+            }
+        
+        $demoProfileNSP=New-AzNetworkSecurityPerimeterProfile @nspprofile
+    ```
 
 2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile with the following command: 
 
-```azurepowershell-interactive
-    # Associate the PaaS resource with the above created profile
+    ```azurepowershell-interactive
+        # Associate the PaaS resource with the above created profile
+        
+        $nspAssociation = @{ 
+            AssociationName = 'nsp-association' 
+            ResourceGroupName = $rgParams.name 
+            SecurityPerimeterName = $nsp.name 
+            AccessMode = 'Learning'  
+            ProfileId = $demoProfileNSP.Id 
+            PrivateLinkResourceId = $keyVault.ResourceID
+            }
     
-    $nspAssociation = @{ 
-        AssociationName = 'nsp-association' 
-        ResourceGroupName = $rgParams.name 
-        SecurityPerimeterName = $nsp.name 
-        AccessMode = 'Learning'  
-        ProfileId = $demoProfileNSP.Id 
-        PrivateLinkResourceId = $keyVault.ResourceID
-        }
-
-    New-AzNetworkSecurityPerimeterAssociation @nspassociation | format-list
-```
+        New-AzNetworkSecurityPerimeterAssociation @nspassociation | format-list
+    ```
 
 3. Update association by changing the access mode to `enforced` with the `Update-AzNetworkSecurityPerimeterAssociation` command as follows:
 
-```azurepowershell-interactive
-    # Update the association to enforce the access mode
-    $updateAssociation = @{ 
-        AssociationName = $nspassociation.AssociationName 
-        ResourceGroupName = $rgParams.name 
-        SecurityPerimeterName = $nsp.name 
-        AccessMode = 'Enforced'
-        }
-    Update-AzNetworkSecurityPerimeterAssociation @updateAssociation | format-list
-```     
+    ```azurepowershell-interactive
+        # Update the association to enforce the access mode
+        $updateAssociation = @{ 
+            AssociationName = $nspassociation.AssociationName 
+            ResourceGroupName = $rgParams.name 
+            SecurityPerimeterName = $nsp.name 
+            AccessMode = 'Enforced'
+            }
+        Update-AzNetworkSecurityPerimeterAssociation @updateAssociation | format-list
+    ```     
 
 ## Create and update network security perimeter access rules
 
