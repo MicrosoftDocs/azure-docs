@@ -1,12 +1,13 @@
 ---
 title: Create an Azure Virtual Desktop golden image
 description: A walkthrough for how to set up a golden image for your Azure Virtual Desktop deployment in the Azure portal.
-author: cshea-msft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 12/01/2021
-ms.author: chashea
-manager: bterkaly 
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Create a golden image in Azure
 This article will walk you through how to use the Azure portal to create a custom image to use for your Azure Virtual Desktop session hosts. This custom image, which we'll call a "golden image," contains all apps and configuration settings you want to apply to your deployment.
 There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) or automating your image build using tools like [Azure Image Builder](/azure/virtual-machines/windows/image-builder-virtual-desktop) with [Azure DevOps](/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops&preserve-view=true). Which strategy works best depends on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
