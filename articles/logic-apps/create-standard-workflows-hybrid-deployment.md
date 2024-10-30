@@ -120,14 +120,20 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
 1. In the Azure portal, on the logic app menu, under **Workflows**, you can add, edit, and manage workflows as usual.
 
-   Standard logic apps that you create with the hybrid deployment model support multiple workflow *revisions* or versions. Each time that you save changes to your workflow, Azure creates a new workflow revision.
-
-   > [!TIP]
+   > [!NOTE]
    >
-   > After you save your workflow, wait for 1-2 minutes before you test your workflow.
-   > If your changes still don't appear in your workflow run, on the container app menu, 
-   > under **Revisions**, select **Revisions and replicas** to check whether the revision 
-   > was created and appears on the list.
+   > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
+   > or a version of the logic app resource, whenever you save changes to a child workflow.
+   >
+   > This revision might take a little time to activate, which means that after you save 
+   > any changes, you might want to wait several moments before you test your workflow.
+   >
+   > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
+   >
+   > 1. On the resource menu, under **Revisions**, and select **Revisions and replicas**.
+   >
+   > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
+   >    a new revision appears on the list.
 
    For more information, see the following resources:
 
@@ -245,9 +251,9 @@ To edit the CPU and memory settings for your Standard logic app resource, follow
 
 <a name="change-scaling"></a>
 
-## Change replica scaling in the Azure portal
+## Change replica scaling in Azure portal
 
-You can control the automatic scaling for the range of replicas that deploy in response to a trigger event. A *replica* is a new instance of a workflow revision or version. To change the minimum and maximum values for this range, you can modify the scale rules to determine the event types that trigger scaling. For more information, see [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
+You can control the automatic scaling for the range of replicas that deploy in response to a trigger event. A *replica* is a new instance of a container app revision or version. To change the minimum and maximum values for this range, you can modify the scale rules to determine the event types that trigger scaling. For more information, see [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -261,6 +267,12 @@ You can control the automatic scaling for the range of replicas that deploy in r
    | **Max replicas** | - Default: 30 <br>- Minimum: 0 <br>- Maximum: 1000 | Determines the maximum number of replicas allowed for the revision at any given time. This value overrides scale rules. |
 
 1. When you finish, select **Save**.
+
+<a name="inbound-traffic"></a>
+
+## Control inbound traffic to your logic app in Azure portal
+
+
 
 <a name="authenticate-managed-api-connections"></a>
 

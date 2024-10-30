@@ -19,22 +19,22 @@ ms.date: 10/14/2024
 > This capability is in preview, incurs charges for usage, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Logic Apps supports scenarios where you need to use your own managed infrastructure to deploy and host Standard logic app workflows by offering a hybrid deployment model. This model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
+Azure Logic Apps supports scenarios where you need to use and manage your own infrastructure to deploy and host Standard logic app workflows by offering a hybrid hosting option. This hybrid deployment model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
 
 The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
-- Azure Arc-enabled Kubernetes clusters, Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
+- Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
 - A SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged* infrastructure (HCI)](/azure-stack/hci/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/aks/hybrid/kubernetes-walkthrough-powershell).
+
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
 - [Core concepts for Azure Kubernetes Service (AKS)](/azure/aks/concepts-clusters-workloads)
-- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
 - [Custom locations for Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/platform/conceptual-custom-locations)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
@@ -43,7 +43,11 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 ## Limitations
 
-- Hybrid deployment is currently available and supported only for Azure Arc-enabled Azure Kubernetes Service (AKS) clusters and Azure Arc-enabled Kubernetes clusters on Azure Stack HCI.
+- Hybrid deployment is currently available and supported only for the following Azure Arc-enabled Kubernetes clusters:
+
+  - Azure Arc-enabled Kubernetes clusters
+  - Azure Arc-enabled Kubernetes clusters on Azure Stack HCI
+  - Azure Arc-enabled Kubernetes clusters on Windows Server
 
 ## Prerequisites
 
@@ -64,12 +68,14 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > [!NOTE]
 >
 > You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
-> and apply the steps in this how-to guide to connect your cluster to Azure Arc and to set up your 
-> connected environment. For more information about Azure Stack HCI, see the following resources:
+> or [Kubernetes cluster on Windows Server](/aks/hybrid/overview) and apply the steps in this how-to guide 
+> to connect your cluster to Azure Arc and set up your connected environment. For more information 
+> about Azure Stack HCI and AKS on Windows Server, see the following resources:
 >
 > - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
 > - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
 > - [Create Kubernetes clusters on Azure Stack HCI using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
+> - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/aks/hybrid/kubernetes-walkthrough-powershell)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
