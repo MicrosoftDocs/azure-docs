@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Use components and composites in the Azure Communication Services UI Library to create call and chat experiences in your applications. 
+Use components and composites in Azure Communication Services UI Library to create call and chat experiences in your applications.
 
 In a composite, call and chat capabilities are built in directly and exposed when you integrate the composite into an application. In a UI component, call and chat capabilities are exposed through a combination of UI functionality and underlying stateful libraries. To take full advantage of these capabilities, we recommend that you use UI components with stateful call and chat client libraries.
 
@@ -21,7 +21,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |                     | Join an Azure Communication Services [room](../../rooms/room-concept.md). |
 |                     | Start an outbound call to another Azure Communication Services user. |
 |                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#voice-calling-pstn). |
-| [Teams interoperability](../../teams-interop.md)      | Join the call lobby                                             |
+| [Teams interoperability](../../teams-interop.md)      | Join the call lobby.                                             |
 |                     | Display a transcription and recording alert banner.               |
 | Call controls       | Mute and unmute a call.                                       |
 |                     | Turn video on and off during a call.                                   |
@@ -40,11 +40,11 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 ## Chat use cases
 
 
-| Area         | Azure Communication Services Chat                | Teams Interoperability Chat                 |
+| Area         | Azure Communication Services chat                      | Teams interoperability chat                 |
 | ------------ | ------------------------------------------------ | ------------------------------------------- |
-| Chat types   | Join an Azure Communication Services chat thread. | Join a Microsoft Teams meeting chat.         |
-| Chat actions | Send and receive text messages.                   | Send and receive text messages.              |
-|              | Send and receive rich text messages\*.            | Send and receive rich text messages\*.       |
+| Chat types   | Join an Azure Communication Services chat thread.       | Join a Microsoft Teams meeting chat.         |
+| Chat actions | Send and receive text messages.                  | Send and receive text messages.              |
+|              | Send and receive rich text messages\*.           | Send and receive rich text messages\*.       |
 |              | -                                                | [Receive inline images](../../../tutorials/inline-image-tutorial-interop-chat.md).                       |
 |              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md).                   | [Receive file attachments\*](../../../tutorials/file-sharing-tutorial-interop-chat.md).                 |
 | Chat events  | Send and receive typing indicators.                  | Send and receive typing indicators\*\*.             |
@@ -52,18 +52,17 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show when a participant is added or removed.      | Show when a participant is added or removed. |
 | Participants | Show a participant roster.                        | Show a participant roster.                   |
 
-
 \*Send rich text messages and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-\*\*The display name of typing event from the Teams user might not be shown properly.
+\*\*The display name of the typing event from the Teams user might not show properly.
 
 ## Supported identities
 
-To initialize a composite, and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 
 ## Teams interoperability
 
-For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Communication Services. To enable Teams interoperability, use either the default features in the call composite or the chat composite. You can also use UI components to build a custom experience.
+For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Azure Communication Services. To enable Teams interoperability, use either the default features in the call composite or the chat composite. You can also use UI components to build a custom experience.
 
 When you add both calling and chat to an application, remember that the chat client can't be initialized until the participant is admitted to the call. After the participant is admitted, you can initialize the chat client to join the meeting chat thread. The pattern is demonstrated in the following figure.
 
@@ -74,12 +73,12 @@ If you use UI components to deliver Teams interoperability experiences, begin by
 - [Lobby example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby): A sample lobby where a participant can wait to be admitted to a call.
 - [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner): A sample banner that shows the user if the call is being recorded.
 - [Teams theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams): A sample theme that makes UI Library elements look like Microsoft Teams.
-- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md): A sample that shows how a Communication Service user can receive images sent by the Teams user.
-- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md): A sample that shows how a Communication Service user can receive file attachments sent by the Teams user.
+- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md): A sample that shows how an Azure Communication Service user can receive images sent by the Teams user.
+- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md): A sample that shows how an Azure Communication Service user can receive file attachments sent by the Teams user.
 
 ## Customization
 
-Use UI Library patterns to modify components to match the look and feel of your application. Customization is a key difference between composites and UI components in Communication Services. Composites have fewer customization options for a simpler integration experience.
+Use UI Library patterns to modify components to match the look and feel of your application. Customization is a key difference between composites and UI components in Azure Communication Services. Composites have fewer customization options for a simpler integration experience.
 
 The following table compares composites and UI components for customization use cases.
 
@@ -95,7 +94,7 @@ The following table compares composites and UI components for customization use 
 
 ## Observability
 
-The state management architecture of UI Library is decoupled, so you can access stateful call and chat clients directly. You can hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
+The state management architecture of UI Library is decoupled, so you can access stateful call and chat clients directly. Hook into the stateful client to read the state, handle events, and override behavior to pass onto the UI components.
 
 The following table compares composites and UI components for observability use cases.
 
@@ -107,11 +106,11 @@ The following table compares composites and UI components for observability use 
 
 ## Recommended architecture
 
-Initialize a composite and base component by using a Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [Trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite and base component by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended UI Library architecture.":::
 
-Call and chat client libraries must have the context for the call or chat they join. Like user access tokens, disseminate the context to clients by using your own trusted service.
+Call and chat client libraries must have the context for the call or chat they join. Disseminate the context to clients by using your own trusted service. For example, use user access tokens.
 
 The following table summarizes initialization and resource management functions that are required to add context to a client library.
 
@@ -142,7 +141,7 @@ Localization is key to making products for users around the world who speak diff
 
 ## Known issues
 
-The UI library doesn't support updating message type when editing existing messages at this time. Adding rich text formatting to an existing message adds HTML styling to the text content. Because this doesn't change the message type, it might result in HTML content displayed as plain text in the message thread.
+UI Library doesn't support updating the message type when editing existing messages at this time. Adding rich text formatting to an existing message adds HTML styling to the text content. Because the message type doesn't change, the result might be HTML content that appears as plain text in the message thread.
 
 
 > [!div class="nextstepaction"]

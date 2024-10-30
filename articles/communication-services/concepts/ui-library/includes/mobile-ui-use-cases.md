@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 09/14/2021
 ---
 
-Use `CallComposite` and `ChatComposite` in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
+Use `CallComposite` and `ChatComposite` in Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call and chat experience in your application. Composites in Azure Communication Services manage the entire lifecycle of the call and chat, from setup until the call and chat end.
 
 ## Calling use cases
 
-You can use the call composite in Communication Services to create these use cases:
+Use the call composite in Azure Communication Services to create these use cases.
 
 | Area                                                                 | Use cases                                                       |
 | -------------------------------------------------------------------- | --------------------------------------------------------------- |
 | [Call types](#call-integration)                                                           | Join a Microsoft Teams meeting.                                  |
-|                                                                      | Join a Microsoft Teams meeting by using a Meeting ID and Passcode.    |
+|                                                                      | Join a Microsoft Teams meeting by using a meeting ID and passcode.    |
 |                                                                      | Join a call by using a group ID.                                 |
 |                                                                      | Join a call by using a room  ID.                                 |
 |                                                                      | [Make and receive 1:1 calls](#one-to-one-call-and-push-notification-support).                                     |
@@ -51,7 +51,7 @@ This section discusses integration for calls.
 
 ### Teams interoperability
 
-For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
+For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI Library composites to add a user to a Teams meeting via Azure Communication Services. To enable Teams interoperability, use the call composite. The composite manages the entire lifecycle of joining a Teams interoperability call.
 
 :::image type="content" source="../../media/mobile-ui/teams-interop-diagram.png" border="false" alt-text="Diagram that shows the Teams interoperability pattern for call and chat.":::
 
@@ -61,9 +61,9 @@ The following figure shows an example of the user experience before a caller is 
 
 ### Rooms integration
 
-Communication Services provides a concept of a room for developers who are building structured conversations, such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+Azure Communication Services provides a concept of a room for developers who are building structured conversations, such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 
-A room is a container that manages activity between Communication Services users. A room offers application developers better control over *who* can join a call, *when* they meet, and *how* they collaborate. To learn more about rooms, see the [conceptual documentation](../../rooms/room-concept.md).
+A room is a container that manages activity between Azure Communication Services users. A room offers application developers better control over *who* can join a call, *when* they meet, and *how* they collaborate. To learn more about rooms, see the [conceptual documentation](../../rooms/room-concept.md).
 
 A user is invited to a room by using the Rooms API in one of the three following roles:
 
@@ -88,11 +88,11 @@ Several features are available for calling.
 
 ### Accessibility
 
-Accessibility is a key focus of the call libraries. You can use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
+Accessibility is a key focus of the call libraries. Use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
 
 ### Closed captions
 
-Closed captions enable a wide range of scenarios, including interoperability with Teams, Communication Services group calls, room calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, enhancing accessibility and user experience.
+Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services group calls, room calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, enhancing accessibility and user experience.
 
 Users need to manually select the language for captions by using UI Library out of the box because the system doesn't automatically detect the spoken language.
 
@@ -123,7 +123,7 @@ UI Library supports screen orientation setup for each of the screens separately 
 
 ### Screen size
 
-You can adapt the Communication Services call composite to adapt to screen sizes from five inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
+Adapt the Azure Communication Services call composite to adapt to screen sizes from five inches to tablet size. Use split mode and tablet mode in the call composite to get the dynamic participants' roster layout, provide clarity on the view, and focus on the conversation.
 
 |Split mode | Tablet mode|
 |---------|---------|
@@ -145,11 +145,11 @@ Integrate with your OS.
 
 ### CallKit support
 
-UI Library supports CallKit integration to handle interaction with CallKit for calls. To learn more about the integration for the iOS platform and use of the API, see [Integrate CallKit into UI Library](../../../how-tos/ui-library-sdk/callkit.md).
+UI Library supports `CallKit` integration to handle interaction with `CallKit` for calls. To learn more about the integration for the iOS platform and use of the API, see [Integrate CallKit into UI Library](../../../how-tos/ui-library-sdk/callkit.md).
 
 ### TelecomManager support
 
-UI Library now supports integration with TelecomManager and allows for the handling of call hold and resume functions. To learn more about the integration for the Android platform and use of the API, see [Integrate TelecomManager into UI Library](../../../how-tos/ui-library-sdk/telecommanager.md).
+UI Library now supports integration with `TelecomManager` and allows for the handling of call hold and resume functions. To learn more about the integration for the Android platform and use of the API, see [Integrate TelecomManager into UI Library](../../../how-tos/ui-library-sdk/telecommanager.md).
 
 ## Customize the call experience
 
@@ -157,13 +157,13 @@ You can customize your call experience.
 
 ### Audio-only mode
 
-The Audio-only mode in UI Library allows participants to join calls by using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio-only mode automatically disables the video functionalities for both sending and receiving streams. It adjusts the UI to reflect this change by removing video-related controls. You can enable this mode through the `CallComposite` configuration. For more information, see the [Audio-only quickstart](../../../how-tos/ui-library-sdk/audio-only-mode.md).
+The audio-only mode in UI Library allows participants to join calls by using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the audio-only mode automatically disables the video functionalities for both sending and receiving streams. It adjusts the UI to reflect this change by removing video-related controls. Enable this mode through the `CallComposite` configuration. For more information, see the [Audio-only quickstart](../../../how-tos/ui-library-sdk/audio-only-mode.md).
 
 ### Disable end call prompt
 
-When you develop applications that integrate calling capabilities, it's crucial to ensure a seamless and intuitive user experience. One area where UX can be streamlined is during the call termination process. Specifically, developers might find it beneficial to disable the left call confirmation prompt that appears when a user wants to end a call. This feature, while useful in preventing accidental call terminations, can sometimes hinder the user experience, especially in environments where speed and efficiency are crucial. For more information, see [Disable the call confirmation](../../../how-tos/ui-library-sdk/leave-call-confirmation.md).
+When you develop applications that integrate calling capabilities, it's crucial to ensure a seamless and intuitive user experience. One area where you can streamline the user experience is during the call termination process. Specifically, developers might find it beneficial to disable the left call confirmation prompt that appears when a user wants to end a call. This feature, while useful in preventing accidental call terminations, can sometimes hinder the user experience, especially in environments where speed and efficiency are crucial. For more information, see [Disable the call confirmation](../../../how-tos/ui-library-sdk/leave-call-confirmation.md).
 
-**Fast-paced communication environments**: In settings such as trading floors, emergency call centers, or customer service centers where decisions and actions must be carried out rapidly, the extra step of confirming call termination can impede workflow efficiency.
+**Fast-paced communication environments**: In settings like trading floors, emergency call centers, or customer service centers, decisions and actions must be carried out rapidly. The extra step of confirming call termination can impede workflow efficiency.
 
 ### Button bar customization
 
@@ -186,13 +186,13 @@ Consider the following constraints during the implementation of this feature:
 - **Custom in-call actions**: A business application can add a custom **Report Issue** button, which allows users to directly report technical issues during a call.
 - **Branding and user experience**: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
 
-To ensure a consistent call experience, we recommend that you integrate Fluent UI icons into your project. They're available at the [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons match the design of the `CallComposite` and create a cohesive and professional appearance.
+To ensure a consistent call experience, we recommend that you integrate Fluent UI icons into your project. They're available at the [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons match the design of the `CallComposite` property and create a cohesive and professional appearance.
 
 #### Best practices
 
 - **Clean design**: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
 - **User testing**: Conduct user testing to ensure that the customizations meet user needs and don't confuse or overwhelm them.
-- **Feedback mechanism**: Adding buttons like **Report Issue** ensure that a robust back-end system is available to handle the feedback collected. You can reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
+- **Feedback mechanism**: Adding buttons like **Report Issue** ensure that a robust back-end system is available to handle the feedback collected. Reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
 
 For more information, see [Customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
 
@@ -202,15 +202,15 @@ UI Library provides the capability to join a call by skipping the setup screen o
 
 ### Theming
 
-You can use UI Library call composite for iOS and Android to create a custom theme of a caller's experience. To create the platform experience, pass a set of theming colors, as shown in the following table. For more information, see [Create your theme](../../../how-tos/ui-library-sdk/theming.md).
+Use UI Library call composite for iOS and Android to create a custom theme of a caller's experience. To create the platform experience, pass a set of theming colors, as shown in the following table. For more information, see [Create your theme](../../../how-tos/ui-library-sdk/theming.md).
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="Screenshot that shows Android theming for a caller experience."::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="Screenshot that shows iOS theming for a caller experience.":::  |
 
-### Title and Subtitle
+### Title and subtitle
 
-You can use UI Library to input custom strings, which make it easier to tailor the call interface to suit your specific needs. You can customize the title and subtitle of a call, both during the setup phase and while the call is in progress.
+Use UI Library to input custom strings, which make it easier to tailor the call interface to suit your specific needs. You can customize the title and subtitle of a call, both during the setup phase and while the call is in progress.
 
 For example, in a corporate environment, you can set the title to reflect the meeting's agenda and the subtitle to indicate an announcement. For customer support, agents can use titles to display the nature of the inquiry to enhance clarity and communication.
 
@@ -224,9 +224,9 @@ For more information, see [Set up the title and subtitle](../../../how-tos/ui-li
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
-| Area         | Use cases                                        |
-| ------------ | ------------------------------------------------ |
-| Chat types   | Join an Azure Communication Services chat thread. |
+| Area         | Use cases                                         |
+| ------------ | ------------------------------------------------  |
+| Chat types   | Join an Azure Communication Services chat thread.        |
 | Chat actions | Send a chat message.                              |
 |              | Receive a chat message.                           |
 | Chat events  | Show typing indicators.                           |
@@ -236,7 +236,7 @@ For more information, see [Set up the title and subtitle](../../../how-tos/ui-li
 
 ### Flexibility
 
-The `ChatComposite` property was designed to fit into different layouts and views in your application. For example, you could choose to place Chat in a navigation view, modal view or some other view. The `ChatComposite` property would adjust itself and ensure that the user has a seamless experience.
+The `ChatComposite` property was designed to fit into different layouts and views in your application. For example, you could choose to place Chat in a navigation view, modal view, or some other view. The `ChatComposite` property adjusts itself and ensures that the user has a seamless experience.
 
 | Navigation view                            | Modal view                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -244,15 +244,15 @@ The `ChatComposite` property was designed to fit into different layouts and view
 
 ## Supported identities
 
-To initialize a composite, and authenticate to the service, a user must have a Communication Services identity. For more information, see [Authenticate to Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 
 ## Recommended architecture
 
-Initialize a composite by using a Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite by using an Azure Communication Services access token. It's important to get access tokens from Azure Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended architecture for UI Library.":::
 
-Call and chat client libraries must have the context for the call they join. Like user access tokens, disseminate the context to clients by using your own trusted service. The following table summarizes the initialization and resource management functions that are required to add context to a client library.
+Call and chat client libraries must have the context for the call they join. Disseminate the context to clients by using your own trusted service. For example, use user access tokens. The following table summarizes the initialization and resource management functions that are required to add context to a client library.
 
 | Contoso responsibilities                                 | UI Library responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -270,17 +270,17 @@ Call and chat client libraries must have the context for the call they join. Lik
 
 ## Troubleshooting guide
 
-When troubleshooting happens for voice or video calls, you might be asked to provide a Call ID. This ID is used to identify Communication Services calls.
+When troubleshooting happens for voice or video calls, you might be asked to provide a call ID. This ID is used to identify Azure Communication Services calls.
 
-You can retrieve this Call ID by using the action bar at the bottom of the call screen, where you see an ellipsis button. After you select the button, the **Share diagnostics info** option appears. You can then share the diagnostics information that's required to track any issues by the support team.
+To retrieve this call ID, use the action bar at the bottom of the call screen. Select the ellipsis button to see **Share diagnostics info**. Use this option to share the diagnostics information that's required to track any issues by the support team.
 
-For programmatic access to the Call ID, see [Get debug information programmatically](../../../how-tos/ui-library-sdk/troubleshooting.md).
+For programmatic access to the call ID, see [Get debug information programmatically](../../../how-tos/ui-library-sdk/troubleshooting.md).
 
-For more information about troubleshooting, see [Troubleshooting in Communication Services](../../troubleshooting-info.md).
+For more information about troubleshooting, see [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md).
 
-| Calling screen | Diagnostic info menu | Share CallID |
+| Calling screen | Diagnostic information menu | Share call ID |
 | ------------------| ------------------------| ----------- |
-| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot that shows the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot that shows the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot that shows a share Call ID with Contoso.":::|
+| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot that shows the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot that shows the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot that shows a share call ID with Contoso.":::|
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)
