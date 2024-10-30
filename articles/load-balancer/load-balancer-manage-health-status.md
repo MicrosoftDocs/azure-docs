@@ -161,4 +161,4 @@ When using the health status feature, consider the following limitations:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Create a public load balancer with an IP-based backend using the Azure portal](tutorial-load-balancer-ip-backend-portal)
+> [Create a public load balancer with an IP-based backend using the Azure portal](tutorial-load-balancer-ip-backend-portal.md)
