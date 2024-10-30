@@ -25,7 +25,7 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
 
 ## Prerequisites
 - You need to have a **Storage Sync Service** [deployed](file-sync-deployment-guide.md) with at least one **registered server**. 
--	**Azure File Sync agent version 19.1.0.0 or later** must be installed on the registered server.
+- **Azure File Sync agent version 19.1.0.0 or later** must be installed on the registered server.
 - On your **storage accounts** used by Azure File Sync:
   - You must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions.
   - **Allow Azure services on the trusted services list to access this storage account** exception must be enabled for preview. [Learn more](file-sync-networking-endpoints.md#grant-access-to-trusted-azure-services-and-restrict-access-to-the-storage-account-public-endpoint-to-specific-virtual-networks)
