@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/03/2024
+ms.date: 10/29/2024
 ms.custom: engagement-fy25
 ---
 
@@ -19,8 +19,8 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 The Business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
 
 - On-premises vs Azure total cost of ownership.
-- (Optional) Current on-premises vs On-premises with Arc total cost of ownership.
-- (Optional) the cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, as well ESUs enabled by Arc for your on-premises servers.
+- Current on-premises vs On-premises with Arc total cost of ownership.
+- Cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, as well as ESUs enabled by Arc for your on-premises servers.
 - Year on year cashflow analysis.
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
@@ -175,6 +175,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 | Management | Azure Management Services | Azure Monitor, Azure Backup and Azure Update Manager | Azure Monitor costs for each server as per listed price in the region assuming collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically estimated based on the [Azure Backup Pricing](/azure/backup/azure-backup-pricing), which includes a protected instance fee, snapshot storage and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
+| Azure Arc setting  |  | |For your on-premises servers, this setting assumes that you have Arc-enabled all your servers at the beginning of the migration journey and will migrate them to Azure over time. Azure Arc helps you manage your Azure estate and remaining on-premises estate through a single pane during migration and post-migration. |
 
 #### On-premises with Azure Arc cost
 
