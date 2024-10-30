@@ -1,11 +1,11 @@
 ---
-title: Deployment guide for network sensor deployment - Microsoft Defender for IoT
+title: Deployment guide for deploying an OT network sensor - Microsoft Defender for IoT
 description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT.
 ms.topic: install-set-up-deploy
-ms.date: 10/15/2024
+ms.date: 10/30/2024
 ---
 
-# Deployment guide for the network sensor - WHERE SHOULD THIS BE PLACED IN THE TOC
+# Deployment guide for the network sensor
 
 This guide provides a step-by-step approach to successfully deploying your network sensor deployment, and ensuring comprehensive network monitoring and security. The five deployment steps are as follows:
 
@@ -42,7 +42,7 @@ Identify the best location to place the sensor in the network, to monitor the ne
 For more information, see [placing OT sensors in your network](best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
 ### Validate the sensor location
-<!-- THeo is the sensor actually set up now within the network? Not just decided on the location? Or is this done as a simulation? Doesnt e validation come after deployment? And choosing the mirror method? Should this be moved to Post validation section??-->
+
 After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
 
 :::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
@@ -61,7 +61,7 @@ There are three types of traffic mirroring methods each designed for specific us
 |---|---|---|---|
 |**Usage Scenario** | Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|
 |**Description**| SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. |RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It's designed for environments where monitoring needs to occur over different switches or switch stacks. |ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet. |
-|**Mirroring set up** | - **Source Ports/VLANs**: Configure the switch to mirror traffic from selected ports or VLANs.<br>  - **Destination Port**: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.|- **Source Ports/VLANs**: Traffic is mirrored from specified source ports or VLANs on a source switch.<br> - **RSPAN VLAN**: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches. <br> - **Destination Port**: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.| - **Source Ports/VLANs**: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - **Encapsulation**: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - **Destination Port**: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
+|**Mirroring set up** | - **Source Ports/VLANs**: Configure the switch to mirror traffic from selected ports or VLANs.<br>  - **Destination Port**: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.|- **Source Ports/VLANs**: Traffic is mirrored from specified source ports or VLANs on a source switch.<br> - **RSPAN VLAN**: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches. <br> - **Destination Port**: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.| - **Source Ports/VLANs**: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - **Encapsulation**: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <br> - **Destination Port**: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
 | **Benefits** | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 | **Limitations** | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
 
@@ -85,19 +85,19 @@ After choosing the sensor location and mirroring method, install the sensors. Fo
 
 ## Post deployment validation
 
-It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks <!-- or network data?? Theo -->being sent to the sensor.  
+It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.  
 
 :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
 Key steps include:
 
-- Verify that the number of devices in the inventory is reasonable.  For more information, see 
+- Verify that the number of devices in the inventory is reasonable.
 
-- Check the type classification for devices listed in the inventory. For more information, see 
+- Check the type classification for devices listed in the inventory.
 
-- Confirm the visibility of OT protocol names on the device's inventory. For more information, see 
+- Confirm the visibility of OT protocol names on the device's inventory.
 
-- Ensure L2 protocols are monitored by identifying MAC addresses in the inventory. For more information, see 
+- Ensure L2 protocols are monitored by identifying MAC addresses in the inventory.
 
 If information doesn't appear, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
 

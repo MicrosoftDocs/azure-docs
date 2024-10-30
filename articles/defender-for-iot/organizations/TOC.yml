@@ -94,6 +94,8 @@
       items:
       - name: Overview
         href: traffic-mirroring/traffic-mirroring-overview.md
+      - name: Deployment guide
+        href: network-sensor-mirroring-deployment-guide.md 
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
