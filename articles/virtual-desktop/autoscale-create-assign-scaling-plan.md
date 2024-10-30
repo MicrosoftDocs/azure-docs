@@ -3,12 +3,19 @@ title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
 description: How to create and assign an autoscale scaling plan to optimize deployment costs.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/07/2024
+zone_pivot_groups: autoscale
+ms.date: 10/22/2024
 ms.author: daknappe
 ms.custom: references_regions, devx-track-azurepowershell, docs_inherited
 ---
 
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
+
+::: zone pivot="power-management"
+::: zone-end
+
+::: zone pivot="dynamic"
+::: zone-end
 
 > [!IMPORTANT]
 > Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

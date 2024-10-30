@@ -1442,6 +1442,14 @@ groups:
     title: Standard
   - id: host-pool-session-host-configuration
     title: Session host configuration (preview)
+- id: autoscale
+  title: Create and assign an autoscale scaling plan
+  prompt: "Choose an autoscaling method:"
+  pivots:
+  - id: power-management
+    title: Power management autoscaling
+  - id: dynamic
+    title: Dynamic autoscaling
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
