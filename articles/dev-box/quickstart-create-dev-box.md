@@ -101,4 +101,4 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
-- Learn how to [connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md)
+- Learn how to [Connect with Windows App](/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box)
