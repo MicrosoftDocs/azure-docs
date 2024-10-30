@@ -137,7 +137,7 @@ These are the following five deployment steps
         |Mirroring set up | - Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.<br> - Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? --> <br> - Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.|
         | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 
-  1. Switched Port Analyzer (SPAN)
+    1. Switched Port Analyzer (SPAN)
 
         :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the setup of the local SPAN traffic mirroring between the OT network and the sensor.":::
 

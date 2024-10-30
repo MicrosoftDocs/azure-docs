@@ -25,7 +25,7 @@ Before the sensor can be applied to the network, it's crucial to review the netw
 
 - Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
-- Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](how-to-control-what-traffic-is-monitored#customize-a-vlan-name).
+- Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
 
 - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
 
@@ -81,7 +81,7 @@ For more information, see [traffic mirroring process](traffic-mirroring/traffic-
 
 ## Deploy the sensors
 
-After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](/ot-deploy/install-software-ot-sensor.md/).
+After choosing the sensor location and mirroring method, install the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md/).
 
 ## Post deployment validation
 
