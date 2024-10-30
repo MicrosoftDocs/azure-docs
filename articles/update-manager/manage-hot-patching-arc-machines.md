@@ -2,7 +2,7 @@
 title: Hotpatching (preview) on Azure Arc-enabled machines
 description: This article details how to manage hotpatching (preview) on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 10/28/2024
+ms.date: 10/30/2024
 ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -16,7 +16,7 @@ Azure Update Manager enables you to install hotpatches (preview) on Windows Serv
 
 This article explains how to install hotpatches (preview) on compatible Arc-enabled machines. For hotpatches (preview) being non-intrusive on availability, you can create faster schedules and update your services immediately after release, with less planning to maintain reliability of your machines at-scale.  
 
-## Support matrix
+## Supported operating systems
 
 - Windows Server 2025 Standard Edition 
 - Windows Server 2025 Datacenter Edition 
@@ -44,11 +44,11 @@ To enroll hotpatch (preview) license, follow these steps:
        
 ### Manage hotpatch (preview) updates
 
-After you enroll to hotpatch (preview) license, your machine is automatically opted in to receive hotpatch updates. 
+After you enroll to hotpatch (preview) license, your machine automatically receives hotpatch updates.
 
 #### [At scale](#tab/manage-scale)
 
-To re-enable or disable updates at scale, follow these steps:
+To enable or disable hotpaching at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and in the **Azure Update Manager | Machines** page, under **Settings**, select **Update settings**.
@@ -79,7 +79,7 @@ To view the hotpatch (preview) status at scale on your machines, follow these st
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select **Edit columns**.
-1. In **Choose columns**, select **Hotpatch status** and then select **Save**.
+1. In **Choose columns** pane, select **Hotpatch status** and then select **Save**.
    
    The **Hotpatch status** column appears in the machines grid and displays the status for all Azure machines and Arc-enabled machines. To view only Arc related details, you can filter Resource Type as **Arc-enabled server**. 
 
@@ -109,7 +109,7 @@ To view the hotpatch (preview) status on a single machine, follow these steps:
 
 ### Check hotpatch (preview) updates
 
-You can enable either [periodic assessment](assessment-options.md#periodic-assessment) or [one-time update](assessment-options.md#check-for-updates-nowon-demand-assessment) to check for latest hotpatch updates. 
+For latest hotpatch updates, enable either [periodic assessment](assessment-options.md#periodic-assessment) or a [one-time update](assessment-options.md#check-for-updates-nowon-demand-assessment).
 
 Periodic assessment automatically assesses for available updates and ensures that available patches are detected. You can view the results of the assessment on the **Recommended updates** tab, including the time of the last assessment. 
 
@@ -132,7 +132,7 @@ This ensures that the hotpatch (preview) update which doesn't require reboots is
 
 You can view the history of update deployments on your VM through the [history](deploy-updates.md#view-update-history-for-a-single-vm) option. 
 
-Update history displays the history for the past 30 days, along with patch installation details such as reboot status. 
+**Update history** displays the history for the past 30 days, along with patch installation details such as reboot status. 
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/history-update-deployments.png" alt-text="Screenshot showing how to view the history of update deployments on your VM." lightbox="./media/manage-hot-patching-arc-machines/history-update-deployments.png":::
  
