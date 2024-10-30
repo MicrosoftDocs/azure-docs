@@ -2,8 +2,8 @@
 title: Availability zone migration guidance overview for Microsoft Azure products and services
 description: Availability zone migration guidance overview for Microsoft Azure products and services
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 11/08/2022
 ms.author: anaharris
@@ -26,6 +26,7 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure ExpressRoute](/azure/expressroute/expressroute-howto-gateway-migration-portal) |
 | [Azure Functions](migrate-functions.md)|
 | [Azure Load Balancer](migrate-load-balancer.md)|
 | [Azure Service Fabric](migrate-service-fabric.md)  | 
@@ -56,11 +57,10 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)|
 | [Azure Functions](reliability-functions.md#availability-zone-migration)|
 | [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)|
-| [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability)|
 | [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)|
 | [Azure Logic Apps](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
-| [Azure Service Bus](/azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability)|
+| [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones)|
 | [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
 
 

@@ -23,6 +23,8 @@
     href: custom-health-probe.md
   - name: ECDSA and RSA certificates
     href: ecdsa-rsa-certificates.md
+  - name: gRPC
+    href: grpc.md
   - name: Scaling and zone resiliency
     href: scaling-zone-resiliency.md
   - name: Server-sent events
@@ -53,6 +55,8 @@
     items:
     - name: Backend MTLS
       href: how-to-backend-mtls-gateway-api.md
+    - name: Frontend MTLS
+      href: how-to-frontend-mtls-gateway-api.md
     - name: Header rewrite
       href: how-to-header-rewrite-gateway-api.md
     - name: Multi-site hosting

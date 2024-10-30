@@ -131,7 +131,7 @@ For assessed machines that are reporting updates available, select one or more o
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Screenshot that shows installing one-time updates for machines on the Updates (Preview) page." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
 
- A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you begin the update deployment. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+ A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you begin the update deployment. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 

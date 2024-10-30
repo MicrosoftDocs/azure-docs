@@ -11,7 +11,10 @@ ms.date: 06/09/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
-#customerIntent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
+
+
+#Customer intent: As a SOC manager, I want to implement SOC optimization recommendations so that I can close coverage gaps and improve data usage efficiency without manual analysis.
+
 ---
 
 # SOC optimization reference of recommendations

@@ -4,9 +4,9 @@ description: In this article, you learn how to create and develop Synapse notebo
 services: synapse analytics 
 author: JeneZhang 
 ms.service: azure-synapse-analytics 
-ms.topic: conceptual 
+ms.topic: how-to 
 ms.subservice: spark
-ms.date: 05/08/2021
+ms.date: 09/11/2024
 ms.author: jingzh 
 ms.custom: devx-track-python
 ---
@@ -26,7 +26,7 @@ This article describes how to use notebooks in Synapse Studio.
 
 ## Create a notebook
 
-You can create a new notebook or import an existing notebook to a Synapse workspace from **Object Explorer**. Select **Develop**, right-click **Notebooks**, and then select **New notebook** or **Import**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
+You can create a new notebook or import an existing notebook to a Synapse workspace from **Object Explorer**. Select the **Develop** menu. Select the **+** button and select **Notebook** or right-click **Notebooks**, and then select **New notebook** or **Import**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
 
 ![Screenshot of selections for creating or importing a notebook.](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
@@ -46,6 +46,7 @@ The following sections describe the operations for developing notebooks:
 * [Undo or redo a cell operation](#undo-redo-cell-operation)
 * [Comment on a code cell](#code-cell-commenting)
 * [Move a cell](#move-a-cell)
+* [Copy a cell](#copy-a-cell)
 * [Delete a cell](#delete-a-cell)
 * [Collapse cell input](#collapse-a-cell-input)
 * [Collapse cell output](#collapse-a-cell-output)
@@ -185,6 +186,13 @@ To move a cell, select the left side of the cell and drag the cell to the desire
 
 ![Animated GIF of moving cells in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
 
+### <a name = "move-a-cell"></a>Copy a cell
+
+To copy a cell, first create a new cell, then select all the text in your original cell, copy the text, and paste the text into the new cell. When your cell is in edit mode, traditional keyboard shortcuts to select all text are limited to the cell.
+
+>[!TIP]
+>Synapse notebooks also provide [snippits](#code-snippets) of commonly used code patterns.
+
 ### <a name = "delete-a-cell"></a>Delete a cell
 
 To delete a cell, select the **Delete** button to the right of the cell.
@@ -261,7 +269,7 @@ The `%run` magic command has these limitations:
 * The command supports nested calls but not recursive calls.
 * The command supports passing an absolute path or notebook name only as a parameter. It doesn't support relative paths.
 * The command currently supports only four parameter value types: `int`, `float`, `bool`, and `string`. It doesn't support variable replacement operations.
-* The referenced notebooks must be published. You need to publish the notebooks to reference them, unless you select the [option to enable an unpublished notebook reference](#reference-unpublished-notebook). Synapse Studio does not recognize the unpublished notebooks from the Git repo.
+* The referenced notebooks must be published. You need to publish the notebooks to reference them, unless you select the [option to enable an unpublished notebook reference](#reference-unpublished-notebook). Synapse Studio doesn't recognize the unpublished notebooks from the Git repo.
 * Referenced notebooks don't support statement depths larger than five.
 
 ### Use the variable explorer
@@ -291,7 +299,7 @@ The number of tasks for each job or stage helps you identify the parallel level 
 
 ### <a name = "spark-session-configuration"></a>Configure a Spark session
 
-On the **Configure session** pane, you can specify the timeout duration, the number of executors, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
+On the **Configure session** pane, which you can find by selecting the gear icon at the top of the notebook, you can specify the timeout duration, the number of executors, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
 
 You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, refer to [Manage Apache Spark configuration](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
 

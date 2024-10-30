@@ -5,12 +5,12 @@ description: In this Quickstart, run a sample ASP.NET web app that uses Azure Ac
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.date: 01/24/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer Intent: As a developer building an ASP.NET application, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social or enterprise accounts and protect my application and customer data.
 

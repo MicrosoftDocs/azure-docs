@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security analyst, I want to monitor the health of my automation rules and playbooks so that I can ensure the proper functioning and performance of my security orchestration and response operations.
+
 ---
 
 # Monitor the health of your automation rules and playbooks

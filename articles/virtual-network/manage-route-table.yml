@@ -121,7 +121,7 @@ procedureSection:
           :::image type="content" source="./media/manage-route-table/route-table.png" alt-text="Screenshot of the overview page of a route tables in an Azure subscription.":::
   
         To learn more about common Azure settings, see the following information:
-          - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+          - [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
           - [Access control (IAM)](../role-based-access-control/overview.md)
           - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
           - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

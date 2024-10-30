@@ -98,7 +98,7 @@ When you don't see push notifications on your device, there are three places whe
 
 The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other two places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
+One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftnotificationhubsnamespacesnotificationhubs).
 
 The following are some common misconfigurations that might be the cause why Azure Notification Hub doesn't accept the notifications from your Communication Services resource.
 

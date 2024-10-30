@@ -4,7 +4,7 @@ description: A brief overview of Azure Modeling and Simulation Workbench.
 author: becha8
 ms.author: becha
 ms.reviewer: becha
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: overview
 ms.date: 08/05/2024
 #Customer intent: As a new Modeling and Simulation Workbench user, I want to understand about Azure Modeling and Simulation Workbench so that I can use the environment for creating chambers and connectors.
@@ -18,6 +18,10 @@ The Azure Modeling and Simulation Workbench is a secure, on-demand service that 
 - Multi-layered security and access controls allow users to monitor, scale, and optimize the compute and storage capacity as needed.
 - Automated provisioning reduces setup time of the design environment from weeks to hours. After providing an initial set of configurations, all resources, identity management, access controls, VMs, configured network, and partitioned storage are automatically provisioned.
 - Fully scalable to workload demands. For infra management and cost control, users can scale workloads up or down with push button controls, as well as change the storage performance tier and size. Chambers and workloads can be stopped while not in use, to further control costs.
+
+The innovative design of the Modeling and Simulation Workbench allows for two-way privacy between collaborating parties. This ensures that the intellectual property of each team remains protected within their own secure chamber, while also facilitating efficient collaboration through shared storage volumes that can be dynamically provisioned and connected to specific chambers.
+
+:::image type="content" source="media/overview/collaboration-diagram.png" alt-text="Diagram of Modeling and Simulation Workbench showing two chambers providing isolation and collaboration with shared storage.":::
 
 <!--- Multi-Chamber collaboration allows these dev teams and their collaborators to have their own private workspaces, while allowing them to share data across chamber boundaries through shared storage
 --->

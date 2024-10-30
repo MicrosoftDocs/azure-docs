@@ -37,9 +37,9 @@ For Application Gateway, resource-specific mode creates three tables:
 
 :::image type="content" source="./media/application-gateway-diagnostics/resource-specific.png" alt-text="Screenshot of the resource ID for application gateway in the portal." lightbox="./media/application-gateway-diagnostics/resource-specific.png":::
 
-**Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md) ingests it. This approach provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+**Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before [workspace transformations](/azure/azure-monitor/essentials/data-collection-transformations-workspace) ingests it. This approach provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
 
-For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal).
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -151,9 +151,9 @@ Application Gateway v1
 |Metric|Response status (4xx, 5xx) crosses threshold|When Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Failed requests crosses threshold|When failed requests metric crosses a threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-If you're creating or running an application that uses Application Gateway, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) can offer other types of alerts.
+If you're creating or running an application that uses Application Gateway, [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) can offer other types of alerts.
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

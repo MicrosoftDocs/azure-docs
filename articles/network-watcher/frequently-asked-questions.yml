@@ -171,7 +171,7 @@ sections:
       - question: |
           Are there any limitations to using Azure Monitor and Arc Agents with connection monitor?
         answer: |
-          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
+          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
   - name: Flow logs
     questions:

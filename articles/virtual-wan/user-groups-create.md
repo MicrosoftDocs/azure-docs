@@ -60,7 +60,18 @@ For Network Policy Server (NPS) vendor-specific attributes configuration informa
 
 ### Certificates
 
-To generate self-signed certificates, see [Generate and export certificates for User VPN P2S connections: PowerShell](certificates-point-to-site.md). To generate a certificate with a specific Common Name, change the **Subject** parameter to the appropriate value (example, xx@domain.com) when running the `New-SelfSignedCertificate` PowerShell command.
+To generate self-signed certificates, see [Generate and export certificates for User VPN P2S connections: PowerShell](certificates-point-to-site.md). To generate a certificate with a specific Common Name, change the **Subject** parameter to the appropriate value (example, xx@domain.com) when running the `New-SelfSignedCertificate` PowerShell command. For example, you can generate certificates with the following **Subject**:
+
+| **Digital certificate field**  | Value  | description  |
+|---|---|--|
+| **Subject**| CN= cert@marketing.contoso.com| digital certificate for Marketing department|
+| **Subject**| CN= cert@sale.contoso.com| digital certificate for Sale department|
+| **Subject**| CN= cert@engineering.contoso.com| digital certificate for Engineering department|
+| **Subject**| CN= cert@finance.contoso.com| digital certificate for Finance department|
+
+> [!NOTE]
+> The multiple address pool feature with digital certificate authentication applies to a specific user group based on the **Subject** field. The selection criteria do not work with Subject Alternative Name (SAN) certificates.
+
 
 ## Step 3: Create a user group
 
@@ -121,7 +132,7 @@ Use the following steps to create a user group.
 
    :::image type="content" source="./media/user-groups-create/select-groups.png" alt-text="Screenshot of Edit User VPN gateway page with groups selected." lightbox="./media/user-groups-create/select-groups.png":::
 
-1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you might need to specify more than one address pool. Address pools can't be smaller than /24. For example you can't assign a range of /25 or /26 if you want to have a smaller address pool range for the usergroups. The minimum prefix is /24. Select **Add** and **Okay** to save your address pools.
+1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you might need to specify more than one address pool. Address pools can't be smaller than /24. For example you can't assign a range of /25 or /26 if you want to have a smaller address pool range for the user groups. The minimum prefix is /24. Select **Add** and **Okay** to save your address pools.
 
    :::image type="content" source="./media/user-groups-create/address-pools.png" alt-text="Screenshot of Specify Address Pools page." lightbox="./media/user-groups-create/address-pools.png":::
 

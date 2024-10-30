@@ -53,11 +53,6 @@ productDirectory:
       imageSrc: ./media/virtual-wan.svg
       summary: Connect and manage your on-premises network to Azure through a centralized network hub.
       url: ../../virtual-wan/index.yml
-    # Card
-    - title: Peering Service
-      imageSrc: ./media/peering-service.svg
-      summary: Enhance connectivity to Microsoft cloud services over the public internet.
-      url: ../../peering-service/about.md
 
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:

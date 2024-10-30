@@ -6,12 +6,12 @@ description: End to end guidance on how to secure your Azure AD B2C solution.
 author: rbinrais
 manager: RideMo
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 05/09/2023
 ms.author: rbinrais
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer implementing Azure Active Directory B2C, I want to know the best practices for securing my identity solution, so that I can protect my users from bot attacks, fraudulent activities, and resource exhaustion.
 

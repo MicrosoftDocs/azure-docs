@@ -4,19 +4,16 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 10/17/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Operating systems supported by Update Management
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 ## Supported operating systems
 
@@ -75,9 +72,9 @@ The section describes operating system-specific requirements. For additional gui
 - Windows PowerShell 5.1 is required ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)
 - The Update Management feature depends on the system Hybrid Runbook Worker role, and you should confirm its [system requirements](../automation-windows-hrw-install.md#prerequisites).
 
-Windows Update agents must be configured to communicate with a Windows Server Update Services (WSUS) server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Microsoft Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with VM insights, instead use the [Enable Enable VM insights](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Windows Update agents must be configured to communicate with a Windows Server Update Services (WSUS) server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then use Azure Policy to assign the [Deploy Log Analytics agent to Microsoft Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with VM insights, instead use the [Enable Enable VM insights](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
-You can use Update Management with Microsoft Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/agents/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment.
+You can use Update Management with Microsoft Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](/azure/azure-monitor/agents/agent-windows) is required for Windows servers managed by sites in your Configuration Manager environment.
 
 By default, Windows VMs that are deployed from Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 
@@ -96,7 +93,7 @@ By default, Windows VMs that are deployed from Azure Marketplace are set to rece
 > Update assessment of Linux machines is supported in certain regions only. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 
 
-For hybrid machines, we recommend installing the Log Analytics agent for Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, to monitor the machines use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) instead of Azure Monitor for VMs.
+For hybrid machines, we recommend installing the Log Analytics agent for Linux by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, to monitor the machines use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) instead of Azure Monitor for VMs.
 
 ## Next steps
 

@@ -6,12 +6,12 @@ description: Define an OAuth2 technical profile in a custom policy in Azure Acti
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C with an OAuth2 based identity provider, I want to define an OAuth2 technical profile in a custom policy, so that I can federate with the identity provider and allow users to sign in with their existing social or enterprise identities.

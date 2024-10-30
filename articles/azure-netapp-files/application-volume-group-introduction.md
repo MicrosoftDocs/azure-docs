@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/18/2024
+ms.date: 09/11/2024
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -56,8 +56,7 @@ Application volume group for SAP HANA extension one offers support for:
     
 * [Standard network features](azure-netapp-files-network-topologies.md) 
 
-    Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. The availability of Standard network features simplifies deployment, avoiding the manual process for AvSet pinning and eliminating the need for availability sets.
-    
+    Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. Standard network features support enhanced security including [network security groups (NSGs)](../virtual-network/network-security-group-how-it-works.md)
 
 ## Next steps
 

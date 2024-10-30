@@ -41,7 +41,7 @@ When stored in the App Service file system, logs are subject to the available st
 > [!NOTE]
 > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 >
-> In addition, you can use other Azure services, such as [Azure Monitor](../azure-monitor/app/azure-web-apps.md), to improve the logging and monitoring capabilities of your app.
+> In addition, you can use other Azure services to improve the logging and monitoring capabilities of your app, such as [Azure Monitor](/azure/azure-monitor/app/azure-web-apps).
 >
 
 ## Enable application logging (Windows)
@@ -201,10 +201,10 @@ For a list of supported log types and their descriptions, see [Supported resourc
 
 ## Networking considerations
 
-For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](../azure-monitor/essentials/diagnostic-settings.md#destination-limitations).
+For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations).
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
-* [How to Monitor Azure App Service](monitor-app-service.md)
+* [Query logs with Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+* [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

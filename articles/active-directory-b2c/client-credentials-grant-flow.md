@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to set up the OAuth 2.0 client credentials flow in Azure Active Directory B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -264,8 +264,3 @@ The following example shows a client credentials user journey. The first and the
  
 
 ::: zone-end
-
-
-## Next steps
-
-Learn how to [set up a resource owner password credentials flow in Azure AD B2C](add-ropc-policy.md)

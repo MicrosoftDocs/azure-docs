@@ -1,12 +1,13 @@
 ---
 title: Pipelines and activities
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
+description: Learn how to use pipelines and activities in Azure Data Factory and Azure Synapse Analytics to create data-driven workflows for data movement and processing scenarios.
+#customer intent: As a data engineer, I want to understand pipelines and activities so that I can create efficient data workflows.
 author: dcstwh
 ms.author: weetok
 ms.subservice: orchestration
-ms.custom: synapse
-ms.topic: conceptual
+ms.custom: FY25Q1-Linter, synapse
+ms.topic: concept-article
 ms.date: 03/11/2024
 ---
 
@@ -19,6 +20,7 @@ ms.date: 03/11/2024
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
 ## Overview
+
 A Data Factory or Synapse Workspace can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a mapping data flow to analyze the log data. The pipeline allows you to manage the activities as a set instead of each one individually. You deploy and schedule the pipeline instead of the activities independently.
 
 The activities in a pipeline define actions to perform on your data. For example, you can use a copy activity to copy data from SQL Server to an Azure Blob Storage. Then, use a data flow activity or a Databricks Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
@@ -32,7 +34,6 @@ An input dataset represents the input for an activity in the pipeline, and an ou
 > [!NOTE]
 > There is a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
 
-
 ## Data movement activities
 
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. 
@@ -44,6 +45,7 @@ Click a data store to learn how to copy data to and from that store.
 [!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 ## Data transformation activities
+
 Azure Data Factory and Azure Synapse Analytics support the following transformation activities that can be added either individually or chained with another activity.
 
 For more information, see the [data transformation activities](transform-data.md) article.
@@ -64,8 +66,10 @@ Data transformation activity | Compute environment
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
+[Synapse Notebook Activity](../synapse-analytics/synapse-notebook-activity.md) | Azure Synapse Analytics
 
 ## Control flow activities
+
 The following control flow activities are supported:
 
 Control activity | Description
@@ -117,6 +121,7 @@ Synapse will display the pipeline editor where you can find:
 ---
 
 ## Pipeline JSON
+
 Here is how a pipeline is defined in JSON format:
 
 ```json
@@ -147,9 +152,11 @@ concurrency | The maximum number of concurrent runs the pipeline can have. By de
 annotations | A list of tags associated with the pipeline | Array | No
 
 ## Activity JSON
+
 The **activities** section can have one or more activities defined within it. There are two main types of activities: Execution and Control Activities.
 
 ### Execution activities
+
 Execution activities include [data movement](#data-movement-activities) and [data transformation activities](#data-transformation-activities). They have the following top-level structure:
 
 ```json
@@ -183,6 +190,7 @@ policy | Policies that affect the run-time behavior of the activity. This proper
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
 
 ### Activity policy
+
 Policies affect the run-time behavior of an activity, giving configuration options. Activity Policies are only available for execution activities.
 
 ### Activity policy JSON definition
@@ -221,6 +229,7 @@ retryIntervalInSeconds | The delay between retry attempts in seconds | Integer |
 secureOutput | When set to true, the output from activity is considered as secure and aren't logged for monitoring. | Boolean | No. Default is false.
 
 ### Control activity
+
 Control activities have the following top-level structure:
 
 ```json
@@ -246,6 +255,7 @@ typeProperties | Properties in the typeProperties section depend on each type of
 dependsOn | This property is used to define Activity Dependency, and how subsequent activities depend on previous activities. For more information, see [activity dependency](#activity-dependency). | No
 
 ### Activity dependency
+
 Activity Dependency defines how subsequent activities depend on previous activities, determining the condition of whether to continue executing the next task. An activity can depend on one or multiple previous activities with different dependency conditions.
 
 The different dependency conditions are: Succeeded, Failed, Skipped, Completed.
@@ -299,6 +309,7 @@ For example, if a pipeline has Activity A -> Activity B, the different scenarios
 ```
 
 ## Sample copy pipeline
+
 In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
@@ -348,6 +359,7 @@ Note the following points:
 For a complete walkthrough of creating this pipeline, see [Quickstart: create a Data Factory](quickstart-create-data-factory-powershell.md).
 
 ## Sample transformation pipeline
+
 In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](transform-data-using-hadoop-hive.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster.
 
 ```json
@@ -397,11 +409,13 @@ The **typeProperties** section is different for each transformation activity. To
 For a complete walkthrough of creating this pipeline, see [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md).
 
 ## Multiple activities in a pipeline
+
 The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities might run in parallel.
 
 You can chain two activities by using [activity dependency](#activity-dependency), which defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can depend on one or more previous activities with different dependency conditions.
 
 ## Scheduling pipelines
+
 Pipelines are scheduled by triggers. There are different types of triggers (Scheduler trigger, which allows pipelines to be triggered on a wall-clock schedule, as well as the manual trigger, which triggers pipelines on-demand). For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
 
 To have your trigger kick off a pipeline run, you must include a pipeline reference of the particular pipeline in the trigger definition. Pipelines & triggers have an n-m relationship. Multiple triggers can kick off a single pipeline, and the same trigger can kick off multiple pipelines. Once the trigger is defined, you must start the trigger to have it start triggering the pipeline. For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
@@ -433,10 +447,7 @@ For example, say you have a Scheduler trigger, "Trigger A," that I wish to kick 
 ```
 
 ## Related content
-See the following tutorials for step-by-step instructions for creating pipelines with activities:
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
-
-How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
-- [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md)
+- [How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory](continuous-integration-delivery.md)

@@ -38,7 +38,7 @@ Service endpoints are available for the following Azure services and regions. Th
 
 **Public Preview**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
+- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 

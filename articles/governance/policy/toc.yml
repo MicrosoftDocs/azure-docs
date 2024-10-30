@@ -326,15 +326,15 @@
     items:
     - name: Deploy a policy at scale
       displayName: lighthouse, scale, deploy
-      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/policy-at-scale?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Deploy a policy that can be remediated
       displayName: lighthouse, scale, remediate
-      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/deploy-policy-remediation?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
     - name: Enable VM insights
       displayName: monitor, monitor agent, vm, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+      href: /azure/azure-monitor/vm/vminsights-enable-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

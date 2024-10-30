@@ -5,13 +5,21 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 08/08/2024
+ms.date: 09/06/2024
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+## Version 4.15 - September 2024
+
+We're pleased to announce the launch of OpenShift 4.15 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.15](https://docs.openshift.com/container-platform/4.15/welcome/index.html) as an installable version. You can check the end of support date on the [support lifecycle page](/azure/openshift/support-lifecycle) for previous versions.
+
+In addition to making version 4.15 available as an installable version, this release also makes the following features generally available:
+
+- CLI for multiple public IP addresses for larger clusters up to 250 nodes
 
 ## Updates - August 2024
 

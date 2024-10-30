@@ -267,10 +267,16 @@
           href: add-http-header-rewrite-rule-powershell.md
         - name: Create and rewrite HTTP headers
           href: tutorial-http-header-rewrite-powershell.md
+        - name: Add secure flag for cookies 
+          href: application-gateway-secure-flag-session-affinity.md       
     - name: URL rewrite
       items:
         - name: Azure portal
           href: rewrite-url-portal.md
+    - name: Parameter based path selection
+      items:
+        - name: Azure portal
+          href: parameter-based-path-selection-portal.md
   - name: Configure custom probes
     items:
       - name: Portal

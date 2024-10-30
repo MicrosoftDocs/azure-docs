@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/11/2024
+ms.date: 10/26/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -129,7 +129,14 @@ Within a **Standard** logic app, you can create the following workflow types:
 
   A stateless workflow provides the best performance when handling data or content that doesn't exceed 64 KB in *total* size, such as a file. Larger content sizes, such as multiple large attachments, might significantly slow your workflow's performance or even cause your workflow to crash due to out-of-memory exceptions. If your workflow might have to handle larger content sizes, use a stateful workflow instead.
 
-  In stateless workflows, [*managed connector actions*](../connectors/managed.md) are available, but *managed connector triggers* are unavailable. So, to start your workflow, select a [built-in trigger](../connectors/built-in.md) instead, such as the Request, Event Hubs, or Service Bus trigger. These triggers run natively on the Azure Logic Apps runtime. The Recurrence trigger is unavailable for stateless workflows and is available only for stateful workflows. For more information about limited, unavailable, or unsupported triggers, actions, and connectors, see [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
+  > [!NOTE]
+  >
+  > In stateless workflows, you can only use [push triggers](../connectors/introduction.md#triggers)
+  > where you don't specify a schedule for running for your workflow. These webhook-based triggers wait for an
+  > event to happen or data to become available. For example, the Recurrence trigger is available only for stateful
+  > workflows. To start your workflow, select a push trigger such as the Request, Event Hubs, or Service Bus trigger.
+  > For more information about limited, unavailable, or unsupported triggers, actions, and connectors, see
+  > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
   Stateless workflows run only synchronously, so they don't use the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) used by stateful workflows. Instead, all HTTP-based actions that return a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response continue to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard asynchronous operation pattern, use a stateful workflow instead.
 
@@ -226,7 +233,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
 * Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
 
-* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
+* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) when supported by your Azure subscription and logic app settings.
 
 * Access networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps using the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md). For more information, review the following documentation:
 
@@ -262,15 +269,16 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Sliding Window, Azure App Service, and Azure API Management. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear with the **In-App** label, while [managed connector triggers and actions](../connectors/managed.md) appear with the **Shared** label.
 
-  For *stateless* workflows, *managed connector actions* are available, but *managed connector triggers* are unavailable. Although you can enable managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
+  Stateless workflows can use only [*push* triggers](../connectors/introduction.md#triggers) where you don't specify a schedule for running for your workflow. These webhook-based triggers wait for an event to happen or data to become available. For example, the Recurrence trigger is available only for stateful workflows. To start your workflow, select a push trigger such as the Request, Event Hubs, or Service Bus trigger. Although you can enable managed connectors for stateless workflows, the connector gallery doesn't show any managed connector [*polling* triggers](../connectors/introduction.md#triggers) for you to add.
 
   > [!NOTE]
+  > 
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
   > [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#webhook-setup).
 
   * The following triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
-    * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Functions Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
+    * The built-in action, [Azure Functions - Choose an Azure function](call-azure-functions-from-workflows.md) is now **Azure Functions Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
       In the Azure portal, you can select an HTTP trigger function that you can access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file using Visual Studio Code, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your logic app project's **connections.json** file, which is available after you create a connection in Visual Studio Code.
 
@@ -310,8 +318,6 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
-
-* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/05/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to use Azure Functions to connect Microsoft Sentinel to my data sources so that I can automate the ingestion of logs and enhance threat detection capabilities.
+
 ---
 
 # Use Azure Functions to connect Microsoft Sentinel to your data source
@@ -26,7 +30,7 @@ Make sure that you have the following permissions and credentials before using A
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key).
 
 - You must have read and write permissions on Azure Functions to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 

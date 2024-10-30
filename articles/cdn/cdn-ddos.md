@@ -12,6 +12,8 @@ ms.author: duau
 
 # Azure Content Delivery Network DDoS Protection
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 A content delivery network provides DDoS Protection by design. In addition to the global capacity to absorb volumetric attacks, Azure Content Delivery Network has extra DDoS Protection as outlined in this article, for no extra cost.
 
 <a name='azure-cdn-from-microsoft'></a>

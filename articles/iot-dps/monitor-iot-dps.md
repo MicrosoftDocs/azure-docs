@@ -6,7 +6,8 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: kgremban
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Monitor Azure IoT Hub Device Provisioning Service
@@ -53,13 +54,13 @@ To learn more about viewing metrics and setting up alerts on your DPS instance, 
 
 ### Analyzing metrics
 
-You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your DPS instance to open metrics explorer scoped, by default, to the platform metrics emitted by your instance:
 
 :::image type="content" source="media/monitor-iot-dps/metrics-portal.png" alt-text="Screenshot showing the metrics explorer page for a DPS instance." border="true":::
 
-For a list of the platform metrics collected for DPS, see [Metrics](monitor-iot-dps-reference.md#metrics). For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For a list of the platform metrics collected for DPS, see [Metrics](monitor-iot-dps-reference.md#metrics). For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -78,7 +79,7 @@ In Azure portal, you can select **Logs** under **Monitoring** on the left-pane o
 :::image type="content" source="media/monitor-iot-dps/logs-portal.png" alt-text="Screenshot shows the Logs page for a DPS instance.":::
 
 > [!IMPORTANT]
-> When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instances or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instances or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 Run queries against the **AzureDiagnostics** table to see the resource logs collected for the diagnostic settings you created for your DPS instance.
 
@@ -86,7 +87,7 @@ Run queries against the **AzureDiagnostics** table to see the resource logs coll
 AzureDiagnostics
 ```
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md) The schema for DPS resource logs is found in [Resource logs in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for DPS resource logs is found in [Resource logs in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#resource-logs).
 
 ### Using Log Analytics to view and resolve errors
 

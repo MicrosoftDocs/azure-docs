@@ -8,7 +8,7 @@ ms.custom: accessibility
 
 # Keyboard shortcuts for Azure Resource Graph Explorer
 
-This article lists the keyboard shortcuts that work in the Azure Resource Graph Explorer page of the Azure portal. For a list of global keyboard shortcuts or a list of keyboard shortcuts available for other pages, visit [Keyboard shortcuts in the Azure portal](../../../azure-portal/azure-portal-keyboard-shortcuts.md).
+This article lists the keyboard shortcuts that work in the Azure Resource Graph Explorer page of the Azure portal. For a list of global keyboard shortcuts or a list of keyboard shortcuts available for other pages, visit [Keyboard shortcuts in the Azure portal](/azure/azure-portal/azure-portal-keyboard-shortcuts).
 
 ## Keyboard shortcuts for editing queries
 
@@ -59,5 +59,5 @@ This article lists the keyboard shortcuts that work in the Azure Resource Graph 
 
 ## Next steps
 
-- [Keyboard shortcuts in the Azure portal](../../../azure-portal/azure-portal-keyboard-shortcuts.md)
+- [Keyboard shortcuts in the Azure portal](/azure/azure-portal/azure-portal-keyboard-shortcuts)
 - [Understanding the Azure Resource Graph query language](../concepts/query-language.md)

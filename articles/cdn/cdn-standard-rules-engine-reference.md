@@ -11,6 +11,8 @@ ms.author: duau
 
 # Standard rules engine reference for Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network, a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions and features that are available in the Standard rules engine for Azure Content Delivery Network.
 
 The rules engine is designed to be the final authority on how specific types of requests get processed by Standard Azure Content Delivery Network.

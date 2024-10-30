@@ -41,7 +41,9 @@
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
     - name: App settings reference
-      href: reference-app-settings.md      
+      href: reference-app-settings.md  
+    - name: Configure error pages
+      href: configure-error-pages.md   
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -168,8 +170,6 @@
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
-        - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -208,6 +208,8 @@
                   href: tutorial-connect-msi-sql-database.md
                 - name: Connect Java Tomcat to Postgres
                   href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+                - name: Connect Python Flask app to Postgres
+                  href: /azure/developer/python/tutorial-python-managed-identity-cli?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
             - name: Connect to Microsoft Graph with managed identity
               items: 
                 - name: Use .NET
@@ -241,7 +243,7 @@
     - name: Scale out automatically
       href: manage-automatic-scaling.md      
     - name: Scale out with rules
-      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
+      href: /azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: About high density hosting
@@ -449,6 +451,8 @@
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance
       href: routine-maintenance.md
+    - name: Routine maintenance, Restarts, and Downtime
+      href: routine-maintenance-downtime.md
     - name: Language support policy
       href: language-support-policy.md
     - name: OS functionality

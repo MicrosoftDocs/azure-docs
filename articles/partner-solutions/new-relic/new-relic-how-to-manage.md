@@ -69,7 +69,7 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
 
-- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - **Error**: The resource is configured to send logs to New Relic but an error blocked it.
 - **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.

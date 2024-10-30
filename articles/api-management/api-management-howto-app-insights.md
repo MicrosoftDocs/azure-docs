@@ -23,13 +23,13 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 > In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace only. Currently, you must integrate Application Insights in a workspace by configuring a connection string (recommended) or an instrumentation key. 
 
 > [!WARNING]
-> When using our [self-hosted gateway](self-hosted-gateway-overview.md), we do not guarantee all telemetry will be pushed to Azure Application Insights given it relies on [Application Insights' in-memory buffering](./../azure-monitor/app/telemetry-channels.md#built-in-telemetry-channels).
+> When using our [self-hosted gateway](self-hosted-gateway-overview.md), we do not guarantee all telemetry will be pushed to Azure Application Insights given it relies on [Application Insights' in-memory buffering](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels).
 
 ## Prerequisites
 
 * You need an Azure API Management instance. [Create one](get-started-create-service-instance.md) first.
 
-* To use Application Insights, [create an instance of the Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
+* To use Application Insights, [create an instance of the Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](/azure/azure-monitor/app/create-workspace-resource).
 
     > [!NOTE]
     > The Application Insights resource **can be** in a different subscription or even a different tenant than the API Management resource.
@@ -51,7 +51,7 @@ The following are high level steps for this scenario.
     You can create a connection between Application Insights and your API Management using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!IMPORTANT]
-    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, we recommend using an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. [Learn more](../azure-monitor/app/sdk-connection-string.md) about Application Insights connection strings.
+    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, we recommend using an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. [Learn more](/azure/azure-monitor/app/sdk-connection-string) about Application Insights connection strings.
     > 
 
     > [!NOTE]
@@ -338,13 +338,13 @@ Application Insights receives:
 | *Trace* | If you configure a [trace](trace-policy.md) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
 > [!NOTE]
-> See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
+> See [Application Insights limits](/azure/azure-monitor/service-limits#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
 
 ## Emit custom metrics
-You can emit [custom metrics](../azure-monitor/essentials/metrics-custom-overview.md) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
+You can emit [custom metrics](/azure/azure-monitor/essentials/metrics-custom-overview) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
 
 > [!NOTE]
-> Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+> Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
 
 To emit custom metrics, perform the following configuration steps. 
 
@@ -375,15 +375,8 @@ To emit custom metrics, perform the following configuration steps.
 
 ### Limits for custom metrics
 
-Azure Monitor imposes [usage limits](../azure-monitor/essentials/metrics-custom-overview.md#quotas-and-limits) for custom metrics that may affect your ability to emit metrics from API Management. For example, Azure Monitor currently sets a limit of 10 dimension keys per metric, and a limit of 50,000 total active time series per region in a subscription (within a 12 hour period). 
-
-These limits have the following implications for configuring custom metrics in API Management:
-
-* You can configure a maximum of 10 custom dimensions per `emit-metric` policy.
-
-* The number of active time series generated by the `emit-metric` policy within a 12 hour period is the product of the number of unique values of each configured dimension during the period. For example, if three custom dimensions were configured in the policy, and each dimension had 10 possible values within the period, the `emit-metric` policy would contribute 1,000 (10 x 10 x 10) active time series.
-
-* If you configure the `emit-metric` policy in multiple API Management instances that are in the same region in a subscription, all instances can contribute to the regional active time series limit.   
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
+   
 
 ## Performance implications and log sampling
 
@@ -415,6 +408,6 @@ Addressing the issue of telemetry data flow from API Management to Application I
 
 ## Related content
 
-+ Learn more about [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
++ Learn more about [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).
 + Learn about visualizing data from Application Insights using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)

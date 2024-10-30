@@ -3,7 +3,8 @@ title: Read Delta Lake tables (Synapse or External Location)
 description: How to read external tables created in Synapse or other systems into a Trino cluster.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Read Delta Lake tables (Synapse or external location)

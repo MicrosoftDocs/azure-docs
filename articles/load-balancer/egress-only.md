@@ -31,7 +31,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
+[!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
 ## Create internal load balancer
 

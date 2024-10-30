@@ -29,3 +29,4 @@ The following error codes are exposed by the Call Automation SDK.
 | | 500 | Play Failed | | File a support request through the Azure portal. |
 | | 500 | Recognize Failed | | Check error message and confirm the audio file format is valid (WAV, 16 KHz, Mono). If the file format is valid, file a support request through Azure portal. |
 | | 502 | Bad gateway | | Retry after a delay with a fresh http client. |
+| | 503,504 | Communication Services infrastructure error. | | File a support request through the Azure portal. |

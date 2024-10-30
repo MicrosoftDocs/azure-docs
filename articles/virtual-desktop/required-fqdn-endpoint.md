@@ -4,7 +4,7 @@ description: A list of FQDNs and endpoints you must allow, ensuring your Azure V
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/26/2024
+ms.date: 10/15/2024
 ---
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
@@ -38,6 +38,7 @@ The following table is the list of FQDNs and endpoints your session host VMs nee
 | `168.63.129.16` | TCP | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 | `oneocsp.microsoft.com` | TCP | 80 | Certificates | N/A |
 | `www.microsoft.com` | TCP | 80 | Certificates | N/A |
+
 
 The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:
 
@@ -119,7 +120,10 @@ Select the relevant tab based on which cloud you're using.
 | `aka.ms` | TCP | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | TCP | 443 | Documentation | All |
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI or MSIX package to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `graph.microsoft.com` | TCP | 443 | Service traffic | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
+| `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -132,11 +136,16 @@ Select the relevant tab based on which cloud you're using.
 | `aka.ms` | TCP | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | TCP | 443 | Documentation | All |
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI or MSIX package to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `graph.microsoft.com` | TCP | 443 | Service traffic | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
+| `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 
 ---
 
 These FQDNs and endpoints only correspond to client sites and resources. This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID or Office 365. Microsoft Entra FQDNs and endpoints can be found under ID *56*, *59* and *125* in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+
+If you're on a closed network with restricted internet access, you may also need to allow the FQDNs listed here for certificate checks: [Azure Certificate Authority details | Microsoft Learn](../security/fundamentals/azure-CA-details.md#certificate-downloads-and-revocation-lists).
 
 ## Next steps
 

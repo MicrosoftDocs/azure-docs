@@ -91,4 +91,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - [Message Analysis Transparency FAQ](../../../concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md)
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles)

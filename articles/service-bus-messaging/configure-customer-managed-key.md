@@ -14,15 +14,18 @@ There are some caveats to the customer managed key for service side encryption.
 
 You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
+If you only need to encrypt certain properties of your messages, consider using a library like [NServiceBus](https://docs.particular.net/nservicebus/security/property-encryption) for that.
+
 ## Enable customer-managed keys (Azure portal)
+
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your Service Bus Premium namespace.
-2. On the **Settings** page of your Service Bus namespace, select **Encryption**.
-3. Select the **Customer-managed key encryption at rest** as shown in the following image.
+1. On the **Settings** page of your Service Bus namespace, select **Encryption**.
+1. Select the **Customer-managed key encryption at rest** as shown in the following image.
 
-    ![Enable customer managed key](./media/configure-customer-managed-key/enable-customer-managed-key.png)
-
+    ![Screenshot showing how to enable a customer managed key.](media/configure-customer-managed-key/enable-customer-managed-key.png)
+   
 > [!NOTE]
 > Currently you can't configure Azure Key Vault Managed HSM through the portal. 
 
@@ -36,49 +39,52 @@ After you enable customer-managed keys, you need to associate the customer manag
     > Using customer-managed keys with Azure Service Bus requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new key vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the Key Vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 # [Key Vault](#tab/Key-Vault)
-
+        
 2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
-
-    ```azurecli-interactive
-    az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
-    ```    
+        
+```azurecli-interactive
+az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+ 
 3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
-
-    ```azurecli-interactive
-    az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
-    ```
-
+        
+```azurecli-interactive
+az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
+```
+        
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
-
+        
 2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+        
+```azurecli-interactive
+az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```    
 
-    ```azurecli-interactive
-    az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
-    ```    
 3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
-
-    ```azurecli-interactive
-    az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
-    ```
+        
+```azurecli-interactive
+az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
+```
 ---
 
-4. Create keys by following these steps:
-    1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+Create keys by following these steps:
+
+1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+   
+    ![Screenshot showing the Generate/Import button.](./media/configure-customer-managed-key/select-generate-import.png)
+      
+1. Set **Options** to **Generate** and give the key a name.
+   
+    ![Screenshot that shows how to name a key.](./media/configure-customer-managed-key/create-key.png) 
+      
+1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
+   
+    ![Screenshot that shows how to select a key from key vault.](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+   
+   > [!NOTE]
+   > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
         
-        ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
-
-    1. Set **Options** to **Generate** and give the key a name.
-
-        ![Create a key](./media/configure-customer-managed-key/create-key.png) 
-
-    1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
-
-        ![Select key from key vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-        > [!NOTE]
-        > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
-        
-    1. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
-
+1. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
 
     > [!IMPORTANT]
     > If you are looking to use Customer managed key along with [Geo-Disaster Recovery](service-bus-geo-dr.md), please review this section. 
@@ -105,16 +111,18 @@ There are two types of managed identities that you can assign to a Service Bus n
 - **System-assigned**: You can enable a managed identity directly on a Service Bus namespace. When you enable a system-assigned managed identity, an identity is created in Microsoft Entra that's tied to the lifecycle of that Service Bus namespace. So when the namespace is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource (namespace) can use this identity to request tokens from Microsoft Entra ID.
 - **User-assigned**: You may also create a managed identity as a standalone Azure resource, which is called user-assigned identity. You can create a user-assigned managed identity and assign it to one or more Service Bus namespaces. When you use user-assigned managed identities, the identity is managed separately from the resources that use it. They aren't tied to the lifecycle of the namespace. You can explicitly delete a user-assigned identity when you no longer need it.     
 
-    For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Encrypt using system-assigned identities (template)
-This section shows how to do the following tasks: 
 
-1. Create a **premium** Service Bus namespace with a **managed service identity**.
-2. Create a **key vault** and grant the service identity access to the key vault. 
-3. Update the Service Bus namespace with the key vault information (key/value). 
+This section shows you how to do the following tasks: 
+
+- Create a **premium** Service Bus namespace with a **managed service identity**.
+- Create a **key vault** and grant the service identity access to the key vault. 
+- Update the Service Bus namespace with the key vault information (key/value). 
 
 ### Create a premium Service Bus namespace with managed service identity
+
 This section shows you how to create an Azure Service Bus namespace with managed service identity by using an Azure Resource Manager template and PowerShell. 
 
 1. Create an Azure Resource Manager template to create a Service Bus premium tier namespace with a managed service identity. Name the file: **CreateServiceBusPremiumNamespace.json**: 
@@ -205,6 +213,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RG
 ```
 
 ### Encrypt data in Service Bus namespace with customer-managed key from key vault 
+
 You have done the following steps so far: 
 
 1. Created a premium namespace with a managed identity.
@@ -344,6 +353,7 @@ In this step, you update the Service Bus namespace with key vault information.
 1. Create a **premium** Service Bus namespace with the managed user-identity and the key vault information.
 
 ### Create a user-assigned identity
+
 Follow instructions from the [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) article to create a user-assigned identity. You can also create a user-assigned identity using [CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), [PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager template](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), and [REST](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md). 
 
 > [!NOTE]
@@ -550,6 +560,7 @@ This section gives you an example that shows you how to do the following tasks u
     ```
 
 ## Use both user-assigned and system-assigned identities
+
 A namespace can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned`, `UserAssigned` as shown in the following example. 
 
 ```json
@@ -599,6 +610,7 @@ See the following example for using the user-managed identity for the encryption
 ```
 
 ## Enable infrastructure (double) encryption of data
+
 If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption, which is also known as Double Encryption. 
 
 When infrastructure encryption is enabled, data in the Azure Service Bus is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Azure Service Bus data protects against a scenario where one of the encryption algorithms or keys may be compromised.
@@ -644,9 +656,8 @@ Here are more details:
 
 ## Considerations when using Geo-Disaster Recovery
 
-### Geo-Disaster Recovery - encryption with system-assigned identities
+### Encryption with system-assigned identities
 To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](/azure/key-vault/general/secure-your-key-vault) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
-
 
 - If [Geo-Disaster Recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.
@@ -657,30 +668,36 @@ To enable encryption of Microsoft-managed key with a customer managed key, an [a
     - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
-### Geo-Disaster Recovery - encryption with user-assigned identities
+### Encryption with user-assigned identities
+
 Here are a few recommendations: 
 
-1.	Create managed identity and assign Key Vault permissions to your managed identity. 
-2.	Add the identity as a user assigned identity, and enable encryption with the identity on both namespaces. 
-3.	Pair namespaces together 
+- Create managed identity and assign Key Vault permissions to your managed identity. 
+- Add the identity as a user assigned identity, and enable encryption with the identity on both namespaces. 
+- Pair namespaces together.
 
 Conditions for enabling Geo-Disaster Recovery and Encryption with User-Assigned Identities:
 
-1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
-2.	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
+-	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
+-	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
 
 ## Troubleshoot
 
 ### Symptom
+
 You get an error stating that the Service Bus namespace is disabled because the encryption key is no longer valid.
 
 ### Cause
+
 You may be using the `resource_id` or `version`, which links to a specific version of the key, which may have expired. If a specific version is provided, Service Bus uses that version of the key, even if the key is rotated. 
 
 ### Resolution
+
 Use the [`resource__versionless_id` or `versionless_id`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key#attributes-reference) instead of using `resource_id` or `version`. 
 
 ## Next steps
+
 See the following articles:
+
 - [Service Bus overview](service-bus-messaging-overview.md)
 - [Key Vault overview](/azure/key-vault/general/overview)

@@ -26,7 +26,7 @@ To monitor and review the workflow run status for Standard workflows, see the fo
 - [Review workflow run history](create-single-tenant-workflows-azure-portal.md#review-run-history).
 - [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
-For real-time event monitoring and richer debugging, you can set up diagnostics logging for your logic app workflow by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](monitor-workflows-collect-diagnostic-data.md).
+For real-time event monitoring and richer debugging, you can set up diagnostics logging for your logic app workflow by using [Azure Monitor logs](/azure/azure-monitor/overview). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs), you can create [log queries](/azure/azure-monitor/logs/log-query-overview) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](monitor-workflows-collect-diagnostic-data.md).
 
 <a name="review-trigger-history"></a>
 
@@ -417,9 +417,9 @@ The resubmit capability is available for all actions except for non-sequential a
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md). For more information, review [Metrics in Azure](../azure-monitor/data-platform.md).
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview). For more information, review [Metrics in Azure](/azure/azure-monitor/data-platform).
 
-To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-overview.md), follow these steps, which apply to both Consumption and Standard logic app resources:
+To set up alerts without using [Azure Monitor](/azure/azure-monitor/logs/log-query-overview), follow these steps, which apply to both Consumption and Standard logic app resources:
 
 1. On your logic app menu, under **Monitoring**, select **Alerts**. On the toolbar, select **Create** > **Alert rule**.
 
@@ -463,7 +463,7 @@ To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-o
 
 1. When you're ready, select **Review + Create**.
 
-For general information, see [Create an alert rule from a specific resource - Azure Monitor](../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal).
+For general information, see [Create an alert rule from a specific resource - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-new-alert-rule#create-or-edit-an-alert-rule-in-the-azure-portal).
 
 ## Next steps
 

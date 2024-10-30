@@ -9,7 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer-intent: As a SOC engineer, I want to understand how to create playbooks in Microsoft Sentinel so that my team can automate threat responses in our environment.
+#Customer intent: As a security analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
+
 ---
 
 # Create and manage Microsoft Sentinel playbooks 

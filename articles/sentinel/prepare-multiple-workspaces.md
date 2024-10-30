@@ -7,6 +7,10 @@ ms.date: 08/13/2024
 ms.author: cwatson
 ms.service: microsoft-sentinel
 #Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
+
+
+#Customer intent: As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.
+
 ---
 
 # Prepare for multiple workspaces and tenants in Microsoft Sentinel
@@ -27,7 +31,7 @@ This table lists some of these scenarios and, when possible, suggests how you mi
 | **Data ownership** | The boundaries of data ownership, for example by subsidiaries or affiliated companies, are better delineated using separate workspaces. |  |
 | **Multiple Azure tenants** | Microsoft Sentinel supports data collection from Microsoft and Azure SaaS resources only within its own Microsoft Entra tenant boundary. Therefore, each Microsoft Entra tenant requires a separate workspace. |  |
 | **Granular data access control** | An organization might need to allow different groups, within or outside the organization, to access some of the data collected by Microsoft Sentinel. For example:<br><ul><li>Resource owners' access to data pertaining to their resources</li><li>Regional or subsidiary SOCs' access to data relevant to their parts of the organization</li></ul> | Use [resource Azure RBAC](resource-context-rbac.md) or [table level Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| **Granular retention settings** | Historically, multiple workspaces were the only way to set different retention periods for different data types. This is no longer needed in many cases, thanks to the introduction of table level retention settings. | Use [table level retention settings](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) or automate [data deletion](../azure-monitor/logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) |
+| **Granular retention settings** | Historically, multiple workspaces were the only way to set different retention periods for different data types. This is no longer needed in many cases, thanks to the introduction of table level retention settings. | Use [table level retention settings](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) or automate [data deletion](/azure/azure-monitor/logs/personal-data-mgmt#exporting-and-deleting-personal-data) |
 | **Split billing** | By placing workspaces in separate subscriptions, they can be billed to different parties. | Usage reporting and cross-charging |
 | **Legacy architecture** | The use of multiple workspaces might stem from a historical design that took into consideration limitations or best practices which don't hold true anymore. It might also be an arbitrary design choice that can be modified to better accommodate Microsoft Sentinel.<br><br>Examples include:<br><ul><li>Using a per-subscription default workspace when deploying Microsoft Defender for Cloud</li><li>The need for granular access control or retention settings, the solutions for which are relatively new</li></ul> | Re-architect workspaces |
 
@@ -41,7 +45,7 @@ In case of an MSSP, many if not all of the above requirements apply, making mult
 
 - [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Microsoft Entra tenant.
 
-Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Microsoft Sentinel instances in different tenants.u
+Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Microsoft Sentinel instances in different tenants.u
 
 ## Microsoft Sentinel multiple workspace architecture
 

@@ -4,8 +4,7 @@ description: Learn about limits and recommended sizes as you deploy and operate 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/09/2022
 ms.author: alkohli

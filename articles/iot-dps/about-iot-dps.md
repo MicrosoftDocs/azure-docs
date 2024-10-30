@@ -5,10 +5,11 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/12/2024
 ms.topic: overview
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom:  [amqp, mqtt]
+ms.subservice: azure-iot-hub-dps
 ---
 
 # What is Azure IoT Hub Device Provisioning Service?

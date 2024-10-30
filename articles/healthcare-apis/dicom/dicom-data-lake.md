@@ -62,7 +62,7 @@ To learn more about access tiers, including cost tradeoffs and best practices, s
 ## Health check
 
 The DICOM service writes a small file to the data lake every 30 seconds, following the [Data Contract](#data-contracts) to ensure it maintains access. Making any changes to files stored under the `healthCheck` subdirectory might result in incorrect status of the health check.
-If there's an issue with access, status and details are displayed by [Azure Resource Health](../../service-health/overview.md). Azure Resource Health specifies if any action is required to restore access, for example reinstating a role to the DICOM service's identity.
+If there's an issue with access, status and details are displayed by [Azure Resource Health](/azure/service-health/overview). Azure Resource Health specifies if any action is required to restore access, for example reinstating a role to the DICOM service's identity.
 
 ## Limitations
 

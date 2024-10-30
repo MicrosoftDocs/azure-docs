@@ -297,7 +297,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor.md). 
 
-* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](/azure/azure-monitor/app/correlation). 
 
 * If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
 
@@ -307,7 +307,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Use the Azure Activity log for tracking activity in the service. 
 
-* Use custom events in [Azure Application Insights](../azure-monitor/app/api-custom-events-metrics.md) and [Azure Monitor](../azure-monitor/app/custom-data-correlation.md) as needed. 
+* Use custom events in [Azure Application Insights](/azure/azure-monitor/app/api-custom-events-metrics) and [Azure Monitor](/azure/azure-monitor/app/custom-data-correlation) as needed. 
 
 * Configure [OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry) for [self-hosted gateways](self-hosted-gateway-overview.md) on Kubernetes. 
 
@@ -318,5 +318,6 @@ Learn more about:
 * [Authentication and authorization in API Management](authentication-authorization-overview.md)
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 * [Security controls by Azure policy](security-controls-policy.md)
+* [Building a comprehensive API security strategy](https://aka.ms/API-Security-EBook)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 * [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)

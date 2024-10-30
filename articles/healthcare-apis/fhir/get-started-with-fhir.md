@@ -20,7 +20,7 @@ As a prerequisite, you need an Azure subscription and permissions to create Azur
 
 ## Create a workspace in your Azure subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+Create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of FHIR service instances you can create in each Azure subscription.
@@ -33,7 +33,7 @@ Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-a
 
 ## Access the FHIR service
 
-The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
+The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application (also referred to as a service principal) in Microsoft Entra ID, and grant it the right permissions.
 
 ### Register a client application
 
@@ -49,7 +49,7 @@ You can grant access permissions or assign roles in the [Azure portal](../config
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
-You can perform Create, Read (search), Update, and Delete (CRUD) transactions against the FHIR service in your applications or by using tools such as Postman, REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
+You can perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as Postman, REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
 
 #### Get an access token
 
@@ -71,7 +71,7 @@ You can find more details on interoperability and patient access, search, profil
 
 ### Export data
 
-Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [deID](../data-transformation/de-identified-export.md) in `ndjson` format. 
+Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-identified](../data-transformation/de-identified-export.md) in `ndjson` format. 
 
 ### Convert data
 

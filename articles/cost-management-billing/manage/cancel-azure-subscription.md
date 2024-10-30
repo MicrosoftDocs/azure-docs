@@ -6,7 +6,7 @@ ms.reviewer: tomasa
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
@@ -55,11 +55,11 @@ The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
-|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Service administrator and subscription owner  |
+|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner  |
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Subscription owner       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
-An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. For more information, see [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+An account administrator without the subscription owner role can’t cancel an Azure subscription. For more information, see [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
 
 ## Cancel a subscription in the Azure portal
 

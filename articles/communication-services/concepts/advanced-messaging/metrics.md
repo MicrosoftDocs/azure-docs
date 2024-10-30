@@ -2,9 +2,9 @@
 title: Advanced Messaging metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of Advanced Messaging metrics available in the Azure portal.
-author: memontic-ms
+author: Shamkh
 services: azure-communication-services
-ms.author: memontic
+ms.author: shamkh
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -13,7 +13,7 @@ ms.subservice: advanced-messaging
 
 # Advanced Messaging metrics overview
 
-Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Monitor metrics explorer](../../../azure-monitor/essentials/analyze-metrics.md) to:
+Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) to:
 
 - Plot your own charts.
 - Investigate abnormalities in your metric values.
@@ -27,7 +27,7 @@ Primitives in Communication Services emit metrics for API requests. To find thes
 
 All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together by using the `Count` aggregation type. They support all standard Azure Aggregation time series, including `Sum`, `Average`, `Min`, and `Max`.
 
-For more information on supported aggregation types and time series aggregations, see [Azure Monitor Metrics aggregation and display explained](./../../../azure-monitor/essentials/metrics-aggregation-explained.md).
+For more information on supported aggregation types and time series aggregations, see [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained).
 
 - **Operation**: All operations or routes that can be called on the Azure Communication Services Advanced Messaging gateway.
 - **Status Code**: The status code response sent after the request.

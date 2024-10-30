@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 10/09/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -46,7 +46,12 @@ The Azure OpenAI reservation size should be based on the total provisioned throu
 
 For example, assume that your total consumption of provisioned throughput units is 100 units. You want to purchase a reservation for all of it, so you should purchase 100 of reservation quantity.
 
+> [!CAUTION]
+> Capacity availability for model deployments is dynamic and changes frequently across regions and models. To prevent buying a reservation for more PTUs than you can use, create deployments first. Then buy the reservation to cover the PTUs you deployed. This best practice ensures that you maximize the reservation discount and helps to prevent you from purchasing a term commitment that you can’t fully use.
+
 ## Buy a Microsoft Azure OpenAI reservation
+
+When you buy a reservation, the current UTC date and time are used to record the transaction.
 
 To buy an Azure OpenAI reservation, follow these steps:
 
@@ -116,6 +121,23 @@ The following examples show how the Azure OpenAI reservation discount applies, d
 ## Increase Azure OpenAI reservation capacity
 
 You can't change the size of a purchased reservation. If you want to increase your Azure OpenAI reservation capacity to cover more hourly PTUs, you can buy more Azure OpenAI Service Provisioned reservations.
+
+## Monthly amortized costs
+
+Your amortized reservation cost is based on each calendar month. So, based on each month of the year, your daily amortized cost can change. Here's an example that explains how your monthly amortized cost might differ:
+
+**Example 1** - If you buy a reservation January 10, the renewal is as follows:
+- Month 1: January 10 - February 9 (inclusive)
+- Month 2: February 10 – March 9 (inclusive), and so on
+
+**Example 2** - If you buy a reservation on December 29, 30, or 31 then the renewal date changes over the course of a year. For example, assume that you buy a reservation on December 30.
+- Month 1: December 30 - January 29 (inclusive)
+- Month 2: January 30 – February 27 (inclusive) – for a non leap year
+- Month 3: February 28 – March 27 (inclusive), and so on
+
+If your cost for a monthly reservation is $200 and:
+- The reservation was purchased in May, then you see daily the amortized cost of $200/*31*
+- The reservation was purchased in February, then you see a daily amortized cost of $200/*28*
 
 ## Related content
 

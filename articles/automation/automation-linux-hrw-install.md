@@ -11,12 +11,9 @@ ms.service: azure-automation
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 [!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](./includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
 The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to: install the Hybrid Runbook Worker on a Linux machine, remove the worker, and remove a Hybrid Runbook Worker group. For User Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md)
 
@@ -31,13 +28,13 @@ Before you start, make sure that you've the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](/azure/azure-monitor/logs/resource-manager-workspace#create-a-log-analytics-workspace), through [PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/workspace-design.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](/azure/azure-monitor/logs/workspace-design) before you create the workspace.
 
 ### Log Analytics agent
 
-The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
+The Hybrid Runbook Worker role requires the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
 
 ### Supported Linux operating systems
 
@@ -158,16 +155,16 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     - For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, the Azure CLI, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
 
-    - For non-Azure machines, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Azure Arc-enabled servers support deploying the Log Analytics agent using the following methods:
+    - For non-Azure machines, you can install the Log Analytics agent using [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). Azure Arc-enabled servers support deploying the Log Analytics agent using the following methods:
 
       - Using the VM extensions framework.
 
         This feature in Azure Arc-enabled servers allows you to deploy the Log Analytics agent VM extension to a non-Azure Windows and/or Linux server. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Azure Arc-enabled servers:
 
-        - The [Azure portal](../azure-arc/servers/manage-vm-extensions-portal.md)
-        - The [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
-        - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
-        - Azure [Resource Manager templates](../azure-arc/servers/manage-vm-extensions-template.md)
+        - The [Azure portal](/azure/azure-arc/servers/manage-vm-extensions-portal)
+        - The [Azure CLI](/azure/azure-arc/servers/manage-vm-extensions-cli)
+        - [Azure PowerShell](/azure/azure-arc/servers/manage-vm-extensions-powershell)
+        - Azure [Resource Manager templates](/azure/azure-arc/servers/manage-vm-extensions-template)
 
       - Using Azure Policy.
 

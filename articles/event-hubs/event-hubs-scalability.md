@@ -34,7 +34,7 @@ For more information about the autoinflate feature, see [Automatically scale thr
 
 ## Processing units
 
- [Event Hubs Premium](./event-hubs-premium-overview.md) provides superior performance and better isolation within a managed multitenant PaaS environment. The resources in a Premium tier are isolated at the CPU and memory level so that each tenant workload runs in isolation. This resource container is called a **Processing Unit** (PU). You can purchase 1, 2, 4, 8 or 16 processing Units for each Event Hubs Premium namespace. 
+ [Event Hubs Premium](./event-hubs-premium-overview.md) provides superior performance and better isolation within a managed multitenant PaaS environment. The resources in a Premium tier are isolated at the CPU and memory level so that each tenant workload runs in isolation. This resource container is called a **Processing Unit** (PU). You can purchase 1, 2, 4, 6, 8, 10, 12, or 16 processing Units for each Event Hubs Premium namespace. 
 
 How much you can ingest and stream with a processing unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
 

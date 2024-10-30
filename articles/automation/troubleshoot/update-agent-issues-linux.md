@@ -68,7 +68,7 @@ If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot
 
 ### Monitoring Agent
 
-To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md).
+To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](/azure/azure-monitor/agents/agent-linux).
 
 This task checks if the folder is present -
 
@@ -89,13 +89,13 @@ process_name="omsagent"
 ps aux | grep %s | grep -v grep" % (process_name)"
 ```
 
-For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
+For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux-troubleshoot)
 
 
 ### Multihoming
 This check determines if the agent is reporting to multiple workspaces. Update Management doesn't support multihoming.
 
-To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../../azure-monitor/agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
+To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](/azure/azure-monitor/agents/agent-linux-troubleshoot#purge-and-reinstall-the-linux-agent)
 
 
 Validate that there are no more multihoming by checking the directories under this path:
@@ -260,7 +260,7 @@ Debug: omsadmin.conf file contents:
         URL_TLD=opinsights.azure.com
         DSC_ENDPOINT=https://scus-agentservice-prod-1.azure-automation.net/Accou            nts/00000000-0000-0000-0000-000000000000/Nodes\(AgentId='00000000-0000-0000-0000-000000000000'\)
         OMS_ENDPOINT=https://00000000-0000-0000-0000-000000000000.ods.opinsights            .azure.com/OperationalData.svc/PostJsonDataItems
-        AZURE_RESOURCE_ID=/subscriptions/00000000-0000-0000-0000-000000000000/re            sourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/linuxvm            2
+        AZURE_RESOURCE_ID=/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/re            sourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/linuxvm            2
         OMSCLOUD_ID=0000-0000-0000-0000-0000-0000-00
         UUID=00000000-0000-0000-0000-000000000000
 

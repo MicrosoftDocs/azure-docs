@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 09/24/2024
 ---
 
 # Move operation support for resources
@@ -806,7 +806,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccounts | **Yes** | **Yes** | No |
+> | databaseaccounts | **Yes** | No | No |
 
 ## Microsoft.DomainRegistration
 
@@ -991,7 +991,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
@@ -1486,6 +1486,19 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | **Yes** | **Yes** | No |
+
+## Microsoft.ProgrammableConnectivity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | gateways | No | No | No |
+> | openApiGatewayOfferings | No | No | No |
+> | openApiGateways | No | No | No |
+> | operatorApiConnections | No | No | No |
+> | operatorApiPlans | No | No | No |
+> | OperatorConnections | No | No | No |
+> | OperatorOfferings | No | No | No |
 
 ## Microsoft.ProjectBabylon
 

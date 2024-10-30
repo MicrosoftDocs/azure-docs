@@ -36,7 +36,12 @@ This article guides you through the steps necessary to successfully deploy a Sto
 
 ## Prerequisites
 
-- A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
+1. The below Storage Mover endpoints need to have access to https traffic
+-	`mcr.microsoft.com`
+-	`<region>.agentgateway.prd.azsm.azure.com`
+-	`evhns-sm-ur-prd-<region>.servicebus.windows.net`
+
+2. A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]
 > At present, Windows Hyper-V and VMware are the only supported virtualization environments for your agent VM. Other virtualization environments have not been tested and are not supported.

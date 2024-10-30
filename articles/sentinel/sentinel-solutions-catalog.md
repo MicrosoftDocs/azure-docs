@@ -8,6 +8,10 @@ ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: As a security operations analyst, I want to deploy domain-specific security solutions in Microsoft Sentinel so that I can enhance threat detection and compliance capabilities efficiently.
+
 ---
 
 # Microsoft Sentinel content hub catalog
