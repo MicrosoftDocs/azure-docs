@@ -5,7 +5,7 @@ author: matternst7258
 ms.author: matthewernst
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/30/2024
 # ms.custom: template-include
 ---
