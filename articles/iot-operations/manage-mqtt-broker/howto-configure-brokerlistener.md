@@ -62,13 +62,13 @@ To edit the default listener, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances/brokers/default@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource defaultBrokerListener 'Microsoft.IoTOperations/instances/brokerListener@2024-09-15-preview' = {
+resource defaultBrokerListener 'Microsoft.IoTOperations/instances/brokers/default/listeners/default@2024-09-15-preview' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -186,23 +186,37 @@ This example shows how to create a new *BrokerListener* resource named *loadbala
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource broker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers/default@2024-09-15-preview' = {
+  parent: broker
+  name: 'default'
+}
+
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/default/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
+
   properties: {
     brokerRef: 'default'
-    serviceName: 'aio-broker'
+    serviceName: 'aio-broker-loadbalancer'
     serviceType: 'ClusterIp'
     ports: [
       {
@@ -223,7 +237,6 @@ resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@202
     ]
   }
 }
-
 ```
 
 # [Kubernetes](#tab/kubernetes)
