@@ -39,7 +39,7 @@ You can also purge messages from entity using Service Bus explorer available on 
 1. Navigate to 'Service Bus explorer' blade on the entity you want to delete messages from.
 2. Choose 'Receive mode' in Service Bus explorer dropdown.
 
- :::image type="content" source="./media/batch-delete/choose-receive-mode-service-bus-explorer.png" alt-text="Screenshot of dropdown with Receive mode selected." lightbox="./media/batch-delete/choose-receive-mode-sb-explorer.png":::
+ :::image type="content" source="./media/batch-delete/choose-receive-mode-service-bus-explorer.png" alt-text="Screenshot of dropdown with Receive mode selected." lightbox="./media/batch-delete/choose-receive-mode-service-bus-explorer.png":::
 
 3. Click on the purge messages option as shown in snapshot.
    
