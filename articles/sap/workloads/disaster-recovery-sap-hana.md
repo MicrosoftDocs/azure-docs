@@ -36,7 +36,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 > - Requirements in this article are only valid for a Pacemaker-enabled landscape. Without Pacemaker, SAP HANA version requirements apply to the chosen replication mode.
 > - Pacemaker and the HANA cluster resource agent manage only two sites. The additional HSR site isn't controlled by the Pacemaker cluster.
 
-- SUSE supports maximum of one addtional system replication site to an SAP HANA database outside the Pacemaker cluster.
+- SUSE supports maximum of one additional system replication site to an SAP HANA database outside the Pacemaker cluster.
 - **Both scale-up and scale-out**: SAP HANA SPS 04 or newer is required to use multitarget HSR with a Pacemaker cluster.
 - **Both scale-up and scale-out**: Maximum of one SAP HANA system replication connected from outside the Linux cluster.
 - **HANA scale-out only**: SLES 15 SP1 or higher.
