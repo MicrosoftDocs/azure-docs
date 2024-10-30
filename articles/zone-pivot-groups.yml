@@ -1015,6 +1015,15 @@ groups:
   - id: container-apps-jobs-self-hosted-ci-cd-github-actions
     title: GitHub Actions runner
 # Owner: cshoe
+- id: static-web-apps-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: azure-pipelines
+    title: Azure Pipelines agent
+  - id: github-actions
+    title: GitHub Actions
+# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol

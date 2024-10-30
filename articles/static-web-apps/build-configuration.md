@@ -5,8 +5,9 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 ms.author: cshoe
+zone_pivot_groups: static-web-apps-ci-cd
 ---
 
 # Build configuration for Azure Static Web Apps
@@ -31,15 +32,31 @@ With these settings, you can set up GitHub Actions or [Azure Pipelines](get-star
 
 ## File name and location
 
-# [GitHub Actions](#tab/github-actions)
+<!--
+::: zone pivot="azure-pipelines"
+
+
+
+::: zone-end
+
+::: zone pivot="github-actions"
+
+
+
+::: zone-end
+-->
+
+::: zone pivot="azure-pipelines"
 
 The GitHub action generates the configuration file and is stored in the *.github/workflows* folder, named using the following format: `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="github-actions"
 
 By default, the configuration file is stored at the root of your repository with the name `azure-pipelines.yml`.
 
----
+::: zone-end
 
 ## Security
 
@@ -58,7 +75,44 @@ The following sample configuration monitors the repository for changes. As commi
 > [!NOTE]
 > This example shows a sample configuration that uses an Azure deployment token to secure the build configuration.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="azure-pipelines"
+
+```yaml
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: 'src' # App source code path relative to cwd
+      api_location: 'api' # Api source code path relative to cwd
+      output_location: 'public' # Built app content directory relative to app_location - optional
+      cwd: '$(System.DefaultWorkingDirectory)/myapp' # Working directory - optional
+      azure_static_web_apps_api_token: $(deployment_token)
+```
+
+In this configuration:
+
+- The `main` branch is monitored for commits.
+- The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the output folder.
+- The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./deployment-token-management.md).
+
+> [!NOTE]
+> `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
+
+::: zone-end
+
+::: zone pivot="github-actions"
+
+# [Azure deployment token](#tab/adt)
 
 ```yml
 name: Azure Static Web Apps CI/CD
@@ -124,12 +178,62 @@ jobs:
           action: "close"
 ```
 
+# [GitHub access token](#tab/gat)
+
+```yml
+name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations ######
+          app_location: "src" # App source code path relative to repository root
+          api_location: "api" # Api source code path relative to repository root - optional
+          output_location: "public" # Built app content directory, relative to app_location - optional
+          ###### End of Repository/Build Configurations ######
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "close"
+```
+
+---
+
 In this configuration:
 
 - The `main` branch is monitored for commits.
 - A GitHub Actions workflow is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
-- One of the `steps` makes an `idtoken` available to authenticate the build process with Azure services. 
 - The `app_location` points to the `src` folder that contains the source files for the web app. To set this value to the repository root, use `/`.
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. To set this value to the repository root, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. It's relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
@@ -144,40 +248,7 @@ This job helps keep your pull request workflow organized and prevents stale pull
 
 The *Close Pull Request* job is part of the Azure Static Web Apps GitHub Actions workflow, closing the pull request after it's merged. The `Azure/static-web-apps-deploy` action deploys the app to Azure Static Web Apps, requiring the `azure_static_web_apps_api_token` for authentication.
 
-# [Azure Pipelines](#tab/azure-devops)
-
-```yaml
-trigger:
-  - main
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-  - checkout: self
-    submodules: true
-  - task: AzureStaticWebApp@0
-    inputs:
-      app_location: 'src' # App source code path relative to cwd
-      api_location: 'api' # Api source code path relative to cwd
-      output_location: 'public' # Built app content directory relative to app_location - optional
-      cwd: '$(System.DefaultWorkingDirectory)/myapp' # Working directory - optional
-      azure_static_web_apps_api_token: $(deployment_token)
-```
-
-In this configuration:
-
-- The `main` branch is monitored for commits.
-- The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
-- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the output folder.
-- The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./deployment-token-management.md).
-
-> [!NOTE]
-> `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
-
----
+::: zone-end
 
 ## Custom build commands
 
@@ -187,7 +258,7 @@ For Node.js applications, you can take fine-grained control over what commands r
 > Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds.
 > To specify the Node.js version, use the [`engines`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#engines) field in the `package.json` file.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yml
 ...
@@ -203,7 +274,9 @@ with:
   api_build_command: 'npm run build-api-prod'
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yaml
 ...
@@ -217,7 +290,7 @@ inputs:
   azure_static_web_apps_api_token: $(deployment_token)
 ```
 
----
+::: zone-end
 
 ## Skip building front-end app
 
@@ -232,7 +305,7 @@ To skip building the front-end app:
 > [!NOTE]
 > Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yml
 ...
@@ -247,7 +320,9 @@ with:
   skip_app_build: true
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yml
 ...
@@ -260,7 +335,7 @@ inputs:
   azure_static_web_apps_api_token: $(deployment_token)
 ```
 
----
+::: zone-end
 
 ## Skip building the API
 
@@ -281,7 +356,7 @@ Steps to skip building the API:
 - Set `skip_api_build` to `true`.
 - Set `api_location` to the folder containing the built API app to deploy. This path is relative to the repository root in GitHub Actions and `cwd` in Azure Pipelines.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yml
 ...
@@ -296,7 +371,9 @@ with:
   skip_api_build: true
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yml
 ...
@@ -309,13 +386,13 @@ inputs:
   azure_static_web_apps_api_token: $(deployment_token)
 ```
 
----
+::: zone-end
 
 ## Extend build timeout
 
 By default, the app and API builds are limited to 15 minutes. You can extend the build timeout by setting the `build_timeout_in_minutes` property.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yaml
 ...
@@ -330,7 +407,9 @@ with:
   build_timeout_in_minutes: 30
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yml
 ...
@@ -343,7 +422,7 @@ inputs:
   azure_static_web_apps_api_token: $(deployment_token)
 ```
 
----
+::: zone-end
 
 ## Run workflow without deployment secrets
 
@@ -351,7 +430,7 @@ Sometimes you need your workflow to continue to process even when some secrets a
 
 When enabled, this feature allows the workflow to continue without deploying the site's content.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yaml
 ...
@@ -367,7 +446,9 @@ env:
   SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yaml
 ...
@@ -381,7 +462,7 @@ env:
   SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
----
+::: zone-end
 
 ## Environment variables
 
@@ -389,7 +470,7 @@ You can set environment variables for your build via the `env` section of a job'
 
 For more information about the environment variables used by Oryx, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/main/doc/configuration.md).
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 ```yaml
 ...
@@ -405,7 +486,9 @@ env: # Add environment variables here
   HUGO_VERSION: 0.58.0
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 ```yml
 ...
@@ -419,7 +502,7 @@ env: # Add environment variables here
   HUGO_VERSION: 0.58.0
 ```
 
----
+::: zone-end
 
 ## Monorepo support
 
@@ -427,7 +510,7 @@ A monorepo is a repository that contains code for more than one application. By 
 
 To target a workflow file to a single app, you specify paths in the `push` and `pull_request` sections.
 
-# [GitHub Actions](#tab/github-actions)
+::: zone pivot="github-actions"
 
 When you set up a monorepo, each static app configuration is scoped to only files for a single app. The different workflow files live side by side in the repository's _.github/workflows_ folder.
 
@@ -473,11 +556,13 @@ In this example, only changes made to following files trigger a new build:
 - Any files inside the _api1_ folder
 - Changes to the app's _azure-static-web-apps-purple-pond.yml_ workflow file
 
-# [Azure Pipelines](#tab/azure-devops)
+::: zone-end
+
+::: zone pivot="azure-pipelines"
 
 To support more than one application in a single repository, create a separate workflow file and associate it with different Azure Pipelines.
 
----
+::: zone-end
 
 ## Next steps
 
