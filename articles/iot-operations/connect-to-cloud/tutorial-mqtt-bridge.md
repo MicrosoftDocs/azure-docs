@@ -199,7 +199,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Next, execute the following command in your terminal. Replace `<FILE>` with the name of the Bicep file you downloaded.
 
 ```azurecli
-az stack group create --name DeployDataflowEndpoint --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -309,7 +309,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
 Like the dataflow endpoint, execute the following command in your terminal:
 
 ```azurecli
-az stack group create --name DeployDataflows --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)

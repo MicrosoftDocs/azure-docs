@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/13/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
 ms.service: azure-iot-operations
@@ -41,8 +41,8 @@ datasets: [
   {
     key: 'position',
     inputs: [
-      '$source.Position' // - $1
-      '$context.Position' // -$2
+      '$source.Position' //  - $1
+      '$context.Position' // - $2
     ],
     expression: '$1 == $2'
   }
@@ -55,8 +55,8 @@ datasets: [
 datasets:
 - key: position
   inputs:
-    - $source.Position # - $1
-    - $context.Position # -$2
+    - $source.Position #  - $1
+    - $context.Position # - $2
   expression: $1 == $2
 ```
 
@@ -70,17 +70,20 @@ When a new record is being processed, the mapper performs the following steps:
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  '$context(position).WorkingHours' //  - $1 
-]
-output: 'WorkingHours'
-
-inputs: [
-  'BaseSalary' // - - - - - - - - - - - - $1
-  '$context(position).BaseSalary' //  - - $2
-]
-output: 'BaseSalary'
-expression: 'if($1 == (), $2, $1)'
+{
+  inputs: [
+    '$context(position).WorkingHours' //  - $1 
+  ]
+  output: 'WorkingHours'
+}
+{
+  inputs: [
+    'BaseSalary' // - - - - - - - - - - - - $1
+    '$context(position).BaseSalary' //  - - $2
+  ]
+  output: 'BaseSalary'
+  expression: 'if($1 == (), $2, $1)'
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -108,15 +111,15 @@ It's possible to use multiple datasets:
 ```bicep
 datasets: [
   {
-    key: 'position',
+    key: 'position'
     inputs: [
       '$source.Position'  // - $1
       '$context.Position' // - $2
     ],
     expression: '$1 == $2'
-  },
+  }
   {
-    key: 'permissions',
+    key: 'permissions'
     inputs: [
       '$source.Position'  // - $1
       '$context.Position' // - $2
@@ -173,7 +176,7 @@ The input references use the key of the dataset like `position` or `permission`.
 ```bicep
 datasets: [
   {
-    key: 'datasets.parag10.rule42 as position',
+    key: 'datasets.parag10.rule42 as position'
     inputs: [
       '$source.Position'  // - $1
       '$context.Position' // - $2

@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
 ---
@@ -40,23 +40,15 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default dataflow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' = {
   parent: aioInstance
   name: 'default'
-  // Only property is instanceCount: 1
-}
-
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
-  // Reference to the parent dataflow profile, the default profile in this case
-  // Same usage as profileRef in Kubernetes YAML
-  parent: defaultDataflowProfile
-  name: dataflowName
   extendedLocation: {
     name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
-    // Dataflow properties
+    instanceCount: 1
   }
 }
 ```

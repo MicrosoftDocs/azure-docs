@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
 ms.service: azure-iot-operations
@@ -157,7 +157,7 @@ Arrays can be processed by using aggregation functions to compute a single value
 
 ```json
 {
-    "Measurements": [2.34, 12.3, 32.4]
+  "Measurements": [2.34, 12.3, 32.4]
 }
 ```
 
@@ -251,11 +251,11 @@ Example mapping that uses a missing value:
 
 ```json
 {
-    "Employment": {      
-      "Position": "Analyst",
-      "BaseSalary": 75000,
-      "WorkingHours": "Regular"
-    }
+  "Employment": {      
+    "Position": "Analyst",
+    "BaseSalary": 75000,
+    "WorkingHours": "Regular"
+  }
 }
 ```
 
@@ -287,7 +287,7 @@ expression: 'if($1 == (), $2, $1)'
 ```yaml
 - inputs:
   - BaseSalary  # - - - - - - - - - - $1
-  - $context(position).BaseSalary #  - $2 
+  - $context(position).BaseSalary # - $2
   output: BaseSalary
   expression: if($1 == (), $2, $1)
 ```

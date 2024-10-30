@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 09/24/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
@@ -66,22 +66,26 @@ The following mapping is an example:
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  'BirthDate'
-]
-output: 'Employee.DateOfBirth'
-
-inputs: [
-  'Position'  // - - - $1
-  'Office'  // - - - - $2
-]
-output: 'Employment.Position'
-expression: '$1 + ", " + $2'
-
-inputs: [
-  '$context(position).BaseSalary'
-]
-output: 'Employment.BaseSalary'
+{
+  inputs: [
+    'BirthDate'
+  ]
+  output: 'Employee.DateOfBirth'
+}
+{
+  inputs: [
+    'Position'  // - - - - $1
+    'Office'    // - - - - $2
+  ]
+  output: 'Employment.Position'
+  expression: '$1 + ", " + $2'
+}
+{
+  inputs: [
+    '$context(position).BaseSalary'
+  ]
+  output: 'Employment.BaseSalary'
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -403,15 +407,18 @@ Mapping configuration that uses wildcards:
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  'ColorProperties.*'
-]
-output: '*'
-
-inputs: [
-  'TextureProperties.*'
-]
-output: '*'
+{
+  inputs: [
+    'ColorProperties.*'
+  ]
+  output: '*'
+}
+{
+  inputs: [
+    'TextureProperties.*'
+  ]
+  output: '*'
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -622,19 +629,22 @@ When you use the previous example from multi-input wildcards, consider the follo
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  '*.Max'   // - $1
-  '*.Min'   // - $2
-]
-output: 'ColorProperties.*.Avg'
-expression: '($1 + $2) / 2'
-
-inputs: [
-  '*.Max'   // - $1
-  '*.Min'   // - $2
-]
-output: 'ColorProperties.*.Diff'
-expression: 'abs($1 - $2)'
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*.Avg'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*.Diff'
+  expression: 'abs($1 - $2)'
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -683,19 +693,22 @@ Now, consider a scenario where a specific field needs a different calculation:
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  '*.Max'   // - $1
-  '*.Min'   // - $2
-]
-output: 'ColorProperties.*'
-expression: '($1 + $2) / 2'
-
-inputs: [
-  'Opacity.Max'   // - $1
-  'Opacity.Min'   // - $2
-]
-output: 'ColorProperties.OpacityAdjusted'
-expression: '($1 + $2 + 1.32) / 2'
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    'Opacity.Max'   // - $1
+    'Opacity.Min'   // - $2
+  ]
+  output: 'ColorProperties.OpacityAdjusted'
+  expression: '($1 + $2 + 1.32) / 2'
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -726,17 +739,20 @@ Consider a special case for the same fields to help decide the right action:
 # [Bicep](#tab/bicep)
 
 ```bicep
-inputs: [
-  '*.Max'   // - $1
-  '*.Min'   // - $2
-]
-output: 'ColorProperties.*'
-expression: '($1 + $2) / 2'
-
-inputs: [
-  'Opacity.Max'   // - $1
-  'Opacity.Min'   // - $2
-]
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    'Opacity.Max'   // - $1
+    'Opacity.Min'   // - $2
+  ]
+}
 ```
 
 # [Kubernetes](#tab/kubernetes)
