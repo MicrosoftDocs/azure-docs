@@ -45,6 +45,7 @@ The v2 tiers are supported in API Management API version **2023-05-01-preview** 
 
 ### Supported regions
 The v2 tiers are available in the following regions:
+* East US
 * East US 2
 * South Central US
 * North Central US
