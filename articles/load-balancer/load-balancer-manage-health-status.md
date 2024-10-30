@@ -101,52 +101,48 @@ To retrieve the health status information via REST API, you need to do a two req
 
 1. Use the following POST request to obtain the Location URI from the Response Headers.
 
-```rest
-
-
-    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/loadBalancingRules/<loadBalancingRulesName>/health?api-version=2024-03-01&preserve-view=true
-    Authorization: Bearer <access token>
-
-```
+   ```rest
+     POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/loadBalancingRules/<loadBalancingRulesName>/health?api-version=2024-03-01&preserve-view=true
+       Authorization: Bearer <access token>
+      ```
 
 1. Copy the Location URI from the Response Headers. Location URI should follow this schema.
 
-```rest
-    https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
-```
+   ```rest
+       https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
+   ```
 
 1. Use the copied Location URI to make a GET request.
 
-```rest
-    GET https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
-    
-    Authorization: Bearer <access token>
-
-```
+   ```rest
+       GET https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
+       
+       Authorization: Bearer <access token>
+   ```
 
 1. A status code of 200 is returned and the health status information is displayed in the response body similar to this example response:
 
-```JSON
-{
-  "up": 2,
-  "down": 0,
-  "loadBalancerBackendAddresses": [
-    {
-      "ipAddress": "10.0.2.5",
-      "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
-      "state": "Up",
-      "reason": "Up_Admin"
-    },
-    {
-      "ipAddress": "10.0.2.4",
-      "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
-      "state": "Up",
-      "reason": "Up_Probe_Success"
-    }
-  ]
-}
-
-```
+   ```JSON
+   {
+     "up": 2,
+     "down": 0,
+     "loadBalancerBackendAddresses": [
+       {
+         "ipAddress": "10.0.2.5",
+         "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
+         "state": "Up",
+         "reason": "Up_Admin"
+       },
+       {
+         "ipAddress": "10.0.2.4",
+         "networkInterfaceIPConfigurationId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkInterfaces/<networkInterfaceName>/ipConfigurations/<ipConfigurationName>",
+         "state": "Up",
+         "reason": "Up_Probe_Success"
+       }
+     ]
+   }
+   
+   ```
 
 ## Design considerations
 
@@ -164,3 +160,5 @@ When using the health status feature, consider the following limitations:
 - Health status isn’t supported for Gateway Load Balancer.
 
 ## Next steps
+> [!div class="nextstepaction"]
+> [Create a public load balancer with an IP-based backend using the Azure portal](tutorial-load-balancer-ip-backend-portal)
