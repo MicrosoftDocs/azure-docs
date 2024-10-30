@@ -189,6 +189,10 @@ The current list of supported commands are
   Command Name: `cluster-cve-report`\
   Arguments: None
 
+- [Collect Helm Releases](#collect-helm-releases)\
+  Command Name: `collect-helm-releases`\
+  Arguments: None
+
 The command syntax is:
 
 ```azurecli-interactive
@@ -661,6 +665,119 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
 **CVE Data Details**
 
 The CVE data is refreshed per container image every 24 hours or when there's a change to the Kubernetes resource referencing the image.
+
+### Collect Helm Releases
+
+Helm release data is collected with the `collect-helm-releases` command and formatted as json to `{year}-{month}-{day}-helm-releases.json`. The JSON file is found in the data extract zip file located in the storage account. The data collected includes all helm release information from the cluster, which consists of the standard data returned when running the command `helm list`.
+
+This example executes the `collect-helm-releases` command without arguments.
+
+> [!NOTE]
+> The target machine must be a control-plane node or the action will not execute.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "cluster_MRG" \
+  --subscription "subscription" \
+  --commands '[{"command":"collect-helm-releases"}]' \
+  --limit-time-seconds 600
+```
+
+**`collect-helm-releases` Output**
+
+```azurecli
+====Action Command Output====
+Helm releases report saved.
+
+
+================================
+Script execution result can be found in storage account:
+https://cmcr5xp3mbn7st.blob.core.windows.net/bmm-run-command-output/a29dcbdb-5524-4172-8b55-88e0e5ec93ff-action-bmmdataextcmd.tar.gz?se=2024-10-30T02%3A09%3A54Z&sig=v6cjiIDBP9viEijs%2B%2BwJDrHIAbLEmuiVmCEEDHEi%2FEc%3D&sp=r&spr=https&sr=b&st=2024-10-29T22%3A09%3A54Z&sv=2023-11-03
+```
+
+**Helm Release Schema**
+
+```JSON
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "dateRetrieved": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "clusterId": {
+          "type": "string"
+        },
+        "runtimeVersion": {
+          "type": "string"
+        },
+        "managementVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clusterId",
+        "dateRetrieved",
+        "managementVersion",
+        "platform",
+        "resource",
+        "runtimeVersion"
+      ]
+    },
+    "helmReleases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "chart": {
+            "type": "string"
+          },
+          "app_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "app_version",
+          "chart",
+          "name",
+          "namespace",
+          "revision",
+          "status",
+          "updated"
+        ]
+      }
+    }
+  },
+  "required": [
+    "helmReleases",
+    "metadata"
+  ]
+}
+```
 
 ## Viewing the output
 
