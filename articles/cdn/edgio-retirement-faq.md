@@ -6,7 +6,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 ms.author: duau
 ---
 
@@ -18,7 +18,7 @@ Azure CDN from Edgio will be retired on November 4, 2025. You must migrate your 
 
 ### I see Edgio filed for Chapter 11 bankruptcy. Can Microsoft guarantee that Azure CDN from Edgio’s availability and services until November 4, 2025?
 
-Edgio informed us that their services remain operational until at least November 4, 2025. We're collaborating with Edgio closely during this transition. However, we can't guarantee that Edgio doesn't unexpectedly cease operations before this date due to circumstances beyond our control.
+Edgio informed us that their services remain operational until at least November 4, 2025. However, we can't guarantee that Edgio doesn't unexpectedly cease operations before this date due to circumstances beyond our control.
 
 ### How does Microsoft assist me with migrating my workloads from Azure CDN from Edgio?
 
