@@ -126,7 +126,7 @@ Using either of these options you can choose to install all available update cla
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/include-knowledge-base-id.png" alt-text="Screenshot showing how to include knowledge base ID." lightbox="./media/manage-hot-patching-arc-machines/include-knowledge-base-id.png":::
 
-This ensures hotpatch (preview) update that don't require reboots are installed in the same schedule or one-time update schedule, making patch installation window predictable. 
+This ensures that the hotpatch (preview) update which doesn't require reboots is installed in the same schedule or one-time update schedule, making patch installation window predictable. 
 
 ### View history
 
