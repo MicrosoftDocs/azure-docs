@@ -104,8 +104,8 @@ Secret Store extension requires a user-assigned managed identity with access to 
 
 1. Create an [Azure Key Vault](/azure/key-vault/secrets/quick-create-cli) which will be used to store secrets.
 2. Make sure you have `Key Vaults Secrets Officer` role on the Azure Key Vault.
-3. Create a [User Assigned Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) for secret store extension.
-5. Use the [az iot ops secretsync enable](/cli/azure/iot/ops) command to set up the Azure IoT Operations instance for secret synchronization.
+3. Create a [User Assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) for secret store extension.
+5. Use the [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command to set up the Azure IoT Operations instance for secret synchronization.
 
 This command:
 
@@ -165,7 +165,7 @@ Now that secret synchronization setup is complete, you can refer to [Manage Secr
 
 Some Azure IoT Operations components like dataflow endpoints use user-assigned managed identity for cloud connections. It's recommended to use a separate identity from the one used to set up Secrets Management.
 
-1. Create a [User Assigned Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) which will be used for cloud connections.
+1. Create a [User Assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) which will be used for cloud connections.
 
    > [!NOTE]
    > You will need to grant the identity permission to whichever cloud resource this will be used for. 
