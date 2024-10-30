@@ -17,7 +17,7 @@ To sign a zone with DNSSEC, see [How to sign your Azure Public DNS zone with DNS
 > [!NOTE]
 > DNSSEC zone signing is currently in PREVIEW.<br> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> This DNSSEC preview is offered without a requirement to enroll in a preview. You can use Cloud Shell to sign or unsign a zone using Azure PowerShell or Azure CLI. Signing a zone by using the Azure portal is available in the next portal update.
+> This DNSSEC preview is offered without a requirement to enroll in a preview. You can use Cloud Shell to sign or unsign a zone with Azure PowerShell or Azure CLI. Signing a zone by using the Azure portal is available in the next portal update.
 
 ## Prerequisites
 
