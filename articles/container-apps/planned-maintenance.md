@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 10/30/2024
 ms.author: cshoe
 ---
 
@@ -52,12 +52,12 @@ In many cases, you can minimize the impact of platform updates on your applicati
 
 ## Add a maintenance window
 
-You can add a maintenance window to an environment with the `maintenanceconfiguration add` command.
+You can add a maintenance window to an environment with the `maintenance-config add` command.
 
 Before running this command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
 ```azurecli
-az containerapp env maintenanceconfiguration add \
+az containerapp env maintenance-config add \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --weekday Monday \
@@ -69,12 +69,12 @@ UTC times are expressed using the 24-hour time format. For instance, if you want
 
 ## Update a maintenance window
 
-You can update the maintenance window for an environment with the `maintenanceconfiguration update` command.
+You can update the maintenance window for an environment with the `maintenance-config update` command.
 
 Before running this command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
 ```azurecli
-az containerapp env maintenanceconfiguration update \
+az containerapp env maintenance-config update \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \ 
   --weekday Monday \
@@ -86,27 +86,23 @@ UTC times are expressed using the 24-hour time format. For instance, if you want
 
 ## View the configured window
 
-You can view an environment's maintenance window with the `maintenanceconfiguration show` command.
+You can view an environment's maintenance window with the `maintenance-config show` command.
 
 ```azurecli
-az containerapp env maintenanceconfiguration show \
+az containerapp env maintenance-config show \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME>
 ```
 
 ## Delete a maintenance window
 
-To delete an environment's maintenance window, use the `maintenanceconfiguration delete` command.
+To delete an environment's maintenance window, use the `maintenance-config delete` command.
 
 ```azurecli
-az containerapp env maintenanceconfiguration delete 
+az containerapp env maintenance-config delete 
   --resource-group <RESOURCE_GROUP>  
   --environment <ENVIRONMENT_NAME>
 ```
-
-## View results of maintenance actions
-
-TODO: query that indicates start, end, and success of scheduled maintenance
 
 ## Considerations
 
@@ -114,4 +110,5 @@ Maintenance windows are free during preview.
 
 ## Next steps
 
-* TODO
+> [!div class="nextstepaction"]
+> [Observability overview](./observability.md)
