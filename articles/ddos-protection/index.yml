@@ -50,18 +50,14 @@ landingContent:
   # Card
   - title: Scenarios
     linkLists:
-      - linkListType: quickstart
+      - linkListType: get-started
         links:
           - text: Create and configure Azure DDoS Network Protection
             url: manage-ddos-protection.md
           - text: Create and configure Azure DDoS IP Protection
             url: manage-ddos-ip-protection-portal.md
-      - linkListType: tutorial
-        links:
           - text: Test your simulation environment with approved partners
             url: test-through-simulations.md
-      - linkListType: how-to-guide
-        links:
           - text: Engage in DDoS Rapid Response (DRR) during an attack
             url: ddos-rapid-response.md
    # Card
@@ -81,7 +77,7 @@ landingContent:
     # Card
   - title: Deploying DDoS Protection with Azure Services 
     linkLists:
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
           - text: Deploy Route Server with DDoS Protection
             url: ../route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
