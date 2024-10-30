@@ -92,6 +92,7 @@ When you're performing the following physical repairs, a replace action is requi
 ## Summary
 
 Restarting, reimaging, and replacing are effective troubleshooting methods that you can use to address technical problems. However, it's important to have a systematic approach and to consider other factors before you try any drastic measures.
+More details about the BMM actions can be found in the [BMM actions](howto-baremetal-functions.md) article.
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
