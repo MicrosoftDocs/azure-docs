@@ -38,7 +38,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > | Central India       | Jio India West       | Sweden Central     |
 > | Central US          | Korea Central        | Switzerland North  |
 > | Central US EUAP     | Korea South          | UAE North          |
-> | East Asia           | Mexico Central       | U KSouth           |
+> | East Asia           | Mexico Central       | UK South           |
 > | East US 2           | North Central US     | UK West            |
 > | France Central      | North Europe         |                    |
 > | Germany North       | Norway East          |                    |
