@@ -15,7 +15,7 @@ ms.author: cephalin
 
 In [Azure App Service](overview.md), you can run your apps directly from a deployment ZIP package file. This article shows how to enable this functionality in your app.
 
-All other deployment methods in App Service have something in common: your files are deployed to *D:\home\site\wwwroot* in your app (or */home/site/wwwroot* for Linux apps). Since the same directory is used by your app at runtime, it's possible for deployment to fail because of file lock conflicts, and for the app to behave unpredictably because some of the files are not yet updated. To enable this setting, you do not need to assign any value to the `WEBSITE_RUN_FROM_PACKAGE` variable.
+All other deployment methods in App Service have something in common: your unzip files are deployed to *D:\home\site\wwwroot* in your app (or */home/site/wwwroot* for Linux apps). Since the same directory is used by your app at runtime, it's possible for deployment to fail because of file lock conflicts, and for the app to behave unpredictably because some of the files are not yet updated. To enable this setting, you do not need to assign any value to the `WEBSITE_RUN_FROM_PACKAGE` variable or you can remove it entirely.
 
 In contrast, when you run directly from a ZIP package, the files in the package are not copied to the *wwwroot* directory. Instead, the ZIP package itself gets mounted directly as the read-only *wwwroot* directory. To enable this setting, set WEBSITE_RUN_FROM_PACKAGE=1 or provide the URL of the ZIP file. There are several benefits to running directly from a package:
 
