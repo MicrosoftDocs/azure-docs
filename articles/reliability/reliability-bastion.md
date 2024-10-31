@@ -25,8 +25,7 @@ Azure Bastion is a fully managed PaaS service that you provision to securely con
 
 For production deployments, you should:
 
- - Use standard or premium Azure Bastion resources. While the basic SKU supports zone redundancy, we don't recommend it for production use.
- - [Enable zone redundancy](#availability-zone-support) (in preview), if your Azure Bastion resources are in a supported region.
+ - [Enable zone redundancy](#availability-zone-support), if your Azure Bastion resources are in a supported region.
 
 ## Transient faults
 
@@ -42,16 +41,17 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
 
-If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone will be replaced with another instance in a healthy zone.
 
 > [!NOTE]
-> Azure Bastion support for zone redundancy is currently in preview.
+> If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone will be replaced with another instance in a healthy zone.
 
 ### Requirements
 
 To configure Azure Bastion resources with zone redundancy you must deploy with the Basic, Standard, or Premium SKUs.
 
 The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
+
+Bastion requires a Standard SKU zone redundant Public IP.
 
 ### Regions supported
 
@@ -60,10 +60,12 @@ Zone-redundant Azure Bastion resources can be deployed into the following region
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
 | Canada Central | North Europe | Qatar Central | South Africa North | Australia East |
-| Central US | Sweden Central | | |
+| Central US | Sweden Central | Israel Central | | Korea Central |
 | East US | UK South
 | East US 2 | West Europe | | |
-| West US 2  | | | |
+| West US 2  | Norway East | | |
+| East US 2 EUAP | Italy North | | |
+| Mexico Central| Spain Central | | |
 
 ### Cost
 
