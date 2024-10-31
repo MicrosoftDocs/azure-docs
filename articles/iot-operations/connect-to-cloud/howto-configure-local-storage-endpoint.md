@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
@@ -64,7 +64,7 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
   parent: aioInstance
   name: endpointName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -79,7 +79,7 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -108,10 +108,30 @@ kubectl apply -f <FILE>.yaml
 
 The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
 
-
 ## Supported serialization formats
 
 The only supported serialization format is Parquet.
+
+## Use Azure Container Storage enabled by Azure Arc (ACSA)
+
+You can use the local storage dataflow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to store data locally or send data to a cloud destination.
+
+### Local shared volume
+
+To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/local-shared-edge-volumes).
+
+Then, when configuring your local storage dataflow endpoint, input the PVC name under `persistentVolumeClaimRef`.
+
+### Cloud ingest
+
+To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to create a PVC and attach a subvolume for your desired cloud destination.
+
+> [!IMPORTANT]
+> Don't forget to create the subvolume after creating the PVC, or else the dataflow fails to start and the logs show a "read-only file system" error.
+
+Then, when configuring your local storage dataflow endpoint, input the PVC name under `persistentVolumeClaimRef`.
+
+Finally, when you create the dataflow, the [data destination](howto-create-dataflow.md#configure-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
 
 ## Next steps
 

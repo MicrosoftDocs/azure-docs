@@ -33,6 +33,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
 
+- If you configured the MQTT broker to use disk backed message buffer with persistent volume option, the broker creates a persistent volume claim (PVC) in the same namespace as the broker. If you uninstall Azure IoT Operations, the PVC isn't deleted automatically. To delete the PVC, run the following command `kubectl delete pvc -n <namespace> <pvc-name>`.
+
 ## Azure IoT Layered Network Management Preview
 
 - If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
@@ -93,3 +95,9 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 - When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
 
 - Dataflow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because synchronizing dataflow resources from the edge to the cloud isn't currently supported.
+
+- If you have a dataflow that uses a Fabric OneLake endpoint and you disconnect the cluster from the internet for a duration between 24 and 72 hours, the dataflow might stop working with error "Authentication Failed with Access token validation failed." To resolve this issue, manually restart the dataflow pod by running the following command:
+
+  ```bash
+  kubectl delete pod -n azure-iot-operations $(kubectl get pod -n azure-iot-operations | grep dataflow | awk '{print $1}')
+  ```

@@ -183,11 +183,11 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
   properties: {
     endpointType: 'Mqtt'
     mqttSettings: {
+      host: eventGridHostName
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
-      host: eventGridHostName
       tls: {
         mode: 'Enabled'
       }
@@ -199,7 +199,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Next, execute the following command in your terminal. Replace `<FILE>` with the name of the Bicep file you downloaded.
 
 ```azurecli
-az stack group create --name DeployDataflowEndpoint --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -274,9 +274,6 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
-```
-
-```bicep
 resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
@@ -309,7 +306,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
 Like the dataflow endpoint, execute the following command in your terminal:
 
 ```azurecli
-az stack group create --name DeployDataflows --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -371,9 +368,7 @@ When you publish to the `tutorial/local` topic on the local Azure IoT Operations
 
 To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. In a new file named `client.yaml`, specify the client deployment:
 
-
 <!-- TODO: put this in the explore-iot-operations repo? -->
-<!-- TODO: make the service account part of the YAML? -->
 
 # [Bicep](#tab/bicep)
 

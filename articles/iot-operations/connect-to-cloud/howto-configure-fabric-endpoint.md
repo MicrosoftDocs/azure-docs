@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -65,8 +65,8 @@ Create a Bicep `.bicep` file with the following content.
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
-param lakehouseName string = '<LAKEHOUSE_NAME>'
 param workspaceName string = '<WORKSPACE_NAME>'
+param lakehouseName string = '<LAKEHOUSE_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
@@ -78,23 +78,23 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
   parent: aioInstance
   name: endpointName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
     endpointType: 'FabricOneLake'
     fabricOneLakeSettings: {
+      // The default Fabric OneLake host URL in most cases
+      host: 'https://onelake.dfs.fabric.microsoft.com'
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
       oneLakePathType: 'Tables'
-      host: 'https://onelake.dfs.fabric.microsoft.com'
       names: {
-        lakehouseName: lakehouseName
         workspaceName: workspaceName
+        lakehouseName: lakehouseName
       }
-      ...
     }
   }
 }
@@ -103,7 +103,7 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -121,10 +121,10 @@ spec:
   fabricOneLakeSettings:
     # The default Fabric OneLake host URL in most cases
     host: https://onelake.dfs.fabric.microsoft.com
-    oneLakePathType: Tables
     authentication:
       method: SystemAssignedManagedIdentity
       systemAssignedManagedIdentitySettings: {}
+    oneLakePathType: Tables
     names:
       workspaceName: <WORKSPACE_NAME>
       lakehouseName: <LAKEHOUSE_NAME>
@@ -138,7 +138,32 @@ kubectl apply -f <FILE>.yaml
 
 ---
 
-### Available authentication methods
+## OneLake path type
+
+The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
+
+# [Portal](#tab/portal)
+
+The OneLake path type is set in the **Basic** tab for the dataflow endpoint.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+  oneLakePathType: 'Tables' // Or 'Files'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+fabricOneLakeSettings:
+  oneLakePathType: Tables # Or Files
+```
+
+---
+
+## Available authentication methods
 
 The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
@@ -148,7 +173,7 @@ Before you create the dataflow endpoint, assign workspace *Contributor* role to 
 
 To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
 
-#### System-assigned managed identity
+### System-assigned managed identity
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
 
@@ -212,7 +237,11 @@ fabricOneLakeSettings:
 
 ---
 
-#### User-assigned managed identity
+### User-assigned managed identity
+
+To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
 
 # [Portal](#tab/portal)
 
@@ -227,8 +256,10 @@ fabricOneLakeSettings: {
   authentication: {
     method: 'UserAssignedManagedIdentity'
     userAssignedManagedIdentitySettings: {
-      clientId: '<clientId>'
-      tenantId: '<tenantId>'
+      clientId: '<ID>'
+      tenantId: '<ID>'
+      // Optional, defaults to 'https://storage.azure.com/.default'
+      // scope: 'https://<SCOPE_URL>' 
     }
   }
 }
@@ -245,38 +276,17 @@ fabricOneLakeSettings:
     userAssignedManagedIdentitySettings:
       clientId: <ID>
       tenantId: <ID>
+      # Optional, defaults to 'https://storage.azure.com/.default'
+      # scope: https://<SCOPE_URL>
 ```
 
 ---
+
+Here, the scope is optional and defaults to `https://storage.azure.com/.default`. If you need to override the default scope, specify the `scope` setting using Bicep or Kubernetes.
 
 ## Advanced settings
 
 You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
-
-### OneLake path type
-
-The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
-
-# [Portal](#tab/portal)
-
-The OneLake path type is set in the **Basic** tab for the dataflow endpoint.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-fabricOneLakeSettings: {
-  oneLakePathType: 'Tables'
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-fabricOneLakeSettings:
-  oneLakePathType: Tables # Or Files
-```
-
----
 
 ### Batching
 
