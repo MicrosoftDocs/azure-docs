@@ -153,11 +153,3 @@ landingContent:
             url: /azure/dns/dns-overview
           - text: Azure Private Link overview
             url: /azure/private-link/private-link-overview
-            
-  # Card
-  - title: Training
-    linkLists:
-        - linkListType: learn
-          links:
-          - text: Virtual network peering
-            url: /training/modules/integrate-vnets-with-vnet-peering/
