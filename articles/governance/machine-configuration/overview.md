@@ -143,7 +143,8 @@ symbolic to represent new minor versions of Linux distributions.
 \* Red Hat CoreOS isn't supported.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
-one of the operating systems in the previous table.
+one of the operating systems in the previous table. Machine Configuration policys are also supported 
+for [Virtual Machine Scale Sets (VMSS) with Flexible orchestration][47].
 
 ## Network requirements
 
@@ -489,3 +490,4 @@ Machine configuration built-in policy samples are available in the following loc
 [43]: ./how-to/create-policy-definition.md
 [44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
 [45]: ../policy/overview.md
+[46]: https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
