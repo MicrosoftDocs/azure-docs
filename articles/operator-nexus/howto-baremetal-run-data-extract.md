@@ -668,7 +668,7 @@ The CVE data is refreshed per container image every 24 hours or when there's a c
 
 ### Collect Helm Releases
 
-Helm release data is collected with the `collect-helm-releases` command and formatted as json to `{year}-{month}-{day}-helm-releases.json`. The JSON file is found in the data extract zip file located in the storage account. The data collected includes all helm release information from the cluster, which consists of the standard data returned when running the command `helm list`.
+Helm release data is collected with the `collect-helm-releases` command and formatted as json to `{year}-{month}-{day}-helm-releases.json`. The JSON file is found in the data extract zip file located in the storage account. The data collected includes all helm release information from the Cluster, which consists of the standard data returned when running the command `helm list`.
 
 This example executes the `collect-helm-releases` command without arguments.
 
