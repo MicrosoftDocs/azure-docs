@@ -47,7 +47,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure HDInsight](/azure/hdinsight/) | Yes | | [Azure HDInsight double encryption for data at rest](/azure/hdinsight/disk-encryption) |
 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 | [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
-| [Azure Stream Analytics](/azure/stream-analytics/) | Yes\*\* | Yes | [Data protection in Azure Stream Analytics](/azure/stream-analytics/data-protection) |
+| [Azure Stream Analytics](/azure/stream-analytics/) | Yes\* | Yes | [Data protection in Azure Stream Analytics](/azure/stream-analytics/data-protection) |
 | [Azure Synapse Analytics](/azure/synapse-analytics/) | Yes (RSA 3072-bit) | Yes | [Configure encryption at rest with customer-managed keys](/azure/synapse-analytics/security/workspaces-encryption) |
 | [Microsoft Fabric](/fabric) | Yes | | [Customer-managed key (CMK) encryption and Microsoft Fabric](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
 | [Power BI Embedded](/power-bi) | Yes | | [Using your own key for Power BI encryption (Preview)](/power-bi/enterprise/service-encryption-byok) |
@@ -65,11 +65,11 @@ The following services support server-side encryption with customer managed keys
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [App Service](/azure/app-service/) | Yes\*\* | Yes | [Configure customer-managed keys for App Service](/azure/app-service/configure-encrypt-at-rest-using-cmk) |
-| [Azure Functions](/azure/azure-functions/) | Yes\*\* | Yes | [Configure customer-managed keys for Azure Functions](/azure/azure-functions/configure-encrypt-at-rest-using-cmk) |
+| [App Service](/azure/app-service/) | Yes\* | Yes | [Configure customer-managed keys for App Service](/azure/app-service/configure-encrypt-at-rest-using-cmk) |
+| [Azure Functions](/azure/azure-functions/) | Yes\* | Yes | [Configure customer-managed keys for Azure Functions](/azure/azure-functions/configure-encrypt-at-rest-using-cmk) |
 | [Azure HPC Cache](/azure/hpc-cache/) | Yes | | [Use customer-managed keys with HPC Cache](/azure/hpc-cache/customer-keys) |
-| [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/) | Yes\*\* | Yes | [Azure managed applications overview](/azure/azure-resource-manager/managed-applications/overview) |
-| [Azure portal](/azure/azure-portal/) | Yes\*\* | Yes | [Security in the Azure portal](/azure/security/fundamentals/overview) |
+| [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/) | Yes\* | Yes | [Azure managed applications overview](/azure/azure-resource-manager/managed-applications/overview) |
+| [Azure portal](/azure/azure-portal/) | Yes\* | Yes | [Security in the Azure portal](/azure/security/fundamentals/overview) |
 | [Azure VMware Solution](/azure/azure-vmware/) | Yes | Yes | [Configure customer-managed keys in Azure VMware Solution](/azure/azure-vmware/configure-customer-managed-keys) |
 | [Batch](/azure/batch/) | Yes | | [Use customer-managed keys with Batch accounts](/azure/batch/batch-customer-managed-key) |
 | [SAP HANA](/azure/sap/large-instances/hana-overview-architecture) | Yes | | |
@@ -86,7 +86,6 @@ The following services support server-side encryption with customer managed keys
 | [Azure Database for MySQL - Single Server](/azure/mysql/single-server/) | Yes | | [Azure Database for MySQL data encryption with a customer-managed key](/previous-versions/azure/mysql/single-server/concepts-data-encryption-mysql) |
 | [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
 | [Azure Database for PostgreSQL - Single Server](/azure/postgresql/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Single Server](/previous-versions/azure/postgresql/single-server/concepts-data-encryption-postgresql) |
-| [Azure Database Migration Service](/azure/dms/) | N/A\* | | [What is Azure Database Migration Service?](/azure/dms/dms-overview) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
 | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
@@ -148,7 +147,7 @@ The following services support server-side encryption with customer managed keys
 |---|---|---|---|---|
 | [Archive Storage](/azure/storage/blobs/archive-blob) | Yes | | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 | [Azure Backup](/azure/backup/) | Yes | Yes | [Encrypt backup data using customer-managed keys](/azure/backup/encryption-at-rest-with-cmk) |
-| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | Yes\*\*\* | Yes | [Configure disk encryption for Azure Cache for Redis instances using customer managed keys](/azure/azure-cache-for-redis/cache-how-to-encryption) |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | Yes\*\* | Yes | [Configure disk encryption for Azure Cache for Redis instances using customer managed keys](/azure/azure-cache-for-redis/cache-how-to-encryption) |
 | [Azure Data Box](/azure/databox/) | Yes | | [Use a customer-managed key to secure your Data Box](/azure/databox/data-box-customer-managed-encryption-key-portal) |
 | [Azure Managed Lustre](/azure/azure-managed-lustre/) | Yes | | [Use customer-managed encryption keys with Azure Managed Lustre](/azure/azure-managed-lustre/customer-managed-encryption-keys) |
 | [Azure NetApp Files](/azure/azure-netapp-files/) | Yes | Yes | [Configure customer-managed keys for Azure NetApp Files volume encryption](/azure/azure-netapp-files/configure-customer-managed-keys?tabs=azure-portal) |
@@ -171,13 +170,12 @@ The following services support server-side encryption with customer managed keys
 
 ## Caveats
 
-\* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
+\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
 
-\*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
-
-\*\*\* Any transient data stored temporarily on disk such as pagefiles or swap files are encrypted with a Microsoft key (all tiers) or a customer-managed key (using the Enterprise and Enterprise Flash tiers). For more information, see [Configure disk encryption in Azure Cache for Redis](../../azure-cache-for-redis/cache-how-to-encryption.md).
+\*\* Any transient data stored temporarily on disk such as pagefiles or swap files are encrypted with a Microsoft key (all tiers) or a customer-managed key (using the Enterprise and Enterprise Flash tiers). For more information, see [Configure disk encryption in Azure Cache for Redis](../../azure-cache-for-redis/cache-how-to-encryption.md).
 
 ## Related content
 
+- [Data encryption models in Microsoft Azure](encryption-models.md)
 - [How encryption is used in Azure](encryption-overview.md)
 - [Double encryption](double-encryption.md)
