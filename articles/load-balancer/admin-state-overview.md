@@ -49,7 +49,7 @@ When deploying a load balancer with admin state, consider the following limitati
 
 - Admin state isn't supported with inbound NAT rule. 
 - Admin state isn't supported for nonprobed load balancing rules.
-- Admin state can't be set as part of the NIC-based Load Balancer backend pool Create experiences. 
+- Admin state can't be configured during the creation of a NIC-based Load Balancer backend pool. 
 
 
 ## Next steps

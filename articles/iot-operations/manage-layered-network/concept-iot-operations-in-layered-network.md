@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 11/29/2023
 
 #CustomerIntent: As an operator, I want to learn about the architecture of Azure IoT Operations in a Purdue Network environment and how does Layered Network Managment support this scenario.
+ms.service: azure-iot-operations
 ---
 
 # How does Azure IoT Operations Preview work in layered network?

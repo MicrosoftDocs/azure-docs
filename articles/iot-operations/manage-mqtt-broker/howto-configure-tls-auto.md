@@ -7,9 +7,10 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/22/2024
+ms.date: 10/18/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
+ms.service: azure-iot-operations
 ---
 
 # Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
@@ -181,7 +182,7 @@ metadata:
   name: my-new-tls-listener
   namespace: azure-iot-operations
 spec:
-  brokerRef: broker
+  brokerRef: default
   serviceType: loadBalancer
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-broker'
   ports:
@@ -258,7 +259,7 @@ The `--cafile` argument enables TLS on the mosquitto client and specifies that t
 
 Replace `$HOST` with the appropriate host:
 
-- If connecting from [within the same cluster](howto-test-connection.md#connect-from-a-pod-within-the-cluster-with-default-configuration), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
+- If connecting from [within the same cluster](howto-test-connection.md#connect-to-the-default-listener-inside-the-cluster), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
 - If connecting from outside the cluster, the service `EXTERNAL-IP`.
 
 Remember to specify authentication methods if needed.

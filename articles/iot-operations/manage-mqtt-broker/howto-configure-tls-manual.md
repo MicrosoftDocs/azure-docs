@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
+ms.service: azure-iot-operations
 ---
 
 # Configure TLS with manual certificate management to secure MQTT communication in MQTT broker
@@ -84,7 +85,7 @@ metadata:
   name: manual-tls-listener
   namespace: azure-iot-operations
 spec:
-  brokerRef: broker
+  brokerRef: default
   serviceType: loadBalancer # Optional, defaults to clusterIP
   serviceName: mqtts-endpoint # Match the SAN in the server certificate
   ports:

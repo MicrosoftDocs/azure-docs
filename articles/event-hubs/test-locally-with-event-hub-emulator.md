@@ -157,7 +157,7 @@ You can use the following connection string to connect to the Event Hubs emulato
 With the latest client SDK releases, you can interact with the emulator in various programming languages. For details, see
 [Client SDKs](./sdks.md).
 
-To get started, refer to the [Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/.NET/EventHubs-Emulator-Demo).
+To get started, refer to the [Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo).
 
 ## Related content
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 10/25/2024
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -19,21 +19,17 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 
 # [Azure portal](#tab/azureportal)
 
-- Access to the Azure portal using [https://preview.portal.azure.com].
+- Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
-- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining** in your subscription. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Two or more existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-portal).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the virtual machines.
   - The load balancer should have a backend pool with health probes and load balancing rules attached.
 
-> [!IMPORTANT]
-> This feature is supported via Azure Portal Preview. To use this feature in Azure Portal, make sure you are using [Azure Portal Preview link] (https://preview.portal.azure.com)
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
-- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining** in your subscription. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-powershell).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the same subscription and virtual network as the virtual machine.
@@ -43,7 +39,6 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
-- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining** in your subscription. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Existing [Virtual Machines](/azure/virtual-machines/windows/quick-create-cli).
 - An existing [standard load balancer](quickstart-load-balancer-standard-internal-cli.md) in the same subscription and virtual network as the virtual machine.

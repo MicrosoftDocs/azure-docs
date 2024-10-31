@@ -3,7 +3,7 @@ title: "Limits and quotas: Azure Modeling and Simulation Workbench"
 description: "Learn about limits and quotas in the Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: limits-and-quotas
 ms.date: 10/15/2024
 
@@ -43,16 +43,15 @@ vCPU quotas listed are initial default. More capacity can be requested.
 | Supports parallel deployment? | Yes                | Multiple VMs can be deployed simultaneously.                                                     |
 | Deployment location           | Same as workbench. |                                                                                                  |
 
-## Storage
+## Storage and data pipeline
 
-| Item                             | Quota or limit                             | Notes                                       |
-|----------------------------------|--------------------------------------------|---------------------------------------------|
-| Home volume quota                | 200-GB limit                               | For entire volume, shared across all users. |
-| `datain` volume                  | 1-TB limit                                 |                                             |
-| `dataout` volume                 | 1-TB limit                                 |                                             |
-| File size limit on data pipeline | 100-GB limit per file                      |                                             |
-| Chamber storage volumes          | 4 TB initial, 4-TB increments, 20-TB quota | More quota can be requested.                |
-| Shared storage volumes           | 4 TB initial, 4-TB increments, 20-TB quota | More quota can be requested.                |
+| Item                             | Quota or limit                   | Notes                                                |
+|----------------------------------|----------------------------------|------------------------------------------------------|
+| `datain` volume                  | 1 TB limit                       |                                                      |
+| `dataout` volume                 | 1 TB limit                       |                                                      |
+| File size limit on data pipeline | 100 GB limit per file            | See `datain` and and `dataout` volume limits.        |
+| Chamber storage volumes          | 4 TB min, up to 20 TB per volume | Default quota can be increased with support request. |
+| Shared storage volumes           | 4 TB min, up to 20 TB per volume | Default quota can be increased with support request. |
 
 ## Networking
 

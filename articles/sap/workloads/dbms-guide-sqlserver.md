@@ -7,7 +7,7 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 10/07/2024
+ms.date: 10/25/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -48,12 +48,12 @@ There's some SQL Server in IaaS specific information you should know before cont
 
 
 ## New M-series VMs and SQL Server
-Azure released a few new families of M-series SKUs under the family of Mv3. Some of the VM types in this family should not be used for SQL Server, including SQL Server 2022. Reason is the number of NUMA nodes presented into the guest OS which with larger than 64 vCPUs is too large for SQL Server to accomodate. The specific VM types are:
-- M176(d)s_3_v3 - use M176bds_4_v3 or M176bds_4_v3 as alternative
-- M176(d)s_4_v3 - use M176bds_4_v3 as alternative
-- M624(d)s_12_v3 - use M416ms_v2 as alternative
-- M832(d)s_12_v3 - use M416ms_v2 as alternative
-- M832i(d)s_16_v3 - use M416ms_v2 as alternative
+Azure released a few new families of M-series SKUs under the family of Mv3. Some of the VM types in this family should't be used for SQL Server, including SQL Server 2022 without disabling SMT (Hyperthreading) in the Windows Server guest OS. Reason is the number of NUMA nodes presented into the Windows Server guest OS which with larger than 64 vCPUs is too large for SQL Server to accomodate. By disabling SMT in the Windows Server guest OS, the number of vCPUs is getting reduced. So, that the number of vCPUs is less than 64 in each NUMA node. The way how to disable SMT is described [here](https://learn.microsoft.com/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server?view=sql-server-ver16#disable-smt-in-an-azure-virtual-machine). The specific VM types are:
+- M176(d)s_3_v3 - disable SMT or use M176bds_4_v3 or M176bds_4_v3 as alternative
+- M176(d)s_4_v3 - disable SMT or use M176bds_4_v3 as alternative
+- M624(d)s_12_v3 - disable SMT or use M416ms_v2 as alternative
+- M832(d)s_12_v3 - disable SMT or use M416ms_v2 as alternative
+- M832i(d)s_16_v3 - disable SMT or use M416ms_v2 as alternative
 
 > [!NOTE]
 > With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
