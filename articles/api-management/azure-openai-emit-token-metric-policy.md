@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/09/2024
+ms.date: 10/31/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -65,15 +65,7 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
- ### Default dimension names that may be used without value
-
-* API ID
-* Operation ID
-* Product ID
-* User ID
-* Subscription ID
-* Location
-* Gateway ID
+[!INCLUDE [api-management-emit-metric-dimensions](../../includes/api-management-emit-metric-dimensions.md)]
 
 ## Usage
 
