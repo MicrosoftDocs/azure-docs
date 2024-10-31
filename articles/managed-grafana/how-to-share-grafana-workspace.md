@@ -85,7 +85,7 @@ Example:
 ```azurecli
 az role assignment create --assignee "name@contoso.com" \
 --role "Grafana Admin" \
---scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
+--scope "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
 ```
 For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
 
