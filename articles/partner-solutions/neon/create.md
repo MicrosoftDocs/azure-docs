@@ -1,82 +1,88 @@
 ---
-title: Create a Neon deployment
-description: This article describes how to use the Azure portal to create an instance of Neon Serverless Postgres - An Azure Native ISV Service.
+title: "Quickstart: Create a  Neon Serverless Postgres (preview) resource"
+description: Learn how to create a resource for  Neon Serverless Postgres (preview) using the Azure portal.
 author: ProfessorKendrick
+ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/01/2024
-ms.custom:
+ms.date: 10/29/2024
 
 ---
+# Quickstart: Create a Neon Serverless Postgres (preview) resource
 
-# QuickStart: Get started with Neon Serverless Postgres - An Azure Native ISV Service 
-
-In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Neon Serverless Postgres - An Azure Native ISV Service. Use Neon Serverless Postgres - An Azure Native ISV Service to run data pipelines that power company dashboards, AI, and ML applications.
-
-When you install Neon Serverless Postgres - An Azure Native ISV Service, you manage your Neon resource usage and billing alongside your existing Azure applications. You also get an integration with Microsoft Entra ID for your organization.
-
-For more information, see Install Neon Serverless Postgres - An Azure Native ISV Service from the Azure Marketplace.
+This quickstart shows you how to create a Neon Serverless Postgres (preview) resource using the Azure portal.
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you're an _Owner_ or a _Contributor_ in the subscription.
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/). Make sure you're an *Owner* or a *Contributor* in the subscription.
 
-## Create a new Neon resource
+## Setup
 
-In this section, you see how to create an instance of Neon using Azure portal.
+Begin by signing in to the [Azure portal](https://portal.azure.com).
 
-### Find the service
+### Register Neon Serverless Postgres as a resource provider
 
-1. Use the search in the [Azure portal](https://portal.azure.com) to find the Neon Serverless Postgres - An Azure Native ISV Service application.
-2. Alternatively, go to Marketplace and search for Neon Serverless Postgres - An Azure Native ISV Service.
-3. Subscribe to the corresponding service.
+To create a Neon Serverless Postgres resource, you must register the `ADD NEON NAME HERE` resource provider first.
 
-### Basics
+1. Under Azure services, choose **Subscriptions**.
+1. Choose the subscription you plan to use. 
+1. From your subscription, select **Settings** > **Resource providers**.
+1. In the Filter by name search box, type **ADD NEON NAME HERE**.
+1. Select the ellipse next to `ADD NEON NAME HERE` and choose **Register**. 
 
-1. Set the following values in the **Create a Neon Organization** pane.
+## Create a Neon Serverless Postgres resource
 
-    | Property  | Description |
+To create your Neon Serverless Postgres resource, start at the Azure portal home page.
+
+1. Search for the Neon Serverless Postgres resource provider by typing **Azure Native Neon Serverless Postgres Service** the header search bar.
+
+1. Choose **Azure Native Neon Serverless Postgres Service** from the *Services* search results.
+
+1. Select the **+ Create** option.
+
+## Create an Azure Native Neon Serverless Postgres Service
+
+The Create an Azure Native Neon Serverless Postgres Service pane opens to the *Basics* tab by default.
+
+### Basics tab
+
+The *Basics* tab has three sections:
+
+- Project Details
+- Instance Details
+- Company Details
+
+There are required fields in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
+
+    |Setting  |Action  |
     |---------|---------|
-    | **Subscription**  | From the drop-down, select your Azure subscription where you have Owner or Contributor access. |
-    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](/azure/azure-resource-manager/management/overview).|
-    | **Resource Name**  | Put the name for the Neon organization you want to create. |
-    | **Region** | Select the closest region to where you would like to deploy your resource. |
-    | **Neon Organization name** | Corresponds to the name of your company, usually. |
-    | **Workspace Name** | Name of the default workspace where you would like to group your Airflow deployments. |
-    | **Pricing Plan**     | Choose the default Pay-As-You-Go option |
+    |Subscription    |Select a subscription from your existing subscriptions.         |
+    |Resource group     |Use an existing resource group or create a new one.          |
 
-### Tags
+1. Enter the values for each required setting under *Instance details*.
 
-You can specify custom tags for the new Neon resource in Azure by adding custom key-value pairs.
+    |Setting  |Action  |
+    |---------|---------|
+    |Resource name     |Specify a unique name for the resource.    |
+    |Region     |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.         |
 
-1. Select Tags.
+1. Enter the values for each required setting under *Company details*.
 
-    | Property | Description |
-    |----------| -------------|
-    | **Name** | Name of the tag corresponding to the Neon resource. |
-    | **Value** | Value of the tag corresponding to the Neon resource. |
+1. Select the **Review and create** button at the bottom of the page.
 
-### Review and create
+### Review and create tab
 
-1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics and optionally Tags panes. You can also review the Neon and Azure Marketplace terms and conditions.  
+If the review identifies errors, a red dot appears next each tabbed section where errors exist. Fields with errors are highlighted in red. 
 
-1. After you review all the information, select **Create**. Azure now deploys the Neon resource.
+1. Open each tabbed section with errors and fix the errors.
 
-### Deployment completed
+1. Select the **Review and create** button again.
 
-1. Once the create process is completed, select **Go to Resource** to navigate to the specific Neon resource.
+1. Select the **Create** button.
 
-1. Select **Overview** in the Resource menu to see information on the deployed resources.
+## Related content
 
-1. Now select the **SSO Url** to redirect to the newly created Neon organization.
+To learn more about Azure, review [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
 
 ## Next steps
-
-- [Manage the Neon resource](manage.md)
-<!--TO DO:  Add links
-- Get started with Neon Serverless Postgres - An Azure Native ISV Service on
-    > [!div class="nextstepaction"]
-    > Azure portal
-
-    > [!div class="nextstepaction"]
-    > Azure Marketplace
--->
