@@ -27,6 +27,8 @@ This article describes the following device authentication options:
 - [SAS enrollment group](#sas-enrollment-group)
 - [Individual enrollment](#individual-enrollment)
 
+Each of these authentication options requires that each device has a unique device ID. The device ID is a unique identifier for the device that you use to manage the device in your IoT Central application.
+
 ## X.509 enrollment group
 
 In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../../iot-hub/iot-hub-x509ca-overview.md).
@@ -67,6 +69,9 @@ To connect a device with device SAS token to your application:
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
+
+    > [!TIP]
+    > Each device that connects to your IoT Central application must have a unique device ID. The previous command generates a unique token for each device.
 
 1. Use the generated device token when the device connects to your IoT Central application.
 

@@ -3,7 +3,7 @@ title: "Dataminr Pulse Alerts Data Connector (using Azure Functions) connector f
 description: "Learn how to install the connector Dataminr Pulse Alerts Data Connector (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/28/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -223,7 +223,7 @@ If you're already signed in, go to the next step.
 
 2) To add integration settings in Dataminr RTAP using the function URL
 
-1. Open any API request tool like Postman.
+1. Open any API request tool.
 2. Click on '+' to create a new request.
 3. Select HTTP request method as **'POST'**.
 4. Enter the url prepapred in **point 1)**, in the request URL part.

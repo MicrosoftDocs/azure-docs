@@ -30,7 +30,7 @@ To link a BrokerListener to a *BrokerAuthentication* resource, specify the `auth
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the *default* listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
@@ -49,7 +49,7 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-          - "aio-internal"
+          - aio-internal
 ```
 
 > [!IMPORTANT]
@@ -112,7 +112,7 @@ For testing, you can disable authentication by omitting `authenticationRef` in t
 
 To learn more about each of the authentication options, see the next sections for each method. 
 
-For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../secure-iot-ops/howto-enable-secure-settings.md).
+For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
@@ -310,7 +310,7 @@ kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 Inside the pod's shell, run the following command to publish a message to the broker:
 
 ```bash
-mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
 The output should look similar to the following:
@@ -322,7 +322,7 @@ Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
 Client (null) sending DISCONNECT
 ```
 
-The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
+The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 ### Refresh service account tokens
 

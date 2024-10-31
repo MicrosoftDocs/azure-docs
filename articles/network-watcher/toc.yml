@@ -42,7 +42,7 @@
   - name: IP flow verify
     href: ip-flow-verify-overview.md
   - name: NSG diagnostics
-    href: network-watcher-network-configuration-diagnostics-overview.md
+    href: nsg-diagnostics-overview.md
   - name: Next hop
     href: next-hop-overview.md
   - name: Connection troubleshoot
@@ -64,7 +64,7 @@
     - name: Supported regions
       href: supported-region-traffic-analytics.md
     - name: Usage scenarios
-      href: usage-scenarios-traffic-analytics.md
+      href: traffic-analytics-usage-scenarios.md
     - name: Schema and data aggregation
       href: traffic-analytics-schema.md
     - name: Schema update (March 2020)

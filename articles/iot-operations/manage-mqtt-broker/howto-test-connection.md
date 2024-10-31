@@ -33,206 +33,244 @@ By default, MQTT broker:
 
 Before you begin, [install or configure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to MQTT broker with MQTT clients in a nonproduction environment.
 
-## Connect from a pod within the cluster with default configuration
+## Connect to the default listener inside the cluster
 
-The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA cert.
+The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA certificate.
 
-1. Create a file named `client.yaml` with the following configuration:
+First, create a file named `client.yaml` with the following configuration:
 
-    ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: mqtt-client
-      # Namespace must match MQTT broker BrokerListener's namespace
-      # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
-      namespace: azure-iot-operations
-    spec:
-      # Use the "mqtt-client" service account which comes with default deployment
-      # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
-      serviceAccountName: mqtt-client
-      containers:
-        # Mosquitto and mqttui on Alpine
-      - image: alpine
-        name: mqtt-client
-        command: ["sh", "-c"]
-        args: ["apk add mosquitto-clients mqttui && sleep infinity"]
-        volumeMounts:
-        - name: mq-sat
-          mountPath: /var/run/secrets/tokens
-        - name: trust-bundle
-          mountPath: /var/run/certs
-      volumes:
-      - name: mq-sat
-        projected:
-          sources:
-          - serviceAccountToken:
-              path: mq-sat
-              audience: aio-internal # Must match audience in BrokerAuthentication
-              expirationSeconds: 86400
-      - name: trust-bundle
-        configMap:
-          name: aio-ca-trust-bundle-test-only # Default root CA cert
-    ```
-
-1. Use `kubectl apply -f client.yaml` to deploy the configuration. It should only take a few seconds to start.
-
-1. Once the pod is running, use `kubectl exec` to run commands inside the pod.
-
-    For example, to publish a message to the broker, open a shell inside the pod:
-
-    ```bash
-    kubectl exec --stdin --tty mqtt-client --namespace azure-iot-operations -- sh
-    ```
-
-1. Inside the pod's shell, run the following command to publish a message to the broker:
-
-    ```console
-    mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
-    ```
-
-    The output should look similar to the following:
-
-    ```Output    
-    Client (null) sending CONNECT
-    Client (null) received CONNACK (0)
-    Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
-    Client (null) sending DISCONNECT
-    ```
-
-    The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
-
-1. To subscribe to the topic, run the following command:
-
-    ```console
-    mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
-    ```
-
-    The output should look similar to the following:
-
-    ```Output
-    Client (null) sending CONNECT
-    Client (null) received CONNACK (0)
-    Client (null) sending SUBSCRIBE (Mid: 1, Topic: world, QoS: 0, Options: 0x00)
-    Client (null) received SUBACK
-    Subscribed (mid: 1): 0
-    ```
-
-    The mosquitto client uses the same service account token and root CA cert to authenticate with the broker and subscribe to the topic.
-
-1. To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
-
-## Connect clients from outside the cluster to default the TLS port
-
-### TLS trust chain
-
-Since the broker uses TLS, the client must trust the broker's TLS certificate chain. You need to configure the client to trust the root CA certificate used by the broker.
-
-To use the default root CA certificate, download it from the `aio-ca-trust-bundle-test-only` ConfigMap:
-
-```bash
-kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mqtt-client
+  namespace: azure-iot-operations
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mqtt-client
+  # Namespace must match MQTT broker BrokerListener's namespace
+  # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
+  namespace: azure-iot-operations
+spec:
+  # Use the "mqtt-client" service account created from above
+  # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
+  serviceAccountName: mqtt-client
+  containers:
+    # Mosquitto and mqttui on Alpine
+  - image: alpine
+    name: mqtt-client
+    command: ["sh", "-c"]
+    args: ["apk add mosquitto-clients mqttui && sleep infinity"]
+    volumeMounts:
+    - name: broker-sat
+      mountPath: /var/run/secrets/tokens
+    - name: trust-bundle
+      mountPath: /var/run/certs
+  volumes:
+  - name: broker-sat
+    projected:
+      sources:
+      - serviceAccountToken:
+          path: broker-sat
+          audience: aio-internal # Must match audience in BrokerAuthentication
+          expirationSeconds: 86400
+  - name: trust-bundle
+    configMap:
+      name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
 ```
 
-Use the downloaded `ca.crt` file to configure your client to trust the broker's TLS certificate chain.
-
-If you are connecting to the broker from a different namespace, you must use the full service hostname `aio-broker.azure-iot-operations.svc.cluster.local`. You must also add the DNS name to the server certificate by including a subject alternative name (SAN) DNS field to the *BrokerListener* resource. For more information, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
-
-### Authenticate with the broker
-
-By default, MQTT broker only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509. For more information, see [Configure authentication](howto-configure-authentication.md).
-
-#### Turn off authentication is for testing purposes only
-
-To turn off authentication for testing purposes, edit the `BrokerListener` resource and set the `authenticationEnabled` field to `false`:
-
-> [!CAUTION]
-> Turning off authentication should only be used for testing purposes with a test cluster that's not accessible from the internet.
+Then, use `kubectl` to deploy the configuration. It should only take a few seconds to start.
 
 ```bash
-kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "replace", "path": "/spec/authenticationEnabled", "value": false}]'
+kubectl apply -f client.yaml
 ```
 
-### Port connectivity
+Once the pod is running, use `kubectl exec` to run commands inside the pod.
 
-Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) MQTT broker to a port on the host system (localhost). You should use this approach because it makes it easier for clients on the same host to access MQTT broker. 
-
-For example, to create a K3d cluster with mapping the MQTT broker's default MQTT port 18883 to localhost:18883:
+For example, to publish a message to the broker, open a shell inside the pod:
 
 ```bash
-k3d cluster create --port '18883:18883@loadbalancer'
+kubectl exec --stdin --tty mqtt-client --namespace azure-iot-operations -- sh
 ```
 
-But for this method to work with MQTT broker, you must configure it to use a load balancer instead of cluster IP. There are two ways to do this: create a load balancer or patch the existing default BrokerListener resource service type to load balancer.
+Inside the pod's shell, run the following command to publish a message to the broker:
 
-#### Option 1: Create a load balancer
+```console
+mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+```
 
-1. Create a file named `loadbalancer.yaml` with the following configuration:
+The output should look similar to the following:
 
-    ```yaml
-    apiVersion: v1
-    kind: Service
-    metadata:
-        name: iotmq-public-svc
-    spec:
-        type: LoadBalancer
-        ports:
-        - name: mqtt1
-          port: 18883
-          targetPort: 18883
-        selector:
-          app: broker
-          app.kubernetes.io/instance: broker
-          app.kubernetes.io/managed-by: dmqtt-operator
-          app.kubernetes.io/name: dmqtt
-          tier: frontend
-    ```
+```Output    
+Client (null) sending CONNECT
+Client (null) received CONNACK (0)
+Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
+Client (null) sending DISCONNECT
+```
 
-1. Apply the configuration to create a load balancer service:
-
-    ```bash
-    kubectl apply -f loadbalancer.yaml
-    ```
-
-#### Option 2: Patch the default load balancer
-
-1. Edit the `BrokerListener` resource and change the `serviceType` field to `loadBalancer`.
-
-    ```bash
-    kubectl patch brokerlistener listener --namespace azure-iot-operations --type='json' --patch='[{"op": "replace", "path": "/spec/serviceType", "value": "loadBalancer"}]'
-    ```
-
-1. Wait for the service to be updated.
-
-    ```console
-    kubectl get service aio-broker --namespace azure-iot-operations
-    ```
-
-    Output should look similar to the following:
-
-    ```Output
-    NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-broker   LoadBalancer   10.43.107.11   XXX.XX.X.X    18883:30366/TCP   14h
-    ```
-
-1. You can use the external IP address to connect to MQTT broker over the internet. Make sure to use the external IP address instead of `localhost`.
-
-    ```bash
-    mosquitto_pub --qos 1 --debug -h XXX.XX.X.X --message hello --topic world --username client1 --pw password --cafile ca.crt
-    ```
+The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 > [!TIP]
-> You can use the external IP address to connect to MQTT broker from outside the cluster. If you used the K3d command with port forwarding option, you can use `localhost` to connect to MQTT broker. For example, to connect with mosquitto client:
->
-> ```bash
-> mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
-> ```
->
-> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-broker) and assigned IPs, not localhost. 
+> You can use `kubectl` to download the default root CA certificate to use with other clients. For example, to download the default root CA certificate to a file named `ca.crt`:
 > 
-> Never expose MQTT broker port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
->
-> For information on how to add localhost to the certificate's subject alternative name (SAN) to avoid using the insecure flag, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
+> ```bash
+> kubectl get configmap azure-iot-operations-aio-ca-trust-bundle -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
+> ```
+
+
+To subscribe to the topic, run the following command:
+
+```console
+mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+```
+
+The output should look similar to the following:
+
+```Output
+Client (null) sending CONNECT
+Client (null) received CONNACK (0)
+Client (null) sending SUBSCRIBE (Mid: 1, Topic: world, QoS: 0, Options: 0x00)
+Client (null) received SUBACK
+Subscribed (mid: 1): 0
+```
+
+The mosquitto client uses the same service account token and root CA cert to authenticate with the broker and subscribe to the topic.
+
+To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
+
+## Connect clients from outside the cluster
+
+Since the [default broker listener](howto-configure-brokerlistener.md#default-brokerlistener) is set to *ClusterIp* service type, you can't connect to the broker from outside the cluster directly. To prevent unintentional disruption to communication between internal AIO components, we recommend keeping the default listener unmodified and dedicated for AIO internal communication. While it's possible to create a separate Kubernetes *LoadBalancer* service to expose the cluster IP service, it's better to create a separate listener with different settings, like more common MQTT port 1883 and 8883, to avoid confusion and potential security risks.
+
+<!-- TODO: consider moving to the main listener article and just link from here? -->
+### Node port
+
+The easiest way to test connectivity is to use the *NodePort* service type in the listener. With that, you can use `<nodeExternalIP>:<NodePort>` to connect like in [Kubernetes documentation](https://kubernetes.io/docs/tutorials/services/connect-applications-service/#exposing-the-service).
+
+For example, to create a new BrokerListener with *NodePort* service type and port 1883, create a file named `broker-nodeport.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
+
+> [!CAUTION]
+> Removing `authenticationRef` and `tls` settings from the configuration [will turn off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+<!-- TODO: Bicep and portal -->
+
+```yaml
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+kind: BrokerListener
+metadata:
+  name: broker-nodeport
+  namespace: azure-iot-operations
+spec:
+  brokerRef: default
+  serviceType: NodePort
+  serviceName: broker-nodeport
+  ports:
+    - port: 1883
+      nodePort: 31883 # Must be in the range 30000-32767
+      authenticationRef: # Add BrokerAuthentication reference
+      tls:
+        # Add TLS settings
+```
+
+Then, use `kubectl` to deploy the configuration:
+
+```bash
+kubectl apply -f broker-nodeport.yaml
+```
+
+Next, get the node's external IP address:
+
+```bash
+kubectl get nodes -o yaml | grep ExternalIP -C 1
+```
+
+The output should look similar to the following:
+
+```output
+    - address: 104.197.41.11
+      type: ExternalIP
+    allocatable:
+--
+    - address: 23.251.152.56
+      type: ExternalIP
+    allocatable:
+...
+```
+
+Use the external IP address and the node port to connect to the broker. For example, to publish a message to the broker:
+
+```bash
+mosquitto_pub --host <EXTERNAL_IP> --port 31883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+```
+
+If there's no external IP in the output, you might be using a Kubernetes setup that doesn't expose the node's external IP address by default, like many setups of k3s, k3d, or minikube. In that case, you can access the broker with the internal IP along with the node port from machines on the same network. For example, to get the internal IP address of the node:
+
+```bash
+kubectl get nodes -o yaml | grep InternalIP -C 1
+```
+
+The output should look similar to the following:
+
+```output
+    - address: 172.19.0.2
+      type: InternalIP
+    allocatable:
+```
+
+Then, use the internal IP address and the node port to connect to the broker from a machine within the same cluster. If Kubernetes is running on a local machine, like with single-node k3s, you can often use `localhost` instead of the internal IP address. If Kubernetes is running in a Docker container, like with k3d, the internal IP address corresponds to the container's IP address, and should be reachable from the host machine.
+
+### Load balancer
+
+Another way to expose the broker to the internet is to use the *LoadBalancer* service type. This method is more complex and might require additional configuration, like setting up port forwarding. For example, to create a new BrokerListener with *LoadBalancer* service type and port 1883, create a file named `broker-loadbalancer.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
+
+> [!CAUTION]
+> Removing `authenticationRef` and `tls` settings from the configuration [will turn off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+```yaml
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+kind: BrokerListener
+metadata:
+  name: broker-loadbalancer
+  namespace: azure-iot-operations
+spec:
+  brokerRef: default
+  serviceType: LoadBalancer
+  serviceName: broker-loadbalancer
+  ports:
+    - port: 1883
+      authenticationRef: # Add BrokerAuthentication reference
+      tls:
+        # Add TLS settings
+```
+
+Then, use `kubectl` to deploy the configuration:
+
+```bash
+kubectl apply -f broker-loadbalancer.yaml
+```
+
+Next, get the external IP address for the broker's service:
+
+```bash
+kubectl get service broker-loadbalancer --namespace azure-iot-operations
+```
+
+If the output looks similar to the following:
+
+```output
+NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+broker-loadbalancer   LoadBalancer   10.43.213.246   172.19.0.2    1883:30382/TCP   83s
+```
+
+This means that an external IP has been assigned to the load balancer service, and you can use the external IP address and the port to connect to the broker. For example, to publish a message to the broker:
+
+```bash
+mosquitto_pub --host <EXTERNAL_IP> --port 1883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+```
+
+If the external IP is not assigned, you might need to use port forwarding or a virtual switch to access the broker.
 
 #### Use port forwarding
 
@@ -246,92 +284,84 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 
 1. Use 127.0.0.1 to connect to the broker at port 18883 with the same authentication and TLS configuration as the example without port forwarding.
 
-Port forwarding is also useful for testing MQTT broker locally on your development machine without having to modify the broker's configuration.
 For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
 #### Port forwarding on AKS Edge Essentials
-For Azure Kubernetes Services Edge Essentials, you need to perform a few additional steps. For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
-1. Assume that the broker's service is exposed to an external IP using a load balancer. For example if you patched the default load balancer `aio-broker`, get the external IP address for the service.
+
+For Azure Kubernetes Services Edge Essentials, you need to perform a few additional steps. With AKS Edge Essentials, getting the external IP address might not be enough to connect to the broker. You might need to set up port forwarding and open the port on the firewall to allow traffic to the broker's service. 
+
+1. First, get the external IP address of the broker's load balancer listener:
+    
     ```bash
-    kubectl get service aio-broker --namespace azure-iot-operations
+    kubectl get service broker-loadbalancer --namespace azure-iot-operations
     ```
     
     Output should look similar to the following:
     
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-broker   LoadBalancer   10.43.107.11   192.168.0.4   18883:30366/TCP   14h
+    broker-loadbalancer     LoadBalancer   10.43.107.11   192.168.0.4   1883:30366/TCP   14h
     ```
     
-1. Set up port forwarding to the `aio-broker` service on the external IP address `192.168.0.4` and port `18883`:
+1. Set up port forwarding to the `broker-loadbalancer` service on the external IP address `192.168.0.4` and port `1883`:
+
     ```bash
-    netsh interface portproxy add v4tov4 listenport=18883 connectport=18883 connectaddress=192.168.0.4
+    netsh interface portproxy add v4tov4 listenport=1883 connectport=1883 connectaddress=192.168.0.4
     ```
     
 1. Open the port on the firewall to allow traffic to the broker's service:
+
     ```bash
-    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 18883 -Action Allow
+    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
     ```
+
 1. Use the host's public IP address to connect to the MQTT broker.
 
-## No TLS and no authentication
+For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
 
-The reason that MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production.
+#### Access through localhost
 
-> [!CAUTION]
-> Don't use in production. Exposing MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
+Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) MQTT broker to a port on the host system (localhost) as part of cluster configuration. Use this approach to make it easier for clients on the same host to access MQTT broker. 
 
-If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes following these steps:
+For example, to create a K3d cluster with mapping the MQTT broker's default MQTT port 1883 to `localhost:1883`:
 
-1. Create a new `BrokerListener` resource without TLS settings:
+```bash
+k3d cluster create --port '1883:1883@loadbalancer'
+```
 
-    ```yaml
-    apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-    kind: BrokerListener
-    metadata:
-      name: non-tls-listener
-      namespace: azure-iot-operations
-    spec:
-      brokerRef: broker
-      serviceType: loadBalancer
-      serviceName: my-unique-service-name
-      authenticationEnabled: false
-      authorizationEnabled: false
-      port: 1883
-    ```
+Or to update an existing cluster:
 
-    The `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port.
+```bash
+k3d cluster edit <CLUSTER_NAME> --port-add '1883:1883@loadbalancer'
+```
 
-1. Wait for the service to be updated.
+Then, use `localhost` and the port to connect to the broker. For example, to publish a message to the broker:
 
-    ```console
-    kubectl get service my-unique-service-name --namespace azure-iot-operations
-    ```
+```bash
+mosquitto_pub --host localhost --port 1883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+```
 
-    Output should look similar to the following:
+## Only turn off TLS and authentication for testing
 
-    ```Output
-    NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-    my-unique-service-name   LoadBalancer   10.43.144.182   XXX.XX.X.X    1883:31001/TCP   5m11s
-    ```
+The reason that MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production. Exposing MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
 
-    The new port 1883 is available.
+If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes by removing the `tls` and `authenticationRef` settings from the listener configuration.
 
-1. Use mosquitto client to connect to the broker:
-
-    ```console
-    mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world
-    ```
-
-    The output should look similar to the following:
-
-    ```Output
-    Client mosq-7JGM4INbc5N1RaRxbW sending CONNECT
-    Client mosq-7JGM4INbc5N1RaRxbW received CONNACK (0)
-    Client mosq-7JGM4INbc5N1RaRxbW sending PUBLISH (d0, q1, r0, m1, 'world', ... (5 bytes))
-    Client mosq-7JGM4INbc5N1RaRxbW received PUBACK (Mid: 1, RC:0)
-    Client mosq-7JGM4INbc5N1RaRxbW sending DISCONNECT
-    ```
+```yaml
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+kind: BrokerListener
+metadata:
+  name: <NAME>
+  namespace: azure-iot-operations
+spec:
+  brokerRef: default
+  serviceType: <SERVICE_TYPE> # LoadBalancer or NodePort
+  serviceName: <NAME>
+  ports:
+    - port: 1883
+      nodePort: 31883 # If using NodePort
+      # Omitting authenticationRef and tls for testing only
+```
 
 ## Related content
 

@@ -20,9 +20,6 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
-> [!IMPORTANT]
-> If you're upgrading your public preview from version 0.6.0 to version 0.7.0, you must uninstall the previous version before deploying the new version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-manage-update-uninstall.md#update).
-
 ## Before you begin
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
@@ -55,10 +52,9 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
+Azure IoT Operations supports Azure Kubernetes Service (AKS) Edge Essentials and K3s on Ubuntu clusters. However, for speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
 
-> [!IMPORTANT]
-> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a production cluster such as AKS Edge Essentials, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials).
+Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a cluster on Windows or Ubuntu, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
@@ -174,10 +170,10 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
 
    ```azurecli
-   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
+   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
@@ -185,7 +181,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
