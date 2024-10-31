@@ -6,7 +6,7 @@ ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: azure-dns
 ms.topic: concept-article
 ms.custom: H1Hack27Feb2017
-ms.date: 11/21/2023
+ms.date: 10/30/2024
 ms.author: greglin
 ---
 
@@ -100,9 +100,7 @@ The DNS standards permit a single TXT record to contain multiple strings, each o
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
-The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters`*` in each TXT record set (across all records combined).
-
-`*` 4096 character support is currently only available in the Azure Public Cloud. National clouds are limited to 1024 characters until 4k support rollout is complete.
+The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters in each TXT record set (across all records combined).
 
 ## Tags and metadata
 

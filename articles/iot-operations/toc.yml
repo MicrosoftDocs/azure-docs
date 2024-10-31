@@ -75,11 +75,9 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: Overview
+      - name: What are dataflows?
         href: connect-to-cloud/overview-dataflow.md
-      - name: Create a dataflow
-        href: connect-to-cloud/howto-create-dataflow.md
-      - name: Endpoints
+      - name: Prepare endpoints
         items:
         - name: Overview
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
@@ -93,8 +91,10 @@ items:
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
-        - name: Local storage
+        - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
+      - name: Create dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
         - name: Map data
@@ -163,7 +163,7 @@ items:
           href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
-      - name: Bi-directional communications with Event Grid
+      - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
