@@ -81,7 +81,7 @@ You can access Azure NetApp Files counters by using REST API calls. See [Support
 The following example shows a GET URL for viewing logical volume size:
 
 `#get ANF volume usage`  
-`curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/ANFPOOLGOESHERE/Volumes/ANFVOLUMEGOESHERE/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=VolumeLogicalSize`
+`curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscritionID>/resourceGroups/<resourceGroup>/providers/Microsoft.NetApp/netAppAccounts/<AzureNetAppFilesAccount>/capacityPools/<CapacityPool>/Volumes/<volume>/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=VolumeLogicalSize`
 
 
 ## Next steps
