@@ -114,7 +114,7 @@ Follow the steps in [Single machine deployment](/azure/aks/hybrid/aks-edge-howto
     ```powershell
     az login
     ```
-1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../iot-operations/overview-iot-operations#supported-regions) for choosing the  `LOCATION`.
+1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../overview-iot-operations#supported-regions) for choosing the  `LOCATION`.
     ```powershell
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
     $SUBSCRIPTION_ID = "<subscription-id>"
