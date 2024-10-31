@@ -10,9 +10,9 @@ ms.service: azure-operator-nexus
 
 # Azure Operator Nexus SKUs
 
-Operator Nexus Fabric SKUs for Azure Operator Nexus are meticulously designed to streamline the procurement and deployment processes, offering standardized bill of materials (BOM), topologies, wiring, and workflows. Microsoft crafts and prevalidates each SKU in collaboration with OEM vendors, ensuring seamless integration and optimal performance for operators.
+Operator Nexus SKUs for Azure Operator Nexus are meticulously designed to streamline the procurement and deployment processes, offering standardized bill of materials (BOM), topologies, wiring, and workflows. Microsoft crafts and prevalidates each SKU in collaboration with OEM vendors, ensuring seamless integration and optimal performance for operators.
 
-Operator Nexus Fabric SKUs offer a comprehensive range of options, allowing operators to tailor their deployments according to their specific requirements. With prevalidated configurations and standardized BOMs, the procurement and deployment processes are streamlined, ensuring efficiency and performance across the board.
+Operator Nexus offer a comprehensive range of options, allowing operators to tailor their deployments according to their specific requirements. With prevalidated configurations and standardized BOMs, the procurement and deployment processes are streamlined, ensuring efficiency and performance across the board.
 
 ## Fabric SKUs
 
