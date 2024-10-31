@@ -4,7 +4,7 @@ description: Learn how to configure Azure File Sync to use managed identities.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/30/2024
+ms.date: 10/31/2024
 ms.author: kendownie
 ---
 
@@ -111,3 +111,5 @@ Verify the **ApplicationId** property has a GUID which indicates the server is c
 Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity:
   - New endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share.
   - Use the Set-AzStorageSyncServiceIdentity cmdlet anytime you need to configure additional registered servers to use managed identities.
+
+If you experience issues, see: [Troubleshoot Azure File Sync managed identity issues](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-managed-identities).
