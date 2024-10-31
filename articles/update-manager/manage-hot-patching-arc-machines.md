@@ -8,7 +8,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
 
-# Manage Hotpatches (preview) on Arc-Enabled Machines
+# Manage hotpatches (preview) on Arc-enabled machines
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -24,7 +24,7 @@ This article explains how to install hotpatches (preview) on compatible Arc-enab
 
 ## Prerequisites
 
-- Verify that the machine has a supported OS SKU. [Learn more](#support-matrix).
+- Verify that the machine has a supported OS SKU. [Learn more](#supported-operating-systems).
 - Ensure that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
 - Ensure the machine is Arc-enabled. 
 
@@ -136,7 +136,6 @@ You can view the history of update deployments on your VM through the [history
 
 :::image type="content" source="./media/manage-hot-patching-arc-machines/history-update-deployments.png" alt-text="Screenshot showing how to view the history of update deployments on your VM." lightbox="./media/manage-hot-patching-arc-machines/history-update-deployments.png":::
  
-
 
 ## Next steps
 
