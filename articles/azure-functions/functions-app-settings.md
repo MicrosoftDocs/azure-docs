@@ -737,15 +737,17 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
+Enables your function app to run from a ZIP package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. The URL must end with '.zip'. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
 When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
+
+If you do not assign any value to `WEBSITE_RUN_FROM_PACKAGE` or remove it entirely, you can publish an unzipped code package using tools like [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
