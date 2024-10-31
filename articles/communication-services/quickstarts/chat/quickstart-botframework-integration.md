@@ -262,7 +262,7 @@ string messageId = sendChatMessageResult.Id;
 
 ### Receive chat messages from a chat thread
 
-You can get chat messages by polling the `GetMessages` method on the chat thread client at set intervals:
+Check the list of messages for the bot's echo reply to "Hello World" by polling the `GetMessages` method on the chat thread client at set intervals:
 
 ```csharp
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
@@ -270,20 +270,6 @@ await foreach (ChatMessage message in allMessages)
 {
     Console.WriteLine($"{message.Id}:{message.Content.Message}");
 }
-```
-
-Check the list of messages for the bot's echo reply to "Hello World".
-
-You can use JavaScript or the Azure mobile SDKs to subscribe to incoming message notifications:
-
-```javascript
-// Open notifications channel
-await chatClient.startRealtimeNotifications();
-// Subscribe to new notifications
-chatClient.on("chatMessageReceived", (e) => {
-  console.log("Notification chatMessageReceived!");
-  // Your code here
-});
 ```
 
 ### Clean up the chat thread
