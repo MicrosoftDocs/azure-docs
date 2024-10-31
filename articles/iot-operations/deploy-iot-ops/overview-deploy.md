@@ -16,9 +16,17 @@ ms.date: 10/23/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster except for those on Arm64 architectures. For more information, review the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+* Minimum hardware requirements:
+  * 16-GB RAM
+  * 4 vCPUs
+
+* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
+  * 32-GB RAM
+  * 8 vCPUs
+
+[!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
 ## Choose your features
 

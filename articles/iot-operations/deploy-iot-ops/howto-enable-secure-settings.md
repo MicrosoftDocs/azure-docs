@@ -60,7 +60,7 @@ If not already set up, use the following steps to enable workload identity on an
                           --enable-oidc-issuer --enable-workload-identity 
    ```
 
-1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to to get the cluster's issuer url. Take a note to add it later in K3s config file.
+1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to get the cluster's issuer url. Take a note to add it later in K3s config file.
 
    ```azurecli
    #!/bin/bash
@@ -102,119 +102,12 @@ Secrets Management for Azure IoT Operations uses Secret Store extension to sync 
 
 Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
-### Create an Azure Key Vault
+1. Create an [Azure Key Vault](/azure/key-vault/secrets/quick-create-cli) that will be used to store secrets.
+2. Make sure you have `Key Vaults Secrets Officer` role on the Azure Key Vault.
+3. Create a [User Assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) for secret store extension.
+5. Use the [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command to set up the Azure IoT Operations instance for secret synchronization.
 
-If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissions, you can skip this section.
-
-1. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create an Azure Key Vault.
-
-    # [Bash](#tab/bash)
-    
-    ```azurecli
-    # Variable block
-    KEYVAULT_NAME="<KEYVAULT_NAME>"
-    RESOURCE_GROUP="<RESOURCE_GROUP>"
-    LOCATION="<LOCATION>"
-
-    # Create the Key Vault
-    az keyvault create --name $KEYVAULT_NAME \
-                       --resource-group $RESOURCE_GROUP \
-                       --location $LOCATION \
-                       --enable-rbac-authorization
-    ```
-    
-    # [PowerShell](#tab/powershell)
-    
-    ```azurecli
-    # Variable block
-    $KEYVAULT_NAME="<KEYVAULT_NAME>"
-    $RESOURCE_GROUP="<RESOURCE_GROUP>"
-    $LOCATION="<LOCATION>"
-
-    # Create the Key Vault
-    az keyvault create --name $KEYVAULT_NAME `
-                       --resource-group $RESOURCE_GROUP `
-                       --location $LOCATION `
-                       --enable-rbac-authorization
-    ```
-    
-    ---
-
-1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give the currently logged-in user `Key Vault Secrets Officer` permissions to the key vault.
-
-    # [Bash](#tab/bash)
-    
-    ```azurecli
-    # Variable block
-    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
-    RESOURCE_GROUP="<RESOURCE_GROUP>"
-    KEYVAULT_NAME="<KEYVAULT_NAME>"
-
-    # Get the object ID of the currently logged-in user
-    ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
-    
-    # Assign the "Key Vault Secrets Officer" role
-    az role assignment create --role "Key Vault Secrets Officer" \
-                              --assignee $ASSIGNEE_ID \
-                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-    
-    # [PowerShell](#tab/powershell)
-    
-    ```azurecli
-    # Variable block
-    $SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
-    $RESOURCE_GROUP="<RESOURCE_GROUP>"
-    $KEYVAULT_NAME="<KEYVAULT_NAME>"
-
-    # Get the object ID of the currently logged-in user
-    $ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
-    
-    # Assign the "Key Vault Secrets Officer" role
-    az role assignment create --role "Key Vault Secrets Officer" `
-                              --assignee $ASSIGNEE_ID `
-                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    ---
-
-### Create a user-assigned managed identity for Secret Store extension
-
-Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
-
-# [Bash](#tab/bash)
-
-```azurecli
-# Variable block
-USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
-RESOURCE_GROUP="<RESOURCE_GROUP>"
-LOCATION="LOCATION"
-
-# Create the identity
-az identity create --name $USER_ASSIGNED_MI_NAME \
-                   --resource-group $RESOURCE_GROUP \
-                   --location $LOCATION
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-# Variable block
-$USER_ASSIGNED_MI_NAME="USER_ASSIGNED_MI_NAME"
-$RESOURCE_GROUP="<RESOURCE_GROUP>"
-$LOCATION="LOCATION"
-
-# Create the identity
-az identity create --name $USER_ASSIGNED_MI_NAME `
-                     --resource-group $RESOURCE_GROUP `
-                     --location $LOCATION
-```
-
----
-
-### Enable secret synchronization
-
-Use the [az iot ops secretsync enable](/cli/azure/iot/ops) command to set up the Azure IoT Operations instance for secret synchronization. This command:
+This command:
 
 * Creates a federated identity credential using the user-assigned managed identity.
 * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
@@ -272,37 +165,7 @@ Now that secret synchronization setup is complete, you can refer to [Manage Secr
 
 Some Azure IoT Operations components like dataflow endpoints use user-assigned managed identity for cloud connections. It's recommended to use a separate identity from the one used to set up Secrets Management.
 
-1. Create a user-assigned managed identity which can be used for cloud connections. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
-
-    # [Bash](#tab/bash)
-    
-    ```azurecli
-    # Variable block
-    USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
-    RESOURCE_GROUP="<RESOURCE_GROUP>"
-    LOCATION="LOCATION"
-    
-    # Create the identity
-    az identity create --name $USER_ASSIGNED_MI_NAME \
-                       --resource-group $RESOURCE_GROUP \
-                       --location $LOCATION
-    ```
-    
-    # [PowerShell](#tab/powershell)
-    
-    ```azurecli
-    # Variable block
-    $USER_ASSIGNED_MI_NAME="USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS"
-    $RESOURCE_GROUP="<RESOURCE_GROUP>"
-    $LOCATION="LOCATION"
-    
-    # Create the identity
-    az identity create --name $USER_ASSIGNED_MI_NAME `
-                       --resource-group $RESOURCE_GROUP `
-                       --location $LOCATION
-    ```
-    
-    ---
+1. Create a [User Assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) which will be used for cloud connections.
 
    > [!NOTE]
    > You will need to grant the identity permission to whichever cloud resource this will be used for. 
