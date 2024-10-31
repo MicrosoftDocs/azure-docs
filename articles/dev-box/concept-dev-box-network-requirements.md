@@ -69,7 +69,7 @@ Managing network security controls for dev boxes can be complex. To simplify con
 
    A [service tag](/azure/firewall/service-tags) represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. Service tags can be used in both [Network Security Group (NSG)](/azure/virtual-network/network-security-groups-overview) and [Azure Firewall](/azure/firewall/service-tags) rules to restrict outbound network access, and in [User Defined Route (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) to customize traffic routing behavior.
 
-## Physical device network connectivity
+## Required endpoints for physical device network connectivity
 Although most of the configuration is for the cloud-based dev box network, end user connectivity occurs from a physical device. Therefore, you must also follow the connectivity guidelines on the physical device network.
 
 |Device or service    |Network connectivity required URLs and ports    |Description |
@@ -94,7 +94,7 @@ Any device you use to connect to a dev box must have access to the following FQD
 
 These FQDNs and endpoints only correspond to client sites and resources.
 
-## Required endpoints
+## Required endpoints for dev box provisioning
 
 The following URLs and ports are required for the provisioning of dev boxes and the Azure Network Connection (ANC) health checks. All endpoints connect over port 443 unless otherwise specified.
 
@@ -106,7 +106,7 @@ The following URLs and ports are required for the provisioning of dev boxes and 
 | **Microsoft Entra ID** | FQDNs and endpoints for Microsoft Entra ID can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | Service tag: *AzureActiveDirectory* |
 | **Microsoft Intune** | For current FQDNs and endpoints for Microsoft Entra ID, see [Intune core service](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service).| FQDN tag: *MicrosoftIntune* |
 
-The listed FQDNs and endpoints and tags only correspond to the most common resources. They don't include FQDNs and endpoints for all services. For service tags for other services, see [Available service tags](/azure/virtual-network/service-tags-overview#available-service-tags).
+The listed FQDNs and endpoints and tags correspond to the required resources. They don't include FQDNs and endpoints for all services. For service tags for other services, see [Available service tags](/azure/virtual-network/service-tags-overview#available-service-tags).
 
 Azure Virtual Desktop doesn't have a list of IP address ranges that you can unblock instead of FQDNs to allow network traffic. If you're using a Next Generation Firewall (NGFW), you need to use a dynamic list made for Azure IP addresses to make sure you can connect.
 
