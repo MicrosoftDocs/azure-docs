@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 10/31/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -85,6 +85,26 @@ To secure your storage account and build a secure network boundary for your appl
     1. Add exceptions for logging and metrics.
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
+
+### Network Security Perimeter (preview)
+
+[Network Security Perimeter (NSP)](../../private-link/network-security-perimeter-concepts.md) allows administrators to define a logical network isolation boundary for PaaS resources (for example, Azure Storage and SQL Database) that are deployed outside virtual networks. It restricts communication to resources within the perimeter, and it allows non-perimeter public traffic through inbound and outbound access rules. By design, access to a storage account from a network security perimeter takes the highest precedence over other network access restrictions. Currently this service is in public preview for Azure Blobs, Files (SMB only), Tables, and Queues.
+
+#### Limitations
+
+This preview doesn't support the following services, operations, and protocols:
+
+- [Object replication](../blobs/object-replication-overview.md) (block blobs)
+- [Lifecycle management](../blobs/lifecycle-management-overview.md)
+- File transfer protocol (FTP)
+- Network file system (NFS)
+
+We recommend you don't enable NSP if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
+
+Azure Storage only supports outbound communication to Azure Key Vault for scenarios involving customer managed keys (CMK). It doesn't currently support any other outbound scenarios with NSP.
+
+> [!WARNING]
+> If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
 
 ## Restrictions and considerations
 
