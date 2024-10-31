@@ -42,6 +42,8 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Heptagon YB3x
+            url: heptagon-yb3x.md
           - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-gen-11-nhp-2lff.md
           - text: Dell XE4 SFF

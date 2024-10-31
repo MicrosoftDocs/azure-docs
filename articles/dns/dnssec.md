@@ -79,7 +79,7 @@ Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#ho
 
 If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This value tells the responding DNS server to include DNSSEC-related resource records with the response. These DNSSEC records are Resource Record Signature (RRSIG) records that are used to validate that the DNS response is genuine. 
 
-A recursive (non-authoritative) DNS server performs DNSSEC validation on RRSIG records using a trust anchor (DNSKEY). The server uses a DNSKEY to decrypt digital signatures in RRSIG records (and other DNSSEC-related records), and then computes and compares hash values. If hash values are the same, it provides a reply to the DNS client with the DNS data that it requested, such as a host address (A) record. See the following diagram:
+A recursive (non-authoritative) DNS server performs DNSSEC validation on RRSIG records using a [trust anchor](#trust-anchors-and-dnssec-validation) (DNSKEY). The server uses a DNSKEY to decrypt digital signatures in RRSIG records (and other DNSSEC-related records), and then computes and compares hash values. If hash values are the same, it provides a reply to the DNS client with the DNS data that it requested, such as a host address (A) record. See the following diagram:
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
@@ -92,7 +92,7 @@ Windows 10 and Windows 11 client devices are [nonvalidating security-aware stub 
 > [!NOTE] 
 > DNSSEC response validation is not performed by the default Azure-provided resolver. The information in this section is helpful if you are setting up your own recursive DNS servers for DNSSEC validation or troubleshooting validation issues.
 
-Trust anchors operate based on the DNS namespace hierarchy. A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single child DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. 
+Trust anchors operate based on the DNS namespace hierarchy. A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single child DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. For more information, see [Root Zone Operator Information](https://www.iana.org/dnssec).
 
 The DNSSEC validation process works with trust anchors as follows:
   - If a recursive DNS server doesn't have a DNSSEC trust anchor for a zone or the zone's parent hierarchical namespace, it will not perform DNSSEC validation on that zone.
