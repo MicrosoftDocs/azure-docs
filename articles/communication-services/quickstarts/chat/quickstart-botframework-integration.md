@@ -585,7 +585,3 @@ Verify that the bot's Microsoft app ID and password are saved correctly in the b
 ### Bot can't be added as a participant
 
 Verify that the bot's Communication Services ID is used correctly when a request is sent to add a bot to a chat thread.
-
-## Next steps
-TODO: This points to a private repo and should be removed or moved.
-Try the [chat bot demo app](https://github.com/Azure/communication-preview/tree/master/samples/AzureBotService-Sample-App) for a 1:1 chat between a chat user and a bot via the BotFramework WebChat UI component.
