@@ -24,7 +24,7 @@ Edgio informed us that their services remain operational until at least November
 
 You're encouraged to migrate your workloads to Microsoft's flagship CDN product called Azure Front Door Standard or Premium. Next steps:
 1. Review [Azure Front Door and Azure CDN features](../frontdoor/front-door-cdn-comparison.md) to determine if Azure Front Door is compatible with your workload(s).
-2. Understand [Azure Front Door Pricing](https://azure.microsoft.com/en-us/pricing/details/frontdoor/).
+2. Understand [Azure Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 3. Follow the [Azure CDN to Azure Front Door migration guide](../frontdoor/migrate-cdn-to-front-door.md). This guide provides detailed instructions on how to set up an Azure Front Door profile, test functionality, and migrate your compatible workloads from Azure CDN from Edgio to Azure Front Door with the help of Azure Traffic Manager.
 
 ### If I determined my workload isn't a match for Azure Front Door, what are my options?
