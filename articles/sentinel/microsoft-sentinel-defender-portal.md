@@ -75,6 +75,7 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 |Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
 
 The following limitations also apply to Microsoft Sentinel in Defender portal without Defender XDR or other services enabled:
+
 - New Microsoft Sentinel customers aren't eligible to onboard a Log Analytics workspace that's created in the Israel region. To onboard to the Defender portal, create another workspace for Microsoft Sentinel in a different region.
 - Customers that use Microsoft Sentinel user and entity behavior analytics (UEBA) are provided with a limited version of the [IdentityInfo table](ueba-reference.md#identityinfo-table). 
 
