@@ -9,9 +9,9 @@ ms.service: azure-iot-operations
 ms.date: 10/31/2024 
 ---
 
-# Reliability in Azure Device Registry
+# Reliability in Azure Device Registry Preview
 
-This article describes reliability support in Azure Device Registry (ADR). It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Device Registry. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
 
 Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
@@ -61,7 +61,7 @@ During a zone-wide outage, you don't need to take any action to failover to a he
 
 Azure Device Registry is a regional service with automatic geographical data replication. In a region-wide outage, Microsoft initiates compute failover from one region to another. If Azure Device Registry fails over, it continues to support its primary region, and no more actions by you're required. 
 
-When using Azure IoT Operations (AIO), Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for asset metadata and asset management capabilities. However, AIO includes various other components beyond ADR. For detailed information on AIO-specific components' high availability and zero data loss features, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq#does-azure-iot-operations-offer-high-availability-and-zero-data-loss-features-). 
+When using Azure IoT Operations (Azure IoT Operations), Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for asset metadata and asset management capabilities. However, Azure IoT Operations includes various other components beyond Azure Device Registry. For detailed information on the high availability and zero data loss features of Azure IoT Operations components, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq#does-azure-iot-operations-offer-high-availability-and-zero-data-loss-features-). 
 
 
 ### Region down experience
