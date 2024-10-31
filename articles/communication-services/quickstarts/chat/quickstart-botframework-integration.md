@@ -294,9 +294,26 @@ When you're finished using the chat thread, delete the thread:
 chatClient.DeleteChatThread(threadId);
 ```
 
-### Deploy the C# chat application
+### Run the C# chat application locally
 
-To deploy the chat application:
+To run the chat application locally, use the `dotnet run` command:
+
+```powershell
+dotnet run
+```
+
+You should receive a message from the bot in the console that says "Hello World".
+
+Example output:
+
+```powershell
+1730405535010:Hello World
+```
+
+
+### Deploy the C# chat application (Optional)
+
+If you have another web app service, you can deploy the chat application:
 
 1. In Visual Studio, open the chat project.
 
