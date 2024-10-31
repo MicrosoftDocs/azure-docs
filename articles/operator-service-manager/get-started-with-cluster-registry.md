@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with cluster registry
-* Original Publish Date: July 26, 2024
+* Created & First Published: July 26, 2024
 * Updated for HA: October 16, 2024
 
 ## Overview
@@ -62,10 +62,10 @@ When the cluster registry feature is enabled in the Network Function Operator Ar
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
 * Onboarding helm charts without requiring customization of image path.
 * A local cluster registry to accelerate pod operations and enable disconnected-moded support.
-Given these components are essential, they need to be highly-available and resilient.
+These essential components need to be highly available and resilient.
 
 ### Summary of changes for HA
-With HA, cluster registry and webhook pods now support a replicaset with a minimum of 3 replicas and a maximum of 5 replicas. The replicaset key configuration is as follows:  
+With HA, cluster registry and webhook pods now support a replicaset with a minimum of three replicas and a maximum of five replicas. The replicaset key configuration is as follows:  
 * Gradual rollout upgrade strategy is used.
 * PodDisruptionBudgets (PDB) are used for availability during voluntary disruptions.
 * Pod Anti-affinity is used to spread pods evenly across nodes.
@@ -74,43 +74,46 @@ With HA, cluster registry and webhook pods now support a replicaset with a minim
 * Pods scale horizontally under CPU and memory load.
 
 #### Replicas
-* Running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as kind:deployment with a minimum of 3 replicas.
+* A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas.
 #### DeploymentStrategy
 * A rollingUpdate strategy is used to help achieve zero downtime upgrades and support gradual rollout of applications. Default maxUnavailable configuration allows only one pod to be taken down at a time, until enough pods are created to satisfying redundancy policy.
 #### Pod Disruption Budget
-* A PDB protects pods from voluntary disruption and is deployed alongside Deployment, ReplicaSet or StatefulSet objects. For AOSM operator pods a PDG with minAvailable parameter of 2 is used.
+* A policy distruption budget (PDB) protects pods from voluntary disruption and is deployed alongside Deployment, ReplicaSet, or StatefulSet objects. For AOSM operator pods, a PDB with minAvailable parameter of 2 is used.
 #### Pod anti-affinity
-* Pod anti-affinity conmtrols distribution of application pods across multiple nodes in your cluster. With HA, AOSM pod anti-affinity using the following parameters:
-  * A scheduling mode is used that defines how strictly the rule is enforced.
-    * requiredDuringSchedulingIgnoredDuringExecution(Hard): Pods must be scheduled in a way that satisfies the defined rule. If no topologies that meet the rule's requirements are available, the pod will not be scheduled at all. 
-    * preferredDuringSchedulingIgnoredDuringExecution(Soft): This rule type expresses a preference for scheduling pods but doesn't enforce a strict requirement. If topologies that meet the preference criteria are available, Kubernetes will try to schedule the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
-  * A Label Selector is used to target specific pods for which the affinity will be applied.
-  * A Topology Key is used that defines the node needs. 
-* Nexus node placement is spread evenly across zones by design, so spreading the pods across nodes will also give zonal redundancy.
-* For AOSM operator pods, a soft anti-affinity with weight 100 and topology key based on node hostnames is used.
+* Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA, AOSM pod anti-affinity using the following parameters:
+  * A scheduling mode is used to define how strictly the rule is enforced.
+    * requiredDuringSchedulingIgnoredDuringExecution(Hard): Pods must be scheduled in a way that satisfies the defined rule. If no topologies that meet the rule's requirements are available, the pod is not scheduled. 
+    * preferredDuringSchedulingIgnoredDuringExecution(Soft): This rule type expresses a preference for scheduling pods but doesn't enforce a strict requirement. If topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
+  * A Label Selector is used to target specific pods for which the affinity is applied.
+  * A Topology Key is used to define the node needs. 
+* Nexus node placement is spread evenly across zones by design, so spreading the pods across nodes also gives zonal redundancy.
+* AOSM operator pods use a soft anti-affinity with weight 100 and topology key based on node hostnames is used.
 
 #### Storage
-* Since AOSM edge registry has multiple replicas which are spread across nodes, the persistent volume must support “ReadWriteMany” (RWX) access mode. PVC “nexus-shared” volume is available on Nexus clusters and supports RWX access mode.
+* Since AOSM edge registry has multiple replicas which are spread across nodes, the persistent volume must support ReadWriteMany (RWX) access mode. PVC “nexus-shared” volume is available on Nexus clusters and supports RWX access mode.
   
 #### Monitoring via Readiness Probes
 * AOSM uses http readiness probes to know when a container is ready to start accepting traffic. A pod is considered ready when all containers are ready. When a Pod is not ready, it is removed from the service load balancers. 
 
 #### System node pool
-* All AOSM operator pods are assigned to the system node pool. This prevents misconfigured or rouge application pods from impacting system pods.
+* All AOSM operator pods are assigned to the system node pool. This pool prevents misconfigured or rouge application pods from impacting system pods.
 
 #### Horizontal scaling
-* In Kubernetes, a HorizontalPodAutoscaler (HPA) automatically updates a workload resource with the aim of automatically scaling the workload to match demand. AOSM operator pods have a HPA policy configured requiring minimum replicas of 3, maximum replicas of 5, and targetAverageUtilization of cpu and memory of 80%.
+* In Kubernetes, a HorizontalPodAutoscaler (HPA) automatically updates a workload resource with the aim of automatically scaling the workload to match demand. AOSM operator pods have the following HPA policy parameters configured;
+  * A minimum replicas of three.
+  * A maximum replicas of five.
+  * A targetAverageUtilization for cpu and memory of 80%.
   
 #### Resource limits
-* Resources limits are used to prevent a resource overload on the nodes where AOSM pods are running. AOSM uses two resource parameters to limit both CPU and memory consumtion.
-  * **Resource request** - The minimum amount that should be reserved for a pod. This should be set to resource usage under normal load for your application.
-  * **Resource limit** - The maximum amount that a pod should ever use, if usage reaches the limit it will be terminated.
+* Resources limits are used to prevent a resource overload on the nodes where AOSM pods are running. AOSM uses two resource parameters to limit both CPU and memory consumption.
+  * **Resource request** - The minimum amount that should be reserved for a pod. This value should be set to resource usage under normal load for your application.
+  * **Resource limit** - The maximum amount that a pod should ever use, if usage reaches the limit it is terminated.
 All AOSM operator containers are configured with appropriate request, limit for CPU and memory.
 
 #### Known HA Limitations
-* Nexus AKS (NAKS) clusters with single active node in system agent pool are not suitable for highly available. Nexus production production topology must use at least 3 active nodes in system agent pool.
-* The nexus-shared storage class is backed by a network file system (NFS) storage service. This NFS storage service is available per Cloud Service Network (CSN). Any Nexus Kubernetes cluster attached to the CSN can provision persistent volume from this shared storage pool. The storage pool is currently limited to a maximum size of 1TiB as of Network Cloud (NC) 3.10 where-as NC 3.12 will have a 16TiB option.
-* Pod Anti affinity only deals with the initial placement of pods, subsequent pod scaling and repair follows standard k8s scheduling logic.
+* Nexus AKS (NAKS) clusters with single active node in system agent pool are not suitable for highly available. Nexus production topology must use at least three active nodes in system agent pool.
+* The nexus-shared storage class is a network file system (NFS) storage service. This NFS storage service is available per Cloud Service Network (CSN). Any Nexus Kubernetes cluster attached to the CSN can provision persistent volume from this shared storage pool. The storage pool is currently limited to a maximum size of 1TiB as of Network Cloud (NC) 3.10 where-as NC 3.12 has a 16-TiB option.
+* Pod Anti affinity only deals with the initial placement of pods, subsequent pod scaling, and repair, follows standard K8s scheduling logic.
 
 ## Frequently Asked Questions
 * Can I use AOSM cluster registry with a CNF application previously deployed?
