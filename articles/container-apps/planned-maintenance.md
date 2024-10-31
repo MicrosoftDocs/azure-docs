@@ -61,7 +61,7 @@ az containerapp env maintenance-config add \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --weekday Monday \
-  --start-hour-utc 1
+  --start-hour-utc 1 \
   --duration 8
 ```
 
