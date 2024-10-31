@@ -4,7 +4,7 @@ description: Learn how to configure Azure File Sync to use managed identities.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/30/2024
+ms.date: 10/31/2024
 ms.author: kendownie
 ---
 
@@ -30,8 +30,7 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
   - You must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions.
   - **Allow Azure services on the trusted services list to access this storage account** exception must be enabled for preview. [Learn more](file-sync-networking-endpoints.md#grant-access-to-trusted-azure-services-and-restrict-access-to-the-storage-account-public-endpoint-to-specific-virtual-networks)
   - **Allow storage account key access** must be enabled for preview. To check this setting, navigate to your storage account and select **Configuration** under the Settings section.
--	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.2.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities.
-  -	To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
+-	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.2.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities. To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
 
     ```powershell
     Install-Module Az.StorageSync -Force
@@ -111,3 +110,5 @@ Verify the **ApplicationId** property has a GUID which indicates the server is c
 Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity:
   - New endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share.
   - Use the Set-AzStorageSyncServiceIdentity cmdlet anytime you need to configure additional registered servers to use managed identities.
+
+If you experience issues, see: [Troubleshoot Azure File Sync managed identity issues](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities).

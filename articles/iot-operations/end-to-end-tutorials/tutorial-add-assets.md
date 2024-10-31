@@ -1,35 +1,38 @@
 ---
-title: "Quickstart: Add assets"
-description: "Quickstart: Add OPC UA assets that publish messages to the MQTT broker in your Azure IoT Operations cluster."
+title: "Tutorial: Add assets"
+description: "Tutorial: Add OPC UA assets that publish messages to the MQTT broker in your Azure IoT Operations cluster."
 author: dominicbetts
 ms.author: dobett
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 09/17/2024
+ms.date: 10/17/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
 
-# Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster
+# Tutorial: Add OPC UA assets to your Azure IoT Operations Preview cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
+In this tutorial, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
 
 An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-In this quickstart, you use the operations experience web UI to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+In this tutorial, you use the operations experience web UI to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
 
 ## Prerequisites
 
-Have an instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
+An instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+
+- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
+- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s.
 
 To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
 
-Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
+Unless otherwise noted, you can run the console commands in this tutorial in either a Bash or PowerShell environment.
 
 ## What problem will we solve?
 
@@ -37,7 +40,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Deploy the OPC PLC simulator
 
-This quickstart uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
+This tutorial uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
 
 <!-- TODO: Change branch to main before merging the release branch -->
 
@@ -60,15 +63,15 @@ Browse to the [operations experience](https://iotoperations.azure.com) in your b
 
 ## Select your site
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
-:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
+:::image type="content" source="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 ## Select your instance
 
-Select the instance where you deployed Azure IoT Operations in the previous quickstart:
+Select the instance where you deployed Azure IoT Operations in the previous tutorial:
 
-:::image type="content" source="media/quickstart-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
+:::image type="content" source="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
 
 > [!TIP]
 > If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
@@ -81,7 +84,7 @@ To add an asset endpoint:
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
 
 1. Enter the following endpoint information:
 
@@ -103,7 +106,7 @@ To add an asset endpoint:
 
 After you select your instance in operations experience, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
 
-:::image type="content" source="media/quickstart-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
+:::image type="content" source="media/tutorial-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
 
 ### Create an asset
 
@@ -115,7 +118,7 @@ To create an asset, select **Create asset**. Then enter the following asset info
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
 
-Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later quickstart queries for them:
+Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
 | Property name | Property detail |
 |---------------|-----------------|
@@ -125,7 +128,7 @@ Remove the existing **Custom properties** and add the following custom propertie
 | isSpare       | true            |
 | location      | Seattle         |
 
-:::image type="content" source="media/quickstart-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
+:::image type="content" source="media/tutorial-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
 Select **Next** to go to the **Add tags** page.
 
@@ -142,7 +145,7 @@ The **Observability mode** is one of the following values: `None`, `Gauge`, `Cou
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
-:::image type="content" source="media/quickstart-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+:::image type="content" source="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
 
 Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
@@ -150,7 +153,7 @@ Select **Next** to go to the **Add events** page and then **Next** to go to the 
 
 Review your asset and tag details and make any adjustments you need before you select **Create**:
 
-:::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
+:::image type="content" source="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
 This configuration deploys a new asset called `thermostat` to the cluster. You can use `kubectl` to view the assets:
 
@@ -193,7 +196,7 @@ If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
+The sample tags you added in the previous tutorial generate messages from your asset that look like the following example:
 
 ```json
 {
@@ -210,14 +213,14 @@ The sample tags you added in the previous quickstart generate messages from your
 
 ## How did we solve the problem?
 
-In this quickstart, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes. You use the thermostat asset you defined in the next quickstart.
+In this tutorial, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes. You use the thermostat asset you defined in the next tutorial.
 
 ## Clean up resources
 
-If you're continuing on to the next quickstart, keep all of your resources.
+If you're continuing on to the next tutorial, keep all of your resources.
 
 [!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
 
 ## Next step
 
-[Quickstart: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](quickstart-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](tutorial-upload-telemetry-to-cloud.md).
