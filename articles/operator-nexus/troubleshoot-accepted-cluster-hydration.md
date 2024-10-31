@@ -12,7 +12,7 @@ ms.date: 10/30/2024
 
 # Troubleshoot accepted Cluster resources
 
-Operator Nexus relies on mirroring, or hydrating, resources from the on-premises cluster to Azure. When this process is interrupted, the Cluster resource can move to `Accepted`state. 
+Operator Nexus relies on mirroring, or hydrating, resources from the on-premises cluster to Azure. When this process is interrupted, the Cluster resource can move to `Accepted` state. 
 
 ## Diagnosis
 
@@ -44,7 +44,7 @@ After the tag is applied, the Cluster moves to `Running` state.
 az networkcloud cluster show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME>
 ```
 
-If the Cluster resource maintains the state after a period of time, less than 5 minutes, contact Microsoft support. 
+If the Cluster resource maintains the state after a period of time, more than 5 minutes, contact Microsoft support. 
 
 ## Further information
 
