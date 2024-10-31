@@ -63,17 +63,17 @@ The next step is to set up an Arc-enabled cluster in level 3 that's compatible f
 # [K3S Cluster](#tab/k3s)
 
 - Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up and Arc-enable your K3s cluster.
-  1. You can perpare your K3s cluster with internet access.
-  1. After install the required software components and setup the K3s cluster, you can restrict the internt access for this cluster and rely on the **custom DNS** that is prepared from earlier steps to direct the network traffic to the Layered Network Management component at level 4.
+  1. You can prepare your K3s cluster with internet access.
+  1. After install the required software components and set up the K3s cluster, you can restrict the internet access for this cluster and rely on the **custom DNS** that is prepared from earlier steps to direct the network traffic to the Layered Network Management component at level 4.
       - If you choose to use CoreDNS instead of DNS server, you need to configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) after setup the K3S cluster.
   1. Proceed to Arc-enable the cluster.
 
 # [AKS Edge Essentials](#tab/aksee)
 
 - Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up and Arc-enable your AKS Edge Essentials cluster.
-  1. You can prepare the AKS Edg Essentials with internet access.
-  1. For the step of **Get the `objectID`** you  run the command on a different machine that have internet access.
-  1. After setting up the AKS Edge Essentials cluster, you can restrict the internt access for this cluster and rely on the **DNS server** that is prepared from earlier steps to direct the network traffic to the Layered Network Management component at level 4. 
+  1. You can prepare the AKS Edge Essentials with internet access.
+  1. For the step of **Get the `objectID`** you  run the command on a different machine that has internet access.
+  1. After setting up the AKS Edge Essentials cluster, you can restrict the internet access for this cluster and rely on the **DNS server** that is prepared from earlier steps to direct the network traffic to the Layered Network Management component at level 4. 
 
 ---
 
