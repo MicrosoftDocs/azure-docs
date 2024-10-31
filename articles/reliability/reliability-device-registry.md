@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-device-registry
-ms.date: 10/31/2024
+ms.date: 10/31/2024 
 ---
 
 # Reliability in Azure Device Registry
