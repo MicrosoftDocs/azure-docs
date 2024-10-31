@@ -79,7 +79,7 @@ FIO can be run with specific options to control how a performance benchmark read
 
 By default, when `randrepeat` isn't defined, the FIO tool sets the value to "true," meaning that the data produced in the files isn't truly random. Thus, filesystem caches aren't utilized to improve overall performance of the workload.  
 
-In the original benchmarks for Azure NetApp Files, `randrepeat` wasn't defined, so some filesystem caching was implemented. In the new tests, this option is set to “0” (or, false) to ensure there is adequate randomness in the data to avoid filesystem caches in the Azure NetApp Files service. This results in slightly lower overall numbers, but is a more accurate representation of what the storage itself is capable of when caching is bypassed. 
+In earlier benchmarks for Azure NetApp Files, `randrepeat` wasn't defined, so some filesystem caching was implemented. In more up-to-date tests, this option is set to “0” (false) to ensure there is adequate randomness in the data to avoid filesystem caches in the Azure NetApp Files service. This modification results in slightly lower overall numbers, but is a more accurate representation of what the storage service is capable of when caching is bypassed. 
 
 ## Next steps 
 

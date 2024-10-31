@@ -6,12 +6,43 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 03/24/2024
+ms.date: 10/31/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files regular volume performance benchmarks for Linux
 
 This article describes performance benchmarks Azure NetApp Files delivers for Linux with a [regular volume](azure-netapp-files-understand-storage-hierarchy.md#volumes).
+
+
+## Whole file streaming workloads (scale-out benchmark tests)
+
+The intent of a scale-out test is to show the performance of an Azure NetApp File volume when scaling out (or increasing) the number of clients generating simultaneous workload to the same volume. These tests are generally able to push a volume to the edge of its performance limits and are indicative of workloads such as media rendering, AI/ML, and other workloads that utilize large compute farms to perform work. 
+
+High IOP scale out benchmark configuration 
+
+These benchmarks used the following: 
+- A single Azure NetApp Files 100-TiB regular volume with a 1-TiB data set using the Ultra performance tier 
+- [FIO (with and without setting randrepeat=0)](testing-methodology.md)
+- 4-KiB and 8-KiB block sizes 
+- 6 D32s_v5 virtual machines running RHEL 9.3 
+- NFSv3  
+- [Manual QoS](manage-manual-qos-capacity-pool.md)
+- Mount options: rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg 
+
+## High throughput scale-out benchmark configuration 
+
+These benchmarks used the following: 
+
+- A single Azure NetApp Files regular volume with a 1-TiB data set using the Ultra performance tier 
+FIO (with and without setting randrepeat=0) 
+- [FIO (with and without setting randrepeat=0)](testing-methodology.md)
+- 64-KiB and 256-KiB block size 
+- 6 D32s_v5 virtual machines running RHEL 9.3 
+- NFSv3  
+- [Manual QoS](manage-manual-qos-capacity-pool.md)
+- Mount options: rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg 
+
+<!-- -->
 
 ## Linux scale-out
 
