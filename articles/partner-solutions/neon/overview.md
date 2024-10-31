@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
 
-ms.date: 10/01/2024
+ms.date: 10/30/2024
 ---
 
 # What is Neon Serverless Postgres - An Azure Native ISV Service?
@@ -14,9 +14,9 @@ Azure Native ISV Services enable you to easily provision, manage, and tightly in
 
 You can find Neon Serverless Postgres - An Azure Native ISV Service  in the Azure Portal.
 
-This offering allows you to manage your Neon resource as an integrated native service. You can easily run and manage as many deployments as you need and get started seamlessly through Azure portal.
+Neon is a cloud-native Postgres solution designed for modern applications. It offers a serverless, fully managed, and scalable Postgres database with advanced features like autoscaling, scale-to-zero, database branching, instant point-in-time restore, and time travel queries. Neon simplifies database management with seamless integration into your existing workflows, providing a powerful, cost-efficient solution for developers and businesses.  
 
-You can set up the Neon resources through a resource provider named `Neon.Neon`. You can create and manage the billing, resource creation, and authorization of Neon resources through the Azure portal. Neon owns and runs the Software as a Service (SaaS) application including the Neon resources created.
+Neon manages the Postgres infrastructure, including database configuration, maintenance, and scaling operations, allowing you to focus on building and optimizing your applications. With its intuitive onboarding process, you can quickly start leveraging Neon's capabilities for your Azure workloads, ensuring your databases are always optimized for performance and reliability.  
 
 Here are the key capabilities provided by the Neon integration:
 
@@ -48,4 +48,4 @@ Here are the key capabilities provided by the Neon integration:
 
     > [!div class="nextstepaction"]
     > Azure Marketplace
--->
+--> 
