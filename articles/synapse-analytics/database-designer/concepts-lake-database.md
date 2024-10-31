@@ -23,7 +23,7 @@ The lake database in Azure Synapse Analytics enables customers to bring together
 The new database designer in Synapse Studio gives you the possibility to create a data model for your lake database and add additional information to it. Every Entity and Attribute can be described to provide more information about the model, which not only contains Entities but relationships as well. In particular, the inability to model relationships has been a challenge for the interaction on the data lake. This challenge is now addressed with an integrated designer that provides possibilities that have been available in databases but not on the lake. Also the capability to add descriptions and possible demo values to the model allows people who are interacting with it in the future to have information where they need it to get a better understanding about the data. 
 
 > [!NOTE] 
-> The maximum size of metadata in a lake database is 10GB. Attempting to publish or update a model that exceeds 10GB in size will fail. Reduce the model size by removing tables and columns to resolve this. Consider splitting large models into multiple lake databases to avoid this limit.
+> The maximum size of metadata in a lake database is 10 GB. Attempting to publish or update a model that exceeds 10 GB in size will fail. To resolve this issue, reduce the model size by removing tables and columns. Consider splitting large models into multiple lake databases to avoid this limit.
 
 ## Data storage 
 
