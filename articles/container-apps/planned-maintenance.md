@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 10/31/2024
 ms.author: cshoe
 ---
 
@@ -15,22 +15,22 @@ Azure Container Apps is a fully managed service where platform and infrastructur
 
 The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
 
-Depending on the type of update, you can choose to define a *maintenance window* that controls when noncritical updates are applied to your Container Apps environment.
+Depending on the type of update, you can choose to define a maintenance window that controls when noncritical updates are applied to your Container Apps environment.
 
 The following table describes the difference between the timing in how *critical* and *noncritical* updates are applied to your environment.
 
 | Update type | Description | Timing |
 |---|---|---|
 | Critical | Urgent fixes that include updates essential to the security and stability of your app. | Anytime |
-| Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only happen during that time span. If a maintenance window isn't configured, then updates can be applied at any time. |
+| Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only happen during that time span.<br><br>If a maintenance window isn't configured, then updates can be applied at any time. |
 
 ## How maintenance windows work
 
-To control when noncritical updates are applied, you can define a weekly maintenance window for your Azure Container Apps environment. When you define a maintenance window, you specify a day of week, a start time in the UTC time zone, and a duration.
+To control when noncritical updates are applied, you can define a weekly maintenance window for your Azure Container Apps environment. When you define a maintenance window, you specify a day of the week, a start time in the UTC format, and a duration.
 
 Keep in mind the following considerations:
 
-* Container Apps supports one maintenance window configuration with one schedule entry per environment.
+* You can only have one maintenance window per environment.
 
 * The minimum duration for a maintenance window is 8 hours.
 
