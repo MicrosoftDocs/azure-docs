@@ -1,10 +1,10 @@
 ---
-title: Azure Operator Nexus Fabric SKUs
-description: SKU options for Azure Operator Nexus Network Fabric
+title: Azure Operator Nexus SKUs
+description: SKU options for Azure Operator Nexus
 ms.topic: article
-ms.date: 04/18/2024
-author: sushantjrao
-ms.author: sushrao
+ms.date: 10/31/2024
+author: matternst7258
+ms.author: matthewernst
 ms.service: azure-operator-nexus
 ---
 
