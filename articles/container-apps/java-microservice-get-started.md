@@ -118,15 +118,15 @@ Go to your Container Apps Environment on Azure Portal, select the **Service** in
 
 :::image type="content" source="media/java-deploy-war-file/configure-java-component.png" alt-text=Configure java component.":::
 
-Create teh Config Server component: Select `Config Server for Spring` as the **Java component type**, and fill in the **Java component name** with `configserver` which is the value of the environment variable `$CONFIG_SERVER_COMPONENT` you set in the above step. Then in the **Git repositories** section, click **Add** to add a new Git repository with the **URI** `https://github.com/spring-petclinic/spring-petclinic-microservices-config.git`. Click **Add** and then **Next** to the Review page, click **Configure** to finish the configuration of Java component.
+Create the Config Server component: Select `Config Server for Spring` as the **Java component type**, and fill in the **Java component name** with `configserver` which is the value of the environment variable `$CONFIG_SERVER_COMPONENT` you set before. Then in the **Git repositories** section, click **Add** to add a new Git repository with the **URI** `https://github.com/spring-petclinic/spring-petclinic-microservices-config.git`. Click **Add**, then **Next** to the Review page, and click **Configure** to finish the configuration of Java component.
 
 :::image type="content" source="media/java-deploy-war-file/configure-configserver.png" alt-text=Configure config server.":::
 
-Create the Eureka component: Select `Eureka Server for Spring` as the **Java component type**, and fill in the **Java component name** with `eureka` which is the value of the environment variable `$EUREKA_SERVER_COMPONENT` you set in the above step. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
+Create the Eureka component: Select `Eureka Server for Spring` as the **Java component type**, and fill in the **Java component name** with `eureka` which is the value of the environment variable `$EUREKA_SERVER_COMPONENT` you set before. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
 
 :::image type="content" source="media/java-deploy-war-file/configure-eureka.png" alt-text=Configure Eureka.":::
 
-Create the Admin component: Select `Admin for Spring` as the **Java component type**, and fill in the **Java component name** with `admin` which is the value of the environment variable `$ADMIN_SERVER_COMPONENT` you set in the above step. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
+Create the Admin component: Select `Admin for Spring` as the **Java component type**, and fill in the **Java component name** with `admin` which is the value of the environment variable `$ADMIN_SERVER_COMPONENT` you set before. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
 
 :::image type="content" source="media/java-deploy-war-file/configure-admin.png" alt-text=Configure Admin.":::
 
