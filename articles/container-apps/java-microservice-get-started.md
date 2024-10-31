@@ -159,7 +159,7 @@ az containerapp create \
   --name $API_GATEWAY \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $API_GATEWAY_IMAGE
+  --image $API_GATEWAY_IMAGE \
   --ingress external \
   --target-port 8080 \
   --query properties.configuration.ingress.fqdn 
@@ -190,7 +190,7 @@ az containerapp update \
 az containerapp update \
   --name $API_GATEWAY \
   --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT \
   --query properties.configuration.ingress.fqdn 
 ```
 
