@@ -4,8 +4,7 @@ description: Describes Azure Data Box Disk, a cloud solution that enables you to
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: overview
 ms.date: 09/09/2022
 ms.author: shaas

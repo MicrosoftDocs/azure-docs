@@ -8,6 +8,10 @@ ms.date: 06/14/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security operations center (SOC) manager, I want to manage the migration to Microsoft Sentinel so that I can ensure a smooth transition and maintain security monitoring effectiveness.
+
 ---
 
 # Track your Microsoft Sentinel migration with a workbook

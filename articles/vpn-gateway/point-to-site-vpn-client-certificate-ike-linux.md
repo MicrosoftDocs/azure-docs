@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 

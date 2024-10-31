@@ -20,6 +20,9 @@ The rest of the quickstarts in this end-to-end series build on this one to defin
 
 If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
+> [!IMPORTANT]
+> If you're upgrading your public preview from version 0.6.0 to version 0.7.0, you must uninstall the previous version before deploying the new version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-manage-update-uninstall.md#update).
+
 ## Before you begin
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.

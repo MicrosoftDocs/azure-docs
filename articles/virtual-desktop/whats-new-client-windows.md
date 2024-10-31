@@ -5,7 +5,7 @@ ms.topic: release-notes
 zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: sipastak
 ms.author: sipastak
-ms.date: 10/08/2024
+ms.date: 10/30/2024
 ---
 
 # What's new in the Remote Desktop client for Windows

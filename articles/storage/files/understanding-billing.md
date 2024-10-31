@@ -83,7 +83,7 @@ The amount of storage, IOPS, and throughput you provision can be dynamically sca
 
 By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Although these recommendations are based on typical customer usage for that amount of provisioned storage for that media tier in Azure Files, you may find that your workload requires more or less IOPS and throughput than the "typical file share", and you can optionally provision more or less IOPS and throughput depending on your individual file share requirements.
 
-### Availability
+### Provisioned v2 availability
 The provisioned v2 model is provided for file shares in storage accounts with the *FileStorage* storage account kind. At present, the following subset of storage account SKUs are available:
 
 | Storage account kind | Storage account SKU | Type of file share available |
@@ -101,8 +101,12 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Australia Southeast
 - East Asia
 - Southeast Asia
+- West US 2
+- West Central US
+- West Europe
+- North Europe
 
-### Provisioning detail
+### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
 
 | Item | HDD value |
@@ -125,8 +129,8 @@ By default, we recommended IOPS and throughput provisioning based on the provisi
 
 | Formula name | HDD formula |
 |-|-|
-| IOPS recommendation | `MIN(MAX(1000 + 0.2 * ProvisionedStorageGiB, 500), 50000)` |
-| Throughput recommendation | `MIN(MAX(60 + 0.02 * ProvisionedStorageGiB, 60), 5120)` |
+| IOPS recommendation | `MIN(MAX(1000 + CEILING(0.2 * ProvisionedStorageGiB), 500), 50000)` |
+| Throughput recommendation | `MIN(MAX(60 + CEILING(0.02 * ProvisionedStorageGiB), 60), 5120)` |
 
 Depending on your individual file share requirements, you may find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired.
 
@@ -170,7 +174,7 @@ Some value-added services for Azure Files use snapshots as part of their value p
 ### Provisioned v2 soft-delete
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
-### Provisioned v1 billing meters
+### Provisioned v2 billing meters
 File shares provisioned using the provisioned v2 billing model are billed against the following five billing meters:
 
 - **Provisioned Storage**: The amount of storage provisioned in GiB.
@@ -198,7 +202,7 @@ Unlike purchasing storage on-premises, provisioned v1 file shares can be dynamic
 
 It's possible to decrease the size of your provisioned share below your used GiB. If you do, you won't lose data, but you'll still be billed for the size used and receive the performance of the provisioned share, not the size used.
 
-### Availability
+### Provisioned v1 availability
 The provisioned v1 model is provided for SSD file shares in storage accounts with the *FileStorage* storage account kind:
 
 | Storage account kind | Storage account SKU | Type of file share available |
@@ -208,7 +212,7 @@ The provisioned v1 model is provided for SSD file shares in storage accounts wit
 
 SSD file shares using the provisioned v1 model are generally available in most Azure regions. See [Azure products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region) for more information.
 
-### Provisioning detail
+### Provisioned v1 provisioning detail
 When you create a provisioned v1 file share, you specify how much storage your share needs. Each GiB that you provision entitles you to more IOPS and throughput in a fixed ratio. File shares are limited based on the following attributes: 
 
 | Item | Value |
@@ -291,7 +295,7 @@ Consumption against the provisioned v1 billing meters are emitted hourly in term
 ## Pay-as-you-go model
 In the pay-as-you-go model, the amount you pay is determined by how much you use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and you're also charged for transactions based on your usage of that data. Pay-as-you-go billing model can be difficult to plan for as part of a budgeting process, because the model is driven by end-user consumption. We therefore recommend using the [provisioned v2 model](#provisioned-v2-model) for new file share deployments. The pay-as-you-go model is only available for HDD file shares.
 
-### Availability
+### Pay-as-you-go availability
 The pay-as-you-go model is provided for HDD file shares in storage accounts with the *StorageV2* or *Storage* storage account kind:
 
 | Storage account kind | Storage account SKU | Type of file share available |
@@ -373,7 +377,7 @@ To see previous transactions:
 ### Pay-as-you-go snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
 
-Snapshots are always differential from the live share and from each other. In the pay-as-you-go billing model,the total differential size is billed against the normal used storage meter. This means that you won't see a separate line item on your bill representing snapshots for your pay-as-you-go storage account. This also means that differential snapshot usage counts against reservations that are purchased for pay-as-you-go file shares.
+Snapshots are always differential from the live share and from each other. In the pay-as-you-go billing model, the total differential size is billed against the normal used storage meter. This means that you won't see a separate line item on your bill representing snapshots for your pay-as-you-go storage account. This also means that differential snapshot usage counts against reservations that are purchased for pay-as-you-go file shares.
 
 ### Pay-as-you-go soft-delete
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted file share for the duration of the soft-delete period. The soft-deleted used storage capacity is emitted against the normal used storage meter. This means that you won't see a separate line item on your bill representing soft-deleted file shares for your pay-as-you-go storage account. This also means that soft-deleted file share usage counts against reservations that are purchased for pay-as-you-go file shares.

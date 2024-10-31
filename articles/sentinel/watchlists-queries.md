@@ -9,7 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a SOC analyst, I want to incorporate my watchlists with advanced hunting or detection rules so I can use data I provide in meaningful ways for my security monitoring.
+
+
+#Customer intent: As a security analyst, I want to use watchlists in my queries and detection rules so that I can efficiently correlate and analyze data to detect potential threats.
+
 ---
 
 # Build queries or detection rules with watchlists in Microsoft Sentinel

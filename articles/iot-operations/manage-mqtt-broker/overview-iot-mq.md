@@ -10,22 +10,23 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use MQTT broker to publish and subscribe MQTT topics.
+ms.service: azure-iot-operations
 ---
 
 # Publish and subscribe MQTT messages using MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-MQTT broker features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
 
-MQTT broker features a standards-compliant MQTT broker that supports both MQTT v3.1.1 and MQTT v5. 
-
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-MQTT broker uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
+
+The MQTT broker underpins the messaging layer in IoT Operations and supports both MQTT v3.1.1 and MQTT v5. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
+
 
 ## Highly available and scalable
 
@@ -33,7 +34,7 @@ Kubernetes can horizontally scale workloads to run in multiple instances. This r
 
 In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT gateways on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
 
-MQTT broker focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
+MQTT broker focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane and seamless integration to other scalable Kubernetes workloads and Azure.
 
 ## Secure by default
 

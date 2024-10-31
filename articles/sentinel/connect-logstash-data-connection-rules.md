@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 07/14/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to use Logstash with Data Collection Rules to stream and transform logs into Microsoft Sentinel, so that analysts can efficiently manage and analyze log data from various sources.
+
 ---
 
 # Use Logstash to stream logs with pipeline transformations via DCR-based API

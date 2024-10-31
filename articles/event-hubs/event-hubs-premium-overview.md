@@ -17,7 +17,7 @@ In addition to these storage-related features and all capabilities and protocol 
 > - Event Hubs Premium supports TLS 1.2 or greater.
 > - The Premium tier isn't available in all regions. Try to create a namespace in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Namespace** page.
 
-You can purchase 1, 2, 4, 8, and 16 processing units (PUs) for each namespace. Because the Premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle like it is in the Standard tier. The throughput depends on the work you ask Event Hubs to do, which is similar to the Dedicated tier. The effective ingest and stream throughput per PU depends on various factors, such as the:
+You can purchase 1, 2, 4, 6, 8, 10, 12, and 16 processing units (PUs) for each namespace. Because the Premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle like it is in the Standard tier. The throughput depends on the work you ask Event Hubs to do, which is similar to the Dedicated tier. The effective ingest and stream throughput per PU depends on various factors, such as the:
 
 * Number of producers and consumers.
 * Payload size.

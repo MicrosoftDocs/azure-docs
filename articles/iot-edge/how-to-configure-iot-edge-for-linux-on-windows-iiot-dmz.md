@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge for Linux on Windows on a DMZ
 description: How to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks.
 author: PatAltimore
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual

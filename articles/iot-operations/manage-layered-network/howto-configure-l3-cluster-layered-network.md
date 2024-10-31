@@ -9,6 +9,7 @@ ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview

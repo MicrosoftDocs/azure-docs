@@ -70,7 +70,7 @@ Resources that run in a subscription with other offer types don't receive the re
 
 ## Purchase reservations
 
-When you by a reservation, the current UTC date and time is used to record the transaction.
+When you buy a reservation, the current UTC date and time are used to record the transaction.
 
 You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
 
@@ -94,6 +94,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Disk Storage](/azure/virtual-machines/disks-reserved-capacity)
 - [Microsoft Fabric](fabric-capacity.md)
 - [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Nutanix on Azure BareMetal](nutanix-bare-metal.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
