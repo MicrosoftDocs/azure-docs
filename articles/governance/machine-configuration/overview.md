@@ -37,6 +37,16 @@ You can view the per-setting results from configurations in the [Guest assignmen
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
 evaluated resource" link on the ["Compliance details" page][07].
 
+## Enforcement Modes for Custom Policies
+
+In order to provide greater flexibility in the enforcement and monitoring of server settings, applications and workloads, Machine Configuration offers three main enforcement modes for each policy assignment as described in the following table.
+
+|      Mode             |      Description                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| Audit                 | Only report on the state of the machine                                                     |
+| Apply and Monitor     | Configuration applied to the machine and then monitored for changes                         |
+| Apply and Autocorrect | Configuration applied to the machine and brought back into conformance in the event of drift|
+
 [A video walk-through of this document is available][08]. (Update coming soon)
 
 ## Enable machine configuration
