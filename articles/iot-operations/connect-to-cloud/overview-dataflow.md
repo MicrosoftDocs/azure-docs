@@ -70,6 +70,6 @@ For more information, see [Understand message schemas](./concept-schema-registry
 
 ## Related content
 
-- [Quickstart: Send asset telemetry to the cloud by using a dataflow](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud by using a dataflow](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
 - [Create a dataflow](howto-create-dataflow.md)
 - [Create a dataflow endpoint](howto-configure-dataflow-endpoint.md)
