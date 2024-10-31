@@ -1,13 +1,12 @@
 ---
-title: NSG diagnostics
+title: NSG diagnostics overview
 titleSuffix: Azure Network Watcher
-description: Learn about NSG diagnostics tool in Azure Network Watcher.
+description: Learn about NSG diagnostics tool in Azure Network Watcher how it can help you troubleshoot traffic issues.
 author: halkazwini
-ms.service: azure-network-watcher
 ms.author: halkazwini
-ms.reviewer: shijaiswal
-ms.topic: conceptual
-ms.date: 06/27/2023
+ms.service: azure-network-watcher
+ms.topic: concept-article
+ms.date: 10/29/2024
 ---
 
 # NSG diagnostics overview
@@ -25,6 +24,9 @@ The NSG diagnostics is an Azure Network Watcher tool that helps you understand w
 
 The NSG diagnostics tool can simulate a given flow based on the source and destination you provide. It returns whether the flow is allowed or denied with detailed information about the security rule allowing or denying the flow.
 
-## Next steps
+## Next step
 
-To learn how to use the NSG diagnostics tool to check if your network traffic is allowed or denied, see [Diagnose network security rules](diagnose-network-security-rules.md).
+To learn how to use NSG diagnostics, continue to:
+
+> [!div class="nextstepaction"]
+> [Diagnose network security rules](diagnose-network-security-rules.md)

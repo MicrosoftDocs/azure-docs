@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 10/22/2024
+ms.date: 10/30/2024
 ms.author: wgries
 ---
 
@@ -93,7 +93,7 @@ When you enable this configuration, the system-assigned managed identities will 
 - Registered server authentication to Azure file share
 - Registered server authentication to Storage Sync Service
 
-Azure File Sync support for system-assigned managed identities will be in preview soon. More details will be provided once this feature is enabled in all regions.
+For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
 
 **Sync performance improvements**  
 Sync performance has significantly improved for file share migrations and when metadata-only is changed (for example, ACL changes). Performance numbers will be posted when they are available.
