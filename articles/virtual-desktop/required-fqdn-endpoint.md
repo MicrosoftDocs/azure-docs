@@ -4,7 +4,7 @@ description: A list of FQDNs and endpoints you must allow, ensuring your Azure V
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/15/2024
+ms.date: 10/29/2024
 ---
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
@@ -124,6 +124,7 @@ Select the relevant tab based on which cloud you're using.
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
 | `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
+| `ecs.office.com` | TCP | 443 | Connection center | All |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -140,6 +141,7 @@ Select the relevant tab based on which cloud you're using.
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
 | `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
+| `ecs.office.com` | TCP | 443 | Connection center | All |
 
 ---
 
