@@ -11,7 +11,7 @@ ms.date: 10/31/2024
 
 # Tutorial: Azure App Configuration and Telemetry (preview)
 
-Having telemetry data on your feature flags can be a powerful tool for understanding how your feature flags are being used and allows you to make informed decisions about your feature management strategy. In this guide, you will learn how to add telemetry (preview) to your Azure App Configuration feature flags and what data you can get from them.
+Having telemetry data on your feature flags can be a powerful tool for understanding how your feature flags are used. Telemetry allows you to make informed decisions about your feature management strategy. In this guide, you learn how to add telemetry (preview) to your Azure App Configuration feature flags and what data you can get from them.
 
 In this tutorial, you:
 
@@ -29,26 +29,26 @@ In this tutorial, you:
 ## Add telemetry to a feature flag (preview)
 
 1. Open your App Configuration store in the Azure portal.
-1. In the **Operations** section select the **Feature manager** page.
+1. In the **Operations** section, select the **Feature manager** page.
 1. When viewing the list of feature flags, you should see a column labeled **Telemetry** (preview), it should be currently show as **Disabled**. Right click on the feature flag you want to enable telemetry for and select **Edit**.
-1. In the new view select the **Telemetry** tab.
+1. In the new view, select the **Telemetry** tab.
 1. Select the **Enable Telemetry** checkbox and then the **Review + update** button at the bottom of the page.
-1. On the **Review + update** page select the **Update** button.
+1. On the **Review + update** page, select the **Update** button.
 
 ## Viewing telemetry data (Preview)
 
-With telemetry (preview) enabled no additional properties are added to the feature flag. Use of an Azure App Configuration provider library that supports telemetry is required to start collecting telemetry data.
+With telemetry (preview) enabled no other properties are added to the feature flag besides the setting enabling telemetry. Use of an Azure App Configuration provider library that supports telemetry is required to start collecting telemetry data.
 
-When telemetry is enabled the Azure App Configuration provider libraries will add additional properties to the feature flags when they are retrieved. A new object will be added to the **telemetry** section of the feature flag called **metadata**. The **metadata** object will contain the following properties:
+When, telemetry is enabled the Azure App Configuration provider libraries add more properties to the feature flags when they are retrieved. A new object is added to the **telemetry** section of the feature flag called **metadata**. The **metadata** object contains the following properties:
 
 - **AllocationID**: A unique identifier for the feature flag in it's current state.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of **<your-store-endpoint>kv/<feature_flag_key>**, it will also include the label if one is present, **<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>**
+- **FeatureFlagReference**: A reference to the feature flag in the format of **<your-store-endpoint>kv/<feature_flag_key>**, it also includes the label if one is present, **<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>**
 - **FeatureFlagId**: A unique identifier for the feature flag.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
 
-When feature flags with telemetry enabled are used in conjunction with the Feature Management libraries additional properties will be added to the telemetry data and be sent to location to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor a **custom_event** will be published to Open Telemetry with the following properties:
+When, feature flags with telemetry enabled are used with the Feature Management libraries more properties are added to the telemetry data and be sent to location to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor are used a **custom_event** is be published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
 
 - **Feature_Name**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
