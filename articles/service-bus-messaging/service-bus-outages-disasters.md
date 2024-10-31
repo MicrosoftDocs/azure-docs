@@ -49,7 +49,7 @@ The **Geo-Replication** feature replicates metadata and all of the data from a p
 
 ### Availability zones
 
-All Service Bus tiers support [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK automatically reconnects to Service Bus. 
+The Service Bus **premium** tier supports [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK automatically reconnects to Service Bus. 
 
 When you use availability zones, **both metadata and data (messages)** are replicated across data centers in the availability zone. 
 
