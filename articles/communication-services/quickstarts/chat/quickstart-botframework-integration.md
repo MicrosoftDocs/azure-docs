@@ -27,7 +27,7 @@ In this quickstart, you learn how to:
 ## Prerequisites
 
 - An Azure account and an active subscription. Create an [account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/). // TODO: Should this be visual studio 2022? Or VS Code?
+- [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/).
 - The latest version of .NET Core. In this quickstart, we use [.NET Core 8.0](https://dotnet.microsoft.com/download/dotnet/8.0).
 - Bot framework [SDK](https://github.com/microsoft/botframework-sdk/#readme)
 
