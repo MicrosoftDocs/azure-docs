@@ -28,19 +28,25 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 
 To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
-The `cardinality` field is a nested field that has these subfields:
+### Automatic deployment cardinality
+
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This is useful for non-production scenarios where you don't need high-availability or scale.
+
+However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
+
+### Configure cardinality directly
+
+To configure the cardinality settings directly, specify the `cardinality` field. The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
-  - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `replicas`: The number of frontend pods to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
+  - `workers`: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has 3 nodes, each with 8 CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to 8 per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
-  - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
-  - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `partitions`: The number of partitions to deploy. Increasing the number of partitions increases the number of messages that the broker can handle. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions.
+  - `redundancyFactor`: The number of backend pods to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
+  - `workers`: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to 2 CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
-If `cardinality` field is omitted, cardinality is determined by MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware.
-
-To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+When you increase these values, the broker's capacity to handle more connections and messages improves, and it enhances high availability in case of pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
 
 ## Configure memory profile
 

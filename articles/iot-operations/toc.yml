@@ -163,7 +163,7 @@ items:
           href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
-      - name: Bi-directional communications with Event Grid
+      - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
