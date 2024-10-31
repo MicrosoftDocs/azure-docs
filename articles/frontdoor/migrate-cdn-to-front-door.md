@@ -20,7 +20,7 @@ We recommend that your plan this migration well in advance and test the function
 
 ## Prerequisites
 
-- Review the [feature differences](front-door-cdn-comparison.md) between Azure CDN and Azure Front Door to determine if there are any compability gaps.
+- Review the [feature differences](front-door-cdn-comparison.md) between Azure CDN and Azure Front Door to determine if there are any compatibility gaps.
 - You need access to a VM connected to the internet that can run Wget on Linux or Invoke-WebRequest on Windows using PowerShell.
 - You need access to a monitoring tool such as CatchPoint or ThousandEyes to verify the availability of your URLs before and after the migration. These tools are the most ideal because they can monitor the availability of your URLs from different locations around the world. `webpagetest.org` is another option, but it only provides a limited view of your URLs from a few locations.
 
