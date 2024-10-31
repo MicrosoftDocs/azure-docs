@@ -6,7 +6,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 10/28/2024
+ms.date: 10/31/2024
 ms.custom: template-concept
 
 #Customer intent: As a platform engineer, I want to understand Dev Box networking requirements so that developers can access the resources they need.
@@ -111,6 +111,39 @@ The listed FQDNs and endpoints and tags only correspond to the most common resou
 Azure Virtual Desktop doesn't have a list of IP address ranges that you can unblock instead of FQDNs to allow network traffic. If you're using a Next Generation Firewall (NGFW), you need to use a dynamic list made for Azure IP addresses to make sure you can connect.
 
 For more information, see [Use Azure Firewall to manage and secure Windows 365 environments](/windows-365/enterprise/azure-firewall-windows-365).
+
+The following table is the list of FQDNs and endpoints your dev boxes need to access. All entries are outbound; you don't need to open inbound ports for dev boxes. 
+
+|Address    |Protocol    |Outbound port    |Purpose    |Service tag|
+|---|---|---|---|---|
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services | AzureActiveDirectory |    
+|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |WindowsVirtualDesktop |
+|*.prod.warm.ingest.monitor.core.windows.net    |TCP    |443    |Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor |
+|catalogartifact.azureedge.net    |TCP    |443    |Azure Marketplace    |AzureFrontDoor.Frontend|
+|gcs.prod.monitoring.core.windows.net    |TCP    |443    |Agent traffic    |AzureCloud|
+|kms.core.windows.net    |TCP    |1688    |Windows activation    |Internet|
+|azkms.core.windows.net    |TCP    |1688    |Windows activation    |Internet|
+|mrsglobalsteus2prod.blob.core.windows.net    |TCP    |443    |Agent and side-by-side (SXS) stack updates    |AzureCloud|
+|wvdportalstorageblob.blob.core.windows.net    |TCP    |443    |Azure portal support    |AzureCloud|
+|169.254.169.254    |TCP    |80    |[Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service)|N/A|
+|168.63.129.16    |TCP    |80    |[Session host health monitoring](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)|N/A|
+|oneocsp.microsoft.com    |TCP    |80    |Certificates    |N/A|
+|www.microsoft.com    |TCP    |80    |Certificates    |N/A|
+
+The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:
+
+|Address    |Protocol    |Outbound port    |Purpose|
+|---|---|---|---|
+|login.windows.net    |TCP    |443    |Sign in to Microsoft Online Services and Microsoft 365|
+|*.events.data.microsoft.com    |TCP    |443    |Telemetry Service|
+|www.msftconnecttest.com    |TCP    |80    |Detects if the session host is connected to the internet|
+|*.prod.do.dsp.mp.microsoft.com    |TCP    |443    |Windows Update|
+|*.sfx.ms    |TCP    |443    |Updates for OneDrive client software|
+|*.digicert.com    |TCP    |80    |Certificate revocation check|
+|*.azure-dns.com    |TCP    |443    |Azure DNS resolution|
+|*.azure-dns.net    |TCP    |443    |Azure DNS resolution|
+
+This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID, Office 365, custom DNS providers, or time services. Microsoft Entra FQDNs and endpoints can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 > [!TIP]
 > You must use the wildcard character (*) for FQDNs involving service traffic. For agent traffic, if you prefer not to use a wildcard, here's how to find specific FQDNs to allow:
