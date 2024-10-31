@@ -40,12 +40,12 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Monitor Nexus Kubernetes cluster – VM layer
+## Monitor Nexus Kubernetes cluster
 
 This how-to guide provides steps to enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
-### Prerequisites-VM
+### Prerequisites
 
 - Cluster administrator access to the Nexus Kubernetes cluster.
 
@@ -73,24 +73,9 @@ Assign the service principal to the Azure resource group that has the machines t
 | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Resource Policy Contributor](../role-based-access-control/built-in-roles.md#resource-policy-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Needed if you want to use Azure policy assignment(s) to ensure that a DCR is associated with [Arc-enabled machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) |
 | [Kubernetes Extension Contributor](../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) | Needed to deploy the K8s extension for Container Insights |
 
-### Environment setup
+### Monitor Nexus Kubernetes cluster
 
-#### Install Azure monitoring agent
-
-> [!NOTE]
-> To install Azure Monitoring Agent, you must first Arc connect the Nexus Kubernetes cluster VMs. This process is automated if you are using the latest version bundle. However, if the version bundle you use does not support cluster VM Arc enrollment by default, you will need to upgrade your cluster to the latest version bundle. For more information about the version bundle, please refer [Nexus Kubernetes cluster supported versions](reference-nexus-kubernetes-cluster-supported-versions.md)
-
-1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes cluster VMs.
-2. Permit `Kubectl` access to the Nexus Kubernetes cluster.
-    [!INCLUDE [cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
-
-
-> [!NOTE]
-> After you configure a policy, there may be some delay to observe the logs in Azure Log Analytics Workspace
-
-### Monitor Nexus Kubernetes cluster – K8s layer
-
-#### Prerequisites-Kubernetes
+#### Prerequisites
 
 There are certain prerequisites the operator should ensure to configure the monitoring tools on Nexus Kubernetes Clusters.
 
@@ -175,12 +160,12 @@ Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extensi
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-data-collection-configmap).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters. See the instructions for [Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-data-collection-configure) for more information.
 
 
 > [!NOTE]
 > Container Insights does not collect logs from the `kube-system` namespace by default. To collect logs from the `kube-system` namespace, you must configure the agent to collect logs from the `kube-system` namespace.
-> This can be done by removing the `kube-system` namespace from the `excludedNamespaces` field in the ConfigMap following the `configMap` configuraiton approach.
+> This can be done by removing the `kube-system` namespace from the `excludedNamespaces` field in the ConfigMap following the [`configMap` configuraiton](/azure/azure-monitor/containers/container-insights-data-collection-configure?tabs=portal#configure-data-collection-using-configmap) approach.
 > ```
 > [log_collection_settings]
 >   [log_collection_settings.stdout]
