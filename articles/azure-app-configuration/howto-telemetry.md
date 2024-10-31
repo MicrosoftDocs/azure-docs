@@ -30,7 +30,7 @@ In this tutorial, you:
 
 1. Open your App Configuration store in the Azure portal.
 1. In the **Operations** section, select the **Feature manager** page.
-1. When viewing the list of feature flags, you should see a column labeled **Telemetry** (preview), it should be currently show as **Disabled**. Right click on the feature flag you want to enable telemetry for and select **Edit**.
+1. When viewing the list of feature flags, you should see a column labeled **Telemetry** (preview), it should show as **Disabled**. Right click on the feature flag you want to enable telemetry for and select **Edit**.
 1. In the new view, select the **Telemetry** tab.
 1. Select the **Enable Telemetry** checkbox and then the **Review + update** button at the bottom of the page.
 1. On the **Review + update** page, select the **Update** button.
@@ -39,16 +39,16 @@ In this tutorial, you:
 
 With telemetry (preview) enabled no other properties are added to the feature flag besides the setting enabling telemetry. Use of an Azure App Configuration provider library that supports telemetry is required to start collecting telemetry data.
 
-When, telemetry is enabled the Azure App Configuration provider libraries add more properties to the feature flags when they are retrieved. A new object is added to the **telemetry** section of the feature flag called **metadata**. The **metadata** object contains the following properties:
+When telemetry is enabled, the Azure App Configuration provider libraries add more properties to the feature flags when they're retrieved. A new object is added to the **telemetry** section of the feature flag called **metadata**. The **metadata** object contains the following properties:
 
-- **AllocationID**: A unique identifier for the feature flag in it's current state.
+- **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of **<your-store-endpoint>kv/<feature_flag_key>**, it also includes the label if one is present, **<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>**
 - **FeatureFlagId**: A unique identifier for the feature flag.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
 
-When, feature flags with telemetry enabled are used with the Feature Management libraries more properties are added to the telemetry data and be sent to location to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor are used a **custom_event** is be published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
+When feature flags with telemetry enabled are used with the Feature Management libraries, more properties are added to the telemetry data and be sent to location to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
 
 - **Feature_Name**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
@@ -56,12 +56,12 @@ When, feature flags with telemetry enabled are used with the Feature Management 
 - **Reason**: The reason the feature flag was enabled or disabled.
 - **Variant**: The variant that was selected for the feature flag.
 - **VariantAssignmentPercentage**: If a variant wasn't targeted specifically at the user, or one of the user's groups, this number is the Percentage chance of the user being assigned to the variant.
-- **DefaultWhenEnabled**: The default variant of the feature flag when it is enabled.
-- **AllocationID**: A unique identifier for the feature flag in it's current state.
+- **DefaultWhenEnabled**: The default variant of the feature flag when it's enabled.
+- **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of **<your-store-endpoint>kv/<feature_flag_key>**, it will also include the label if one is present, **<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>**
+- **FeatureFlagReference**: A reference to the feature flag in the format of **<your-store-endpoint>kv/<feature_flag_key>**, it also includes the label if one is present, **<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>**
 - **FeatureFlagId**: A unique identifier for the feature flag.
-- **TargetingId**: The id of the user that was assigned to the variant.
+- **TargetingId**: The ID of the user that was assigned to the variant.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
