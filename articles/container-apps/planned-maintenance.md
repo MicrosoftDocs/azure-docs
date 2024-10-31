@@ -65,7 +65,7 @@ az containerapp env maintenance-config add \
   --duration 8
 ```
 
-UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
+Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
 ## Update a window
 
@@ -82,7 +82,7 @@ az containerapp env maintenance-config update \
   --duration 9 
 ```
 
-UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
+Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
 ## View the window configuration
 
