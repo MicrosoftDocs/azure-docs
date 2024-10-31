@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 10/09/2024
+ms.date: 10/31/2024
 ms.author: danlep
 ---
 
@@ -49,7 +49,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 | counter-key          | The key to use for the token limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.| Yes      | N/A     |
 | tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.      | N/A     |
 | token-quota | The maximum number of tokens allowed during the time interval specified in the `token-quota-period`. Policy expressions aren't allowed. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified. | N/A |
-| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly` | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.     | N/A |
+| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly`. The start time of a quota period is calculated using the UTC timestamp truncated to the unit (hour, day, etc.) used for the period. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.     | N/A |
 | estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens. <br><br>When set to `false`, the remaining tokens per `counter-key` are calculated using the actual token usage from the response of the model. This could result in prompts being sent to the model that exceed the token limit. In such case, this will be detected in the response, and all succeeding requests will be blocked by the policy until the token limit frees up again.  | Yes       | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
@@ -105,7 +105,7 @@ In the following example, the token quota of 10000 is keyed by the subscription 
         <base />
         <azure-openai-token-limit
             counter-key="@(context.Subscription.Id)"
-            token-quota="10000" token-quota-period="Daily" remaining-quota-tokens-variable-name="remainingQuotaTokens" />
+            token-quota="100000" token-quota-period="Monthly" remaining-quota-tokens-variable-name="remainingQuotaTokens" />
     </inbound>
     <outbound>
         <base />
