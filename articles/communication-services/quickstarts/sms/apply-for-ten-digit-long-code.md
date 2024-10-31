@@ -57,7 +57,7 @@ In the brand registration form, provide details about your company:
 ### Review and submit
 Submit the form for verification. Brand verification may take up to 48 hours.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
 
 > **Warning**: Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
