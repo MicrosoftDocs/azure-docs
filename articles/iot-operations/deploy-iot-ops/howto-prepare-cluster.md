@@ -222,8 +222,7 @@ az iot ops verify-host
 
 At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
 
-* If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
-* If you want to bring your own certificate authority, follow the steps in [Certificate management](../secure-iot-ops/concept-default-root-ca.md).
+If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md) before continuing to deploy.
 
 ## Next steps
 
