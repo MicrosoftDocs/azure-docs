@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 10/30/2024
+ms.date: 10/23/2024
 ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
@@ -12,6 +12,9 @@ ms.custom: references_regions
 #  Automate management of user-defined routes (UDRs) with Azure Virtual Network Manager
 
 This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
+
+> [!IMPORTANT]
+> User-defined routes management with Azure Virtual Network Manager is in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads. 
 
 ## What is UDR management?
 
