@@ -590,7 +590,7 @@ Your SQL database requires inbound and outbound connectivity with your Kubernete
 
 ## Set up SMB file share for artifacts storage
 
-To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+To store artifacts such as maps, schemas, and assemblies for your logic app (container app) resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 - You need administrator access to set up your SMB file share.
 
@@ -645,7 +645,7 @@ Alternatively, for testing purposes, you can use [Azure Files as an SMB file sha
 
 1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
 
-You need these saved values to provide your SMB file share information when you deploy your container app resource.
+You need these saved values to provide your SMB file share information when you deploy your logic app resource.
 
 For more information, see [Create an SMB Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal).
 

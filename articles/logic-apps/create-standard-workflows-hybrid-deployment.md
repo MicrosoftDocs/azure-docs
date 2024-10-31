@@ -19,7 +19,7 @@ ms.date: 10/28/2024
 > This capability is in preview, incurs charges for usage, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. 
+For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime, which is hosted on premises as part of an Azure Container Apps extension.
 
 For an architectural overview that shows where Standard logic app workflows are hosted and run in a partially connected environment, see [Set up infrastructure requirements for hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
@@ -109,7 +109,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
 1. After Azure completes deployment, select **Go to resource**.
 
-   :::image type="content" source="media/create-standard-workflows-hybrid-deployment/logic-app-hybrid-portal.png" alt-text="Screenshot shows Azure portal with Standard logic app for hybrid deployment created as a Container app.":::
+   :::image type="content" source="media/create-standard-workflows-hybrid-deployment/logic-app-hybrid-portal.png" alt-text="Screenshot shows Azure portal with Standard logic app for hybrid deployment created as a container app.":::
 
    > [!NOTE]
    >
@@ -118,14 +118,21 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
    > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 
-1. In the Azure portal, on the resource menu, under **Workflows**, select **Workflows**. add an empty stateful or stateless workflow. You then build your workflow by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
+1. In the Azure portal, on the resource menu, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page toolbar, select **Add** to add an empty stateful or stateless workflow.
+
+1. After the designer opens, build your workflow by adding a trigger and actions.
+
+   For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
 
    > [!NOTE]
    >
    > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
-   > or a version of the logic app resource, whenever you save changes to a child workflow.
-   > This revision might take a little time to activate, which means that after you save 
-   > any changes, you might want to wait several moments before you test your workflow.
+   > which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), 
+   > whenever you save changes to a child workflow. This revision might take a little time to 
+   > activate, which means that after you save any changes, you might want to wait several 
+   > moments before you test your workflow.
    >
    > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
    >
@@ -182,7 +189,7 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
 #### Deploy your logic app
 
-After you finish building your workflow, you can deploy your logic app to your Container Apps connected environment.
+After you finish building your workflow, you can deploy your logic app to your Azure Container Apps connected environment.
 
 1. In the Visual Studio Code **Explorer** window, open the shortcut menu for the workflow node, which is **my-stateful-workflow** in this example, and select **Deploy to logic app**.
 
@@ -222,14 +229,15 @@ After you finish building your workflow, you can deploy your logic app to your C
 > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 >
 > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
-> or a version of the logic app resource, whenever you save changes to a child workflow.
->
-> This revision might take a little time to activate, which means that after you save 
-> any changes, you might want to wait several moments before you test your workflow.
+> which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), 
+> whenever you save changes to a child workflow. This revision might take a little time to 
+> activate, which means that after you save any changes, you might want to wait several 
+> moments before you test your workflow.
 >
 > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
 >
-> 1. In the [Azure portal](https://portal.azure.com), open your On the resource menu, under **Revisions**, and select **Revisions and replicas**.
+> 1. In the [Azure portal](https://portal.azure.com), open your On the resource menu, 
+>    under **Revisions**, and select **Revisions and replicas**.
 >
 > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
 >    a new revision appears on the list.
@@ -261,7 +269,7 @@ To edit the CPU and memory settings for your Standard logic app resource, follow
 
 ## Change replica scaling in Azure portal
 
-You can control the automatic scaling for the range of replicas that deploy in response to a trigger event. A *replica* is a new instance of a container app revision or version. To change the minimum and maximum values for this range, you can modify the scale rules to determine the event types that trigger scaling. For more information, see [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
+You can control the automatic scaling for the range of replicas that deploy in response to a trigger event. A *replica* is a new instance of a logic app resource revision or version. To change the minimum and maximum values for this range, you can modify the scale rules to determine the event types that trigger scaling. For more information, see [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -280,7 +288,7 @@ You can control the automatic scaling for the range of replicas that deploy in r
 
 ## Control inbound traffic to your logic app in Azure portal
 
-You can expose your logic app to the public web, your virtual network, and other logic apps in your environment by enabling ingress. Azure enforces ingress settings through a set of rules that control the routing of external and internal traffic to your logic app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.   For more information, see [Ingress in Container Apps](../container-apps/ingress-overview.md).
+You can expose your logic app to the public web, your virtual network, and other logic apps in your environment by enabling ingress. Azure enforces ingress settings through a set of rules that control the routing of external and internal traffic to your logic app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic. For more information, see [Ingress in Container Apps](../container-apps/ingress-overview.md).
 
 > [!NOTE]
 >
@@ -375,7 +383,9 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 You can store the client ID and client secret values in your logic app resource as secrets and then reference those values on the **Environment variables** tab instead.
 
-1. In the Azure portal, on the logic app resource menu, under **Settings**, select **Secrets**.
+1. In the Azure portal, go to your logic app resource.
+
+1. On the resource menu, under **Settings**, select **Secrets**.
 
 1. On the toolbar, select **Add**.
 
@@ -392,11 +402,11 @@ You can store the client ID and client secret values in your logic app resource 
 
 ### Azure portal
 
-- Your Standard logic app is deployed and appears as a [Container App resource](/azure/container-apps/overview), but the type appears as **Logic App (Hybrid)**.
+- Your Standard logic app is deployed and appears as a [Azure Container Apps resource](/azure/container-apps/overview), but the type appears as **Logic App (Hybrid)**.
 
-- Your Standard logic app is listed in **Container Apps** resource list, not the **Logic apps** resource list.
+- Azure includes your Standard logic app in the **Container Apps** resource list, not the **Logic apps** resource list.
 
-- Your Container Apps connected environment lists your Standard logic app as having an **App Type** named **Hybrid Logic App**.
+- Your Azure Container Apps connected environment lists your Standard logic app as having an **App Type** named **Hybrid Logic App**.
 
 - To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
 
@@ -410,9 +420,9 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
 1. In the Azure portal, go to the container app resource for your logic app.
 
-1. On the container app menu, select **Overview**.
+1. On the resource menu, select **Overview**.
 
-1. On the **Overview** page, next to the **Application Url** field, select your container app's URL.
+1. On the **Overview** page, next to the **Application Url** field, select the resource URL.
 
    If your app is running correctly, a browser window opens and shows the following message:
 
