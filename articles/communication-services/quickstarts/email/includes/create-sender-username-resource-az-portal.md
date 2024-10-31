@@ -18,7 +18,7 @@ ms.author: v-vprasannak
 An email domain that is provisioned to send email has a default MailFrom address, formatted as `donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net`. If you configure a custom domain such as `notification.azuremails.net`, then the default MailFrom address has `donotreply@notification.azurecommtest.net` added. You can configure and add more MailFrom addresses and FROM display names to use values that are easier to read.
 
 > [!NOTE]
-> Sender usernames cannot be enabled for Azure Managed Domains or custom domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../../concepts/service-limits.md#rate-limits).
+> Sender usernames cannot be enabled for Azure Managed Domains regardless of the sending limits or custom domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../../concepts/service-limits.md#rate-limits).
 
 1. Open the Overview page of the Email Communication Service resource that you created in [Get started with Creating Email Communication Resource](../../../quickstarts/email/create-email-communication-resource.md).
 2. Click **Provision Domains** on the left navigation panel to see list of provisioned domains.

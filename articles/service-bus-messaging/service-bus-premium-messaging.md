@@ -95,7 +95,6 @@ Here are some considerations when sending large messages on Azure Service Bus -
 - While 100-MB message payloads are supported, we recommend that you keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
-- Service Bus Explorer doesn't support sending or receiving large messages. 
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 

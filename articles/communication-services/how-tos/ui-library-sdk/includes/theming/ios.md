@@ -8,6 +8,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
 For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
 ### Defining a theme
@@ -56,6 +58,49 @@ class CustomThemeOptions: ThemeOptions {
 }
 
 let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
+```
+
+### Font color
+
+The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
+
+```swift
+struct CustomColorTheming: ThemeOptions {    
+
+    private var envConfigSubject: EnvConfigSubject  
+
+    init(envConfigSubject: EnvConfigSubject) {        
+        self.envConfigSubject = envConfigSubject    
+    }    
+
+    var primaryColor: UIColor {        
+        return UIColor(envConfigSubject.primaryColor)    
+    }    
+    
+    var primaryColorTint10: UIColor {        
+        return UIColor(envConfigSubject.tint10)    
+    }    
+    
+    var primaryColorTint20: UIColor {        
+        return UIColor(envConfigSubject.tint20)    
+    }    
+    
+    var primaryColorTint30: UIColor {        
+        return UIColor(envConfigSubject.tint30)    
+    }    
+    
+    var foregroundOnPrimaryColor: UIColor {        
+        return UIColor(envConfigSubject.foregroundOnPrimaryColor)    
+    }    
+
+    var colorSchemeOverride: UIUserInterfaceStyle {        
+        return envConfigSubject.colorSchemeOverride    
+    }
+}
+
+
+let callCompositeOptions = CallCompositeOptions(theme: CustomColorTheming())
+
 ```
 
 ### Defining color assets

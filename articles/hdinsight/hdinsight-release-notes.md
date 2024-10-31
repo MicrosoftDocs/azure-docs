@@ -55,7 +55,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * MSI based authentication support available for Azure blob storage.
 
-Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information about managed identities. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
