@@ -249,22 +249,6 @@ Create the private endpoint.
 az network private-endpoint create -g ${RESOURCE_GROUP} -l ${LOCATION} -n ${PRIVATE_ENDPOINT} --subnet ${INFRASTRUCTURE_SUBNET} --private-connection-resource-id ${ENVIRONMENT_ID} --connection-name ${CONNECTION} --group-id managedEnvironments
 ```
 
-## Approve the connection
-
-TODO1 Not needed if auto-approve enabled?
-
-List the private endpoint connections for your environment.
-
-```azurecli
-az network private-endpoint-connection list --id ${ENVIRONMENT_ID}
-```
-
-Approve the pending connection. Replace the \<PLACEHOLDER>\ with your connection ID.
-
-```azurecli
-az network private-endpoint-connection approve --id <PENDING_PRIVATE_ENDPOINT_CONNECTION_RESOURCE_ID>
-```
-
 ::: zone-end
 
 ## Test connection
@@ -279,15 +263,9 @@ az network private-endpoint-connection approve --id <PENDING_PRIVATE_ENDPOINT_CO
 
 1. Set **Metric** to **Bytes in**.
 
-1. See the graph shows data flowing. Expect a delay of approximately 10 minutes.
+1. Verify the graph shows data flowing. Expect a delay of approximately 10 minutes.
 
-TODO1 How to ping private endpoint?
-
-TODO1 Differences between Portal and CLI
-- In portal, we deploy a container app. In CLI, we only create the environment, but do not deploy a container app.
-- In portal, we use the generated vnet. In CLI, we create a custom vnet.
-
-For more information, see [Troubleshoot Azure Private Link Service connectivity problems](/azure/private-link/troubleshoot-private-link-connectivity).
+For more information, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#test-connectivity-to-the-private-endpoint) and [Troubleshoot Azure Private Link Service connectivity problems](/azure/private-link/troubleshoot-private-link-connectivity).
 
 ## Clean up resources
 
