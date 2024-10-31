@@ -125,7 +125,7 @@ To create the dataflow:
 
 1. In the dataflow editor, select **Select source**. Then select the thermostat asset you created previously and select **Apply**.
 
-1. In the dataflow editor, select **Select dataflow endpoint**. Then select the **event-hubs-target**** endpoint you created previously and select **Apply**.
+1. In the dataflow editor, select **Select dataflow endpoint**. Then select the **event-hubs-target** endpoint you created previously and select **Apply**.
 
 1. On the next page, enter *destinationeh* as the topic. The topic refers to the hub you created in the Event Hubs namespace. Select **Apply**. Your dataflow now has the thermostat asset as its source and a hub in your Event Hubs namespace as its destination.
 
@@ -133,12 +133,12 @@ To create the dataflow:
 
 1. To rename the `Tag 10` and `temperature` fields in the incoming message, select **+ Add** in the **Rename** tile.
 
-1. Add the following two transforms:
+1. Add the following two rename transforms:
 
     | Datapoint | New datapoint name |
     |-----------|--------------------|
-    | "Tag 10"    | Humidity          |
-    | temperature | Temperature       |
+    | Tag 10.Value    | ThermostatHumidity          |
+    | temperature.Value | ThermostatTemperature       |
   
     The rename transformation looks like the following screenshot:
   
