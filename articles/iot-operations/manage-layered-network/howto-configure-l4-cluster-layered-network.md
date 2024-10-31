@@ -79,11 +79,11 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
 
 # [AKS Edge Essentials](#tab/aksee)
 
-For hosting the Layered Network Management service, you need a single machine deployment of AKS Edge Essentials. You can follow the AKS Edge Essentials documentation to create your cluster with default confiurations.
+For hosting the Layered Network Management service, you need a single machine deployment of AKS Edge Essentials. You can follow the AKS Edge Essentials documentation to create your cluster with default configurations.
 
 ## Prepare Windows 11
 
-1. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine) to setup your Windows machine.
+1. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine) to set up your Windows machine.
 
 1. In addition, you need to install the Azure CLI and extensions for later steps.
     1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).

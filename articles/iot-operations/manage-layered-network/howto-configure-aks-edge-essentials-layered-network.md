@@ -62,17 +62,17 @@ The next step is to set up an Arc-enabled cluster in level 3 that's compatible f
 
 # [K3S Cluster](#tab/k3s)
 
-- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to setup and Arc-enable your K3s cluster.
+- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up and Arc-enable your K3s cluster.
   1. In addition, you need to configure the custom DNS for this cluster.
       - If you choose to use a local DNS server, and have completed the steps in previous section. You can proceed the cluster setup.
-      - If you choose to use CoreDNS, you need to completet the **Create a cluster** section with internet access, then configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) for this cluster.
+      - If you choose to use CoreDNS, you need to complete the **Create a cluster** section with internet access, then configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) for this cluster.
   1. Proceed to Arc-enable the cluster.
 
 # [AKS Edge Essentials](#tab/aksee)
 
-- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to setup and Arc-enable your AKS Edge Essentials cluster.
-  1. You will have to complete the **DNS server** configuration from previous section before start.
-  1. For the step of **Get the `objectID`** you shall run the command on a different machine that have internet access.
+- Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up and Arc-enable your AKS Edge Essentials cluster.
+  1. You have to complete the **DNS server** configuration from previous section before start.
+  1. For the step of **Get the `objectID`** you  run the command on a different machine that have internet access.
 
 ---
 
