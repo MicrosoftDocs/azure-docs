@@ -43,7 +43,7 @@ When telemetry is enabled, the Azure App Configuration provider libraries add mo
 
 - **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your-store-endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 - **FeatureFlagId**: A unique identifier for the feature flag.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
@@ -59,7 +59,7 @@ When feature flags with telemetry enabled are used with the Feature Management l
 - **DefaultWhenEnabled**: The default variant of the feature flag when it's enabled.
 - **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your-store-endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your-store-endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 - **FeatureFlagId**: A unique identifier for the feature flag.
 - **TargetingId**: The ID of the user that was assigned to the variant.
 
