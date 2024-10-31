@@ -97,7 +97,7 @@ spec:
 
 ---
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to a Event Hub endpoint.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to an Event Hub endpoint.
 
 # [Portal](#tab/portal)
 

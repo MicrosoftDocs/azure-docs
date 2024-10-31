@@ -791,7 +791,7 @@ Similar to data sources, data destination is a concept that is used to keep the 
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
 | Azure Data Explorer | Table | The table in the Azure Data Explorer database. |
-| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. When using [Azure Container Storage enabled by Azure Arc Cloud Ingest Edge Volumes](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration), this must match the must match the `spec.path` parameter for the subvolume you created. |
+| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. When using [Azure Container Storage enabled by Azure Arc Cloud Ingest Edge Volumes](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration), this must match the `spec.path` parameter for the subvolume you created. |
 
 To configure the data destination:
 

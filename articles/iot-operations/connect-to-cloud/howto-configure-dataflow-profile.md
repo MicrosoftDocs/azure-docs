@@ -105,7 +105,7 @@ You can scale the dataflow profile to adjust the number of instances that run th
 
 Scaling can also improve the resiliency of the dataflows by providing redundancy in case of failures.
 
-To manually scale the dataflow profile, specify the maximum number of instances you want to run.For example, to set the instance count to 3:
+To manually scale the dataflow profile, specify the maximum number of instances you want to run. For example, to set the instance count to 3:
 
 # [Bicep](#tab/bicep)
 
