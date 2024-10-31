@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 10/24/2024
+ms.date: 10/31/2024
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: template-tutorial
@@ -143,17 +143,6 @@ Write the subnet configurations to the virtual network with [Set-AzVirtualNetwor
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
-```
-
-Associate the *myRouteTablePublic* route table to the *Public* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
-
-```azurepowershell-interactive
-Set-AzVirtualNetworkSubnetConfig `
-  -VirtualNetwork $virtualNetwork `
-  -Name 'Public' `
-  -AddressPrefix 10.0.0.0/24 `
-  -RouteTable $myRouteTablePublic | `
-Set-AzVirtualNetwork
 ```
 
 ### [CLI](#tab/cli)
