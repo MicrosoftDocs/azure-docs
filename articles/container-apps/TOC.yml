@@ -294,6 +294,8 @@
           href: vnet-custom.md
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
+        - name: Use a private endpoint (preview)
+          href: how-to-use-private-endpoint.md
     - name: Ingress
       items:
         - name: Overview
