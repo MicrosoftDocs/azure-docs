@@ -4,8 +4,7 @@ description: Learn the deployment prerequisites and how to export data from an A
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 09/29/2023
 ms.author: shaas

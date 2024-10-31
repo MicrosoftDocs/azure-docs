@@ -213,6 +213,17 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 
 1. Select **Save**.
 
+**To disable zone-redundancy with PowerShell:**
+
+```powershell
+Set-AzSqlElasticpool -ResourceGroupName "RSETLEM-AzureSQLDB" -ServerName "rs-az-testserver1" -ElasticPoolName "testep10" -ZoneRedundant:$false
+```
+
+**To disable zone-redundancy with Azure CLI:**
+
+```azurecli
+az sql elastic-pool update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "testep10" --zone-redundant false
+```
 
 **To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/elastic-pools/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 
@@ -229,6 +240,17 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 
 1. Select **Save**.
 
+**To disable zone-redundancy with PowerShell:**
+
+```powershell
+set-azsqlDatabase -ResourceGroupName "RSETLEM-AzureSQLDB" -DatabaseName "TestDB1" -ServerName "rs-az-testserver1" -ZoneRedundant:$false 
+```
+
+**To disable zone-redundancy with Azure CLI:**
+
+```azurecli
+az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "TestDB1" --zone-redundant false
+```
 
 **To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 

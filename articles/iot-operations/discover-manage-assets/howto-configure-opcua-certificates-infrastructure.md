@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/27/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of the connector for OPC UA.
+ms.service: azure-iot-operations
 ---
 
 # Configure OPC UA certificates infrastructure for the connector for OPC UA
