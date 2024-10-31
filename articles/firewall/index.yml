@@ -29,8 +29,6 @@ landingContent:
         links:
           - text: Azure Firewall rule processing logic
             url: rule-processing.md
-          - text: Frequently asked questions
-            url: firewall-faq.yml
       - linkListType: concept
         links:
           - text: Azure Firewall NAT behaviors
@@ -93,6 +91,8 @@ landingContent:
         links:
           - text: Azure Firewall known issues and limitations
             url: firewall-known-issues.md
+          - text: Frequently asked questions
+            url: firewall-faq.yml
 
   # Card
   - title: Learn about Azure Firewall integration in Copilot for Security
