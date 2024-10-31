@@ -84,8 +84,8 @@ The user info UserJourney specifies:
             <Metadata>
               <!-- Update the Issuer and Audience below -->
               <!-- Audience is optional, Issuer is required-->
-              <Item Key="issuer">https://yourtenant.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/</Item>
-              <Item Key="audience">[ "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333" ]</Item>
+              <Item Key="issuer">https://yourtenant.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</Item>
+              <Item Key="audience">[ "00001111-aaaa-2222-bbbb-3333cccc4444", "11112222-bbbb-3333-cccc-4444dddd5555" ]</Item>
               <Item Key="client_assertion_type">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</Item>
             </Metadata>
             <CryptographicKeys>
@@ -111,7 +111,7 @@ The user info UserJourney specifies:
     1. **issuer** - This value must be identical to the `iss` claim within the access token claim. Tokens issued by Azure AD B2C use an issuer in the format `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Learn more about [token customization](configure-tokens.md).
     1. **IdTokenAudience** - Must be identical to the `aud` claim within the access token claim. In Azure AD B2C the `aud` claim is the ID of your relying party application. This value is a collection and supports multiple values using a comma delimiter.
 
-        In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.
+        In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/`. The `aud` claim value is `00001111-aaaa-2222-bbbb-3333cccc4444`.
 
         ```json
         {
@@ -119,8 +119,8 @@ The user info UserJourney specifies:
           "nbf": 1605545868,
           "ver": "1.0",
           "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
-          "sub": "44444444-4444-4444-4444-444444444444",
-          "aud": "22222222-2222-2222-2222-222222222222",
+          "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+          "aud": "00001111-aaaa-2222-bbbb-3333cccc4444",
           "acr": "b2c_1a_signup_signin",
           "nonce": "defaultNonce",
           "iat": 1605545868,
@@ -128,7 +128,7 @@ The user info UserJourney specifies:
           "name": "John Smith",
           "given_name": "John",
           "family_name": "Smith",
-          "tid": "11111111-1111-1111-1111-111111111111"
+          "tid": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
         }
         ```
     
@@ -259,7 +259,7 @@ A successful response would look like:
 
 ```json
 {
-    "objectId": "44444444-4444-4444-4444-444444444444",
+    "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
     "givenName": "John",
     "surname": "Smith",
     "displayName": "John Smith",
