@@ -66,7 +66,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 ## Use WEBSITE_RUN_FROM_PACKAGE = 1
 
-This section provides information about how to run your function app from a local package.
+This section provides information about how to run your function app from a zipped local package.
 
 ### Considerations for deploying from an on-site package
 
@@ -87,7 +87,7 @@ When you set the `WEBSITE_RUN_FROM_PACKAGE` app setting value to `1`, the zip de
 
 ## Use WEBSITE_RUN_FROM_PACKAGE = URL
 
-This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan.
+This section provides information about how to run your function app from a zipped package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan.
 
 ### Considerations for deploying from a URL
 
