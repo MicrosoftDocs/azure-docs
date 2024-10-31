@@ -296,7 +296,7 @@ You can expose your logic app to the public web, your virtual network, and other
 
 1. On the resource menu, under **Settings**, select **Ingress**.
 
-1. On the **Ingress** page, next to **Igress**, select the **Enabled** box.
+1. On the **Ingress** page, next to **Ingress**, select the **Enabled** box.
 
 1. Based on your scenario, configure the remaining options.
 
