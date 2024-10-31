@@ -237,6 +237,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "azure-iot-operations-samples-m3",
+            "url": "https://github.com/Azure-Samples/explore-iot-operations",
+            "branch": "release-m3",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-iot-sdk-node",
             "url": "https://github.com/Azure/azure-iot-sdk-node",
             "branch": "main",
