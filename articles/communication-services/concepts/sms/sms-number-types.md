@@ -34,43 +34,43 @@ Azure Communication Services provides the following phone number types:
 ### Toll-Free Numbers
 
 
-- Availability: United States and Canada
-- Description: Toll-free numbers allow customers to contact a business without incurring charges.
-- Use Cases:
+- **Availability**: United States and Canada
+- **Description**: Toll-free numbers allow customers to contact a business without incurring charges.
+- **Use Cases**:
   - Customer Support: Encourages customers to reach out without worrying about charges.
    - Notifications and Alerts: Ideal for sending notifications, alerts, and confirmations in NOAM.
-- Regulations: Toll-free numbers used for messaging require verification.
+- **Regulations**: Toll-free numbers used for messaging require verification.
 
 ### 10DLC (10-Digit Long Code)
 
-- Availability: United States
-- Description: 10DLC refers to 10-digit local numbers regulated for business A2P (Application-to-Person) messaging.
-- Use Cases:
+- **Availability**: United States
+- **Description**: 10DLC refers to 10-digit local numbers regulated for business A2P (Application-to-Person) messaging.
+- **Use Cases**:
    - Local Business Communication: Builds a local presence within the US.
    - Marketing & Promotions: Compliant promotional messaging.
    - Appointment Reminders: Transactional messages, order confirmations, etc.
-- Regulations: Requires 10DLC campaign registration in the US for compliance.
+- **Regulations**: Requires 10DLC campaign registration in the US for compliance.
 
 ### Short Codes
 
-- Availability: United States, United Kingdom, and Canada
-- Description: Short codes are 5-6 digit numbers ideal for high-volume messaging.
-- Use Cases:
+- **Availability**: United States, United Kingdom, and Canada
+- **Description**: Short codes are 5-6 digit numbers ideal for high-volume messaging.
+- **Use Cases**:
    - High-Volume Campaigns: Product launches, flash sales, and voting campaigns.
    - Two-Factor Authentication (2FA): Secure and quick response times.
    - Customer Engagement: Polling, contests, and interactive campaigns.
-- Regulations: Requires carrier approval; usage is subject to carrier and industry guidelines.
+- **Regulations**: Requires carrier approval; usage is subject to carrier and industry guidelines.
 
 ### Alphanumeric Sender IDs
-- Availability: Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland,
+- **Availability**: Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland,
              Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway,
               Slovakia, Slovenia, United Kingdom.
-- Description: Allows sending SMS messages using a custom name (business or brand name) as the sender.
-- Use Cases:
+- **Description**: Allows sending SMS messages using a custom name (business or brand name) as the sender.
+- **Use Cases**:
    - Brand Recognition: Enhances brand visibility directly in the message sender field.
    - Notifications: Order updates, delivery notifications, and account-related messages.
    - Marketing: Commonly used for branding in EMEA/APAC.
-- Limitations: Does not support receiving responses; subject to local regulations.
+- **Limitations**: Does not support receiving responses; subject to local regulations.
 
 ## Next steps
 
