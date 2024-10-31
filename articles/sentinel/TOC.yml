@@ -975,10 +975,6 @@
         href: /defender-xdr/security-copilot-m365d-script-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Analyze files
         href: /defender-xdr/copilot-in-defender-file-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Generate device summaries
-        href: /defender-xdr/copilot-in-defender-device-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Use guided responses
-        href: /defender-xdr/security-copilot-m365d-guided-response?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Create incident reports
         href: /defender-xdr/security-copilot-m365d-create-incident-report?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Large datasets
