@@ -75,6 +75,11 @@ If you prefer to deploy the extension and managed identity to a single machine, 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
 extension version 1.26.24 or later is required.
 
+> [!IMPORTANT]
+> The creation of a managed identity or assignment of a policy with "Guest Configuration 
+> Resource Contributor" role are actions that require appropriate Azure RBAC permissions to perform.
+> To learn more about Azure Policy and Azure RBAC, see [role-based access control in Azure Policy][45].
+
 ### Limits set on the extension
 
 To limit the extension from impacting applications running inside the machine, the machine
@@ -483,3 +488,4 @@ Machine configuration built-in policy samples are available in the following loc
 [42]: ./how-to/develop-custom-package/overview.md
 [43]: ./how-to/create-policy-definition.md
 [44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
+[45]: ../policy/overview.md
