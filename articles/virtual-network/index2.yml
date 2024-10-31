@@ -141,6 +141,10 @@ landingContent:
   # Card
   - title: Network foundation
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://aka.ms/networkfoundationdocs
       - linkListType: concept
         links:
           - text: Azure Bastion overview
