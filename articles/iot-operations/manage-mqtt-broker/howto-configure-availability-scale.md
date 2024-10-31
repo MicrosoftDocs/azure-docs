@@ -103,43 +103,6 @@ By default, Azure IoT Operations Preview deploys a default Broker resource named
 kubectl get broker default -n azure-iot-operations -o yaml
 ```
 
-### Modify default broker by redeploying
-
-Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-memory-profile) are configurable with Azure portal or Azure CLI during initial deployment. Other settings and can only be configured by modifying the YAML file and redeploying the broker.
-
-To delete the default broker, run the following command:
-
-```bash
-kubectl delete broker default -n azure-iot-operations
-```
-
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `default` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
-
-```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-kind: Broker
-metadata:
-  name: default
-  namespace: azure-iot-operations
-spec:
-  memoryProfile: medium
-  cardinality:
-    backendChain:
-      partitions: 2
-      redundancyFactor: 2
-      workers: 2
-    frontend:
-      replicas: 2
-      workers: 2
-  encryptInternalTraffic: false
-```
-
-Then, run the following command to deploy the broker:
-
-```bash
-kubectl apply -f <path-to-yaml-file>
-```
-
 ## Configure MQTT broker advanced settings
 
 The broker advanced settings include client configurations, encryption of internal traffic, and certificate rotations. For more information on the advanced settings, see the [Broker](/rest/api/iotoperations/broker/create-or-update) API reference.
@@ -218,7 +181,7 @@ spec:
 ## Configure encryption of internal traffic
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **encryptInternalTraffic** feature is used to encrypt the internal traffic between the frontend and backend pods. To use this feature, cert-manager must be installed in the cluster, which is installed by default when using the Azure IoT Operations.
 
@@ -241,7 +204,7 @@ By default, the **encryptInternalTraffic** feature is enabled. To disable the fe
 ## Configure disk-backed message buffer behavior
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the MQTT broker distributed MQTT broker. The benefits include:
 
