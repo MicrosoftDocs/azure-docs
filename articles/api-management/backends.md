@@ -271,3 +271,4 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 * Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
+* Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance Open AI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)
