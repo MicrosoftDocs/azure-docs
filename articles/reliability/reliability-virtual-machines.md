@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Virtual Machines
 description: Find out about reliability in Azure Virtual Machines 
-author: anaharris
-ms.author: anaharris-ms
+author: anaharris-ms
+ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machines

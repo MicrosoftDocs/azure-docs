@@ -124,8 +124,6 @@
       href: reliability-microsoft-purview.md
   - name: Compute
     items:
-    - name: Compute reliability overview 
-      href: overview-reliability-compute.md
     - name: Azure App Service
       href: reliability-app-service.md
     - name: Azure Batch
@@ -382,7 +380,6 @@
         href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option
       - name: Disaster recovery
         href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      href: reliability-blob-storage.md
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
     - name: Azure NetApp Files

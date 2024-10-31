@@ -16,7 +16,6 @@ ms.date: 05/06/2024
 
 This article describes high availability (reliability) support in Azure CosmosDB for NoSQL and covers both [availability zones](#availability-zone-support), as well as [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
-For general resiliency recommendations for Azure Cosmos DB for NoSQL, see [Resiliency recommendations for Azure Cosmos DB for NoSQL](./resiliency-recommendations/recommend-cosmos-db-nosql.md).
 
 ## Availability zone support
 
