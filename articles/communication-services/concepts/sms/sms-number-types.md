@@ -61,3 +61,28 @@ Azure Communication Services provides the following phone number types:
    - Customer Engagement: Polling, contests, and interactive campaigns.
 - Regulations: Requires carrier approval; usage is subject to carrier and industry guidelines.
 
+# Alphanumeric Sender IDs
+- Availability: Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland,
+             Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway,
+              Slovakia, Slovenia, United Kingdom.
+- Description: Allows sending SMS messages using a custom name (business or brand name) as the sender.
+- Use Cases:
+   - Brand Recognition: Enhances brand visibility directly in the message sender field.
+   - Notifications: Order updates, delivery notifications, and account-related messages.
+   - Marketing: Commonly used for branding in EMEA/APAC.
+- Limitations: Does not support receiving responses; subject to local regulations.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with sending sms](../../quickstarts/sms/send.md)
+
+See the following articles for more information:
+
+- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
+- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+- Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
+- Learn about [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
+- Apply for [Toll-free verification](./sms-faq.md#toll-free-verification)
