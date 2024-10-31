@@ -50,7 +50,7 @@ In many cases, you can minimize the impact of platform updates on your applicati
 
 * **Reliability**: When building microservice applications, use the [Retry](/azure/architecture/patterns/retry) and [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) patterns to handle transient failures.
 
-## Add a maintenance window
+## Add a window
 
 You can add a maintenance window to an environment with the `maintenance-config add` command.
 
@@ -67,7 +67,7 @@ az containerapp env maintenance-config add \
 
 UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
-## Update a maintenance window
+## Update a window
 
 You can update the maintenance window for an environment with the `maintenance-config update` command.
 
@@ -84,7 +84,7 @@ az containerapp env maintenance-config update \
 
 UTC times are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
 
-## View the configured window
+## View the window configuration
 
 You can view an environment's maintenance window with the `maintenance-config show` command.
 
@@ -94,13 +94,13 @@ az containerapp env maintenance-config show \
   --environment <ENVIRONMENT_NAME>
 ```
 
-## Delete a maintenance window
+## Delete a window
 
 To delete an environment's maintenance window, use the `maintenance-config delete` command.
 
 ```azurecli
-az containerapp env maintenance-config delete 
-  --resource-group <RESOURCE_GROUP>  
+az containerapp env maintenance-config delete \
+  --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME>
 ```
 
