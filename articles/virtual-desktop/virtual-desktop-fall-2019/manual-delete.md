@@ -1,11 +1,11 @@
 ---
 title: Delete Azure Virtual Desktop (classic) - Azure
 description: How to clean up Azure Virtual Desktop (classic) when it is no longer used.
-author: jensheerin
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/22/2021
-ms.author: jensheerin
-manager: annathan
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Delete Azure Virtual Desktop (classic)
