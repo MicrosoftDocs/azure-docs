@@ -61,7 +61,7 @@ Azure Communication Services provides the following phone number types:
    - Customer Engagement: Polling, contests, and interactive campaigns.
 - Regulations: Requires carrier approval; usage is subject to carrier and industry guidelines.
 
-# Alphanumeric Sender IDs
+### Alphanumeric Sender IDs
 - Availability: Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland,
              Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway,
               Slovakia, Slovenia, United Kingdom.
