@@ -43,6 +43,9 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 | [Premium](functions-premium-plan.md) | `1` is recommended. | `1` is recommended. |
 | [Dedicated](dedicated-plan.md) | `1` is recommended. | `1` is recommended. |
 
+> [!NOTE]
+> If you do not assign a value to WEBSITE_RUN_FROM_PACKAGE, you can publish an unzipped code package using tools like [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local).
+
 ## General considerations
 
 + The package file must be .zip formatted. Tar and gzip formats aren't supported.
