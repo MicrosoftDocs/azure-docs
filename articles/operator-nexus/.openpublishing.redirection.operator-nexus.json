@@ -61,7 +61,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "reference-operator-nexus-network-cloud-skus-us ",
+            "source_path": "reference-operator-nexus-network-cloud-skus-us.md",
             "redirect_url": "reference-operator-nexus-skus",
             "redirect_document_id": false
         }
