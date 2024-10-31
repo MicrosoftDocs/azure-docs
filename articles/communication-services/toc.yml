@@ -87,6 +87,10 @@ items:
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
+  - name: Voice, Video and Chat
+    items:
+    - name: Calling with chat
+      href: quickstarts/ui-library/get-started-calling-with-chat.md
   - name: Voice and Video
     items:
     - name:  Connect to a call

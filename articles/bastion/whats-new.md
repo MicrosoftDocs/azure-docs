@@ -26,7 +26,7 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 |Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now in public preview in all regions that Bastion is available in. | June 2024 | Can't currently be used with native client.
 | Feature | [Private Only Bastion](private-only-deployment.md)| Private Only Bastion is now in public preview in all regions that Bastion is available in.| June 2024 | N/A|
 | SKU | [Bastion Premium SKU](bastion-overview.md#sku)| Bastion Premium SKU is now in public preview in all regions that Bastion is available in. | June 2024 | N/A|
-|Feature  |  [Availability Zones for Bastion](../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json) |Availability Zones is now in public preview as a customer-enabled feature in select regions. | May 2024 | See available region list [here](../reliability/reliability-bastion.md?toc=%2Fazure%2Fbastion%2FTOC.json#prerequisites).
+|Feature  |  [Availability Zones for Bastion](../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json) |Availability Zones is now in public preview as a customer-enabled feature in select regions. | May 2024 | See available region list [here](../reliability/reliability-bastion.md?toc=%2Fazure%2Fbastion%2FTOC.json#regions-supported).
 |SKU  |  [Bastion Developer SKU](quickstart-developer-sku.md) | Bastion Developer SKU is now in GA for select regions. | May 2024 | See available region list [here](quickstart-developer-sku.md#about-the-developer-sku).
 
 

@@ -4,7 +4,7 @@ description: Learn how to use Destination NAT with a Network Virtual Appliance i
 author: wellee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub and leverage destination NAT.
 ---
@@ -41,16 +41,16 @@ The following configurations are performed:
 
 #### Inbound traffic flow
 
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/example-inbound-flow.png"alt-text="Screenshot showing inbound traffic flow."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/example-inbound-flow.png":::
+:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/example-inbound-flow.png"alt-text="Screenshot showing inbound traffic flow." lightbox="./media/virtual-wan-network-virtual-appliance-inbound/example-inbound-flow.png":::
 
-The list below corresponds to the diagram above and describes the packet flow for the inbound connection:
+The following list corresponds to the diagram above and describes the packet flow for the inbound connection:
 
 1. The user initiates a connection with one of the Public IPs used for DNAT associated to the NVA. 
 1. Azure load balances the connection request to one of the Firewall NVA instances. Traffic is sent to the external/untrusted interface of the NVA.
 1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP (IP of trusted/internal interface) of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
 
 #### Outbound traffic flow
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png"alt-text="Screenshot showing outbound traffic flow."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png":::
+:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png"alt-text="Screenshot showing outbound traffic flow." lightbox="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png":::
 
 The list below corresponds to the diagram above and describes the packet flow for the outbound response:
 
@@ -66,7 +66,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
   * Destination NAT Public IPs  must be from the same region as the NVA resource. For example, if the NVA is deployed in the East US region, the public IP must also be from the East US region.
   * Destination NAT Public IPs can't be in use by another Azure resource. For example, you can't use an IP address in use by a Virtual Machine network interface IP Configuration or a Standard Load Balancer front-end configuration.
   * Public IPs must be from IPv4 address spaces. Virtual WAN doesn't support IPv6 addresses.
-  * Public IPs must be deployed with Standard SKU. Basic SKU Public IPs are not supported.
+  * Public IPs must be deployed with Standard SKU. Basic SKU Public IPs aren't supported.
 * Destination NAT is only supported on new NVA deployments that are created with at least one Destination NAT Public IP. Existing NVA deployments or NVA deployments that didn't have a Destination NAT Public IP associated at NVA creation time aren't eligible to use Destination NAT.
 * Programming Azure infrastructure components to support DNAT scenarios is done automatically by NVA orchestration software when a DNAT rule is created. Therefore, you can't program NVA rules through Azure portal. However, you can view the inbound security rules associated to each internet inbound Public IP.
 * DNAT traffic in Virtual WAN can only be routed  to connections to the same hub as the NVA. Inter-hub traffic patterns with DNAT aren't supported.
@@ -74,7 +74,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
 ### Considerations
 
 * Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
-* In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types may not require source-NAT. Contact your NVA provider for best practices around source-NAT.
+* In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types might not require source-NAT. Contact your NVA provider for best practices around source-NAT.
 * Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.
 
@@ -111,7 +111,7 @@ The following section describes how to manage NVA configurations related to inte
 > IP addresses can only be removed if there are no rules associated to that IP is 0. Remove all rules associated to the IP by removing DNAT rules assigned to that IP from your NVA management software.
 
 Select the IP you want to remove from the grid and click **Delete**.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/delete-ip.png"alt-text="Screenshot showing how to delete IP from NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/delete-ip.png":::
+:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/delete-ip.png"alt-text="Screenshot showing how to delete IP from NVA." lightbox="./media/virtual-wan-network-virtual-appliance-inbound/delete-ip.png":::
 
 ## Programming DNAT Rules
 
@@ -131,7 +131,7 @@ The following section describes some common troubleshooting scenarios.
 * **Option to associate IP to NVA resource not available through Azure portal** : Only NVAs that are created with DNAT/Internet Inbound IPs at deployment time are eligible to use DNAT capabilities. Delete and re-create the NVA with an Internet Inbound IP assigned at deployment time.
 * **IP address not showing up in dropdown Azure portal**: Public IPs only show up in the dropdown menu if the IP address is IPv4, in the same region as the NVA and isn't in use/assigned to another Azure resource. Ensure the IP address you're trying to use meets the above requirements, or create a new IP address.
 * **Can't delete/disassociate Public IP from NVA**: Only IP addresses that have no rules associated with them can be deleted. Use the NVA orchestration software to remove any DNAT rules associated to that IP address.
-* **NVA provisioning state not succeeded**: If there are on-going operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
+* **NVA provisioning state not succeeded**: If there are ongoing operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
 
 ### <a name="healthprobeconfigs"></a> Load balancer health probes
 
