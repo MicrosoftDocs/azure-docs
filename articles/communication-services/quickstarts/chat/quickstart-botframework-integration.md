@@ -224,25 +224,24 @@ namespace ChatQuickstart
 
 ### Start a chat thread with the bot
 
-Use the `createChatThread` method on `chatClient` to create a chat thread. Replace the ID with the bot's Communication Services ID.
+Use the `createChatThread` method on `chatClient` to create a chat thread. Replace the ID with the bot's Communication Services ID that you copied in this step: [Token and ACS Bot ID app](#get-a-communication-services-resource)
 
 ```csharp
-var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<BOT_ID>"))
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<BOT_ACS_ID>"))
 {
     DisplayName = "BotDisplayName"
 };
 CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello Bot!", participants: new[] { chatParticipant });
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
-string threadId = chatThreadClient.Id;
+
 ```
 
 ### Get a chat thread client
 
-The `GetChatThreadClient` method returns a thread client for a thread that already exists:
+The `GetChatThreadClient` method returns a thread client for a thread.
 
 ```csharp
-string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
+string threadId = chatThreadClient.Id;
 ```
 
 ### Send a message to a chat thread
@@ -571,5 +570,5 @@ Verify that the bot's Microsoft app ID and password are saved correctly in the b
 Verify that the bot's Communication Services ID is used correctly when a request is sent to add a bot to a chat thread.
 
 ## Next steps
-
+TODO: This points to a private repo and should be removed or moved.
 Try the [chat bot demo app](https://github.com/Azure/communication-preview/tree/master/samples/AzureBotService-Sample-App) for a 1:1 chat between a chat user and a bot via the BotFramework WebChat UI component.
