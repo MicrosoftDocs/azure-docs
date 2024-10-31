@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/08/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ms.service: azure-iot-operations
@@ -305,13 +305,13 @@ For Azure Kubernetes Services Edge Essentials, you need to perform a few additio
     
 1. Set up port forwarding to the `broker-loadbalancer` service on the external IP address `192.168.0.4` and port `1883`:
 
-    ```bash
+    ```cmd
     netsh interface portproxy add v4tov4 listenport=1883 connectport=1883 connectaddress=192.168.0.4
     ```
     
 1. Open the port on the firewall to allow traffic to the broker's service:
 
-    ```bash
+    ```powershell
     New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
     ```
 
