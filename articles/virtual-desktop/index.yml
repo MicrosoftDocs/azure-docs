@@ -65,16 +65,8 @@ landingContent:
             url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
       - linkListType: get-started
         links:
-          - text: Connect using the Remote Desktop client for Windows
-            url: ./users/connect-windows.md
-          - text: Connect using the Remote Desktop client from a web browser
-            url: ./users/connect-web.md
-          - text: Connect using the Remote Desktop client for macOS
-            url: ./users/connect-macos.md
-          - text: Connect using the Remote Desktop client for iOS/iPadOS
-            url: ./users/connect-ios-ipados.md
-          - text: Connect using the Remote Desktop client for Android/Chrome OS
-            url: ./users/connect-android-chrome-os.md
+          - text: Connect from the Remote Desktop client
+            url: connect-remote-desktop-client.md
 
   # Card
   - title: More information
