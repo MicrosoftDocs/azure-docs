@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/27/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -136,11 +136,19 @@ Then, create the *DataflowEndpoint* resource and specify the access token authen
 
 # [Portal](#tab/portal)
 
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab. If creating a new dataflow, select a source for the dataflow.
-1. In the editor, select the destination dataflow endpoint.
-1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously.
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
+1. Enter the following settings for the endpoint:
 
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations experience to create a dataflow with an MQTT source and ADLS V2 destination.":::
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                                              |
+    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
+    | Authentication method | The method used for authentication. Choose *Access token*.     |
+    | Synced secret name       | The name of the Kubernetes secret that is synchronized with the ADLSv2 endpoint.              |
+    | Access token secret name | The name of the Kubernetes secret containing the SAS token. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Bicep](#tab/bicep)
 
