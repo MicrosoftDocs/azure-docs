@@ -59,7 +59,8 @@ Submit the form for verification. Brand verification may take up to 48 hours.
 
 :::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
 
-> **Warning**: Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
+> [Important!]
+> Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
 ## Campaign Registration
 After your brand is verified, proceed with the campaign registration:
@@ -113,7 +114,8 @@ Fill in the campaign and content attributes as follows:
 
 Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
-> **Note**: Providing accurate information in the attributes section ensures compliance with regulatory requirements and reduces the risk of rejection.
+> [Important!]
+> Providing accurate information in the attributes section ensures compliance with regulatory requirements and reduces the risk of rejection.
 
 ### Review and Submit
 Review all information on the **Review** tab and submit your campaign application. Campaign approval may take 2–3 business days.
@@ -136,7 +138,8 @@ Once your campaign is approved, follow these steps to link a phone number to it:
 4. **Save Changes**:
    - Click **Save** to apply the settings.
 
-> **Note**: It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
+> [Important!]
+> It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
 
 :::image type="content" source="./media/link-number-to-campaign/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/link-number-to-campaign.png":::
 
