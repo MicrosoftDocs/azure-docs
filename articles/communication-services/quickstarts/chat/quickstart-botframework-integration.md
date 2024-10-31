@@ -63,8 +63,6 @@ For this quickstart we will use the [Echo Bot](https://github.com/microsoft/BotB
 
 #### Create a web app to hold the bot app
 
-Azure Bot Service typically expects the Bot Application Web App Controller to expose an endpoint in the form `/api/messages`. The endpoint handles all messages that are sent to the bot.
-
 To create the web app, either use the Azure CLI to [create an Azure App Service resource](/azure/bot-service/provision-app-service?tabs=singletenant%2Cexistingplan) or create the app in the Azure portal.
 
 To create a bot web app by using the Azure portal:
@@ -84,6 +82,8 @@ To create a bot web app by using the Azure portal:
    :::image type="content" source="./media/web-app-endpoint.png" alt-text="Screenshot that shows how to copy the web app endpoint URL.":::
 
 #### Create a messaging endpoint for the bot
+
+Azure Bot Service typically expects the Bot Application Web App Controller to expose an endpoint in the form `/api/messages`. The endpoint handles all messages that are sent to the bot.
 
 Next, in the bot resource, create a web app messaging endpoint:
 
@@ -112,12 +112,14 @@ The final step to create a bot is to deploy the web app. For this quickstart, us
 
    ```json
       {
+        "MicrosoftAppType": "",
         "MicrosoftAppId": "<App-registration-ID>",
-        "MicrosoftAppPassword": "<App-password>"
+        "MicrosoftAppPassword": "<App-password>",
+          "MicrosoftAppTenantId": ""
       }
     ```
 
-   Next, use Visual Studio for C# bots to deploy the bot.
+   Next, use Visual Studio or VScode for C# bots to deploy the bot.
 
    You also can use a Command Prompt window to [deploy an Azure bot](/azure/bot-service/provision-and-publish-a-bot?tabs=userassigned%2Ccsharp). 
 
