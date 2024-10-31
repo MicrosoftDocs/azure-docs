@@ -8,6 +8,7 @@ ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024
 ms.author: cshoe
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
@@ -38,17 +39,9 @@ By the end of this tutorial, you deploy one web application and three backend ap
 
 ## Prepare Azure resources
 
-Create a bash script to store the environment variables for your Azure resources. 
+Set the following environment variables in your machine, and customize the top three variables `RESOURCE_GROUP`, `LOCATION`, and `CONTAINER_APP_ENVIRONMENT` as you need:
 
 ```bash
-touch setup-env-variables-azure.sh
-```
-
-Copy the following environment variables to your script, and customize the top three variables `RESOURCE_GROUP`, `LOCATION`, and `CONTAINER_APP_ENVIRONMENT` as you need:
-
-```bash
-#!/usr/bin/env bash
-
 export RESOURCE_GROUP=rg-petclinic # customize this
 export LOCATION=eastus # customize this
 export CONTAINER_APP_ENVIRONMENT=petclinic-env # customize this
@@ -61,16 +54,10 @@ export CUSTOMERS_SERVICE=customers-service
 export VETS_SERVICE=vets-service
 export VISITS_SERVICE=visits-service
 export API_GATEWAY=api-gateway
-export CUSTOMERS_SERVICE_IMAGE=ghcr.io/azure-samples/spring-petclinic-customers-service:main
-export VETS_SERVICE_IMAGE=ghcr.io/azure-samples/spring-petclinic-vets-service:main
-export VISITS_SERVICE_IMAGE=ghcr.io/azure-samples/spring-petclinic-visits-service:main
-export API_GATEWAY_IMAGE=ghcr.io/azure-samples/spring-petclinic-api-gateway:main
-```
-
-Then, set the environment variables:
-
-```bash
-source setup-env-variables-azure.sh
+export CUSTOMERS_SERVICE_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-customers-service:latest
+export VETS_SERVICE_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-vets-service:latest
+export VISITS_SERVICE_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-visits-service:latest
+export API_GATEWAY_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-api-gateway:latest
 ```
 
 Log in to the Azure CLI and choose your active subscription.
@@ -93,6 +80,8 @@ az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $R
 
 
 ## Create Java components
+
+::: zone pivot="azure-cli"
 
 Create the Config Server for Java component.
 
@@ -119,46 +108,100 @@ Create the Admin Server for Java component.
 az containerapp env java-component admin-for-spring create \
   --environment $CONTAINER_APP_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --name $ADMIN_SERVER_COMPONENT \
-  --bind $EUREKA_SERVER_COMPONENT
+  --name $ADMIN_SERVER_COMPONENT
 ```
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+Go to your Container Apps Environment on Azure Portal, select the **Service** in the left menu, and click **Configure** and choose **Java component** to create a new Java component. In this section, you need to create three components in total.
+
+:::image type="content" source="media/java-deploy-war-file/configure-java-component.png" alt-text=Configure java component.":::
+
+Create teh Config Server component: Select `Config Server for Spring` as the **Java component type**, and fill in the **Java component name** with `configserver` which is the value of the environment variable `$CONFIG_SERVER_COMPONENT` you set in the above step. Then in the **Git repositories** section, click **Add** to add a new Git repository with the **URI** `https://github.com/spring-petclinic/spring-petclinic-microservices-config.git`. Click **Add** and then **Next** to the Review page, click **Configure** to finish the configuration of Java component.
+
+:::image type="content" source="media/java-deploy-war-file/configure-configserver.png" alt-text=Configure config server.":::
+
+Create the Eureka component: Select `Eureka Server for Spring` as the **Java component type**, and fill in the **Java component name** with `eureka` which is the value of the environment variable `$EUREKA_SERVER_COMPONENT` you set in the above step. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
+
+:::image type="content" source="media/java-deploy-war-file/configure-eureka.png" alt-text=Configure Eureka.":::
+
+Create the Admin component: Select `Admin for Spring` as the **Java component type**, and fill in the **Java component name** with `admin` which is the value of the environment variable `$ADMIN_SERVER_COMPONENT` you set in the above step. Click **Next** to the Review page, then click **Configure** to finish the configuration of Java component.
+
+:::image type="content" source="media/java-deploy-war-file/configure-admin.png" alt-text=Configure Admin.":::
+
+::: zone-end
 
 ## Deploy Java microservice apps to Azure Container Apps
 
-Deploy the Java microservice apps to Azure Container Apps via our prebuilt images, and bind the Java components to your apps.
+Deploy the Java microservice apps to Azure Container Apps via our prebuilt images.
 
 ```azurecli
 az containerapp create \
   --name $CUSTOMERS_SERVICE \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $CUSTOMERS_SERVICE_IMAGE \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
-
+  --image $CUSTOMERS_SERVICE_IMAGE
+  
 az containerapp create \
   --name $VETS_SERVICE \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $VETS_SERVICE_IMAGE \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
-
+  --image $VETS_SERVICE_IMAGE
+  
 az containerapp create \
   --name $VISITS_SERVICE \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $VISITS_SERVICE_IMAGE \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
-
+  --image $VISITS_SERVICE_IMAGE
+  
 az containerapp create \
   --name $API_GATEWAY \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $API_GATEWAY_IMAGE \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT \
+  --image $API_GATEWAY_IMAGE
   --ingress external \
   --target-port 8080 \
   --query properties.configuration.ingress.fqdn 
 ```
+
+## Bind Azure Container Apps Java components
+
+Bind your Container Apps to Java components.
+
+::: zone pivot="azure-cli"
+
+```azurecli
+az containerapp update \
+  --name $CUSTOMERS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+
+az containerapp create \
+  --name $VETS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+
+az containerapp create \
+  --name $VISITS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+
+az containerapp create \
+  --name $API_GATEWAY \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+```
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+Navigate to your Java components on Azure Portal, click each of the three components you created in the above steps, go to the **Bindings** section, and add the four apps you created in the above steps to the bindings.
+
+:::image type="content" source="media/java-deploy-war-file/bind-apps.png" alt-text=Bind apps.":::
+
+::: zone-end
 
 ## Verify app status
 
@@ -190,25 +233,19 @@ The dashboard of your Eureka and Admin servers should resemble the following scr
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin.":::
 
-## Optional: Customize the code and use your own images
+## Optional: configure Java components
 
-In the above steps, you're using our [built images](https://github.com/orgs/Azure-Samples/packages?repo_name=azure-container-apps-java-samples) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). If you want to customize the sample code and use your own images, you can follow the steps.
+The Java components you created in this tutorial can be configured through the Azure portal. You can go to the **Configurations** section and add or update configurations for your Java components. 
 
-1. Fork your own copy of [Azure-samples/azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) by clicking the Fork button in the upper right corner of the repository.
+:::image type="content" source="media/java-deploy-war-file/java-component-configurations.png" alt-text="Screenshot of pet clinic application Admin.":::
 
-2. Fork your own copy of [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) by clicking the Fork button in the upper right corner of the repository. And clone the repository to your local machine.
+The supported configurations for each Java component are listed in the following links.
 
-3. Modify the code in your forked repository and push to your forked repository.
+- [Config server for Java component](java-config-server-usage.md#configuration-options)
 
-4. Go to your forked `azure-container-apps-java-samples` repository, navigate to the `GitHub Actions` tab, choose `Publish Petclinic images` workflow, and click `Run workflow`, then fill in the repository url of Spring Pet clinic microservices with your forked Petclinic repository url. 
+- [Eureka server for Java component](java-eureka-server-usage.md#allowed-configuration-list-for-your-eureka-server-for-spring)
 
-   :::image type="content" source="media/java-deploy-war-file/build-your-own-images.png" alt-text="Screenshot of build customized images.":::
-
-5. After the workflow finished, go to the `Code` tab of your `azure-container-apps-java-samples` repository, click the `Packages` button at the right bottom corner to see the built images.
-
-   :::image type="content" source="media/java-deploy-war-file/github-package-button.png" alt-text="Screenshot of GitHub packages.":::
-
-6. There should be four packages in the list, one for each of the Java microservice apps. Click on the package name to see the details of the package. We use [Artifact attestations](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds) to increase the security of the images, that's why you see multiple images in the package details. Click the one named as your branch name (should be `main` by default) you shall see the image tag. Update or create your container apps with these tags instead of the image environment variables `$CUSTOMERS_SERVICE_IMAGE`, `$VETS_SERVICE_IMAGE`, `$VISITS_SERVICE_IMAGE`, and `$API_GATEWAY_IMAGE`.  
+- [Admin for Java component](java-admin-for-spring-usage.md#allowed-configuration-list-for-your-admin-for-spring)
 
 ## Clean up resources
 
@@ -218,11 +255,4 @@ The resources created in this tutorial have an effect on your Azure bill. If you
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-## Related content
-
-- [Config server for Java component](java-config-server-usage.md)
-
-- [Eureka server for Java component](java-eureka-server-usage.md)
-
-- [Admin for Java component](java-admin-for-spring-usage.md)
 
