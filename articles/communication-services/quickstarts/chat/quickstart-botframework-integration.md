@@ -175,11 +175,9 @@ Now that you have the bot's Communication Services ID, you can create a chat thr
 
 Follow the steps in the [Add Chat to your app](/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-csharp) quickstart to create a chat app.
 
-Replace the following with the values you copied in this step: [Get a Communication Service Resource](#get-a-communication-services-resource)
-
-1. Replace <Resource_Endpoint> with the Communication Services endpoint
-1. Replace <Access_Token> with the user access token
-1. Replace <Access_ID> with the bots ACS_ID
+1. Replace <Resource_Endpoint> with the Communication Services endpoint from the [Get a Communication Service Resource](#get-a-communication-services-resource) step.
+1. Replace <Access_Token> with the user access token from the [Get a Communication Service Resource](#get-a-communication-services-resource) step.
+1. Replace <Access_ID> with the bots ACS_ID from the [Enable the Communication Services Chat channel](#enable-the-communication-services-chat-channel) step.
 
 ### Run the C# chat application locally
 
