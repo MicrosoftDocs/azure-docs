@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/15/2024
+ms.date: 10/31/2024
 ms.collection: usx-security
 
 #Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent from the command line so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
