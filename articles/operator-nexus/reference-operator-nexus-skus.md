@@ -8,7 +8,7 @@ ms.author: sushrao
 ms.service: azure-operator-nexus
 ---
 
-# Azure Operator Nexus Fabric SKUs
+# Azure Operator Nexus SKUs
 
 Operator Nexus Fabric SKUs for Azure Operator Nexus are meticulously designed to streamline the procurement and deployment processes, offering standardized bill of materials (BOM), topologies, wiring, and workflows. Microsoft crafts and prevalidates each SKU in collaboration with OEM vendors, ensuring seamless integration and optimal performance for operators.
 
@@ -29,31 +29,31 @@ The following table outlines the various configurations of Operator Nexus Fabric
 
 The following table outlines the various configurations of Operator Nexus Network Cloud SKUs, catering to different use-cases and functionalities required by operators.
 
-| Version | Use-Case                     | Network Cloud SKU ID                    | Description                                                                                                                                              |
-|---------|------------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.7.3   | Multi Rack Near-Edge Agg     | VNearEdge1_Aggregator_x70r3_9           | Aggregation Rack with Pure x70r3                                                                                                                         |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge1_Compute_DellR750_4C2M        | 400G Fabric support up to eight Compute Racks where each rack can support 4 compute servers.                                                             |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge1_Compute_DellR750_8C2M        | 400G Fabric support up to eight Compute Racks where each rack can support 8 compute servers.                                                             |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge1_Compute_DellR750_12C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                            |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge1_Compute_DellR750_16C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                            |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge2_Compute_DellR650_4C2M        | 100G Fabric support up to eight Compute Racks where each rack can support 4 compute servers.                                                             |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge2_Compute_DellR650_8C2M        | 100G Fabric support up to eight Compute Racks where each rack can support 8 compute servers.                                                             |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge2_Compute_DellR650_12C2M       | 100G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                            |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge2_Compute_DellR650_16C2M       | 100G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                            |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge3_Compute_DellR750_7C3M        | 400G Fabric support up to eight Compute Racks where each rack can support 7 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers  |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEVNearEdge3_Compute_DellR750_11C3M | 400G Fabric support up to eight Compute Racks where each rack can support 11 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge3_Compute_DellR750_15C3M       | 400G Fabric support up to eight Compute Racks where each rack can support 15 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers |
-| 2.0.0   | Multi Rack Near-Edge Agg     | VNearEdge4_Aggregator_x70r4             | Aggregation Rack with Pure x70r4.                                                                                                                        |
-| 2.0.0   | Multi Rack Near-Edge Agg     | VNearEdge4_Aggregator_x70r3             | Aggregation Rack with Pure x70r3.                                                                                                                        |
-| 2.0.0   | Multi Rack Near-Edge Agg     | VNearEdge4_Aggregator_x20r4             | Aggregation Rack with Pure x70r4.                                                                                                                        |
-| 2.0.0   | Multi Rack Near-Edge Agg     | VNearEdge4_Aggregator_x20r3             | Aggregation Rack with Pure x70r3.                                                                                                                        |
-| 2.0.0   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_4C2M        | 400G Fabric support up to eight Compute Racks where each rack can support 4 compute servers.                                                             |
-| 2.0.0   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_8C2M        | 400G Fabric support up to eight Compute Racks where each rack can support 8 compute servers.                                                             |
-| 2.0.0   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_12C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                            |
-| 2.0.0   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_16C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                            |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_7C3M        | 400G Fabric support up to eight Compute Racks where each rack can support 7 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers  |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEVNearEdge4_Compute_DellR760_11C3M | 400G Fabric support up to eight Compute Racks where each rack can support 11 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers |
-| 1.7.3   | Multi Rack Near-Edge Compute | VNearEdge4_Compute_DellR760_15C3M       | 400G Fabric support up to eight Compute Racks where each rack can support 15 Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers |
+| Version | Use-Case                        | Network Cloud SKU ID                    | Description                                                                                                                                                       |
+|---------|---------------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.7.3   | Multi Rack Near-Edge Aggregator | VNearEdge1_Aggregator_x70r3_9           | Aggregation Rack with Pure x70r3                                                                                                                                  |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge1_Compute_DellR750_4C2M        | 400G Fabric support up to eight Compute Racks where each rack can support four compute servers.                                                                   |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge1_Compute_DellR750_8C2M        | 400G Fabric support up to eight Compute Racks where each rack can support eight compute servers.                                                                  |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge1_Compute_DellR750_12C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                                 |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge1_Compute_DellR750_16C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                                |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge2_Compute_DellR650_4C2M        | 100G Fabric support up to eight Compute Racks where each rack can support four compute servers.                                                                   |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge2_Compute_DellR650_8C2M        | 100G Fabric support up to eight Compute Racks where each rack can support eight compute servers.                                                                  |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge2_Compute_DellR650_12C2M       | 100G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                                 |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge2_Compute_DellR650_16C2M       | 100G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                                |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge3_Compute_DellR750_7C3M        | 400G Fabric support up to eight Compute Racks where each rack can support seven Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers   |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEVNearEdge3_Compute_DellR750_11C3M | 400G Fabric support up to eight Compute Racks where each rack can support 11 Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers  |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge3_Compute_DellR750_15C3M       | 400G Fabric support up to eight Compute Racks where each rack can support 15 Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x70r4             | Aggregation Rack with Pure x70r4.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x70r3             | Aggregation Rack with Pure x70r3.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r4             | Aggregation Rack with Pure x70r4.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r3             | Aggregation Rack with Pure x70r3.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_4C2M        | 400G Fabric support up to eight Compute Racks where each rack can support four compute servers.                                                                   |
+| 2.0.0   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_8C2M        | 400G Fabric support up to eight Compute Racks where each rack can support eight compute servers.                                                                  |
+| 2.0.0   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_12C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 12 compute servers.                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_16C2M       | 400G Fabric support up to eight Compute Racks where each rack can support 16 compute servers.                                                                |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_7C3M        | 400G Fabric support up to eight Compute Racks where each rack can support seven Dell750 computes, 1 Dell750 high-iops controller, and 2 Dell650 controllers       |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEVNearEdge4_Compute_DellR760_11C3M | 400G Fabric support up to eight Compute Racks where each rack can support 11 Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers  |
+| 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_15C3M       | 400G Fabric support up to eight Compute Racks where each rack can support 15 Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers |
 
 
 **Notes:**
