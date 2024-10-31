@@ -177,20 +177,21 @@ az containerapp update \
   --resource-group $RESOURCE_GROUP \
   --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
 
-az containerapp create \
+az containerapp update \
   --name $VETS_SERVICE \
   --resource-group $RESOURCE_GROUP \
   --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
 
-az containerapp create \
+az containerapp update \
   --name $VISITS_SERVICE \
   --resource-group $RESOURCE_GROUP \
   --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
 
-az containerapp create \
+az containerapp update \
   --name $API_GATEWAY \
   --resource-group $RESOURCE_GROUP \
   --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+  --query properties.configuration.ingress.fqdn 
 ```
 
 ::: zone-end
@@ -205,7 +206,7 @@ Navigate to your Java components on Azure Portal, click each of the three compon
 
 ## Verify app status
 
-In this example, the `containerapp create` command for the API gateway includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
+In this example, the `containerapp create` and `containerapp update` command for the API gateway includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
 
 View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
 
