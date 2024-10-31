@@ -429,7 +429,7 @@ To improve performance of Tomcat applications, you can compile your JSP files be
 
 App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production apps should use pinned patch JVM versions. This prevents unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
 
-::: zone pivot="java-jboss"
+::: zone pivot="java-tomcat"
 
 If you're using Tomcat, you can choose to pin the patch version of Tomcat. On Windows, you can pin the patch versions of the JVM and Tomcat independently. On Linux, you can pin the patch version of Tomcat; the patch version of the JVM is also pinned but isn't separately configurable.
 
@@ -438,6 +438,24 @@ If you're using Tomcat, you can choose to pin the patch version of Tomcat. On Wi
 If you choose to pin the minor version, you need to periodically update the JVM minor version on the app. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging slot. Once you confirm the application runs correctly on the new minor version, you can swap the staging and production slots.
 
 ::: zone pivot="java-jboss"
+
+## Run JBoss CLI
+
+In your JBoss app's SSH session, you can run the JBoss CLI as usual. For example:
+
+```
+$JBOSS_HOME/bin/jboss-cli.sh --connect
+```
+
+Depending on where JBoss is in the server lifecycle, you may not be able to connect. Wait a few minutes and try again. Note also that changes you make to the server with JBoss CLI doesn't persist after the app restarts. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
+
+The most reliable way to run JBoss CLI and persist your server changes is running it inside a startup script or a startup command. To do this, upload a file directly as a startup script. For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md&pivots=java-jboss).
+
+Alternatively, you can manually configure App Service to run any file on startup. For example:
+
+```azurecli-interactive
+az webapp config set --resource-group <group-name> --name <app-name> --startup-file /home/site/scripts/foo.sh
+```
 
 ## Clustering
 
