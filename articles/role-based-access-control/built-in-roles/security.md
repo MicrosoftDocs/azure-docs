@@ -417,6 +417,8 @@ Manage key vaults, but does not allow you to assign roles in Azure RBAC, and doe
 
 [Learn more](/azure/key-vault/general/security-features)
 
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
