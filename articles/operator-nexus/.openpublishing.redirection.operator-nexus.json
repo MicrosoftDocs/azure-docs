@@ -48,13 +48,23 @@
         {
             "source_path": "troubleshoot-enable-node-down-cleaner.md",
             "redirect_url": "concepts-storage",
-
             "redirect_document_id": false
         },
         {
             "source_path": "troubleshoot-bmm-node-reboot.md",
             "redirect_url": "troubleshoot-vm-error-after-reboot",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "reference-operator-nexus-fabric-skus.md",
+            "redirect_url": "reference-operator-nexus-skus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "reference-operator-nexus-skus-us.md",
+            "redirect_url": "reference-operator-nexus-skus",
+            "redirect_document_id": false
         }
+
     ]
 }
