@@ -72,6 +72,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     from azure.appconfiguration.provider import load
     from featuremanagement import FeatureManager
     from featuremanagement.azuremonitor import publish_telemetry
+    from azure.identity import DefaultAzureCredential
     from opentelemetry import trace
     from opentelemetry.trace import get_tracer_provider
     from flask_bcrypt import Bcrypt
@@ -86,14 +87,15 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     
     tracer = trace.get_tracer(__name__, tracer_provider=get_tracer_provider())
     
-    CONNECTION_STRING = os.getenv("AzureAppConfigurationConnectionString")
+    ENDPOINT = os.getenv("AzureAppConfigurationEndpoint")
     
     def callback():
         app.config.update(azure_app_config)
     
     global azure_app_config
     azure_app_config = load(
-        connection_string=CONNECTION_STRING,
+        endpoint=ENDPOINT,
+        credential=DefaultAzureCredential(),
         on_refresh_success=callback,
         feature_flag_enabled=True,
         feature_flag_refresh_enabled=True,
@@ -513,6 +515,29 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     ```
 
 ### Build and run the app (preview)
+
+1. Set an environment variable.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx AzureAppConfigurationEndpoint "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AzureAppConfigurationEndpoint = "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AzureAppConfigurationEndpoint='endpoint-of-your-app-configuration-store'
+    ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
 1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
