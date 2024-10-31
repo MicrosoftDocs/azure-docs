@@ -15,7 +15,7 @@ ms.subservice: email
 
 # Pre-send email analysis: Detecting sensitive data and inappropriate content using Azure AI
 
-Azure Communication Services email enables organizations to send high volume messages to their customers using their applications. This tutorial demonstrates how to leverage Azure AI to ensure that your messages accurately reflect your business’s brand and reputation before sending them. Azure AI offers services to analyze your email content for sensitive data and identify inappropriate content.
+Azure Communication Services email enables organizations to send high volume messages to their customers using their applications. This tutorial shows how to leverage Azure AI to ensure that your messages accurately reflect your business’s brand and reputation before sending them. Azure AI offers services to analyze your email content for sensitive data and identify inappropriate content.
 
 This tutorial describes how to use Azure AI Text Analytics to check for sensitive data and Azure AI Content Safety to identify inappropriate text content. Use these functions to check your content before sending the email using Azure Communication Services.
 
@@ -73,7 +73,7 @@ From the application directory, install the Azure Communication Services Email c
 
 ## Create the Main function
 
-Open `Program.cs` and replace the existing contents with the following code. The *using* directives include the `Azure.Communication.Email` and `Azure.AI namespaces`. The rest of the code outlines the `SendMail` function for your program.
+Open `Program.cs` and replace the existing contents with the following code. The `using` directives include the `Azure.Communication.Email` and `Azure.AI namespaces`. The rest of the code outlines the `SendMail` function for your program.
 
 ```csharp
 using System;
@@ -243,7 +243,7 @@ You have a few options available for authenticating to an email client. This exa
 Open `Program.cs` in an editor. Add the following code to the body of the Main function to initialize an `EmailClient` with your connection string. This code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. For more information about managing your resource  connection string, see [Quickstart: Create and manage Communication Services resources > Store your connection string](../quickstarts/create-communication-resource.md#store-your-connection-string).
 
 ```csharp
-// This code demonstrates how to fetch your connection string from an environment variable.
+// This code shows how to fetch your connection string from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 EmailClient emailClient = new EmailClient(connectionString);
 ```
@@ -260,8 +260,8 @@ Put both the subject and the message body into a `List<string>` which can be use
 
 ```csharp
 //Set sample content
-var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net"; //obtain the send email from your email resource in the Azure Portal
-var recipient = "emailalias@contoso.com"; //modify the recipient
+var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net"; // get the send email from your email resource in the Azure Portal
+var recipient = "emailalias@contoso.com"; // modify the recipient
 var subject = "Precheck Azure Communication Service Email with Azure AI";
 var htmlContent = "<html><body><h1>Precheck email test</h1><br/><h4>This email message is sent from Azure Communication Service Email. </h4>";
 htmlContent += "<p> My SSN is 123-12-1234.  My Credit Card Number is: 1234 4321 5678 8765.  My address is 1011 Main St, Redmond, WA, 998052 </p>";
