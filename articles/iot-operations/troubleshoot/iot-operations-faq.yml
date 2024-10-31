@@ -28,7 +28,7 @@ sections:
          Does Azure IoT Operations offer high availability across multi-node setups?
       answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
     - question: |
-         Does Azure Device Registry (ADR) offer offer high availability across availability zones and regions?
+         Does Azure Device Registry (ADR) offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
