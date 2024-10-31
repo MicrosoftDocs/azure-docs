@@ -10,7 +10,7 @@ ms.date: 10/30/2024
 
 # What is Neon Serverless Postgres - An Azure Native ISV Service?
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Neon developed this service and manage it together.
+Easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure with Azure Native ISV Services. Microsoft and Neon developed this service and manage it together.
 
 You can find Neon Serverless Postgres - An Azure Native ISV Service  in the Azure portal.
 
