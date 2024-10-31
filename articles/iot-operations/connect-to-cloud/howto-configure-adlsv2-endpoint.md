@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/27/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -96,7 +96,7 @@ resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -173,6 +173,7 @@ resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2
         method: 'AccessToken'
         accessTokenSettings: {
           secretRef: '<SAS_SECRET_NAME>'
+        }
       }
     }
   }
@@ -182,7 +183,7 @@ resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2
 Then, deploy via Azure CLI.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -213,13 +214,13 @@ kubectl apply -f <FILE>.yaml
 
 ---
 
-### Available authentication methods
+## Available authentication methods
 
 The following authentication methods are available for Azure Data Lake Storage Gen2 endpoints.
 
 For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-#### System-assigned managed identity
+### System-assigned managed identity
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with the Azure Data Lake Storage Gen2 account.
 
@@ -286,7 +287,7 @@ dataLakeStorageSettings:
 
 ---
 
-#### Access token
+### Access token
 
 Using an access token is an alternative authentication method. This method requires you to create a Kubernetes secret with the SAS token and reference the secret in the *DataflowEndpoint* resource.
 
@@ -300,12 +301,11 @@ Get a [SAS token](../../storage/common/storage-sas-overview.md) for an Azure Dat
 
 To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the dataflow destination setting in the configuration.
 
-Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
+Create a Kubernetes secret with the SAS token.
 
 ```bash
-kubectl create secret generic <SAS_SECRET_NAME> \
---from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
--n azure-iot-operations
+kubectl create secret generic <SAS_SECRET_NAME> -n azure-iot-operations \
+--from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>'
 ```
 
 You can also use the IoT Operations portal to create and manage the secret. To learn more, see [Create and manage secrets in Azure IoT Operations Preview](../deploy-iot-ops/howto-manage-secrets.md).
@@ -325,7 +325,7 @@ dataLakeStorageSettings: {
   authentication: {
     method: 'AccessToken'
     accessTokenSettings: {
-        secretRef: '<SAS_SECRET_NAME>'
+      secretRef: '<SAS_SECRET_NAME>'
     }
   }
 }
@@ -343,9 +343,11 @@ dataLakeStorageSettings:
 
 ---
 
-#### User-assigned managed identity
+### User-assigned managed identity
 
-To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
 
 # [Portal](#tab/portal)
 
@@ -362,6 +364,8 @@ dataLakeStorageSettings: {
     userAssignedManagedIdentitySettings: {
       cliendId: '<ID>'
       tenantId: '<ID>'
+      // Optional, defaults to 'https://storage.azure.com/.default'
+      // scope: 'https://<SCOPE_URL>'
     }
   }
 }
@@ -376,9 +380,13 @@ dataLakeStorageSettings:
     userAssignedManagedIdentitySettings:
       clientId: <ID>
       tenantId: <ID>
+      # Optional, defaults to 'https://storage.azure.com/.default'
+      # scope: https://<SCOPE_URL>
 ```
 
 ---
+
+Here, the scope is optional and defaults to `https://storage.azure.com/.default`. If you need to override the default scope, specify the `scope` setting via the Bicep or Kubernetes manifest.
 
 ## Advanced settings
 
@@ -403,7 +411,6 @@ In the operations experience, select the **Advanced** tab for the dataflow endpo
 
 ```bicep
 dataLakeStorageSettings: {
-  ...
   batching: {
     latencySeconds: 100
     maxMessages: 1000
@@ -414,7 +421,7 @@ dataLakeStorageSettings: {
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-fabricOneLakeSettings:
+dataLakeStorageSettings:
   batching:
     latencySeconds: 100
     maxMessages: 1000

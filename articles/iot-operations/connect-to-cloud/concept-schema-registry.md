@@ -64,20 +64,20 @@ Delta:
 
 ```delta
 {
-    "$schema": "Delta/1.0",
-    "type": "object",
-    "properties": {
-        "type": "struct",
-        "fields": [
-            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
-        ]
-    }
+  "$schema": "Delta/1.0",
+  "type": "object",
+  "properties": {
+    "type": "struct",
+    "fields": [
+      { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "location", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
+    ]
+  }
 }
 ```
 
@@ -243,21 +243,13 @@ var opcuaSchemaContent = '''
 '''
 ```
 
-Then, define schema resource along with pointers to the existing Azure IoT Operation instance, custom location, and schema registry resources that you have from deploying Azure IoT Operations.
+Then, in the same file, just underneath the schema, define the schema resource along with pointers to the existing schema registry resource that you have from deploying Azure IoT Operations.
 
 ```bicep
 // Replace placeholder values with your actual resource names
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
 
 // Pointers to existing resources from AIO deployment
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-  name: customLocationName
-}
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
-  name: aioInstanceName
-}
 resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
   name: schemaRegistryName
 }
@@ -290,9 +282,7 @@ resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/s
 After you've defined the schema content and resources, you can deploy the Bicep template to create the schema in the schema registry.
 
 ```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group 
-<RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou 
-deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 ## Next steps
