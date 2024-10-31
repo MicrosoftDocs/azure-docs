@@ -171,114 +171,15 @@ When you have a Communication Services resource, you can set up a Communication 
 
 Now that you have the bot's Communication Services ID, you can create a chat thread with the bot as a participant.
 
-### Create a new C# application
+### Follow the 'Add Chat to your app' quickstart
 
-1. Run the following command to create a C# application:
+Follow the steps in the [Add Chat to your app](/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-csharp) quickstart to create a chat app.
 
-   ```console
-   dotnet new console -o ChatQuickstart
-   ```
+Replace the following with the values you copied in this step: [Get a Communication Service Resource](#get-a-communication-services-resource)
 
-1. Change your directory to the new app folder and use the `dotnet build` command to compile your application:
-
-   ```console
-   cd ChatQuickstart
-   dotnet build
-   ```
-
-### Install the package
-
-Install the Communication Services Chat SDK for .NET:
-
-```powershell
-dotnet add package Azure.Communication.Chat
-```
-
-### Create a chat client
-
-To create a chat client, use your Communication Services endpoint and the user access token you generated earlier. Use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client. Access tokens can be generated in the portal using the following [instructions](/azure/communication-services/quickstarts/identity/access-tokens).
-
-Copy the following code and paste it in the *Program.cs* source file:
-
-```csharp
-using Azure;
-using Azure.Communication;
-using Azure.Communication.Chat;
-using System;
-
-namespace ChatQuickstart
-{
-    class Program
-    {
-        static async System.Threading.Tasks.Task Main(string[] args)
-        {
-            // Your unique Communication Services endpoint
-            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
-
-            CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
-            ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
-        }
-    }
-}
-```
-
-### Start a chat thread with the bot
-
-Use the `createChatThread` method on `chatClient` to create a chat thread. Replace the ID with the bot's Communication Services ID that you copied in this step: [Token and ACS Bot ID app](#get-a-communication-services-resource)
-
-```csharp
-var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<BOT_ACS_ID>"))
-{
-    DisplayName = "BotDisplayName"
-};
-CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello Bot!", participants: new[] { chatParticipant });
-
-```
-
-### Get a chat thread client
-
-The `GetChatThreadClient` method returns a thread client for a thread.
-
-```csharp
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
-string threadId = chatThreadClient.Id;
-```
-
-### Send a message to a chat thread
-
-To use `SendMessage` to send a message to a thread:
-
-```csharp
-SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-{
-    Content = "Hello World",
-    MessageType = ChatMessageType.Text
-};
-
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
-
-string messageId = sendChatMessageResult.Id;
-```
-
-### Receive chat messages from a chat thread
-
-Check the list of messages for the bot's echo reply to "Hello World" by polling the `GetMessages` method on the chat thread client at set intervals:
-
-```csharp
-AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
-await foreach (ChatMessage message in allMessages)
-{
-    Console.WriteLine($"{message.Id}:{message.Content.Message}");
-}
-```
-
-### Clean up the chat thread
-
-When you're finished using the chat thread, delete the thread:
-
-```csharp
-chatClient.DeleteChatThread(threadId);
-```
+1. Replace <Resource_Endpoint> with the Communication Services endpoint
+1. Replace <Access_Token> with the user access token
+1. Replace <Access_ID> with the bots ACS_ID
 
 ### Run the C# chat application locally
 
@@ -295,19 +196,6 @@ Example output:
 ```powershell
 1730405535010:Hello World
 ```
-
-
-### Deploy the C# chat application (Optional)
-
-If you have another web app service, you can deploy the chat application:
-
-1. In Visual Studio, open the chat project.
-
-1. Right-click the **ChatQuickstart** project and select **Publish**:
-
-   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Screenshot that shows deploying the chat application to Azure from Visual Studio.":::
-
-1. Once you publish the solution, run it and check if Echobot echoes the user message on the command prompt. Now that you have the solution you can proceed to play with the various activities that are needed for the business scenarios that you need to solve for.
 
 ## More things you can do with a bot
 
