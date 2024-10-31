@@ -11,7 +11,7 @@ ms.date: 10/25/2024
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and provides information on [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Bastion. It covers both intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to create a resilient solution that meets your needs.
 
@@ -23,13 +23,11 @@ Azure Bastion is a fully managed platform as a service (PaaS) that you provision
 
 ## Production deployment recommendations
 
-For production deployments, you should:
-
- - [Enable zone redundancy](#availability-zone-support), if your Azure Bastion resources are in a supported region.
+For production deployments, you should [enable zone redundancy](#availability-zone-support) if your Azure Bastion resources are in a supported region.
 
 ## Transient faults
 
-*Transient faults* are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
+*Transient faults* are short intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
 
 If transient faults affect your virtual machine or Azure Bastion host, clients using the secure sockets host (SSH) and Remote Desktop Protocol (RDP) protocols typically retry automatically.
 
@@ -37,7 +35,7 @@ If transient faults affect your virtual machine or Azure Bastion host, clients u
 
 You can configure Azure Bastion to be *zone-redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production workloads.
 
-You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. In the following diagram, there are Azure Bastion instances spread across three zones:
+You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. The following diagram shows Azure Bastion instances spread across three zones:
 
 :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
 
@@ -46,7 +44,7 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 ### Requirements
 
-To configure Azure Bastion resources with zone redundancy you must deploy with the Basic, Standard, or Premium SKUs.
+To configure Azure Bastion resources with zone redundancy, you must deploy with the Basic, Standard, or Premium SKUs.
 
 The Developer SKU is intended for nonproduction use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion still attempts to route traffic through different infrastructure.
 
@@ -115,7 +113,7 @@ The Azure Bastion platform manages traffic routing, failover, and failback for z
 
 ## Multi-region support
 
-Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated with an Azure region. Azure Bastion is a single-region service. If the region becomes unavailable, your Bastion resource is also unavailable.
+Azure Bastion is deployed within virtual networks or peered virtual networks and is associated with an Azure region. Azure Bastion is a single-region service. If the region becomes unavailable, your Azure Bastion resource is also unavailable.
 
 Azure Bastion supports reaching virtual machines in globally peered virtual networks, but if the region that hosts your Azure Bastion resource is unavailable, you won't be able to use your Azure Bastion resource. For higher resiliency, if you deploy your overall solution into multiple regions with separate virtual networks in each region, you should deploy Azure Bastion into each region.
 
@@ -123,7 +121,7 @@ If you have a disaster recovery site in another Azure region, be sure to deploy 
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Bastion describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [SLA for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for Azure Bastion describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [SLA for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 
