@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel in the Microsoft Defender portal
-description: Learn about changes in the Microsoft Defender portal with the integration of Microsoft Sentinel.
+description: Learn about the Microsoft Sentinel experience when you onboard Microsoft Sentinel to the Microsoft Defender portal.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 10/21/2024
+ms.date: 10/31/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -74,11 +74,13 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 |Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)       |
 |Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
 
-Microsoft Sentinel customers that create a workspace in the Israel region aren't currently eligible to onboard that workspace to Microsoft's unified security operations platform. 
+The following limitations also apply to Microsoft Sentinel in Defender portal without Defender XDR or other services enabled:
+- New Microsoft Sentinel customers aren't eligible to onboard a Log Analytics workspace that's created in the Israel region. To onboard to the Defender portal, create another workspace for Microsoft Sentinel in a different region.
+- Customers that use Microsoft Sentinel user and entity behavior analytics (UEBA) are provided with a limited version of the [IdentityInfo table](ueba-reference.md#identityinfo-table). 
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in Microsoft's unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
 
 The following image shows the **Microsoft Sentinel** menu in the Defender portal:
 
