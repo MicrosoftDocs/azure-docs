@@ -5,7 +5,7 @@ author: isabellaecr
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: deviceregistry
+ms.service: azure-iot-operations
 ms.date: 10/31/2024 
 ---
 
