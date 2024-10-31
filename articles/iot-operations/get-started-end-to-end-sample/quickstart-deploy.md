@@ -52,10 +52,9 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
+Azure IoT Operations supports Azure Kubernetes Service (AKS) Edge Essentials and K3s on Ubuntu clusters. However, for speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
 
-> [!IMPORTANT]
-> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a production cluster such as AKS Edge Essentials, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials).
+Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a cluster on Windows or Ubuntu, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
