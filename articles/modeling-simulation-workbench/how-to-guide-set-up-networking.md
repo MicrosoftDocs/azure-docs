@@ -4,7 +4,7 @@ description: Learn how to set up networking for an Azure Modeling and Simulation
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
 # Customer intent: As Workbench Owner in Azure Modeling and Simulation Workbench, I want to set up networking for chamber access.

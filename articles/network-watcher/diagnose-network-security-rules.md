@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/29/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -22,13 +22,13 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -38,7 +38,7 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -822,6 +822,6 @@ az group delete --name 'myResourceGroup' --yes --no-wait
 
 ---
 
-## Next steps
+## Related content
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

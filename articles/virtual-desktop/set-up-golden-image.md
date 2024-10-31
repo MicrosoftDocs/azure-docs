@@ -34,7 +34,7 @@ When you are done installing your applications to the image VM, take a final sna
 Some optional things you can do before running Sysprep:
 - Reboot once
 - Clean up temp files in system storage
-- Optimize drivers (defrag)
+- Optimize drives (defrag)
 - Remove any user profiles 
 - Generalize the VM by running [sysprep](/azure/virtual-machines/generalize)
  

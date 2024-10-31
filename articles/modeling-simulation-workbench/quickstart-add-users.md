@@ -3,7 +3,7 @@ title: "Quickstart: Add users to Modeling and Simulation Workbench"
 description: "Add users to a Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: quickstart
 ms.date: 09/25/2024
 

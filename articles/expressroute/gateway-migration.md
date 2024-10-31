@@ -74,10 +74,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 ### Virtual network 
 
-* Gateway Subnet needs two or more prefixes for migration.
-* MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
-
- You must create a second prefix in your Gateway Subnet for migration.
+MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ## Next steps
 
