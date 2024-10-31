@@ -3,7 +3,7 @@ title: Azure Firewall integration in Microsoft Security Copilot (preview)
 description: Learn about using Microsoft Security Copilot to investigate traffic flagged by Azure Firewall with IDPS and threat intelligence.
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai, co-pilot
 author: abhinavsriram
-ms.author: abhinavsriram
+ms.author: asriram
 ms.date: 11/19/2024
 ms.topic: conceptual
 ms.service: azure-firewall
@@ -37,15 +37,13 @@ The Azure Firewall integration in Security Copilot helps analysts perform detail
 
 You can use this integration in the [Security Copilot portal](https://securitycopilot.microsoft.com) (also called the standalone experience):
 
-:::image type="content" source="media/firewall-copilot/security-copilot-overview-image.png" alt-text="Screenshot of the prompt bar in Microsoft Security Copilot with the Prompts icon highlighted.":::
+:::image type="content" source="media/firewall-copilot/security-copilot-overview-image.png" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall.":::
 
 and via the [Copilot in Azure](/azure/copilot/overview) experience on the [Azure portal](https://portal.azure.com/) (also called the embedded experience):
 
-:::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the prompt bar in Microsoft Security Copilot with the Prompts icon highlighted."::: 
+:::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall."::: 
 
 For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot).
-
-This article introduces you to Copilot and includes sample prompts that can help Azure Firewall users.
 
 ## Key features
 Security Copilot has built-in system features that can get data from the different plugins that are turned on.
@@ -68,7 +66,7 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 ## Enable the Azure Firewall integration in Security Copilot
 
 1.  Ensure your Azure Firewall is configured correctly:
-    - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Security Copilot must be configured with resource specific structured logs for IDPS and these logs must be sent to a Log Analytics workspace.
+    - [Azure Firewall Structured Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Security Copilot must be configured with resource specific structured logs for IDPS and these logs must be sent to a Log Analytics workspace.
     - [Role Based Access Control for Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/role-based-access-control-for-azure-firewall/ba-p/2245598) – the users using the Azure Firewall plugin in Security Copilot must have the appropriate Azure RBAC roles to access the Firewall and associated Log Analytics workspace(s).
 2.	Go to [Security Copilot](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
 3.	Ensure that the Azure Firewall plugin is turned on. In the prompt bar, select the **Sources** icon.
@@ -81,9 +79,10 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
     No additional configuration is necessary, as long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot will find the data it needs to answer your questions.
 
-4. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](TBD) experience on the [Azure portal](https://portal.azure.com/).
+4. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience on the [Azure portal](https://portal.azure.com/).
 
 > [!NOTE]
+> Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](copilot/security/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
 > If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see the following error message:
 > :::image type="content" source="media/firewall-copilot/azure-copilot-error-message.png" alt-text="Screenshot showing the Copilot in Azure error message when Security Copilot is not properly configured.":::
 
@@ -142,28 +141,38 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 - If I want to make sure all my Firewalls are protected against attacks from signature ID _\<ID number\>_, how do I do this?
 - What is the difference in risk between alert only and alert and block modes for IDPS?
 
-:::image type="content" source="media/firewall-copilot/copilot-capability-4-embedded.png" alt-text="Screenshot showing the Look for a given IDPS signature across your tenant, subscription, or resource group capability.":::
+:::image type="content" source="media/firewall-copilot/copilot-capability-4-embedded.png" alt-text="Screenshot showing the Generate recommendations to secure your environment using Azure Firewall's IDPS feature capability.":::
 
 > [!NOTE]
->Security Copilot may also use the *Ask Microsoft Documentation* capability to provide information on how to use Azure Firewall's IDPS feature to secure your environment. When using this capability via the Copilot in Azure experience, the *Get Information* capability may be used to provide information.
+>Security Copilot may also use the *Ask Microsoft Documentation* capability to provide this information and when using this capability via the Copilot in Azure experience, the *Get Information* capability may be used to provide this information.
 
 
 ## Provide feedback
 
-Your feedback is vital to guide the current and planned development of the product. The best way to provide this feedback is directly in the product. Select **How’s this response?** at the bottom of each completed prompt and choose any of the following options:
+Your feedback is vital to guide the current and planned development of the product. The best way to provide this feedback is directly in the product. 
+
+### Via Security Copilot
+Select **How’s this response?** at the bottom of each completed prompt and choose any of the following options:
 - **Looks right** - Select if the results are accurate, based on your assessment. 
 - **Needs improvement** - Select if any detail in the results is incorrect or incomplete, based on your assessment. 
 - **Inappropriate** - Select if the results contain questionable, ambiguous, or potentially harmful information.
 
 For each feedback option, you can provide more information in the next dialog box that appears. Whenever possible, and especially when the result is **Needs improvement**, write a few words explaining what can be done to improve the outcome. If you entered prompts specific to Azure Firewall and the results aren't related, then include that information.
 
+:::image type="content" source="media/firewall-copilot/security-copilot-feedback.png" alt-text="Screenshot showing the feedback options in Security Copilot.":::
+
+### Via Copilot in Azure
+Use the **like and dislike** buttons at the bottom of each completed prompt. For either feedback option, you can provide more information in the next dialog box that appears. Whenever possible, and especially when you **dislike** a response, write a few words explaining what can be done to improve the outcome. If you entered prompts specific to Azure Firewall and the results aren't related, then include that information.
+
+:::image type="content" source="media/firewall-copilot/azure-copilot-feedback.png" alt-text="Screenshot showing the feedback options in Azure Copilot.":::
+
 ## Privacy and data security in Security Copilot
 
-When you interact with Security Copilot to get Azure Firewall data, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
+When you interact with Security Copilot (via the Security Copilot portal or via the Copilot in Azure experience) to get Azure Firewall data, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
 
 ## Related content
 
-- [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot)
+- [What is Microsoft Security Copilot?](/security-copilot/microsoft-security-copilot)
 - [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot)
 - [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot)
 - [What is Microsoft Copilot in Azure?](/azure/copilot/overview)
