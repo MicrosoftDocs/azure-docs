@@ -91,7 +91,7 @@ This section provides information about how to run your function app from a zipp
 
 ### Considerations for deploying from a URL
 
-+ Function apps running on Windows experience a slight increase in [cold-start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`.
++ Function apps running on Windows experience a slight increase in [cold-start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`. The URL must point to a .ZIP file and include the .ZIP extension.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
 + Don't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
