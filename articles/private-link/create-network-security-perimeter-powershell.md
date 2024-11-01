@@ -192,7 +192,7 @@ In this step, you create and update network security perimeter access rules with
     Update-AzNetworkSecurityPerimeterAccessRule @updateInboundRule | format-list
 ```
 
-[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+[!INCLUDE [network-security-pe~rimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete a network security perimeter 
 

@@ -59,7 +59,6 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 | **Mode** | **Description** |
 |----------------|--------|
 | **Learning mode**  | - Default access mode.</br>- Helps network administrators to understand the existing access patterns of their PaaS resources.</br>- Advised mode of use before transitioning to enforced mode.|
- |
 | **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic except intra perimeter traffic is denied in this mode unless an *Allow* access rule exists. |
 
 

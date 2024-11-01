@@ -1,5 +1,5 @@
 ---
-title: 'Diagnostic logging for Network Security Perimeter'
+title: 'Diagnostic logs for Network Security Perimeter'
 description: Learn the options for storing diagnostic logs for Network Security Perimeter and how to enable logging through the Azure portal.
 author: mbender-ms
 ms.author: mbender
@@ -9,7 +9,7 @@ ms.date: 10/30/2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
-# Diagnostic logging for Network Security Perimeter
+# Diagnostic logs for Network Security Perimeter
 
 In this article, you learn about the diagnostic logs for Network Security Perimeter and how to enable logging. You learn access logs categories used. Then, you discover the options for storing diagnostic logs and how to enable logging through the Azure portal.
 

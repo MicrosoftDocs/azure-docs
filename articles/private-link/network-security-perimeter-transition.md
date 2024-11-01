@@ -53,6 +53,7 @@ Both the `publicNetworkAccess` and `accessMode` properties can be set using the 
 1. Navigate to your network security perimeter resource in the Azure portal.
 2. Select **Settings** > **Resources** to view the list of resources associated with the perimeter.
 3. Select *...* (ellipsis) next to the resource you want to configure.
+   
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-resources-page-full-size.png" alt-text="Screenshot of resources page with management options selected for resource." lightbox="media/network-security-perimeter-transition/network-security-perimeter-association-settings-lightbox.png":::
 
 4. From the dropdown menu, select **Configure public network access**, and then select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.

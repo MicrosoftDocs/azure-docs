@@ -179,7 +179,8 @@ In this step, you create and update network security perimeter access rules with
         --address-prefixes "['198.51.100.0/24', '192.0.2.0/24']"
 
     ```
-[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+
+    [!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources
 
