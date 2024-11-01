@@ -42,7 +42,7 @@ API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-met
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 
     > [!TIP]
-    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management has     replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
+    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management has replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
 
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
 
@@ -80,10 +80,10 @@ To configure an example alert rule based on a request metric:
 1. Select **+ Create** > **Alert rule**.
 1. On the **Condition** tab:
     1. In **Signal name**, select **Requests**.
-    2. In **Alert logic**, review or modify the default values for the alert. For example, update the static **Threshold**, which is the number of occurrences after which the alert should be triggered.
-    3. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
-    4. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests. If the dimension value doesn't appear, select **Add custom value** and enter **4xx**.
-    5. In **When to evaluate**, accept the default settings, or select other settings to configure how often the rule runs. Select **Next**.
+    1. In **Alert logic**, review or modify the default values for the alert. For example, update the static **Threshold**, which is the number of occurrences after which the alert should be triggered.
+    1. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
+    1. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests. If the dimension value doesn't appear, select **Add custom value** and enter **4xx**.
+    1. In **When to evaluate**, accept the default settings, or select other settings to configure how often the rule runs. Select **Next**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold-1.png" alt-text="Screenshot of configuring alert logic in the portal.":::
 
@@ -99,7 +99,7 @@ To configure an example alert rule based on a request metric:
     curl GET https://contoso.azure-api.net/non-existent-endpoint HTTP/1.1 
     ```
 
-    An alert triggers based on the evaluation period, and it will send email to admin@contoso.com. There may be a delay before the alert triggers.
+    An alert triggers based on the evaluation period, and it will send email to admin@contoso.com. 
 
     Alerts also appear on the **Alerts** page for the API Management instance.
 
