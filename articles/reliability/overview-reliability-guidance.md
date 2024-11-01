@@ -1,33 +1,32 @@
 ---
-title: Reliability guidance overview for Microsoft Azure products and services
-description: Reliability guidance overview for Microsoft Azure products and services. View Azure service specific reliability guides and Azure Service Manager Retirement guides.
+title: Azure service reliability guides
+description: Reliability guides for Microsoft Azure products and services. View Azure service specific reliability guides.
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 10/31/2024
+ms.date: 11/01/2024
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
-# Reliability guides overview
+# Azure service reliability guides
 
-This article provides an overview of reliability guidance for Microsoft Azure products and services. The reliability guidance includes service specific information about availability zones, disaster recovery, and high availability. The guidance is organized by service category and includes links to service-specific reliability documents.
-
-Below is a list of Azure services with links to their respective reliability documents. The documents are organized by service category.
+Below is a list of Azure service reliability guides, organized by service category.
 
 >[!NOTE]
->Some service documents are in the process of, or are not yet updated into a single reliability document format. These may contain more than one document that references reliability guidance.
+>Some service documents are in the process of, or are not yet updated into a single reliability guide format. These may contain more than one document that references reliability guidance.
 
-### AI and machine learning
+## AI and machine learning
 
 | Product| Guidance |
 |----------|---------|
-|Azure Bot Service | [Reliability in Azure Bot Service ](reliability-bot.md)|
+|Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)|
 |Azure AI Search| [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Bot Service | [Reliability in Azure Bot Service ](reliability-bot.md)|
 |Azure Machine Learning Service| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
  
-### Analytics
+## Analytics
 
 | Product| Guidance |
 |----------|---------|
@@ -42,7 +41,7 @@ Below is a list of Azure services with links to their respective reliability doc
 |Microsoft Fabric| [Reliability in Microsoft Fabric](reliability-fabric.md)|
 |Microsoft Purview| [Reliability in Microsoft Purview](reliability-microsoft-purview.md)|
 
-### Compute
+## Compute
 
 | Product| Guidance |
 |----------|---------|
@@ -57,9 +56,10 @@ Below is a list of Azure services with links to their respective reliability doc
 |Azure Virtual Machines| [Reliability in Azure Virtual Machines](reliability-virtual-machines.md)|
 |Azure Virtual Machine Image Builder| [Reliability in Azure Virtual Machine Image Builder](reliability-image-builder.md)|
 |Azure Virtual Machine Scale Sets| [Reliability in Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)|
-  
+ |Azure VMware Solution| [Deploy disaster recovery using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+ 
 
-### Containers
+## Containers
 
 | Product| Guidance |
 |----------|---------|
@@ -70,7 +70,7 @@ Below is a list of Azure services with links to their respective reliability doc
 |Azure Kubernetes Service (AKS)| [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [High availability and disaster recovery overview for Azure Kubernetes Service (AKS)](/azure/aks/ha-dr-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](/azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery in Azure Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 
- ### Databases
+## Databases
 
  
 | Product| Guidance |
@@ -84,15 +84,14 @@ Below is a list of Azure services with links to their respective reliability doc
 |Azure Cosmos DB for MongoDB vCore| [Reliability in Azure Cosmos DB for MongoDB vCore](reliability-cosmos-mongodb.md)|
 |Azure Cache for Redis|[Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Configure passive geo-replication for Premium Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 
-### Developer tools
+## Developer tools
 
 | Product| Guidance |
 |----------|---------|
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) |
 
 
-### DevOps
-
+## DevOps
 
 | Product| Guidance |
 |----------|---------|
@@ -100,27 +99,36 @@ Below is a list of Azure services with links to their respective reliability doc
 |Azure DevOps| [Data availability](/azure/devops/organizations/security/data-protection?view=azure-devops&branch=main&preserve-view=true#data-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Monitor-Log Analytics |[Enhance data and service resilience in Azure Monitor Logs with availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Log Analytics workspace replication](/azure/azure-monitor/logs/workspace-replication) | 
 
-### Hybrid + multicloud
+## Hybrid + multicloud
 
 | Product| Guidance |
 |----------|---------|
 |Azure Operator Nexus| [Reliability in Azure Operator Nexus](reliability-operator-nexus.md)|
 
-
-### Integration
+## Industry solutions
 
 | Product| Guidance |
 |----------|---------|
-|Azure Event Grid| [Reliability in Azure Event Grid](./reliability-event-grid.md)|
-|Azure Service Bus| [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure API Management|[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-| Azure Data Factory| [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json) |
-|Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)|
-|Azure Health Data Services - Azure API for FHIR| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Reliability in Azure Health Data Services de-identification service|[Reliability in Azure Health Data Services de-identification service](./reliability-health-data-services-deidentification.md)|
-|Azure Logic Apps|[Protect logic apps from region failures with zone redundancy and availability zones](../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)</p> [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Microsoft Community Training| [Reliability in Microsoft Community Training](reliability-community-training.md) |
 
-### Internet of Things
+
+## Integration
+
+| Product| Guidance |
+|----------|---------|
+|Azure API for FHIR®|[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure API Management|[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Data Manager for Energy| [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md)|
+| Azure Data Factory| [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json) |
+|Azure Event Grid| [Reliability in Azure Event Grid](./reliability-event-grid.md)|
+|Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)|
+|Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-Identification service](reliability-health-data-services-deidentification.md)|
+| Azure Health Data Services: Workspace services (FHIR®, DICOM®, MedTech) | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Logic Apps|[Protect logic apps from region failures with zone redundancy and availability zones](../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)</p> [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Service Bus| [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+
+
+## Internet of Things
 
 | Product| Guidance |
 |----------|---------|
@@ -128,7 +136,7 @@ Below is a list of Azure services with links to their respective reliability doc
 |Azure Notification Hubs| [Reliability in Azure Notification Hubs](reliability-notification-hubs.md)|
 
 
-### Media
+## Media
 
 
 | Product| Guidance |
@@ -136,7 +144,7 @@ Below is a list of Azure services with links to their respective reliability doc
 Azure Media Services| [High Availability with Media Services and Video on Demand (VOD)](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
 
-### Management and governance
+## Management and governance
 
 | Product| Guidance |
 |----------|---------|
@@ -146,14 +154,14 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure Site Recovery| [Set up disaster recovery for Azure VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
 
-### Migration
+## Migration
 
 | Product| Guidance |
 |----------|---------|
 |Azure Migrate | [Does Azure Migrate offer Backup and Disaster Recovery?](../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery)|
 |Azure Site Recovery|[Set up disaster recovery for Azure VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 
-### Networking
+## Networking
 
 | Product| Guidance |
 |----------|---------|
@@ -178,7 +186,7 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure Web Application Firewall | [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [How do I achieve a disaster recovery scenario across datacenters by using Application Gateway?](../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway)|
 
 
-### Security
+## Security
 
 | Product| Guidance |
 |----------|---------|
@@ -188,12 +196,13 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure Web Application Firewall | [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [How do I achieve a disaster recovery scenario across datacenters by using Application Gateway?](../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway)|
 
 
-### Storage
+## Storage
 
 | Product| Guidance |
 |----------|---------|
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)|
 |Azure Blob Storage|[Choose the right redundancy option](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Databox| [How can I recover my data if an entire region fails?](../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-)|
 |Azure Elastic SAN| [Reliability in Azure Elastic SAN](reliability-elastic-san.md)|
 |Azure NetApp Files| [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure.reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Storage Actions|[Reliability in Azure Storage Actions](reliability-storage-actions.md)|
@@ -201,7 +210,7 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|
 
 
-### Web
+## Web
 
 | Product| Guidance |
 |----------|---------|
@@ -213,29 +222,8 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure SignalR Service| [Resiliency and disaster recovery in Azure SignalR Service](../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
 
-### Other
-
-| Product| Guidance |
-|----------|---------|
-|Azure Community Training| [Reliability in Azure Community Training](reliability-community-training.md) |
-|Azure Databox| [How can I recover my data if an entire region fails?](../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-)|
-|Azure Health Insights| [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md)|
-| Azure Health Insights| [Reliability in Azure Health Insights](reliability-health-insights.md)|
-|Azure VMware Solution| [Deploy disaster recovery using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure API for FHIR|[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
- 
-
-## Next steps
+## Related content
 
 
-> [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)
-
-> [!div class="nextstepaction"]
-> [Availability of service by category](availability-service-by-category.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-
-> [!div class="nextstepaction"]
-> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

@@ -94,10 +94,12 @@
     href: overview-reliability-guidance.md
   - name: AI and machine learning
     items:
-    - name: Azure Bot Service 
-      href: reliability-bot.md
+    - name: Azure AI Health Insights
+      href: reliability-ai-health-insights.md
     - name: Azure AI Search
       href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Bot Service 
+      href: reliability-bot.md
     - name: Azure Machine Learning Service
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
   - name: Analytics
@@ -150,6 +152,9 @@
       href: reliability-image-builder.md
     - name: Azure Virtual Machine Scale Sets
       href: reliability-virtual-machine-scale-sets.md
+    - name: Azure VMware Solution
+      href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+
   - name: Containers
     items:
     - name: Azure App Configuration
@@ -226,10 +231,12 @@
     items:
     - name: Azure Operator Nexus
       href: reliability-operator-nexus.md
+  - name: Industry solutions
+    items:
+    - name: Microsoft Community Training
+      href: reliability-community-training.md
   - name: Integration
     items:
-    - name: Azure Event Grid
-      href: ./reliability-event-grid.md
     - name: Azure Service Bus
       href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
     - name: Azure API Management
@@ -238,8 +245,12 @@
         href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Manager for Energy
+      href: reliability-energy-data-services.md
     - name: Azure Data Factory
       href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
+    - name: Azure Event Grid
+      href: ./reliability-event-grid.md
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Health Data Services
@@ -380,6 +391,8 @@
         href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option
       - name: Disaster recovery
         href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Databox
+      href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
     - name: Azure NetApp Files
@@ -408,18 +421,6 @@
       href: reliability-notification-hubs.md
     - name: Azure SignalR Service
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-  - name: Other
-    items:
-    - name: Azure Community Training
-      href: reliability-community-training.md
-    - name: Azure Databox
-      href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
-    - name: Azure Data Manager for Energy
-      href: reliability-energy-data-services.md
-    - name: Azure Health Insights 
-      href: ../reliability/reliability-health-insights.md?toc=/azure/health-insights/toc.json
-    - name: Azure VMware Solution
-      href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Resources
   items:
   - name:  Azure Service Manager retirement
