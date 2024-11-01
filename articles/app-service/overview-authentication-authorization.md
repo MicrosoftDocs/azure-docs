@@ -157,19 +157,30 @@ If you don't need to work with tokens in your app, you can disable the token sto
 
 If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
-### Considerations when using Azure Front Door
+### Cross-site request forgery mitigation
 
-When using Azure App Service with Easy Auth behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+App Service authentication mitigates CSRF by inspecting client requests for the following conditions:
 
-1) Disable Caching for the authentication workflow
+- It's a POST request that authenticated using a session cookie.
+- The request came from a known browser (as determined by the HTTP `User-Agent` header).
+- The HTTP `Origin` or HTTP `Referer` header is missing or is not in the configured list of approved external domains for redirection.
+- The HTTP `Origin` header is missing or is not in the configured list of CORS origins.
+
+When a request fulfills all these conditions, App Service authentication automatically rejects it. You can workaround this mitigation logic by adding your external domain to the redirect list to **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**. 
+
+## Considerations when using Azure Front Door
+
+When using Azure App Service with authentication behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+
+- Disable caching for the authentication workflow.
 
     See [Disable cache for auth workflow](../static-web-apps/front-door-manual.md#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
 
-2) Use the Front Door endpoint for redirects
+- Use the Front Door endpoint for redirects.
 
     App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented, for example, by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it is important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
 
-3) Ensure that App Service is using the right redirect URI
+- Ensure that App Service is using the right redirect URI
 
     In some configurations, the App Service is using the App Service FQDN as the redirect URI instead of the Front Door FQDN. This will lead to an issue when the client is being redirected to App Service instead of Front Door. To change that, the `forwardProxy` setting needs to be set to `Standard` to make App Service respect the `X-Forwarded-Host` header set by Azure Front Door.
     

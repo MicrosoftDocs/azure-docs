@@ -2,11 +2,13 @@
 title: Implement Quality of Service (QoS) for Azure Virtual Desktop
 titleSuffix: Azure
 description: How to set up QoS for Azure Virtual Desktop.
-author: femila
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.author: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Implement Quality of Service (QoS) for Azure Virtual Desktop
 
 [RDP Shortpath for managed networks](./shortpath.md) provides a direct UDP-based transport between Remote Desktop Client and Session host. RDP Shortpath for managed networks enables configuration of Quality of Service (QoS) policies for the RDP data.

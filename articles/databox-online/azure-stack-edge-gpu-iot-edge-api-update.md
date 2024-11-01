@@ -4,8 +4,7 @@ description: This article describes the impact of IoT Edge role management on Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli

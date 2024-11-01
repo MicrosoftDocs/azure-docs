@@ -18,7 +18,7 @@ With cost allocation, you can reassign or distribute the costs of shared service
 
 Cost allocation doesn't support purchases, including reservations and savings plans.
 
-Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as the get reassigned or distributed.
+Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as they get reassigned or distributed.
 
 Allocated costs appear in cost analysis. They appear as other items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
 
@@ -130,7 +130,7 @@ The following items are currently unsupported by cost allocation:
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-The [Usage Details](/rest/api/consumption/usagedetails/list) API version `2021-10-01` and later supports  cost allocation data.
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report/create-operation?view=rest-cost-management-2023-11-01&tabs=HTTP) API and [Exports](/rest/api/cost-management/exports/create-or-update?view=rest-cost-management-2023-11-01&tabs=HTTP) support cost allocation data. However, the [Usage Details](/rest/api/consumption/usagedetails/list) API doesn't support cost allocation data.  
 
 However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 

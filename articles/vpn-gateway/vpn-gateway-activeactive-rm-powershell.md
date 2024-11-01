@@ -5,7 +5,7 @@ description: Learn how to configure active-active connections with VPN gateways 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 10/15/2024
 ms.author: cherylmc
 
 ms.custom: devx-track-azurepowershell
@@ -76,7 +76,6 @@ $FESubPrefix1 = "10.11.0.0/24"
 $BESubPrefix1 = "10.12.0.0/24"
 $GWSubPrefix1 = "10.12.255.0/27"
 $VNet1ASN = 65010
-$DNS1 = "8.8.8.8"
 $GWName1 = "VNet1GW"
 $GW1IPName1 = "VNet1GWIP1"
 $GW1IPName2 = "VNet1GWIP2"
@@ -317,7 +316,6 @@ $FESubPrefix2 = "10.21.0.0/24"
 $BESubPrefix2 = "10.22.0.0/24"
 $GWSubPrefix2 = "10.22.255.0/27"
 $VNet2ASN = 65020
-$DNS2 = "8.8.8.8"
 $GWName2 = "VNet2GW"
 $GW2IPName1 = "VNet2GWIP1"
 $GW2IPconf1 = "gw2ipconf1"

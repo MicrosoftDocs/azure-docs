@@ -4,8 +4,7 @@ description: Describes how to use an Azure Marketplace image to create a VM imag
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/28/2024

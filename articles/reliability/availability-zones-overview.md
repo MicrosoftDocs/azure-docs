@@ -1,14 +1,14 @@
 ---
 title: What are Azure availability zones?
 description: Learn about availability zones and how they work to help you achieve reliability
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 09/20/2023
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 

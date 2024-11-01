@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Use Dapr to develop distributed application workloads that talk with MQTT broker
@@ -112,7 +113,7 @@ The following definition components might require customization to your specific
           # Certificate chain for Dapr to validate the MQTT broker
           - name: aio-ca-trust-bundle
             configMap:
-              name: aio-ca-trust-bundle-test-only
+              name: azure-iot-operations-aio-ca-trust-bundle
 
           containers:
           # Container for the Dapr application 

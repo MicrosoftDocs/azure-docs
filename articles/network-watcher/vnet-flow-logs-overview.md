@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 08/29/2024
+ms.date: 10/25/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -59,7 +59,9 @@ Virtual network flow logs also avoid the need to enable multiple-level flow logg
 In addition to existing support to identify traffic that [network security group rules](../virtual-network/network-security-groups-overview.md) allow or deny, Virtual network flow logs support identification of traffic that [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md) allow or deny. Virtual network flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md?toc=/azure/network-watcher/toc.json).
 
 > [!IMPORTANT]
-> We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging (both network security group flow logs and virtual network flow logs generated for all supported workloads in that particular subnet).
+> We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs.
+> 
+> If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging or only virtual network flow logs.
 
 ## How logging works
 
@@ -133,15 +135,15 @@ In the following example of virtual network flow logs, multiple records follow t
             "time": "2022-09-14T09:00:52.5625085Z",
             "flowLogVersion": 4,
             "flowLogGUID": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
-            "macAddress": "00224871C205",
+            "macAddress": "112233445566",
             "category": "FlowLogFlowEvent",
-            "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
-            "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+            "flowLogResourceID": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
+            "targetResourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "operationName": "FlowLogFlowEvent",
             "flowRecords": {
                 "flows": [
                     {
-                        "aclID": "00000000-1234-abcd-ef00-c1c2c3c4c5c6",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "DefaultRule_AllowInternetOutBound",
@@ -161,7 +163,7 @@ In the following example of virtual network flow logs, multiple records follow t
                         ]
                     },
                     {
-                        "aclID": "01020304-abcd-ef00-1234-102030405060",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "BlockHighRiskTCPPortsFromInternet",
@@ -196,15 +198,15 @@ In the following example of virtual network flow logs, multiple records follow t
 
 :::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table that shows the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.2.0.4:23`:
+Here's an example bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:23`:
 
-`1493763938,203.0.113.105,10.2.0.4,35370,23,6,I,B,NX,,,,`
-`1493695838,203.0.113.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880`
-`1493696138,203.0.113.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,B,NX,,,,`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,C,NX,1021,588096,8005,4610880`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,E,NX,52,29952,47,27072`
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
-## Storage account considerations for virtual network flow logs 
+## Storage account considerations for virtual network flow logs
 
 - **Location**: The storage account must be in the same region as the virtual network.
 - **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
@@ -236,7 +238,7 @@ The following table outlines the support scope of flow logs.
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions.
+Virtual network flow logs are generally available in all Azure public regions and are currently in preview in Azure Government.
 
 ## Related content
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: tutorial
-ms.service: iot
+ms.service: azure-iot
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---

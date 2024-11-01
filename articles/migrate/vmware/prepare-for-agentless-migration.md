@@ -11,6 +11,9 @@ ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 
 # Prepare for VMware agentless migration
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Migration and modernization tool.
 
 Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established-.
@@ -270,7 +273,7 @@ The preparation script executes the following changes based on the OS type of th
 
     Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7/6 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
+    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL 9.x, 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7/6 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.

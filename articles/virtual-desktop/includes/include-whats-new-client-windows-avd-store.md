@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 10/08/2024 
+ms.date: 10/30/2024 
 ---
 
 ## Supported client versions
@@ -12,22 +12,25 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5709  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5797 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Insider | 1.2.5800 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5797 (Insider)
+## Updates for version 1.2.5800 (Insider) 
 
-*Date published: October 8, 2024*   
+*Date published: October 29, 2024*   
 
-- Fixed an issue for [CVE-2024-43533](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmsrc.microsoft.com%2Fupdate-guide%2Fvulnerability%2FCVE-2024-43533&data=05%7C02%7Chilarybraun%40microsoft.com%7C6d48586f6193430e3eb108dce4ceb271%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638636823631992751%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=czWxraXOI9L5Azl7ZZULpw7XjqWzEWCIOxD47lM1nkI%3D&reserved=0). 
 - Added list of graphics codecs to the Connection Information dialog. 
-- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
-- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
+- Fixed an issue where the Connection Information dialog showed the lowest round-trip time (RTT) instead of average RTT.
+- Fixed an issue where UDP type was incorrectly reported as "UDP (Private Network)" for all UDP connections in the Connection Info dialog. 
 
-## Updates for version 1.2.5709 
+> [!NOTE]
+> This version replaced the Insider version 1.2.5799. Changes noted above reflect all changes for these versions. 
 
-*Date published: October 8, 2024*   
+## Updates for version 1.2.5709
 
-- Fixed an issue for [CVE-2024-43533](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmsrc.microsoft.com%2Fupdate-guide%2Fvulnerability%2FCVE-2024-43533&data=05%7C02%7Chilarybraun%40microsoft.com%7C6d48586f6193430e3eb108dce4ceb271%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638636823631992751%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=czWxraXOI9L5Azl7ZZULpw7XjqWzEWCIOxD47lM1nkI%3D&reserved=0).
+*Date published: October 8, 2024*
+
+- Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
 
 ## Updates for version 1.2.5704 
 
@@ -35,10 +38,10 @@ The following table lists the current versions available for the public and Insi
 
 - Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
 - Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
-- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts. 
-- Made improvement where new session windows will not become the focused windows. 
-- Fixed a bug to ensure that the **screen mode id** setting in RDP file is honored. 
-- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+- Addressed an issue that reduces the chance of encountering a **low virtual memory** error on reconnect attempts.
+- Made an improvement where new session windows will not become the focused windows. 
+- Fixed a bug to ensure that the `screen mode id` setting in an RDP file is honored.
+- Fixed issue where Microsoft Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5702, 1.2.5701, and 1.2.5699. It contains all changes made in noted versions and was promoted to public on September 18, 2024. 
@@ -420,8 +423,8 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.

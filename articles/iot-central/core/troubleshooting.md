@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 02/06/2024
 ms.topic: troubleshooting
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: device-developer, devx-track-azurecli
 
 #Customer intent: As a device developer, I want to understand why data from my devices isn't showing up in IoT Central, and the steps I can take to rectify the issue.

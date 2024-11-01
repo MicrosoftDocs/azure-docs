@@ -7,7 +7,10 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial
 ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
-#Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
+
+
+#Customer intent: As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
+
 ---
 
 # Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent

@@ -105,11 +105,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -152,7 +152,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "appgw_1",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
@@ -245,7 +245,7 @@ The firewall log is generated only if you have enabled it for each application g
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.147",
+      "clientIp": "203.0.113.147",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",
@@ -262,7 +262,7 @@ The firewall log is generated only if you have enabled it for each application g
       },
       "hostname": "127.0.0.1",
       "transactionId": "16861477007022634343",
-      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
+      "policyId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
       "policyScope": "Listener",
       "policyScopeName": "httpListener1"
     }

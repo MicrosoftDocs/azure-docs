@@ -52,10 +52,9 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
+Azure IoT Operations supports Azure Kubernetes Service (AKS) Edge Essentials and K3s on Ubuntu clusters. However, for speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
 
-> [!IMPORTANT]
-> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a production cluster such as AKS Edge Essentials, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials).
+Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a cluster on Windows or Ubuntu, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
@@ -88,6 +87,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
    ```
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -105,7 +105,7 @@ To connect your cluster to Azure Arc:
    >[!TIP]
    >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
@@ -170,10 +170,10 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
 
    ```azurecli
-   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
+   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
@@ -181,7 +181,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
@@ -221,4 +221,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-configure.md)

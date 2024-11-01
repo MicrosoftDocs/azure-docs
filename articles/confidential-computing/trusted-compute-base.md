@@ -3,10 +3,11 @@ title: Trusted compute base (TCB) in Azure confidential computing
 description: Understanding what the TCB is and what it includes
 author: vinfnet
 ms.author: sgallagher
-ms.service: confidential-computing
+ms.service: azure
 ms.topic: conceptual
 ms.date: 06/09/2023
 ms.custom: template-concept
+ms.subservice: confidential-computing
 ---
 # Trusted Compute Base
 

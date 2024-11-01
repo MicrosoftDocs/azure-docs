@@ -399,11 +399,11 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Bulgaria                               | Good                | ✓                     | ✓                 | ✓                         |
 | Burkina Faso                           | Fair                |                       | ✓                 |                            |
 | Burundi                                | Good                |                       | ✓                 |                            |
+| Cabo Verde                             | Good                |                       | ✓                 |                            |
 | Cambodia                               | Good                |                       | ✓                 |                            |
 | Cameroon                               | Fair                |                       | ✓                 |                            |
 | Canada                                 | Good                | ✓                     | ✓                 | ✓                         |
-| Cape Verde                             | Good                |                       | ✓                 |                            |
-| Caribbean Netherlands                  |                     |                       | ✓                 |                            |
+| Cape Verde                             |                     |                       | ✓                 |                            |
 | Cayman Islands                         | Good                |                       | ✓                 |                            |
 | Central African Republic               | Major Roads Only    |                       | ✓                 |                            |
 | Chad                                   | Major Roads Only    |                       | ✓                 |                            |
@@ -547,12 +547,12 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Russia                                 | Good                | ✓                     | ✓                 | ✓                         |
 | Rwanda                                 | Good                |                       | ✓                 |                            |
 | Saba                                   | Good                |                       |                   |                            |
-| Saint Barthélemy                       | Good                |                       |                   |                            |
+| Saint Barthélemy                       | Good                |                       | ✓                 |                            |
 | Saint Kitts & Nevis                    | Good                |                       |                   |                            |
-| Saint Lucia                            | Good                |                       |                   |                            |
-| Saint Martin                           | Good                |                       |                   |                            |
-| Saint Pierre & Miquelon                | Good                |                       |                   |                            |
-| Saint Vincent & the Grenadines         | Good                |                       |                   |                            |
+| Saint Lucia                            | Good                |                       | ✓                 |                            |
+| Saint Martin                           | Good                |                       | ✓                 |                            |
+| Saint Pierre & Miquelon                | Good                |                       | ✓                 |                            |
+| Saint Vincent & the Grenadines         | Good                |                       | ✓                 |                            |
 | Samoa                                  | Major Roads Only    |                       | ✓                 |                            |
 | San Marino                             | Good                | ✓                     | ✓                 | ✓                         |
 | São Tomé & Príncipe                    | Major Roads Only    |                       | ✓                 |                            |
@@ -573,13 +573,7 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | South Sudan                            | Major Roads Only    |                       | ✓                 |                            |
 | Spain                                  | Good                | ✓                     | ✓                 | ✓                         |
 | Sri Lanka                              | Major Roads Only    |                       | ✓                 |                            |
-| St. Barthélemy                         |                     |                       | ✓                 |                            |
 | St Helena, Ascension, Tristan da Cunha | Major Roads Only    |                       | ✓                 |                            |
-| St. Kitts & Nevis                      |                     |                       | ✓                 |                            |
-| St. Lucia                              |                     |                       | ✓                 |                            |
-| St. Martin                             |                     |                       | ✓                 |                            |
-| St. Pierre & Miquelon                  |                     |                       | ✓                 |                            |
-| St. Vincent & Grenadines               |                     |                       | ✓                 |                            |
 | Sudan                                  | Major Roads Only    |                       | ✓                 |                            |
 | Suriname                               | Good                |                       | ✓                 |                            |
 | Svalbard                               | Good                |                       |                   |                            |
@@ -596,7 +590,7 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Tonga                                  | Major Roads Only    |                       | ✓                 |                            |
 | Trinidad & Tobago                      | Good                |                       | ✓                 |                            |
 | Tunisia                                | Good                |                       | ✓                 |                            |
-| Turkey                                 | Good                | ✓                     | ✓                 | ✓                         |
+| Türkiye                                | Good                | ✓                     | ✓                 | ✓                         |
 | Turkmenistan                           | Major Roads Only    |                       | ✓                 |                            |
 | Turks & Caicos Islands                 | Good                |                       | ✓                 |                            |
 | Tuvalu                                 | Major Roads Only    |                       | ✓                 |                            |

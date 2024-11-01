@@ -1,10 +1,13 @@
 ---
-title: Sample Log Analytics workspace designs for Microsoft Sentinel
-description: Learn from samples of Log Analytics workspace designs for Microsoft Sentinel with multiple tenants, clouds or regions.
-author: batamig
-ms.author: bagol
+title: Sample Microsoft Sentinel workspace designs
+description: Learn from samples of Microsoft Sentinel architecture designs with multiple tenants, clouds or regions.
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 08/27/2024
+
+#Customer intent: As a security architect, I want to design an optimal workspace architecture for multi-tenant and multi-region environments so that I can ensure compliance, cost efficiency, and effective data segregation.
+
 ---
 
 # Sample Log Analytics workspace designs for Microsoft Sentinel

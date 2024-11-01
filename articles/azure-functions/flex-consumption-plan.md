@@ -137,7 +137,7 @@ In Flex Consumption, many of the standard application settings and site configur
 Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
 + **Host**: There is a 30 seconds timeout for the app initialization. If your function app takes longer than 30 seconds to start you will see gRPC related System.TimeoutException entries. This timeout will be configurable and a more clear exception will be implemented as part of [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
-+ **Durable Functions Performance**: Due to the per function scaling nature of Flex Consumption, to ensure the best performance for Durable Functions we recommend setting the [Always Ready instance count](./flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. Also, with the Azure Storage provider, consider reducing the [queue polling interval](./durable/durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less.  
++ **Durable Functions**: Due to the per function scaling nature of Flex Consumption, to ensure the best performance for Durable Functions we recommend setting the [Always Ready instance count](./flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. Also, with the Azure Storage provider, consider reducing the [queue polling interval](./durable/durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Only Azure Storage is supported as a backend storage providers for Flex Consumption hosted durable functions.
 + **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka and Azure SQL triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
@@ -146,8 +146,10 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
 + **Diagnostic settings**: Diagnostic settings are not currently supported.
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
- 
-## Related articles 
++ **Key Vault References**: Key Vault references in app settings do not work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
++ **Azure Files file share mount**: [Mounting an Azure Files file share](./scripts/functions-cli-mount-files-storage-linux.md) does not work when the function app has Virtual Network integration. 
+
+## Related articles
 
 [Azure Functions hosting options](functions-scale.md)
 [Create and manage function apps in the Flex Consumption plan](flex-consumption-how-to.md)

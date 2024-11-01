@@ -180,7 +180,7 @@ sections:
 
       - question: Does Azure Firewall outbound SNAT between private networks?
         answer: |
-          Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+          Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) or [IANA RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
           In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
       - question: Is forced tunneling/chaining to a Network Virtual Appliance supported?

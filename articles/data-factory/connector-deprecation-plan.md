@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/30/2024
+ms.date: 10/16/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -21,14 +21,14 @@ This article describes future deprecations for some connectors of Azure Data Fac
 
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
-| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
-| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
-| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) | End of support announced and new version available | October 31, 2024| January 10, 2025| 
-| [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
-| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
-| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
-| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | December 31, 2024 | March 1, 2025  | 
-| [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
+| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and new version available | October 31, 2024 | / | 
+| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and new version available | October 31, 2024 | /| 
+| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) | End of support announced and new version available | October 31, 2024| /| 
+| [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | To be determined | /| 
+| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | To be determined |/ | 
+| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | /  | 
+| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | To be determined | / | 
+| [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
@@ -53,7 +53,7 @@ This section describes the different release stages and support for each stage.
 | Release stage |Notes  | 
 |:--  |:-- | 
 | End of Support announcement | Before the end of the lifecycle at any stage, an end of support announcement is performed.<br><br>Support Service Level Agreements (SLAs) are applicable for End of Support announced connectors, but all customers must upgrade to a new version of the connector no later than the End of Support date.<br><br>During this stage, the existing connectors function as expected, but objects such as linked service can be created only on the new version of the connector.  | 
-| End of Support | At this stage, the connector is considered as deprecated, and no longer supported.<br>&nbsp;&nbsp;• No plan to fix bugs. <br>&nbsp;&nbsp;• No plan to add any new features. <br><br> If necessary due to outstanding security issues, or other factors, **Microsoft might expedite moving into the final disabled stage at any time, at Microsoft's discretion**.| 
+| End of Support | At this stage, the connector is considered as deprecated, and no longer supported. Your pipeline will not fail due to the deprecation but with below cautions:<br>&nbsp;&nbsp;• No plan to fix bugs. <br>&nbsp;&nbsp;• No plan to add any new features. <br><br> If necessary due to outstanding security issues, or other factors, **Microsoft might expedite moving into the final disabled stage at any time, at Microsoft's discretion**.| 
 |Disabled |All pipelines that are running on legacy version connectors will no longer be able to execute.| 
 
 ## Legacy connectors with updated connectors or drivers available now
