@@ -55,9 +55,9 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 
 - [In product prerequisites](): as a dev center admin, you will get a dynamic prerequisites page that highlights any missing requirements and helps you track the progress you are making in setting up the Dev Box service.
 - [New Supported Regions](): as a dev center admin, you will be able to enable your development team to create dev boxes in new regions including [UAE North](https://developercommunity.visualstudio.com/t/Support-for-Dev-Box-in-UAE-North/10781448) and [Spain Central](https://developercommunity.visualstudio.com/t/Dev-Box-support-in-Spain-Central/10781449).
-- [Expand IPs within existing subnets](): as a dev center admin, you will be able to expand IP ranges in subnets that are running out of IP addresses.
+- [Expand IPs within existing subnets](https://developercommunity.visualstudio.com/t/Expand-IPs-within-existing-Subnets-in-a/10781464): as a dev center admin, you will be able to expand IP ranges in subnets that are running out of IP addresses.
 - [Guest Account](https://developercommunity.visualstudio.com/t/Enable-Guest-accountsVendors-to-access-/10290470): as a dev center admin, securely onboard and support external teams and contractors to your Dev Box service.
-- [RRS Integration into QMS](): as a dev center admin for a trusted customer, you will be able to request and get larger amount of quota automatically approved through QMS.
+- [RRS Integration into QMS](https://developercommunity.visualstudio.com/t/Automatically-approve-higher-amounts-of/10781465): as a dev center admin for a trusted customer, you will be able to request and get larger amount of quota automatically approved through QMS.
 
 **Enhanced monitoring and cost controls capabilities**
 
