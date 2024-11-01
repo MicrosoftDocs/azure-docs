@@ -188,7 +188,7 @@
   - name: Troubleshoot cloud tiering issues
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
-    href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
   - name: Azure File Sync agent silent installation
