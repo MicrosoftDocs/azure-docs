@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Develop Azure Functions locally using Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your ZIP or UNZIP code project to Azure and work with application settings.
+Azure Functions Core Tools lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your ZIP (also known as Run From Package) or UNZIP code project to Azure and work with application settings.
 
 ::: zone pivot="programming-language-csharp"
 >You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
