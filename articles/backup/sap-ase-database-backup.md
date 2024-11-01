@@ -350,9 +350,9 @@ To discover the SAP ASE databases, follow these steps:
 
    :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
-3.Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+3. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
-   :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup/start-database-discovery.png":::
+     :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup/start-database-discovery.png":::
 
    >[!Note]
    >- After discovery, unprotected VMs appear in the portal, listed by name and resource group.
@@ -363,9 +363,9 @@ To discover the SAP ASE databases, follow these steps:
 5. Run the script on each VM hosting SAP ASE databases that you want to back up.
 6. After you run the script on the VMs, on the **Select Virtual Machines** blade, select the *VMs*, and then select **Discover DBs**.
 
-Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
+   Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
-   :::image type="content" source="./media/sap-ase-database-backup/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup/select-database.png"::: 
+     :::image type="content" source="./media/sap-ase-database-backup/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup/select-database.png"::: 
 
 ## Configure the SAP ASE (Sybase) database backup
 
@@ -374,7 +374,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 1.	On the **Backup Goal**, under **Step 2**, select **Configure Backup**.
  
-   :::image type="content" source="./media/sap-ase-database-backup/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup/configure-backup.png":::
+     :::image type="content" source="./media/sap-ase-database-backup/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup/configure-backup.png":::
 
 2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new policy** for the databases. 
 
@@ -387,7 +387,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 3. On the **Policy name**, provide a name for the new policy.
 
-   :::image type="content" source="./media/sap-ase-database-backup/add-backup-policy-name.png" alt-text="Screenshot shows how to provide a name for the new backup policy." lightbox="./media/sap-ase-database-backup/add-backup-policy-name.png":::
+     :::image type="content" source="./media/sap-ase-database-backup/add-backup-policy-name.png" alt-text="Screenshot shows how to provide a name for the new backup policy." lightbox="./media/sap-ase-database-backup/add-backup-policy-name.png":::
  
 
 4. On the **Full Backup policy**, select a **Backup Frequency**, and then select **Daily** or **Weekly** as per the requirement.
@@ -401,7 +401,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
    - **Weekly**: Select the **day of the week**, **hour**, and **time zone** in which the backup job runs.
 
-   :::image type="content" source="./media/sap-ase-database-backup/set-backup-rules.png" alt-text="Screenshot shows the configuration of backup rules." lightbox="./media/sap-ase-database-backup/set-backup-rules.png":::
+     :::image type="content" source="./media/sap-ase-database-backup/set-backup-rules.png" alt-text="Screenshot shows the configuration of backup rules." lightbox="./media/sap-ase-database-backup/set-backup-rules.png":::
 
 
 5. On the **Retention Range**, define the retention range for the full backup.
