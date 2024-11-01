@@ -75,7 +75,7 @@ For official benchmark results for how FIO performs in Azure NetApp Files, see [
 
 FIO can be run with specific options to control how a performance benchmark reads and writes files. In the benchmarks tests with caching excluded, the FIO flag `randrepeat=0` was used to avoid caching by running a true random workload rather than a repeated pattern. 
 
-**[`randrepeat`](https://fio.readthedocs.io/latest/fio_doc.html#cmdoption-arg-randrepeat)**
+**[`randrepeat`]https://fio.readthedocs.io/en/latest/fio_doc.html#i-o-type)**
 
 By default, when `randrepeat` isn't defined, the FIO tool sets the value to "true," meaning that the data produced in the files isn't truly random. Thus, filesystem caches aren't utilized to improve overall performance of the workload.  
 
