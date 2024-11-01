@@ -104,7 +104,7 @@ The following commands help you define variables and ensure your Container Apps 
       --query connectionString)
     ```
 
-## Prepare an image to set up Java agent and push to Azure Container Registry
+## Prepare the container image
 
 1. Build setup image for Application Insights Java agent.
 
