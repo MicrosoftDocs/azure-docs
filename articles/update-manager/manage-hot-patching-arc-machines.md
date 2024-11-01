@@ -48,7 +48,7 @@ After you enroll to hotpatch (preview) license, your machine automatically recei
 
 #### [At scale](#tab/manage-scale)
 
-To enable or disable hotpaching at scale, follow these steps:
+To enable or disable hotpatching at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and in the **Azure Update Manager | Machines** page, under **Settings**, select **Update settings**.
