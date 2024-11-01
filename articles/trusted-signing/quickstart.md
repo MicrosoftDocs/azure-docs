@@ -279,21 +279,21 @@ To create an Individual identity validation request for an Individual Developer:
     | Fields       | Details     |
     | :------------------- | :------------------- |
     | **First Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
-    | **Last Name **          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
+    | **Last Name**          | Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
     | **Primary Email**           | Enter the email address that is going to receive the Identity Validation link. Make sure to this same email address when logging into the Microsoft Account to access the Identity Validation link. |
     | **Street, City, Country, State, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here's displayed on the certificate. |
 
 6. Select **Certificate subject preview** to see the preview of the information that appears in the certificate. 
--	Your email address and street address aren't included in the certificate.
+-	Your email address and street address aren't included in the certificate by default.
 7. Select **I accept Microsoft terms of use for trusted signing services**. You can download the Terms of Use to review or save them.  
 8. Select the **Create** button.
 9. When the request is successfully created, the identity validation request status changes to **In Progress**. 
-10. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under “Please complete your verification”. 
-11. Once the link is ready, follow it to complete the Identity Validation. Use the email address provided at the time of request creation to create a Microsoft account. Enter the credentials when prompted, and you'll be navigated to the next screen.
+10. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under “Please complete your verification here”. 
+11. Follow the link to complete the Identity Validation process. Use the email address provided at the time of request creation to create a Microsoft account. Enter the credentials when prompted, and you'll be navigated to the next screen.
 12. Click on **Start** under our Trusted Partner > Au10tix to begin the validation process. You will be navigated to a 3rd party website.
-13. Follow the process and present the relevant documentation when prompted.
+13. You need to switch to your mobile device to complete the process and present the relevant documentation when prompted.
 14. On your mobile device, open the Authenticator app, select Verified IDs, on bottom right you’ll see the QR code in blue. Click on that. 
-15. In Azure portal, click on the link that you used to perform identity validation, scan the QR code under Present Verified ID from your mobile device, this will complete the process.
+15. In Azure portal, click on the link that you used to perform identity validation, scan the QR code under Present Verified ID from your mobile device, this completes the process.
 For successful completion it says: **Verification Successful**
 
 :::image type="content" source="media/trusted-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/trusted-signing-indie-identity-validation-onevet.png":::
