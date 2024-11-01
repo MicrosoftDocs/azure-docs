@@ -49,7 +49,7 @@ The following table contains the most common codes and subcodes. If your error i
 | 403 | 7504 | Insufficient Application Permissions | Generic code for insufficient permissions, check error message for context on what resource is lacking permissions. |
 | 400 | 8585 | Action Not Valid In Current Call State | Call isn't established or is disconnected: wait for the call to be established before retrying the media action. |
 | 405 | 8520 | Functionality not supported at this time | Expected Error: Workflow not currently supported. Check our release blog to see if there's an updated SDK that has enabled these functionalities. See the Call Automation known limitations page for a list of not supported workflows. |
-| 412 | 8583 | Precondition Failed | Reference this page listing incompatible media actions to ensure you aren't running or queueing incompatible actions. |
+| 412 | 8583 | Precondition Failed | Reference [this page](../../../../../how-tos/call-automation/control-mid-call-media-actions.md) listing incompatible media actions to ensure you aren't running or queueing incompatible actions. |
 | 400 | 8567 | ACS Resource Service Principal Not Enabled | The Azure Cognitive Service Resource isn't configured properly. See this [page](../../../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md) for a guide on setting up your Azure Cognitive Service Resource. |
 | 405 | 8522 | Missing configuration | Check error message for more context on which configuration needs to be established. This configuration needs to happen when invoking the AnswerCall API. | 
 
