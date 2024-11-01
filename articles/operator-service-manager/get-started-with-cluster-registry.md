@@ -19,17 +19,20 @@ Improve resiliency for cloud native network functions with Azure Operator Servic
 * First version, with HA for NF kubernetes extension: 2.0.2810-144
 
 ## Introduction
-Azure Operator Service Manager (AOSM) cluster registry (CR) enables a local copy of container images in the Nexus K8s cluster. When the containerized network function (CNF) is installed with cluster registry enabled, the container images are pulled from the remote AOSM artifact store and saved to a local registry. With cluster register, CNF access to container images survives loss of connectivity to the remote artifact store.
+Azure Operator Service Manager (AOSM) cluster registry (CR) enables a local copy of container images in the Nexus K8s cluster. When the containerized network function (CNF) is installed with cluster registry enabled, the container images are pulled from the remote AOSM artifact store and saved to this local cluster registry. Leveraging a mutating webhook, cluster registry automatically interccepts image requests and substitutes the local registry path, to avoid publisher packaging changes. With cluster register, CNF access to container images survives loss of connectivity to the remote artifact store.
 
-### Key use cases
+### Key use cases and benefits
 Cloud native network functions (CNF) need access to container images, not only during the initial deployment using AOSM artifact store, but also to keep the network function operational. Some of these scenarios include:
 * Pod restarts: Stopping and starting a pod can result in a cluster node pulling container images from the registry.
 * Kubernetes scheduler operations: During pod to node assignments, according to scheduler profile rules, if the new node does not have the container images locally cached, the node pulls container images from the registry.
 
-In the above scenarios, if there's a temporary issue with accessing the AOSM artifact store, the cluster registry provides the necessary container images to prevent disruption to the running CNF. Also, the AOSM cluster registry feature decreases the number of image pull requests on AOSM artifact store since each Nexus K8s node pulls container images from the cluster registry instead of the AOSM artifact store.
+Benefits of using AOSM cluster registry:
+* Provides the necessary local images to prevent CNF disruption where connectivity to AOSM artifact store is lost.
+* Decreases the number of image pulls on AOSM artifact store, since each cluster node now pulls images only from the local registry.
+* Overcomes issues with malformed registry URLs, by using a mutating webhook to substitute the proper local regitsry URL path.
 
 ## How cluster registry works
-AOSM cluster registry is enabled using the Network Function Operator Arc K8s extension. The following CLI shows how cluster registry is enabled on a Nexus K8s cluster.
+AOSM cluster registry is enabled using the Network Function Operator (NFO) Arc K8s extension. The following CLI shows how cluster registry is enabled on a Nexus K8s cluster.
 ```bash
 az k8s-extension create --cluster-name
                         --cluster-type {connectedClusters}
@@ -57,6 +60,23 @@ When the cluster registry feature is enabled in the Network Function Operator Ar
 
 > [!NOTE]
 > If the user doesn't provide any input, a default persistent volume of 100 GB is used.
+
+## Cluster registry components
+The cluster registry feature deploys a number of helper pods on the target edge cluster to assist the NFO extension.
+
+### Component reconciler
+* This main pod takes care of reconciling component Custom Resource Objects (CROs) created by K8sBridge with the help of the Microsoft.Kubernetes RP, Hybrid Relay and Arc agentry running on the cluster.
+
+### Pod mutating webhook
+* These pods implement Kubernetes mutating admission webhooks, serving an instance of the mutate API.  The mutate API does two things:
+  * It modifies the image registry path to the local registry IP, substituting out the AOSM artifact store ACR.
+  * It creates an Artifact CR on the edge cluster.
+
+### Artifact reconciler
+* This pod reconciles artifact CROs created by the mutating webhook.
+
+### Registry
+* This pod stores and retrieves container images for CNF.
 
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
