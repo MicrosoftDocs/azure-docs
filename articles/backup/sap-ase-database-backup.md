@@ -332,6 +332,36 @@ Create the following outbound rule and allow the domain name to back up the data
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
+## Enable Cross Region Restore
+     
+In the Recovery Services vault, you can enable [Cross Region Restore](backup-azure-recovery-services-vault-overview.md). Learn [how to turn on Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
+
+## Discover the databases
+
+To discover the SAP ASE databases, follow these steps:
+
+1.Goto the **Recovery Services Vault**, and then select **+ Backup**.
+
+ 
+
+2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (Preview)** as the datasource type.
+ 
+3.Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+
+   >[!Note]
+   >- After discovery, unprotected VMs appear in the portal, listed by name and resource group.
+   >- If a VM isn't listed as expected, check if it's already backed up in a vault.
+   >- Multiple VMs can have the same name but they belong to different resource groups.
+ 
+4. On the **Select Virtual Machines** blade, select the *link to download the script* that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
+5. Run the script on each VM hosting SAP ASE databases that you want to back up.
+6. After you run the script on the VMs, on the **Select Virtual Machines** blade, select the *VMs*, and then select **Discover DBs**.
+
+Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
+
+ 
+
+
 
 
 
