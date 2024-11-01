@@ -26,6 +26,15 @@ This guide explains how to use this feature effectively.
 
 This section describes how to add data and configure the Path Layer. Before starting, you need to open your Azure Maps Visual in Power BI. For more information on adding an Azure Maps Visual to your Power BI report, see [Use the Azure Maps Power BI visual].
 
+| Setting           | Description                                |
+|-------------------|--------------------------------------------|
+| Apply Settings to | Path you want the settings to apply to     |
+| Color             | The color of the line                      |
+| Transparency      | The transparency of the line               |
+| Width             | The width of the line                      |
+| Maximum Zoom      | Maximum zoom level the layer is visible at |
+| Minimum Zoom      | Minimum zoom level the layer is visible at |
+
 ### Add Data to the Path Layer
 
 To draw paths, provide data for "Path ID" and "Point Order":
