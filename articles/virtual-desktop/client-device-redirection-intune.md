@@ -9,6 +9,10 @@ ms.date: 10/31/2024
 
 # Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
 
+> [!IMPORTANT]
+> Configure redirection settings for the **Remote Desktop app on Android** using Microsoft Intune is currently in PREVIEW. Configure redirection settings for the **Windows App on iOS/iPadOS** using Microsoft Intune is currently in Generally Available.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 > [!TIP]
 > This article contains information for multiple products that use the Remote Desktop Protocol (RDP) to provide remote access to Windows desktops and applications.
 
@@ -280,4 +284,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-When creating an App Configuration Policy or an App Protection Policy, Remote Desktop is still shown instead of Windows App. This will be updated soon.
+When creating an App Configuration Policy or an App Protection Policy for Android, Remote Desktop is listed twice. Add both apps. This will be updated soon so Remote Desktop is only shown once.
