@@ -89,7 +89,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They will have to be deleted manually.
 
-- If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version . In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.  
+- If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version. In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.  
 
 ## Next steps
 
