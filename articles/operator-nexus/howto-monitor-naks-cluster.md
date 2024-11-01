@@ -80,7 +80,7 @@ Assign the service principal to the Azure resource group that has the machines t
 There are certain prerequisites the operator should ensure to configure the monitoring tools on Nexus Kubernetes Clusters.
 
 Container Insights stores its data in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
-Log data flows into the workspace whose Resource ID you provided during the installtion of the Container Insights extension.
+Log data flows into the workspace whose Resource ID you provided during the installation of the Container Insights extension.
 Else, data funnels into a default workspace in the Resource group associated with your subscription (based on Azure location).
 
 An example for East US may look like follows:
