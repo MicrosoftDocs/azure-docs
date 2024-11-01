@@ -19,7 +19,7 @@ to de-identify, using a job is a good option. Jobs also provide consistent surro
 all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service (preview)?](overview.md)
 
 When you choose to store documents in Azure Blob Storage, you're charged based on Azure Storage pricing. This cost isn't included in the 
- de-identification service pricing. [Explore Azure Blob Storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs).
+ de-identification service pricing. [Explore Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
 In this tutorial, you:
 
