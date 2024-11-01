@@ -18,8 +18,7 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 - Understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
-<!-- oracle or sap hana -->
-- Application volume group for Oracle Extension 1 enables you to select Standard network features and availability zone volume placement without using volume pinning. You must register for [extension 1](#register-for-extension-1) to use the function. 
+- Application volume group for SAP HANA extension 1 enables you to select Standard network features and availability zone volume placement without using volume pinning. You must register for [extension 1](#register-for-extension-1) to use the function. 
     Alternately, adhere to the **[pinning recommendations](https://aka.ms/HANAPINNING)**. Have at least one HANA virtual machine (VM) in the availability set started. Alternately, you can use [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features). 
 
 ### Register for extension 1 
