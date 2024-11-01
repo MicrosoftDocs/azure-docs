@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 11/01/2024
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -23,7 +23,34 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-## Azure IoT Layered Network Management troubleshooting
+## Secret management
+
+If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
+
+```output
+rpc error: code = Unknown desc = failed to mount objects, error: failed to get objectType:secret,
+objectName:nbc-eventhub-secret, objectVersion:: GET https://aio-kv-888f27b078.vault.azure.net/secrets/nbc-eventhub-secret/--------------------------------------------------------------------------------
+RESPONSE 404: 404 Not FoundERROR CODE: SecretNotFound--------------------------------------------------------------------------------{ "error": { "code": "SecretNotFound", "message": "A secret with (name/id) nbc-eventhub-secret was not found in this key vault.
+If you recently deleted this secret you may be able to recover it using the correct recovery command.
+For help resolving this issue, please see https://go.microsoft.com/fwlink/?linkid=2125182" }
+```
+
+This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, you need to add the secret in Azure Key Vault before you create resources such as a secret provider class.
+
+## Connector for OPC UA
+
+An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
+
+- Overrule the restriction by explicitly setting the following values in the additional configuration for the asset endpoint profile:
+
+    | Property | Value |
+    |----------|-------|
+    | `securityMode` | `none` |
+    | `securityPolicy` | `http://opcfoundation.org/UA/SecurityPolicy#None` |
+
+- Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
+
+## Azure IoT Layered Network Management Preview troubleshooting
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 
