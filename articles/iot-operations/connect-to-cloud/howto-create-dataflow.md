@@ -1080,13 +1080,13 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 
 To ensure the dataflow is working as expected, verify the following:
 
-- The default MQTT dataflow endpoint [must be used as *either* the source or destination](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
-- The dataflow profile exists and is referenced in the dataflow configuration.
+- The default MQTT dataflow endpoint [must be used as either the source or destination](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+- The [dataflow profile](./howto-configure-dataflow-profile.md) exists and is referenced in the dataflow configuration.
 - Source is either an MQTT endpoint, Kafka endpoint, or an asset. [Storage type endpoints can't be used as a source](./howto-configure-dataflow-endpoint.md).
 - When using Event Grid as the source, the [dataflow profile instance count](./howto-configure-dataflow-profile.md#scaling) is set to 1 because Event Grid MQTT broker doesn't support shared subscriptions.
 - When using Event Hubs as the source, each event hub in the namespace is a separate Kafka topic and must be specified as the data source.
-- Transformation, if used, is configured with proper syntax, including consideration for proper [escapaing of special characters](./concept-dataflow-mapping.md#escaping).
-- When using storage type endpoints as destination, a [schema reference is specified](#serialize-data-according-to-a-schema).
+- Transformation, if used, is configured with proper syntax, including proper [escaping of special characters](./concept-dataflow-mapping.md#escaping).
+- When using storage type endpoints as destination, a [schema is specified](#serialize-data-according-to-a-schema).
 
 ## Next steps
 
