@@ -376,10 +376,11 @@ sourceSettings:
 
 ---
 
-> [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
 
-<!-- TODO: Details -->
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is automatically enabled for all dataflows that use MQTT source. When this happens, the shared subscription group ID automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_ID>/topic1` and `$shared/<GENERATED_GROUP_ID>/topic2`. If you want to use a different shared subscription group ID, you can override it in the topic, like `$shared/mygroup/topic1`.
+
+> [!IMPORTANT]
+> Dataflows requireing shared subscription when instance count is greater than 1 is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to 1 when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
