@@ -95,7 +95,7 @@
   - name: AI and machine learning
     items:
     - name: Azure AI Health Insights
-      href: reliability-ai-health-insights.md
+      href: reliability-health-insights.md
     - name: Azure AI Search
       href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Bot Service 

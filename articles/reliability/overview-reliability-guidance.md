@@ -56,11 +56,8 @@ Below is a list of Azure service reliability guides, organized by service catego
 |Azure Virtual Machines| [Reliability in Azure Virtual Machines](reliability-virtual-machines.md)|
 |Azure Virtual Machine Image Builder| [Reliability in Azure Virtual Machine Image Builder](reliability-image-builder.md)|
 |Azure Virtual Machine Scale Sets| [Reliability in Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)|
-<<<<<<< HEAD
- |Azure VMware Solution| [Deploy disaster recovery using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure VMware Solution| [Deploy disaster recovery using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
  
-=======
->>>>>>> fe42bdfda53b42d7fe7cc045965ab99873af21bc
 
 ## Containers
 
