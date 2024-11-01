@@ -1,5 +1,5 @@
 ---
-title: Renew and Delete Trusted Signing Identity Validation
+title: Renew and delete Trusted Signing Identity Validation
 description: How-to renew and delete a Trusted Signing Identity Validation. 
 author: TacoTechSharma
 ms.author: mesharm 

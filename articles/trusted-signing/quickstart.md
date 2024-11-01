@@ -300,7 +300,7 @@ For successful completion it says: **Verification Successful**
 
 16. It takes a couple of minutes for the Identity Validation status on Azure portal to update. For a successful Verified ID the status on Azure portal changes to **Completed**.
 
-:::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on azure portal." lightbox="media/trusted-signing-identity-validation-indie.png":::
+:::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/trusted-signing-identity-validation-indie.png":::
 
 ### Important information for public identity validation
 
