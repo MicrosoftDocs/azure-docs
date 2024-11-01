@@ -45,7 +45,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 
 The following snippet shows the YAML file that you applied:
 
-:::code language="yaml" source="~/azure-iot-operations-samples-m3/samples/quickstarts/opc-plc-deployment.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
