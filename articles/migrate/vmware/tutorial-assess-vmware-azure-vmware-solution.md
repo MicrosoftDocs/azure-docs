@@ -59,7 +59,7 @@ Run an assessment as follows:
 1. In **Discovery source**:
 
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported CSV file or an RVTools XLSX file, select **Imported servers**. 
+    - If you discovered servers using an imported RVTools XLSX or CSV file, select **Imported servers**. 
     
 1. Select **Edit** to review the assessment properties.
 

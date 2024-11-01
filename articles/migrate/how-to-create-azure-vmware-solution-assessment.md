@@ -70,7 +70,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-   - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an Azure VMware Solution private cloud.
+   - The **Storage type** is defaulted to The Storage type is defaulted to **vSAN** and **Azure NetApp Files (ANF) Standard**, **Premium** and **Ultra** tiers. ANF is an external storage type in AVS and this will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. When performance metrics are provided using the Azure Migrate appliance or the CSV, the assessment will choose the tier that will satisfy the performance requirements of the incoming VMs’ disks. In case the assessment is being performed using an RVTools file or without providing performance metrics like throughput & IOPS, ANF Standard tier will be used for assessment by default. 
    - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
     - If you select to use a reserved instance, you can't specify '**Discount (%)**
     - [Learn more](../azure-vmware/reserved-instance.md)
@@ -166,6 +166,8 @@ This view shows the estimated cost of running servers in Azure VMware Solution.
     - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the  servers in total.
     - As the pricing for Azure VMware Solution is per node, the total cost does not have compute cost and storage cost distribution.
     - The cost estimation is for running the on-premises servers in AVS. AVS assessment doesn't consider PaaS or SaaS costs.
+
+2. Review Estimated AVS cost: This cost indicates the estimated monthly AVS cost that would be incurred for hosting the VMs imported or discovered. It includes categorical costs of the AVS nodes, external storage costs and the associated networking costs (if applicable).
     
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
 

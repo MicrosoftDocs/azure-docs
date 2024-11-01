@@ -152,7 +152,14 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
-    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
+    - **Estimated AVS cost**: Estimated AVS cost: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. The infrastructure settings used are as follows:
+    - The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
+    - Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
+    - CPU over-subscription of 4:1
+    - Memory overcommit of 100% 
+    - Compression and deduplication factor of 1.5 
+
+You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). 
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
 - Savings and optimization:
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
