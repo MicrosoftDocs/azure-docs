@@ -121,6 +121,12 @@ To use origin-destination data in the Path Layer, you must first transform it, a
 | 4        | 0            | Boston        |
 | 4        | 1            | San Francisco |
 
+## Current limitations
+
+- The path layer is only compatible with specific map data layers, including the Bubble, Reference, Traffic, and Tile layers.
+- The data-bound reference layer is not available when the path layer is enabled.
+- Location hierarchy (drill down) is disabled when a Path ID is provided.
+
 ## Conclusion
 
 The Path Layer feature in Azure Maps Visual is a tool for visualizing and analyzing spatial connections. This new capability can be utilized to enhance reports.
