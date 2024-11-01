@@ -88,6 +88,16 @@ As databases grow in size, the time it takes to restore them becomes a factor wh
 
 A database-consistent, snapshot-based approach helps to solve both issues, and it gives you the benefit of instant backup and instant restore. For ASE, Azure Backup is now providing a ASE-consistent, snapshot-based approach that's integrated with Backint, so that you can use Azure Backup as a single product for your entire ASE landscape, irrespective of database size.
 
+## Pricing: 
+
+SAP ASE (Sybase) backup pricing has two components:
+
+- **Protected Instance cost**: A flat rate per instance, irrespective of the ASE database size. This rate differs  between regions.
+
+- **Backup Storage cost**: Cost based on the storage  space consumption for the backed-up data.
+
+For example, if you're protecting 1.2 TB of ASE database in one instance running in the East US2 region, you are charged the Protection Instance cost as per the East US 2 region per month and cost for the storage consumed.
+
 ## Next steps
 
 Learn how to:
