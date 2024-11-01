@@ -65,7 +65,7 @@ By the end of this tutorial, you deploy one web application and three backend ap
     az login
     ```
 
-3. Organize a resource group to contain your Azure Container App services.
+3. Create a resource group to organize your Azure Container App services.
 
     ```azurecli
     az group create --name $RESOURCE_GROUP --location $LOCATION
@@ -165,7 +165,7 @@ az containerapp create \
 ```
 
 > [!NOTE]
->  This documentation guides you use our [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). If you want to customize the sample code and use your own images, you can go to [our GitHub sample repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md) for instructions about how to customize code and build your own images.
+>  This documentation guides you use our [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). If you want to customize the sample code and use your own images, you can go to [our GitHub sample repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md) for instructions.
 
 ## Bind Azure Container Apps to Java components
 
