@@ -89,11 +89,11 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     ::: zone-end
 
-    ::: zone pivot="java-jboss"
+    <!-- ::: zone pivot="java-jboss"
 
     For **JBoss EAP**, `[TODO]`.
 
-    ::: zone-end
+    ::: zone-end -->
 
 # [Windows](#tab/windows)
 
@@ -114,12 +114,6 @@ To enable via the Azure CLI, you need to create an Application Insights resource
     ::: zone pivot="java-tomcat"
 
     Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-
-    ::: zone-end
-
-    ::: zone pivot="java-jboss"
-
-    For **JBoss EAP**, `[TODO]`.
 
     ::: zone-end
 
@@ -150,11 +144,11 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     ::: zone-end
 
-    ::: zone pivot="java-jboss"
+    <!-- ::: zone pivot="java-jboss"
 
     For **JBoss EAP**, `[TODO]`.
 
-    ::: zone-end
+    ::: zone-end -->
 
 # [Windows](#tab/windows)
 
@@ -173,12 +167,6 @@ To enable via the Azure CLI, you need to create an Application Insights resource
     ::: zone pivot="java-tomcat"
 
     Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
-
-    ::: zone-end
-
-    ::: zone pivot="java-jboss"
-
-    For **JBoss EAP**, `[TODO]`.
 
     ::: zone-end
 
