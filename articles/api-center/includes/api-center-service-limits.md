@@ -23,7 +23,7 @@ ms.custom: Include file
 | Maximum number of custom metadata properties per entity<sup>4</sup> | 10 | 20 |
 | Maximum number of child properties in custom metadata property of type "object" | 10 |10 | 
 | Maximum requests per minute (data plane) | 3,000 | 6,000  |
-| Maximum number of API definitions [linted](../enable-managed-api-analysis-linting.md) | 10 | 200 per 24 hours  |
+| Maximum number of API definitions [analyzed](../enable-managed-api-analysis-linting.md) | 10 | 200 per 24 hours  |
 | Maximum number of linked API sources<sup>5</sup> | 1  |  3 |
 
 <sup>1</sup> Free plan provided for 90 days, then service is soft-deleted.<br/>
