@@ -217,44 +217,7 @@ The steps in this section use the following prefixes:
    * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824)
    * [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
-1. **[A]** Install the SAP HANA.
-
-   To install SAP HANA System Replication, see [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101).
-
-   Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
-   1. Choose installation: Enter **1**.
-   1. Select additional components for installation: Enter **1**.
-   1. Enter **Installation Path** [/hana/shared]: Select Enter.
-   1. Enter **Local Host Name [..]**: Select Enter.
-   1. **Do you want to add additional hosts to the system? (y/n)** [n]: Select Enter.
-   1. Enter **SAP HANA System ID**: Enter the SID of HANA, for example: **HN1**.
-   1. Enter **Instance Number** [00]: Enter the HANA Instance number. Enter **03** if you used the Azure template or followed the manual deployment section of this article.
-   1. Select **Database Mode / Enter Index** [1]: Select Enter.
-   1. Select **System Usage / Enter Index** [4]: Select the system usage value.
-   1. Enter **Location of Data Volumes** [/hana/data]: Select Enter.
-   1. Enter **Location of Log Volumes** [/hana/log]: Select Enter.
-   1. **Restrict maximum memory allocation?** [n]: Select Enter.
-   1. Enter **Certificate Host Name For Host '...'** [...]: Select Enter.
-   1. Enter **SAP Host Agent User (sapadm) Password**: Enter the host agent user password.
-   1. Confirm **SAP Host Agent User (sapadm) Password**: Enter the host agent user password again to confirm.
-   1. Enter **System Administrator (hdbadm) Password**: Enter the system administrator password.
-   1. Confirm **System Administrator (hdbadm) Password**: Enter the system administrator password again to confirm.
-   1. Enter **System Administrator Home Directory** [/usr/sap/HN1/home]: Select Enter.
-   1. Enter **System Administrator Login Shell** [/bin/sh]: Select Enter.
-   1. Enter **System Administrator User ID** [1001]: Select Enter.
-   1. Enter **ID of User Group (sapsys)** [79]: Select Enter.
-   1. Enter **Database User (SYSTEM) Password**: Enter the database user password.
-   1. Confirm **Database User (SYSTEM) Password**: Enter the database user password again to confirm.
-   1. **Restart system after machine reboot?** [n]: Select Enter.
-   1. **Do you want to continue? (y/n)**: Validate the summary. Enter **y** to continue.
-
-1. **[A]** Upgrade the SAP Host Agent.
-
-   Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
-
-   ```bash
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent>;
-   ```
+1. **[A]** Install SAP HANA, following [SAP's documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/2d4de94c8bf14cda8d37278647fff8ab.html).
 
 1. **[A]** Configure the firewall.
 
@@ -284,8 +247,6 @@ The steps in this section use the following prefixes:
    ```
 
 1. **[1]** Create the tenant database.
-
-   If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
 
    Run the following command as <hanasid\>adm:
 
@@ -350,77 +311,6 @@ The steps in this section use the following prefixes:
    # site name: SITE1
    ```
 
-## Configure SAP HANA 1.0 System Replication
-
-The steps in this section use the following prefixes:
-
-* **[A]**: The step applies to all nodes.
-* **[1]**: The step applies to node 1 only.
-* **[2]**: The step applies to node 2 of the Pacemaker cluster only.
-
-1. **[A]** Configure the firewall.
-
-   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication. Adapt it to your SAP HANA 1.0 installation.
-
-   ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   ```
-
-1. **[1]** Create the required users.
-
-   Run the following command as root. Make sure to replace the values for HANA System ID (for example, **HN1**), instance number (**03**), and any usernames, with the values of your SAP HANA installation:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbsql -u system -i 03 'CREATE USER hdbhasync PASSWORD "passwd"'
-   hdbsql -u system -i 03 'GRANT DATA ADMIN TO hdbhasync'
-   hdbsql -u system -i 03 'ALTER USER hdbhasync DISABLE PASSWORD LIFETIME'
-   ```
-
-1. **[A]** Create the keystore entry.
-
-   Run the following command as root to create a new keystore entry:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbuserstore SET hdbhaloc localhost:30315 hdbhasync passwd
-   ```
-
-1. **[1]** Back up the database.
-
-   Back up the databases as root:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbsql -d SYSTEMDB -u system -i 03 "BACKUP DATA USING FILE ('initialbackup')"
-   ```
-
-   If you use a multitenant installation, also back up the tenant database:
-
-   ```bash
-   hdbsql -d HN1 -u system -i 03 "BACKUP DATA USING FILE ('initialbackup')"
-   ```
-
-1. **[1]** Configure system replication on the first node.
-
-   Create the primary site as <hanasid\>adm:
-
-   ```bash
-   su - hdbadm
-   hdbnsutil -sr_enable –-name=SITE1
-   ```
-
-1. **[2]** Configure system replication on the secondary node.
-
-   Register the secondary site as <hanasid\>adm:
-
-   ```bash
-   HDB stop
-   hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
-   HDB start
-   ```
-
 ## Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
@@ -430,34 +320,23 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](
 >
 > When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
 
-## Implement the Python system replication hook SAPHanaSR
+## Implement SAP HANA system replication hooks
 
-This important step optimizes the integration with the cluster and improves the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook.
+This important step optimizes the integration with the cluster and improves the detection when a cluster failover is needed. It is mandatory for correct cluster operation to enable the SAPHanaSR hook. We highly recommend that you configure both SAPHanaSR and ChkSrv Python hooks. 
 
-1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable more repositories, if you're using an RHEL 8.x HA-enabled image.
+1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable more repositories, if you're using an RHEL 8.x or higher HA-enabled image.
 
    ```bash
    # Enable repository that contains SAP HANA resource agents
    sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
    
-   sudo yum install -y resource-agents-sap-hana
+   sudo dnf install -y resource-agents-sap-hana
    ```
 
    > [!NOTE]
    > For RHEL 8.x and RHEL 9.x, verify that the installed resource-agents-sap-hana package is version 0.162.3-5 or later.
 
-1. **[A]** Install the HANA `system replication hook`. The hook needs to be installed on both HANA DB nodes.
-
-   > [!TIP]
-   > The Python hook can only be implemented for HANA 2.0.
-
-   1. Prepare the hook as `root`.
-
-       ```bash
-        mkdir -p /hana/shared/myHooks
-        cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
-        chown -R hn1adm:sapsys /hana/shared/myHooks
-       ```
+1. **[A]** Install the HANA `system replication hooks`. The configuration for the replication hooks needs to be installed on both HANA DB nodes.
 
    1. Stop HANA on both nodes. Run as <sid\>adm.
 
@@ -470,12 +349,23 @@ This important step optimizes the integration with the cluster and improves the 
        ```output
        [ha_dr_provider_SAPHanaSR]
        provider = SAPHanaSR
-       path = /hana/shared/myHooks
+       path = /usr/share/SAPHanaSR/srHook
        execution_order = 1
-        
+
+       [ha_dr_provider_chksrv]
+       provider = ChkSrv
+       path = /usr/share/SAPHanaSR/srHook
+       execution_order = 2
+       action_on_lost = kill
+    
        [trace]
        ha_dr_saphanasr = info
+       ha_dr_chksrv = info
        ```
+
+   If you point parameter `path` to the default `/usr/share/SAPHanaSR/srHook` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that HANA will use.
+
+   You can adjust the behavior of `ChkSrv` hook by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` ].
 
 1. **[A]** The cluster requires `sudoers` configuration on each cluster node for <sid\>adm. In this example, that's achieved by creating a new file. Use the `visudo` command to edit the `20-saphana` drop-in file as `root`.
 
@@ -500,7 +390,7 @@ This important step optimizes the integration with the cluster and improves the 
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-1. **[1]** Verify the hook installation. Run as <sid\>adm on the active HANA system replication site.
+1. **[1]** Verify the SRHanaSR hook installation. Run as <sid\>adm on the active HANA system replication site.
 
     ```bash
      cdtrace
@@ -514,7 +404,14 @@ This important step optimizes the integration with the cluster and improves the 
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
     ```
 
-For more information on the implementation of the SAP HANA System Replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).
+1. **[1]** Verify the ChkSrv hook installation. Run as <sid\>adm on the active HANA system replication site.
+
+    ```bash
+     cdtrace
+     tail -20 nameserver_chksrv.trc
+    ```
+
+For more information on the implementation of the SAP HANA hooks, see [Enabling the SAP HANA srConnectionChanged() hook](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index#con_enable_hook_automating-sap-hana-scale-up-system-replication) and [Enabling the SAP HANA srServiceStateChanged() hook for hdbindexserver process failure action (optional)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index#con_enable_hdbindexserver_automating-sap-hana-scale-up-system-replication).
 
 ## Create SAP HANA cluster resources
 
