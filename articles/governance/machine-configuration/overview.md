@@ -153,8 +153,8 @@ symbolic to represent new minor versions of Linux distributions.
 \* Red Hat CoreOS isn't supported.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
-one of the operating systems in the previous table. Machine Configuration policies are also supported 
-for [Virtual Machine Scale Sets (VMSS) with Flexible orchestration][46].
+one of the operating systems in the previous table. Machine Configuration does not support VMSS 
+uniform but does support [VMSS Flex][46].
 
 ## Network requirements
 
