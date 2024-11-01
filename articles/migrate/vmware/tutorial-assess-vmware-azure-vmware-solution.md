@@ -34,7 +34,7 @@ Before you follow this tutorial to assess your servers for migration to AVS, mak
 
 - To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
 - To discover servers using an imported CSV file, [follow this tutorial](../tutorial-discover-import.md).
-- To import servers using an RVTools file, [follow this tutorial](tutorial-import-vmware-using-rvtools-xlsx.md).
+- To import servers using a RVTools file, [follow this tutorial](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
 ## Decide which assessment to run
@@ -73,10 +73,10 @@ Run an assessment as follows:
    Target settings | **Storage type** | Defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
    Target settings | **Reserved instance** | Specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs. If you decide to use a reserved instance, you can't specify **Discount (%)**. [Learn more](/azure/azure-vmware/reserved-instance) about reserved instances.
    VM size | **Node type** | Defaulted to **AV36**. Azure Migrate recommends the node needed to migrate the servers to AVS.
-   VM size | **FTT setting, RAID level** | Select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
+   VM size | **FTT setting, RAID level** | Select the Failure to Tolerate and RAID combination. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
    VM size | **CPU Oversubscription** | Specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
    VM size | **Memory overcommit factor** | Specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
-   VM size | **Dedupe and compression factor** | Specify the anticipated dedupe and compression factor for your workloads. The actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for a 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+   VM size | **Dedupe and compression factor** | Specify the anticipated dedupe and compression factor for your workloads. The actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for a 300 GB disk only 100 GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
    Node size | **Sizing criteria** | Set to be *Performance-based* by default, which means Azure Migrate collects performance metrics based on which it provides recommendations.
    Node size | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Node size | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
@@ -123,7 +123,7 @@ To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VMware Solution**.
 
-1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
+1. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
     :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
