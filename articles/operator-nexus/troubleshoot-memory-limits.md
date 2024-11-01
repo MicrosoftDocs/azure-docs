@@ -17,7 +17,7 @@ It is recommended to have alerts setup for the Operator Nexus cluster to look fo
 
 ## Identifying Out of Memory (OOM) pods
 
-Start by identifying any components that are restarting or show OOMKill
+Start by identifying any components that are restarting or show OOMKill.
 
 ```azcli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
