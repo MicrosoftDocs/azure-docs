@@ -44,7 +44,7 @@ The following items are required for you to use serverless GPUs in your workload
 
 ## Use consumption GPUs
 
-Select **enable GPU** checkbox.
+Select **enable GPU** checkbox. TODO:
 
 ## Feedback
 
