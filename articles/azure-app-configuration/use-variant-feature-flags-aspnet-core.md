@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial:  Use variant feature flags in Azure App Configuration'
+title: 'Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application'
 titleSuffix: Azure App configuration
-description: In this tutorial, you learn how to set up and use variant feature flags in an App Configuration
-#customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my application.
+description: In this tutorial, you learn how to use variant feature flags in an ASP.NET application
+#customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my ASP.NET application.
 author: rossgrambo
 ms.author: rossgrambo
 ms.service: azure-app-configuration
@@ -11,12 +11,7 @@ ms.topic: tutorial
 ms.date: 10/10/2024
 ---
 
-# Tutorial: Use variant feature flags in Azure App Configuration
-
-Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. These can be particularly useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
-
-> [!NOTE]
-> A quicker way to start your variant journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-dotnet/)- This repository provides a comprehensive example, complete with variants and Azure resource provisioning.
+# Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application
 
 In this tutorial, you:
 
@@ -33,7 +28,7 @@ In this tutorial, you:
 
 Create a variant feature flag called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
-| Variant Name | Variant Value | Allocation| 
+| Variant Name | Variant Configuration Value | Allocation| 
 |---|---|---|
 | None *(Default)* | null | 50% |
 | Simple | "Hello!" | 25% |
