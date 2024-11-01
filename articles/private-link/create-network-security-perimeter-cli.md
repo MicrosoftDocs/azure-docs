@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 09/16/2024
+ms.date: 10/30/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
@@ -15,12 +15,20 @@ Get started with network security perimeter by creating a network security perim
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
-  - This article requires version 2.38.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- After upgrading to the latest version, you can import the network security perimeter commands using `az extension add --name nsp`.
+  - This article **requires version 2.38.0 or later** of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- After upgrading to the latest version of Azure CLI, import the network security perimeter commands using `az extension add --name nsp`.
+- Re-register the `Microsoft.Network` resource provider with the following command:
+    
+    ```azure
+    az provider register --namespace Microsoft.Network 
+    ```
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
 
 [!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
@@ -29,20 +37,23 @@ Get started with network security perimeter by creating a network security perim
 
 To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use your local CLI environment.
 
-1. For Azure Cloud Shell, sign in and select your subscription.
+1. If using Azure Cloud Shell, sign in and select your subscription.
 1. If you installed CLI locally, sign in with the following command: 
 
     ```azurecli-interactive
+    # Sign in to your Azure account
     az login 
     ```
 
-1. Select your active subscription locally with the following command: 
+1. Once in your shell, select your active subscription locally with the following command: 
 
     ```azurecli-interactive
+    # List all subscriptions
     az account set --subscription "Azure Subscription"
-    ```
 
-1. Now you can create your resources in the next steps.
+    # Re-register the Microsoft.Network resource provider
+    az provider register --namespace Microsoft.Network    
+    ```
    
 ## Create a resource group and key vault
 
@@ -94,8 +105,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     az network perimeter profile create \
         --name network-perimeter-profile \
         --resource-group test-rg \
-        --perimeter-name network-security-perimeter \
-        --location westcentralus
+        --perimeter-name network-security-perimeter
 
     ```
 2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile with the following commands. 
@@ -140,9 +150,9 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ## Create and update network security perimeter access rules
 
-In this step, you create and update network security perimeter access rules with the `az network perimeter profile access-rule create` command.
+In this step, you create and update network security perimeter access rules with public IP address prefixes using the `az network perimeter profile access-rule create` command.
 
-1. Create an inbound access rule for the profile created with the following command:
+1. Create an inbound access rule with a public IP address prefix for the profile created with the following command:
 
     ```azurecli-interactive
 
@@ -152,11 +162,11 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "[10.10.0.0/16]"
+        --address-prefixes "[192.0.2.0/24]"
 
     ```
 
-1. Update your inbound access rule with another IP address range with the following command:
+1. Update your inbound access rule with another public IP address prefix with the following command:
 
     ```azurecli-interactive
     
@@ -166,9 +176,11 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "['10.11.0.0/16', '10.10.0.0/16']"
+        --address-prefixes "['198.51.100.0/24', '192.0.2.0/24']"
 
     ```
+
+    [!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources
 
@@ -203,4 +215,4 @@ To delete a network security perimeter and other resources in this quickstart, u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-collect-resource-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)
