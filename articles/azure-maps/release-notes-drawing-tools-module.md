@@ -14,21 +14,27 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
+## [1.0.5] (CDN: November 4, 2024, npm: TBA)
+
+### Bug fixes
+
+- Fix source option in DrawingManager.
+
 ## [1.0.4] (Aug 8, 2024)
 
-### Bug fixes (1.0.4)
+### Bug fixes
 
 - Fix source not synced in DrawingManager after a style change.
 
 ## [1.0.3]
 
-### Other changes (1.0.3)
+### Other changes
 
 - Updated CDN links in the readme.
 
 ## [1.0.2]
 
-### Bug fixes (1.0.2)
+### Bug fixes
 
 - Resolved various errors in the type declaration file.
 
