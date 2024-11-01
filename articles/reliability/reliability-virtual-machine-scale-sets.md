@@ -228,7 +228,7 @@ It's also recommended that you use the max spreading deployment option for your 
 
 When you deploy a scale set into one or more availability zones, you have the following spreading options (as of API version *2017-12-01*):
 
-- **Max spreading (platformFaultDomainCount = 1)**. Max spreading is the recommended deployment option, as it provides the best spreading in most cases. If you to spread replicas across distinct hardware isolation units, it's recommended that you spread across availability zones and utilize max spreading within each zone.
+- **Max spreading (platformFaultDomainCount = 1)**. Max spreading is the recommended deployment option, as it provides the best spreading in most cases. If you spread replicas across distinct hardware isolation units, it's recommended that you spread across availability zones and utilize max spreading within each zone.
     
   With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. 
   
