@@ -56,56 +56,7 @@ To view or edit the listener:
 
 # [Bicep](#tab/bicep)
 
-To edit the default listener, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
-
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-
-resource aioInstance 'Microsoft.IoTOperations/instances/brokers/default@2024-09-15-preview' existing = {
-  name: aioInstanceName
-}
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-  name: customLocationName
-}
-resource defaultBrokerListener 'Microsoft.IoTOperations/instances/brokers/default/listeners/default@2024-09-15-preview' = {
-  parent: aioInstance
-  name: 'default'
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    brokerRef: 'default'
-    serviceName: 'aio-broker'
-    serviceType: 'ClusterIp'
-    ports: [
-      {
-        authenticationRef: 'default'
-        port: 18883
-        protocol: 'Mqtt'
-        tls: {
-          certManagerCertificateSpec: {
-            issuerRef: {
-              group: 'cert-manager.io'
-              kind: 'Issuer'
-              name: 'mq-dmqtt-frontend'
-            }
-          }
-          mode: 'Automatic'
-        }
-      }
-    ]
-  }
-}
-
-```
-
-Deploy the Bicep file using Azure CLI.
-
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
-```
+You should not modify the default listener using Bicep. Instead, create a new listener and configure it as needed.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -186,6 +137,7 @@ This example shows how to create a new *BrokerListener* resource named *loadbala
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = '<LISTENER_SERVICE_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
@@ -196,17 +148,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource broker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers/default@2024-09-15-preview' = {
-  parent: broker
-  name: 'default'
-}
-
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/default/listeners@2024-09-15-preview' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -215,9 +162,8 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/default
   }
 
   properties: {
-    brokerRef: 'default'
-    serviceName: 'aio-broker-loadbalancer'
-    serviceType: 'ClusterIp'
+    serviceName: listenerServiceName
+    serviceType: 'LoadBalancer'
     ports: [
       {
         authenticationRef: 'default'
@@ -237,6 +183,12 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/default
     ]
   }
 }
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -467,34 +419,41 @@ The following is an example of a BrokerListener resource that enables TLS on por
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = '<LISTENER_SERVICE_NAME>'
+param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
+
   properties: {
-    brokerRef: 'default'
-    serviceType: 'loadBalancer'
-    serviceName: 'aio-broker-loadbalancer-tls'
+    serviceName: listenerServiceName
+    serviceType: 'LoadBalancer'
     ports: [
       {
+        authenticationRef: 'default'
         port: 8884
         tls: {
-          mode: 'Automatic'
-          certManagerCertificateSpec: {
-            issuerRef: {
-              name: 'my-issuer'
-              kind: 'Issuer'
-            }
+          mode: 'Manual'
+          manual: {
+            secretRef: 'server-cert-secret'
           }
         }
       }
@@ -502,6 +461,12 @@ resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@202
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 #### Optional: Configure server certificate parameters
@@ -555,6 +520,7 @@ The only required parameters are `issuerRef.name` and `issuerRef.kind`. All prop
           }
         }
       }
+    ]
 
 ```
 
@@ -747,29 +713,36 @@ The following is an example of a BrokerListener resource that enables TLS on por
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = '<LISTENER_SERVICE_NAME>'
+param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
+
   properties: {
-    brokerRef: 'default'
-    // Optional, defaults to clusterIP
-    serviceType: 'loadBalancer'
-    // Match the SAN in the server certificate
-    serviceName: 'aio-broker-loadbalancer-tls'
+    serviceName: listenerServiceName
+    serviceType: 'LoadBalancer'
     ports: [
       {
-        // Avoid port conflict with default listener at 18883
+        authenticationRef: 'default'
         port: 8885
         tls: {
           mode: 'Manual'
@@ -782,6 +755,12 @@ resource BrokerListener 'Microsoft.IoTOperations/instances/dataflowEndpoints@202
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
