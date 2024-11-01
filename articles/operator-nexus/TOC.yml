@@ -147,7 +147,7 @@
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
                 - name: Cluster Upgrades With PauseRack Startegy
-                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md  
+                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
@@ -305,8 +305,13 @@
     - name: Tenant Workload
       expanded: false
       items:
-        - name: Troubleshoot Nexus Kubernetes Cluster pods
-          href: troubleshoot-nexus-kubernetes-cluster-pods.md
+        - name: Troubleshoot PersistentVolumeClaims
+          expanded: false
+          items:
+            - name: Gather trace IDs for PersistentVolumeClaim failures
+              href: howto-gather-pvc-trace-id.md
+            - name: Troubleshoot Nexus Kubernetes Cluster pods
+              href: troubleshoot-nexus-kubernetes-cluster-pods.md
         - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
           href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
         - name: Troubleshoot Internet host virtual machine
