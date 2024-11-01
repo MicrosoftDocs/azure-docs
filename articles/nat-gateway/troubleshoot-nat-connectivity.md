@@ -3,7 +3,7 @@ title: Troubleshoot Azure NAT Gateway connectivity
 titleSuffix: Azure NAT Gateway
 description: Learn how to troubleshoot connectivity issues and possible causes and solutions for Azure NAT Gateway.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2024

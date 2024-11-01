@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use MQTT broker to publish and subscribe MQTT topics.
+ms.service: azure-iot-operations
 ---
 
 # Publish and subscribe MQTT messages using MQTT broker

@@ -4,15 +4,13 @@ items:
     items:
     - name: Overview
       href: overview-iot-operations.md
-    - name: Get started with an end-to-end sample
+    - name: Quickstart
       expanded: true
       items:
       - name: Run Azure IoT Operations in Codespaces
         href: get-started-end-to-end-sample/quickstart-deploy.md
-      - name: Add OPC UA assets to your cluster
-        href: get-started-end-to-end-sample/quickstart-add-assets.md
-      - name: Upload data to the cloud
-        href: get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md
+      - name: Configure your instance
+        href: get-started-end-to-end-sample/quickstart-configure.md
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
@@ -23,14 +21,18 @@ items:
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
-      - name: Manage secrets
-        href: deploy-iot-ops/howto-manage-secrets.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
+    - name: Secure your deployment
+      items:
       - name: Certificate management
-        href: deploy-iot-ops/concept-default-root-ca.md
+        href: secure-iot-ops/concept-default-root-ca.md
+      - name: Manage secrets
+        href: secure-iot-ops/howto-manage-secrets.md
+      - name: Validate images
+        href: secure-iot-ops/howto-validate-images.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview
@@ -73,11 +75,9 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: Overview
+      - name: What are dataflows?
         href: connect-to-cloud/overview-dataflow.md
-      - name: Create a dataflow
-        href: connect-to-cloud/howto-create-dataflow.md
-      - name: Endpoints
+      - name: Prepare endpoints
         items:
         - name: Overview
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
@@ -91,8 +91,10 @@ items:
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
-        - name: Local storage
+        - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
+      - name: Create dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
         - name: Map data
@@ -129,16 +131,10 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
-      - name: Upload MQTT data to a lakehouse
-        href: view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md
     - name: Configure observability and monitoring
       items:
-      - name: Deploy observability resources with a script
+      - name: Deploy observability resources
         href: configure-observability-monitoring/howto-configure-observability.md
-      - name: Deploy observability resources manually
-        href: configure-observability-monitoring/howto-configure-observability-manual.md
-      - name: Add a cluster to observability infrastructure
-        href: configure-observability-monitoring/howto-add-cluster.md
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps
@@ -159,7 +155,15 @@ items:
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials
       items:
-      - name: MQTT bridge
+      - name: Get started end-to-end
+        items:
+        - name: Add OPC UA assets to your cluster
+          href: end-to-end-tutorials/tutorial-add-assets.md
+        - name: Upload data to the cloud
+          href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
+        - name: Get insights from your data
+          href: end-to-end-tutorials/tutorial-get-insights.md
+      - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:

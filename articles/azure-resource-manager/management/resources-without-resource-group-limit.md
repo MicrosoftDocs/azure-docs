@@ -215,6 +215,10 @@ Some resources have a limit on the number instances per region. This limit is di
 * servers/jobAgents
 * virtualClusters
 
+## Microsoft.SqlVirtualMachine
+
+* sqlVirtualMachines
+
 ## Microsoft.Storage
 
 * storageAccounts

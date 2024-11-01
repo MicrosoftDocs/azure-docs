@@ -3,8 +3,7 @@ title: Prerequisites include file shared by two tabs in the same file  | Microso
 description: Prerequisites for Data Box service and device before deployment. 
 services: databox
 author: stevenmatthew
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: include
 ms.date: 03/25/2024
 ms.author: shaas

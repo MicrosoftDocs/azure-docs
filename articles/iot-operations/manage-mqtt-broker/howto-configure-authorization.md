@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 09/09/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
+ms.service: azure-iot-operations
 ---
 
 # Configure MQTT broker authorization

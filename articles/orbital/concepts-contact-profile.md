@@ -2,7 +2,7 @@
 title: Azure Orbital Ground Station - Contact profile resource
 description: Learn more about the contact profile resource, including how to create, modify, and delete the profile.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 07/13/2022
@@ -55,7 +55,7 @@ Refer to the example below to understand how to specify an RHCP channel and an L
 {
   "location": "eastus2",
   "tags": null,
-  "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
   "name": "CONTOSO-CP",
   "type": "Microsoft.Orbital/contactProfiles",
   "properties": {
@@ -63,9 +63,9 @@ Refer to the example below to understand how to specify an RHCP channel and an L
     "minimumViableContactDuration": "PT1M",
     "minimumElevationDegrees": 5,
     "autoTrackingConfiguration": "disabled",
-    "eventHubUri": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+    "eventHubUri": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
     "networkConfiguration": {
-      "subnetId": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet"
+      "subnetId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet"
     },
     "links": [
       {

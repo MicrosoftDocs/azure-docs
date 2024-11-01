@@ -151,8 +151,8 @@
       href: high-availability.md
     - name: Deploy to multiple Azure regions
       href: api-management-howto-deploy-multi-region.md
-    - name: Enable zone redundancy
-      displayName: Availability zones
+    - name: Enable availability zones
+      displayName: zonal, zone-redundant
       href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Set up DR using backup/restore
       displayName: disaster, recovery

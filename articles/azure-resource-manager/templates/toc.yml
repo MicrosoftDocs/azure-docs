@@ -461,6 +461,7 @@
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
+      displayName: Visual Studio
       href: update-visual-studio-deployment-script.md
 - name: Reference
   items:

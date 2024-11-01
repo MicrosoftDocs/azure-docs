@@ -1,8 +1,8 @@
 ---
 title: Onboarding for Azure Operator Call Protection Preview
 description: Understand the Included Benefits and your other options for onboarding to Azure Operator Call Protection Preview.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-operator-call-protection
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 01/31/2024
