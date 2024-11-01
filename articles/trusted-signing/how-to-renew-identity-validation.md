@@ -1,6 +1,6 @@
 ---
-title: Renew Trusted Signing Identity Validation
-description: How-to rerenew a Trusted Signing Identity Validation. 
+title: Renew and Delete Trusted Signing Identity Validation
+description: How-to renew and delete a Trusted Signing Identity Validation. 
 author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -33,3 +33,27 @@ You can check the expiration date of your Identity Validation on the Identity Va
     - On the **Certificate Profiles**, delete the existing cert profile associated to the Identity Validation expiring soon:
     - Create new cert profile with the same name.
     - Select the Identity Validation from the pull-down. Once the certificate profile is created successfully, signing resumes requiring no configuration changes on your end.
+    
+# Delete Trusted Signing Identity Validation
+
+You can delete an Identity Validation that is not in "In Progress" state from the Identity Validation page.
+
+>[!Note]
+>Deleting an Identity Validation before stops the renewal of linked certificate profiles across all the accounts within a subscription where Identtiy Validation was done. This impacts signing. 
+>Deleted identity validation requests cannot be recovered.
+
+1. Navigate to your Trusted Signing account in the [Azure portal](https://portal.azure.com/).
+2. Confirm you have the **Trusted Signing Identity Verifier role**.
+    - To learn more about Role Based Access management (RBAC) access management, see [Assigning roles in Trusted Signing](tutorial-assign-roles.md).
+3. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
+4. Select the Identity Validation request that needs to be deleted. Select **Delete** on the top. 
+
+:::image type="content" source="media/trusted-signing-delete-identity-validation.png" alt-text="Screenshot of trusted signing delete identity-validation button.png." lightbox="media/trusted-signing-delete-identity-validation.png":::
+
+5. A blade opens on the right hand side and lists the number of associated accounts and shows the certificate profiles linked to this Identity Validation. 
+    - Ensure you have read permissions at the subscription level or on all trusted signing accounts to verify the usage of the current identity validation request across all certificate profiles. 
+    
+    :::image type="content" source="media/trusted-signing-delete-identity-validation-linked-profiles.png" alt-text="Screenshot of trusted signing delete identity-validation showing linked-profiles.png." lightbox="media/trusted-signing-delete-identity-validation-linked-profiles.png"::: 
+
+6. Select **Delete**, if you wish to continue with the deletion of the certificate profile. A deleted Identity Validation request cannot be recovered. 
+    
