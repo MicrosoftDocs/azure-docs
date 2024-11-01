@@ -19,11 +19,7 @@ This article describes how to use the [Azure IoT SDK for .NET](https://github.co
 
 ## Create a device application
 
-This section describes how to use device application code to:
-
-* Respond to a direct method called by the cloud
-* Trigger a simulated device reboot
-* Use the reported properties to enable device twin queries to identify devices and when they were last rebooted
+This section describes how to use device application code to create a direct method callback listener.
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
@@ -50,17 +46,13 @@ The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.dev
 This example connects to a device using the `Mqtt` transport protocol.
 
 ```csharp
-using Microsoft.Azure.Devices.Client;
-using Microsoft.Azure.Devices.Shared;
-using Newtonsoft.Json;
-
 static string DeviceConnectionString = "{IoT hub device connection string}";
 static deviceClient = null;
 deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
 ```
 
-### Create a direct method callback
+### Create a direct method callback listener
 
 Use [SetMethodHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setmethodhandlerasync) to initialize a direct method callback listener. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
@@ -99,16 +91,6 @@ static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userCon
       try
       {
          Console.WriteLine("Rebooting!");
-
-         // Update device twin with reboot time. 
-         TwinCollection reportedProperties, reboot, lastReboot;
-         lastReboot = new TwinCollection();
-         reboot = new TwinCollection();
-         reportedProperties = new TwinCollection();
-         lastReboot["lastReboot"] = DateTime.Now;
-         reboot["reboot"] = lastReboot;
-         reportedProperties["iothubDM"] = reboot;
-         Client.UpdateReportedPropertiesAsync(reportedProperties).Wait();
       }
       catch (Exception ex)
       {
@@ -135,22 +117,13 @@ The Azure IoT SDK for .NET provides working samples of device apps that handle d
 
 ## Create a backend application
 
-This section describes how to trigger a direct method on a device and then use device twin queries to monitor the status of that device.
+This section describes how to trigger a direct method on a device.
 
 The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class exposes all methods required to create a backend application to send direct method calls to devices.
 
 ### Required service NuGet package
 
 Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
-
-### Using statements
-
-Add the following `using` statements.
-
-   ```csharp
-   using Microsoft.Azure.Devices;
-   using Microsoft.Azure.Devices.Shared;
-   ```
 
 ### Connect to IoT hub
 
@@ -163,7 +136,6 @@ As a parameter to `CreateFromConnectionString`, supply the **service** shared ac
 [!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 ```csharp
-using Microsoft.Azure.Devices;
 static ServiceClient client;
 static string connectionString = "{IoT hub service shared access policy connection string}";
 client = ServiceClient.CreateFromConnectionString(connectionString);
@@ -188,16 +160,6 @@ static string targetDevice = "myDeviceId";
 client.InvokeDeviceMethodAsync(targetDevice, method);
 
 Console.WriteLine("Invoked firmware update on device.");
-```
-
-This example gets the device twin for the rebooting device and outputs the reported properties. This output shows that the `onReboot` callback method updated the `lastReboot`, `Reboot`, and `iothubDM` reported properties.
-
-```csharp
-public static async Task QueryTwinRebootReported()
-{
-      Twin twin = await registryManager.GetTwinAsync(targetDevice);
-      Console.WriteLine(twin.Properties.Reported.ToJson());
-}
 ```
 
 ### SDK service samples
