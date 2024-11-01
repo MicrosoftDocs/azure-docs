@@ -61,7 +61,7 @@ The data from these commands identify whether a pod is restarting due to `OOMKil
 
 ## Patching memory limits
 
-Raise all memory limit changes be reported to Microsoft support for further investigation or adjustments.
+Raise a Microsoft support request for all memory limit changes for adjustments and support.
 
 > [!WARNING]
 > Patching memory limits to a pod are not permanent and can be overwritten if the pod restarts.
