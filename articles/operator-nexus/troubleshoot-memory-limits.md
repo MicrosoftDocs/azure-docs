@@ -13,7 +13,7 @@ author: matternst7258
 
 ## Alerting for memory limits
 
-It is recommended to have alerts setup for the Operator Nexus cluster to look for Kubernetes pods restarting from OOMKill errors. These alerts will allow customers to know if a component on a server is working appropriately.
+It's recommended to have alerts set up for the Operator Nexus cluster to look for Kubernetes pods restarting from OOMKill errors. These alerts allow customers to know if a component on a server is working appropriately.
 
 ## Identifying Out of Memory (OOM) pods
 
@@ -51,10 +51,32 @@ The data from these commands identify whether a pod is restarting due to `OOMKil
 
 ## Patching memory limits
 
-It is recommended for all memory limit changes be reported to Microsoft support for further investigation or adjustments.
+Raise all memory limit changes be reported to Microsoft support for further investigation or adjustments.
 
 > [!WARNING]
 > Patching memory limits to a pod are not permanent and can be overwritten if the pod restarts.
+
+## Confirm memory limit changes
+
+When memory limits change, the pods should return to `Ready` state and stop restarting. 
+
+The following commands can be used to confirm the behavior.
+
+```azcli
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
+   --limit-time-seconds 60 \
+   --commands "[{command:'kubectl get',arguments:[pods,-n,nc-system]}]" \
+   --resource-group "<cluster_MRG>" \
+   --subscription "<subscription>"
+```
+
+```azcli
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
+   --limit-time-seconds 60 \
+   --commands "[{command:'kubectl describe',arguments:[pod,<podName>,-n,nc-system]}]" \
+   --resource-group "<cluster_MRG>" \
+   --subscription "<subscription>"
+```
 
 ## Known services susceptible to OOM issues
 
