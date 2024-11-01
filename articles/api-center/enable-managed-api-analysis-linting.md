@@ -3,7 +3,7 @@ title: Managed API linting and analysis - Azure API Center
 description: Enable managed linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 11/01/2024
 ms.author: danlep
 author: dlepow
 ms.custom: 
@@ -30,9 +30,9 @@ In this scenario:
 * Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
 * By default, you enable analysis with the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To learn more about the built-in rules, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
-* The following are limits for maximum number of API definitions linted per 4 hours:
+* The following are limits for maximum number of API definitions linted:
     * Free tier: 10
-    * Standard tier: 100
+    * Standard tier: 200 per 24 hours
 
 ## Prerequisites
 
