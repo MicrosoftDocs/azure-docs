@@ -6,7 +6,7 @@ ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 10/29/2024
+ms.date: 11/01/2024
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -56,6 +56,10 @@ Azure Virtual Network encryption has the following limitations:
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
 - Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
+
+- Virtual networks with Azure Private Link service configured don't support encryption and Virtual Network encryption setting shouldn't be enabled. 
+
+- Virtual Network encryption shouldn't be enabled in virtual networks that have Azure confidential computing VM SKUs.
 
 ## Supported scenarios
 
