@@ -352,7 +352,7 @@ The recommended version will treat Char(36) as GUID type by default for better p
 
 The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance.
 
-You can also change this behavior by setting `guidFromat=none` in connection property. 
+You can also change this behavior by setting `guidFormat=none` in connection property. 
 
 #### Cannot read zero or invalid date
 
@@ -360,7 +360,7 @@ The recommended version cannot read zero or invalid date value. It is by default
 
 MySQL permits you to store a "zero" value of '0000-00-00' as a "dummy date." In some cases, this is more convenient than using NULL values, and uses less data and index space. To disallow '0000-00-00', enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).
 
-For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`.
+For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`to return DateTime.MinValue (1/1/0001 12:00:00 AM).
 
 For invalid date value, you can modify your SQL to wrap the column as String type.
 
