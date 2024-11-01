@@ -361,6 +361,70 @@ Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure 
 
  
 
+### Create a backup policy
+
+To crate a backup policy for the SAP ASE database, follow these steps:
+
+
+1.	On the **Backup Goal**, under **Step 2**, select **Configure Backup**.
+ 
+2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new backup policy** for the databases. 
+
+   A backup policy defines when backups are taken, and how long they're retained.
+
+   - A policy is created at the vault level.
+   - Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault.
+
+3. On the **Policy name**, provide a name for the new policy.
+
+ 
+
+4. On the **Full Backup policy**, select a **Backup Frequency**, and then select **Daily** or **Weekly** as per the requirement.
+
+   - **Daily**: Select the **hour** and **time zone** in which the backup job begins.
+
+     >[!Note]
+     >- You must run a full backup. You can't turn off this option.
+     >- Select Full Backup to view the policy.
+     >- You can't create differential backups for daily full backups.
+
+   - **Weekly**: Select the **day of the week**, **hour**, and **time zone** in which the backup job runs.
+
+
+5. On the **Retention Range**, define the retention range for the full backup.
+   >[!Note]
+   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you do.
+   >- The minimum retention period for any type of backup (full/differential/log) is seven days.
+   >- Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
+   >- The backup for a specific day is tagged and retained based on the weekly retention range and setting.
+   >- The monthly and yearly retention ranges behave in a similar way.
+
+6. On the **Full Backup policy**, select **OK** to accept the settings.
+7. Select the **Differential Backup** to add a differential policy.
+
+8.On the **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+
+   >[!Note]
+   >- At most, you can trigger one differential backup per day.
+   >- Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
+
+9.Select **OK** to save the policy and return to the **Backup policy** page.
+
+10. Select **Log Backup** to add a transactional log backup policy.
+
+11. On the **Log Backup**, select **Enable** to set the frequency and retention controls.
+
+   >[!Note]
+   >- Log backups only begin to flow after a successful full backup is completed.
+   >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+
+12. On the **Configure Backup**, select the new policy under **Backup Policy**, and then select **Add**.
+13. Select **Configure backup**.
+14. On the **Select items to backup**, select the Databases for protection, and then select **Next**.
+  
+
+15. Review  the backup configuration, and then select **Enable backup**.
+
 
 
 
