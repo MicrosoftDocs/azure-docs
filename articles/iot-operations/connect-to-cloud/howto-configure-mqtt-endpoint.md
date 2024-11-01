@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/01/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -25,17 +25,24 @@ MQTT dataflow endpoints are used for MQTT sources and destinations. You can conf
 
 ## Azure IoT Operations local MQTT broker
 
+Azure IoT Operations provides a [built-in local MQTT broker](../manage-mqtt-broker/overview-iot-mq.md) that you can use with dataflows. You can use the MQTT broker as a source to receive messages from other systems or as a destination to send messages to other systems.
+
 ### Default endpoint
 
-Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows. When you deploy Azure IoT Operations, an MQTT broker dataflow endpoint named "default" is created with default settings. You can use this endpoint as a source or destination for dataflows. The default endpoint uses the following settings:
+When you deploy Azure IoT Operations, an MQTT broker dataflow endpoint named "default" is created with default settings. You can use this endpoint as a source or destination for dataflows. 
+
+> [!IMPORTANT]
+> The default endpoint **must always be used as either the source or destination in every dataflow**. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+
+The default endpoint uses the following settings:
 
 - Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
 - Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
 - TLS: Enabled
 - Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [default root CA](../deploy-iot-ops/concept-default-root-ca.md)
 
-> [!IMPORTANT]
-> If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
+> [!CAUTION]
+> Don't delete the default endpoint. If you delete the default endpoint, you must recreate it with the same settings.
 
 To view or edit the default MQTT broker endpoint settings:
 
@@ -104,7 +111,7 @@ kubectl get dataflowendpoint default -n azure-iot-operations -o yaml
 
 ### Create new endpoint
 
-You can also create new local MQTT broker endpoints with custom settings. For example, you can create a new MQTT broker endpoint using a different port, authentication, or other settings.
+You can also create new local MQTT broker endpoints with custom settings. For example, you can create a new MQTT broker endpoint using a different port, authentication, or authorization settings. However, you must still always use the default endpoint as either the source or destination in every dataflow, even if you create new endpoints.
 
 # [Portal](#tab/portal)
 

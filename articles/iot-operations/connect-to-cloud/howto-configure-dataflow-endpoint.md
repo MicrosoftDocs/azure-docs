@@ -27,6 +27,24 @@ Use the following table to choose the endpoint type to configure:
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
 
+## Dataflows must use local MQTT broker endpoint
+
+When you create a dataflow, you specify the source and destination endpoints. The dataflow moves data from the source endpoint to the destination endpoint. You can use the same endpoint for multiple dataflows, and you can use the same endpoint as both the source and destination in a dataflow.
+
+However, using custom endpoints as both the source and destination in a dataflow isn't supported. This means the built-in MQTT broker in Azure IoT Operations must be either the source or destination for every dataflow. To avoid dataflow deployment failures, use the [default MQTT dataflow endpoint](./howto-configure-mqtt-endpoint.md#default-endpoint) as either the source or destination for every dataflow. 
+
+The specific requirement is that each dataflow must have either the source or destination with an MQTT endpoint with the host `aio-broker`. So while using the default endpoint isn't strictly required, and you can create new other redundant dataflow endpoints pointing to the local MQTT broker as long as the host is `aio-broker`, it's recommended to use the default endpoint to avoid confusion and manageability issues.
+
+The following table shows the supported scenarios:
+
+| Scenario | Supported |
+|----------|-----------|
+| Default endpoint as source | Yes |
+| Default endpoint as destination | Yes |
+| Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as source and destination | No, unless one of them is an MQTT endpoints with host `aio-broker` |
+
 ## Reuse endpoints
 
 Think of each dataflow endpoint as a bundle of configuration settings that contains where the data should come from or go to (the `host` value), how to authenticate with the endpoint, and other settings like TLS configuration or batching preference. So you just need to create it once and then you can reuse it in multiple dataflows where these settings would be the same.
