@@ -19,10 +19,7 @@ This article describes how to use the [Azure IoT SDK for Java](https://github.co
 
 ## Create a device application
 
-This section describes how to use device application code to:
-
-* Respond to a direct method called by the cloud
-* Trigger a simulated device reboot
+This section describes how to use device application code to create a direct method callback listener.
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
@@ -59,7 +56,7 @@ To connect to a device:
     client.open(true);
     ```
 
-### Create a direct method callback
+### Create a direct method callback listener
 
 Call [subscribeToMethods](https://azure.github.io/azure-iot-sdk-java/master/device/com/microsoft/azure/sdk/iot/device/InternalClient.html#subscribeToMethods-com.microsoft.azure.sdk.iot.device.twin.MethodCallback-java.lang.Object-int-) to initialize a direct method callback listener. `subscribeToMethods` listens for incoming direct methods until the connection is terminated. The method name and payload is received for each direct method call.
 
@@ -111,7 +108,7 @@ Call [invoke](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemet
 This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback** section of this article.
 
 ```java
-public static final String deviceId = "myFirstDevice2";
+public static final String deviceId = "myFirstDevice";
 private static final String methodName = "reboot";
 private static final Long responseTimeout = TimeUnit.SECONDS.toSeconds(30);
 private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
