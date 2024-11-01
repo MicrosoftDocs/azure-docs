@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Python SDK for dev
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: how-to
 ms.date: 12/29/2022
@@ -52,6 +52,8 @@ In this section, you:
 * Simulate a device reboot.
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 In Azure Cloud Shell you used previously, or any other environment with Python, create the device code.
 
@@ -159,6 +161,8 @@ In Azure Cloud Shell you used previously, or any other environment with Python, 
 ## Create a service app to trigger a reboot
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 In Azure Cloud Shell or any other environment with Python, create the console code.
 

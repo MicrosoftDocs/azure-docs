@@ -29,7 +29,7 @@ Azure Virtual Desktop is a desktop and app virtualization service that runs on A
 
 ## Introductory video
 
-Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:
+Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/aPEibGMvxZw]
 

@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2024
+ms.date: 10/16/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -17,7 +17,7 @@ ms.date: 09/26/2024
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, please [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) before **December 31, 2024**. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
+>The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -205,9 +205,9 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow
+## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow connector
 
-Here are the steps that help you to upgrade your ServiceNow linked service:
+Here are the steps that help you to upgrade your ServiceNow connector:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).

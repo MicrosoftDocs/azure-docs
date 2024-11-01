@@ -52,8 +52,8 @@ The API response lists the billing accounts that you have access to.
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+      "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+      "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
       "properties": {
         "accountStatus": "Active",
         "accountType": "Enterprise",
@@ -70,7 +70,7 @@ The API response lists the billing accounts that you have access to.
 }
 ```
 
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -80,14 +80,14 @@ Get-AzBillingAccount
 You'll get back a list of all billing accounts that you have access to
 
 ```json
-Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+Name          : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 DisplayName   : Contoso
 AccountStatus : Active
 AccountType   : Enterprise
 AgreementType : MicrosoftCustomerAgreement
 HasReadAccess : True
 ```
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 
 ### [Azure CLI](#tab/azure-cli)
@@ -112,15 +112,15 @@ You'll get back a list of all billing accounts that you have access to.
     "enrollmentAccounts": null,
     "enrollmentDetails": null,
     "hasReadAccess": true,
-    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-    "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
     "soldTo": null,
     "type": "Microsoft.Billing/billingAccounts"
   }
 ]
 ```
 
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account. For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account. For example, to create a subscription for the `Contoso` billing account, copy `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -133,7 +133,7 @@ First you get the list of billing profiles under the billing account that you ha
 ### [REST](#tab/rest)
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
 ```
 The API response lists all the billing profiles on which you have access to create subscriptions:
 
@@ -141,7 +141,7 @@ The API response lists all the billing profiles on which you have access to crea
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+      "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
       "name": "AW4F-xxxx-xxx-xxx",
       "properties": {
         "billingRelationshipType": "Direct",
@@ -185,10 +185,10 @@ The API response lists all the billing profiles on which you have access to crea
 }
 ```
 
- Copy the `id` to next identify the invoice sections underneath the billing profile. For example, copy `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx` and call the following API.
+ Copy the `id` to next identify the invoice sections underneath the billing profile. For example, copy `/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx` and call the following API.
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoicesections?api-version=2020-05-01
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoicesections?api-version=2020-05-01
 ```
 ### Response
 
@@ -197,7 +197,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
   "totalCount": 1,
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+      "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
       "name": "SH3V-xxxx-xxx-xxx",
       "properties": {
         "displayName": "Development",
@@ -210,12 +210,12 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 }
 ```
 
-Use the `id` property to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
+Use the `id` property to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, `/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
 
 ### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+Get-AzBillingProfile -BillingAccountName aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
 You'll get the list of billing profiles under this account as part of the response.
@@ -243,7 +243,7 @@ PostalCode        : 98052
 Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You'll need the `name` of the billing account and billing profile.
 
 ```azurepowershell
-Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
+Get-AzInvoiceSection -BillingAccountName aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
 ```
 
 You'll get the invoice section returned.
@@ -253,12 +253,12 @@ Name        : SH3V-xxxx-xxx-xxx
 DisplayName : Development
 ```
 
-The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value equates to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value equates to `"/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
+az billing profile list --account-name "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
 
 This API returns the list of billing profiles and invoice sections under the provided billing account.
@@ -295,7 +295,7 @@ This API returns the list of billing profiles and invoice sections under the pro
       }
     ],
     "hasReadAccess": true,
-    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+    "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
     "indirectRelationshipInfo": null,
     "invoiceDay": 5,
     "invoiceEmailOptIn": true,
@@ -304,7 +304,7 @@ This API returns the list of billing profiles and invoice sections under the pro
       "value": [
         {
           "displayName": "Field_Led_Test_Ace",
-          "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+          "id": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
           "labels": null,
           "name": "SH3V-xxxx-xxx-xxx",
           "state": "Active",
@@ -325,20 +325,20 @@ This API returns the list of billing profiles and invoice sections under the pro
   }
 ]
 ```
-Use the `id` property under the invoice section object to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
+Use the `id` property under the invoice section object to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, /providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
 
 ---
 
 ## Create a subscription for an invoice section
 
-The following example creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appears on the *Development* section of its invoice. You use the copied billing scope from the previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
+The following example creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appears on the *Development* section of its invoice. You use the copied billing scope from the previous step: `/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
 
 ### [REST](#tab/rest)
 
 Replace the placeholder value `sampleAlias` as needed. For more information on these REST calls, see [Create](/rest/api/subscription/alias/create) and [Get](/rest/api/subscription/alias/get).
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01api-version=2021-10-01
 ```
 
 ### Request body
@@ -347,7 +347,7 @@ PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampl
 {
   "properties":
     {
-        "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
         "DisplayName": "Dev Team subscription",
         "Workload": "Production"
     }
@@ -373,7 +373,7 @@ You can do a GET on the same URL to get the status of the request.
 ### Request
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
 ```
 
 ### Response
@@ -396,10 +396,10 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in below example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
-Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
 ```azurepowershell
-New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload "Production"
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload "Production"
 ```
 
 You get the subscriptionId as part of the response from the command.
@@ -423,7 +423,7 @@ First, install the extension by running `az extension add --name account` and `a
 Run the [az account alias create](/cli/azure/account/alias#az-account-alias-create) following command.
 
 ```azurecli
-az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
+az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
 You get the subscriptionId as part of the response from the command.
@@ -527,7 +527,7 @@ With a request body:
         "value": "sampleAlias"
       },
       "billingScope": {
-        "value": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
+        "value": "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
       }
     },
     "mode": "Incremental"
@@ -544,7 +544,7 @@ New-AzManagementGroupDeployment `
   -ManagementGroupId mg1 `
   -TemplateFile azuredeploy.json `
   -subscriptionAliasName sampleAlias `
-  -billingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
+  -billingScope "/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -555,7 +555,7 @@ az deployment mg create \
   --location eastus \
   --management-group-id mg1 \
   --template-file azuredeploy.json \
-  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx'
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/billingAccounts/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx'
 ```
 
 ---

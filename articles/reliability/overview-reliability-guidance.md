@@ -2,11 +2,12 @@
 title: Reliability guidance overview for Microsoft Azure products and services
 description: Reliability guidance overview for Microsoft Azure products and services. View Azure service specific reliability guides and Azure Service Manager Retirement guides.
 author: anaharris-ms
-ms.service: reliability
+ms.service: azure
 ms.topic: reliability-article
 ms.date: 03/31/2023
 ms.author: anaharris
 ms.custom: subject-reliability
+ms.subservice: azure-reliability
 ---
 
 # Reliability guidance overview 
@@ -96,6 +97,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
 |Azure API Center | [Reliability in Azure API Center](reliability-api-center.md) | [Reliability in Azure API Center](reliability-api-center.md)|
+|Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Application Gateway for Containers | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md) | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md)|
 |Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
@@ -104,10 +106,12 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Data Manager for Energy| [Reliability in Azure Data Manager for Energy](./reliability-energy-data-services.md) |[Reliability in Azure Data Manager for Energy](./reliability-energy-data-services.md) |
 |Azure Data Share| |[Disaster recovery for Azure Data Share](../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Deployment Environments| [Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|[Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|
+|Azure Device Registry | [Reliability in Azure Device Registry Preview](reliability-device-registry.md)|[Reliability in Azure Device Registry](reliability-device-registry.md)|
 |Azure DevOps|| [Azure DevOps Data protection - data availability](/azure/devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&#data-availability)|
 |Azure Elastic SAN|[Availability zone support](reliability-elastic-san.md#availability-zone-support)|[Disaster recovery and business continuity](reliability-elastic-san.md#disaster-recovery-and-business-continuity)|
 |Azure HDInsight on AKS |[Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) | [Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) |
-|Azure Health Data Services - Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Health Data Services (FHIR, DICOM, MedTech) |  | [Disaster recovery for Azure Health Data Services](../healthcare-apis/business-continuity-disaster-recovery.md) |
+|Azure Health Data Services de-identification service || [Disaster recovery for Azure Health Data Services de-identification service](reliability-health-data-services-deidentification.md) |
 |Azure Health Insights|[Reliability in Azure Health Insights](reliability-health-insights.md)|[Reliability in Azure Health Insights](reliability-health-insights.md)|
 |Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Machine Learning Service|| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

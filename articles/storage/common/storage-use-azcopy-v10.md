@@ -110,9 +110,9 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
 4. Update the package index files.
 
    ```bash
-   sudo dnf update
+   sudo zypper --gpg-auto-import-keys refresh
    ```
-
+   
 5. Install AzCopy.
    
    ```bash

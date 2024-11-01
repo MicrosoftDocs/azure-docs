@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 07/22/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.devlang: csharp
 # ms.devlang: csharp, java, nodejs
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
+ms.subservice: azure-iot-hub-dps
 ---
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
@@ -47,7 +48,7 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 :::zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 >[!NOTE]
 >Although the steps in this article work on both Windows and Linux computers, this article uses a Windows development computer.

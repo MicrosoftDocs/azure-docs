@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 10/08/2024
 ms.author: cherylmc
 
 #Note that Audience values are not sensitive data. 

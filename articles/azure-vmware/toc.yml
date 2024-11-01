@@ -53,6 +53,8 @@ items:
     href: reserved-instance.md
   - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
     href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
   items:
   - name: Private clouds and clusters
@@ -311,6 +313,8 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
+  - name: Self service maintenance orchestration (public preview)
+    href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution

@@ -87,7 +87,7 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -Resou
 highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
 ```
 
-# [**Standard Resiliency**](#tab/standard)
+# [**Standard/High Resiliency**](#tab/standard)
 
 **Standard resiliency**: provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit.
 You can connect a virtual network gateway to an ExpressRoute circuit using the **New-AzVirtualNetworkGatewayConnection** cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
@@ -97,6 +97,9 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
+
+> [!NOTE]
+> For **High Resiliency**, you must connect to a Metro circuit instead of a Standard circuit.
 
 ---
 
@@ -252,7 +255,7 @@ With Virtual Network Peering and UDR support, FastPath will send traffic directl
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
 These scenarios are Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
-1. Complete this [Microsoft Form](https://aka.ms/fastpathlimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
+1. Complete this [Microsoft Form](https://aka.ms/fplimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection -ResourceGroupName <resource-group> -ResourceName <connection-name>

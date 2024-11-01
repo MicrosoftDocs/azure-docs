@@ -9,33 +9,33 @@ items:
     href: /azure/virtual-machines/workloads/oracle/
 - name: Oracle Database@Azure
   items:
-  - name: What's new in Oracle Database@Azure
+  - name: What's new
     href: oracle-db/oracle-database-what-is-new.md
-  - name: Available regions for Oracle Database@Azure
+  - name: Region availability
     href: oracle-db/oracle-database-regions.md
-  - name: Get started with Oracle Database@Azure
+  - name: Get started
     href: oracle-db/oracle-database-get-started.md
-  - name: Oracle Database@Azure compliance information
+  - name: Compliance information
     href: oracle-db/oracle-database-compliance.md
-  - name: Overview - Oracle Database@Azure
+  - name: Overview
     href: oracle-db/database-overview.md
-  - name: Network planning for Oracle Database@Azure
+  - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
-  - name: Groups and roles for Oracle Database@Azure
+  - name: Groups and roles
     href: oracle-db/oracle-database-groups-roles.md
-  - name: Troubleshoot Oracle Database@Azure
+  - name: Troubleshoot
     href: oracle-db/oracle-database-troubleshoot.md
-  - name: Known issues for Oracle Database@Azure
+  - name: Known issues
     href: oracle-db/oracle-database-known-issues.md
-  - name: Onboard Oracle Database@Azure
+  - name: Onboarding
     items:
     - name: Onboard Oracle Database@Azure
       href: oracle-db/onboard-oracle-database.md
   - name: Design considerations 
     items:
-    - name: Groups and roles for Oracle Database@Azure
+    - name: Groups and roles
       href: oracle-db/oracle-database-groups-roles.md
-    - name: Plan for IP Address Space
+    - name: Plan IP address space
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
@@ -43,15 +43,15 @@ items:
     items:
     - name: What's new in Exadata services
       href: oracle-db/exadata-whats-new-services.md
-    - name: Provision Exadata infrastructure
+    - name: Provision an Exadata infrastructure
       href: oracle-db/exadata-provision-infrastructure.md
     - name: Manage Exadata resources
       href: oracle-db/exadata-manage-resources.md
     - name: Operations processes for Exadata services
       href: oracle-db/exadata-operations-processes-services.md
-    - name: OCI Multicloud landing zone for Azure
+    - name: OCI multicloud landing zone for Azure
       href: oracle-db/exadata-multicloud-landing-zone-azure-services.md
-    - name: Terraform/OpenTofu Examples for Exadata Services
+    - name: Terraform/OpenTofu examples for Exadata services
       href: oracle-db/exadata-examples-services.md
     - name: Troubleshoot Exadata services
       href: oracle-db/exadata-troubleshoot-services.md
@@ -61,25 +61,25 @@ items:
       href: oracle-db/oracle-database-whats-new-autonomous-database-services.md
     - name: Provision an autonomous database
       href: oracle-db/provision-autonomous-oracle-databases.md
-    - name: Manage autonomous database resources
+    - name: Manage Autonomous Database resources
       href: oracle-db/oracle-database-manage-autonomous-database-resources.md
-    - name: Autonomous database services for Oracle Database@Azure
+    - name: Autonomous Database services in Azure
       href: oracle-db/oracle-database-autonomous-database-services.md
     - name: Operations processes for Autonomous Database services
       href: oracle-db/oracle-database-processes-autonomous-database-services.md
-    - name: Provision an autonomous database serverless instance
+    - name: Provision an Autonomous Database instance
       href: oracle-db/oracle-database-provision-autonomous-database.md
     - name: OCI multicloud landing zone for Azure
       href: oracle-db/oracle-cloud-infrastructure-azure-autonomous-database-services.md
-    - name: Terraform/OpenTofu Examples for Autonomous Database Services
+    - name: Terraform/OpenTofu examples for Autonomous Database services
       href: oracle-db/oracle-database-examples-autonomous-database-services.md
-    - name: Troubleshoot autonomous database services
+    - name: Troubleshoot Autonomous Database services
       href: oracle-db/oracle-database-troubleshoot-autonomous-database-services.md     
   - name: Link Oracle Database@Azure to multiple Azure subscriptions
     href: oracle-db/link-oracle-database-multiple-subscription.md
-  - name: Support for Oracle Database@Azure
+  - name: Support
     href: oracle-db/oracle-database-support.md
-  - name: FAQs
+  - name: FAQ
     href: oracle-db/faq-oracle-database-azure.md
   
  

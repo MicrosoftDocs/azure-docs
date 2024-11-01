@@ -16,7 +16,7 @@ ms.author: cherylmc
 We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with additional failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
 
 * **Effective January 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible.
-* **Migration period**: From April 2025 to October 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
+* **Migration period**: From April 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
 
 To support this migration, we're reducing the prices on AZ SKUs. Refer to the [FAQ](#faq) section of this article for more information about SKUs and pricing.
 
@@ -61,6 +61,11 @@ Yes. The new pricing timeline is:
 ### Can I deploy VpnGw 1-5 AZ SKUs in all regions?
 
 Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways
+
+### Can I migrate my Gen 1 gateway to Gen 2 gateway?
+
+* For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed. 
+* For gateways already using Standard IP, we will migrate them to Gen2 separately before Sep 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
 
 ### Will there be downtime during migrating my Non-AZ gateways?
 

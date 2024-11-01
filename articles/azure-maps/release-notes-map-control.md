@@ -26,7 +26,7 @@ This document contains information about new features and other changes to the M
 - Update Bing style test page with corresponding endpoints.
 - Update Bing style test page with domain overrides.
 
-### [3.4.0] (CDN: September 30, 2024, npm: TBA)
+### [3.4.0] (CDN: September 30, 2024, npm: October 2)
 
 #### New features
 - Add support for PMTiles.
@@ -642,6 +642,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0
 [3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
 [3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1
 [3.2.0]: https://www.npmjs.com/package/azure-maps-control/v/3.2.0

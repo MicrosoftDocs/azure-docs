@@ -4,7 +4,7 @@ description: Learn how to upload a license file to chamber license service in Az
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 09/15/2023
 # Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to activate a license service in a chamber so that Chamber Users can run applications that require licenses.

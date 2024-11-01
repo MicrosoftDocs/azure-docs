@@ -13,14 +13,6 @@ SQL Server databases are critical workloads that require a low recovery-point ob
 
 This article shows how to back up a SQL Server database that's running on an Azure VM to an Azure Backup Recovery Services vault.
 
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> * Create and configure a vault.
-> * Discover databases and set up backups.
-> * Set up auto-protection for databases.
-
 >[!Note]
 >See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
@@ -31,7 +23,11 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Make sure that the [Azure Virtual Machine Agent](/azure/virtual-machines/extensions/agent-windows) is installed on the VM.
-1. Make sure that .NET 4.5.2 version or above is installed on the VM.
+1. Make sure that .NET 4.6.2 version or above is installed on the VM.
+
+   >[!Caution]
+   >The support for backups of SQL VMs running .NET Framework 4.6.1 or below will soon be deprecated because these versions are [officially out of support](/lifecycle/products/microsoft-net-framework). We recommend that you upgrade the .NET Framework to version 4.6.2 or above to ensure that there are no backup failures.
+
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.

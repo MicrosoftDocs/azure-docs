@@ -29,6 +29,8 @@ items:
     items:
       - name: Monitor the de-identification service
         href: monitor-deidentification-service.md
+      - name: Reliability
+        href: /azure/reliability/reliability-health-data-services-deidentification
   - name: Reference
     expanded: true
     items:

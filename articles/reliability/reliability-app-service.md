@@ -198,7 +198,7 @@ You cannot migrate existing App Service instances or environment resources from 
 
 ### Pricing
 
-There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
+For multi-tenant environments using App Service Premium v2 or Premium v3 plans, there's no additional cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. App Service Environment v3 has a different pricing model for availability zones. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
 
 ## Cross-region disaster recovery and business continuity
 

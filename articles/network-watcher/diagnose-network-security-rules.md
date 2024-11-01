@@ -6,15 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/30/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Diagnose network security rules
 
-You can use [network security groups](../virtual-network/network-security-groups-overview.md) to filter and control inbound and outbound network traffic to and from your Azure resources. You can also use [Azure Virtual Network Manager](../virtual-network-manager/overview.md) to apply admin security rules to your Azure resources to control network traffic.
-
-In this article, you learn how to use Azure Network Watcher [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic. NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
+In this article, you learn how to use Azure Network Watcher [NSG diagnostics](nsg-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic through [network security groups](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json) and [Azure Virtual Network Manager](../virtual-network-manager/overview.md?toc=/azure/network-watcher/toc.json). NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
 
 The example in this article shows you how a misconfigured network security group can prevent you from using Azure Bastion to connect to a virtual machine.
 
@@ -22,13 +20,13 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -38,7 +36,7 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -822,6 +820,6 @@ az group delete --name 'myResourceGroup' --yes --no-wait
 
 ---
 
-## Next steps
+## Related content
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

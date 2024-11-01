@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for System and Organization Controls (SOC) 2
 description: Details of the System and Organization Controls (SOC) 2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/23/2024
+ms.date: 10/30/2024
 ms.topic: sample
 ms.custom: generated
 ---

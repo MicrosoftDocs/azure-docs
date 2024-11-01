@@ -6,7 +6,8 @@ ms.author: basitfarooq
 author: nabhishek
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: monitoring
 ---
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline

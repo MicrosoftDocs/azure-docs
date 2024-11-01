@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 09/24/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford 
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ---
 
