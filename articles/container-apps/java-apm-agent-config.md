@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare an image to set up Java agent and push to Azure Container Registry
-> * Create a Container Apps environment and a Container App as the target Java app
+> * Create a Container Apps environment and a container app as the target Java app
 > * Configure init containers and volume mounts to set up Application Insights integration
 
 ## Prerequisites
