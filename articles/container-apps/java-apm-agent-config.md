@@ -309,7 +309,7 @@ The following commands help you define variables and ensure your Container Apps 
             volumeName: java-agent-volume
     ```
 
-1. Update the Container App with modified YAML file.
+1. Update the container app with modified YAML file.
 
     # [Bash](#tab/bash)
 
