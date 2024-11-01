@@ -137,31 +137,31 @@ az dataprotection backup-instance initialize-restoreconfig --datasource-type Azu
 
 The restore configuration is composed of following items:
 
-1. `conflict_policy`: During a restore, if a resource with the same name exists in the cluster as in the backup, you can choose how to handle the conflict. You have two options: Skip, which won't restore the backup item, or Update, which modifies the mutable fields of the in-cluster resource with the resource stored in the backup.
+- `conflict_policy`: During a restore, if a resource with the same name exists in the cluster as in the backup, you can choose how to handle the conflict. You have two options: Skip, which won't restore the backup item, or Update, which modifies the mutable fields of the in-cluster resource with the resource stored in the backup.
 
-1. `excluded_namespace`: You can list down the namespaces to be excluded from being restored into the cluster. Resource underlying those namespaces won't be restored.
+- `excluded_namespace`: You can list down the namespaces to be excluded from being restored into the cluster. Resource underlying those namespaces won't be restored.
 
-1. `excluded_resource_types`: You can list down the resource types to be excluded from being restored into the cluster. The values in input should be provided as API Group Kind as key value pair.
+- `excluded_resource_types`: You can list down the resource types to be excluded from being restored into the cluster. The values in input should be provided as API Group Kind as key value pair.
 
-1. `include_cluster_scope_resources`: You can decide whether you want to restore cluster scoped resources or not by setting the value as true or false.
+- `include_cluster_scope_resources`: You can decide whether you want to restore cluster scoped resources or not by setting the value as true or false.
 
-1. `included_namespaces` : You can list down the namespaces to be only included as part of restoration to the cluster. Resource underlying those namespaces are to be restored.
+- `included_namespaces` : You can list down the namespaces to be only included as part of restoration to the cluster. Resource underlying those namespaces are to be restored.
 
-1. `excluded_resource_types`: You can list down the resource types to be only included for restoration into the cluster. The values in input should be provided as API Group Kind as key value pair.
+- `excluded_resource_types`: You can list down the resource types to be only included for restoration into the cluster. The values in input should be provided as API Group Kind as key value pair.
+  
+- `label_selectors`: You can select resources to be restored with specific labels in them. The input value should be provided as key value pair.
 
-1. `label_selectors`: You can select resources to be restored with specific labels in them. The input value should be provided as key value pair.
+- `namespace_mappings`: You can map namespace (and underlying resources) to a different namespace in the target cluster. If the target namespace doesn't exist in the cluster, then a new namespace is created by the extension. The input value should be provided as key value pair.
 
-1. `namespace_mappings`: You can map namespace (and underlying resources) to a different namespace in the target cluster. If the target namespace doesn't exist in the cluster, then a new namespace is created by the extension. The input value should be provided as key value pair.
+- `persistent_volume_restore_mode`: You can use this variable to decide whether you would like to restore the persistent volumes backed up or not. Accepted values are RestoreWithVolumeData, RestoreWithoutVolumeData
 
-1. `persistent_volume_restore_mode`: You can use this variable to decide whether you would like to restore the persistent volumes backed up or not. Accepted values are RestoreWithVolumeData, RestoreWithoutVolumeData
+- `resource_modifier_reference`: You can refer the Resource Modifier resource deployed in the cluster with this variable. The input value is a key value pair of the Namespace in which the resource is deployed and the name of the yaml file.
 
-1. `resource_modifier_reference`: You can refer the Resource Modifier resource deployed in the cluster with this variable. The input value is a key value pair of the Namespace in which the resource is deployed and the name of the yaml file.
+- `restore_hook_references`: You can refer the Restore Hook resource deployed in the cluster with this variable. The input value is a key value pair of the Namespace in which the resource is deployed and the name of the yaml files.
 
-1. `restore_hook_references`: You can refer the Restore Hook resource deployed in the cluster with this variable. The input value is a key value pair of the Namespace in which the resource is deployed and the name of the yaml files.
+- `staging_resource_group_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of resource group as a staging location. In this resource group, the backed up persistent volumes are hydrated before being restored to the target cluster. 
 
-1. `staging_resource_group_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of resource group as a staging location. In this resource group, the backed up persistent volumes are hydrated before being restored to the target cluster. 
-
-1. `staging_storage_account_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of storage account as a staging location. In this resource group, the backed up kubernetes resources are hydrated before being restored to the target cluster. 
+- `staging_storage_account_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of storage account as a staging location. In this resource group, the backed up kubernetes resources are hydrated before being restored to the target cluster. 
 
 Now, prepare the restore request with all relevant details. If you're restoring the backup to the original cluster, then run the following command:
 
