@@ -49,8 +49,6 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 To configure Azure Bastion resources with zone redundancy you must deploy with the Basic, Standard, or Premium SKUs.
 
-The Developer SKU is intended for non-production use. It doesn't support zone redundancy. However, in the event of a region failure, Azure Bastion attempts to route traffic through different infrastructure.
-
 Bastion requires a Standard SKU zone redundant Public IP.
 
 ### Regions supported
