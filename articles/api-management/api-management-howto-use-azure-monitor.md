@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 10/31/2024
+ms.date: 11/01/2024
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -47,7 +47,7 @@ API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-met
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
 
 > [!IMPORTANT]
-> The following metrics have been retired: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
+> The following metrics have been retired: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides closely similar functionality.
 
 :::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics-1.png" alt-text="Screenshot of Metrics in API Management Overview":::
 
