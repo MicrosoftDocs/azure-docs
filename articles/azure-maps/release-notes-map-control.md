@@ -23,7 +23,6 @@ This document contains information about new features and other changes to the M
 - Update type on `PolygonExtrusionLayerOptions.fillPattern`.
 
 #### Bug fixes
-- Fix source option in DrawingManager.
 - Update Bing style test page with corresponding endpoints.
 - Update Bing style test page with domain overrides.
 
