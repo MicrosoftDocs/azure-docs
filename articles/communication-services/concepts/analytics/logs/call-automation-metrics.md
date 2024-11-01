@@ -25,7 +25,7 @@ All API request metrics contain three dimensions that you can use to filter your
 - **Status Code**: The status code response sent after the request.
 - **StatusSubClass**: The status code series sent after the response.
 
-The callback event metrics contains those dimensions that you can use to filter your metrics data. 
+The callback event metrics contain those dimensions that you can use to filter your metrics data.
 - **EventTypeName**: The callback event type name.
 - **Code**: The status code of the callback event.
 - **CodeClass**: The status code series of the callback event.
@@ -62,7 +62,7 @@ The following operations are available on Call Automation API request metrics.
 
 ### Call Automation Callback Event
 
-The following event type name are available on Call Automation Callback Event metrics.
+The following event type names are available on Call Automation Callback Event metrics.
 
 | Event Type Name                                   |
 | ------------------------------------------------- |
