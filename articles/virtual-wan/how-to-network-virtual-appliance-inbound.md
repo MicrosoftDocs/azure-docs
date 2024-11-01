@@ -57,8 +57,13 @@ The list below corresponds to the diagram above and describes the packet flow fo
 1. The server responds and sends the reply packets to the NVA Firewall instance over the Firewall private IP.
 1. The NAT translation is reversed and the response is sent out the untrusted interface. Azure then directly sends the packet back to the user.
 
-## Known Limitations and Considerations
+## Known Issues, Limitations and Considerations
 
+### Known Issues
+|Issue | Description| Mitigation|
+|--|--|--|
+| DNAT traffic is not forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic is not forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
+|Inbound security rule configuration scalability| Inbound security rule configuration may fail when a large number (approximately 100)  rules are configured.| No mitigation, reach out to Azure Support for fix timelines.|
 ### Limitations
  
 * Destination NAT is supported only for the following NVAs: **checkpoint**, **fortinet-sdwan-and-ngfw** and **fortinet-ngfw**.
@@ -77,6 +82,10 @@ The list below corresponds to the diagram above and describes the packet flow fo
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types may not require source-NAT. Contact your NVA provider for best practices around source-NAT.
 * Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.
+
+
+
+
 
 ## Managing DNAT/Internet Inbound configurations
 
