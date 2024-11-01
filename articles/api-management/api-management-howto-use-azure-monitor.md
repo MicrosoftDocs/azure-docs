@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 08/26/2024
+ms.date: 10/31/2024
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -37,12 +37,12 @@ In this tutorial, you learn how to:
 
 ## View metrics of your APIs
 
-API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-metrics) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the most frequently used metrics. For a list of all available metrics, see [supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftapimanagementservice).
+API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-metrics) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the most frequently used metrics. For a list of all available metrics, see [supported metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics).
 
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 
     > [!TIP]
-    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
+    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management has     replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
 
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
 
@@ -54,7 +54,7 @@ API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-met
 To access metrics:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance. On the **Overview** page, on the **Monitor** tab, review key metrics for your APIs.
-1. To investigate metrics in detail, select **Metrics** from the left menu.
+1. To investigate metrics in detail, select **Monitoring** > **Metrics** from the left menu.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu in the portal.":::
 
@@ -73,18 +73,17 @@ You can receive [alerts](/azure/azure-monitor/alerts/alerts-metric-overview) bas
 To configure an example alert rule based on a request metric:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **Alerts** from the left menu.
+1. Select **Monitoring** > **Alerts** from the left menu.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Screenshot of Alerts option in Monitoring menu in the portal.":::
 
 1. Select **+ Create** > **Alert rule**.
-1. In the **Select a signal** window on the **Condition** tab:
-    1. In **Signal type**, select **Metrics**.
+1. On the **Condition** tab:
     1. In **Signal name**, select **Requests**.
-    1. In **Alert logic**, specify a **Threshold value**, which is the number of occurrences after which the alert should be triggered.
-    1. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
-    1. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests. If the dimension value doesn't appear, select **Add custom value** and enter **4xx**.
-    1. In **When to evaluate**, accept the default settings, or select other settings to configure how often the rule runs. Select **Next**.
+    2. In **Alert logic**, review or modify the default values for the alert. For example, update the static **Threshold**, which is the number of occurrences after which the alert should be triggered.
+    3. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
+    4. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests. If the dimension value doesn't appear, select **Add custom value** and enter **4xx**.
+    5. In **When to evaluate**, accept the default settings, or select other settings to configure how often the rule runs. Select **Next**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold-1.png" alt-text="Screenshot of configuring alert logic in the portal.":::
 
@@ -94,13 +93,13 @@ To configure an example alert rule based on a request metric:
 
 1. On the **Details** tab of **Create an alert rule**, enter a name and description of the alert rule and select the severity level.
 1. Optionally configure the remaining settings. Then, on the **Review + create** tab, select **Create**.
-1. Now, test the alert rule by calling the Conference API without an API key. For example:
+1. Optionally test the alert rule by using an HTTP client to simulate a request that triggers the alert. For example, run the following command in a terminal, substituting the API Management hostname with the hostname of your API Management instance:
 
     ```bash
-    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    curl GET https://contoso.azure-api.net/non-existent-endpoint HTTP/1.1 
     ```
 
-    An alert triggers based on the evaluation period, and it will send email to admin@contoso.com.
+    An alert triggers based on the evaluation period, and it will send email to admin@contoso.com. There may be a delay before the alert triggers.
 
     Alerts also appear on the **Alerts** page for the API Management instance.
 
@@ -111,7 +110,7 @@ To configure an example alert rule based on a request metric:
 Activity logs provide insight into the operations on your API Management services. Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your API Management services.
 
 > [!NOTE]
-> Activity logs do not include read (GET) operations or operations performed in the Azure portal or using the original Management APIs.
+> Activity logs do not include read (GET) operations or operations performed in the Azure portal.
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
@@ -136,7 +135,7 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 To configure resource logs:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-2. Select **Diagnostic settings**.
+2. Select **Monitoring** > **Diagnostic settings**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu in the portal.":::
 
@@ -155,7 +154,7 @@ To configure resource logs:
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
  
-## View diagnostic data in Azure Monitor
+## View logs and metrics in Azure Monitor
 
 If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. 
 
@@ -177,7 +176,7 @@ To view the data:
 
 For more information about using resource logs for API Management, see:
 
-* [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial), or try the [Log Analytics demo environment](https://ms.portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView).
+* [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
@@ -191,14 +190,14 @@ For details about the logging settings, see [Diagnostic logging settings referen
 
 To configure logging settings for all APIs:
 
-1. In the left menu of your API Management instance, select **APIs** > **All APIs**.
+1. In the left menu of your API Management instance, select **APIs** > **APIs** > **All APIs**.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
 1. Review the settings and make changes if needed. Select **Save**. 
 
 To configure logging settings for a specific API:
 
-1. In the left menu of your API Management instance, select **APIs** and then the name of the API.
+1. In the left menu of your API Management instance, select **APIs** > **APIs** and then the name of the API.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
 1. Review the settings and make changes if needed. Select **Save**. 
