@@ -33,7 +33,7 @@ If transient faults affect your virtual machine or Azure Bastion host, clients u
 
 ## Availability zone support
 
-You can configure Azure Bastion to be *zone-redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production workloads.
+You can configure Azure Bastion to be *zone redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production workloads.
 
 You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. The following diagram shows Azure Bastion instances spread across three zones:
 
