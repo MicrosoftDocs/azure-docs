@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/01/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -39,7 +39,10 @@ flowchart LR
 
 :::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a dataflow showing flow from source to transform then destination.":::
 
-To define the source and destination, you need to configure the dataflow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field. 
+To define the source and destination, you need to configure the dataflow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field.
+
+> [!IMPORTANT]
+> Each dataflow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-dataflow-configuration).
 
 You can use the operations experience in Azure IoT Operations to create a dataflow. The operations experience provides a visual interface to configure the dataflow. You can also use Bicep to create a dataflow using a Bicep template file, or use Kubernetes to create a dataflow using a YAML file.
 
@@ -168,7 +171,7 @@ Review the following sections to learn how to configure the operation types of t
 
 To configure a source for the dataflow, specify the endpoint reference and a list of data sources for the endpoint.
 
-### Use Asset as source
+### Use asset as source
 
 # [Portal](#tab/portal)
 
@@ -193,6 +196,10 @@ Configuring an asset as a source is only available in the operations experience.
 Configuring an asset as a source is only available in the operations experience.
 
 ---
+
+When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
+
+Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
 
 ### Use default MQTT endpoint as source
 
@@ -225,7 +232,7 @@ sourceSettings: {
 }
 ```
 
-Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
+Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This flexibility means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -243,7 +250,7 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 ---
 
-For more information about the default MQTT endpoint and creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
+If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 ### Use custom MQTT or Kafka dataflow endpoint as source
 
@@ -283,7 +290,7 @@ sourceSettings:
 
 ### Configure data sources (MQTT or Kafka topics)
 
-You can specify multiple MQTT or Kafka topics in a source without needing to modify the dataflow endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. For more information, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
+You can specify multiple MQTT or Kafka topics in a source without needing to modify the dataflow endpoint configuration. This flexibility means the same endpoint can be reused across multiple dataflows, even if the topics vary. For more information, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
 
 #### MQTT topics
 
@@ -376,10 +383,11 @@ sourceSettings:
 
 ---
 
-> [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
 
-<!-- TODO: Details -->
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. If you want to use a different shared subscription group ID, you can override it in the topic, like `$shared/mygroup/topic1`.
+
+> [!IMPORTANT]
+> Dataflows requireing shared subscription when instance count is greater than 1 is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to 1 when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
@@ -747,7 +755,7 @@ For more information about schema registry, see [Understand message schemas](con
 
 To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
 
-To send data to a destination other than the local MQTT broker, create a dataflow endpoint. To learn how, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+To send data to a destination other than the local MQTT broker, create a dataflow endpoint. To learn how, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 > [!IMPORTANT]
 > Storage endpoints require a schema reference. If you've created storage destination endpoints for Microsoft Fabric OneLake, ADLS Gen 2, Azure Data Explorer and Local Storage, you must specify schema reference.
@@ -877,7 +885,117 @@ destinationSettings:
 
 ## Example
 
-The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topics `thermostats/+/telemetry/temperature/#` and `humidifiers/+/telemetry/humidity/#`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature is less than 100000. The destination sends the data to the MQTT topic `factory`.
+The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humiditiy is less than 100000. The destination sends the data to the MQTT topic `factory`.
+
+# [Portal](#tab/portal)
+
+See Bicep or Kubernetes tabs for the configuration example.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param dataflowName string = '<DATAFLOW_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+// Pointer to the default dataflow endpoint
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+// Pointer to the default dataflow profile
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
+  // Reference to the parent dataflow profile, the default profile in this case
+  // Same usage as profileRef in Kubernetes YAML
+  parent: defaultDataflowProfile
+  name: dataflowName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          // Use the default MQTT endpoint as the source
+          endpointRef: defaultDataflowEndpoint.name
+          // Filter the data from the MQTT topic azure-iot-operations/data/thermostat
+          dataSources: [
+            'azure-iot-operations/data/thermostat'
+          ]
+        }
+      }
+      // Transformation optional
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // Filter the data where temperature * "Tag 10" < 100000
+          filter: [
+            {
+              inputs: [
+                'temperature.Value'
+                '"Tag 10".Value'
+              ]
+              expression: '$1 * $2 < 100000'
+            }
+          ]
+          map: [
+            // Passthrough all values by default
+            {
+              inputs: [
+                '*'
+              ]
+              output: '*'
+            }
+            // Convert temperature to Fahrenheit and output it to TemperatureF
+            {
+              inputs: [
+                'temperature.Value'
+              ]
+              output: 'TemperatureF'
+              expression: 'cToF($1)'
+            }
+          // Extract the "Tag 10" value and output it to Humidity
+            {
+              inputs: [
+                '"Tag 10".Value'
+              ]
+              output: 'Humidity'
+            }
+          ]
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // Use the default MQTT endpoint as the destination
+          endpointRef: defaultDataflowEndpoint.name
+          // Send the data to the MQTT topic factory
+          dataDestination: 'factory'
+        }
+      }
+    ]
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -886,42 +1004,51 @@ metadata:
   name: my-dataflow
   namespace: azure-iot-operations
 spec:
+  # Reference to the default dataflow profile
   profileRef: default
   mode: Enabled
   operations:
     - operationType: Source
       sourceSettings:
+        # Use the default MQTT endpoint as the source
         endpointRef: default
+        # Filter the data from the MQTT topic azure-iot-operations/data/thermostat
         dataSources:
-          - thermostats/+/telemetry/temperature/#
-          - humidifiers/+/telemetry/humidity/#
+          - azure-iot-operations/data/thermostat
+    # Transformation optional
     - operationType: builtInTransformation
       builtInTransformationSettings:
+        # Filter the data where temperature * "Tag 10" < 100000
         filter:
           - inputs:
               - 'temperature.Value'
               - '"Tag 10".Value'
-            expression: "$1*$2<100000"
+            expression: '$1 * $2 < 100000'
         map:
+          # Passthrough all values by default
           - inputs:
               - '*'
             output: '*'
+          # Convert temperature to Fahrenheit and output it to TemperatureF
           - inputs:
               - temperature.Value
             output: TemperatureF
             expression: cToF($1)
+          # Extract the "Tag 10" value and output it to Humidity
           - inputs:
               - '"Tag 10".Value'
-            output: 'Tag 10'
+            output: 'Humidity'
     - operationType: Destination
       destinationSettings:
+        # Use the default MQTT endpoint as the destination
         endpointRef: default
+        # Send the data to the MQTT topic factory
         dataDestination: factory
 ```
 
-<!-- TODO: add links to examples in the reference docs -->
-
 ---
+
+To see more examples of dataflow configurations, see [Azure REST API - Dataflow](/rest/api/iotoperations/dataflow/create-or-update#examples) and the [quickstart Bicep](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/quickstart.bicep).
 
 ## Verify a dataflow is working
 
@@ -948,6 +1075,18 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 ```
 
 ---
+
+## Proper dataflow configuration
+
+To ensure the dataflow is working as expected, verify the following:
+
+- The default MQTT dataflow endpoint [must be used as either the source or destination](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+- The [dataflow profile](./howto-configure-dataflow-profile.md) exists and is referenced in the dataflow configuration.
+- Source is either an MQTT endpoint, Kafka endpoint, or an asset. [Storage type endpoints can't be used as a source](./howto-configure-dataflow-endpoint.md).
+- When using Event Grid as the source, the [dataflow profile instance count](./howto-configure-dataflow-profile.md#scaling) is set to 1 because Event Grid MQTT broker doesn't support shared subscriptions.
+- When using Event Hubs as the source, each event hub in the namespace is a separate Kafka topic and must be specified as the data source.
+- Transformation, if used, is configured with proper syntax, including proper [escaping of special characters](./concept-dataflow-mapping.md#escaping).
+- When using storage type endpoints as destination, a [schema is specified](#serialize-data-according-to-a-schema).
 
 ## Next steps
 
