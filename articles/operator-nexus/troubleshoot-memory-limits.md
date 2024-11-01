@@ -15,6 +15,16 @@ author: matternst7258
 
 It's recommended to have alerts set up for the Operator Nexus cluster to look for Kubernetes pods restarting from OOMKill errors. These alerts allow customers to know if a component on a server is working appropriately.
 
+Metrics exposed to identify memory limits:
+
+| Metric Name                          | Description                                      |
+| ------------------------------------ | ------------------------------------------------ |
+| Container Restarts                   | `kube_pod_container_status_restarts_total`       |
+| Container Status Terminated Reason   | `kube_pod_container_status_terminated_reason`    |
+| Container Resource Limits            | `kube_pod_container_resource_limits`             |
+
+`Container Status Terminated Reason` displays the OOMKill reason for impacted pods. 
+
 ## Identifying Out of Memory (OOM) pods
 
 Start by identifying any components that are restarting or show OOMKill.
