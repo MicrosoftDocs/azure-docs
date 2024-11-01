@@ -11,7 +11,7 @@ ms.date: 10/25/2024
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion. It covers both intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Bastion. It covers intra-regional resiliency via [availability zones](#availability-zone-support). It also covers [multi-region deployments](#multi-region-support).
 
 Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to create a resilient solution that meets your needs.
 
