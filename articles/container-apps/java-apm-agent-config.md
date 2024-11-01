@@ -6,7 +6,7 @@ author: croffz
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 09/26/2024
+ms.date: 10/29/2024
 ms.author: kuzhong
 ---
 
