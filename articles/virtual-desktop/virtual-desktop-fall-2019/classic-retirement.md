@@ -2,9 +2,10 @@
 title: Azure Virtual Desktop (classic) retirement - Azure
 description: Information about the retirement of Azure Virtual Desktop (classic).
 ms.topic: conceptual
-author: msft-jasonparker
-ms.author: japarker
+author: dknappettmsft
+ms.author: daknappe
 ms.date: 09/27/2023
+ms.custom: docs_inherited
 ---
 
 # Azure Virtual Desktop (classic) retirement

@@ -404,16 +404,16 @@ spec:
     command: ["sh", "-c"]
     args: ["apk add mosquitto-clients mqttui && sleep infinity"]
     volumeMounts:
-    - name: mq-sat
+    - name: broker-sat
       mountPath: /var/run/secrets/tokens
     - name: trust-bundle
       mountPath: /var/run/certs
   volumes:
-  - name: mq-sat
+  - name: broker-sat
     projected:
       sources:
       - serviceAccountToken:
-          path: mq-sat
+          path: broker-sat
           audience: aio-internal # Must match audience in BrokerAuthentication
           expirationSeconds: 86400
   - name: trust-bundle
@@ -448,7 +448,7 @@ mosquitto_sub --host aio-broker --port 18883 \
   -t "tutorial/#" \
   --debug --cafile /var/run/certs/ca.crt \
   -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
 Leave the command running and open a new terminal window.
@@ -470,7 +470,7 @@ mosquitto_pub -h aio-broker -p 18883 \
   --repeat 5 --repeat-delay 1 -d \
   --debug --cafile /var/run/certs/ca.crt \
   -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
 ## View the messages in the subscriber
