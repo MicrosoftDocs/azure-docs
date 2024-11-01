@@ -352,7 +352,7 @@ To discover the SAP ASE databases, follow these steps:
  
 3.Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
-   :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox"./media/sap-ase-database-backup/start-database-discovery.png":::
+   :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup/start-database-discovery.png":::
 
    >[!Note]
    >- After discovery, unprotected VMs appear in the portal, listed by name and resource group.
