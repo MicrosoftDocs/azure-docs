@@ -4,7 +4,7 @@ description: Validate that Azure IoT Operations docker and helm images are legit
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an IT professional, I want to ensure that the images I download for Azure IoT Operations are legitimate.
 ---
@@ -71,10 +71,12 @@ Azure IoT Operations signs its docker and helm images to allow users to verify t
 
 1. Use notation to verify your downloaded images against the trustpolicy.
 
+   Replace the version placeholder with the version number of the image that you want to check. For an existing instance of Azure IoT Operations, you can find the version number on the instance overview page in the Azure portal or by running [az iot ops show](/cli/azure/iot/ops#az-iot-ops-show). For a full list of available versions, see [azure-iot-operations releases](https://github.com/Azure/azure-iot-operations/releases).
+
    ```sh
    notation policy import <TRUSTPOLICY_FILE>.json
    export NOTATION_EXPERIMENTAL=1
-   notation verify --allow-referrers-api mcr.microsoft.com/azureiotoperations/aio-operator:0.8.16
+   notation verify --allow-referrers-api mcr.microsoft.com/azureiotoperations/aio-operator:<AZURE_IOT_OPERATIONS_VERSION>
    ```
 
    The output of the command looks like the following example:

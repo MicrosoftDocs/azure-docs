@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -24,6 +24,24 @@ Use the following table to choose the endpoint type to configure:
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
+
+## Dataflows must use local MQTT broker endpoint
+
+When you create a dataflow, you specify the source and destination endpoints. The dataflow moves data from the source endpoint to the destination endpoint. You can use the same endpoint for multiple dataflows, and you can use the same endpoint as both the source and destination in a dataflow.
+
+However, using custom endpoints as both the source and destination in a dataflow isn't supported. This restriction means the built-in MQTT broker in Azure IoT Operations must be either the source or destination for every dataflow. To avoid dataflow deployment failures, use the [default MQTT dataflow endpoint](./howto-configure-mqtt-endpoint.md#default-endpoint) as either the source or destination for every dataflow. 
+
+The specific requirement is each dataflow must have either the source or destination configured with an MQTT endpoint that has the host `aio-broker`. So it's not strictly required to use the default endpoint, and you can create additional dataflow endpoints pointing to the local MQTT broker as long as the host is `aio-broker`. However, to avoid confusion and manageability issues, the default endpoint is the recommended approach.
+
+The following table shows the supported scenarios:
+
+| Scenario | Supported |
+|----------|-----------|
+| Default endpoint as source | Yes |
+| Default endpoint as destination | Yes |
+| Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as source and destination | No, unless one of them is an MQTT endpoints with host `aio-broker` |
 
 ## Reuse endpoints
 
