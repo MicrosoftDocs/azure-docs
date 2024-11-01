@@ -16,6 +16,17 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.5.0] (CDN: November 4, 2024, npm: TBA)
+
+#### New features
+- Add support for fullscreen control.
+- Update type on `PolygonExtrusionLayerOptions.fillPattern`.
+
+#### Bug fixes
+- Fix source option in DrawingManager.
+- Update Bing style test page with corresponding endpoints.
+- Update Bing style test page with domain overrides.
+
 ### [3.4.0] (CDN: September 30, 2024, npm: TBA)
 
 #### New features
