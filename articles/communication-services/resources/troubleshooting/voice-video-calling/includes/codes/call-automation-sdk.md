@@ -39,19 +39,19 @@ The following table contains the most common codes and subcodes. If your error i
 | Code | Subcode | Description | Mitigation |
 | --- | --- | --- | --- |
 | 404 | 8522 | A generic error code that indicates that the resource isn't found. Resources can include calls and participants. | Double check call status: the call may have already ended, or the participant has left the call. |
-| 400 | 8523 | A generic error code that indicates that something in the request body is invalid. | Check to make sure all of the parameters are valid. |
+| 400 | 8523 | A generic error code that indicates that something in the request body is invalid. | Check to make sure all of the parameters are valid. Refer to the error message to determine which parameter is throwing the error. |
 | 400 | 8501 | Action Not Supported Call Not Established | The action associated with the error message has been activated while the call was not active. Please ensure that new call actions are not initiated after the call has been disconnected. This error may be raised by actions invoked while the call is active if they are close to the call disconnected time. |
-| 400 | 8500 | Invalid Media Mode | Check the status of your media operations to see if any of them are already active. |
+| 400 | 8500 | Invalid Media Mode | Check the status of your media operations to see if any of them are already active, or if target participant is already in a media operation. If there is an active media operation, wait for the operation to finish and then retry. |
 | 400 | 8559 | Action Not Supported Only One Single Dialout App Allowed | Duplicate start recording request, recording already initiated or in progress. Double check recording status to ensure it is inactive before submitting a new start recording call. |
 | 400 | 8528 | Action not supported call terminated | The action associated with the error message has been activated while the call was terminated. Please ensure that new call actions are not initiated after the call has been terminated. This error may be raised by actions invoked while the call is active if they are close to the call termination time. |
-| 409 | 8519 | Conflict | Check to make sure multiple actions aren't being performed on the same resource in parallel. |
+| 409 | 8519 | Conflict | Check to make sure multiple actions aren't being performed on the same resource in parallel. Refer to error message to identify which two actions are in conflict. |
 | 403 | 7507 | Call Source Identity Invalid | Application identity from authorization token didn't match application identity in call source. Check to make sure you're using the connection string from the ACS resource the incoming call webhook was configured in (the phone number has to be owned by the same ACS resource answering the call). |
 | 403 | 7504 | Insufficient Application Permissions | Generic code for insufficient permissions, check error message for context on what resource is lacking permissions. |
-| 400 | 8585 | Action Not Valid In Current Call State | Check to make sure that actions are compatible with current call state. |
-| 405 | 8520 | Functionality not supported at this time | Expected Error: Workflow not supported. ACS currently does not support VoIP to PSTN transfer or audio streaming and real-time transcriptions using connect interface.  Check our release blog to see if there is a updated SDK that has enabled these functionalities. |
-| 412 | 8583 | Precondition Failed | Check media streaming status and make sure actions are compatible with current media streaming or transcription status (eg calling update transcription when stream is not active). |
+| 400 | 8585 | Action Not Valid In Current Call State | Call is not esablished or is diconnected: wait for the call to be established before retrying the media action. |
+| 405 | 8520 | Functionality not supported at this time | Expected Error: Workflow not currently supported. Check our release blog to see if there is a updated SDK that has enabled these functionalities. See the Call Automation known limitations page for a list of not supported workflows. |
+| 412 | 8583 | Precondition Failed | Reference this page listing incompatible media actions to ensure you aren't running or queueing incompatible actions. |
 | 400 | 8567 | ACS Resource Service Principal Not Enabled | The Azure Cognitive Service Resource is not configured properly. See this [page](../../../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md) for a guide on setting up your Azure Cognitive Service Resource. |
-| 405 | 8522 | Missing configuration |Check error message for more context (ensure configuration is set during call setup) | 
+| 405 | 8522 | Missing configuration |Check error message for more context on which configuration needs to be established. This needs to be configured when invoking the AnswerCall API. | 
 
 ### Generic error codes
 #### 2xx codes
