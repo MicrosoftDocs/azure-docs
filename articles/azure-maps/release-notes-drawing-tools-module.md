@@ -18,7 +18,7 @@ This document contains information about new features and other changes to the A
 
 ### Bug fixes
 
-- Fix source option in DrawingManager.
+- Fix an issue where DrawingManager would create an empty layer when source options were provided.
 
 ## [1.0.4] (Aug 8, 2024)
 
