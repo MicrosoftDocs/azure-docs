@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Bicep template PostgreSQL Backup
-description: Learn how to back up your Azure PostgreSQL - Flexible server with a Bicep template
+description: Learn how to back up your Azure PostgreSQL - Flexible server with a Bicep template.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 10/07/2024
