@@ -530,7 +530,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| **Type** | String | 'mail-message' |
+| **Type** | String | 'mailMessage' |
 | **Files** | IList\<Entity ([File](#file))> | The File entities of this mail message's attachments. |
 | **Recipient** | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
 | **Urls** | IList\<String> | The URLs contained in this mail message. |
