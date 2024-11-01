@@ -336,6 +336,8 @@ Create the following outbound rule and allow the domain name to back up the data
      
 In the Recovery Services vault, you can enable [Cross Region Restore](backup-azure-recovery-services-vault-overview.md). Learn [how to turn on Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
+:::image type="content" source="./media/sap-ase-database-backup/enable-cross-region-restore.png" alt-text="Screenshot shows how to enable Cross Region Restore in the Recovery Services vault. " lightbox="./media/sap-ase-database-backup/enable-cross-region-restore.png":::
+
 ## Discover the databases
 
 To discover the SAP ASE databases, follow these steps:
