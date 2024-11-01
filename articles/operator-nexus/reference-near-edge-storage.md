@@ -19,14 +19,19 @@ Within each Azure Operator Nexus storage appliance, multiple storage devices are
 
 This table lists the available SKUs for the storage appliance in the near-edge Azure Operator Nexus offering.
 
-| SKU                     | Raw storage capacity | Description                            |
-| ----------------------- | -------------------- | -------------------------------------- |
-| Pure X70R4-22TB           | 22TB | //X70 series FlashArray provided by Pure Storage  |
-| Pure X70R4-45TB           | 45TB | //X70 series FlashArray provided by Pure Storage |
-| Pure X70R4-91TB           | 91TB | //X70 series FlashArray provided by Pure Storage |
-| Pure X70R4-183TB          | 183TB | //X70 series FlashArray provided by Pure Storage |
-| Pure X70R4-366TB          | 366TB | //X70 series FlashArray provided by Pure Storage |
-| Pure X70R4-622TB          | 622TB | //X70 series FlashArray provided by Pure Storage |
+### Pure FlashArray
+
+| SKU                     | Total raw storage capacity | Usable raw storage capacity |
+| ----------------------- | -------------------- | --------------------------------- |
+| Pure FlashArray X70R4-45TB  | 45 TB | 25.74 TB |
+| Pure FlashArray X70R4-91TB  | 91 TB | 54.75 TB |
+| Pure FlashArray X70R4-183TB | 183 TB | 114.66 TB |
+| Pure FlashArray X70R4-366TB | 366 TB | 272.36 TB |
+| Pure FlashArray X70R4-622TB | 622 TB | 457.23 TB |
+
+### Raw vs effective storage capacity
+
+The Pure FlashArray contains a variety of data reduction features. The effective capacity of the storage appliance, which gives the amount of data that can be stored from the workload's perspective, is typically larger than the raw capacity. The effective capacity depends strongly on the data being stored. For example, pre-compressed or application-encrypted data achieves lower data reduction ratios on the storage appliance than data with high levels of duplication. Pure storage can model likely achievable data reduction ratios and effective capacity for a wide variety of workloads to help you choose a SKU with a suitable amount of storage capacity.
 
 ## Storage connectivity
 
@@ -41,8 +46,8 @@ This table lists the characteristics of the storage appliance.
 | Property                               | Specification/Description |
 | -------------------------------------- | -------------------------|
 | Raw storage capacity                   | Determined by SKU - see [Available SKUs](#available-skus) |
-| Usable capacity | 50 TB |
-| Number of maximum I/O operations supported per second <br>(with 80/20 read/write ratio) | 250K+ (4K) <br>150K+ (16K) |
-| Number of I/O operations supported per volume per second | 50K+ |
+| Usable capacity | Determined by SKU - see [Available SKUs](#available-skus) |
+| Number of maximum I/O operations supported per second <br>(with 80/20 read/write ratio) | 250 K+ (4K) <br>150 K+ (16K) |
+| Number of I/O operations supported per volume per second | 50 K+ |
 | Maximum I/O latency  supported | 10 ms |
 | Nominal failover time supported | 10 s |
