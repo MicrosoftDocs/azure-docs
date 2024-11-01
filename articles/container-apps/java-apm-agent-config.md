@@ -288,7 +288,7 @@ The following commands help you define variables and ensure your Container Apps 
             volumeName: java-agent-volume
     ```
 
-    Replace $CONTAINER_REGISTRY_NAME with your Azure Container Registry name or replace the image from other container image registries.
+    Replace <CONTAINER_REGISTRY_NAME> with your Azure Container Registry name.
 
     - Update app container with volume mounts and environment variables
   
