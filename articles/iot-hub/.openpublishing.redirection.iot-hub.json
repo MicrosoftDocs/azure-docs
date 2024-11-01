@@ -1559,6 +1559,11 @@
       "source_path_from_root": "/articles/iot-hub/device-management-node.md",
       "redirect_url": "/azure/iot-hub/how-to-device-management",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-cli.md",
+      "redirect_document_id": false
     }
   ]
 }
