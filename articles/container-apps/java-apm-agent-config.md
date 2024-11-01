@@ -275,7 +275,7 @@ The following commands help you define variables and ensure your Container Apps 
     properties:
       template:
         initContainers:
-        - image: $CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0
+        - image: <CONTAINER_REGISTRY_NAME>.azurecr.io/samples/java-agent-setup:1.0.0
           name: java-agent-setup
           resources:
             cpu: 0.25
