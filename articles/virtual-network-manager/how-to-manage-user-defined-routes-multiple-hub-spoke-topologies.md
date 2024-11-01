@@ -3,7 +3,7 @@ title: "Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologi
 description: Learn to manage User Defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/02/2024
+ms.date: 11/01/2024
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 # customer intent: As a network administrator, I want to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager.

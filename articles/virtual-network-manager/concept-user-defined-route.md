@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 05/09/2024
+ms.date: 11/01/2024
 ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
@@ -13,15 +13,13 @@ ms.custom: references_regions
 
 This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
 
-[!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
-
 ## What is UDR management?
 
 Azure Virtual Network Manager (AVNM) allows you to describe your desired routing behavior and orchestrate user-defined routes (UDRs) to create and maintain the desired routing behavior. User-defined routes address the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. You can utilize the Azure-managed hub in Virtual WAN. This option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
 
 ## How does UDR management work?
 
-In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you'll need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, all routes are stored in a route table located inside a virtual network manager-managed resource group.
+In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, all routes are stored in a route table located inside a virtual network manager-managed resource group.
 
 Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, accesses the DNS service's address through a Firewall. Your network manager creates UDRs to make this routing behavior happen.
 
@@ -102,11 +100,11 @@ Here are the common routing scenarios that you can simplify and automate by usin
 | hub and spoke network with Spoke network to on-premises needs to go via Network Virtual Appliance |              |
 | Gateway -> Network Virtual Appliance -> Spoke network  |              |
 
-## Adding additional virtual networks
+## Adding other virtual networks
 
-When you add additional virtual networks to a network group, the routing configuration is automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies the routing configuration to it. When you remove a virtual network from the network group, the applied routing configuration is automatically removed as well.
+When you add other virtual networks to a network group, the routing configuration is automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies the routing configuration to it. When you remove a virtual network from the network group, the applied routing configuration is automatically removed as well.
 
-Newly created or deleted subnets will have their route table updated with eventual consistency. The processing time may vary based on the volume of subnet creation and deletion.
+Newly created or deleted subnets have their route table updated with eventual consistency. The processing time may vary based on the volume of subnet creation and deletion.
 
 
 ## Limitations of UDR management
@@ -118,7 +116,7 @@ The following are the limitations of UDR management with Azure Virtual Network M
 - When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
 - Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
 - Azure Virtual Network Manager requires a managed resource group to store the route table. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.
-- UDR Management supports creating 1000 UDRs within a route table. This means that you can create a routing configuration with a maximum of 1000 routing rules. 
+- UDR Management supports creating 1000 UDRs within a route table. This means that you can create a routing configuration with a maximum of 1,000 routing rules. 
 
 ## Next step
 

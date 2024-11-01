@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-read-command` for Operator Nexus
 description: Step by step guide on using the `az networkcloud baremetalmachine run-read-command` to run diagnostic commands on a BMM.
-author: eak13
-ms.author: ekarandjeff
+author: matternst7258
+ms.author: matthewernst
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 10/24/2024
 ms.custom: template-how-to
 ---
 
@@ -364,6 +364,16 @@ When an optional argument `--output-directory` is provided, the output result is
 
 > [!WARNING]
 > Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
+
+### This example executes a 'kubectl get pods'
+
+```azurecli
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
+   --limit-time-seconds 60 \
+   --commands "[{command:'kubectl get',arguments:[pods,-n,nc-system]}]" \
+   --resource-group "<cluster_MRG>" \
+   --subscription "<subscription>"
+```
 
 ### This example executes the `hostname` command and a `ping` command
 

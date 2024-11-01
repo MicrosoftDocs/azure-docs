@@ -30,19 +30,25 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 
 To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
-The `cardinality` field is a nested field that has these subfields:
+### Automatic deployment cardinality
+
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This is useful for non-production scenarios where you don't need high-availability or scale.
+
+However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
+
+### Configure cardinality directly
+
+To configure the cardinality settings directly, specify the `cardinality` field. The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
-  - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `replicas`: The number of frontend pods to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
+  - `workers`: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has 3 nodes, each with 8 CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to 8 per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
-  - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
-  - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `partitions`: The number of partitions to deploy. Increasing the number of partitions increases the number of messages that the broker can handle. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions.
+  - `redundancyFactor`: The number of backend pods to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
+  - `workers`: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to 2 CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
-If `cardinality` field is omitted, cardinality is determined by MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware.
-
-To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+When you increase these values, the broker's capacity to handle more connections and messages improves, and it enhances high availability in case of pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
 
 ## Configure memory profile
 
@@ -95,43 +101,6 @@ By default, Azure IoT Operations Preview deploys a default Broker resource named
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml
-```
-
-### Modify default broker by redeploying
-
-Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-memory-profile) are configurable with Azure portal or Azure CLI during initial deployment. Other settings and can only be configured by modifying the YAML file and redeploying the broker.
-
-To delete the default broker, run the following command:
-
-```bash
-kubectl delete broker default -n azure-iot-operations
-```
-
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `default` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
-
-```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-kind: Broker
-metadata:
-  name: default
-  namespace: azure-iot-operations
-spec:
-  memoryProfile: medium
-  cardinality:
-    backendChain:
-      partitions: 2
-      redundancyFactor: 2
-      workers: 2
-    frontend:
-      replicas: 2
-      workers: 2
-  encryptInternalTraffic: false
-```
-
-Then, run the following command to deploy the broker:
-
-```bash
-kubectl apply -f <path-to-yaml-file>
 ```
 
 ## Configure MQTT broker advanced settings
@@ -212,7 +181,7 @@ spec:
 ## Configure encryption of internal traffic
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **encryptInternalTraffic** feature is used to encrypt the internal traffic between the frontend and backend pods. To use this feature, cert-manager must be installed in the cluster, which is installed by default when using the Azure IoT Operations.
 
@@ -235,7 +204,7 @@ By default, the **encryptInternalTraffic** feature is enabled. To disable the fe
 ## Configure disk-backed message buffer behavior
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the MQTT broker distributed MQTT broker. The benefits include:
 

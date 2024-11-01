@@ -2,12 +2,13 @@
 title: Relocation guidance overview for Microsoft Azure products and services (Preview)
 description: Relocation guidance overview for Microsoft Azure products and services. View Azure service specific relocation guides.
 author: anaharris-ms
-ms.service: reliability
+ms.service: azure
 ms.topic: concept-article
 ms.date: 01/16/2024
 ms.author: anaharris
 ms.custom:
   - subject-relocation
+ms.subservice: azure-reliability
 ---
 
 # Azure services relocation guidance overview (Preview)
