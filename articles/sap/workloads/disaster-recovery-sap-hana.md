@@ -61,7 +61,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 
 ## HANA scale-up: Add HANA multitarget system replication for DR purposes
 
-With SAP HANA HA hooks SAPHanaSR/susHanaSR for [SLES](./sap-hana-high-availability.md#implement-hana-resource-agents) and [RHEL](./sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr), you can add additional sites to HANA system replication. The Pacemaker environment is aware of a HANA multitarget setup.
+With SAP HANA HA hooks SAPHanaSR/susHanaSR for [SLES](./sap-hana-high-availability.md#implement-hana-resource-agents) and [RHEL](./sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks), you can add additional sites to HANA system replication. The Pacemaker environment is aware of a HANA multitarget setup.
 
 Failure of additional sites doesn't trigger any cluster action. The cluster detects the replication status of connected sites and the monitored attribute for the third site can change between `SOK` and `SFAIL` states. Any takeover tests to the additional site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
