@@ -2,7 +2,7 @@
 title: Hotpatching (preview) on Azure Arc-enabled machines
 description: This article details how to manage hotpatching (preview) on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 10/30/2024
+ms.date: 11/01/2024
 ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -48,7 +48,7 @@ After you enroll to hotpatch (preview) license, your machine automatically recei
 
 #### [At scale](#tab/manage-scale)
 
-To enable or disable hotpaching at scale, follow these steps:
+To enable or disable hotpatching at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and in the **Azure Update Manager | Machines** page, under **Settings**, select **Update settings**.
