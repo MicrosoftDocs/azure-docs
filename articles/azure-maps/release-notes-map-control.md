@@ -20,11 +20,9 @@ This document contains information about new features and other changes to the M
 
 #### New features
 - Add support for fullscreen control.
-- Update type on `PolygonExtrusionLayerOptions.fillPattern`.
 
 #### Bug fixes
-- Update Bing style test page with corresponding endpoints.
-- Update Bing style test page with domain overrides.
+- Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
 
 ### [3.4.0] (CDN: September 30, 2024, npm: October 2)
 
