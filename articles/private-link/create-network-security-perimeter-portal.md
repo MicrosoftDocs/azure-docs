@@ -105,4 +105,4 @@ When you no longer need a network security perimeter, you remove any resources a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-collect-resource-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)

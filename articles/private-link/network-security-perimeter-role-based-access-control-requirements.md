@@ -68,4 +68,4 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)

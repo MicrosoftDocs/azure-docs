@@ -220,4 +220,4 @@ To delete a network security perimeter, use the following commands:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-collect-resource-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)

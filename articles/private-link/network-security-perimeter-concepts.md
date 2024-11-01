@@ -114,4 +114,4 @@ Network security perimeter is currently available in all Azure public cloud regi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
