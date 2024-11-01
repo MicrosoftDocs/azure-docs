@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible server using PowerShell"
-description: Learn how to back up your Azure PostgreSQL - Flexible server with PowerShell
+description: Learn how to back up your Azure PostgreSQL - Flexible server with PowerShell.
 ms.devlang: terraform 
 ms.topic: quickstart
 ms.date: 10/07/2024
