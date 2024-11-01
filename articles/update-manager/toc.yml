@@ -103,7 +103,7 @@ items:
         href: pre-post-events-schedule-maintenance-configuration.md
       - name: Manage pre and post events 
         href: manage-pre-post-events.md  
-    - name: Manage Hotpatches on Arc-Enabled Machines
+    - name: Manage Hotpatches on Arc-Enabled Machines (preview)
       href: manage-hot-patching-arc-machines.md
     - name: Manage updates for Azure VMs using REST API
       href: manage-vms-programmatically.md
