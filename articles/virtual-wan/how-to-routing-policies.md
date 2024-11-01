@@ -92,13 +92,11 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
     * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding avaialbility of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
     * Network Virtual Appliances are not available in all Azure Government regions. Contact your NVA partner regarding availability in Azure Government.  
 
-  
 | Cloud Environment| Azure Firewall| Network Virtual Appliance| SaaS solutions|
 |--|--|--| --|
 | Azure Public | Yes | Yes | Yes|
 |Azure Government|Yes| Limited | No|
 |Microsoft Azure operated by 21 Vianet|No|No|No| 
-
     
 * Routing Intent simplifies routing by managing route table associations and propagations for all connections (Virtual Network, Site-to-site VPN, Point-to-site VPN, and ExpressRoute). Virtual WANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
 * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is supported in hubs where routing intent is configured if Azure Firewall is configured to allow traffic between VPN tunnel endpoints (Site-to-site VPN Gateway private IP and on-premises VPN device private IP). For more information on the required configurations, see [Encrypted ExpressRoute with routing intent](#encryptedER).

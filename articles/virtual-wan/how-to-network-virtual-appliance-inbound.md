@@ -59,7 +59,12 @@ The list below corresponds to the diagram above and describes the packet flow fo
 
 ## Known Issues, Limitations and Considerations
 
+The following section describes known issues, limitations and considerations associatd with the Internet Inbound feature.
+
 ### Known Issues
+
+The following table describes known issues related to the internet inbound/DNAT feature.
+
 |Issue | Description| Mitigation|
 |--|--|--|
 | DNAT traffic is not forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic is not forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
