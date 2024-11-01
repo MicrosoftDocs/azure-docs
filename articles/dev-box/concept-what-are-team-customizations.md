@@ -30,9 +30,9 @@ When you configure Dev Box Team Customizations for your organization, careful pl
     - Add tasks.
     - Attach to dev center or project.
 - **Create a team customizations file:**
-  - Create a team customizations file called imagedefinition.yaml.
+  - Create a team customizations file called definition.yaml.
 - **Specify image in a dev box pool:**
-  - Create or modify a dev box pool and specify imagedefinition.yaml as the image definition.
+  - Create or modify a dev box pool and specify definition.yaml as the image definition.
 - **Choose how you'll use the image definition:**
     - Optimize for team customization.
     - Build each time you create a dev box.
@@ -61,7 +61,7 @@ Individual developers can attach a yaml-based customization file when creating t
 **Customization file**
 - Yaml-based file defining tasks for dev boxes
 **Image definition**
-- Dev box definition or imagedefinition.yaml
+- Dev box definition or definition.yaml
 - Specifies OS, compute, storage
 
 ## Related content

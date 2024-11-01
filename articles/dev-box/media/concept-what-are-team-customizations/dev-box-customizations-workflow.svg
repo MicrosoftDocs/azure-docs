@@ -262,7 +262,7 @@
 						x="6.23" dy="1.2em" class="st7">quick start catalog</tspan></text>		</g>
 		<g id="shape7-43" v:mID="7" v:groupContext="shape" v:layerMember="0" transform="translate(465.87,-99.12)">
 			<title>Process.7</title>
-			<desc>Create team customization file (imagedefinition.yaml)</desc>
+			<desc>Create team customization file (definition.yaml)</desc>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1033" v:cal="0"/>
@@ -295,10 +295,10 @@
 			<rect x="0" y="207.24" width="90" height="54" class="st6"/>
 			<text x="24.89" y="227.04" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Create team <tspan
 						x="16.16" dy="1.2em" class="st7">customization file<v:newlineChar/></tspan><tspan x="8.1" dy="1.2em"
-						class="st7">(imagedefinition.yaml)</tspan></text>		</g>
+						class="st7">(definition.yaml)</tspan></text>		</g>
 		<g id="shape8-51" v:mID="8" v:groupContext="shape" v:layerMember="0" transform="translate(583.995,-99.12)">
 			<title>Process.8</title>
-			<desc>Configure a dev box pool to use imagedefinition.yaml</desc>
+			<desc>Configure a dev box pool to use definition.yaml</desc>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1033" v:cal="0"/>
@@ -330,7 +330,7 @@
 			</g>
 			<rect x="0" y="207.24" width="90" height="54" class="st6"/>
 			<text x="4.54" y="227.04" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Configure a dev box pool <tspan
-						x="34.99" dy="1.2em" class="st7">to use </tspan><tspan x="10.53" dy="1.2em" class="st7">imagedefinition.yaml</tspan></text>		</g>
+						x="34.99" dy="1.2em" class="st7">to use </tspan><tspan x="10.53" dy="1.2em" class="st7">definition.yaml</tspan></text>		</g>
 		<g id="shape9-59" v:mID="9" v:groupContext="shape" v:layerMember="0" transform="translate(702.12,-99.12)">
 			<title>Decision.9</title>
 			<desc>Optimize image</desc>

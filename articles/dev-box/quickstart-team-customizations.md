@@ -23,9 +23,9 @@ To complete the steps in this article, you must have a dev center configured wit
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
   
-## Create a team customization file (imagedefinition.yaml)  
+## Create a team customization file (definition.yaml)  
   
-1. Download the [example YAML customization file](https://azure.github.io/dev-box/reference/imagedefinition.yaml).  
+1. Download the [example YAML customization file](https://azure.github.io/dev-box/reference/definition.yaml).  
 1. Open the file and examine the tasks.  
 ```yml
     $schema: "1.0"
@@ -66,7 +66,7 @@ To create a dev box pool associated with a project:
    | Setting | Value |
    |---|---|
    | **Name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Dev box definition** | Select the *imagedefinition.yaml* file. |
+   | **Dev box definition** | Select the *definition.yaml* file. |
    | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your dev box users for the optimal user experience. |
    | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
    | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created. |

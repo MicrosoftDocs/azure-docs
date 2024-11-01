@@ -42,7 +42,7 @@ tasks:
       directory: C:\Workspaces
 ```
 
-## Create a Team Customization File (imagedefinition.yaml)
+## Create a Team Customization File (definition.yaml)
 
 Creating a team customization file standardizes and streamlines creating preconfigured dev boxes for your development teams. You can create and manage customization files with Visual Studio Code or Dev Home.
 
@@ -193,7 +193,7 @@ If your organization's policies require you to keep your Key Vault private from 
 To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ## Share a customization file from a code repository
-Make your customization file available to dev box pools by naming it *imagedefinition.yaml* and uploading it to the repository that hosts your catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
+Make your customization file available to dev box pools by naming it *definition.yaml* and uploading it to the repository that hosts your catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
 
 ## Related content
 - [Microsoft Dev Box Team Customizations](concept-what-are-team-customizations.md)
