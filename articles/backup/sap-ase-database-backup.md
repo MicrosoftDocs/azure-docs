@@ -367,9 +367,9 @@ Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure 
 
    :::image type="content" source="./media/sap-ase-database-backup/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup/select-database.png"::: 
 
-### Configure the SAP ASE (Sybase) database backup
+## Configure the SAP ASE (Sybase) database backup
 
-To crate a backup policy for the SAP ASE database, follow these steps:
+To configure the backup operation for the SAP ASE database, follow these steps:
 
 
 1.	On the **Backup Goal**, under **Step 2**, select **Configure Backup**.
@@ -387,7 +387,7 @@ To crate a backup policy for the SAP ASE database, follow these steps:
 
 3. On the **Policy name**, provide a name for the new policy.
 
-   :::image type="content" source="./media/sap-ase-database-backup/add-backup-policy-name.png" alt-text="Screenshot shows how to provide a name for the new backup policy." lightbox="./media/sap-ase-database-backup/add-backup-policy-name.png:::
+   :::image type="content" source="./media/sap-ase-database-backup/add-backup-policy-name.png" alt-text="Screenshot shows how to provide a name for the new backup policy." lightbox="./media/sap-ase-database-backup/add-backup-policy-name.png":::
  
 
 4. On the **Full Backup policy**, select a **Backup Frequency**, and then select **Daily** or **Weekly** as per the requirement.
@@ -440,7 +440,7 @@ To crate a backup policy for the SAP ASE database, follow these steps:
 
 15. Review  the backup configuration, and then select **Enable backup**.
 
-    :::image type="content" source="./media/sap-ase-database-backup/select-enable-backup.png" alt-text="Screenshot shows the conpletion of backup configuration." lightbox="./media/sap-ase-database-backup/select-enable-backup.png":::
+    :::image type="content" source="./media/sap-ase-database-backup/select-enable-backup.png" alt-text="Screenshot shows the completion of backup configuration." lightbox="./media/sap-ase-database-backup/select-enable-backup.png":::
 
 ## Next step
 
