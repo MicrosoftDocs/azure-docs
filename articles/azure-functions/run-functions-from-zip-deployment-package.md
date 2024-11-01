@@ -1,5 +1,5 @@
 ---
-title: Run your functions from a package file in Azure 
+title: Run your functions from a zip package file in Azure 
 description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
 ms-service: azure-functions
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 06/28/2024
 # Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.
 ---
 
-# Run your functions from a package file in Azure
+# Run your functions from a zip package file in Azure
 
-In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
+In Azure, you can run your functions directly from a zip deployment package file in your function app. The other option is to deploy your unzip files in the `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
 
-This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
+This article describes the benefits of running your functions from a zip package. It also shows how to enable this functionality in your function app.
 
-## Benefits of running from a package file
+## Benefits of running from a zip package file
   
 There are several benefits to running functions from a package file:
 
@@ -26,7 +26,7 @@ There are several benefits to running functions from a package file:
 
 For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
 
-## Enable functions to run from a package
+## Enable functions to run from a zip package
 
 To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKAGE` app setting to your function app. The `WEBSITE_RUN_FROM_PACKAGE` app setting can have one of the following values:
 
@@ -68,7 +68,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 This section provides information about how to run your function app from a local package file.
 
-### Considerations for deploying from an on-site package
+### Considerations for deploying from an on-site zip package
 
 <a name="troubleshooting"></a>
 
@@ -89,7 +89,7 @@ When you set the `WEBSITE_RUN_FROM_PACKAGE` app setting value to `1`, the zip de
 
 This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan.
 
-### Considerations for deploying from a URL
+### Considerations for deploying from a zip URL
 
 + Function apps running on Windows experience a slight increase in [cold-start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
@@ -100,7 +100,7 @@ This section provides information about how to run your function app from a pack
 + When you're running on a Dedicated plan, ensure you enable [Always On](dedicated-plan.md#always-on).
 + You can use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
-### Manually uploading a package to Blob Storage
+### Manually uploading a zip package to Blob Storage
 
 To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. The following procedure deploys to a container in Blob Storage:
 
