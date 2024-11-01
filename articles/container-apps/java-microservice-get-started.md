@@ -8,7 +8,6 @@ ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024
 ms.author: cshoe
-zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
@@ -81,7 +80,7 @@ az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $R
 
 ## Create Java components
 
-::: zone pivot="azure-cli"
+### [Azure CLI](#tab/azure-cli)
 
 Create the Config Server for Java component.
 
@@ -110,9 +109,8 @@ az containerapp env java-component admin-for-spring create \
   --resource-group $RESOURCE_GROUP \
   --name $ADMIN_SERVER_COMPONENT
 ```
-::: zone-end
 
-::: zone pivot="azure-portal"
+### [Azure portal](#tab/azure-portal)
 
 Go to your Container Apps Environment on Azure Portal, select the **Service** in the left menu, and click **Configure** and choose **Java component** to create a new Java component. In this section, you need to create three components in total.
 
@@ -130,7 +128,7 @@ Create the Admin component: Select `Admin for Spring` as the **Java component ty
 
 :::image type="content" source="media/java-deploy-war-file/configure-admin.png" alt-text="Configure Admin.":::
 
-::: zone-end
+---
 
 ## Deploy Java microservice apps to Azure Container Apps
 
@@ -175,7 +173,7 @@ This section guides you bind three kinds of Java components (Config Server, Eure
 - Binding to Eureka Server: Registers the app with the managed Eureka Server for service discovery.
 - Binding to Admin: Enables the app to be monitored by the managed Admin Server.
 
-::: zone pivot="azure-cli"
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az containerapp update \
@@ -200,15 +198,13 @@ az containerapp update \
   --query properties.configuration.ingress.fqdn 
 ```
 
-::: zone-end
-
-::: zone pivot="azure-portal"
+### [Azure portal](#tab/azure-portal)
 
 Navigate to your Java components on Azure Portal, click each of the three components you created in the above steps, go to the **Bindings** section, and add the four apps you created in the above steps to the bindings.
 
 :::image type="content" source="media/java-deploy-war-file/bind-apps.png" alt-text="Bind apps.":::
 
-::: zone-end
+---
 
 ## Verify app status
 
