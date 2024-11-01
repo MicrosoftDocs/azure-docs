@@ -14,6 +14,8 @@ ms.date: 10/26/2024
 
 Creating tasks for Dev Box Team Customizations allows you to define specific actions for your dev boxes, ensuring a consistent and efficient development environment. Creating new tasks in a catalog allows you to create customizations tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
 
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+
 ## Prerequisites
 To complete the steps in this article, you must have:
 *    A dev center configured with a dev box project.

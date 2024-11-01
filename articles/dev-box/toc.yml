@@ -78,7 +78,7 @@ items:
   - name: Configure imaging for Customizations
     href: how-to-configure-customization-imaging.md
   - name: Create customization tasks
-    href: how-to-create-tasks-catalog.md
+    href: how-to-create-customization-tasks-catalog.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal

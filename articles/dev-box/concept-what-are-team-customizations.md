@@ -14,6 +14,8 @@ ms.date: 10/2/2024
 Getting developers started on a new project or team can be complex and time-consuming. Microsoft Dev Box Team Customizations enables you to streamline developer environment setup. With Team Customizations, you can configure ready-to-code workstations with necessary applications, tools, repositories, code libraries, packages, and build scripts.
 Team Customizations allows you to define a shared Dev Box configuration for each of your development teams without having to invest in setting up an imaging solution like Packer or Azure virtual machine (VM) Image Templates. It provides a lightweight alternative that allows central platform engineering teams to delegate Dev Box configuration management to the teams that use them. Team Customizations also offers an in-built way of optimizing your team's Dev Box customizations by flattening them into a custom image using the same customization file, without the need to manage added infrastructure or maintain image templates.
 
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+
 ## How does Dev Box Team Customizations work?
 When you configure Dev Box Team Customizations for your organization, careful planning and informed decision-making are essential. The following diagram provides an overview of the process and highlights key decision points.
 
@@ -65,7 +67,7 @@ Individual developers can attach a yaml-based customization file when creating t
 - Specifies OS, compute, storage
 
 ## Related content
-- Quickstart
-- Write a customization file
-- Configure customization imaging
-- Configure customization tasks
+- [Quickstart: Create Dev Box Team Customizations](quickstart-team-customizations.md)
+- [Write a Team Customization file for Dev Box](how-to-write-customization-file.md)
+- [Configure imaging for Dev Box Team Customizations](how-to-configure-customization-imaging.md)
+- [Configure customization tasks](how-to-create-customization-tasks-catalog.md)

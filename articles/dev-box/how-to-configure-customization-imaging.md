@@ -22,6 +22,8 @@ Process overview:
 1. Test the dev box to verify that the customizations are applied.
 1. Build a reusable image.
 
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+
 ## Prerequisites
 To complete the steps in this article, you need:
 - A dev center with an existing dev box definition and network connection. If you don't have a dev center, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.

@@ -94,7 +94,7 @@ landingContent:
           - text: Configure imaging for Customizations
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
-            url: how-to-create-tasks-catalog.md
+            url: how-to-create-customization-tasks-catalog.md
           - text: Configure Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
           - text: Provision a custom image by using Azure VM Image Builder

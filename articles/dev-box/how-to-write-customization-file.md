@@ -13,6 +13,8 @@ ms.date: 10/26/2024
 # Write a Team Customization file for Dev Box
 In this article, you learn how to create and test a customization file for your dev box using Visual Studio Code and Dev Home. This article helps you define new tasks in your customization file, apply them to your dev boxes, and test these customizations directly in Visual Studio Code. Ensure that a catalog with tasks is attached to the dev center before you begin.
 
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+
 ## Prerequisites
 
 To complete the steps in this article, you must:

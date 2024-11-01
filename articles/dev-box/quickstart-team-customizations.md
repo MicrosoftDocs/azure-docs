@@ -14,6 +14,8 @@ ms.date: 10/26/2024
 # Quickstart: Create Dev Box Team Customizations  
   
 In this quickstart, you create a dev box from a team customizations file. Team customizations allow you to create a customized dev box for your development team, providing a tailored environment for your projects.
+
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
   
 ## Prerequisites
   
