@@ -441,7 +441,7 @@ If you choose to pin the minor version, you need to periodically update the JVM 
 
 ## Run JBoss CLI
 
-In your JBoss app's SSH session, you can run the JBoss CLI as usual. For example:
+In your JBoss app's SSH session, you can run the JBoss CLI with the following command:
 
 ```
 $JBOSS_HOME/bin/jboss-cli.sh --connect
@@ -457,9 +457,13 @@ Alternatively, you can manually configure App Service to run any file on startup
 az webapp config set --resource-group <group-name> --name <app-name> --startup-file /home/site/scripts/foo.sh
 ```
 
+For more information about the CLI commands you can run, see the [Red Hat JBoss EAP documentation](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html-single/getting_started_with_red_hat_jboss_enterprise_application_platform/index#management-cli-overview_assembly-jboss-eap-management).
+
 ## Clustering
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. The JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. When you [run multiple instances with autoscaling](/azure-monitor/autoscale/autoscale-get-started), the JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+
+:::image type="content" source="media/configure-language-java-deploy-run/jboss-clustering.png" alt-text="A diagram showing a vnet-integrated JBoss App Service app, scaled out to three instances.":::
 
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property is set for you automatically.  
