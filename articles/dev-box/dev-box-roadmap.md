@@ -86,7 +86,7 @@ Microsoft Dev Box aims to provide a "like-local" developer experience that is as
 
 **Service health & reliability**
 
-- [Startup optimizations](): as a developer, you will experience a more reliable and stable Dev Box startup experience.
+- [Startup optimizations](https://developercommunity.visualstudio.com/t/Startup-optimizations-for-Dev-box/10781438): as a developer, you will experience a more reliable and stable Dev Box startup experience.
 - [Backup SKUs:](https://developercommunity.visualstudio.com/t/Back-up-SKUs-in-case-of-capacity-outage/10720451) as a developer, you will be able to smoothly resume working on existing dev boxes during service outages by opting to using a fallback SKU.
 - [Self-service snapshot and restore](https://developercommunity.visualstudio.com/t/Self-serve-snapshot-and-restore/10719611): as a developer, you can recover your Dev Box by restoring it to a previous snapshot.
 - [Outage notifications:](https://developercommunity.visualstudio.com/t/Outage-notifications-for-Dev-Box/10720453) developers and admins can stay informed about ongoing service outages via outage notification shared within the developer and Azure status portals including [Azure Service Health](https://azure.microsoft.com/en-us/get-started/azure-portal/service-health) and [Azure Status](https://azure.status.microsoft/en-us/status) portals.
