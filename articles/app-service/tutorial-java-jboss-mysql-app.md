@@ -183,7 +183,7 @@ In this step, you generate a managed identity based service connection, which yo
         1. Select **Create**.
         1. In **Resource group**, select **msdocs-jboss-mysql_group**.
         1. In **Region**, select the same region that you used for your web app.
-        1. In **Name**, type **msdocs-jboss-mysql-serveri-identity**.
+        1. In **Name**, type **msdocs-jboss-mysql-server-identity**.
         1. Select **Review + create**.
         1. Select **Create**.
     :::column-end:::
@@ -275,7 +275,7 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
 :::row-end:::
 
 > [!NOTE]
-> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml`, the changes won't persist beyond an app restart.
+> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml` or change server configuration in the JBoss CLI, the changes won't persist beyond an app restart. To persist your changes, use a startup script, such as demonstrated in [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?tabs=linux&pivots=java-jboss)
 >
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
