@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 10/22/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
 ms.service: azure-iot-operations
@@ -17,6 +17,19 @@ You can use dataflow conversions to transform data in Azure IoT Operations. The 
 
 The dataflow conversion element is used to compute values for output fields:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max' // - $1
+  '*.Min' // - $2
+]
+output: 'ColorProperties.*'
+expression: '($1 + $2) / 2'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - *.Max   # - $1
@@ -24,6 +37,8 @@ The dataflow conversion element is used to compute values for output fields:
   output: ColorProperties.*
   expression: ($1 + $2) / 2
 ```
+
+---
 
 There are several aspects to understand about conversions:
 
@@ -36,6 +51,21 @@ There are several aspects to understand about conversions:
 
 In conversions, formulas can operate on static values like a number such as *25* or parameters derived from input fields. A mapping defines these input fields that the formula can access. Each field is referenced according to its order in the input list:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max'      // - $1
+  '*.Min'      // - $2
+  '*.Mid.Avg'  // - $3
+  '*.Mid.Mean' // - $4
+]
+output: 'ColorProperties.*'
+expression: '($1, $2, $3, $4)'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - *.Max        # - $1
@@ -45,6 +75,8 @@ In conversions, formulas can operate on static values like a number such as *25*
   output: ColorProperties.*
   expression: ($1, $2, $3, $4)
 ```
+
+---
 
 In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. The comments in the YAML file (`# - $1`, `# - $2`) are optional, but they help to clarify the connection between each field property and its role in the conversion formula.
 
@@ -123,11 +155,23 @@ Arrays can be processed by using aggregation functions to compute a single value
 
 ```json
 {
-    "Measurements": [2.34, 12.3, 32.4]
+  "Measurements": [2.34, 12.3, 32.4]
 }
 ```
 
 With the mapping:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Measurements' // - $1
+]
+output: 'Measurement'
+expression: 'min($1)'
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -136,9 +180,23 @@ With the mapping:
   expression: min($1)
 ```
 
+---
+
 This configuration selects the smallest value from the `Measurements` array for the output field.
 
 It's also possible to use functions that result in a new array:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Measurements' // - $1
+]
+output: 'Measurements'
+expression: 'take($1, 10)'  // taking at max 10 items
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -147,7 +205,24 @@ It's also possible to use functions that result in a new array:
   expression: take($1, 10)  # taking at max 10 items
 ```
 
+---
+
 Arrays can also be created from multiple single values:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'minimum' // - - $1
+  'maximum' // - - $2
+  'average' // - - $3
+  'mean'    // - - $4
+]
+output: 'stats'
+expression: '($1, $2, $3, $4)'
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -158,6 +233,8 @@ Arrays can also be created from multiple single values:
   output: stats
   expression: ($1, $2, $3, $4)
 ```
+
+---
 
 This mapping creates an array that contains the minimum, maximum, average, and mean.
 
@@ -172,11 +249,11 @@ Example mapping that uses a missing value:
 
 ```json
 {
-    "Employment": {      
-      "Position": "Analyst",
-      "BaseSalary": 75000,
-      "WorkingHours": "Regular"
-    }
+  "Employment": {      
+    "Position": "Analyst",
+    "BaseSalary": 75000,
+    "WorkingHours": "Regular"
+  }
 }
 ```
 
@@ -192,13 +269,28 @@ The input record contains the `BaseSalary` field, but possibly that's optional. 
 
 A mapping can check if the field is present in the input record. If the field is found, the output receives that existing value. Otherwise, the output receives the value from the context dataset. For example:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'BaseSalary' // - - - - - - - - - - - $1
+  '$context(position).BaseSalary' //  - $2
+]
+output: 'BaseSalary'
+expression: 'if($1 == (), $2, $1)'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - BaseSalary  # - - - - - - - - - - $1
-  - $context(position).BaseSalary #  - $2 
+  - $context(position).BaseSalary # - $2
   output: BaseSalary
   expression: if($1 == (), $2, $1)
 ```
+
+---
 
 The `conversion` uses the `if` function that has three parameters:
 

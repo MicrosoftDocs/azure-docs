@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 10/22/2024
+ms.date: 10/25/2024
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ms.service: azure-iot-operations
@@ -15,9 +15,9 @@ ms.service: azure-iot-operations
 
 All communication within Azure IoT Operations is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution. 
 
-## Default root CA and issuer for TLS server certificates
+## Default self-signed issuer and root CA certificate for TLS server certificates
 
-To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
+To help you get started, Azure IoT Operations is deployed with a default self-signed issuer and root CA certificate for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
 
 * The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager.
 
@@ -56,8 +56,8 @@ To help you get started, Azure IoT Operations is deployed with a default root CA
         Signature Algorithm: sha256WithRSAEncryption 
     [Signature] 
     ```
-    
-* By default, there's already a CA issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command: 
+
+* By default, there's already an issuer configured in the `azure-iot-operations namespace` called `azure-iot-operations-aio-certificate-issuer`. It's used as the common issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate which is signed by the self-signed issuer to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command:
 
     ```bash
     kubectl get clusterissuer azure-iot-operations-aio-certificate-issuer -o yaml

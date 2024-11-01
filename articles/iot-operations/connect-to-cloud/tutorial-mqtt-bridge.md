@@ -168,10 +168,10 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
   parent: aioInstance
   name: 'eventgrid'
   extendedLocation: {
@@ -181,11 +181,11 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
   properties: {
     endpointType: 'Mqtt'
     mqttSettings: {
+      host: eventGridHostName
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
-      host: eventGridHostName
       tls: {
         mode: 'Enabled'
       }
@@ -197,7 +197,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Next, execute the following command in your terminal. Replace `<FILE>` with the name of the Bicep file you downloaded.
 
 ```azurecli
-az stack group create --name DeployDataflowEndpoint --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -238,14 +238,14 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' existing = {
   parent: aioInstance
   name: 'default'
 }
-resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
   parent: defaultDataflowProfile
   name: 'local-to-remote'
   extendedLocation: {
@@ -272,10 +272,7 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
-```
-
-```bicep
-resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
   extendedLocation: {
@@ -307,7 +304,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
 Like the dataflow endpoint, execute the following command in your terminal:
 
 ```azurecli
-az stack group create --name DeployDataflows --resource-group $RESOURCE_GROUP --template-file <FILE>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -369,9 +366,7 @@ When you publish to the `tutorial/local` topic on the local Azure IoT Operations
 
 To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. In a new file named `client.yaml`, specify the client deployment:
 
-
 <!-- TODO: put this in the explore-iot-operations repo? -->
-<!-- TODO: make the service account part of the YAML? -->
 
 # [Bicep](#tab/bicep)
 

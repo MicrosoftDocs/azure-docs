@@ -23,6 +23,8 @@ Azure IoT Operations signs its docker and helm images to allow users to verify t
 
 1. Download the Microsoft signing public certificate: `https://www.microsoft.com/pkiops/certs/Microsoft%20Supply%20Chain%20RSA%20Root%20CA%202022.crt`.
 
+   Make sure it's saved as `msft_signing_cert.crt`.
+
 1. Add the certificate to notation cli.
 
    ```sh
