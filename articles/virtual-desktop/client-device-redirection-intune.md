@@ -1,10 +1,10 @@
 ---
 title: Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
-description: Learn how to configure redirection settings for Windows App and the Remote Desktop app for iOS/iPadOS and Android client devices using Microsoft Intune.
+description: Learn how to configure redirection settings for iOS/iPadOS Windows App and Android Remote Desktop client using Microsoft Intune.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/21/2024
+ms.date: 10/31/2024
 ---
 
 # Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
@@ -46,6 +46,7 @@ For Windows App:
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
 | iOS and iPadOS | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+
 
 For the Remote Desktop app:
 
@@ -139,14 +140,13 @@ Before you can configure redirection settings on a client device using Microsoft
 
 - At least one security group containing users to apply the policies to.
 
-- To use the Remote Desktop app with enrolled devices on iOS and iPadOS, you need to add each app to Intune from the App Store. For more information, see [Add iOS store apps to Microsoft Intune](/mem/intune/apps/store-apps-ios).
+- To use the Windows App with enrolled devices on iOS and iPadOS, you need to add each app to Intune from the App Store. For more information, see [Add iOS store apps to Microsoft Intune](/mem/intune/apps/store-apps-ios).
 
 - A client device running one of the following versions of Windows App or the Remote Desktop app:
    - For Windows App:
-      - iOS and iPadOS: 10.5.2 or later.
+      - iOS and iPadOS: 11.0.4 or later.
 
    - Remote Desktop app:
-      - iOS and iPadOS: 10.5.8 or later.
       - Android: 10.0.19.1279 or later.
 
 - There are more Intune prerequisites for configuring app configuration policies, app protection policies, and Conditional Access policies. For more information, see:
@@ -162,11 +162,11 @@ To learn about filters and how to create them, see [Use filters when assigning y
 
 ## Create an app configuration policy for managed devices
 
-For iOS and iPadOS devices that are enrolled only, you need to create an [app configuration policy for managed devices](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for the Remote Desktop app.
+For iOS and iPadOS devices that are enrolled only, you need to create an [app configuration policy for managed devices](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for the Windows App app. This step is not needed for Android.
 
 To create and apply an app configuration policy for managed devices, follow the steps in [Add app configuration policies for managed iOS/iPadOS devices](/mem/intune/apps/app-configuration-policies-use-ios) and use the following settings:
 
-- On the **Basics** tab, for **targeted app**, select the **Remote Desktop Mobile** app from the list. You need to have added the app to Intune from the App Store for it to show in this list.
+- On the **Basics** tab, for **targeted app**, select the **Windows App** app from the list. You need to have added the app to Intune from the App Store for it to show in this list.
 
 - On the **Settings** tab, for the **Configuration settings format** drop-down list, select **Use configuration designer**, then enter the following settings exactly as shown:
 
@@ -180,11 +180,11 @@ To create and apply an app configuration policy for managed devices, follow the 
 
 ## Create an app configuration policy for managed apps
 
-You need to create an [app configuration policy for managed apps](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for Windows App and the Remote Desktop app, which enable you to provide configuration settings.
+You need to create a separate [app configuration policy for managed apps](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for Windows App (iOS/iPadOS) and the Remote Desktop app (Android), which enable you to provide configuration settings. Do not configure both Android and iOS in the same configuration policy or you will not be able to configure policy targeting based on managed and unmanaged devices.
 
 To create and apply an app configuration policy for managed apps, follow the steps in [App configuration policies for Intune App SDK managed apps](/mem/intune/apps/app-configuration-policies-managed-app) and use the following settings:
 
-- On the **Basics** tab, select **Select public apps**, then search for and select **Remote Desktop**. Selecting **Remote Desktop** applies to both Windows App and the Remote Desktop app.
+- On the **Basics** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. 
 
 - On the **Settings** tab, expand **General configuration settings**, then enter the following name and value pairs for each redirection setting you want to configure exactly as shown. These values correspond to the RDP properties listed on [Supported RDP properties](/azure/virtual-desktop/rdp-properties#device-redirection), but the syntax is different: 
 
@@ -203,13 +203,13 @@ To create and apply an app configuration policy for managed apps, follow the ste
 
 ## Create an app protection policy
 
-You need to create an [app protection policy](/mem/intune/apps/app-protection-policy) for Windows App and the Remote Desktop app, which enable you to control how data is accessed and shared by apps on mobile devices.
+You need to create a separate [app protection policy](/mem/intune/apps/app-protection-policy) for Windows App (iOS/iPadOS) and the Remote Desktop app (Android), which enable you to control how data is accessed and shared by apps on mobile devices. Do not configure both Android and iOS/iPadOS in the same protection policy or you will not be able to configure policy targeting based on managed and unmanaged devices.
 
-To create and apply an app protection policy, follow the steps in [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies) and use the following settings. You need to create an app protection policy for each platform you want to target.
+To create and apply an app protection policy, follow the steps in [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies) and use the following settings. 
 
-- On the **Apps** tab, select **Select public apps**, then search for and select **Remote Desktop**. Selecting **Remote Desktop** applies to both Windows App and the Remote Desktop app.
+- On the **Apps** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. 
   
-- On the **Data protection** tab, only the following settings are relevant to Windows App and the Remote Desktop app. The other settings don't apply as Windows App and the Remote Desktop app interact with the session host and not with data in the app. On mobile devices, unapproved keyboards are a source of keystroke logging and theft.
+- On the **Data protection** tab, only the following settings are relevant to Windows App and the Remote Desktop app. The other settings don't apply as Windows App and the Remote Desktop app interact with the session host and not with data in the app. On mobile devices, unapproved keyboards are a source of keystroke logging and theft. 
 
    - For iOS and iPadOS you can configure the following settings:
 
@@ -234,7 +234,7 @@ To create and apply an app protection policy, follow the steps in [How to create
    | Primary MTD service | Device condition | Based on your requirements.<br /><br />Your MTD connector must be set up. For **Microsoft Defender for Endpoint**, [configure Microsoft Defender for Endpoint in Intune](/mem/intune/protect/advanced-threat-protection-configure). | Block access |
    | Max allowed device threat level | Device condition | Secured | Block access |
 
-   For version details, see [What's new in Windows App](/windows-app/whats-new), [What's new in the Remote Desktop client for iOS and iPadOS](whats-new-client-ios-ipados.md), and [What's new in the Remote Desktop client for Android and Chrome OS](whats-new-client-android-chrome-os.md).
+   For version details, see [What's new in Windows App](/windows-app/whats-new?tabs=ios-ipados), and [What's new in the Remote Desktop client for Android and Chrome OS](whats-new-client-android-chrome-os.md).
 
    For more information about the available settings, see [Conditional launch in iOS app protection policy settings](/mem/intune/apps/app-protection-policy-settings-ios#conditional-launch) and [Conditional launch in Android app protection policy settings](/mem/intune/apps/app-protection-policy-settings-android#conditional-launch).
 
@@ -250,7 +250,7 @@ To create and apply a Conditional Access policy, follow the steps in [Set up app
 
    - For **Assignments**, include the security group containing the users to apply the policy to. You must apply the policy to a group of users to have the policy take effect.
 
-   - For **Target resources**, select to apply the policy to **Cloud apps**, then for **Include**, select **Select apps**. Search for and select **Azure Virtual Desktop** and **Windows 365**. You only have Azure Virtual Desktop in the list if you [registered the `Microsoft.DesktopVirtualization` resource provider on a subscription](prerequisites.md#azure-account-with-an-active-subscription) in your Microsoft Entra tenant.
+   - For **Target resources**, select to apply the policy to **Cloud apps**, then for **Include**, select **Select apps**. Search for and select **Azure Virtual Desktop** and **Windows 365**. You only have Azure Virtual Desktop in the list if you [registered the `Microsoft.DesktopVirtualization` resource provider on a subscription](prerequisites.md#azure-account-with-an-active-subscription) in your Microsoft Entra tenant. If single sign-on on a managed device is use, additional apps are required.  
 
    - For **Conditions**:
       - Select **Device platforms**, then include **iOS** and **Android**.
