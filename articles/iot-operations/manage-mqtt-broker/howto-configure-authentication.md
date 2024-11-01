@@ -57,14 +57,21 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentication@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: 'default'
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -86,7 +93,7 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
 Deploy the Bicep file using Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -184,18 +191,26 @@ To add an authentication method to a policy:
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentication@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -228,7 +243,6 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
         method: 'X509'
         x509Settings: {
           authorizationAttributes: {
-            trustedClientCaCert: 'client-ca'
             root: {
               attributes: {
                 organization: 'contoso'
@@ -242,7 +256,7 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
               }
               subject: 'CN = Contoso Intermediate CA'
             }
-            smart-fan: {
+            smartfan: {
               attributes: {
                 building: '17'
               }
@@ -255,6 +269,12 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -363,18 +383,26 @@ X.509 attributes can be specified in the *BrokerAuthentication* resource, and th
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentication@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -396,7 +424,7 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
                 foo: 'bar'
               }
             }
-            smart-fan: {
+            smartfan: {
               subject: 'CN = smart-fan'
               attributes: {
                 building: '17'
@@ -409,6 +437,12 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -526,18 +560,26 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentication@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -554,7 +596,12 @@ resource BrokerAuthentication 'Microsoft.IoTOperations/instances/brokerAuthentic
     ]
   }
 }
+```
 
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
