@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 10/23/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -85,6 +85,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Spike | boolean |
     | Temperature | decimal |
     | FillWeight | decimal |
+    | EnergyUse | decimal |
     | Timestamp | datetime |
 
 1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
@@ -94,7 +95,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ```
 
 ### Add data table as a destination
@@ -177,7 +178,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
     OPCUA 
     | where Timestamp between (_startTime .. _endTime)
     | project Timestamp, Temperature, Spike
-    | extend SpikeMarker = iff(Spike == true, Temperature, double(null))
+    | extend SpikeMarker = iff(Spike == true, Temperature, decimal(null))
     ```
 
     **Run** the query to verify that data can be found.
@@ -191,7 +192,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
     - **Data**:
         - **Y columns**: *Temperature (decimal)*, *Spike (boolean)* (already inferred by default)
         - **X columns**: *Timestamp (datetime)* (already inferred by default)
-        - **Series columns**: *SpikeMarker*
+        - **Series columns**: Leave the default inferred value.
     - **Y Axis**:
         - **Label**: *Units*
     - **X Axis**:
@@ -227,7 +228,7 @@ Next, create a tile to display a real-time spike indicator for temperature.
         - **Value column**: *Temperature (decimal)* (already inferred by default)
     - **Conditional formatting**: Select **+ Add rule** and select the pencil icon to edit the rule.
         - **Conditions**: Use the entry form to enter the condition *Spike == true*.
-        - **Color**: Select *Red* and choose an alert *Icon*.
+        - **Color**: Select *Red* and choose the warning icon.
 
         :::image type="content" source="media/quickstart-get-insights/conditional-formatting.png" alt-text="Screenshot of the conditional formatting options.":::
         

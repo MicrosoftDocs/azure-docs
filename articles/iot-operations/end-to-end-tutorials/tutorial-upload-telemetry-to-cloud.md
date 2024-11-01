@@ -14,7 +14,7 @@ ms.service: azure-iot-operations
 
 # Tutorial: Send asset telemetry to the cloud using a dataflow
 
-In this quickstart, you use a dataflow to forward messages from the MQTT broker to an event hub in the Azure Event Hubs service. The event hub can deliver the data to other cloud services for storage and analysis. In the next quickstart, you use a Real-Time Dashboard to visualize the data.
+In this tutorial, you use a dataflow to forward messages from the MQTT broker to an event hub in the Azure Event Hubs service. The event hub can deliver the data to other cloud services for storage and analysis. In the next tutorial, you use a real-time dashboard to visualize the data.
 
 ## Prerequisites
 
@@ -98,39 +98,65 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 ## Create a dataflow to send telemetry to an event hub
 
-To create and configure a dataflow in your cluster, run the following commands in your shell. This dataflow:
+Use the operations experience UI to create and configure a dataflow in your cluster that:
 
 - Renames the `Tag 10` field in the incoming message to `Humidity`.
 - Renames the `temperature` field in the incoming message to `Temperature`.
-- Adds a field called `AssetId` that contains the value of the `externalAssetId` message property.
+- Adds a field called `AssetId` that contains the name of the asset.
 - Forwards the transformed messages from the MQTT topic to the event hub you created.
 
-<!-- TODO: Change branch to main before merging the release branch -->
+To create the dataflow:
 
-# [Bash](#tab/bash)
+1. Browse to the operations experience UI and locate your instance. Then select **Dataflow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
 
-```bash
-wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tutorials/dataflow.yaml
-sed -i 's/<NAMESPACE>/'"${CLUSTER_NAME:0:24}"'/' dataflow.yaml
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-endpoint.png" alt-text="Screenshot of the Dataflow endpoints page.":::
 
-kubectl apply -f dataflow.yaml
-```
+1. In the **Create new dataflow endpoint: Azure Event Hubs**, enter *event-hubs-target* as the name, and update the **Host** field with the address of the Event Hubs namespace you created. Select **Apply**:
 
-# [PowerShell](#tab/powershell)
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-destination.png" alt-text="Screenshot of the Create new dataflow endpoint: Azure Event Hubs page.":::
 
-```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tutorials/dataflow.yaml -OutFile dataflow.yaml
+    Your new dataflow endpoint is created and displays in the list on the **Dataflow endpoints** page.
 
-(Get-Content dataflow.yaml) | ForEach-Object { $_ -replace '<NAMESPACE>', $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) } | Set-Content dataflow.yaml
+1. Select **Dataflows** and then select **+ Create dataflow**. The **\<new-dataflow\>** page displays:
 
-kubectl apply -f dataflow.yaml
-```
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-dataflow.png" alt-text="Screenshot of the Dataflows page.":::
 
----
+1. In the dataflow editor, select **Select source**. Then select the thermostat asset you created previously and select **Apply**.
+
+1. In the dataflow editor, select **Select dataflow endpoint**. Then select the **event-hubs-target** endpoint you created previously and select **Apply**.
+
+1. On the next page, enter *destinationeh* as the topic. The topic refers to the hub you created in the Event Hubs namespace. Select **Apply**. Your dataflow now has the thermostat asset as its source and a hub in your Event Hubs namespace as its destination.
+
+1. To add a transformation, select **Add transform (optional)**.
+
+1. To rename the `Tag 10` and `temperature` fields in the incoming message, select **+ Add** in the **Rename** tile.
+
+1. Add the following two rename transforms:
+
+    | Datapoint | New datapoint name |
+    |-----------|--------------------|
+    | Tag 10.Value    | ThermostatHumidity          |
+    | temperature.Value | ThermostatTemperature       |
+  
+    The rename transformation looks like the following screenshot:
+  
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/rename-transform.png" alt-text="Screenshot of the rename transformation.":::
+
+    Select **Apply**.
+
+1. To add an asset ID field to the message, select the **Transforms** box in the editor and then select **+ Add** in the **New property** tile.
+
+1. In the **New property** editor, enter *AssetId* as the property key, *thermostat-01* as the property value, and select **Apply**. The dataflow editor now looks like the following screenshot:
+
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the dataflow.":::
+
+1. To start the dataflow running, enter *tutorial-dataflow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The dataflow is now running in your cluster.
+
+Your dataflow subscribes to an MQTT topic to receive messages from the thermostat asset. It renames some of the fields in the message, and forwards the transformed messages to the event hub you created.
 
 ## Verify data is flowing
 
-To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
+To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You might need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 

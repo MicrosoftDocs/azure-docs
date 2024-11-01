@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 10/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -74,7 +74,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowName string = '<DATAFLOW_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
 
@@ -82,18 +82,18 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' existing = {
   parent: aioInstance
   name: 'default'
 }
 
 // Pointer to the default dataflow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-08-15-preview' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
   // Reference to the parent dataflow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
@@ -111,6 +111,7 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
           // See source configuration section
         }
       }
+      // Transformation optional
       {
         operationType: 'BuiltInTransformation'
         builtInTransformationSettings: {
@@ -148,6 +149,7 @@ spec:
     - operationType: Source
       sourceSettings:
         # See source configuration section
+      # Transformation optional
     - operationType: BuiltInTransformation
       builtInTransformationSettings:
         # See transformation configuration section
@@ -213,9 +215,9 @@ The MQTT endpoint is configured in the Bicep template file. For example, the fol
 
 ```bicep
 sourceSettings: {
-  endpointRef: defaultDataflowEndpoint
+  endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#',
+    'thermostats/+/telemetry/temperature/#'
     'humidifiers/+/telemetry/humidity/#'
   ]
 }
@@ -243,7 +245,7 @@ For more information about the default MQTT endpoint and creating an MQTT endpoi
 
 ### Use custom MQTT or Kafka dataflow endpoint as source
 
-If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, cannot be used as source.
+If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
 To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your custom endpoint name and topics.
 
@@ -255,9 +257,9 @@ Using a custom MQTT or Kafka endpoint as a source is currently not supported in 
 
 ```bicep
 sourceSettings: {
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
+  endpointRef: '<CUSTOM_ENDPOINT_NAME>'
   dataSources: [
-    '<TOPIC_1>',
+    '<TOPIC_1>'
     '<TOPIC_2>'
     // See section on configuring MQTT or Kafka topics for more information
   ]
@@ -296,9 +298,9 @@ In the operations experience dataflow **Source details**, select **MQTT**, then 
 
 ```bicep
 sourceSettings: {
-  endpointRef: <MQTT_ENDPOINT_NAME>
+  endpointRef: '<MQTT_ENDPOINT_NAME>'
   dataSources: [
-    '<MQTT_TOPIC_FILTER_1>',
+    '<MQTT_TOPIC_FILTER_1>'
     '<MQTT_TOPIC_FILTER_2>'
     // Add more MQTT topic filters as needed
   ]
@@ -309,9 +311,9 @@ Example with multiple MQTT topic filters with wildcards:
 
 ```bicep
 sourceSettings: {
-  endpointRef: default
+  endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#',
+    'thermostats/+/telemetry/temperature/#'
     'humidifiers/+/telemetry/humidity/#'
   ]
 }
@@ -344,6 +346,39 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
 
 ---
 
+##### Shared subscriptions
+
+To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
+
+# [Portal](#tab/portal)
+
+In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+sourceSettings: {
+  dataSources: [
+    '$shared/<GROUP_NAME>/<TOPIC_FILTER>'
+  ]
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+sourceSettings:
+  dataSources:
+    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
+```
+
+---
+
+> [!NOTE]
+> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription must be enabled for all MQTT topic filters by adding topic prefix `$shared/<GROUP_NAME>` to each topic filter.
+
+<!-- TODO: Details -->
+
 #### Kafka topics
 
 When the source is a Kafka (Event Hubs included) endpoint, specify the individual kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
@@ -361,9 +396,9 @@ Using a Kafka endpoint as a source is currently not supported in the operations 
 
 ```bicep
 sourceSettings: {
-  endpointRef: <KAFKA_ENDPOINT_NAME>
+  endpointRef: '<KAFKA_ENDPOINT_NAME>'
   dataSources: [
-    '<KAFKA_TOPIC_1>',
+    '<KAFKA_TOPIC_1>'
     '<KAFKA_TOPIC_2>'
     // Add more Kafka topics as needed
   ]
@@ -418,49 +453,13 @@ sourceSettings:
 
 ---
 
-
-#### Shared subscriptions
-
-<!-- TODO: may not be final -->
-
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
-
-# [Portal](#tab/portal)
-
-In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-sourceSettings: {
-  dataSources: [
-    '$shared/<GROUP_NAME>/<TOPIC_FILTER>'
-  ]
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-sourceSettings:
-  dataSources:
-    - $shared/<GROUP_NAME>/<TOPIC_FILTER>
-```
-
----
-
-> [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, then the shared subscription topic prefix is automatically added to the topic filter.
-
-<!-- TODO: Details -->
-
 ## Transformation
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always:
 
-1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
+1. **Enrich**, **Rename**, or add a **New property**: Add additional data to the source data given a dataset and condition to match.
 1. **Filter**: Filter the data based on a condition.
-1. **Map**: Move data from one field to another with an optional conversion.
+1. **Map** or **Compute**: Move data from one field to another with an optional conversion.
 
 # [Portal](#tab/portal)
 
@@ -506,7 +505,12 @@ You can load sample data into the DSS by using the [DSS set tool sample](https:/
 
 # [Portal](#tab/portal)
 
-Currently, the enrich operation isn't available in the operations experience.
+In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
+
+1. In the operations experience, select a dataflow then **Add transform (optional)**.
+1. Choose **Rename** or **New property** transforms then select **Add**.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience to rename a datapoint and add a new property.":::
 
 # [Bicep](#tab/bicep)
 
@@ -518,7 +522,7 @@ builtInTransformationSettings: {
     {
       key: 'assetDataset'
       inputs: [
-        '$source.deviceId', // --------------- $1
+        '$source.deviceId' // ---------------- $1
         '$context(assetDataset).asset' // ---- $2
       ]
       expression: '$1 == $2'
@@ -526,18 +530,6 @@ builtInTransformationSettings: {
   ]
 }
 ```
-
-If the dataset has a record with the `asset` field, similar to:
-
-```json
-{
-  "asset": "thermostat1",
-  "location": "room1",
-  "manufacturer": "Contoso"
-}
-```
-
-The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in filter and map stages.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -553,6 +545,8 @@ builtInTransformationSettings:
     expression: $1 == $2
 ```
 
+---
+
 If the dataset has a record with the `asset` field, similar to:
 
 ```json
@@ -564,26 +558,6 @@ If the dataset has a record with the `asset` field, similar to:
 ```
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in filter and map stages.
-
----
-
-<!-- Why would a passthrough operation be needed? Just omit the transform section? -->
-
-<!-- ### Passthrough operation
-
-For example, you could apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
-
-```bicep
-builtInTransformationSettings: {
-  map: [
-    {
-      inputs: array('*')
-      output: '*'
-    }
-  ]
-}
-``` -->
-
 
 For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
@@ -697,6 +671,43 @@ builtInTransformationSettings:
 
 To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
 
+<!-- TODO: DOE content for this -->
+
+<!-- #### Passthrough operation
+
+Using map, you can apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
+
+# [Portal](#tab/portal)
+
+TBD
+
+# [Bicep](#tab/bicep)
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [ '*' ]
+      output: '*'
+    }
+  ]
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+builtInTransformationSettings:
+  map:
+    - inputs:
+      - '*'
+      output: '*'
+```
+
+---
+
+ -->
+
 ### Serialize data according to a schema
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
@@ -752,8 +763,8 @@ To send data to a destination other than the local MQTT broker, create a dataflo
 
 ```bicep
 destinationSettings: {
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
-  dataDestination: <TOPIC_OR_TABLE> // See section on configuring data destination
+  endpointRef: '<CUSTOM_ENDPOINT_NAME>'
+  dataDestination: '<TOPIC_OR_TABLE>' // See section on configuring data destination
 }
 ```
 
@@ -769,7 +780,7 @@ destinationSettings:
 
 ### Configure data destination (topic, container, or table)
 
-Similar to data sources, data destination is a concept that is used to keep the dataflow endpoints reusable across multiple dataflows. Essentially, it represents the sub-directory in the dataflow endpoint configuration. For example, if the dataflow endpoint is a storage endpoint, the data destination is the table in the storage account. If the dataflow endpoint is a Kafka endpoint, the data destination is the Kafka topic.
+Similar to data sources, data destination is a concept that is used to keep the dataflow endpoints reusable across multiple dataflows. Essentially, it represents the subdirectory in the dataflow endpoint configuration. For example, if the dataflow endpoint is a storage endpoint, the data destination is the table in the storage account. If the dataflow endpoint is a Kafka endpoint, the data destination is the Kafka topic.
 
 | Endpoint type | Data destination meaning | Description |
 | - | - | - |
@@ -778,13 +789,13 @@ Similar to data sources, data destination is a concept that is used to keep the 
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
 | Azure Data Explorer | Table | The table in the Azure Data Explorer database. |
-| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. |
+| Local Storage | Folder | The folder or directory name in the local storage persistent volume mount. When using [Azure Container Storage enabled by Azure Arc Cloud Ingest Edge Volumes](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration), this must match the `spec.path` parameter for the subvolume you created. |
 
 To configure the data destination:
 
 # [Portal](#tab/portal)
 
-When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the dataflow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the dataflow endpoint is a MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
+When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the dataflow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the dataflow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
 
 :::image type="content" source="media/howto-create-dataflow/data-destination.png" alt-text="Screenshot showing the operations experience prompting the user to enter an MQTT topic given the endpoint type.":::
 
@@ -794,8 +805,8 @@ The syntax is the same for all dataflow endpoints:
 
 ```bicep
 destinationSettings: {
-  endpointRef: <CUSTOM_ENDPOINT_NAME>
-  dataDestination: <TOPIC_OR_TABLE>
+  endpointRef: "<CUSTOM_ENDPOINT_NAME>"
+  dataDestination: '<TOPIC_OR_TABLE>'
 }
 ```
 
@@ -803,8 +814,8 @@ For example, to send data back to the local MQTT broker a static MQTT topic, use
 
 ```bicep
 destinationSettings: {
-  endpointRef: default
-  dataDestination: example-topic
+  endpointRef: 'default'
+  dataDestination: 'example-topic'
 }
 ```
 
@@ -812,8 +823,8 @@ Or, if you have custom event hub endpoint, the configuration would look like:
 
 ```bicep
 destinationSettings: {
-  endpointRef: my-eh-endpoint
-  dataDestination: individual-event-hub
+  endpointRef: 'my-eh-endpoint'
+  dataDestination: 'individual-event-hub'
 }
 ```
 
@@ -821,8 +832,8 @@ Another example using a storage endpoint as the destination:
 
 ```bicep
 destinationSettings: {
-  endpointRef: my-adls-endpoint
-  dataDestination: my-container
+  endpointRef: 'my-adls-endpoint'
+  dataDestination: 'my-container'
 }
 ```
 
