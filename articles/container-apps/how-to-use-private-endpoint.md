@@ -163,8 +163,9 @@ LOCATION="centralus"
 ENVIRONMENT_NAME="my-environment"
 CONTAINERAPP_NAME="my-container-app"
 VNET_NAME="my-custom-vnet"
+SUBNET_NAME="my-custom-subnet"
 PRIVATE_ENDPOINT="my-private-endpoint"
-CONNECTION="my-connection"
+PRIVATE_ENDPOINT_CONNECTION="my-private-endpoint-connection"
 ```
 
 ## Create an Azure resource group
@@ -198,24 +199,14 @@ az network vnet create \
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
-  --name infrastructure-subnet \
+  --name $SUBNET_NAME \
   --address-prefixes 10.0.0.0/21
 ```
 
-When using the Workload profiles environment, you need to update the VNet to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
+Retrieve the subnet ID.
 
 ```azurecli
-az network vnet subnet update \
-  --resource-group $RESOURCE_GROUP \
-  --vnet-name $VNET_NAME \
-  --name infrastructure-subnet \
-  --delegations Microsoft.App/environments
-```
-
-With the virtual network created, you can retrieve the ID for the infrastructure subnet.
-
-```azurecli
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]' `
+SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id"`
 ```
 
 ## Create an environment
@@ -226,11 +217,10 @@ Create the Container Apps environment using the custom VNet deployed in the prec
 az containerapp env create \
   --name $ENVIRONMENT_NAME \
   --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
+  --location $LOCATION
 ```
 
-With the environment created, you can retrieve the environment ID.
+Retrieve the environment ID.
 
 ```azurecli
 ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
@@ -251,15 +241,15 @@ az network private-endpoint create \
     --resource-group $RESOURCE_GROUP \
     --location $LOCATION \
     --name $PRIVATE_ENDPOINT \
-    --subnet $INFRASTRUCTURE_SUBNET \
+    --subnet $SUBNET_ID \
     --private-connection-resource-id $ENVIRONMENT_ID \
-    --connection-name $CONNECTION \
+    --connection-name $PRIVATE_ENDPOINT_CONNECTION \
     --group-id managedEnvironments
 ```
 
 ## Deploy a container app
 
-Run the following command to deploy a container app in your environment.
+Deploy a container app in your environment.
 
 ```azurecli
 az containerapp up \
@@ -277,7 +267,7 @@ When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSE
 
 ::: zone-end
 
-## Test connection
+## Test the private endpoint connection
 
 1. Open [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
