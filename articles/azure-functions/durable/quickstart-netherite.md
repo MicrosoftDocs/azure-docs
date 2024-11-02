@@ -20,7 +20,7 @@ Durable Functions offers several [storage providers](durable-functions-storage-p
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 >
-> - The Netherite backend is currently **not** supported for Durable Functions apps running on the [Flex Consumption plan](../flex-consumption-plan.md). 
+> - The Netherite backend currently isn't supported by Durable Functions when running on the [Flex Consumption plan](../flex-consumption-plan.md). 
 
 ## Prerequisites
 
