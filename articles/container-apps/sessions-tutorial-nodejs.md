@@ -9,7 +9,7 @@ ms.date: 10/28/2024
 ms.author: gok
 ---
 
-# Tutorial: Use code interpreter sessions in AutoGen with Azure Container Apps
+# Tutorial: Use code interpreter sessions for NodeJS code execution with Azure Container Apps
 
 In this tutorial, you learn how to use a code interpreter in dynamic sessions to execute NodeJS code. You can use dynamic sessions of code-interpreter to run untrusted code
 
