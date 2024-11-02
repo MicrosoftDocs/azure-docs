@@ -22,7 +22,7 @@ This article shows you how to publish applications that are installed locally wi
 
 ## Prerequisites
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 In order to publish an application to a RemoteApp application group, you need the following things:
 
@@ -60,7 +60,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 To add applications to a RemoteApp application group, select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to add applications to a RemoteApp application group using the Azure portal.
 
@@ -262,7 +262,7 @@ Using `shell:appsFolder` means the application icon isn't picked up automaticall
 
 Select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to publish a Microsoft Store application using the Windows user interface and the Azure portal:
 

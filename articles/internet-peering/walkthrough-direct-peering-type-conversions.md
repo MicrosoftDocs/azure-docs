@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini 
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 10/23/2024
 ---
 
 # Direct peering type conversion request walkthrough
@@ -28,7 +28,7 @@ A direct peering type conversion for a peering connection can only be requested 
 ## Configure the new type on a Direct Peering
 
 ### Convert from PNI to Voice
-A peering with standard PNI(s) or PNI(s) enabled for Azure Peering Service can be converted to Voice PNI(s). This conversion must be made at the peering level, which means all the connections within the peering are converted.
+A peering with standard PNI or PNI enabled for Azure Peering Service can be converted to Voice PNI. This conversion must be made at the peering level, which means all the connections within the peering are converted.
 
 1. Go to the **Configuration** page of your peering.
 
@@ -40,7 +40,7 @@ A peering with standard PNI(s) or PNI(s) enabled for Azure Peering Service can b
 
 A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
 
-You need to be a Peering Service partner to enable Peering Service on a connection. See the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to [Azure Peering group](mailto:peeringservice@microsoft.com).
+You need to be a Peering Service partner to enable Peering Service on a connection. See the [partner requirements page](prerequisites.md) and make sure you sign the agreement with Microsoft. For questions, reach out to [Azure Peering group](mailto:peeringservice@microsoft.com).
 
 1. Go to the **Connection** page of your peering.
 
@@ -58,7 +58,7 @@ Once the request is received, the **Connection State** on each of the connection
 
 Your request is reviewed and approved by someone from the internal team.
 
-Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic. The **Connection State** on the connection(s) changes to **TypeChangeInProgress**.
+Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections converted one at a time to ensure that the redundant connections are always up and carrying traffic. The **Connection State** changes to **TypeChangeInProgress**.
 You can see this state in the Connection page.
 
 ## Monitor the conversion
@@ -117,7 +117,7 @@ Once the conversion is completed its state returns to **Active**.
 
 **A.** This state could be either due to a configuration or an internal error or the process could be waiting for the peering partner side of configurations. We monitor and catch these issues and give you an email notification promptly. If you have further questions, contact the [Azure Peering group](mailto:peeringservice@microsoft.com) for resolution.
 
-**Q.** I have two different peerings, Peering A with standard PNI(s) connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
+**Q.** I have two different peerings, Peering A with standard PNI connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
 
 **A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process results in Peering B (the Voice peering) having four connections now and the Peering A resource will be removed. This is by design so that we maintain only one peering for a given peering provider and type of direct peering at a given location.
 
