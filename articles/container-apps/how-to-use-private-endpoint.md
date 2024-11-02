@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 10/29/2024
+ms.date: 11/2/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -161,6 +161,7 @@ Set the following environment variables.
 RESOURCE_GROUP="my-container-apps"
 LOCATION="centralus"
 ENVIRONMENT_NAME="my-environment"
+CONTAINERAPP_NAME="my-container-app"
 VNET_NAME="my-custom-vnet"
 PRIVATE_ENDPOINT="my-private-endpoint"
 CONNECTION="my-connection"
@@ -173,7 +174,7 @@ Create a resource group to organize the services related to your container app d
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ## Create a virtual network
@@ -201,7 +202,7 @@ az network vnet subnet create \
   --address-prefixes 10.0.0.0/21
 ```
 
-When using the Workload profiles environment, you need update the VNet to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
+When using the Workload profiles environment, you need to update the VNet to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
 
 ```azurecli
 az network vnet subnet update \
@@ -214,7 +215,7 @@ az network vnet subnet update \
 With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 ```azurecli
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]' `
 ```
 
 ## Create an environment
@@ -225,7 +226,7 @@ Create the Container Apps environment using the custom VNet deployed in the prec
 az containerapp env create \
   --name $ENVIRONMENT_NAME \
   --resource-group $RESOURCE_GROUP \
-  --location "$LOCATION" \
+  --location $LOCATION \
   --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
 ```
 
@@ -235,19 +236,44 @@ With the environment created, you can retrieve the environment ID.
 ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
 ```
 
-## Create a private endpoint
-
 Disable public network access for the environment. This is needed to enable private endpoints.
 
 ```azurecli
-az rest -u ${ENVIRONMENT_ID}?api-version=2024-02-02-preview -b "{'properties': {'publicNetworkAccess':'Disabled'}}" -m Patch
+az containerapp env update --id ${ENVIRONMENT_ID} --public-network-access Disabled
 ```
+
+## Create a private endpoint
 
 Create the private endpoint.
 
 ```azurecli
-az network private-endpoint create -g ${RESOURCE_GROUP} -l ${LOCATION} -n ${PRIVATE_ENDPOINT} --subnet ${INFRASTRUCTURE_SUBNET} --private-connection-resource-id ${ENVIRONMENT_ID} --connection-name ${CONNECTION} --group-id managedEnvironments
+az network private-endpoint create \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --name $PRIVATE_ENDPOINT \
+    --subnet $INFRASTRUCTURE_SUBNET \
+    --private-connection-resource-id $ENVIRONMENT_ID \
+    --connection-name $CONNECTION \
+    --group-id managedEnvironments
 ```
+
+## Deploy a container app
+
+Run the following command to deploy a container app in your environment.
+
+```azurecli
+az containerapp up \
+  --name $CONTAINERAPP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --environment $ENVIRONMENT_NAME \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
+  --target-port 80 \
+  --ingress external \
+  --query properties.configuration.ingress.fqdn
+```
+
+When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
 
 ::: zone-end
 
