@@ -1,34 +1,32 @@
 ---
-title: Azure Functions language runtime support policy
-description: Learn about Azure Functions language runtime support policy
+title: Azure Functions language stack support policy
+description: Learn about the support policy for the various language stacks that Azure Functions supports.
 ms.topic: conceptual
 ms.date: 08/05/2024
 ---
 
-# Language runtime support policy
+# Azure Functions language stack support policy
 
-This article explains Azure functions language runtime support policy.
+This article explains the support policy for the language stacks supported by Azure Functions.
 
 ## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full-support coverages for function apps, Functions support aligns with end-of-life support for a given language. To achieve this goal, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
+The Azure Functions runtime includes the Azure Functions host and programming language-specific workers. To maintain full-support coverage when running your functions in Azure, Functions support aligns with end-of-life support for a given language. To help you keep your apps up-to-date and supported, Functions implements a phased reduction in support as language stack versions reach their end-of-life dates. Generally, the retirement date coincides with the community end-of-life date of the given language.
 
-### Notification phase
++ **Notification phase**: 
 
-The Functions team sends notification emails to function app users about upcoming language version retirements. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
+    The Functions team sends you notification emails about upcoming language version retirements that affect your function apps. When you receive this notification, you should prepare to upgrade these apps to use to a supported version.
 
-### Retirement phase
++ **Retirement phase**:
 
-After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However your apps aren't eligible for new features, security patches, and performance optimizations until you upgrade them to a supported language version.
+    After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However, these apps aren't eligible for new features, security patches, and performance optimizations until after you upgrade them to a supported language version.
 
-> [!IMPORTANT]
->You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
->If you're running functions apps using an unsupported runtime or language version, you may encounter issues and performance implications and will be required to upgrade before receiving support for your function app.
-
+    > [!IMPORTANT]
+    >If you're running function apps using an unsupported runtime or language version, you may encounter issues and performance implications and are required to upgrade before receiving support for your function app. Because of this, you're highly encouraged to upgrade the language version of such an app to a supported version. TO learn how, see [Update language stack versions in Azure Functions](./update-language-versions.md).
 
 ## Retirement policy exceptions
 
-Any Azure Functions supported exceptions to language-specific retirement policies are documented here.  
+Any Functions-supported exceptions to language-specific retirement policies are documented here:  
 
 > There are currently no exceptions to the general retirement policy.
 
@@ -43,7 +41,7 @@ To learn more about specific language version support policy timeline, visit the
 
 ## Configuring language versions
 
-|Language                         | Configuration guides         |
+|Language stack | Configuration guides         |
 |-----------------------------------------|-----------------|
 |C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
 |C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
@@ -54,9 +52,9 @@ To learn more about specific language version support policy timeline, visit the
 
 ## Retired runtime versions
 
-This historical table shows the highest language level for specific Azure Functions runtime versions that are no longer supported: 
+This historical table shows the highest language stack level for no-longer-supported versions of the Functions runtime: 
 
-|Language                                 |2.x | 3.x | 
+|Language stack  |2.x | 3.x | 
 |-----------------------------------------|---| --- | 
 |[C#](functions-dotnet-class-library.md)|GA (.NET Core 2.1)| GA (.NET Core 3.1 & .NET 5<sup>*</sup>) | 
 |[JavaScript/TypeScript](functions-reference-node.md?tabs=javascript)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | 
@@ -74,5 +72,5 @@ For the language levels currently supported by Azure Functions, see [Languages b
 To learn more about how to upgrade your functions apps language versions, see the following resources:
 
 
-+ [Update language Stack versions](./update-language-versions.md)
++ [Update language stack versions](./update-language-versions.md)
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
