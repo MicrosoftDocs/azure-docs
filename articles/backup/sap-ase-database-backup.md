@@ -288,8 +288,8 @@ You can also use the following FQDNs to allow access to the required services fr
 
 #### Use an HTTP proxy server to route traffic.
 
->[! Note]
->Currently, we only support HTTP Proxy for Microsoft Entra traffic for SAP ASE. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
+>[!Note]
+>Currently, the HTTP Proxy for Microsoft Entra traffic is only supported for the SAP ASE database. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
 
 #### Use an HTTP proxy server for Microsoft Entra traffic
 
@@ -344,7 +344,7 @@ To discover the SAP ASE databases, follow these steps:
 
 1. Goto the **Recovery Services Vault**, and then select **+ Backup**.
 
-   :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup"lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
+   :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup." lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
 
 2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (Preview)** as the datasource type.
 
@@ -378,7 +378,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new policy** for the databases. 
 
-   :::image type="content" source="./media/sap-ase-database-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy" lightbox="./media/sap-ase-database-backup/create-backup-policy.png":::
+   :::image type="content" source="./media/sap-ase-database-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy." lightbox="./media/sap-ase-database-backup/create-backup-policy.png":::
 
    A backup policy defines when backups are taken, and how long they're retained.
 
@@ -427,9 +427,9 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 11. On the **Log Backup**, select **Enable** to set the frequency and retention controls.
 
-   >[!Note]
-   >- Log backups only begin to flow after a successful full backup is completed.
-   >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+     >[!Note]
+     >- Log backups only begin to flow after a successful full backup is completed.
+     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 12. On the **Configure Backup**, select the new policy under **Backup Policy**, and then select **Add**.
 13. Select **Configure backup**.
