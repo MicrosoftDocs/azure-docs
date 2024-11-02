@@ -281,7 +281,7 @@ If you are not seeing the throughput numbers you expect and your CPU and memory 
 > In some cases you can significantly increase the throughput of external events, activity fan-in, and entity operations by increasing the value of the `controlQueueBufferThreshold` setting in **host.json**. Increasing this value beyond its default causes the Durable Task Framework storage provider to use more memory to prefetch these events more aggressively, reducing delays associated with dequeueing messages from the Azure Storage control queues. For more information, see the [host.json](durable-functions-bindings.md#host-json) reference documentation.
 
 ### Flex Consumption Plan 
-The [Flex Consumption Plan](../flex-consumption-plan.md) is a new Azure Functions hosting plan that builds on the old Consumption plan's serverless billing model while providing useful features such as private networking, instance memory size selection, and more.
+The [Flex Consumption plan](../flex-consumption-plan.md) is an Azure Functions hosting plan that provides many of the benefits of the Consumption plan, including a serverless billing model, while also adding useful features, such as private networking, instance memory size selection, and full support for managed identity authentication.
 
 When using the Azure Storage provider for your Durable Functions apps running on the Flex Consumption plan, the following is recommended to ensure the optimal performance:
 * Set the [Always Ready](../flex-consumption-how-to.md#set-always-ready-instance-counts) instance count for `durable` group to `1`
