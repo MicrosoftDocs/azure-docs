@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/30/2024
+ms.date: 11/02/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -50,18 +50,26 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -110,7 +118,7 @@ resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorizat
 Deploy the Bicep file using Azure CLI.
 
 ```azurecli
-az stack group create --name MyDeploymentStack --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep --dm None --aou deleteResources --yes
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -204,18 +212,26 @@ In the **Broker authorization details** for your authorization policy, use the f
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
@@ -253,7 +269,13 @@ resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorizat
   }
 }
 ```
- 
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -353,23 +375,30 @@ In the **Broker authorization details** for your authorization policy, use the f
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
   name: aioInstanceName
 }
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorization@2024-09-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
   extendedLocation: {
-    name: customLocationName
+    name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
     authorizationPolicies: {
-      enableCache: false
       rules: [
         {
           principals: {
@@ -402,6 +431,12 @@ resource BrokerAuthorization 'Microsoft.IoTOperations/instances/brokerAuthorizat
   }
 }
 
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
 # [Kubernetes](#tab/kubernetes)
