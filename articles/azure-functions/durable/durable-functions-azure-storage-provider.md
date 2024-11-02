@@ -287,8 +287,8 @@ Azure Storage is currently the only supported [storage provider](durable-functio
 
 You should follow these performance recommendations when hosting Durable Functions in the Flex Consumption plan:
 
-* Set the [always ready instance count](../flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`.
-* Reduce the [queue polling interval](durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Lowering this interval might cause a small cost increase in your Azure Storage account.
+* Set the [always ready instance count](../flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. This ensures that there is always one instance ready to handle Durable Functions related requests, thus reducing the application's cold start. 
+* Reduce the [queue polling interval](durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Since this plan type is more sensitive to queue polling delays, lowering the polling interval will help increase the frequency of polling operations, thus ensuring requests are handled faster. However, more frequent polling operations will lead to a higher Azure Storage account cost. 
 
 ### High throughput processing
 
