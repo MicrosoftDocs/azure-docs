@@ -60,9 +60,9 @@ Alternatively, you can authenticate with a User-assigned Managed Identity, a ser
 
 # [OpenID Connect](#tab/openid)
 
-The below runs you through the steps for creating an active directory application, service principal, and federated credentials using Azure CLI statements. To learn how to create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+The below runs you through the steps for creating an Entra app, service principal, and federated credentials using Azure CLI statements. To learn how to create an Entra app, service principal, and federated credentials in the Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
-1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you don't have an existing application, register a [new Microsoft Entra app and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Microsoft Entra app.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -70,13 +70,13 @@ The below runs you through the steps for creating an active directory applicatio
 
     This command outputs a JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
 
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+    You'll use the `id` (object id) value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+1. Create a service principal. Replace the `$appID` with the `id` from your JSON output. 
 
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+    This command generates JSON output with a different `id` (object id) and will be used in the next step. The new  `id` (object id) is the `assignee-object-id`. 
     
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+    Copy the `appOwnerOrganizationId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
 
     ```azurecli-interactive
      az ad sp create --id $appId
@@ -88,7 +88,7 @@ The below runs you through the steps for creating an active directory applicatio
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
     ```
 
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Entra app.
 
     * Replace `APPLICATION-OBJECT-ID` with the **appId (generated while creating app)** for your Active Directory application.
     * Set a value for `CREDENTIAL-NAME` to reference later.
