@@ -20,7 +20,7 @@ Durable Functions supports several [storage providers](durable-functions-storage
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 >
-> - The MSSQL backend is currently **not** supported for Durable Functions apps running on the [Flex Consumption plan](../flex-consumption-plan.md). 
+> - The MSSQL backend currently isn't supported by Durable Functions when running on the [Flex Consumption plan](../flex-consumption-plan.md). 
 
 ## Prerequisites
 
