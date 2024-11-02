@@ -283,9 +283,12 @@ If you are not seeing the throughput numbers you expect and your CPU and memory 
 ### Flex Consumption Plan 
 The [Flex Consumption plan](../flex-consumption-plan.md) is an Azure Functions hosting plan that provides many of the benefits of the Consumption plan, including a serverless billing model, while also adding useful features, such as private networking, instance memory size selection, and full support for managed identity authentication.
 
-When using the Azure Storage provider for your Durable Functions apps running on the Flex Consumption plan, the following is recommended to ensure the optimal performance:
-* Set the [Always Ready](../flex-consumption-how-to.md#set-always-ready-instance-counts) instance count for `durable` group to `1`
-* Reduce [queue polling](./durable-functions-azure-storage-provider.md#queue-polling) interval to 10 seconds or less. (Note that lowering the interval could cause a small increase in your Azure Storage cost.)
+Azure Storage is currently the only supported [storage provider](durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan.
+
+You should follow these performance recommendations when hosting Durable Functions in the Flex Consumption plan:
+
+* Set the [always ready instance count](../flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`.
+* Reduce the [queue polling interval](durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Lowering this interval might cause a small cost increase in your Azure Storage account.
 
 ### High throughput processing
 
