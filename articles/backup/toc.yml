@@ -435,13 +435,13 @@
     - name: With Azure CLI
       items:
       - name: Backup
-        href: backup-azure-database-postgresql-flex-backup-cli.md
+        href: back-up-azure-database-postgresql-flex-backup-cli.md
       - name: Restore
         href: backup-azure-database-postgresql-flex-restore-cli.md
     - name: With PowerShell
       items:
       - name: Backup
-        href: backup-azure-database-postgresql-flex-backup-powershell.md
+        href: back-up-azure-database-postgresql-flex-backup-powershell.md
       - name: Restore
         href: backup-azure-database-postgresql-flex-restore-powershell.md
     - name: With REST API
