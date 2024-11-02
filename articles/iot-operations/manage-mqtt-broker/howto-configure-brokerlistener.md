@@ -31,7 +31,7 @@ Listeners have the following characteristics:
 - BrokerAuthentication and BrokerAuthorization references are per port
 - TLS configuration is per port
 - Service names must be unique
-- Ports cannot conflict over different listeners
+- Ports can't conflict over different listeners
 
 For a list of the available settings, see the [Broker Listener](/rest/api/iotoperationsmq/broker-listener) API reference.
 
@@ -56,7 +56,7 @@ To view or edit the listener:
 
 # [Bicep](#tab/bicep)
 
-You should not modify the default listener using Bicep. Instead, create a new listener and configure it as needed.
+You shouldn't modify the default listener using Bicep. Instead, create a new listener and configure it as needed.
 
 # [Kubernetes](#tab/kubernetes)
 

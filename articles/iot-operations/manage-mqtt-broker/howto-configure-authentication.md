@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/30/2024
+ms.date: 11/02/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -279,7 +279,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 # [Kubernetes](#tab/kubernetes)
 
-Modify the *BrokerAuthentication* resource for a authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a *BrokerAuthentication* resource:
+Modify the *BrokerAuthentication* resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a *BrokerAuthentication* resource:
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -762,7 +762,7 @@ MQTT broker disconnects clients when their credentials expire. Disconnect after 
 
 On disconnect, the client's network connection is closed. The client won't receive an MQTT DISCONNECT packet, but the broker logs a message that it disconnected the client.
 
-MQTT v5 clients authenticated with SATs and custom authentication can reauthenticate with a new credential before their initial credential expires. X.509 clients cannot reauthenticate and must re-establish the connection since authentication is done at the TLS layer.
+MQTT v5 clients authenticated with SATs and custom authentication can reauthenticate with a new credential before their initial credential expires. X.509 clients can't reauthenticate and must re-establish the connection since authentication is done at the TLS layer.
 
 Clients can reauthenticate by sending an MQTT v5 AUTH packet.
 
