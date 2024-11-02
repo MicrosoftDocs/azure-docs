@@ -236,6 +236,13 @@ az containerapp env update --id ${ENVIRONMENT_ID} --public-network-access Disabl
 
 Create the private endpoint.
 
+TODO1 Should this include the following to set static IP?
+```
+    --ip-config name=ipconfig-1 group-id=sites member-name=sites private-ip-address=10.0.0.1 \
+```
+
+TODO1 Should the private-connection-resource-id be the ID of the container app rather than the env?
+
 ```azurecli
 az network private-endpoint create \
     --resource-group $RESOURCE_GROUP \
@@ -268,6 +275,121 @@ When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSE
 ::: zone-end
 
 ## Test the private endpoint connection
+
+::: zone pivot="azure-portal"
+
+### Configure the private DNS zone
+
+TODO1
+
+### Create a virtual machine (VM)
+
+TODO1
+
+### Test the connection
+
+1. In the *Overview* page for the VM you created, select **Connect**, then select **Connect via Bastion**.
+
+1. Set **Username** and **VM Password** to the username and password you used when you created the VM.
+
+1. Select **Connect**.
+
+1. After you connect, run PowerShell in the VM.
+
+1. In PowerShell, run the following command.
+
+```powershell
+nslookup containerapp.io
+```
+
+The output is similar to the following example.
+
+```
+Server:  UnKnown
+Address:  168.63.129.16
+
+Non-authoritative answer:
+Name:    privatelink.containerapp.io
+Addresses:  20.76.201.171
+
+TODO1
+```
+
+TODO1 Connect to app in browser?
+
+::: zone-end
+
+::: zone pivot="azure-cli"
+
+### Set environment variables
+
+Set the following environment variables.
+
+TODO1 Should private dns zone name just be privatelink.containerapp.io? That's the pattern for other private DNS zone names we've seen.
+
+```azurecli
+VM_NAME="my-virtual-machine"
+VM_ADMIN_USERNAME="azureuser"
+PRIVATE_DNS_ZONE_NAME="app.privatelink.containerapp.io"
+DNS_ZONE_GROUP="my-dns-zone-group"
+DNS_LINK="my-dns-link"
+DNS_ZONE="my-dns-zone"
+```
+
+### Configure the private DNS zone
+
+Run the following commands.
+
+```azurecli
+az network private-dns zone create \
+    --resource-group $RESOURCE_GROUP \
+    --name $PRIVATE_DNS_ZONE_NAME
+```
+
+```azurecli
+az network private-dns link vnet create \
+    --resource-group $RESOURCE_GROUP \
+    --zone-name $PRIVATE_DNS_ZONE_NAME \
+    --name $DNS_LINK \
+    --virtual-network $VNET_NAME \
+    --registration-enabled false
+```
+
+```azurecli
+az network private-endpoint dns-zone-group create \
+    --resource-group $RESOURCE_GROUP \
+    --endpoint-name $PRIVATE_ENDPOINT \
+    --name $DNS_ZONE_GROUP \
+    --private-dns-zone $PRIVATE_DNS_ZONE_NAME \
+    --zone-name $DNS_ZONE
+```
+
+### Create a virtual machine
+
+Run the following command.
+
+TODO1 Use Linux VM instead? Then just wget container app URL.
+
+```azurecli
+az vm create \
+    --resource-group $RESOURCE_GROUP \
+    --name $VM_NAME \
+    --image Win2022Datacenter \
+    --public-ip-address "" \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET_NAME \
+    --admin-username $VM_ADMIN_USERNAME
+```
+
+### Test the connection
+
+TODO1 Log in via SSH.
+
+::: zone-end
+
+TODO1 Remove?
+
+### Check data flow
 
 1. Open [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
