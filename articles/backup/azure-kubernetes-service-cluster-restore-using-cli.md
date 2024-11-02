@@ -64,7 +64,7 @@ az k8s-extension create --name azure-aks-backup --extension-type microsoft.datap
 Then assign the required role to the extension on the storage account by running the following command:
 
 ```azurecli
-az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
 
 ```
 
@@ -199,11 +199,11 @@ az dataprotection backup-instance update-msi-permissions --datasource-type Azure
 >[!Note]
 >During the restore operation, the Backup vault and the AKS cluster need to have certain roles assigned to perform the restore:
 >
->1. *Target AKS* cluster should have *Contributor* role on the *Snapshot Resource Group*.
->2. The *User Identity* attached with the Backup Extension should have *Storage Blob Data Contributor* roles on the *storage account* where backups are stored in case of Operational Tier and on the **staging storage account* in case of Vault Tier. 
->3. The *Backup vault* should have a *Reader* role on the *Target AKS cluster* and *Snapshot Resource Group* in case of restoring from Operational Tier.
->4. The *Backup vault* should have a *Contributor* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
->5. The *Backup vault* should have a *Storage Account Contributor* and *Storage Blob Data Owner* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
+> - *Target AKS* cluster should have *Contributor* role on the *Snapshot Resource Group*.
+> - The *User Identity* attached with the Backup Extension should have *Storage Blob Data Contributor* roles on the *storage account* where backups are stored in case of Operational Tier and on the **staging storage account* in case of Vault Tier. 
+> - The *Backup vault* should have a *Reader* role on the *Target AKS cluster* and *Snapshot Resource Group* in case of restoring from Operational Tier.
+> - The *Backup vault* should have a *Contributor* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
+> - The *Backup vault* should have a *Storage Account Contributor* and *Storage Blob Data Owner* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
 
 ## Trigger the restore
 
