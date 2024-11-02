@@ -27,6 +27,8 @@ If you want to automate your load test with GitHub Actions, learn how to [manual
 
 - Your Azure DevOps organization is connected to Microsoft Entra ID in your subscription. Learn how you can [connect your organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
+- Your Azure DevOps organization needs to have the [Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) extension intalled.
+
 - A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
 
 ## Configure a CI/CD pipeline
