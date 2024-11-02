@@ -288,8 +288,8 @@ You can also use the following FQDNs to allow access to the required services fr
 
 #### Use an HTTP proxy server to route traffic.
 
->[! Note]
->Currently, we only support HTTP Proxy for Microsoft Entra traffic for SAP ASE. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
+>[!Note]
+>Currently, the HTTP Proxy for Microsoft Entra traffic is only supported for the SAP ASE database. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
 
 #### Use an HTTP proxy server for Microsoft Entra traffic
 
@@ -328,7 +328,7 @@ Create the following outbound rule and allow the domain name to back up the data
 - **Destination**: Service Tag.
 - **Destination Service Tag**: AzureResourceManager
 
-
+:::image type="content" source="./media/sap-ase-database-backup/use-outbound-rules.png" alt-text="Screenshot shows the database outbound rules settings." lightbox="./media/sap-ase-database-backup/use-outbound-rules.png":::
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -336,17 +336,23 @@ Create the following outbound rule and allow the domain name to back up the data
      
 In the Recovery Services vault, you can enable [Cross Region Restore](backup-azure-recovery-services-vault-overview.md). Learn [how to turn on Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
+:::image type="content" source="./media/sap-ase-database-backup/enable-cross-region-restore.png" alt-text="Screenshot shows how to enable Cross Region Restore in the Recovery Services vault. " lightbox="./media/sap-ase-database-backup/enable-cross-region-restore.png":::
+
 ## Discover the databases
 
 To discover the SAP ASE databases, follow these steps:
 
-1.Goto the **Recovery Services Vault**, and then select **+ Backup**.
+1. Goto the **Recovery Services Vault**, and then select **+ Backup**.
 
- 
+   :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup." lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
 
 2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (Preview)** as the datasource type.
+
+   :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
-3.Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+3. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+
+     :::image type="content" source="./media/sap-ase-database-backup/start-database-discovery.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup/start-database-discovery.png":::
 
    >[!Note]
    >- After discovery, unprotected VMs appear in the portal, listed by name and resource group.
@@ -357,18 +363,22 @@ To discover the SAP ASE databases, follow these steps:
 5. Run the script on each VM hosting SAP ASE databases that you want to back up.
 6. After you run the script on the VMs, on the **Select Virtual Machines** blade, select the *VMs*, and then select **Discover DBs**.
 
-Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
+   Azure Backup discovers all SAP ASE databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
- 
+     :::image type="content" source="./media/sap-ase-database-backup/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup/select-database.png"::: 
 
-### Create a backup policy
+## Configure the SAP ASE (Sybase) database backup
 
-To crate a backup policy for the SAP ASE database, follow these steps:
+To configure the backup operation for the SAP ASE database, follow these steps:
 
 
 1.	On the **Backup Goal**, under **Step 2**, select **Configure Backup**.
  
-2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new backup policy** for the databases. 
+     :::image type="content" source="./media/sap-ase-database-backup/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup/configure-backup.png":::
+
+2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new policy** for the databases. 
+
+   :::image type="content" source="./media/sap-ase-database-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy." lightbox="./media/sap-ase-database-backup/create-backup-policy.png":::
 
    A backup policy defines when backups are taken, and how long they're retained.
 
@@ -377,6 +387,7 @@ To crate a backup policy for the SAP ASE database, follow these steps:
 
 3. On the **Policy name**, provide a name for the new policy.
 
+     :::image type="content" source="./media/sap-ase-database-backup/add-backup-policy-name.png" alt-text="Screenshot shows how to provide a name for the new backup policy." lightbox="./media/sap-ase-database-backup/add-backup-policy-name.png":::
  
 
 4. On the **Full Backup policy**, select a **Backup Frequency**, and then select **Daily** or **Weekly** as per the requirement.
@@ -390,6 +401,8 @@ To crate a backup policy for the SAP ASE database, follow these steps:
 
    - **Weekly**: Select the **day of the week**, **hour**, and **time zone** in which the backup job runs.
 
+     :::image type="content" source="./media/sap-ase-database-backup/set-backup-rules.png" alt-text="Screenshot shows the configuration of backup rules." lightbox="./media/sap-ase-database-backup/set-backup-rules.png":::
+
 
 5. On the **Retention Range**, define the retention range for the full backup.
    >[!Note]
@@ -402,45 +415,34 @@ To crate a backup policy for the SAP ASE database, follow these steps:
 6. On the **Full Backup policy**, select **OK** to accept the settings.
 7. Select the **Differential Backup** to add a differential policy.
 
-8.On the **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+8. On the **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
 
    >[!Note]
    >- At most, you can trigger one differential backup per day.
    >- Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
-9.Select **OK** to save the policy and return to the **Backup policy** page.
+9. Select **OK** to save the policy and return to the **Backup policy** page.
 
 10. Select **Log Backup** to add a transactional log backup policy.
 
 11. On the **Log Backup**, select **Enable** to set the frequency and retention controls.
 
-   >[!Note]
-   >- Log backups only begin to flow after a successful full backup is completed.
-   >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+     >[!Note]
+     >- Log backups only begin to flow after a successful full backup is completed.
+     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 12. On the **Configure Backup**, select the new policy under **Backup Policy**, and then select **Add**.
 13. Select **Configure backup**.
 14. On the **Select items to backup**, select the Databases for protection, and then select **Next**.
+
+    :::image type="content" source="./media/sap-ase-database-backup/select-database-items-for-backup.png" alt-text="Screenshot shows the selection of the database items for backup." lightbox="./media/sap-ase-database-backup/select-database-items-for-backup.png":::
   
 
-15. Review  the backup configuration, and then select **Enable backup**.
+15. Review  the backup configuration.
 
+    :::image type="content" source="./media/sap-ase-database-backup/select-enable-backup.png" alt-text="Screenshot shows the completion of backup configuration." lightbox="./media/sap-ase-database-backup/select-enable-backup.png":::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+16. Select **Enable Backup** to start the backup operation.
 
 ## Next step
 
