@@ -116,4 +116,4 @@ Azure Operator Nexus offers a group of on-premises cloud solutions that cater to
 
 ### Operator Nexus Network Cloud SKUs
 
-For Stock Keeping Unit (SKU) information please see [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-network-cloud-skus-us.md).
+For Stock Keeping Unit (SKU) information please see [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md).
