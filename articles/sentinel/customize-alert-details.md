@@ -96,7 +96,7 @@ Follow the procedure detailed below to use the alert details feature. These step
 
 ## Service limits
 
-- You can override a field with **up to 50 values** in a single query. When your query exceeds 50 customized values, **all** customized values are dropped, and in all query results the field reverts to its default value. Tune your query to yield less than 50 values to ensure no customized values are dropped.
+- You can override a field with **up to 50 values** in a single query. When your query exceeds 50 customized values, **all** customized values are dropped, and in all query results the field reverts to its default value. Tune your query to yield no more than 50 values to ensure no customized values are dropped.
 - The size limit for the `AlertName` field, and any other non-collection properties, is **256 bytes**.
 - The size limit for the `Description` field, and any other collection properties, is **5 KB**.
 - Values exceeding the size limits are dropped.
