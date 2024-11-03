@@ -39,7 +39,7 @@ This article presents information that is common to the group of API-based data 
 
 
 
-## Connect to Microsoft services via API-based connectora
+## Connect to Microsoft services via API-based connectors
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
