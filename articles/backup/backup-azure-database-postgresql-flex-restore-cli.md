@@ -26,12 +26,12 @@ Backup vault uses managed identity to access other Azure resources. To restore f
 To list all backup instances within a vault, use [az data protection backup-instance list](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list) command. Then fetch the relevant instance using the [az data protection backup-instance show](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-show) command. Alternatively, for _at-scale_ scenarios, you can list backup instances across vaults and subscriptions using the [az data protection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list-from-resourcegraph) command.
 
 ```azurecli
-az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQLFlexibleServer -subscriptions "xxxxxxxx-xxxx-xxxx-xxxx"
+az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQLFlexibleServer -subscriptions $subscriptionId
 
   {
-    "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
+    "datasourceId": "/subscriptions/$subscriptionId/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
     "extendedLocation": null,
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149",
+    "id": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149",
     "identity": null,
     "kind": "",
     "location": "",
@@ -44,7 +44,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
         "baseUri": null,
         "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
         "objectType": "Datasource",
-        "resourceID": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
+        "resourceID": "/subscriptions/$subscriptionId/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
         "resourceLocation": "westus",
         "resourceName": "postgres",
         "resourceProperties": null,
@@ -56,7 +56,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
         "baseUri": null,
         "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
         "objectType": "DatasourceSet",
-        "resourceID": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
+        "resourceID": "/subscriptions/$subscriptionId/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
         "resourceLocation": "westus",
         "resourceName": "testpgflex",
         "resourceProperties": null,
@@ -66,7 +66,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
       "friendlyName": "testpgflex",
       "objectType": "BackupInstance",
       "policyInfo": {
-        "policyId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/osspol3",
+        "policyId": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/osspol3",
         "policyParameters": null,
         "policyVersion": ""
       },
@@ -81,9 +81,9 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
     "protectionState": "ProtectionConfigured",
     "resourceGroup": "testBkpVaultRG",
     "sku": null,
-    "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "subscriptionId": $subscriptionId,
     "tags": null,
-    "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "tenantId": $tenantId,
     "type": "microsoft.dataprotection/backupvaults/backupinstances",
     "vaultName": "testBkpVault",
     "zones": null
@@ -101,7 +101,7 @@ Once the instance is identified, fetch the relevant recovery point using the [az
 az dataprotection recovery-point list --backup-instance-name testpgflex-957d23b1-c679-4c94-ade6-c4d34635e149 -g testBkpVaultRG --vault-name TestBkpVault
 
 {
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpgflex-957d23b1-c679-4c94-ade6-c4d34635e149/recoveryPoints/9da55e757af94261afa009b43cd3222a",
+  "id": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpgflex-957d23b1-c679-4c94-ade6-c4d34635e149/recoveryPoints/9da55e757af94261afa009b43cd3222a",
   "name": "9da55e757af94261afa009b43cd3222a",
   "properties": {
     "friendlyName": "2031fdb43a914114b6ce644eb6fcb5ce",
