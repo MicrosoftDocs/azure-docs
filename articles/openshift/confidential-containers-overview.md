@@ -5,13 +5,13 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/24/2024
+ms.date: 11/04/2024
 ---
 # Confidential Containers with Azure Red Hat OpenShift
 
-Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By leveraging hardware-based trusted execution environments (TEEs), Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
+Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By using hardware-based trusted execution environments (TEEs), Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
 
-This articles describes the benefits of using Confidential Containers to safeguard sensitive data and explains how Confidential Containers function within Azure Red Hat OpenShift.
+This article describes the benefits of using Confidential Containers to safeguard sensitive data and explains how Confidential Containers function within Azure Red Hat OpenShift.
 
 
 ## Benefits of Using Confidential Containers
@@ -30,7 +30,7 @@ Confidential Containers offer several key benefits:
 
 ## Typical use cases
 
-The table below describes the most common use cases for deploying Confidential Containers.
+The following table describes the most common use cases for deploying Confidential Containers.
 
 |Use case  |Industry  |Example  |
 |---------|---------|---------|
@@ -42,18 +42,18 @@ The table below describes the most common use cases for deploying Confidential C
 
 Confidential Containers is a feature of Red Hat OpenShift sandboxed containers, which provide an isolated environment for running containerized applications. At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
 
-Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. Upon creating a Confidential Containers workload, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, thereby providing a secure and isolated environment for your sensitive data.
+Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. Once a Confidential Containers workload is created, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, providing a secure and isolated environment for your sensitive data.
 
 :::image type="content" source="media/confidential-containers-overview/confidential-containers-arch.png" alt-text="Architecture diagram of ARC confidential containers":::
 
-The diagram above shows the three main steps for using Confidential Containers on an ARO cluster:
+The diagram shows the three main steps for using Confidential Containers on an ARO cluster:
 1. The OpenShift Sandboxed Containers Operator is deployed on the ARO cluster.
 1. Kata Runtime container on an ARO worker node uses the cloud-api-adapter to create a peer pod on a confidential VM.
 1. The remote attestation agent on the peer pod initiates the attestation of the container image before the kata-agent deploys it, ensuring the integrity of the image.
 
 ### Attestation
 
-Attestation constitutes a fundamental component of Confidential Containers, particularly within the context of zero-trust security. Prior to deploying a workload as a Confidential Containers workload, it is imperative to verify the trustworthiness of the TEE where the workload will be executed. Attestation ensures that the TEE is indeed secure and possesses the capability to safeguard your confidential data.
+Attestation constitutes a fundamental component of Confidential Containers, particularly within the context of zero-trust security. Prior to deploying a workload as a Confidential Containers workload, it's imperative to verify the trustworthiness of the TEE where the workload is executed. Attestation ensures that the TEE is indeed secure and possesses the capability to safeguard your confidential data.
 
 ### The Trustee Project
 
@@ -70,8 +70,8 @@ The confidential compute attestation Operator, an integral component of the Azur
 
 ### A Unified Perspective
 
-A typical Confidential Containers deployment involves Azure Red Hat OpenShift working in conjunction with the confidential compute attestation operator deployed in a separate, trusted environment. The workload is executed within a CVM operating inside a TEE, benefiting from the encrypted memory and integrity guarantees provided by the TEE. Trustee agents residing within the CVM perform attestation and acquire requisite secrets, thereby safeguarding the security and confidentiality of your data.
+A typical Confidential Containers deployment involves Azure Red Hat OpenShift working in conjunction with the confidential compute attestation operator deployed in a separate, trusted environment. The workload is executed within a CVM operating inside a TEE, benefiting from the encrypted memory and integrity guarantees provided by the TEE. Trustee agents residing within the CVM perform attestation and acquire requisite secrets, safeguarding the security and confidentiality of your data.
 
 ## Next steps
 
-Now that you've considered the benefits and various use cases for Confidential Containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](confidential-containers-deploy.md).
+Now that you know the benefits and various use cases for Confidential Containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](confidential-containers-deploy.md).

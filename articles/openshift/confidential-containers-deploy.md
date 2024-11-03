@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 11/04/2024
 ms.custom: template-how-to
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 This article describes the steps required to deploy Confidential Containers for an ARO cluster. This process involves two main parts and multiple steps:
 
-First, you'll deploy OpenShift Sandboxed Containers, which involves the following steps:
+First, deploy OpenShift Sandboxed Containers, including the following steps:
 
 1. Install the OpenShift Sandboxed Containers Operator.    
     
@@ -24,7 +24,7 @@ First, you'll deploy OpenShift Sandboxed Containers, which involves the followin
 
 1. Create the Azure secret.
 
-After deploying OpenShift Sandboxed Containers, you'll deploy Confidential Containers. This involves the following steps:
+After deploying OpenShift Sandboxed Containers, deploy Confidential Containers. This involves the following steps:
 
 1.	Install the Trustee Operator.
 
@@ -143,11 +143,11 @@ The OpenShift sandboxed containers operator can be installed through the CLI or 
 
 1. In the **Filter by keyword** field, type OpenShift sandboxed containers.
 
-1. Select the **OpenShift sandboxed containers Operator** tile and click **Install**.
+1. Select the **OpenShift sandboxed containers Operator** tile and select **Install**.
 
 1. On the **Install Operator** page, select **stable** from the list of available **Update Channel** options.
 
-1. Verify that **Operator recommended Namespace** is selected for **Installed Namespace**. This installs the Operator in the mandatory `openshift-sandboxed-containers-operator` namespace. If this namespace does not yet exist, it's automatically created.
+1. Verify that **Operator recommended Namespace** is selected for **Installed Namespace**. This installs the Operator in the mandatory `openshift-sandboxed-containers-operator` namespace. If this namespace doesn't yet exist, it's automatically created.
 
     > [!NOTE]
     > Attempting to install the OpenShift sandboxed containers Operator in a namespace other than openshift-sandboxed-containers-operator causes the installation to fail.
@@ -155,7 +155,7 @@ The OpenShift sandboxed containers operator can be installed through the CLI or 
 
 1. Verify that **Automatic** is selected for **Approval Strategy**. **Automatic** is the default value, and enables automatic updates to OpenShift sandboxed containers when a new z-stream release is available.
 
-1. Click **Install**.
+1. Select **Install**.
 
 1. Navigate to **Operators → Installed Operators** to verify that the Operator is installed.
 
@@ -175,7 +175,7 @@ By default, the OpenShift sandboxed containers operator creates the secret based
       -o tsv) && echo "AZURE_SUBSCRIPTION_ID: \"$AZURE_SUBSCRIPTION_ID\""
     ```
 
-1.	Generate the RBAC content by running the following command:
+1.	Generate the role-based access control (RBAC) content by running the following command:
     
     ```
     $ az ad sp create-for-rbac --role Contributor --scopes /subscriptions/$AZURE_SUBSCRIPTION_ID \
@@ -276,7 +276,7 @@ By default, the OpenShift sandboxed containers operator creates the secret based
       DISABLECVM: "true"
     ```
     **Notes:**
-    - `AZURE_INSTANCE_SIZE` is the default if an instance size is not defined in the workload.
+    - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload.
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
     - Specify the `AZURE_NSG_ID` value that you retrieved.
@@ -484,7 +484,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     ```
 
     **Notes:**
-    - `AZURE_INSTANCE_SIZE` is the default if an instance size is not defined in the workload.
+    - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload.
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
     - Specify the `AZURE_NSG_ID` value that you retrieved.
@@ -631,7 +631,7 @@ You can configure the following attestation policy settings:
 
 You can configure reference values for the Reference Value Provider Service (RVPS) by specifying the trusted digests of your hardware platform.
 
-The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and has not been tampered with.
+The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and hasn't been tampered with.
 
 **Secrets for clients**
 
@@ -641,7 +641,7 @@ You must create one or more secrets to share with attested clients.
 
 You must configure a policy for the Trustee policy engine to determine which resources to access.
 
-Do not confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
+Don't confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
 
 **Attestation policy**
 
@@ -701,7 +701,7 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
     **Notes:**
 
     - The name of the resource policy, `policy.rego`, must match the resource policy defined in the Trustee config map.
-    - The resource package policy follows the Open Policy Agent specification. This example allows the retrieval of all resources when the TEE is not the sample attester.
+    - The resource package policy follows the Open Policy Agent specification. This example allows the retrieval of all resources when the TEE isn't the sample attester.
 
 1.	Create the resource policy config map by running the following command:
 
@@ -865,11 +865,11 @@ You must create the KbsConfig custom resource to launch Trustee. Then, you check
 
 You can verify the attestation process by creating a test pod and retrieving its secret.
 
-Important: This procedure is an example to verify that attestation is working. Do not write sensitive data to standard I/O because the data can be captured by using a memory dump. Only data written to memory is encrypted.
+Important: This procedure is an example to verify that attestation is working. Don't write sensitive data to standard I/O because the data can be captured by using a memory dump. Only data written to memory is encrypted.
 
-By default, an agent side policy embedded in the pod VM image disables the exec and log APIs for a Confidential Containers pod. This policy ensures that sensitive data is not written to standard I/O.
+By default, an agent side policy embedded in the pod VM image disables the exec and log APIs for a Confidential Containers pod. This policy ensures that sensitive data isn't written to standard I/O.
 
-In a test scenario, you can override the restriction at runtime by adding a policy annotation to the pod. For Technology Preview, runtime policy annotations are not verified by remote attestation.
+In a test scenario, you can override the restriction at runtime by adding a policy annotation to the pod. For Technology Preview, runtime policy annotations aren't verified by remote attestation.
 
 1.	Create a verification-pod.yaml manifest file:
 
