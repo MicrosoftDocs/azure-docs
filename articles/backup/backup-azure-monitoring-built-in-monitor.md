@@ -13,7 +13,9 @@ ms.author: v-abhmallick
 
 Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what's going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+## Protected and protectable items in Azure Business Continuity Center
+
+You can monitor all your protected and protectable items via Azure Business Continuity Center. Go to the **Protected Items** blade on Azure Business Continuity Center to view your resources protected by one or more solutions and perform actions on them. To view your resources that aren't currently protected by any solution, go to the **Protectable resources** on Azure Business Continuity Center . Learn more about [protected](../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md) and [protectable items](../business-continuity-center/tutorial-view-protectable-resources.md) in Azure Business Continuity Center]
 
 ## Backup Items in Recovery Services vault
 
