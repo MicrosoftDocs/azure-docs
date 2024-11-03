@@ -19,17 +19,25 @@ This article presents information that is common to the group of data connectors
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## Standalone diagnostic settings-based connectors
+## Prerequisites
 
-This section covers prerequisites and general installation instructions for the group of data connectors that use standalone diagnostic settings-based connections.
+To ingest data into Microsoft Sentinel using a standalone, diagnostic settings-based connector, you must have read and write permissions on the Log Analytics workspace enabled for Microsoft Sentinel.
 
-### Prerequisites
+To ingest data into Microsoft Sentinel using diagnostic settings-based connectors managed by Azure Policy, you must also have the following prerequisites:
 
-To ingest data into Microsoft Sentinel:
+- To use Azure Policy to apply a log streaming policy to your resources, you must have the Owner role for the policy assignment scope.
 
-- You must have read and write permissions on the Microsoft Sentinel workspace.
+- The following prerequisites, depending on which connector you're using:
 
-### Instructions
+  |Data connector  |Licensing, costs, and other information  |
+  |---------|---------|
+  |**Azure Activity**| This connector now uses the diagnostic settings pipeline. If you're using the legacy method, you must disconnect the existing subscriptions from the legacy method before setting up the new Azure Activity log connector.<br><br>1. From the Microsoft Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then select the **Open connector page** button on the lower right.<br>2. Under the **Instructions** tab, in the **Configuration** section, in step 1, review the list of your existing subscriptions that are connected to the legacy method, and disconnect them all at once by clicking the **Disconnect All** button below.<br>3. Continue setting up the new connector with the instructions in this section. |
+  |**Azure DDoS Protection**|- Configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).<br>- Configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-for-a-new-virtual-network)<br>- Other charges may apply<br>- The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.|
+  |**Azure Storage Account**|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.</br>When configuring diagnostics for a storage account, you must select and configure: <br><br>- The parent account resource, exporting the **Transaction** metric.<br>- Each of the child storage-type resources, exporting all the logs and metrics.<br><br>You will only see the storage types that you actually have defined resources for.|
+
+## Connect via a standalone diagnostic settings-based connector
+
+This procedure describes how to connect to Microsoft Sentinel using data connectors that use standalone connections based on diagnostic settings.
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -53,27 +61,9 @@ To ingest data into Microsoft Sentinel:
 
 For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings) in the Azure Monitor documentation.
 
-## Azure Policy managed diagnostic settings-based connectors
+## Connect via a diagnostic setting-based connector managed by Azure Policy
 
-This section covers prerequisites and general installation instructions for the group of data connectors that use Azure Policy managed  diagnostic settings-based connections.
-
-### Prerequisites
-
-To ingest data into Microsoft Sentinel:
-
-- You must have read and write permissions on the Microsoft Sentinel workspace.
-
-- To use Azure Policy to apply a log streaming policy to your resources, you must have the Owner role for the policy assignment scope.
-
-- Data connector specific requirements:
-  
-  |Data connector  |Licensing, costs, and other information  |
-  |---------|---------|
-  |Azure Activity| This connector now uses the diagnostic settings pipeline. If you're using the legacy method, you must disconnect the existing subscriptions from the legacy method before setting up the new Azure Activity log connector.<br><br>1. From the Microsoft Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then select the **Open connector page** button on the lower right.<br>2. Under the **Instructions** tab, in the **Configuration** section, in step 1, review the list of your existing subscriptions that are connected to the legacy method, and disconnect them all at once by clicking the **Disconnect All** button below.<br>3. Continue setting up the new connector with the instructions in this section. |
-  |Azure DDoS Protection|- Configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).<br>- Configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-for-a-new-virtual-network)<br>- Other charges may apply<br>- The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.|
-  |Azure Storage Account|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.</br>When configuring diagnostics for a storage account, you must select and configure: <br><br>- The parent account resource, exporting the **Transaction** metric.<br>- Each of the child storage-type resources, exporting all the logs and metrics.<br><br>You will only see the storage types that you actually have defined resources for.|
-
-### Instructions
+This procedure descibes how to connect to Microsoft Sentinel using data connectors that use connections that are based on diagnostic settings and are managed by Azure Policy.
 
 Connectors of this type use Azure Policy to apply a single diagnostic settings configuration to a collection of resources of a single type, defined as a scope. You can see the log types ingested from a given resource type on the left side of the connector page for that resource, under **Data types**.
 
@@ -101,7 +91,7 @@ With this type of data connector, the connectivity status indicators (a color st
 
 You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page. For more information, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD) in the Azure Monitor documentation.
 
-## Next steps
+## Related content
 
 For more information, see:
 
