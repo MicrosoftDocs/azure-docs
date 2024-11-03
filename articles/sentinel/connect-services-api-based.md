@@ -39,7 +39,7 @@ This article presents information that is common to the group of API-based data 
 
 
 
-## Instructions
+## Connect to Microsoft services via API-based connectora
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -51,7 +51,7 @@ This article presents information that is common to the group of API-based data 
 
 You can find and query the data for each service using the table names that appear in the section for the service's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
-## Next steps
+## Related content
 
 For more information, see:
 
