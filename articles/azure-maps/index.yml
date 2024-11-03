@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: eriklindeman
-  ms.author: eriklind
+  author: jkebeck
+  ms.author: jokebeck
   ms.date: 3/4/2024
 
 

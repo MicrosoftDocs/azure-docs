@@ -1247,8 +1247,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-files-active-directory-domain-services-enable.md",
-            "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/files/storage-files-identity-ad-ds-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-files-active-directory-enable.md",
@@ -1405,6 +1405,26 @@
             "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-ad-ds-assign-permissions.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-assign-share-level-permissions",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-ad-ds-configure-permissions.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-configure-file-level-permissions",
+            "redirect_document_id": true
+        },       
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-ad-ds-mount-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-mount-file-share",
+            "redirect_document_id": true
+        },       
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-active-directory-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-ad-ds-overview",
+            "redirect_document_id": true
+        },                               
         {
             "source_path_from_root": "/articles/storage/queues/authorize-active-directory-powershell.md",
             "redirect_url": "/azure/storage/queues/authorize-data-operations-powershell",
@@ -2363,6 +2383,106 @@
         {
             "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-create-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-create-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-delete-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-delete-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-lease-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-lease-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-properties-metadata-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-properties-metadata-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-containers-list-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-containers-list-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-async-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-async-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-copy-url-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-copy-url-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-delete-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-delete-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-download-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-download-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-get-url-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-get-url-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-typescript-get-started.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-javascript-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-lease-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-lease-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-properties-metadata-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-properties-metadata-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-tags-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-tags-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-upload-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-upload-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-use-access-tier-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-use-access-tier-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blobs-list-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-list-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blobs-tune-upload-download-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-tune-upload-download-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-retry-policy-typescript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-tune-upload-download-javascript",
             "redirect_document_id": false
         },
         {

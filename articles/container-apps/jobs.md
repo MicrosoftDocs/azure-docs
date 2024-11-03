@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/02/2024
+ms.date: 10/20/2024
 ms.author: cshoe
 ---
 
@@ -20,7 +20,7 @@ Container apps and jobs run in the same [environment](environment.md), allowing 
 
 There are two types of compute resources in Azure Container Apps: apps and jobs.
 
-Apps are services that run continuously. If a container in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
+Apps are services that run continuously. If a container in an app fails, it restarts automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
 
 Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
@@ -49,13 +49,27 @@ A Container Apps environment is a secure boundary around one or more container a
 
 :::image type="content" source="media/jobs/azure-container-apps-jobs-overview.png" alt-text="Azure Container Apps jobs overview.":::
 
+## Permissions
+
+To start a container app job, the appropriate permissions are required. Ensure that your user account or service principal has the following roles assigned:
+
+* **Azure Container Apps Contributor:** Allows permissions to create and manage container apps and jobs.
+* **Azure Monitor Reader (optional):** Enables viewing monitoring data for jobs.
+* **Custom Role:** For more granular permissions, you can create a custom role with the following actions:
+
+- Microsoft.App/containerApps/jobs/start/action
+- Microsoft.App/containerApps/jobs/read
+- Microsoft.App/containerApps/jobs/executions/read
+
+For more information about assigning roles and permissions, see [Azure Role-Based Access Control](/azure/role-based-access-control/overview).
+
 ## Job trigger types
 
 A job's trigger type determines how the job is started. The following trigger types are available:
 
 - **Manual**: Manual jobs are triggered on-demand.
-- **Schedule**:  Scheduled jobs are triggered at specific times and can run repeatedly.
-- **Event**: Event-driven jobs are triggered by events such as a message arriving in a queue.
+- **Schedule**: Scheduled jobs are triggered at specific times and can run repeatedly.
+- **Event**: Events, such as a message arriving in a queue, trigger event-driven jobs.
 
 ### Manual jobs
 
@@ -120,7 +134,7 @@ The following example Azure Resource Manager template creates a manual job named
 
 To create a manual job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Manual* as the trigger type.
 
-Enter the following values in the *Containers* tab to use a sample container image.
+To use a sample container image, enter the following values in the *Containers* tab:
 
 | Setting | Value |
 |---|---|
@@ -207,7 +221,7 @@ The following example Azure Resource Manager template creates a manual job named
 
 To create a scheduled job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Schedule* as the trigger type and define the schedule with a cron expression, such as `*/1 * * * *` to run every minute.
 
-Enter the following values in the *Containers* tab to use a sample container image.
+To use a sample container image, enter the following values in the *Containers* tab:
 
 | Setting | Value |
 |---|---|

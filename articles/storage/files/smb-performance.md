@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 10/30/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -183,7 +183,8 @@ This preview feature improves the following metadata APIs and can be used from b
 Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
 
 ### Register for the feature
-To get started, register for the feature using Azure portal or PowerShell.
+
+To get started, register for the feature using the Azure portal or Azure PowerShell.
 
 # [Azure portal](#tab/portal)
 
@@ -202,14 +203,21 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ```
 ---
 
+> [!IMPORTANT]
+> Allow 1-2 days for accounts to be onboarded once registration is complete.
+
 ### Regional availability
 
 Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
 - Asia East
 - Australia Central
+- Australia East
+- Australia Southeast
 - Brazil South
 - Canada Central
+- Canada East
+- Europe North
 - France Central
 - Germany West Central
 - Japan East
@@ -217,7 +225,11 @@ Currently the metadata caching preview is only available in the following Azure 
 - Jio India West
 - India Central
 - India South
+- India West
+- Israel Central
+- Italy North
 - Korea Central
+- Korea South
 - Mexico Central
 - Norway East
 - Poland Central
@@ -227,8 +239,11 @@ Currently the metadata caching preview is only available in the following Azure 
 - Switzerland North
 - UAE North
 - UK West
-- UK South Central
+- UK South
+- US North Central
+- US South Central
 - US West Central
+- US West 2
 - US West 3
 
 > [!TIP]

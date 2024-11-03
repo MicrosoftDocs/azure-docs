@@ -8,6 +8,8 @@ ms.author: rifox
 
 ## Set up your system
 
+Follow these steps to set up your system.
+
 ### Create the Xcode project
 
 In Xcode, create a new iOS project and select the **Single View App** template. This article uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set **Language** to **Swift** and set **Interface** to **SwiftUI**.
@@ -28,13 +30,13 @@ You're not going to create tests in this article. Feel free to clear the **Inclu
     end
     ```
 
-2. Run `pod install`.
+1. Run `pod install`.
 
-3. Open `.xcworkspace` by using Xcode.
+1. Open `.xcworkspace` by using Xcode.
 
 ### Request access to the microphone
 
-To access the device's microphone, you need to update your app's information property list by using `NSMicrophoneUsageDescription`. You set the associated value to a string that will be included in the dialog that the system uses to request access from the user.
+To access the device's microphone, you need to update your app's information property list by using `NSMicrophoneUsageDescription`. Set the associated value to a string that's included in the dialog that the system uses to request access from the user.
 
 Right-click the **Info.plist** entry of the project tree, and then select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
 
@@ -45,7 +47,7 @@ Right-click the **Info.plist** entry of the project tree, and then select **Open
 
 ### Set up the app framework
 
-Open your project's `ContentView.swift` file. Add an `import` declaration to the top of the file to import the `AzureCommunicationCalling` library. In addition, import `AVFoundation`. You'll need it for audio permission requests in the code.
+Open your project's `ContentView.swift` file. Add an `import` declaration to the top of the file to import the `AzureCommunicationCalling` library. In addition, import `AVFoundation`. You need it for audio permission requests in the code.
 
 ```swift
 import AzureCommunicationCalling

@@ -2,7 +2,7 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
-ms.date: 03/16/2024
+ms.date: 09/27/2024
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -281,23 +281,35 @@ The Azure Functions action (`Azure/azure-functions`) defines how your code is pu
 
 ### Parameters
 
-The following parameters are most commonly used with this action:
+The following parameters are required for all function app plans:
 
 |Parameter |Explanation  |
 |---------|---------|
-|_**app-name**_ | (Mandatory) The name of your function app. |
-|_**slot-name**_ | (Optional) The name of a specific [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already exist in your function app. When not specified, the code is deployed to the active slot. |
-|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. |
+|_**app-name**_ | The name of your function app. |
+|***package*** | This is the location in your project to be published. By default, this value is set to `.`, which means all files and folders in the GitHub repository will be deployed.|
 
-The following parameters are also supported, but are used only in specific cases:
+The following parameters are required for the Flex Consumption plan:
 
 |Parameter |Explanation  |
 |---------|---------|
-| _**package**_ | (Optional) Sets a subpath in your repository from which to publish. By default, this value is set to `.`, which means all files and folders in the GitHub repository are deployed. |
-| _**respect-pom-xml**_ | (Optional) Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, you should set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
-| _**respect-funcignore**_ | (Optional) Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. | 
-| _**scm-do-build-during-deployment**_ | (Optional) Whether the App Service deployment site (Kudu) performs predeployment operations. The deployment site for your function app can be found at `https://<APP_NAME>.scm.azurewebsites.net/`. Change this setting to `true` when you need to control the deployments in Kudu rather than resolving the dependencies in the GitHub Actions workflow. The default value is `false`. For more information, see the [SCM_DO_BUILD_DURING_DEPLOYMENT](./functions-app-settings.md#scm_do_build_during_deployment) setting. |
-| _**enable-oryx-build**_ |(Optional) Whether the Kudu deployment site resolves your project dependencies by using Oryx. Set to `true` when you want to use Oryx to resolve your project dependencies by using a remote build instead of the GitHub Actions workflow. When `true`, you should also set `scm-do-build-during-deployment` to `true`. The default value is `false`.|
+|_**sku**_ | Set this to `flexconsumption` when authenticating with publish-profile. When using RBAC credentials or deploying to a non-Flex Consumption plan, the Action can resolve the value, so the parameter does not need to be included. |
+|_**remote-build**_ | Set this to `true` to enable a build action from Kudu when the package is deployed to a Flex Consumption app. Oryx build is always performed during a remote build in Flex Consumption; do not set **scm-do-build-during-deployment** or **enable-oryx-build**. By default, this parameter is set to `false`. |
+
+The following parameters are specific to the Consumption, Elastic Premium, and App Service (Dedicated) plans:
+
+|Parameter |Explanation  |
+|---------|---------|
+|_**scm-do-build-during-deployment**_ | (Optional) Allow the Kudu site (e.g. `https://<APP_NAME>.scm.azurewebsites.net/`) to perform pre-deployment operations, such as [remote builds](functions-deployment-technologies.md#remote-build). By default, this is set to `false`. Set this to `true` when you do want to control deployment behaviors using Kudu instead of resolving dependencies in your GitHub workflow. For more information, see the [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
+|_**enable-oryx-build**_ | (Optional) Allow Kudu site to resolve your project dependencies with Oryx. By default, this is set to `false`. If you want to use [Oryx](https://github.com/Microsoft/Oryx) to resolve your dependencies instead of the GitHub Workflow, set both **scm-do-build-during-deployment** and **enable-oryx-build** to `true`.|
+
+Optional parameters for all function app plans:
+
+|Parameter |Explanation  |
+|---------|---------|
+| ***slot-name*** | This is the [deployment slot](functions-deployment-slots.md) name to be deployed to. By default, this value is empty, which means the GitHub Action will deploy to your production site. When this setting points to a non-production slot, please ensure the **publish-profile** parameter contains the credentials for the slot instead of the production site. _Currently not supported in Flex Consumption_. |
+|***publish-profile*** | The name of the GitHub secret that contains your publish profile.|
+| _**respect-pom-xml**_ | Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, you should set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
+| _**respect-funcignore**_ | Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. |
 
 ### Considerations
 
