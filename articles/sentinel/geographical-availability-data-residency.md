@@ -14,29 +14,32 @@ ms.custom: references_regions
 
 # Geographical availability and data residency in Microsoft Sentinel
 
-When you set up Microsoft Sentinel or prepare for compliance checks, you need the ability to validate and prove who has access to what data in your environment. In this article, you learn where Microsoft Sentinel data is stored so you can meet compliance requirements.
-
-## Why geographical availability and data residency is important
-
 After your data is collected, stored, and processed, compliance can become an important design requirement, with a significant impact on your Microsoft Sentinel architecture. Having the ability to validate and prove who has access to what data under all conditions is a critical data sovereignty requirement in many countries and regions, and assessing risks and getting insights in Microsoft Sentinel workflows is a priority for many customers.
 
-Learn more about [compliance considerations](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
+This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.
 
-## Where Microsoft Sentinel data is stored
+## Collected data
 
-Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview). However, Microsoft Sentinel is built on top of Azure Monitor Logs, which is a regional service. Note that:
+Microsoft Sentinel collects the following types of data:
 
-- Microsoft Sentinel can run on workspaces in these [supported regions](#supported-regions).
-- Regions where Log Analytics is newly available may take some time to onboard the Microsoft Sentinel service.
-- Microsoft Sentinel stores customer data in the same geography as the Log Analytics workspace associated with Microsoft Sentinel.
-- Microsoft Sentinel processes customer data in one of two locations:
-    - If the Log Analytics workspace is located in Europe, customer data is processed in Europe.
-    - For all other locations, customer data is processed in the US
-- While Microsoft Sentinel is accessible in both the [Microsoft Defender and Azure portals](microsoft-sentinel-defender-portal.md), Microsoft Sentinel data is stored in Azure regions.
+- **Raw data**, such as event data collected from connected Microsoft services and partner systems. Data from multiple clouds and sources are streamed to the customer’s Azure Log Analytics workspace associated with Microsoft Sentinel, under the customer’s tenant’s subscription.This approach gives the customer the ability to choose region and retention and deletion policies.
+- **Processed data**, such as incidents, alerts, and so on.
+- **Configuration data**, such as connector settings, rules, and so on.
+
+## Data storage location
+
+Data used by the service, including customer data, might be stored and processed in the following locations:
+
+|Data type  |Location  |
+|---------|---------|
+|**Raw data**     |  Stored in the same region as the Azure Log Analytics workspace associated with Microsoft Sentinel. For more information, see [Supported regions](#supported-regions).  <br><br>Raw data is processed in one of the following locations: <br>- For Log Analytics workspaces located in Europe, customer data is processed in Europe. <br>- For Log Analytics workspaces located in Israel, customer data is processed in Israel. <br>- For Log Analytics workspaces located in any of the China 21Vianet regions, customer data is processed in China 21Vianet. <br>- For workspaces located in any other location, customer data is processed in a US region.     |
+|**Processed data and configuration data**     |   - For workspaces onboarded to Microsoft's unified security operation's platform, processed data and configuration data might be stored and processed in Microsoft Defender XDR regions. For more information, see [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy).   <br><br>-For workspaces not onboarded to Microsoft's unified security operations platform, and until the end of the notice period, processed data and configuration data is stored and processed using the same methodology as raw data.    |
+ 
+<!--what notice period?-->
 
 ### Supported regions
 
-Microsoft Sentinel can run on workspaces in the following regions:
+Regions supported for Microsoft Sentinel raw data, and for processed and configuration data in workspaces not onboarded to Microsoft's unified security operations platform, include:
 
 |Continent | Country | Region |
 |---------|---------|---------|
@@ -61,3 +64,7 @@ Microsoft Sentinel can run on workspaces in the following regions:
 | | **UK**| • UK South<br>• UK West |
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
+
+## Related content
+
+For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
