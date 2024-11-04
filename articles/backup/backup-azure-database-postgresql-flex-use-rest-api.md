@@ -32,7 +32,7 @@ Once the vault and policy are created, there're three critical points to conside
   The following example uses bash:
 
   ```bash
-  "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver"
+  "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver"
   ```
 
 - **Backup vault**
@@ -49,7 +49,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -58,7 +58,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -67,7 +67,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
           "objectType": "DatasourceSet"
       },
       "policyInfo": {
-          "policyId": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
+          "policyId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
           "policyVersion": ""
       },
     "objectType": "BackupInstance"
@@ -90,7 +90,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 For example, this API translates to: 
 
 ```HTTP
-POST https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
+POST https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
 The request body that we prepared earlier will be used to provide details of the Azure PostgreSQL database to be protected.
@@ -101,7 +101,7 @@ The request body that we prepared earlier will be used to provide details of the
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -110,7 +110,7 @@ The request body that we prepared earlier will be used to provide details of the
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -119,7 +119,7 @@ The request body that we prepared earlier will be used to provide details of the
           "objectType": "DatasourceSet"
       },
       "policyInfo": {
-          "policyId": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
+          "policyId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
           "policyVersion": ""
       },
     "objectType": "BackupInstance"
@@ -168,9 +168,9 @@ X-Powered-By: ASP.NET
       {
         "type": "UserFacingError",
         "info": {
-          "message": "Datasource is already protected under the Backup vault /subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault.",
+          "message": "Datasource is already protected under the Backup vault /subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault.",
           "recommendedAction": [
-            "Delete the backup instance testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 from the Backup vault /subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault to re-protect the datasource in any other vault."
+            "Delete the backup instance testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 from the Backup vault /subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault to re-protect the datasource in any other vault."
           ],
           "details": null,
           "code": "UserErrorDppDatasourceAlreadyProtected",
@@ -185,7 +185,7 @@ X-Powered-By: ASP.NET
       }
     ],
     "code": "UserErrorDppDatasourceAlreadyProtected",
-    "message": "Datasource is already protected under the Backup vault /subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault.",
+    "message": "Datasource is already protected under the Backup vault /subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault.",
     "target": null,
     "details": null
   }
@@ -203,7 +203,7 @@ Content-Length: 0
 Expires: -1
 Pragma: no-cache
 Retry-After: 10
-Azure-AsyncOperation: https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
 X-Content-Type-Options: nosniff
 x-ms-request-id:
 Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -220,10 +220,10 @@ X-Powered-By: ASP.NET
 Track the resulting operation using the Azure-AsyncOperation header with a simple GET command.
 
 ```HTTP
-GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
+GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
 
 {
-  "id": "/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
   "name": "ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
   "status": "Inprogress",
   "startTime": "2021-07-07T12:48:50.3432229Z",
@@ -235,10 +235,10 @@ GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microso
 It returns 200 (OK) once it completes and the response body lists more requirements to be fulfilled, such as permissions.
 
 ```HTTP
-GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
+GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
 
 {
-  "id": "/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
   "name": "ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==",
   "status": "Failed",
   "error": {
@@ -255,7 +255,7 @@ GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microso
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/$subscriptionId/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,
@@ -278,10 +278,10 @@ GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microso
 If you grant all permissions, then resubmit the validation request, and track the resulting operation. It'll return the success response as 200 (OK) if all the conditions are met.
 
 ```HTTP
-GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
+GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
 
 {
-  "id": "/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==",
   "name": "ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==",
   "status": "Succeeded",
   "startTime": "2021-07-07T13:03:54.8627251Z",
@@ -305,7 +305,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 For example, this API translates to:
 
 ```HTTP
- PUT https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149?api-version=2021-01-01
+ PUT https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149?api-version=2021-01-01
 ```
 
 ### Create the request for configure backup
@@ -326,7 +326,7 @@ We'll use the [same request body that we used to validate the backup request](ba
   "type": "Microsoft.DataProtection/backupvaults/backupInstances",
   "properties": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -335,7 +335,7 @@ We'll use the [same request body that we used to validate the backup request](ba
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -344,7 +344,7 @@ We'll use the [same request body that we used to validate the backup request](ba
           "objectType": "DatasourceSet"
       },
       "policyInfo": {
-          "policyId": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
+          "policyId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
           "policyVersion": ""
       }
     },
@@ -376,7 +376,7 @@ Content-Type: application/json
 Expires: -1
 Pragma: no-cache
 Retry-After: 15
-Azure-AsyncOperation: https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==?api-version=2021-01-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==?api-version=2021-01-01
 X-Content-Type-Options: nosniff
 x-ms-request-id:
 Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -392,7 +392,7 @@ X-Powered-By: ASP.NET
       "properties": {
            "friendlyName": "pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
            "dataSourceInfo": {
-           "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -401,7 +401,7 @@ X-Powered-By: ASP.NET
            "objectType": "Datasource"
        },
        "dataSourceSetInfo": {
-           "resourceID": "/subscriptions/$subscriptionId/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -410,7 +410,7 @@ X-Powered-By: ASP.NET
            "objectType": "DatasourceSet"
        },
        "policyInfo": {
-           "policyId": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
+           "policyId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/pgflexpol1",
            "policyVersion": ""
        },
        "protectionStatus": {
@@ -420,7 +420,7 @@ X-Powered-By: ASP.NET
        "provisioningState": "Succeeded",
        "objectType": "BackupInstance"
     },
-    "id": "/subscriptions/$subscriptionId/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
+    "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
     "name": "pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
     "type": "Microsoft.DataProtection/backupVaults/backupInstances"
 }
@@ -430,13 +430,13 @@ X-Powered-By: ASP.NET
 Then track the resulting operation using the *Azure-AsyncOperation* header with a simple *GET* command.
 
 ```HTTP
-GET https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==?api-version=2021-01-01
+GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==?api-version=2021-01-01
 ```
 Once the operation completes, it returns 200 (OK) with the success message in the response body.
 
 ```HTTP
 {
-  "id": "/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==",
   "name": "ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzI1NWUwNmFlLTI5MjUtNDBkNy1iMjMxLTM0ZWZlMDA3NjdkYQ==",
   "status": "Succeeded",
   "startTime": "2021-07-07T17:02:19.0611871Z",
@@ -458,7 +458,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 For example, this API translates to:
 
 ```HTTP
-DELETE "/subscriptions/$subscriptionId/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149?api-version=2021-01-01"
+DELETE "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149?api-version=2021-01-01"
 ```
 
 **Responses for delete protection**:
@@ -481,7 +481,7 @@ Content-Length: 0
 Expires: -1
 Pragma: no-cache
 Retry-After: 30
-Azure-AsyncOperation: https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01
 X-Content-Type-Options: nosniff
 x-ms-request-id:
 Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -490,17 +490,17 @@ x-ms-correlation-request-id: fee7a361-b1b3-496d-b398-60fed030d5a7
 x-ms-routing-request-id: WESTUS:20210708T071330Z:5c3a9f3e-53aa-4d5d-bf9a-20de5601b090
 Cache-Control: no-cache
 Date: Thu, 08 Jul 2021 07:13:29 GMT
-Location: https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationResults/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01
+Location: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationResults/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01
 X-Powered-By: ASP.NET
 ```
 
 Track the *Azure-AsyncOperation* header with a simple GET request. When the request is successful, it returns 200 (OK) with a success status response.
 
 ```HTTP
-GET "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01"
+GET "https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01"
 
 {
-  "id": "/subscriptions/$subscriptionId/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==",
   "name": "ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==",
   "status": "Succeeded",
   "startTime": "2021-07-08T07:13:30.23815Z",
