@@ -47,7 +47,7 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 ## How billing works
 
-With the hybrid option, you are responsible for the following items:
+With the hybrid option, you're responsible for the following items:
 
 - Your Azure Arc-enabled Kubernetes infrastructure
 - Your SQL Server license
