@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Microsoft cloud security benchmark (Azure Government)
 description: Details of the Microsoft cloud security benchmark (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/30/2024
+ms.date: 11/04/2024
 ms.topic: sample
 ms.custom: generated
 ---
