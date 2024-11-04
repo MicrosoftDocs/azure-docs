@@ -62,7 +62,7 @@ Select the tiles (except Backup Storage) to open the associated menu. In the ima
 You can see the details of classic alerts by selecting the **Backup Alerts** tile.
 
 >[!Important]
->Classic alerts for Azure Backup will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](move-to-azure-monitor-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience. View **Azure Monitor alerts** on the **Alerts** blade in the Recovery Services Vault.
+>Classic alerts for Azure Backup will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience. View **Azure Monitor alerts** on the **Alerts** blade in the Recovery Services Vault.
 
 ### Backup Pre-Check Status
 
