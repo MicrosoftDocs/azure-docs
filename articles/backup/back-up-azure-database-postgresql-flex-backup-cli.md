@@ -36,10 +36,10 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 {
   "eTag": null,
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
+  "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
-    "principalId": "2ca1d5f7-38b3-4b61-aa45-8147d7e0edbc",
-    "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+    "tenantId": "00001111-aaaa-2222-bbbb-3333cccc4444",
     "type": "SystemAssigned"
   },
   "location": "westus",
