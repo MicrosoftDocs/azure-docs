@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/04/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -32,9 +32,10 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 
 To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
-1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
-1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Preview Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
-1. reate the *DataflowEndpoint* resource and specify the managed identity authentication method. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, `azure-iot-operations-xxxx7`.
+1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
+1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method. 
 
 # [Portal](#tab/portal)
 
@@ -175,7 +176,7 @@ To learn more, see [Give access to a workspace](/fabric/get-started/give-access-
 
 ### System-assigned managed identity
 
-Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
+Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication.
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
 
