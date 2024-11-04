@@ -49,3 +49,6 @@ If the Cluster resource maintains the state after a period of time, more than 5 
 ## Further information
 
  Learn more about how resources are hydrated with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
