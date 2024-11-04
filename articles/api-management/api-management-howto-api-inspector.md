@@ -105,27 +105,25 @@ Detailed steps follow.
 
     ```json
     {
-          "token": "aid=api-name&p=tracing&ex=......."
+          "token": "aid=api-name&......."
     }
     ```
 
 1. **Add the token value in a request header** - To enable tracing for a request to the API Management gateway, send the token value in an `Apim-Debug-Authorization` header. For example, to trace a call to the Petstore API that you imported in a previous tutorial, you might use a request similar to the following:
 
     ```bash
-    curl -v  https://apim-hello-world.azure-api.net/pet/1 HTTP/1.1 -H "Ocp-Apim-Subscription-Key: <subscription-key>" -H "Apim-Debug-Authorization: aid=api-name&p=tracing&ex=......."
+    curl -v https://apim-hello-world.azure-api.net/pet/1 HTTP/1.1 -H "Ocp-Apim-Subscription-Key: <subscription-key>" -H "Apim-Debug-Authorization: aid=api-name&......."
     ```
 
-1. Depending on the token, the response contains different headers:
+1. Depending on the token, the response contains one of the following headers:
     * If the token is valid, the response includes an `Apim-Trace-Id` header whose value is the trace ID, similar to the following:
 
         ```http
-        [....]
         Apim-Trace-Id: 0123456789abcdef....
-        [....]
         ```
         
     * If the token is expired, the response includes an `Apim-Debug-Authorization-Expired` header with information about expiration date.
-    * If the token was obtained for wrong API, the response includes an `Apim-Debug-Authorization-WrongAPI` header with an error message.
+    * If the token was obtained for a different API, the response includes an `Apim-Debug-Authorization-WrongAPI` header with an error message.
 
 1. **Retrieve the trace** - Pass the trace ID obtained in the previous step to the gateway's [List trace](/rest/api/apimanagement/gateway/list-trace) API. For example, to retrieve the trace for the managed gateway, use a request similar to the following:
 
