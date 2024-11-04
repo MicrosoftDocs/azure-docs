@@ -12,16 +12,14 @@ This article lists new features and feature enhancements in the Firmware analysi
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## October 2024
+
 - **Support for UEFI images**: Firmware analysis service now analyzes UEFI images and identifies PKFail instances.
 
 - **New upload form with drag and drop**: You can now upload files with the new drag and drop functionality.
-    - [Insert screenshot of upload form, red box around drag and drop area ]()
 
 - **Enhanced navigation menu**: Firmware analysis service in the Azure portal now has a menu blade for improved navigation.
-    - [Insert screenshot of standalone, red box around menu blade on the left]()
 
 - **Race condition resolution**: Resolved a race condition that occasionally prevented the UI from fully populating the firmware list on initial load.
-    - [Insert screenshot of fully populated firmware list in firmware inventory (ask Derick for personal directory screenshot, can’t show sensitive data)]()
 
 - **Certificate encoding update**: Deprecated the encoding value for certificates to avoid confusion. Now also reporting DER certificates in embedded binaries as well as flat files.
 
@@ -41,21 +39,21 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
     :::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
 
-- **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
+- **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](../../../azure-docs-pr/articles/firmware-analysis/tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
 
 ## January 2024
 
 - **PDF report generator**: Addition of a **Download as PDF** capability on the **Overview page** that generates and downloads a PDF report of the firmware analysis results.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/overview-PDF-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-PDF-download.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/overview-pdf-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-pdf-download.png":::
 
 - **Reduced analysis time**: Analysis time has been shortened by 30-80%, depending on image size.
 
 - **CODESYS libraries detection**: Firmware analysis now detects the use of CODESYS libraries, which Microsoft recently identified as having high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
 
 - **Enhanced documentation**: Addition of documentation addressing the following concepts:
-    - [Azure role-based access control for Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
-    - [Frequently asked questions](defender-iot-firmware-analysis-FAQ.md)
+    - [Azure role-based access control for Firmware Analysis](firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
+    - [Frequently asked questions](firmware-analysis-FAQ.md)
 
 - **Improved filtering for each report**: Each subtab report now includes more fine-grained filtering capabilities.
 
@@ -73,7 +71,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
     - WolfSSL
     - sqlite3
 
-- **Added support for file systems**: Firmware analysis now supports extraction of the following file systems. For more information, see [Firmware analysis FAQs](defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support):
+- **Added support for file systems**: Firmware analysis now supports extraction of the following file systems. For more information, see [Firmware analysis FAQs](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support):
     - ISO
     - RomFS
     - Zstandard and non-standard LZMA implementations of SquashFS
