@@ -50,8 +50,8 @@ following sorting rules:
    *spread the NKS VMs for an NKS Cluster across bare metal servers within an
    availability zone*.
 
-1. If the NKS VM SKU is either `NC_G48_224_v1` or `NC_P46_224_v1`, prefer
-   bare metal servers that already house `NC_G48_224_v1` or `NC_P46_224_v1`
+1. If the NKS VM SKU is either `NC_G48_224_v1`, `NC_P46_224_v1`, `NC_G56_224_v1` or `NC_P54_224_v1` prefer
+   bare metal servers that already house `NC_G48_224_v1`, `NC_P46_224_v1`, `NC_G56_224_v1` or `NC_P54_224_v1`
    NKS VMs from other NKS Clusters. In other words, *group the extra-large
    VMs from different NKS Clusters on the same bare metal servers*. This rule
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
@@ -306,9 +306,9 @@ deployment has more CPU cores than if you downsized the VM SKU.
 
 ## Memory-optimized VM SKUs
 
-NC_E94_448_v1 consumes the all the customer-available resources of the physical
-machine. NC_E70_336_v1 consumes 75% of customer-available resources, however,
+`NC_E110_448_v1` (running on top of Sapphire Rapids Hardware nodes) or `NC_E94_448_v1` consume all the customer-available resources of the physical
+machine. `NC_E82_448_v1` (running on top of Sapphire Rapids Hardware nodes) or `NC_E70_336_v1` consume 75% of customer-available resources, however,
 it is not guarenteed that this will be exactly one-full and one-half NUMA cells.
-This means that an NC_G24_112_v1 may or may not be able to schedule on a machine
-running an NC_E70_336_v1 depending on how the NC_E70_336_v1 VM is scheduled
+This means that an `NC_G24_112_v1` may or may not be able to schedule on a machine
+running an `NC_E70_336_v1` depending on how the `NC_E70_336_v1` VM is scheduled
 across the NUMA-cells.
