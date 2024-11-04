@@ -79,6 +79,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Configuration of a storage account with private endpoint is supported.
 
+- To enable Azure Backup for AKS via Terraform, its version should be >= 3.99.
+
 ### Additional limitations for Vaulted backup and Cross Region Restore
 
 - Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
@@ -89,7 +91,12 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They will have to be deleted manually.
 
-- If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version. In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.  
+- In case the target cluster is within a virtual network, enable a private endpoint between the cluster and the 
+ staging storage account.
+
+- If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version. In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.
+
+- Currently Vault Tier based backup is not supported with Terraform deployment.
 
 ## Next steps
 
