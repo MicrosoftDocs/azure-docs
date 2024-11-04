@@ -190,3 +190,38 @@ Confidence ratings for an assessment are as follows.
 
 - Learn how to use [dependency mapping](how-to-create-group-machine-dependencies.md) to create high confidence groups.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
+- 
+
+
+This article explains how to create Azure VM assessments. For more on general Azure Migrate assessment concepts, refer to the assessment overview. To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
+
+Note 
+
+All assessments you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration.  
+
+Prerequisites 
+
+Before you start creating assessments, please ensure you have discovered the inventory of your on-premises servers, and you can see all the servers in the Infrastructure tab. For more details about pre-requisites <Please add the link to pre-req article in the Assessment section>. You can discover your on-premises servers by following: 
+
+Follow the instructions to discover servers using the Azure Migrate appliance. <Add link to discovery article> 
+
+Follow the instructions to discover the servers using an import. <Add link to discovery article> 
+
+Once you have discovered your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check Performance vs. As-is on-premises assessments for more details.  
+
+Create an assessment 
+
+To create an Azure VM assessment, go to Infrastructure tab and select all the VMs you would like to assess.
+You can apply column based or custom tags-based filters to identify and add VMs to the scope of your assessment. 
+After you have selected all the servers, click on “Create assessment” button.  
+Provide a friendly name for the assessment. You will see a query that you used to select the servers on the previous screen. Review the number of servers added and the query used before moving ahead. If you want to add more servers to the assessment, click on “Add workloads” button. Once you have added all the servers to the assessment scope click on Next. 
+You can customize the assessment properties to fit your requirements. Specify the general properties for Target region, Default environment, pricing and saving options and sizing criteria. To learn more about these properties please visit: Customize assessment properties. Click Next to move to Azure VM specific assessment properties.  
+Click on Edit defaults to review and customize server specific settings.  
+Click on Edit defaults for Azure VM to review the settings for Azure VM assessment. To learn more about these properties please visit: VM assessment properties. Click Save if you customize any property.
+In Review + create assessment, review the assessment details, and select Create Assessment to run the assessment. 
+
+ 
+
+After the assessment is created, view the assessment in Decide and plan > Assessments > Workloads.  
+
+ 
