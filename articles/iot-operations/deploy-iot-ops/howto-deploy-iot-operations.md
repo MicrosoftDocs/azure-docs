@@ -147,16 +147,24 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
       >[!TIP]
       >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
 
+      If you followed the optional prerequisite to set up your own certificate authority issuer, add the `--user-trust` flag to the `init` command.
+
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
 
-      If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
+      * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
 
-      | Optional parameter | Value | Description |
-      | --------- | ----- | ----------- |
-      | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
-      | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
+        | Parameter | Value | Description |
+        | --------- | ----- | ----------- |
+        | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
+        | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
+  
+      * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
+
+        ```bash
+        --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+        ```
 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
