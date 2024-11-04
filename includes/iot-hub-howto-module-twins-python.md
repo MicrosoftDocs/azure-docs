@@ -11,6 +11,8 @@ ms.date: 09/03/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
+  * [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create device and backend service application code for module identity twins.
@@ -78,7 +80,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 await device_client.connect()
 ```
 
-### Retrieve a module identity twin and examine reported properties
+### Retrieve a module identity twin and examine properties
 
 Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to retrieve the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be examined.
 
@@ -138,7 +140,7 @@ The `twin_patch_handler` receives and prints JSON desired property updates.
 
 ### SDK device samples
 
-The Azure IoT SDK for Python provides a working sample of a device apps that handle device identity module twin tasks:
+The Azure IoT SDK for Python provides a working sample of device apps that handle module identity twin tasks:
 
 * [get_twin](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/get_twin.py) - Connect to a device and retrieve twin information.
 * [update_twin_reported_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/update_twin_reported_properties.py) - Update twin reported properties.

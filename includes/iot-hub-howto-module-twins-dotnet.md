@@ -11,6 +11,8 @@ ms.date: 10/02/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
+  * Requires Visual Studio.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code for module identity twins.
@@ -26,8 +28,6 @@ This section describes how to use device application code to:
 ### Required device NuGet package
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
-
-### Using statements
 
 Add these `using` statements to use the device library.
 
@@ -144,8 +144,6 @@ This section describes how to read and update module identity fields.
 
 Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
 
-### Service using statements
-
 Add these `using` statements to use the service library.
 
 ```csharp
@@ -155,7 +153,7 @@ using Microsoft.Azure.Devices.Shared;
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring).
+Connect a backend application to IoT hub using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring).
 
 The SDK methods in this section require these shared access policy permissions:
 
@@ -176,7 +174,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
  Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module identity twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
-The `Module` class includes `properties` that correspond to sections of an identity module twin. Use the Module class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
+The `Module` class includes `properties` that correspond to sections of a  module identity twin. Use the Module class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
 After making module identity twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
 

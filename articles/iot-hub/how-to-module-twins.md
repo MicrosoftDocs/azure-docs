@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 # Get started with IoT Hub module identities and module identity twins
 
-[Module identities and module identity twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module identity twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module identity twins allow for isolated configuration and conditions for each component.
+Module identities and module identity twins are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module identity twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module identity twins allow for isolated configuration and conditions for each component. For more information, see [Understand Azure IoT Hub module twins](iot-hub-devguide-module-twins.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,10 +36,6 @@ This article shows you how to develop two types of applications:
 * If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Language SDK requirements:
-  * **.NET SDK** - Requires Visual Studio.
-  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
-  * **Java** - Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
-  * **Node.js** - Requires Node.js version 10.0.x or later.
 
 :::zone pivot="programming-language-csharp"
 

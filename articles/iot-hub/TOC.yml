@@ -287,22 +287,8 @@
           displayName: device twins
           href: how-to-device-twins.md   
         - name: Get started with module twins
-          items:
-            - name: New version
-              displayName: module twins, module identity
-              href: how-to-module-twins.md         
-            - name: Portal
-              displayName: module twins, module identity
-              href: module-twins-portal-dotnet.md
-            - name: .NET
-              displayName: module twins, module identity
-              href: module-twins-dotnet.md
-            - name: Python
-              displayName: module twins, module identity
-              href: module-twins-python.md
-            - name: Node.js
-              displayName: module twins, module identity
-              href: module-twins-node.md
+          displayName: module twins, module identity
+          href: how-to-module-twins.md         
         - name: Get started with device management
           items:
             - name: CLI

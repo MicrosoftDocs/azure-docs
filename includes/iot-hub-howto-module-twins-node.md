@@ -11,6 +11,8 @@ ms.date: 10/02/2024
 ms.custom: mqtt, devx-track-js
 ---
 
+  * Requires Node.js version 10.0.x or later.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create device and backend service application code for module identity twins.
@@ -79,8 +81,7 @@ const Protocol = require('azure-iot-device-amqp').Amqp;
 
 Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
-* **connStr** - A connection string that encapsulates "device connect" permissions for an IoT hub. The connection string contains hostname, device ID, module ID & shared access key in this format:
-"HostName=<iothub_host_name>;DeviceId=<device_id>;ModuleId=<module_id>;SharedAccessKey=<device_key>".
+* **connStr** - The IoT hub identity module connection string.
 * **transportCtor** - The transport protocol.
 
 This example uses the `Amqp` transport protocol:
@@ -93,7 +94,7 @@ let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 
 ### Open the connection to IoT Hub
 
-Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open connection between an IoT device and IoT Hub.
+Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
 
 For example:
 
@@ -304,7 +305,7 @@ The Azure IoT SDK for Node.js provides working samples of device apps that handl
 
 ## Create a backend application
 
-This section describes how to create a backend application that retrieves a module identity twin and update desired properties.
+This section describes how to create a backend application that retrieves a module identity twin and updates desired properties.
 
 ### Install service SDK package
 
@@ -318,6 +319,10 @@ npm install azure-iothub --save
 
 The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods required to interact with module identity twins from a backend application.
 
+```javascript
+let Registry = require('azure-iothub').Registry;
+```
+
 ### Connect to IoT hub
 
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
@@ -330,7 +335,6 @@ The SDK methods in this section require these shared access policy permissions:
 As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
-let Registry = require('azure-iothub').Registry;
 let connectionString = '{IoT hub shared access policy connection string}';
 let registry = Registry.fromConnectionString(serviceConnectionString);
 ```
