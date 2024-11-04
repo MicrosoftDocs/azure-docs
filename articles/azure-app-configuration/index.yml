@@ -51,8 +51,6 @@ landingContent:
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
-        - text: Experimentation
-          url: concept-experimentation.md
         - text: Configuration files
           url: concept-config-file.md
         - text: Azure App Configuration Events 
@@ -134,8 +132,6 @@ landingContent:
         links:
           - text: What are feature flags?
             url: concept-feature-management.md
-          - text: What is experimentation?
-            url: concept-experimentation.md
       - linkListType: quickstart
         links:
         - text: Manage feature flags
@@ -160,8 +156,6 @@ landingContent:
           url: howto-timewindow-filter.md
         - text: Roll out features to targeted audience
           url: howto-targetingfilter.md
-        - text: Run experiments with variant feature flags
-          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
         - text: .NET feature management

@@ -152,10 +152,6 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
-    - name: Run experiments with variant feature flags
-      items:
-      - name: ASP.NET Core
-        href: run-experiments-aspnet-core.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration
@@ -186,8 +182,6 @@
     href: concept-point-time-snapshot.md
   - name: Feature management
     href: concept-feature-management.md
-  - name: Experimentation
-    href: concept-experimentation.md
   - name: Configuration files
     href: concept-config-file.md
   - name: Event handling
