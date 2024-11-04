@@ -34,14 +34,6 @@ Get started with network security perimeter by creating a network security perim
     Install-AzModule -Name Az.Network -AllowPrerelease -Force
     Install-AzModule -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
     ```
-
-- Register the Microsoft.Network resource provider:
-
-    ```azurepowershell-interactive
-    # Register the Microsoft.Network resource provider
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
 * If you choose to use Azure PowerShell locally:
   * [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell).
   * Connect to your Azure account using the
@@ -66,7 +58,6 @@ Set-AzContext -Subscription <subscriptionId>
 
 # Register the Microsoft.Network resource provider
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
 ```
 
 ## Create a resource group and key vault

@@ -13,13 +13,11 @@ ms.date: 11/04/2024
 
 In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control the resource's access and logging behavior.
 
-## Configuration points for access modes 
-
-### Access mode configuration point on resource associations 
+## Access mode configuration point on resource associations 
 
 The **access mode** configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 
 
-The property `accessMode` can be set in a resource association to control the resource's connectivity and logging behavior. 
+The property `accessMode` can be set in a resource association to control the resource's public network access and logging behavior. 
 
 The possible values of `accessMode` are currently Enforced and Learning. 
 
@@ -85,23 +83,25 @@ When associated with a perimeter and configured in *Learning* mode with `p
 
 In special cases when `publicNetworkAccess` is set to `SecuredByPerimeter` but the resource is still not associated with a perimeter, no network security perimeter access rules can allow access. Therefore the resource becomes locked down for public access. The following table summarizes the behavior with this configuration:
 
-| **publicNetworkAccess** | **Disabled (existing value)** | **Enabled (existing value)** | **SecuredByPerimeter (new value)** |
-|-----------------|---------------|----------------|------------|
-| **Perimeter access** | Denied | Denied | Denied |
-| **Public inbound** | Denied | Allowed only by resource rules | Denied |
-| **Public outbound** | Allowed only by resource rules | Allowed only by resource rules | Denied |
-| **Trusted access** | Allowed | Allowed | Denied |
-| **Private access** | Allowed | Allowed | Allowed |
+| **publicNetworkAccess** | **SecuredByPerimeter (new value)** |
+|-----------------|-----------------|
+| **Perimeter access** | Denied |
+| **Public inbound** | Denied |
+| **Public outbound** | Denied |
+| **Trusted access** | Denied |
+| **Trusted access** | Denied |
+| **Private access** | Allowed |
 
 The **locked down for public access** mode exists by-design and helps prevent PaaS resources not yet associated with a perimeter from being temporarily exposed to public networks or to other PaaS resources. Administrators can apply Azure Policy to ensure publicNetworkAccess is set to SecuredByPerimeter from the moment a resource is created. 
 
 The behavior of public network access on PaaS resources according to the association's accessMode value and the resource's `publicNetworkAccess` value can be summarized as follows: 
 
+| **Association access mode** |  |  |  |
+|-----------------|-------------------|-----------------|-----------------|
 | **Public network access** | **Not associated** | **Learning mode** | **Enforced mode** |
-|-------------|-----------|-------------|-----------|
-| **Enabled** | Inbound: Resource rules </br> Outbound: Allowed | Inbound: Network security perimeter + Resource rules </br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules |
-| **Disabled** | Inbound: Denied </br> Outbound: Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules |
-| **SecuredByPerimeter** | Inbound: Denied </br> Outbound: Denied | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules |
+| **Enabled** | Inbound: Resource rules</br>Outbound: Allowed | Inbound: Network security perimeter + Resource rules</br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
+| **Disabled** | Inbound: Denied</br>Outbound: Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
+| **SecuredByPerimeter** | Inbound: Denied</br>Outbound: Denied | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
 
 ## Next steps
 

@@ -17,10 +17,12 @@ Azure Network Security Perimeter allows organizations to define a logical networ
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
 Features of Network Security Perimeter include:
-- Service to service communication to prevent data exfiltration.
+
+- Service to service communication within perimeter members, preventing data exfiltration to non-authorized destinations.
 - Public network access control for PaaS resources.
 - Access logs for audit and compliance.
-- Manage access rules for all the PaaS resources within the perimeter. 
+- Manage external public access with explicit rules for PaaS resources associated with the perimeter.
+
 
 
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-overview.png" alt-text="Diagram of securing a service with network security perimeter." lightbox="media/network-security-perimeter-concepts/network-security-perimeter-overview-large.png":::
