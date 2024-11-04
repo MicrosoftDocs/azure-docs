@@ -152,7 +152,7 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
-    - **Estimated AVS cost**:  This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. The infrastructure settings used are as follows:
+  **Estimated AVS cost**:  This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. The infrastructure settings used are as follows:
     - The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
     - Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
     - CPU over-subscription of 4:1
@@ -164,6 +164,8 @@ You can learn more about this [here](concepts-azure-vmware-solution-assessment-c
 - Savings and optimization:
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
     - **Savings with Azure Hybrid Benefit & Extended Security Updates**: This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
+
+:::image type="content" source="./media/how-to-view-a-business-case/avs-estimation-inline.png" alt-text="Screenshot of AVS estimation." lightbox="./media/how-to-view-a-business-case/avs-estimation-expanded.png":::
 
 #### [On-premises](#tab/avs-on-premises)
 
