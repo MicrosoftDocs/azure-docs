@@ -4,12 +4,34 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/08/2024
+ms.date: 11/04/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## October 2024
+
+In October 2024, we made the following changes to the documentation:
+
+- Published a new article where you can lean about [Graphics encoding over the Remote Desktop Protocol](graphics-encoding.md).
+
+- Rewrote [Multimedia redirection for video playback and calls](multimedia-redirection-video-playback-calls.md) and added a new article for [Developer integration with multimedia redirection for WebRTC-based calling apps](multimedia-redirection-developer-integration.md).
+
+- Published a set of new articles for host pools using the session host configuration management approach and session host update:
+
+   - [Host pool management approaches](host-pool-management-approaches.md).
+   - [Session host update](session-host-update.md).
+   - [Update session hosts using session host update](session-host-update-configure.md).
+   - [Example diagnostic queries for session host update](session-host-update-diagnostics.md).
+   - [Troubleshoot session host update](troubleshoot-session-host-update.md).
+
+- Updated [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) and [Add session hosts to a host pool](add-session-hosts-host-pool.md) to include the session host configuration management approach.
+
+- Consolidated Remote Desktop client articles per platform into a [single article with a tab per platform](./users/connect-remote-desktop-client.md) and separated [legacy Windows clients to their own article](./users/connect-legacy-windows.md).
+
+- Reorganized the table of contents into a new structure, changing the way articles are grouped and displayed. The new structure is designed to make it easier to find the information you need in the different stages of your journey with Azure Virtual Desktop.
 
 ## September 2024
 
