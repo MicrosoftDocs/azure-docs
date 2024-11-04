@@ -679,11 +679,11 @@
       items: 
       - name: Connect Microsoft Sentinel to Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
-      - name: API-based connection
+      - name: Connect via API-based connectors
         href: connect-services-api-based.md
-      - name: Diagnostic settings-based connection
+      - name: Connect via diagnostic settings-based connectors
         href: connect-services-diagnostic-setting-based.md
-      - name: Windows agent-based connection
+      - name: Connect via Windows agent-based connectors
         href: connect-services-windows-based.md
     - name: Azure Functions API connection
       href: connect-azure-functions-template.md    
