@@ -62,11 +62,11 @@ To parameterize your notebook, select the ellipses (...) to access the **more co
 
 Define your parameters in this cell. It can be something as simple as:
 
-    ```python
-    a = 1
-    b = "Default Value"
-    c = ""
-    ```
+```python
+a = 1
+b = "Default Value"
+c = ""
+```
 
 You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
 
