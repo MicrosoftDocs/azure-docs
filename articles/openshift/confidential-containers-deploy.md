@@ -209,7 +209,6 @@ By default, the OpenShift sandboxed containers operator creates the secret based
       AZURE_SUBSCRIPTION_ID: "<azure_subscription_id>"
     ```
 
-    **Notes:**
     - Specify the `AZURE_CLIENT_ID value`.
     - Specify the `AZURE_CLIENT_SECRET value`.
     - Specify the `AZURE_TENANT_ID value`.
@@ -275,7 +274,6 @@ By default, the OpenShift sandboxed containers operator creates the secret based
       AZURE_RESOURCE_GROUP: "<azure_resource_group>"
       DISABLECVM: "true"
     ```
-    **Notes:**
     - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload.
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
@@ -483,7 +481,6 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
       AA_KBC_PARAMS: "cc_kbc::https://${TRUSTEE_HOST}"
     ```
 
-    **Notes:**
     - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload.
     - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
@@ -665,8 +662,6 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
         ]
     ```
     
-    **Notes:**
-
     For `reference-values.json` specify the trusted digests for your hardware platform if required. Otherwise, leave it empty.
 
 1.	Create the RVPS config map by running the following command:
@@ -698,7 +693,6 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
           input["tee"] != "sample"
         }
     ```
-    **Notes:**
 
     - The name of the resource policy, `policy.rego`, must match the resource policy defined in the Trustee config map.
     - The resource package policy follows the Open Policy Agent specification. This example allows the retrieval of all resources when the TEE isn't the sample attester.
@@ -762,7 +756,6 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
             _ = m[k]
          }
     ```
-    **Notes:**
 
     For `package policy`, The attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
 
@@ -785,7 +778,6 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
             "pccs_url": "<pccs_url>"
           }
     ```
-    **Notes:**
 
     For `pccs_url`, specify the PCCS URL, for example, https://localhost:8081/sgx/certification/v4/.
 
@@ -895,9 +887,8 @@ In a test scenario, you can override the restriction at runtime by adding a poli
             seccompProfile:
               type: RuntimeDefault
     ```
-    
-    Notes:
-    
+   
+   
     The pod metada `annotations` overrides the policy that prevents sensitive data from being written to standard I/O.
     
 1.	Create the pod by running the following command:
