@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Quickstart: How to add Azure Managed Domains to Email Communication Service
 
-In this quick start, you learn how to provision the Azure Managed Domain to Email Communication Service in Azure Communication Services.
+This article describes how to provision an Azure Managed Domain for Email Communication Service in Azure Communication Services.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-azure-managed-domain-resource-az-portal.md)]
@@ -43,6 +43,9 @@ Before provisioning an Azure Managed Domain, review the following table to decid
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
 |**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames can't be personalized<br/>- Very limited sending volume<br />- User Engagement Tracking can't be enabled <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
 
+### Service limits
+
+Both Azure managed domains and Custom domains are subject to service limits. Service limits include failure, rate, and size limits. For more informations, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
 
 ## Sender authentication for Azure Managed Domain
 
@@ -58,5 +61,6 @@ Azure Communication Services automatically configures the required email authent
 
 ## Related articles
 
-* Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
-* Learn how to send emails with custom verified domains in [Quickstart: How to add custom verified email domains](../../quickstarts/email/add-custom-verified-domains.md)
+* Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md).
+* Review email failure limits, rate limits, and size limits in [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
+* Learn how to send emails with custom verified domains in [Quickstart: How to add custom verified email domains](../../quickstarts/email/add-custom-verified-domains.md).
