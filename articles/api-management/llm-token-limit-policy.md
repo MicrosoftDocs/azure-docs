@@ -98,7 +98,7 @@ In the following example, the token rate limit of 5000 per minute is keyed by th
 
 ### Token quota
 
-In the following example, the token quota of 10000 is keyed by the subscription ID and resets daily. After each policy execution, the number of remaining tokens allowed for that subscription ID in the time period is stored in the variable `remainingQuotaTokens`.
+In the following example, the token quota of 10000 is keyed by the subscription ID and resets monthly. After each policy execution, the number of remaining tokens allowed for that subscription ID in the time period is stored in the variable `remainingQuotaTokens`.
 
 ```xml
 <policies>
