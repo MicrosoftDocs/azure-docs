@@ -383,7 +383,7 @@ Azure Backup now offers a new and improved alerting solution via Azure Monitor. 
 - Ability to manage alerts and notifications programmatically.
 - Ability to have a consistent alert management experience for multiple Azure services, including Azure Backup.
 
-If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
+If you're currently using the [classic alerts solution](move-to-azure-monitor-alerts.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
 
 For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
 
