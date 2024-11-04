@@ -42,26 +42,26 @@ sections:
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: Can an organization with year founded of less than 3 years onboard as an individual developer?
         answer: | 
-          - Yes. The certificate will be issued to you as and individual instead of your organization, if that meets your needs and unblocks you in the meantime.
+          - Yes. An individual from your organziation, needs to perform Individual Identity Validation. The certificate is issued to you as an individual instead of your organization, if that meets your needs and unblocks you in the meantime.
       - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
         answer: | 
           - If you see the error below, this is because the email address entered during the individual identity validation is different from the one being used to login in to access the link. Make sure both the email addresses match.  
           :::image type="content" source="media/trusted-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/trusted-signing-indie-validation-email-mismatch.png":::
       - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
         answer: | 
-          	Be sure to use a government issued ID with address on it, in order to successfully go through the process.
+          - Be sure to use a government issued ID with address on it, in order to successfully go through the process.
       - question: What if I already have a VID?
         answer: | 
-          	Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
+          - Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
       - question: What if I need assistance with identity validation?
         answer: | 
-          For questions about identity validation in Trusted Signing, contact us by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**). Azure support doesn't resolve identity validation issues for Trusted Signing.
+          - For questions about identity validation in Trusted Signing, contact us by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**). Azure support doesn't resolve identity validation issues for Trusted Signing.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          For pricing information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
+          - For pricing information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
-          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Certificate profiles and identity validation
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
