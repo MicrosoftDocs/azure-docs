@@ -17,7 +17,7 @@ This article describes the **HPE ProLiant DL360 Gen 11** appliance for OT sensor
 |**Status** | Supported, available preconfigured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 Gen11 back panel that are used by Defender for IoT:
-<!-- do we need the images? not sure which one is the correct one-->
+
 :::image type="content" source="/media/hpe-proliant-dl360-gen11/hpe-proliant-dl360-gen11.png" alt-text="Photo of the HPE ProLiant DL360 gen11." border="false":::
 
 ## Specifications
