@@ -6,7 +6,7 @@ manager: KumuD
 ms.service: azure-dns
 ms.topic: concept-article
 ms.custom:
-ms.date: 06/10/2024
+ms.date: 09/12/2024
 ms.author: greglin
 ---
 
