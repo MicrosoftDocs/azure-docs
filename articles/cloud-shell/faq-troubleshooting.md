@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 08/29/2024
+ms.date: 11/04/2024
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -188,6 +188,27 @@ command that requires elevated permissions.
 
   Alternately, you can deploy your own private Cloud Shell instance. For more information, see
   [Deploy Cloud Shell in a virtual network][01].
+
+### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
+
+
+- **Details**: In rare cases, Azure may detect fraudulent activity based on out-of-the-ordinary
+  resource consumption based on the payload being submitted from Cloud Shell. When this occurs,
+  Azure disables Cloud Shell at the tenant level and you see the following error message:
+
+  > Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled","message":"Cloud Shell has
+  > been disabled in directory<>."} Please refresh the page.
+
+  There can be legitimate use cases where CPU usage within your Azure Cloud Shell instances exceeds
+  the thresholds that trigger fraud prevention and block your tenant. Large AZCopy jobs could be
+  cause this event. The Microsoft Azure engineering team can help to figure out why the tenant was
+  disabled and reenable it, if required.
+
+- **Resolution**: Open a new Microsoft Azure support request to investigate the cause and reenable
+  Cloud Shell for your tenant. Include the following details:
+
+  1. Tenant ID
+  2. The business justification and a description of how you use Cloud Shell.
 
 ## Managing Cloud Shell
 
