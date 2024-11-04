@@ -91,7 +91,15 @@ The free certificate comes with the following limitations:
 - Must be on apps that are publicly accessible.
 - Must meet all the above for successful certificate issuance and renewals.
 
----
+++NOTE: Checking CAA Records
+Another thing to be noted is CAA record.
+
+CAA is a record in DNS that declares which provider is allowed to issue certificate for this domain. If domain has CAA record value other than GoDaddy, GoDaddy will reject issuing certificate for this domain. We can check CAA in digwebinterface. If CAA record is empty, it will allow all providers like Godaddy, Digicert, etc to issue the certificate. But if CAA record has been set, then it should also be set for GoDaddy for certificate purchase to be allowed.
+
+CAA records for multiple subdomains are checked in sequence. Let's says you are trying to issue a certificate to sub1.my.contoso.com . The initial check will be sub1.my.contoso.com , than my.contoso.com , than contoso.com  until we find a CAA record. If a sublevel contains a value, the root won't be checked and a CAA record at this level should be created.
+
+For standard certificate, CAA record should be - issue "godaddy.com".
+For wildcard certificate, CAA record should be - issuewild "godaddy.com".
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
@@ -340,6 +348,7 @@ This is only supported for Windows container apps in multi-tenant App Service. I
  
 ### Can I load a private CA certificate in my App Service Trusted Root Store?
 You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+  
 
 ## More resources
 
