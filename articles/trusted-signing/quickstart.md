@@ -284,7 +284,7 @@ To create an Individual identity validation request for an Individual Developer:
     | **Street, City, Country, State, Postal code**           | Enter the address as it appears on your government issued identification document or utility bill or bank statement. The city, state, and country from the address entered here's displayed on the certificate. |
 
 6. Select **Certificate subject preview** to see the preview of the information that appears in the certificate. 
--	Your email address and street address aren't included in the certificate by default.
+-  Your email address and street address aren't included in the certificate by default.
 7. Select **I accept Microsoft terms of use for trusted signing services**. You can download the Terms of Use to review or save them.  
 8. Select the **Create** button.
 9. When the request is successfully created, the identity validation request status changes to **In Progress**. 
@@ -302,31 +302,31 @@ For successful completion it says: **Verification Successful**
 
 :::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/trusted-signing-identity-validation-indie.png":::
 
-### Important information for public identity validation
+### Important information for public identity validation for individuals
 
-1.	Minimum Requirements for Mobile OSes and supported Browsers:
+1. Minimum Requirements for Mobile OSes and supported Browsers:
 
 :::image type="content" source="media/trusted-signing-au10tix-mobileOS-supported.png" alt-text="Screenshot that shows the mobile OSes supported for indie." lightbox="media/trusted-signing-au10tix-mobileOS-supported.png":::
 
 :::image type="content" source="media/trusted-signing-au10tix-browser-supported.png" alt-text="Screenshot that shows the browsers supported for indie." lightbox="media/trusted-signing-au10tix-browser-supported.png":::
 
-2.	Types of ID Accepted:
+2. Types of ID Accepted:
 - Government-issued IDs such as passports, driving licenses, or ID cards.
 - Photo IDs (or a US Social Security Card).
 - Official government-issued IDs such as a passport, driver’s license, or state ID.
 - Do not submit privately issued IDs such as library cards, school IDs, club membership cards, etc.
 
-3.	Visibility/Low Light/Bright Light:
+3. Visibility/Low Light/Bright Light:
 - Do not use flash.
 - Do not place the ID in direct sunlight.
 - Hold the camera or mobile device steady while taking the picture.
 
-4.	Best Practices for Supplemental Docs:
+4. Best Practices for Supplemental Docs:
 - Utility Bills: Electricity, water, gas, or telephone bills (should be recent, typically within the last three months).
 - Bank Statements: Official statements from banks or credit card companies that show the individual’s address.
 - The POA document must have the address, name, and date appear on the main page (first page), so multiple pages are not required.
 
-5.	General best practices:
+5. General best practices:
 - Single picture per file, if two-sided, create one file per side.
 - Handwritten documents are not accepted.
 - Do not crop the image (cut corners, miss parts) try to have margins on all sides of the captured image prior to capturing.
@@ -339,7 +339,6 @@ For successful completion it says: **Verification Successful**
 - The minimum threshold for the image size for an OK result is 600 W X 370 H pixels.
 - Accepted file types: .bmp .jpg .gif .tif .pdf.
 - Users cannot upload images smaller than 30kb or larger than 5MB.
-
 
 ---
 
