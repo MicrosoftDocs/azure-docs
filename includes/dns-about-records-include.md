@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: azure-dns
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 11/04/2024
 ms.author: victorh
 ---
 ### Record names
