@@ -219,7 +219,7 @@ If you use [Azure Lighthouse](/azure/lighthouse/) with delegated access to subsc
 
 If you observe data discrepancy issues in Backup Reports, perform these preliminary checks:
 
-1. Ensure that all vaults are sending the required [diagnostics logs to the Log Analytics workspace](#2-configure-diagnostics-settings-for-your-vaults).
+1. Ensure that all vaults are sending the required [diagnostics logs to the Log Analytics workspace](#2-configure-diagnostics-settings-to-send-data-to-log-analytics).
 1. Ensure that you've selected right filters in Backup Reports.
 1. Review the following limits in Backup Reports:
 
