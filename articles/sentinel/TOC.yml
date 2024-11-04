@@ -259,8 +259,6 @@
     href: forward-syslog-monitor-agent.md
   - name: Connect data sources
     href: configure-data-connector.md
-  - name: Classifying data with entities
-    href: entities.md
   - name: Ingestion-time data transformation
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
@@ -849,8 +847,17 @@
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
     href: mitre-coverage.md
-  - name: User and entity behavior analytics (UEBA)
-    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Data classification with entities
+    items:
+    - name: Overview
+      displayName: data classification, entities
+      href: entities.md
+    - name: Entity pages
+      href: entity-pages.md
+    - name: User and entity behavior analytics (UEBA)
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
   - name: Watchlists
     items:
     - name: Overview
@@ -931,12 +938,6 @@
       href: work-with-tasks.md
     - name: Audit and track changes to incident tasks
       href: audit-track-tasks.md
-  - name: Investigate entities
-    items:
-    - name: Overview
-      href: entity-pages.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
   - name: Investigate large datasets
     items:
     - name: Overview
