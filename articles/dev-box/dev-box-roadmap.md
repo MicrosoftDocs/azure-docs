@@ -60,7 +60,7 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 
 **Enhanced monitoring and cost controls capabilities**
 
-- [Hibernation on disconnect:](https://developercommunity.visualstudio.com/t/Customize-hibernation-options/10640621?entry=suggestion&q=hibernation+disconnect) as a dev center admin, reduce cost of compute by enabling Dev Boxes to hibernate on disconnect based on active working hours of developers.
+- [Hibernation on disconnect:](https://developercommunity.visualstudio.com/t/Customize-hibernation-options/10640621?entry=suggestion&q=hibernation+disconnect) as a dev center admin, reduce cost of compute by enabling dev boxes to hibernate on disconnect based on active working hours of developers.
 - [Dev Box logs:](https://developercommunity.visualstudio.com/t/When-Microsoft-Monitoring-Agent-will-be/10471575?entry=suggestion&q=Azure+Monitor) as a dev center admin, access user level engagement metrics and connectivity related metrics. 
 
 **Security and privacy**
