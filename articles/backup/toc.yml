@@ -686,15 +686,15 @@
         href: configure-reports.md
       - name: Email Azure Backup reports
         href: backup-reports-email.md
-    - name: Configure Diagnostics Events for Recovery Services Vaults
+    - name: Configure Diagnostics settings
       items:
-      - name: Using Diagnostics Settings for Recovery Services Vaults
+      - name: Diagnostics Events for Backup users
         href: backup-azure-diagnostic-events.md
-      - name: Using System Functions
+      - name: System Functions
         href: backup-reports-system-functions.md
-      - name: Log Analytics Data Model for Resource Specific Diagnostics Events
+      - name: Data Model for Resource Specific Diagnostics Events
         href: backup-azure-reports-data-model.md
-      - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
+      - name: Data Model for Legacy diagnostic events
         href: backup-azure-diagnostics-mode-data-model.md
     - name: Backup Explorer
       href: monitor-azure-backup-with-backup-explorer.md        
