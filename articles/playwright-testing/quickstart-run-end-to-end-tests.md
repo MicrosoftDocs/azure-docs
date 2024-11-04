@@ -4,7 +4,7 @@ description: 'This quickstart shows how to run your Playwright tests with highly
 ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview, build-2024
-zone_pivot_group_filename: playwright-testing/zone_pivot_group_filename
+zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 
