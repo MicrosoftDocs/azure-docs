@@ -31,18 +31,14 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. A time window filter includes a start time and/or an end time. The start time indicates when the feature flag is activated, and the end time indicates when the flag is deactivated. Both **Start time** and **End time** checkboxes are checked by default. Enter a start time a few minutes ahead of your current time and enter an end time.
 
-    > [!TIP]
-    > If you don't want the feature flag to automatically deactivate, uncheck the **End time** box and it will never be disabled.
+    > [!NOTE]
+    > If you don't want the feature flag to automatically deactivate, uncheck the **End time** box. However, both start time and end time must be set to enable feature recurrence.
 
 1. A time zone is selected by default, based on your browser's current time zone. Optionally select another time zone.
 
-1. Select the **Enable recurrence** checkbox to set up a recurring schedule for the feature flag. This allows you to automate the activation and deactivation of the feature flag based on a specified pattern. Choose a daily or weekly frequency, the specific days, and the expiration time.
+## Configure recurrence
 
-    > [!NOTE]
-    > Both start time and end time must be set when recurrence is enabled.
-
-    > [!TIP]
-    > Use the recurrence feature to manage feature flags that need to be enabled or disabled on a regular schedule, such as during periods of low or high traffic.
+1. Select the **Enable recurrence** checkbox to set up a recurring schedule for the feature flag. This allows you to automate the activation and deactivation of the feature flag based on a regular schedule, such as during periods of low or high traffic. Choose a daily or weekly frequency, the specific days, and the expiration time.
 
     :::image type="content" source="media/feature-filters/add-timewindow-filter-recurrence.png" alt-text="Screenshot of the Azure portal showing feature filter recurrence.":::
 
