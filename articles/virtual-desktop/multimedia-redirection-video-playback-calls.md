@@ -434,18 +434,14 @@ The following websites are known to work with video playback redirection, and wh
 
 :::row:::
    :::column span="":::
-      - `AnyClip`
       - `AWS Training`
       - `BBC`
       - `Big Think`
-      - `Bleacher Report`
-      - `Brightcove`
       - `CNBC`
       - `Coursera`
       - `Daily Mail`
       - `Facebook`
       - `Fidelity`
-      - `Flashtalking`
       - `Fox Sports`
    :::column-end:::
    :::column span="":::
@@ -456,11 +452,7 @@ The following websites are known to work with video playback redirection, and wh
       - `Microsoft Learn`
       - `Microsoft Stream`
       - `Microsoft Teams live events`
-      - `NBC Sports`
-      - `The New York Times`
       - `Pluralsight`
-      - `Politico`
-      - `Reuters`
       - `Skillshare`
    :::column-end:::
    :::column span="":::
@@ -469,10 +461,7 @@ The following websites are known to work with video playback redirection, and wh
       - `Udemy`\*
       - `UMU`
       - `U.S. News`
-      - `Vidazoo`
       - `Vimeo`
-      - `The Wall Street Journal`
-      - `X`
       - `Yahoo`
       - `Yammer`
       - `YouTube` (including sites with embedded `YouTube` videos).
