@@ -22,7 +22,7 @@ The following information lists the cost and usage details (formerly known as us
 | -------- | -------- | -------- |
 | 1 |InvoiceSectionName|Name of the EA department or MCA invoice section.|
 | 2 |AccountName|Display name of the EA enrollment account or pay-as-you-go billing account.|
-| 3 |AccountOwnerId|The email of the account owner.|
+| 3 |AccountOwnerId|The email ID of the EA enrollment account owner.|
 | 4 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 5 |SubscriptionName|Name of the Azure subscription.|
 | 6 |ResourceGroup|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -75,8 +75,8 @@ The following information lists the cost and usage details (formerly known as us
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 54 |benefitId|  .|
 | 55 |benefitName|  .|
-|56|AccountId|Unique identifier for the EA enrollment account|
-|57|ResourceLocationNormalized|Standardized format of the datacenter location where the resource is running|
+|56|AccountId|Unique identifier for the EA enrollment account.|
+|57|ResourceLocationNormalized|Standardized format of the datacenter location where the resource is running.|
 
 ## Version 2023-12-01-preview
 
