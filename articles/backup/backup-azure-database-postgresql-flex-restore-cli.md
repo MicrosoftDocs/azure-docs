@@ -83,7 +83,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
     "sku": null,
     "subscriptionId": 00001111-aaaa-2222-bbbb-3333cccc4444,
     "tags": null,
-    "tenantId": $tenantId,
+    "tenantId": 00001111-aaaa-2222-bbbb-3333cccc4444,
     "type": "microsoft.dataprotection/backupvaults/backupinstances",
     "vaultName": "testBkpVault",
     "zones": null
