@@ -92,8 +92,8 @@ When you create a Blob Storage trigger function using Visual Studio Code, you al
     |--|--| 
     |**Select a language**| Select `Python`. |
     |**Select a Python interpreter to create a virtual environment**| Select your preferred Python interpreter. If an option isn't shown, enter the full path to your Python binary. |
-    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
-    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select a template for your project's first function**| Select `Blob trigger`. |
+    |**Select a Python programming model**| Select `V2 Programming Model`. ||**Provide a function name**| Enter `blob_trigger_event_grid`. |
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select subscription**| Select your subscription.|
     |**Select a storage account**| Use Azurite emulator for local storage. |
@@ -152,7 +152,21 @@ When you create a Blob Storage trigger function using Visual Studio Code, you al
     |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
 
+::: zone pivot="programming-language-python"  
+## Add EventGrid Source
 
+1. Open the function_app.py project file, and add `source = "EventGrid"` to the `blob_trigger` decorator. 
+
+
+   ```python
+   @app.blob_trigger(arg_name="myblob", path="samples-workitems",
+                  connection="AzureWebJobsStorage", source="EventGrid") 
+    def blob_trigger(myblob: func.InputStream):
+        logging.info(f"Python blob trigger function processed blob"
+                     f"Size: {myblob.length}")
+   ```
+
+::: zone-end
 ## Upgrade the Storage extension
 
 To use the Event Grid-based Blob Storage trigger, you must have at least version 5.x of the Azure Functions Storage extension.
@@ -284,12 +298,12 @@ Now both the Functions host and the trigger are sharing the same storage account
 
 To create an event subscription, you need to provide Event Grid with the URL of the specific endpoint to report Blob Storage events. This _blob extension_ URL is composed of these parts:
 
-| Part | Example |
-| --- | --- |
+| Part | Example                                         |
+| --- |-------------------------------------------------|
 | Base function app URL | `https://<FUNCTION_APP_NAME>.azurewebsites.net` | 
-| Blob-specific path | `/runtime/webhooks/blobs` |
-| Function query string | `?functionName=Host.Functions.BlobTriggerEventGrid` |
-| Blob extension access key | `&code=<BLOB_EXTENSION_KEY>` | 
+| Blob-specific path | `/runtime/webhooks/blobs`                       |
+| Function query string | `?functionName=Host.Functions.<FUNCTION_NAME>`  |
+| Blob extension access key | `&code=<BLOB_EXTENSION_KEY>`                    | 
 
 The blob extension access key is designed to make it more difficult for others to access your blob extension endpoint. To determine your blob extension access key: 
     
@@ -304,10 +318,10 @@ The blob extension access key is designed to make it more difficult for others t
 1. Create a new endpoint URL for the Blob Storage trigger based on the following example: 
 
     ```http
-    https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
+    https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.<FUNCTION_NAME>&code=<BLOB_EXTENSION_KEY>
     ```
 
-    In this example, replace `<FUNCTION_APP_NAME>` with the name of your function app and replace `<BLOB_EXTENSION_KEY>` with the value you got from the portal. If you used a different name for your function, you'll also need to change the `functionName` query string value to your function name.
+    In this example, replace `<FUNCTION_APP_NAME>` with the name of your function app, `<BLOB_EXTENSION_KEY>` with the value you got from the portal, and `<FUNCTION_NAME>` with your function name.
 
 You can now use this endpoint URL to create an event subscription.
 
@@ -319,7 +333,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and make a note of the **Resource group** for your storage account. You create your other resources in the same group to make it easier to clean up resources when you're done. 
 
-1. select the **Events** option from the left menu.
+1. Select the **Events** option from the left menu.
 
     ![Add storage account event](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-add-event.png)
 
@@ -335,8 +349,17 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **Endpoint** | Your Azure-based URL endpoint | Use the URL endpoint that you built, which includes the key value. |
 
 1. Select **Confirm selection** to validate the endpoint URL. 
+2. Select the **Filters** tab and provide the following information to the prompts:
 
-1. Select **Create** to create the event subscription.
+    | Setting      | Suggested value                                                             | Description                                                                                                                                                 |
+    | ------------ |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Enable subject filtering** | *Enabled*                                                                   | Enables filtering on which blobs can trigger the function.                                                                                                  |
+    | **Subject Begins With** | **`/blobServices/default/containers/<CONTAINER_NAME>/blobs/<BLOB_PREFIX>`** | Replace `<CONTAINER_NAME` and `<BLOB_PREFIX>` with values you choose. This sets the subscription to trigger only for blobs that start with `BLOB_PREFIX` and are in the `CONTAINER_NAME` container. |
+    | **Subject Ends With** | *.txt*                                                                      | Ensures that the function will only be triggered by blobs ending with `.txt`.                                                                               |
+
+For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hub](https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#subject-filtering).
+
+7. Select **Create** to create the event subscription.
 
 ## Upload a file to the container
 
@@ -369,6 +392,7 @@ Now that you uploaded a file to the **samples-workitems** container, the functio
 
 ## Next steps
 
-+ [Working with blobs](storage-considerations.md#working-with-blobs)
+- [Working with blobs](storage-considerations.md#working-with-blobs)
+- [Connecting to Blob Storage using identity-based connections](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cextensionv5&pivots=programming-language-python#identity-based-connections)
 - [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)
