@@ -13,6 +13,35 @@ ms.custom: engagement-fy24
 
 Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you move to Azure Monitor alerts.
 
+
+
+## Notification for backup alerts
+
+> [!NOTE]
+> Configuration of notification can be done only through the Azure portal. PS/CLI/REST API/Azure Resource Manager Template client is currently not supported.
+
+Once an alert is raised, you're notified. Azure Backup provides a built-in notification mechanism via email. You can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose if you need to receive notified for each individual alert or to group them in an hourly digest and then get notified.
+
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-inline.png" alt-text="Screenshot of the Recovery Services vault built-in email notification." lightbox="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-expanded.png":::
+
+When notification is configured, you'll receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.
+
+If the frequency was set to an hourly digest, and an alert was raised and resolved within an hour, it won't be a part of the upcoming hourly digest.
+
+> [!NOTE]
+>- If a destructive operation, such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications aren't configured for the Recovery Services vault.
+>- To configure notification for successful jobs, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## Inactivating alerts
+
+To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
+
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to inactivate alerts via Backup center.":::
+
+
+
+
+
 ## Suppress notifications during a planned maintenance window
 
 For certain scenarios, you might want to suppress notifications for a particular window of time when backups are going to fail. This is especially important for database backups, where log backups could happen as frequently as every 15 minutes, and you don't want to receive a separate notification every 15 minutes for each failure occurrence. In such a scenario, you can create a second alert processing rule that exists alongside the main alert processing rule used for sending notifications. The second alert processing rule won't be linked to an action group, but is used to specify the time for notification types that should be suppressed.
