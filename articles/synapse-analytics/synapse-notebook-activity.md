@@ -70,9 +70,7 @@ c = ""
 
 You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
 
-When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. When Data Factory runs the notebook the execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
-
-Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
+When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline
