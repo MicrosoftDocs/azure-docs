@@ -36,7 +36,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | --- | --- | --- |
 |AccountId|EA, pay-as-you-go|Unique identifier for the EA enrollment account.|
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
-| AccountOwnerId¹ | EA, pay-as-you-go | The email of the account owner. |
+| AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
 | AvailabilityZone | External account | Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
