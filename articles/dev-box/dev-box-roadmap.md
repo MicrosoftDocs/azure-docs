@@ -43,7 +43,7 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 - [Direct launch via the Windows App](): as a developer, quickly launch Dev Box from the developer portal on the Windows App RDP client.
 - [Cross clients multi-monitor settings](): as a developer, your multi-monitor settings will be shared consistently across RDP clients.
 - [Notification center for Developer Portal](): as a developer, you will get service notifications and updates right in the Developer Portal.
-- [Pin Developer Portal to task view/desktop](https://developercommunity.visualstudio.com/t/Ping-to-task-view-is-not-quite-working-f/10719957): as a developer, you can quickly access your Developer Box by pinning it to your Windows task view.
+- [Pin Dev Box to task view from Developer Portal](https://developercommunity.visualstudio.com/t/Ping-to-task-view-is-not-quite-working-f/10719957): as a developer, you can quickly access your Developer Box by pinning it to your Windows task view.
 - [GPU support](https://developercommunity.visualstudio.com/t/Siemens-Healthineers-When-Dev-Box-will/10282265): as a developer, you will be able to utilize GPU resources on supported Dev Box SKUs. 
 
 ## Enterprise management
