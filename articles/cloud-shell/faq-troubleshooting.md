@@ -189,6 +189,14 @@ command that requires elevated permissions.
   Alternately, you can deploy your own private Cloud Shell instance. For more information, see
   [Deploy Cloud Shell in a virtual network][01].
 
+### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled","message":"Cloud Shell has been disabled in directory<>."} Please refresh the page.  
+
+- **Details**: There are rare scenario's where Azure detects fraudulent activity based on Out-of-Ordinary resource consumption per the payload being submitted to Cloud shell and disables it at the tenant level.There could be legitimate scenarios, where the CPU usage within your Azure Cloud Shell instances exceeded the threshold value for a long period of time via the AZCopy command or copy operation, which may trigger an alert to block the tenant. But in either case, Microsoft Azure engineering team could help to figure out why the tenant was disabled and enable it if required. 
+  
+- **Resolution**: File a New support request with Microsoft Azure to enable the cloud shell for your tenant with the below details: 
+1. Tenant ID  
+2. The business justification and scenario you will be using CloudShell for.  
+  
 ## Managing Cloud Shell
 
 ### Manage personal data
