@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you connect your virtual networks using the VNet-to-VNet connection type in the Azure portal. When you use the portal to connect virtual networks using VNet-to-VNet, the virtual networks can be in different regions, but must be in the same subscription. If your virtual networks are in different subscriptions, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) instructions instead. This article doesn't apply to virtual network peering. For virtual network peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagram of a VNet-to-VNet connection." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
 ## About VNet-to-VNet connections
 
@@ -43,7 +43,7 @@ You might want to connect virtual networks by using a VNet-to-VNet connection fo
 
    Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements. VNet-to-VNet communication can be combined with multi-site configurations. These configurations let you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet connections diagram.":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions.":::
 
 ## Create and configure VNet1
 
@@ -98,7 +98,7 @@ A gateway can take 45 minutes or more to fully create and deploy. You can see th
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## Create and configure VNet4 
+## Create and configure VNet4
 
 After you've configured VNet1, create VNet4 and the VNet4 gateway by repeating the previous steps and replacing the values with VNet4 values. You don't need to wait until the virtual network gateway for VNet1 has finished creating before you configure VNet4. If you're using your own values, make sure the address spaces don't overlap with any of the virtual networks to which you want to connect.
 
