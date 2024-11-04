@@ -176,7 +176,7 @@ If multiple routes contain the same address prefix, Azure selects the route type
 1. System route
 
 > [!NOTE]
-> System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific.
+> System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. Routes with next hop type virtual network service endpoint, cannot be overriden, even using a route table.
 
 For example, a route table contains the following routes:
 
