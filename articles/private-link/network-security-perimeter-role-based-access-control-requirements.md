@@ -24,17 +24,16 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 | Microsoft.Network/networkSecurityPerimeters/read | Gets a network security perimeter  |
 | Microsoft.Network/networkSecurityPerimeters/write | Creates or updates a network security perimeter  |
 | Microsoft.Network/networkSecurityPerimeters/delete | Deletes a network security perimeter  |
-| Microsoft.Network/locations/queryNetworkSecurityPerimeter/action | Queries network security perimeter  by the perimeter guid |
-| Microsoft.Network/locations/perimeterAssociableResourceTypes/read | Gets network security perimeter  associable resources |
+| Microsoft.Network/locations/perimeterAssociableResourceTypes/read | Gets network security perimeter associable resources |
 
 
 ### Network security perimeter profile permissions
 
 | Action | Description |
 | --- | --- |
-| Microsoft.Network/networkSecurityPerimeters/profiles/read | Gets a Network security perimeter  Profile |
-| Microsoft.Network/networkSecurityPerimeters/profiles/write | Creates or updates a Network security perimeter  Profile |
-| Microsoft.Network/networkSecurityPerimeters/profiles/delete | Deletes a Network security perimeter  Profile |
+| Microsoft.Network/networkSecurityPerimeters/profiles/read | Gets a network security perimeter profile |
+| Microsoft.Network/networkSecurityPerimeters/profiles/write | Creates or updates a network security perimeter profile |
+| Microsoft.Network/networkSecurityPerimeters/profiles/delete | Deletes a network security perimeter profile |
 
 ### Network security perimeter access rule permissions
 
@@ -43,7 +42,7 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/read | Gets a network security perimeter access rule. |
 | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/write | Creates or updates a network security perimeter access rule. |
 | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/delete | Deletes a network security perimeter access rule. |
-| Microsoft.Resources/subscriptions/joinPerimeterRule/action | User must have *subscription contributor* role over the subscription. |
+| Microsoft.Resources/subscriptions/joinPerimeterRule/action | User must have *microsoft.resources/subscriptions/joinperimeterrule/action* role over the subscription |
 
 > [!NOTE]
 > User must have *subscription contributor* role to create/update subscription-based access rule.
@@ -56,14 +55,13 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 | Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write | Creates or updates a network security perimeter resource association |
 | Microsoft.Network/networkSecurityPerimeters/profiles/join/action | Joins a network security perimeter profile. Linked access check is performed while associating the resource |
 | Microsoft.Network/networkSecurityPerimeters/resourceAssociations/delete | Deletes a network security perimeter resource association |
-| Microsoft.Network/networkSecurityPerimeters/resourceAssociationProxies/read | Gets a network security perimeter resource association proxy |
 
 > [!NOTE]
 > To create or update an association, the following permissions are required to exist:
 >
-> - `Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write` is required at the network security perimeter resource.
-> - `Microsoft.Network/networkSecurityPerimeters/profiles/join/action` on the profile.
-> - `Microsoft.Network/networkSecurityPerimeters/joinPerimeter/action` on the respective PaaS resource.
+> - *Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write* is required at the network security perimeter resource.
+> - *Microsoft.Network/networkSecurityPerimeters/profiles/join/action* is required on the profile.
+> - *Microsoft.Network/networkSecurityPerimeters/joinPerimeter/action* is required on the respective PaaS resource.
 
 ## Next steps
 

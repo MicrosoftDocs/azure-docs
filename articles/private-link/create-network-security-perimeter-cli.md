@@ -180,7 +180,7 @@ In this step, you create and update network security perimeter access rules with
 
     ```
 
-    [!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources
 

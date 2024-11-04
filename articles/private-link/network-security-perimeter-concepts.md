@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # What is Network Security Perimeter?
 
-Network Security Perimeter allows administrators to define a logical network isolation boundary for PaaS resources (for example, Azure Storage and SQL Database) that are deployed outside virtual networks. It restricts communication to resources within the perimeter, and it allows non-perimeter public traffic through inbound and outbound access rules.
+Azure Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
@@ -35,9 +35,9 @@ A network security perimeter includes the following components:
 |---------------------|------------------------------------------------------------------------------------------------------------|
 | **Network security perimeter** | Top level resource defining logical network boundary to secure PaaS resources. |
 | **Profile** | Collection of access rules that apply on resources associated with the profile. |
-| **Access Rule**| Inbound and outbound rules for resources in a perimeter to allow access outside the perimeter. |
-| **ResourceAssociation** | Perimeter membership for a PaaS resource. |
-| **DiagnosticsSettings** | Extension resource hosted by Microsoft. Insights to collect logs & metrics for all resources in the perimeter. |
+| **Access rule**| Inbound and outbound rules for resources in a perimeter to allow access outside the perimeter. |
+| **Resource association** | Perimeter membership for a PaaS resource. |
+| **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
 > For organizational and informational safety, it is advised not to include any personally identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
@@ -80,17 +80,17 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 
 When a network security perimeter is created and the PaaS resources are associated with the  perimeter, all public traffic is denied by default. Thus preventing data exfiltration outside the perimeter.
 
-Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity  attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
+Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using network and identity attributes of the client such as source IP addresses and subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
 
 For example, when creating a network security perimeter and associating a set of PaaS resources, like Azure Key Vault and SQL DB, with the perimeter, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can also be created to group PaaS resources with similar set of inbound and outbound access requirements.
 
 
-## Onboarded private-link resources
-A Network Security Perimeter aware private-link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private-link resources are as follows:
+## Onboarded private link resources
+A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
 
-| Private-link resource name | Resource type | Resources |
+| Private link resource name | Resource type | Resources |
 |---------------------------|---------------|-----------|
-| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints<br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
+| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
 | Azure AI Search          | Microsoft.Search/searchServices | - |
 | Cosmos DB                | Microsoft.DocumentDB/databaseAccounts | - |
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
@@ -99,12 +99,11 @@ A Network Security Perimeter aware private-link resource is a PaaS resource that
 | Storage                   | Microsoft.Storage/storageAccounts | - |
 | Event Grid | Microsoft.EventGrid/topics</br>Microsoft.EventGrid/domains |	- |
 
-
 ## Limitations of network security perimeter
 
 ### Regional limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, consider the region availability of Azure monitor
+Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, consider the region availability of Azure monitor.
 
 > [!NOTE]
 > Though the network security perimeter can be created in any region, the Log analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.

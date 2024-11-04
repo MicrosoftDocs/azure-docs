@@ -11,7 +11,7 @@ ms.date: 11/04/2024
 
 # Quickstart: Create a network security perimeter - Azure PowerShell
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -201,7 +201,7 @@ To delete a network security perimeter, use the following commands:
 ```azurepowershell-interactive
 
     # Retrieve the network security perimeter and place it in a variable
-    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.name
+    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.Params.Name
 
     # Delete the network security perimeter and all associated resources
     $removeNsp = @{ 

@@ -11,27 +11,9 @@ ms.date: 11/04/2024
 
 # Transition to a network security perimeter in Azure
 
-In this article, you learn about the different access modes and how to transition to a network security perimeter in Azure. Access modes control the resource's connectivity and logging behavior.
+In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control the resource's access and logging behavior.
 
 ## Configuration points for access modes 
-
-Network security perimeter uses two configuration points for access modes to control the resource's connectivity and logging behavior. These configuration points are part of the PaaS resource configuration and the perimeter configuration.
-
-### Public network access configuration point on PaaS resources 
-
-The **public network access** configuration point is part of the PaaS resource configuration set by the resource's administrator. 
-
-Along with the original two values (*enabled* and *disabled*) on `publicNetworkAccess` property, PaaS services onboarded to network security perimeter, have another value of `SecuredByPerimeter`. 
-
-
-| **Public network access property** | **Description** |
-|-----------|----------------|
-| **Enabled** | Public inbound communication is allowed, and any firewall rules defined by the resource can restrict the access.                         |
-| ***Disabled*** | Public inbound communication is disallowed regardless of the state of firewall rules defined by the resource.                            |
-| **SecuredByPerimeter** | In Secured mode, the network security perimeter configuration governs the resource's inbound and outbound connectivity. Specifically, PaaS-to-PaaS communication is restricted to members of the same perimeter. Public access is granted in accordance with the access rules defined by the associated perimeter profile. |
-
-> [!NOTE]
-> Currently, most [onboarded Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) teams are in the phase of user experience implementation. Until this work completes for each service, this configuration point may or may not be available within the specific service's configuration experience.
 
 ### Access mode configuration point on resource associations 
 
@@ -43,7 +25,7 @@ The possible values of `accessMode` are currently Enforced and Learnin
 
 | **Access Mode** | **Description** |
 |-------------|-------------|
-| **Learning** | This is the default access mode, and it means the resource's configuration determines if traffic evaluation behaves according to secured mode or not. |
+| **Learning** | This is the default access mode. Evaluation in this mode uses the network security perimeter configuration as a baseline. When a matching rule isn't found, evaluation falls back to the resource firewall configuration which can then approve access with existing settings. |
 | **Enforced** | This mode allows network security perimeter admin to override the `publicNetworkAccess` setting on the resource. When explicitly set, the resource obeys network security perimeter rules as if its `publicNetworkAccess` property was effectively set to `SecuredByPerimeter` (with only minor differences observable in logs), irrespective of the actual value of the `publicNetworkAccess` property. |
 
 ### Steps to configure publicNetworkAccess and accessMode properties
@@ -66,9 +48,9 @@ Both the `publicNetworkAccess` and `accessMode` properties can be set using the 
     
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
-In order to prevent undesired connectivity disruptions while adopting network security perimeter to exist PaaS resources and  ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it: 
+To prevent undesired connectivity disruptions while adopting network security perimeter to existing PaaS resources and ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it: 
 
-- Allows resources to begin establishing connections in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter configuration. 
+- Allows resources to begin establishing connections in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter access rules. 
 
 - Generates logs detailing whether connections were approved based on network security perimeter configuration or the resource's configuration. Administrators can then analyze those logs to identify gaps in access rules, missing perimeter memberships, and undesired connections. 
 
@@ -80,12 +62,12 @@ In order to prevent undesired connectivity disruptions while adopting network se
 
 ## Impact on public, private, trusted, and perimeter access 
 
-Depending on th configuration of the resource and the perimeter, the behavior of across different types network access on PaaS resources can be summarized as follows:
+Depending on the configuration of the resource and the perimeter, the behavior of network access across different types of PaaS resources can be summarized as follows:
 
-- **Public access:** Public traffic refers to inbound or outbound requests made through public networks. PaaS resources secured by a network security perimeter have their inbound and outbound public access disabled by default, but access rules can be used to selectively allow public traffic that matches them.
-- **Perimeter access:** Resources supporting network security perimeter distinguishes between regular public network access and traffic to and from other PaaS resources with network security perimeter support. To prevent data infiltration and exfiltration, such perimeter traffic will never cross perimeter boundaries unless explicitly approved as public traffic at both source and destination. 
+- **Public access:** Public access refers to inbound or outbound requests made through public networks. PaaS resources secured by a network security perimeter have their inbound and outbound public access disabled by default, but network security perimeter access rules  can be used to selectively allow public traffic that matches them.
+- **Perimeter access:** Perimeter access refers to inbound or outbound requests between the resources part of the same network security perimeter. To prevent data infiltration and exfiltration, such perimeter traffic will never cross perimeter boundaries unless explicitly approved as public traffic at both source and destination in enforced mode. Manged identity needs to be assigned on resources. 
 - **Trusted access:** Trusted service access refers to a feature of some Azure services that enables access through public networks when its origin is specific Azure services that are considered trusted. Network security perimeters provide more granular control than trusted access. Trusted access is disabled in secured by perimeter mode. 
-- **Private access:** Access via Private Links on the other hand, is considered private and isn't impacted by network security perimeter or by other public traffic-related controls like the resource's publicNetworkAccess property. 
+- **Private access:** Access via Private Links on the other hand, is considered private and isn't impacted by network security perimeter or by other public traffic-related controls like the resource's `publicNetworkAccess` property. 
 
 When associated with a perimeter and configured in *Learning* mode with `publicNetworkAccess` set to either **Enabled** or **Disabled**, a PaaS resource retains most of the behaviors it would exhibit in the absence of such an association. For example, regular public access continues to honor resource-defined firewall rules, and trusted service access is allowed as follows: 
 
@@ -94,14 +76,14 @@ When associated with a perimeter and configured in *Learning* mode with `p
 | **Perimeter access** | Allowed for same perimeter. | Allowed for same perimeter. | Allowed for same perimeter. |
 | **Public inbound** | Allowed only by network security perimeter rules. | Allowed only by network security perimeter rules or resource rules. | Allowed only by network security perimeter rules. |
 | **Public outbound** | Allowed only by network security perimeter rules or resource rules. | Allowed only by network security perimeter rules or resource rules. | Allowed only by network security perimeter rules. |
-| **Trusted access** | Allowed | Allowed | Allowed |
+| **Trusted access** | Allowed | Allowed | Not Allowed |
 | **Private access** | Allowed | Allowed | Allowed |
 
 
 > [!NOTE]
 > The original *Enabled* and *Disabled* values did not restrict *public outbound* behavior but `SecuredByPerimeter` does. 
 
-As a special case, when `publicNetworkAccess` is set to `SecuredByPerimeter` but the resource is still not associated with a perimeter, no network security perimeter access rules can approve any access. Therefore the resource becomes locked down for public access. The following table summarizes the behavior with this configuration:
+In special cases when `publicNetworkAccess` is set to `SecuredByPerimeter` but the resource is still not associated with a perimeter, no network security perimeter access rules can allow access. Therefore the resource becomes locked down for public access. The following table summarizes the behavior with this configuration:
 
 | **publicNetworkAccess** | **Disabled (existing value)** | **Enabled (existing value)** | **SecuredByPerimeter (new value)** |
 |-----------------|---------------|----------------|------------|
@@ -115,7 +97,7 @@ The **locked down for public access** mode exists by-design and helps preven
 
 The behavior of public network access on PaaS resources according to the association's accessMode value and the resource's `publicNetworkAccess` value can be summarized as follows: 
 
-| **Association accessMode** | **Not associated** | **Learning mode** | **Enforced mode** |
+| **Public network access** | **Not associated** | **Learning mode** | **Enforced mode** |
 |-------------|-----------|-------------|-----------|
 | **Enabled** | Inbound: Resource rules </br> Outbound: Allowed | Inbound: Network security perimeter + Resource rules </br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules |
 | **Disabled** | Inbound: Denied </br> Outbound: Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules </br> Outbound: Network security perimeter rules |
