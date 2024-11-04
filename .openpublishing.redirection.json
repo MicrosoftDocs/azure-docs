@@ -3431,6 +3431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-gateway",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
       "redirect_document_id": false
