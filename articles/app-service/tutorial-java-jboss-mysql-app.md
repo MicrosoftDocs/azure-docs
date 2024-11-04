@@ -658,7 +658,7 @@ azd down
 
 #### I see the error 'not entitled to use the Bring Your Own License feature' in the creation wizard.
 
-If you see the error: `The subscription '701ea799-fb46-4407-bb67-9cbcf289f1c7' is not entitled to use the Bring Your Own License feature when creating the application`, it means that you selected **Red Hat JBoss EAP 7/8 BYO License** in **Java web server stack** but haven't set up your Red Hat subscription in Azure. git TODO.
+If you see the error: `The subscription '701ea799-fb46-4407-bb67-9cbcf289f1c7' is not entitled to use the Bring Your Own License feature when creating the application`, it means that you selected **Red Hat JBoss EAP 7/8 BYO License** in **Java web server stack** but haven't set up your Azure account in Red Hat Cloud Access or don't have an active JBoss EAP license in Red Hat Cloud Access.
 
 #### The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status.
 
