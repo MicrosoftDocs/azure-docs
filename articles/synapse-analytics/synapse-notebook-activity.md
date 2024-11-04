@@ -64,13 +64,13 @@ Define your parameters in this cell. It can be something as simple as:
 
 ```python
 a = 1
-b = "Default Value"
-c = ""
+b = 3
+c = "Default Value"
 ```
 
 You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
 
-When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
+When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. If you [assign parameters values from a pipeline](#assign-parameters-values-from-a-pipeline), the execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline
@@ -79,7 +79,7 @@ Once you've created a notebook with parameters, you can execute it from a pipeli
 
 [![screenshot-showing-assign-a-parameter](./media/synapse-notebook-activity/assign-parameter.png)](./media/synapse-notebook-activity/assign-parameter.png#lightbox)
 
->[TIP]
+>[!TIP]
 >Data Factory won't automatically populate the parameters. You need to add them manually. Be sure to use the exact same name in both your parameters cell in the notebook and the base parameter in the pipeline.
 
 Once you've added your parameters to your activity, Data Factory will pass the values you specify in your activity to your notebook, and your notebook will run with those new parameter values, instead of the defaults you specified in the parameters cell.
