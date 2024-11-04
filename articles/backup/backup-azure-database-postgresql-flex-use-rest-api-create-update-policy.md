@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API (preview)
+# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API
 
 This article describes how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
 
@@ -22,12 +22,12 @@ Before you start creating the backup policy, learn about the backup policy objec
 
 - PolicyRule
   - BackupRule
-    - BackupParameter
-    - BackupType (A full database backup in this case)
-    - Initial Datastore (Where will the backups land initially)
-    - Trigger (How the backup is triggered)
-    - Schedule based
-    - Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
+	- BackupParameter
+	- BackupType (A full database backup in this case)
+	- Initial Datastore (Where will the backups land initially)
+	- Trigger (How the backup is triggered)
+	- Schedule based
+	- Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
   - Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
 This object defines the type of backups that are triggered, the way they are triggered (via a schedule), the tags marked for the backup operation, the path where the backups are stored (a datastore), and the lifecycle of the backup data in a datastore. The default PowerShell object for PostgreSQL - Flexible servers triggers a full backup every week, and stores the backups in the vault, and retains them for three months.
@@ -64,7 +64,7 @@ The policy says that:
 - The backups are retained in the vault for three months (P3M).
 
 ```json
-    "properties": {
+	"properties": {
 	  "datasourceTypes": [
 		"Microsoft.DBforPostgreSQL/flexibleServers"
 	  ],
@@ -137,15 +137,15 @@ The following example modifies the weekly backup to back up on every Sunday, Wed
 
 ```
 "trigger": {
-        "objectType": "ScheduleBasedTriggerContext",
-        "schedule": {
-          "repeatingTimeIntervals": [
-            "R/2021-08-15T22:00:00+00:00/P1W",
-            "R/2021-08-18T22:00:00+00:00/P1W",
-            "R/2021-08-20T22:00:00+00:00/P1W"
-          ],
-          "timeZone": "UTC"
-        }
+		"objectType": "ScheduleBasedTriggerContext",
+		"schedule": {
+		  "repeatingTimeIntervals": [
+			"R/2021-08-15T22:00:00+00:00/P1W",
+			"R/2021-08-18T22:00:00+00:00/P1W",
+			"R/2021-08-20T22:00:00+00:00/P1W"
+		  ],
+		  "timeZone": "UTC"
+		}
 
 ```
 
@@ -203,16 +203,16 @@ In this example, the tag criteria should be named *Monthly*.
 
 ```json
   "criteria": [
-    {
-      "absoluteCriteria": [
-        "FirstOfMonth"
-      ],
-      "objectType": "ScheduleBasedBackupCriteria"
-    }
+	{
+	  "absoluteCriteria": [
+		"FirstOfMonth"
+	  ],
+	  "objectType": "ScheduleBasedBackupCriteria"
+	}
   ],
   "isDefault": false,
   "tagInfo": {
-    "tagName": "Monthly"
+	"tagName": "Monthly"
   },
   "taggingPriority": 15
 }
@@ -223,7 +223,7 @@ After including all changes, the policy JSON will appear as follows:
 
 ```json
 {
-    "properties": {
+	"properties": {
 	  "datasourceTypes": [
 		"Microsoft.DBforPostgreSQL/flexibleServers"
 	  ],
@@ -337,97 +337,97 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 ```json
 {
   "properties": {
-    "policyRules": [
-      {
-        "backupParameters": {
-          "backupType": "Full",
-          "objectType": "AzureBackupParams"
-        },
-        "trigger": {
-          "schedule": {
-            "repeatingTimeIntervals": [
-              "R/2021-08-15T22:00:00+00:00/P1W",
-              "R/2021-08-18T22:00:00+00:00/P1W",
-              "R/2021-08-20T22:00:00+00:00/P1W"
-            ],
-            "timeZone": "UTC"
-          },
-          "taggingCriteria": [
-            {
-              "tagInfo": {
-                "tagName": "Default",
-                "id": "Default_"
-              },
-              "taggingPriority": 99,
-              "isDefault": true
-            },
-            {
-              "tagInfo": {
-                "tagName": "Monthly",
-                "id": "Monthly_"
-              },
-              "taggingPriority": 15,
-              "isDefault": false,
-              "criteria": [
-                {
-                  "absoluteCriteria": [
-                    "FirstOfMonth"
-                  ],
-                  "objectType": "ScheduleBasedBackupCriteria"
-                }
-              ]
-            }
-          ],
-          "objectType": "ScheduleBasedTriggerContext"
-        },
-        "dataStore": {
-          "dataStoreType": "VaultStore",
-          "objectType": "DataStoreInfoBase"
-        },
-        "name": "BackupWeekly",
-        "objectType": "AzureBackupRule"
-      },
-      {
-        "lifecycles": [
-          {
-            "deleteAfter": {
-              "objectType": "AbsoluteDeleteOption",
-              "duration": "P3M"
-            },
-            "targetDataStoreCopySettings": [],
-            "sourceDataStore": {
-              "dataStoreType": "VaultStore",
-              "objectType": "DataStoreInfoBase"
-            }
-          }
-        ],
-        "isDefault": true,
-        "name": "Default",
-        "objectType": "AzureRetentionRule"
-      },
-      {
-        "lifecycles": [
-          {
-            "deleteAfter": {
-              "objectType": "AbsoluteDeleteOption",
-              "duration": "P6M"
-            },
-            "targetDataStoreCopySettings": [],
-            "sourceDataStore": {
-              "dataStoreType": "VaultStore",
-              "objectType": "DataStoreInfoBase"
-            }
-          }
-        ],
-        "isDefault": false,
-        "name": "Monthly",
-        "objectType": "AzureRetentionRule"
-      }
-    ],
-    "datasourceTypes": [
-      "Microsoft.DBforPostgreSQL/flexibleServers"
-    ],
-    "objectType": "BackupPolicy"
+	"policyRules": [
+	  {
+		"backupParameters": {
+		  "backupType": "Full",
+		  "objectType": "AzureBackupParams"
+		},
+		"trigger": {
+		  "schedule": {
+			"repeatingTimeIntervals": [
+			  "R/2021-08-15T22:00:00+00:00/P1W",
+			  "R/2021-08-18T22:00:00+00:00/P1W",
+			  "R/2021-08-20T22:00:00+00:00/P1W"
+			],
+			"timeZone": "UTC"
+		  },
+		  "taggingCriteria": [
+			{
+			  "tagInfo": {
+				"tagName": "Default",
+				"id": "Default_"
+			  },
+			  "taggingPriority": 99,
+			  "isDefault": true
+			},
+			{
+			  "tagInfo": {
+				"tagName": "Monthly",
+				"id": "Monthly_"
+			  },
+			  "taggingPriority": 15,
+			  "isDefault": false,
+			  "criteria": [
+				{
+				  "absoluteCriteria": [
+					"FirstOfMonth"
+				  ],
+				  "objectType": "ScheduleBasedBackupCriteria"
+				}
+			  ]
+			}
+		  ],
+		  "objectType": "ScheduleBasedTriggerContext"
+		},
+		"dataStore": {
+		  "dataStoreType": "VaultStore",
+		  "objectType": "DataStoreInfoBase"
+		},
+		"name": "BackupWeekly",
+		"objectType": "AzureBackupRule"
+	  },
+	  {
+		"lifecycles": [
+		  {
+			"deleteAfter": {
+			  "objectType": "AbsoluteDeleteOption",
+			  "duration": "P3M"
+			},
+			"targetDataStoreCopySettings": [],
+			"sourceDataStore": {
+			  "dataStoreType": "VaultStore",
+			  "objectType": "DataStoreInfoBase"
+			}
+		  }
+		],
+		"isDefault": true,
+		"name": "Default",
+		"objectType": "AzureRetentionRule"
+	  },
+	  {
+		"lifecycles": [
+		  {
+			"deleteAfter": {
+			  "objectType": "AbsoluteDeleteOption",
+			  "duration": "P6M"
+			},
+			"targetDataStoreCopySettings": [],
+			"sourceDataStore": {
+			  "dataStoreType": "VaultStore",
+			  "objectType": "DataStoreInfoBase"
+			}
+		  }
+		],
+		"isDefault": false,
+		"name": "Monthly",
+		"objectType": "AzureRetentionRule"
+	  }
+	],
+	"datasourceTypes": [
+	  "Microsoft.DBforPostgreSQL/flexibleServers"
+	],
+	"objectType": "BackupPolicy"
   },
   "id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/PGFlexIntegration/providers/Microsoft.DataProtection/BackupVaults/PgFlexTestVault/backupPolicies/PgFlexPolicy1",
   "name": "PgFlexPolicy1",

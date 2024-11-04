@@ -1,5 +1,5 @@
 ---
-title: Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
+title: Back up Azure Database for PostgreSQL Flexible server with long-term retention 
 description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
 ms.topic: how-to
 ms.date: 06/14/2024
@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
+# Back up Azure Database for PostgreSQL Flexible server with long-term retention
 
 This article describes how to back up Azure Database for PostgreSQL Flexible Server. 
 
@@ -29,10 +29,9 @@ To configure backup on the Azure Database for PostgreSQL Flexible Server databas
 
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/adding-backup-inline.png" alt-text="Screenshot showing the option to add a backup.":::
 
-   Alternatively, go to **Backup center** and select **+Backup**. 
+   Alternatively, go to **Azure Business Continuity Center** and select **+Configure Protection**. 
 
-1. Select the data source type as **Azure Database for PostgreSQL flexible servers (Preview)**.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy.":::
+1. Select the data source type as **Azure Database for PostgreSQL flexible servers**.
 
 1. Select or [create](#create-a-backup-policy) a Backup Policy to define the backup schedule and the retention duration.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/backup-policy.png" alt-text="Screenshot showing the option to edit a backup policy.":::
@@ -55,12 +54,11 @@ To create a backup policy, follow these steps:
 
 1. Enter a name for the new policy.
 
-1. Select the data source type as **Azure Database for PostgreSQL flexible servers (Preview)**. 
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-datasource.png" alt-text="Screenshot showing the select datasource process.":::
+1. Select the data source type as **Azure Database for PostgreSQL flexible servers**. 
 
 1. Specify the Backup schedule.
 
-   Currently, only Weekly backup option is available. However, you can schedule the backups on multiple days of the week.
+   Currently, only Weekly backup option is available. You can opt for specific day in the week on which backup should be initiated.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/schedule.png" alt-text="Screenshot showing the schedule process for the new policy.":::
 
 1. Specify **Retention** settings.
@@ -100,4 +98,4 @@ To view the backup job status:
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL Flexible backups (preview)](./restore-azure-database-postgresql-flex.md)
+[Restore Azure Database for PostgreSQL Flexible backups](./restore-azure-database-postgresql-flex.md)

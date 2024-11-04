@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 - November 2024
     - [Back up SAP ASE (Sybase) database (preview)](#back-up-sap-ase-sybase-database-preview) 
+    - [Azure Backup for PostgreSQL - Flexible servers is now generally available](#azure-backup-for-azure-database-for-postgresql-flexible-server-is-now-generally-available)  
+    - [Vaulted backup and Cross Region Restore support for AKS is now generally available](#vaulted-backup-and-cross-region-restore-support-for-aks-is-now-generally-available) 
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
     - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
@@ -98,6 +100,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Back up SAP ASE (Sybase) database (preview)
 
 Azure Backup now offers backup support for SAP Adaptive Server Enterprise (ASE) (Sybase) database (preview).
+
+## Azure Backup for Azure Database for PostgreSQL-Flexible server is now generally available 
+
+Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with an end-user-controlled backup policy that enables retention of backups for up to 10 years. Azure Backup also supports servers encrypted with a customer managed key or behind a private endpoint.
+
+With this, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account, and you can use native PostgreSQL tools to re-create the PostgreSQL Server. 
+
+For more information, see [Azure Database for PostgreSQL Flexible server](backup-azure-database-postgresql-flex-overview.md).
+
+## Vaulted backup and Cross Region Restore support for AKS is now generally available
+ 
+Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
+
+Once the feature is enabled, your snapshot-based AKS backups stored in Operational Tier are converted into blobs and moved to a Vault-standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your backup policy. This feature also allows you to back up data for long term storage as per the compliance and regulatory requirements. With this feature, you can also enable a Backup vault to be *Globally redundant* with *Cross Region Restore*, and then your vaulted backups will be available in an Azure Paired region for restore. In case of primary region outage, you can use these backups to restore your AKS clusters in a secondary region.
+
+For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
 
 ## GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.
 
