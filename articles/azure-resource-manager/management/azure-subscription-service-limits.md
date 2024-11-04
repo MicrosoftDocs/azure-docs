@@ -411,6 +411,9 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
 
+### <a name="load-balancer"></a>Azure Load Balancer limits
+[!INCLUDE [azure-load-balancer-limits](../../../includes/azure-load-balancer-limits.md)]
+
 ### Application Gateway limits
 
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
