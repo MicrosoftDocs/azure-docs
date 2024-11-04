@@ -233,7 +233,7 @@ ossrg-testpgflex       Microsoft.DataProtection/backupVaults/backupInstances oss
 Fetch the relevant backup instance on which you need to trigger a backup using the [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) command.
 
 ```azurepowershell
-$instance = Get-AzDataProtectionBackupInstance -SubscriptionId "xxxx-xxx-xxx" -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "BackupInstanceName"
+$instance = Get-AzDataProtectionBackupInstance -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -ResourceGroupName testBkpVaultRG -VaultName $TestBkpVault.Name -Name BackupInstanceName
 ```
 
 You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the following example, the rule with name *default* is displayed. We use that rule for the on-demand backup.
