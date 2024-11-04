@@ -56,8 +56,8 @@ After adding your data, you can configure the Path Layer according to your requi
 
 The Path Layer feature offers several interactive options:
 
-1. **Hover and Select**: Hover over a path to select points; clicking on a path selects the nearest point. The selected point will also select other reports by legend, path ID, location, and point order.
-1. **Tooltips**: Tooltips show information for the nearest point when hovering over a line.
+- **Hover and Select**: Hover over a path to select points; clicking on a path selects the nearest point. The selected point will also select other reports by legend, path ID, location, and point order.
+- **Tooltips**: Tooltips show information for the nearest point when hovering over a line.
 
     :::image type="content" source="media/power-bi-visual/path-layer-map.png" alt-text="A screenshot showing a map using the path layer.":::
 
