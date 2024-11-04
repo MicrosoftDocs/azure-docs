@@ -117,16 +117,6 @@ To connect your cluster to Azure Arc:
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
-## Verify cluster
-
-Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
-
-```azurecli
-az iot ops verify-host
-```
-
-This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
-
 ## Create a storage account and schema registry
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
