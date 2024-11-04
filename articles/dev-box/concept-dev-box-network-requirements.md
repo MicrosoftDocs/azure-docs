@@ -144,7 +144,7 @@ The following table is the list of FQDNs and endpoints your dev boxes need to ac
 
 |Address    |Protocol    |Outbound port    |Purpose    |Service tag|
 |---|---|---|---|---|
-|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services |    
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services | AzureActiveDirectory |    
 |*.wvd.microsoft.com    |TCP    |443    |Service traffic    |WindowsVirtualDesktop |
 |*.prod.warm.ingest.monitor.core.windows.net    |TCP    |443    |Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor |
 |catalogartifact.azureedge.net    |TCP    |443    |Azure Marketplace    |AzureFrontDoor.Frontend|
