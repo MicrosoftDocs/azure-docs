@@ -33,7 +33,7 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, `azure-iot-operations-xxxx7`.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
 1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
 1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method. 
 

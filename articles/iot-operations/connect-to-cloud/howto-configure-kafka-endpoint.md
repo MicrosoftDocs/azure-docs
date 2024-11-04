@@ -38,8 +38,8 @@ Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.
 To configure a dataflow endpoint for a Kafka endpoint, we recommend using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, `azure-iot-operations-xxxx7`.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for `azure-iot-operations-xxxx7`.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
 1. Assign the Azure IoT Operations Arc extension managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
 
 ### Create dataflow endpoint
@@ -409,8 +409,8 @@ kafkaSettings:
 To use system-assigned managed identity for authentication, assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs.
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, `azure-iot-operations-xxxx7`.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for `azure-iot-operations-xxxx7`.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
 1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to send and receive messages such as *Azure Event Hubs Data Owner*, *Azure Event Hubs Data Sender*, or *Azure Event Hubs Data Receiver*. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
 1. Specify the managed identity authentication method in the Kafka settings. In most cases, you don't need to specify other settings. 
 

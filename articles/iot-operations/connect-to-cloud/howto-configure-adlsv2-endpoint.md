@@ -227,8 +227,8 @@ Using the system-assigned managed identity is the recommended authentication met
 Before creating the dataflow endpoint, assign a role to the managed identity that has write permission to the storage account. For example, you can assign the *Storage Blob Data Contributor* role. To learn more about assigning roles to blobs, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, `azure-iot-operations-xxxx7`.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for `azure-iot-operations-xxxx7`.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
 1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method. 
 
