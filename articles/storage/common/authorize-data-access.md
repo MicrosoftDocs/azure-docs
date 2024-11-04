@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 05/10/2024
+ms.date: 11/19/2024
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ---
@@ -33,6 +33,7 @@ The following table provides information about supported authorization options f
 | Shared access signature (SAS) | [Using shared access signatures (SAS)](storage-sas-overview.md) | When SAS authorization is necessary, Microsoft recommends using user delegation SAS for limited delegated access to blob resources. |
 | Anonymous read access | [Overview: Remediating anonymous read access for blob data](../blobs/anonymous-read-access-overview.md) | Microsoft recommends that you disable anonymous access for all of your storage accounts. |
 | Storage Local Users | Supported for SFTP only. To learn more see [Authorize access to Blob Storage for an SFTP client](../blobs/secure-file-transfer-protocol-support-how-to.md) | See guidance for options. |
+| Microsoft Purview protection policies | Supported for Azure Blob Storage and Azure Data Lake Storage. To learn more, see [Authoring and publishing protection policies for Azure sources (Preview)](/purview/how-to-create-protection-policy-azure-sources). | See guidance for options. |
 
 ### [Files (SMB)](#tab/files-smb)
 
@@ -99,6 +100,8 @@ The following section briefly describes the authorization options for Azure Stor
 - **Anonymous read access**: Applies to blob resources. This option is not recommended. When anonymous access is configured, clients can read blob data without authorization. We recommend that you disable anonymous access for all of your storage accounts. For more information, see [Overview: Remediating anonymous read access for blob data](../blobs/anonymous-read-access-overview.md).
 
 - **Storage Local Users**: Applies to blobs with SFTP or files with SMB. Storage Local Users support container level permissions for authorization. See [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md) for more information on how Storage Local Users can be used with SFTP.
+
+- **Microsoft Purview protection policies**: Applies to Azure Blob Storage and Azure Data Lake Storage. Microsoft Purview offers protection policies to protect sensitive data across [Azure Blob Storage](/purview/register-scan-azure-blob-storage-source) and [Azure Data Lake Storage](/purview/register-scan-adls-gen2). Purview currently offers the ability to [publish labels](/purview/get-started-with-sensitivity-labels) based on the sensitivity of the content. Using these sensitivity labels, protection policies can allow or deny access to certain users, enabling more secure and granular access to confidential files. This feature helps to not only minimize the risk of unauthorized access and potential data leaks, but also enhances the overall security posture of the organization. To learn more, see [Authoring and publishing protection policies for Azure sources (Preview)](/purview/how-to-create-protection-policy-azure-sources).
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
