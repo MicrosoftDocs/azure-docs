@@ -88,7 +88,7 @@ Configure the preceding Azure policies in bulk by using the following Azure Poli
 
 ### Azure Automation account
 
-[Azure Automation][21] is a cloud-based service that provides consistent management across your Azure and non-Azure environments. Use it to automate repetitive tasks, enforce configuration consistency, and manage updates for VMs. By using runbooks and shared assets, you can streamline operations and reduce operational costs. Visit [Azure Azure Automation Built-In Policy][20] to learn how to configure AUM at scale through Azure Policy.
+[Azure Automation][21] is a cloud-based service that provides consistent management across your Azure and non-Azure environments. Use it to automate repetitive tasks, enforce configuration consistency, and manage updates for VMs. By using runbooks and shared assets, you can streamline operations and reduce operational costs. Visit [Azure Automation Built-In Policy][20] to learn how to configure AUM at scale through Azure Policy.
 
 ### Boot diagnostics
 
