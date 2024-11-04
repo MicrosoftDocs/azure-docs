@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 11/04/2024
 ms.author: danlep
 ---
 
@@ -24,6 +24,8 @@ For a VNet-inject instance, you have the following migration options:
 * [**Option 1: Keep the same subnet**](#option-1-migrate-and-keep-same-subnet) - Migrate the instance in-place and keep the instances's existing subnet configuration. You can choose whether the API Management instance's original VIP address is preserved (recommended) or whether a new VIP address will be generated.    
 
 * [**Option 2: Change to a new subnet**](#option-2-migrate-and-change-to-new-subnet) - Migrate your instance by specifying a different subnet in the same or a different VNet. After migration, optionally migrate back to the instance's original subnet. The migration process changes the VIP address(es) of the instance. After migration, you need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address(es). 
+
+In certain, less frequent customer configurations, only migration Option 2 can be used, or Option 1 needs extra steps. For more information, see [Special conditions and scenarios](#special-conditions-and-scenarios).
 
 If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
@@ -216,6 +218,29 @@ After you update the VNet configuration, the status of your API Management insta
 [!INCLUDE [api-management-migration-compute-coexist](../../includes/api-management-migration-compute-coexist.md)]
 
 [!INCLUDE [api-management-migration-rollback](../../includes/api-management-migration-rollback.md)]
+
+## Special conditions and scenarios
+
+Certain, less frequent conditions in customer environments can impact [Option 1: Migrate and keep same subnet](#option-1-migrate-and-keep-same-subnet). When you use the portal for migration, these conditions are automatically detected and the migration options are adjusted. In these cases, you can still migrate using [Option 2: Change to a new subnet](#option-2-migrate-and-change-to-new-subnet). As noted below, in some scenarios you can take actions to use Option 1. If more than one of these conditions is present, you must use Option 2.
+
+* **Multiple stv1 instances in subnet** - A reduced number of IP addresses are available for a same-subnet migration. You can migrate using Option 2, or you may be able to migrate instances one by one using Option 1.
+
+* **Subnet delegation** - The subnet where API Management has been deployed is currently delegated to additional Azure services. You must migrate using Option 2. 
+
+* **Azure Key Vault blocked** - Access to Azure Key Vault is required during migration but is blocked through NSG rules. You can migrate using Option 2. Or, after you update the NSG rules, you may be able to migrate using Option 1.
+
+* **Classic virtual network** - The API Management instance is currently deployed in a classic VNet. You can migrate using Option 2. Or, you have a new option in the portal for same-subnet migration with 1 hour of downtime. You can also use the following modified Azure CLI script for same-subnet migration:
+
+
+    ```azurecli
+    APIM_NAME={name of your API Management instance}
+    # In PowerShell, use the following syntax: $APIM_NAME={name of your API Management instance}
+    RG_NAME={name of your resource group} 
+    # Get resource ID of API Management instance
+    APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
+    # Call REST API to migrate to stv2 and preserve VIP address for special condition
+    az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2024-06-01-preview&migrateWithDowntime=true" --body '{"mode": "PreserveIP"}' 
+    ```
 
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 
