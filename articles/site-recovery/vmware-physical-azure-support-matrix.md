@@ -321,9 +321,10 @@ Azure virtual network service endpoints<br/> | Yes
 Accelerated networking | No
 
 ## Storage
+
 **Component** | **Supported**
 --- | ---
-Dynamic disk | OS disk must be a basic disk. <br/><br/>Data disks can be dynamic disks
+Dynamic disk | OS disk must be a basic disk. <br/><br/>Data disks can be dynamic disks. <br><br> Data disks can be spanned volumes.
 Docker disk configuration | No
 Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes

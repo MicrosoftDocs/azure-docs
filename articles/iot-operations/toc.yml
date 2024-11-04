@@ -61,12 +61,8 @@ items:
         href: manage-mqtt-broker/overview-iot-mq.md
       - name: Configure core MQTT broker settings
         href: manage-mqtt-broker/howto-configure-availability-scale.md
-      - name: Secure MQTT communication endpoints
+      - name: Configure MQTT broker listener
         href: manage-mqtt-broker/howto-configure-brokerlistener.md
-      - name: Configure automatic TLS
-        href: manage-mqtt-broker/howto-configure-tls-auto.md
-      - name: Configure manual TLS
-        href: manage-mqtt-broker/howto-configure-tls-manual.md
       - name: Configure authentication
         href: manage-mqtt-broker/howto-configure-authentication.md
       - name: Configure authorization
