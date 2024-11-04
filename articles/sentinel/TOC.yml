@@ -850,6 +850,7 @@
   - name: Data classification with entities
     items:
     - name: Overview
+      displayName: data classification, entities
       href: entities.md
     - name: Entity pages
       href: entity-pages.md
