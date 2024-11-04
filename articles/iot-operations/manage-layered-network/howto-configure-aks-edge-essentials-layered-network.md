@@ -20,9 +20,9 @@ This walkthrough is an example of deploying Azure IoT Operations to a special en
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following steps to get familiar with the basic concepts before you start this advanced scenario.
 > - [Deploy Azure IoT Layered Network Management to an AKS cluster](howto-deploy-aks-layered-network.md)
-> - [Deployment overview - Azure IoT Operations Preview](../deploy-iot-ops/overview-deploy.md)
-> - [Prepare your Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-prepare-cluster.md)
-> - [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+> - [Deployment overview - Azure IoT Operations](../deploy-iot-ops/overview-deploy.md)
+> - [Prepare your Kubernetes cluster - Azure IoT Operations](../deploy-iot-ops/howto-prepare-cluster.md)
+> - [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster - Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 >
 > You can't migrate a previously deployed Azure IoT Operations from its original network to an isolated network. For this scenario, follow the steps to begin with creating new clusters.
 
@@ -88,7 +88,7 @@ For more information, see [Access Kubernetes resources from Azure portal](/azure
 
 Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the cluster. All IoT Operations components are deployed to the level 3 cluster and connect to Arc through the Layered Network Management service. The data pipeline also routes through the Layered Network Management service.
 
-You can now follow the steps in [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster.
+You can now follow the steps in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster.
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
 

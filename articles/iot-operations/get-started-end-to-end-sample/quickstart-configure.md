@@ -13,7 +13,7 @@ ms.date: 10/17/2024
 
 # Quickstart: Configure your cluster
 
-In this quickstart, you configure the following resources in your Azure IoT Operations Preview cluster:
+In this quickstart, you configure the following resources in your Azure IoT Operations cluster:
 
 - An *asset endpoint* that defines a connection to a simulated OPC PLC server that simulates an oven in a bakery.
 - An *asset* that represents the oven and defines the data points that the oven exposes.
@@ -27,7 +27,7 @@ In this quickstart, you use a Bicep file to configure your Azure IoT Operations 
 
 ## Prerequisites
 
-Have an instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
+Have an instance of Azure IoT Operations deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
