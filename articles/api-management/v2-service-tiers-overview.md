@@ -27,8 +27,8 @@ The following v2 tier is in preview:
 
 * **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
 
-> [!NOTE]
-> The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
+    > [!NOTE]
+    > The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
 
 ## Key capabilities
 

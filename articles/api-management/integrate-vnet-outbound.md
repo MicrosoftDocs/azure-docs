@@ -12,9 +12,9 @@ ms.date: 10/16/2024
 
 [!INCLUDE [api-management-availability-standardv2-premiumv2](../../includes/api-management-availability-standardv2-premiumv2.md)] 
 
-This article guides you through the process of configuring *virtual network integration* for your Standard v2 or Premium v2 (preview) Azure API Management instance so that your instance can make outbound requests to API backends that are isolated in the network.
+This article guides you through the process of configuring *virtual network integration* for your Standard v2 or Premium v2 (preview) Azure API Management instance. With virtual network integration, your instance can make outbound requests to APIs hosted in a delegated subnet of a single connected virtual network.
 
-When an API Management instance is integrated with a virtual network for outbound requests, the gateway and developer portal endpoints remain publicly accessible. In this configuration, the API Management instance can reach both public and network-isolated backend services.
+When an API Management instance is integrated with a virtual network for outbound requests, the gateway and developer portal endpoints remain publicly accessible. The API Management instance can reach both public and network-isolated backend services.
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a virtual network for outbound traffic."  :::
 
