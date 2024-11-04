@@ -34,7 +34,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 | Term | Account type | Description |
 | --- | --- | --- |
-|AccountId|EA|Unique identifier for the EA enrollment account.|
+|AccountId|EA, pay-as-you-go|Unique identifier for the EA enrollment account.|
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
