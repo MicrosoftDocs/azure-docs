@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 11/04/2024
 ms.author: cshoe
 ---
 
@@ -44,7 +44,13 @@ The following items are required for you to use serverless GPUs in your workload
 
 ## Use consumption GPUs
 
-Select **enable GPU** checkbox. TODO:
+When you create a container app through the Azure portal, you can set up your container to use GPU resources.
+
+In the *Container* tab of the create process, set the following settings:
+
+1. Under the *Container resource allocation* section, check the **GPU** checkbox.
+
+1. For the *GPU Type**, select either the A100 or T4 option.
 
 ## Feedback
 
