@@ -284,6 +284,8 @@
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource
           href: troubleshoot-accepted-cluster-hydration.md
+        - name: Troubleshoot Out of Memory Pods
+          href: troubleshoot-memory-limits.md
         - name: BareMetal Actions
           expanded: false
           items:
