@@ -95,8 +95,8 @@ If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job 
 
 For more information, see:
 
-- SAP documentation: [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html)
-- [Optmize SAP PAHI table monitoring (recommended)](deploy-command-line.md#optmize-sap-pahi-table-monitoring-recommended)
+- SAP documentation: [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html)
+- [Optimize SAP PAHI table monitoring (recommended)](deploy-command-line.md#optimize-sap-pahi-table-monitoring-recommended)
 
 ## Configure your system to use SNC for secure connections
 

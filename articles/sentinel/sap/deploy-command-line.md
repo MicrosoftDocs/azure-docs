@@ -264,7 +264,7 @@ This procedure describes how to prepare the deployment script to configure setti
 
 For more information, see [Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent](reference-kickstart.md).
 
-## Optmize SAP PAHI table monitoring (recommended)
+## Optimize SAP PAHI table monitoring (recommended)
 
 For optimal results in monitoring the SAP PAHI table, open the **systemconfig.json** file for editing and under the `[ABAP Table Selector](reference-systemconfig-json.md#abap-table-selector)` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters.
 
