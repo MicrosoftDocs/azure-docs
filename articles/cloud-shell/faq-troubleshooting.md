@@ -125,7 +125,7 @@ command that requires elevated permissions.
 
 - **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
   request a terminal due to DNS resolution problems. This failure can be caused when you launch a
-  Cloud Shell session from a host in a network that has a private DNS Zone for the servicebus
+  Cloud Shell session from a host in a network that has a private DNS Zone for the `servicebus`
   domain. This error can also occur if you're using a private on-premises DNS server.
 
 - **Resolution**: You can add a DNS record for the Azure Relay instance that Cloud Shell uses.
@@ -192,20 +192,20 @@ command that requires elevated permissions.
 ### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
 
 
-- **Details**: In rare cases, Azure may detect fraudulent activity based on out-of-the-ordinary
-  resource consumption based on the payload being submitted from Cloud Shell. When this occurs,
-  Azure disables Cloud Shell at the tenant level and you see the following error message:
+- **Details**: In rare cases, Azure might flag out-of-the-ordinary resource consumption based in
+  from Cloud Shell as fraudulent activity. When this occurs, Azure disables Cloud Shell at the
+  tenant level and you see the following error message:
 
   > Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled","message":"Cloud Shell has
   > been disabled in directory<>."} Please refresh the page.
 
-  There can be legitimate use cases where CPU usage within your Azure Cloud Shell instances exceeds
-  the thresholds that trigger fraud prevention and block your tenant. Large AZCopy jobs could be
+  There can be legitimate use cases where CPU usage in your Azure Cloud Shell instance exceeds the
+  thresholds that trigger fraud prevention and block your tenant. Large AZCopy jobs could be the
   cause this event. The Microsoft Azure engineering team can help to figure out why the tenant was
-  disabled and reenable it, if required.
+  disabled and re-enable it.
 
-- **Resolution**: Open a new Microsoft Azure support request to investigate the cause and reenable
-  Cloud Shell for your tenant. Include the following details:
+- **Resolution**: To investigate the cause and re-enable Cloud Shell for your tenant, open a new
+  Azure support request. Include the following details:
 
   1. Tenant ID
   2. The business justification and a description of how you use Cloud Shell.
