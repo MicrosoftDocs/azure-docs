@@ -99,9 +99,9 @@ The behavior of public network access on PaaS resources according to the associa
 | **Association access mode** | **Not associated** | **Learning mode** | **Enforced mode** |
 |-----------------|-------------------|-----------------|-----------------|
 | **Public network access** |   |  |   |
-| Enabled | **Inbound:** Resource rules</br></br>**Outbound** Allowed | **Inbound:** Network security perimeter + Resource rules</br>**Outbound** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound** Network security perimeter rules |
-| Disabled | **Inbound:** Denied </br></br>**Outbound:** Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules |
-| SecuredByPerimeter | **Inbound:** Denied</br></br>**Outbound:** Denied |**Inbound:** Network security perimeter rules</br></br>**Outbound:** Network security perimeter rules | - **Inbound:** Network security perimeter rules</br>- **Outbound:** Network security perimeter rules |
+| **Enabled** | **Inbound:** Resource rules</br></br>**Outbound** Allowed | **Inbound:** Network security perimeter + Resource rules</br>**Outbound** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound** Network security perimeter rules |
+| **Disabled** | **Inbound:** Denied </br></br>**Outbound:** Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules + Allowed | **Inbound:** Network security perimeter rules</br>**Outbound:** Network security perimeter rules |
+| **SecuredByPerimeter** | **Inbound:** Denied</br></br>**Outbound:** Denied |**Inbound:** Network security perimeter rules</br></br>**Outbound:** Network security perimeter rules | - **Inbound:** Network security perimeter rules</br>- **Outbound:** Network security perimeter rules |
 
 ## Next steps
 
