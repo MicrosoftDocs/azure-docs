@@ -79,11 +79,11 @@ The following high level steps are required to enable tracing for a request to A
 1. Obtain a trace ID in the `Apim-Trace-Id` response header.
 1. Retrieve the trace corresponding to the trace ID.
 
-Detailed steps follow
+Detailed steps follow.
 
 > [!NOTE]
 > * These steps require API Management REST API version 2023-05-01-preview or later. You must be assigned the Contributor or higher role on the API Management instance to call the REST API.
-> * For information about authenticating to the REST API, see [](). If you want to test the REST APIs, use the "Try It" functionality in the API Management REST API.
+> * For information about authenticating to the REST API, see [Azure REST API reference](/rest/api/azure). 
 
 1. **Obtain a token credential** - Call the [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. Pass the gateway ID for a self-hosted gateway in the URI, or specify "managed" for the instance's managed gateway in the cloud. For example, to obtain trace credentials for the managed gateway, use a call similar to the following:
 
