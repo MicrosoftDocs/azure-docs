@@ -351,13 +351,13 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
 1. Select **Confirm selection** to validate the endpoint URL. 
 2. Select the **Filters** tab and provide the following information to the prompts:
 
-    | Setting      | Suggested value                                                             | Description                                                                                                                                                 |
-    | ------------ |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Enable subject filtering** | *Enabled*                                                                   | Enables filtering on which blobs can trigger the function.                                                                                                  |
-    | **Subject Begins With** | **`/blobServices/default/containers/<CONTAINER_NAME>/blobs/<BLOB_PREFIX>`** | Replace `<CONTAINER_NAME` and `<BLOB_PREFIX>` with values you choose. This sets the subscription to trigger only for blobs that start with `BLOB_PREFIX` and are in the `CONTAINER_NAME` container. |
-    | **Subject Ends With** | *.txt*                                                                      | Ensures that the function will only be triggered by blobs ending with `.txt`.                                                                               |
+    | Setting                      | Suggested value                                                             | Description                                                                                                                                                                                         |
+    |------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Enable subject filtering** | *Enabled*                                                                   | Enables filtering on which blobs can trigger the function.                                                                                                                                          |
+    | **Subject Begins With**      | **`/blobServices/default/containers/<CONTAINER_NAME>/blobs/<BLOB_PREFIX>`** | Replace `<CONTAINER_NAME` and `<BLOB_PREFIX>` with values you choose. This sets the subscription to trigger only for blobs that start with `BLOB_PREFIX` and are in the `CONTAINER_NAME` container. |
+    | **Subject Ends With**        | *.txt*                                                                      | Ensures that the function will only be triggered by blobs ending with `.txt`.                                                                                                                       |
 
-For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hub](https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#subject-filtering).
+For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hub](../event-grid/includes/event-filtering.md#subject-filtering).
 
 7. Select **Create** to create the event subscription.
 
@@ -393,6 +393,6 @@ Now that you uploaded a file to the **samples-workitems** container, the functio
 ## Next steps
 
 - [Working with blobs](storage-considerations.md#working-with-blobs)
-- [Connecting to Blob Storage using identity-based connections](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cextensionv5&pivots=programming-language-python#identity-based-connections)
+- [Connecting to Blob Storage using identity-based connections](../../includes/functions-storage-blob-connections.md#identity-based-connections)
 - [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)
