@@ -1449,7 +1449,7 @@ groups:
   - id: power-management
     title: Power management autoscaling
   - id: dynamic
-    title: Dynamic autoscaling
+    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods

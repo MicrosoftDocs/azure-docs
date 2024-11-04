@@ -11,29 +11,28 @@ ms.custom: references_regions, devx-track-azurepowershell, docs_inherited
 
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
-::: zone pivot="power-management"
-::: zone-end
-
-::: zone pivot="dynamic"
-::: zone-end
-
 > [!IMPORTANT]
-> Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The following features are currently in PREVIEW:
+> - Autoscale support for Azure Stack HCI with Azure Virtual Desktop 
+> - Dynamic autoscaling for automated pooled host pools with session host configuration.
+> - See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 
-To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+When using autoscale, you can choose from two different scaling methods: power management or dynamic. To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
 > [!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
-> - Autoscale is available in Azure and Azure Government.
+> - Power management autoscaling is available in Azure and Azure Government.
+> - Dynamic autoscaling is only available in Azure and is not supported in Azure Government.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
 ## Prerequisites
 
-To use scaling plans, make sure you follow these guidelines:
+::: zone pivot="power-management"
+To use a power management scaling plan, make sure you follow these guidelines:
 
 - Scaling plan configuration data must be stored in the same region as the host pool configuration. Deploying session host VMs is supported in all Azure regions.
 
@@ -43,20 +42,48 @@ To use scaling plans, make sure you follow these guidelines:
 
 - If you want to use personal desktop autoscale with hibernation, you'll need to enable the hibernation feature for VMs in your personal host pool. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For more information on using hibernation, including how hibernation works, limitations, and prerequisites, see [Hibernation for Azure virtual machines](/azure/virtual-machines/hibernate-resume).
 
-- If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+- If you're using PowerShell to create and assign your scaling plan, you'll need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
-- If you are [configuring a time limit policy](#configure-a-time-limit-policy), you will need: 
+- If you're [configuring a time limit policy](#configure-a-time-limit-policy), you'll need: 
     - For Intune: a Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role and a group containing the devices you want to configure.
     - For Group Policy: a domain account that has permission to create or edit Group Policy objects and a security group or organizational unit (OU) containing the devices you want to configure.
+::: zone-end
 
+::: zone pivot="dynamic"
+To use a dynamic scaling plan, make sure you follow these guidelines:
+
+- The dynamic autoscaling preview feature can only be used for [pooled host pools with session host configuration](deploy-azure-virtual-desktop.md#create-a-host-pool-with-a-session-host-configuration). If you want to apply an autoscaling plan to a standard host pool without session host configuration, you need to use the power management scaling method, which is already generally available.
+
+- You can't use dynamic scaling in conjunction with any other scaling script on the same host pool. You must use one or the other. 
+
+- Scaling plan configuration data must be stored in the same region as the host pool configuration. Deploying session host VMs is supported in all Azure regions.
+
+- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
+
+- You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
+
+- If you're using PowerShell to create and assign your scaling plan, you'll need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+::: zone-end
+
+::: zone pivot="power-management"
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
 Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
 To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+::: zone-end
+
+::: zone pivot="dynamic"
+## Assign the Desktop Virtualization Power On Off Contributor and Desktop Virtualization Virtual Machine Contributor roles with the Azure portal
+
+Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* and *Desktop Virtualization Virtual Machine Contributor* RBAC roles to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning these roles at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. These roles and assignments will allow Azure Virtual Desktop to manage the power state of any VMs and to create, delete, update, start, and stop any VMs in those subscriptions. They'll also let the service apply actions on both host pools and VMs when there are no active user sessions. 
+
+To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+::: zone-end
 
 ## Create a scaling plan
 
+::: zone pivot="power-management"
 ### [Azure portal](#tab/portal)
 
 Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan using the portal:
@@ -144,7 +171,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     
           - Start time, which is also the end of the ramp-down period.
           - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
-          - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
+          - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
     
     #### Personal host pools
     
@@ -325,10 +352,200 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
    ```
 
     
- You have now created a new scaling plan, 1 or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
+ You have now created a new scaling plan, one or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
+
+---
+::: zone-end
+
+::: zone pivot="dynamic"
+### [Azure portal](#tab/portal)
+
+Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a dynamic scaling plan. To create a dynamic scaling plan using the portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Scaling Plans**, then select **Create**.
+
+1. In the **Basics** tab, look under **Project details** and select the name of the subscription you'll assign the scaling plan to.
+
+1. If you want to make a new resource group, select **Create new**. If you want to use an existing resource group, select its name from the drop-down menu.
+
+1. Enter a name for the scaling plan into the **Name** field.
+
+1. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan.
+
+1. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. To learn more about regions, see [Data locations](data-locations.md).
+
+1. For **Time zone**, select the time zone you'll use with your plan.
+
+1. For **Host pool type**, select **Pooled**.  
+
+1. In **Exclusion tags**, enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, autoscale won't start, stop, or change the drain mode of those particular VMs.
+        
+    >[!NOTE]
+    >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
+    >- Make sure not to include any sensitive information in the exclusion tags such as user principal names or other personally identifiable information.
+
+1. For **Scaling method**, select **Dynamic autoscaling**.
+
+1. Select **Next**, which should take you to the **Schedules** tab. Schedules let you define when autoscale turns VMs on and off throughout the day. 
+
+1. Select **Add schedule**.
+    
+1. In the **General** tab, fill out the following fields:
+
+    - Enter a name for your schedule into the **Schedule name** field.
+    
+    - In the **Repeat on** field, select which days your schedule will repeat on.
+
+    - Define the virtual machine limit:
+
+        - **Minimum percentage of active hosts (%)**: The percentage of minimum number of running session host VMs based on the minimum host pool size that are always available. For example, if the minimum percentage of active hosts (%) is specified as 10 and the minimum host pool size is specified as 10, autoscale will ensure one session host is always available to take user connections. 
+
+        - **Minimum host pool size**: The number of session host VMs to always be part of the host pool. These session hosts can either be in a running state or a stopped state. 
+
+        - **Maximum host pool size**: The maximum number of running session host VMs that can be available. 
+    
+1. In the **Ramp up** tab, fill out the following fields:
+    
+    - For **Start time**, select a time from the drop-down menu to start preparing VMs for peak business hours.
+
+    - For **Load balancing algorithm**, we recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast.
+            
+            >[!NOTE]
+            >The load balancing preference you select here will override the one you selected for your original host pool settings.
+            
+    - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+
+    - You can modify the virtual machine limit parameters that you filled out in the **General** tab. We recommend having higher **Minimum percentage of active hosts (%)** and **Minimum host pool size** in the ramp-up phase, which will be carried over to the peak phase. 
+    
+1. In the **Peak hours** tab, fill out the following fields:
+    
+    - For **Start time**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for the ramp-up phase.
+    
+    - For **Load balancing algorithm**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
+    
+        > [!NOTE]
+        > You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
+    
+1. In the **Ramp-down** tab, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
+    
+    - Start time
+    - Load-balancing algorithm
+    - Capacity threshold (%)
+    - Force logoff users
+    - Minimum percentage of hosts (%)
+    
+        > [!IMPORTANT]
+        > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+        >    
+        > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
+        >
+        > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+    
+1. Likewise, **Off-peak hours** works the same way as **Peak hours**:
+    
+    - Start time, which is also the end of the ramp-down period.
+    - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
+    - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
+    
+1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to automated host pool(s) with session host configuration.
+
+    > [!NOTE]
+    > - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
+
+1. After that, you'll need to enter **tags**. Tags are name and value pairs that categorize resources for consolidated billing. You can apply the same tag to multiple resources and resource groups. To learn more about tagging resources, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+
+    > [!NOTE] 
+    > If you change resource settings on other tabs after creating tags, your tags will be automatically updated.
+
+1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
+
+### [Azure PowerShell](#tab/powershell)
+
+Here's how to create a dynamic scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to create a scaling plan and scaling plan schedule. Be sure to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Create a scaling plan for your pooled or personal host pool(s) using the [New-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/new-azwvdscalingplan) cmdlet:
+    
+    ```azurepowershell
+    $scalingPlanParams = @{
+        ResourceGroupName = '<resourceGroup>'
+        Name = '<scalingPlanName>'
+        Location = '<AzureRegion>'
+        Description = '<Scaling plan description>'
+        FriendlyName = '<Scaling plan friendly name>'
+        HostPoolType = '<Pooled>'
+        TimeZone = '<Time zone, such as Pacific Standard Time>'
+        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
+    }
+
+    $scalingPlan = New-AzWvdScalingPlan @scalingPlanParams
+    ``` 
+    
+
+3. Create a dynamic scaling plan schedule using the [New-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/new-azwvdscalingplanpooledschedule) cmdlet. This example creates a pooled scaling plan that runs on Monday through Friday, ramps up at 6:30 AM, starts peak hours at 8:30 AM, ramps down at 4:00 PM, and starts off-peak hours at 10:45 PM. 
+
+
+    ```azurepowershell
+    $scalingPlanPooledScheduleParams = @{
+        ResourceGroupName = 'resourceGroup'
+        ScalingPlanName = 'dynamicScalingPlan'
+        ScalingPlanScheduleName = 'dynamicAutoscalingSchedule1'
+        DaysOfWeek = 'Monday','Tuesday','Wednesday','Thursday','Friday'
+        RampUpStartTimeHour = '6'
+        RampUpStartTimeMinute = '30'
+        RampUpLoadBalancingAlgorithm = 'BreadthFirst'
+        RampUpMinimumHostsPct = '20'
+        RampUpCapacityThresholdPct = '20'
+        PeakStartTimeHour = '8'
+        PeakStartTimeMinute = '30'
+        PeakLoadBalancingAlgorithm = 'DepthFirst'
+        RampDownStartTimeHour = '16'
+        RampDownStartTimeMinute = '0'
+        RampDownLoadBalancingAlgorithm = 'BreadthFirst'
+        RampDownMinimumHostsPct = '20'
+        RampDownCapacityThresholdPct = '20'
+        RampDownForceLogoffUser = $true
+        RampDownWaitTimeMinute = '30'
+        RampDownNotificationMessage = 'Log out now, please.'
+        RampDownStopHostsWhen = 'ZeroSessions'
+        OffPeakStartTimeHour = '22'
+        OffPeakStartTimeMinute = '45'
+        OffPeakLoadBalancingAlgorithm = 'DepthFirst'
+        ScalingMethod = 'CreateDeleteDynamic'
+        CreateDeleteRampUpMaximumHostPoolSize = '10' 
+        CreateDeleteRampUpMinimumHostPoolSize = '5' 
+        CreateDeleteRampDownMaximumHostPoolSize = '5' 
+        CreateDeleteRampDownMinimumHostPoolSize = '1'  
+    }
+        
+    $scalingPlanPooledSchedule = New-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
+    ```
+    
+
+4. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
+
+   ```azurepowershell
+   $params = @{
+       ResourceGroupName = 'resourceGroup'
+       Name = 'scalingPlanPersonal'
+   }
+    
+   (Get-AzWvdScalingPlan @params).HostPoolReference | FL HostPoolArmPath,ScalingPlanEnabled
+   ```
+
+    
+ You have now created a new dynamic scaling plan, one or more schedules, assigned it to your automated pooled host pool(s), and enabled autoscale. 
 
 ---
 
+::: zone-end
+
+::: zone pivot="power-management"
 ## Configure a time limit policy
 
 You can configure a time limit policy that will sign out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity) using Microsoft Intune or Group Policy. Select the relevant tab for your scenario.
@@ -374,6 +591,8 @@ To configure a time limit policy using Group Policy:
 1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
 
 ---
+
+::: zone-end
 
 ## Edit an existing scaling plan
 
