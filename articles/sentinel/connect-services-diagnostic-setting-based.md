@@ -33,7 +33,7 @@ To ingest data into Microsoft Sentinel using diagnostic settings-based connector
   |---------|---------|
   |**Azure Activity**| This connector now uses the diagnostic settings pipeline. If you're using the legacy method, you must disconnect the existing subscriptions from the legacy method before setting up the new Azure Activity log connector.<br><br>1. From the Microsoft Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then select the **Open connector page** button on the lower right.<br>2. Under the **Instructions** tab, in the **Configuration** section, in step 1, review the list of your existing subscriptions that are connected to the legacy method, and disconnect them all at once by clicking the **Disconnect All** button below.<br>3. Continue setting up the new connector with the instructions in this section. |
   |**Azure DDoS Protection**|- Configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).<br>- Configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-for-a-new-virtual-network)<br>- Other charges may apply<br>- The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.|
-  |**Azure Storage Account**|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs. </br>When configuring diagnostics for a storage account, you must select and configure: <br><br>- The parent account resource, exporting the **Transaction** metric.<br>- Each of the child storage-type resources, exporting all the logs and metrics.<br><br>You will only see the storage types that you actually have defined resources for.|
+  |**Azure Storage Account**|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs. </br>When configuring diagnostics for a storage account, you must select and configure: <br><br>- The parent account resource, exporting the **Transaction** metric.<br>- Each of the child storage-type resources, exporting all the logs and metrics.<br><br>You'll only see the storage types that you actually have defined resources for.|
 
 ## Connect via a standalone diagnostic settings-based connector
 
@@ -53,7 +53,7 @@ This procedure describes how to connect to Microsoft Sentinel using data connect
 
 1. In the **Diagnostics settings** screen, enter a name in the **Diagnostic settings name** field.
 
-    Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Microsoft Sentinel resides).
+    Mark the **Send to Log Analytics** check box. Two new fields are displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Microsoft Sentinel resides).
 
 1. Mark the check boxes of the types of logs and metrics you want to collect. See our recommended choices for each resource type in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
@@ -73,7 +73,7 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
 
 1. In the **Configuration** section of the connector page, expand any expanders you see there and select the **Launch Azure Policy Assignment wizard** button.
 
-    The policy assignment wizard opens, ready to create a new policy, with a policy name pre-populated.
+    The policy assignment wizard opens, ready to create a new policy, with a policy name prepopulated.
 
     1. In the **Basics** tab, select the button with the three dots under **Scope** to choose your subscription (and, optionally, a resource group). You can also add a description.
 
@@ -81,13 +81,13 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
        - Clear the **Only show parameters that require input** check box.
        - If you see **Effect** and **Setting name** fields, leave them as is.
        - Choose your Microsoft Sentinel workspace from the **Log Analytics workspace** drop-down list.
-       - The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
+       - The remaining drop-down fields represent the available diagnostic log types. Leave marked as *True* all the log types you want to ingest.
 
     1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
     1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
-With this type of data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
+With this type of data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) shows as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector shows as being disconnected. The moment more data comes through, the *connected* status returns.
 
 You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page. For more information, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD) in the Azure Monitor documentation.
 
