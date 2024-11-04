@@ -19,7 +19,7 @@ Using the **Email Report** feature available in Backup Reports, you can create a
 
 To configure email tasks via Backup Reports, perform the following steps:
 
-1.	Go to **Backup Center** > **Backup Reports** and click on the **Email Report** tab.
+1.	Go to **Business Continuity Center** > **Backup Reports** and click on the **Email Report** tab.
 2.	Create a task by specifying the following information:
     * **Task Details** - The name of the logic app to be created, and the subscription, resource group, and location in which it should be created. Note that the logic app can query data across multiple subscriptions, resource groups, and locations (as selected in the Report Filters section), but is created in the context of a single subscription, resource group and location.
     * **Data To Export** - The tab which you wish to export. You can either create a single task app per tab, or email all tabs using a single task, by selecting the **All Tabs** option.

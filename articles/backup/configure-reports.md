@@ -46,7 +46,7 @@ To set up a Log Analytics workspace, see [Create a Log Analytics workspace in th
 
 By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure).
 
-### 2. Configure diagnostics settings for your vaults
+### 2. Configure diagnostics settings to send data to Log Analytics
 
 Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. To configure diagnostics settings for your vaults, follow these steps:
 
@@ -70,6 +70,10 @@ In the monitoring section of your Backup vault, select **Diagnostics settings** 
 
 > [!NOTE]
 > After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
+
+#### Configure appropriate data retention to store historical data
+
+Learn [how to configure data retention to store historical data for the required duration](/troubleshoot/azure/azure-monitor/log-analytics/billing/configure-data-retention#configure-retention-for-a-log-analytics-table).
 
 #### 3. View reports in the Azure portal
 
@@ -178,21 +182,24 @@ Using the **Email Report** feature available in Backup Reports, you can create a
 
 Once the logic app is created, you'll need to authorize connections to Azure Monitor Logs and Office 365. To do this, navigate to **Logic Apps** in the Azure portal and search for the name of the task you've created. Selecting the **API connections** menu item opens up the list of API connections that you need to authorize. [Learn more about how to configure emails and troubleshoot issues](backup-reports-email.md).
 
-###### Customize Azure Backup reports
+## Other reports
+This section lists the other available reports.
+
+### Customize Azure Backup reports
 
 Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in the Log Analytics, and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
 
 To create your own reporting workbooks using Backup Reports as a base, you can go to **Backup Reports**, click **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) to learn more about how to create custom reports. 
 
-## Export to Excel
+### Export to Excel
 
 Select the down arrow button in the upper right of any widget, like a table or chart, to export the contents of that widget as an Excel sheet as-is with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by using the **Rows Per Page** drop-down arrow at the top of each grid.
 
-## Pin to dashboard
+### Pin to dashboard
 
 Select the pin button at the top of each widget to pin the widget to your Azure portal dashboard. This feature helps you create customized dashboards tailored to display the most important information that you need.
 
-## Cross-tenant reports
+### Cross-tenant reports
 
 If you use [Azure Lighthouse](/azure/lighthouse/) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multi-tenanted reports.
 
@@ -208,11 +215,11 @@ If you use [Azure Lighthouse](/azure/lighthouse/) with delegated access to subsc
 - If the selected time range spans a period of 30 days of less, charts are rendered in daily view, where there is one data point for every day. If the time range spans a period greater than 30 days and less than (or equal to) 90 days, charts are rendered in weekly view. For larger time ranges, charts are rendered in monthly view. Aggregating data weekly or monthly helps in better performance of queries and easier readability of data in charts.
 - The Policy Adherence grids also follow a similar aggregation logic as described above. However, there are a couple of minor differences. The first difference is that for items with weekly backup policy, there is no daily view (only weekly and monthly views are available). Further, in the grids for items with weekly backup policy, a 'month' is considered as a 4-week period (28 days), and not 30 days, to eliminate partial weeks from consideration.
 
-## How to troubleshoot?
+## Performance of reports
 
 If you observe data discrepancy issues in Backup Reports, perform these preliminary checks:
 
-1. Ensure that all vaults are sending the required [diagnostics logs to the Log Analytics workspace](#2-configure-diagnostics-settings-for-your-vaults).
+1. Ensure that all vaults are sending the required [diagnostics logs to the Log Analytics workspace](#2-configure-diagnostics-settings-to-send-data-to-log-analytics).
 1. Ensure that you've selected right filters in Backup Reports.
 1. Review the following limits in Backup Reports:
 
@@ -226,7 +233,7 @@ If you observe data discrepancy issues in Backup Reports, perform these prelimin
 
 If none of the above explains the data seen in the report, please contact Microsoft Support.
 
-## Query load times
+### Query load times
 
 The widgets in the Backup report are powered by Kusto queries, which run on the user's Log Analytics workspaces. These queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights. As a result, the widgets might not load instantaneously when the user views reports across a large backup estate. This table provides a rough estimate of the time that different widgets can take to load, based on the number of Backup items and the time range for which the report is being viewed.
 
