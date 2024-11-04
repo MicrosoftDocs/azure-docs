@@ -259,7 +259,7 @@ Fetch the Azure Resource Manager ID (Azure Resource Manager ID) of PostgreSQL - 
 The following example uses bash.
 
 ```azurecli
-ossId="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex"
+ossId="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex"
 ```
 
 #### Backup vault
@@ -286,9 +286,9 @@ az dataprotection backup-instance create --resource-group testBkpVaultRG --vault
 You have to specify a retention rule while you trigger backup. To view the retention rules in policy, navigate through the policy JSON file for retention rules. In the following example, there are two retention rules with names **Default** and **Monthly**. We use the **Monthly** rule for the on-demand backup.
 
 ```azurecli
-az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 --subscription e3d2d341-4ddb-4c5d-9121-69b7e719485e --name osspol5
+az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 --subscription eaaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e --name osspol5
 {
-  "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/resourceGroups/ossdemorg/providers/Microsoft.DataProtection/backupVaults/ossdemovault-1/backupPolicies/osspol5",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ossdemorg/providers/Microsoft.DataProtection/backupVaults/ossdemovault-1/backupPolicies/osspol5",
   "name": "osspol5",
   "properties": {
     "datasourceTypes": [
