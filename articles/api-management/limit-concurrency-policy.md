@@ -16,7 +16,7 @@ ms.author: danlep
 
 The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. When that number is exceeded, new requests will fail immediately with the `429` Too Many Requests status code.
 
-[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)] The limit enforced by API Management may be lower when multiple capacity units are deployed in a region.
+[!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)] > The limit enforced by API Management may be lower when multiple capacity units are deployed in a region.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
