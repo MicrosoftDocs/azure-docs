@@ -678,8 +678,6 @@
         items:  
         - name: Using Azure Monitor alerts
           href: move-to-azure-monitor-alerts.md    
-        - name: Using Backup Explorer
-          href: monitor-azure-backup-with-backup-explorer.md
   - name: Reports
     items:
     - name: Configure Azure Backup reports
@@ -698,6 +696,8 @@
         href: backup-azure-reports-data-model.md
       - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
         href: backup-azure-diagnostics-mode-data-model.md
+    - name: Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md        
   - name: Automation
     items:
     - name: Overview
