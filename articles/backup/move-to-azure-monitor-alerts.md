@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 
 # Switch to Azure Monitor based alerts for Azure Backup
 
-Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you move to Azure Monitor alerts.
+Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you move to Azure Monitor alerts.
 
 ## Backup alerts in Recovery Services vault
 

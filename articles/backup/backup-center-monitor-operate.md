@@ -132,7 +132,7 @@ Currently, the following types of alerts are displayed in Backup center:
 
 >[!NOTE]
 >- Currently, Backup center displays only alerts for Azure-based workloads. To view alerts for on-premises resources, go to the Recovery Services vault and click **Alerts** from the menu.
->- Backup center displays only Azure Monitor alerts. Alerts raised by the older alerting solution (accessed under the [Backup Alerts](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) aren't displayed in Backup center.
+>- Backup center displays only Azure Monitor alerts. Alerts raised by the older alerting solution (accessed under the [Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) aren't displayed in Backup center.
 
 For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
 

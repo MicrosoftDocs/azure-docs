@@ -369,7 +369,7 @@ You can change the state of an alert to **Acknowledged** or **Closed** by select
 
 > [!NOTE]
 > - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
-> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
+> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
 > - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ## Configure notifications for alerts
