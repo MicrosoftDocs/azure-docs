@@ -39,6 +39,7 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * POSIX tarball archive
 * UBI erase count header
 * UBI file system superblock node
+* UEFI file system
 * xz compressed data
 * YAFFS filesystem, big endian
 * YAFFS filesystem, little endian
