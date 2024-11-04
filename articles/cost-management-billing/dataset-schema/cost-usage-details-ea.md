@@ -76,7 +76,7 @@ The following information lists the cost and usage details (formerly known as us
 | 54 |benefitId|  .|
 | 55 |benefitName|  .|
 |56|AccountId|Unique identifier for the EA enrollment account|
-|57|ResourceLocationNormalized||
+|57|ResourceLocationNormalized|Standardized format of the datacenter location where the resource is running|
 
 ## Version 2023-12-01-preview
 
