@@ -17,6 +17,10 @@ Each DNS record has a name and a type. Records are organized into various types 
 
 Azure DNS supports all common DNS record types: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT. Note that [SPF records are represented using TXT records](../articles/dns/dns-zones-records.md#spf-records).
 
+Additional record types are supported if the zone is signed with DNS Security Extensions ([DNSSEC](/azure/dns/dnssec)), such as Delegation Signer (DS) and Transport Layer Security Authentication (TLSA) resource records. 
+
+DNSSEC resource record types such as DNSKEY, RRSIG and NSEC3 records are added automatically when a zone is signed with DNSSEC. These types of DNSSEC resource records can't be created or modified after zone signing.
+
 ### Record sets
 
 Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the 'www.contoso.com' web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. Here is an example of a record set:

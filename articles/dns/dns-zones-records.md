@@ -102,6 +102,16 @@ When calling the Azure DNS REST API, you need to specify each TXT string separat
 
 The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters in each TXT record set (across all records combined).
 
+### DS records
+
+The delegation signer (DS) record is a [DNSSEC](dnssec.md) resource record type that is used to secure a delegation. To create a DS record in a zone, the zone must first be signed with DNSSEC.
+
+### TLSA records
+
+A TLSA (Transport Layer Security Authentication) record is used to associate a TLS server certificate or public key with the domain name where the record is found. A TLSA record links the public key (a TLS server certificate) to the domain name, providing an additional layer of security for TLS connections. 
+
+To use TLSA records effectively, [DNSSEC](dnssec.md) must be enabled on your domain. This ensures that the TLSA records can be trusted and properly validated
+
 ## Tags and metadata
 
 ### Tags
