@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: conceptual
-ms.date: 10/30/2024
+ms.date: 11/04/2024
 # customer intent: As a network administrator, I want to know the Azure role-based access control permissions required to use network security perimeter capabilities, so that I can assign the correct permissions to my team members.
 ---
 

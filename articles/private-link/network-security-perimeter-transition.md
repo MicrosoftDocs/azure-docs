@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 09/16/2024
+ms.date: 11/04/2024
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 ---
 

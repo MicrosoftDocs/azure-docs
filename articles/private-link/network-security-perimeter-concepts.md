@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 10/30/2024
+ms.date: 11/04/2024
 ms.custom: references_regions
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
@@ -90,13 +90,14 @@ A Network Security Perimeter aware private-link resource is a PaaS resource that
 
 | Private-link resource name | Resource type | Resources |
 |---------------------------|---------------|-----------|
-| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints<br>Microsoft.Insights/ScheduledQueryRules<br>Microsoft.Insights/actionGroups<br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
+| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints<br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
 | Azure AI Search          | Microsoft.Search/searchServices | - |
 | Cosmos DB                | Microsoft.DocumentDB/databaseAccounts | - |
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
 | Key Vault                 | Microsoft.KeyVault/vaults | - |
 | SQL DB                    | Microsoft.Sql/servers | - |
 | Storage                   | Microsoft.Storage/storageAccounts | - |
+| Event Grid | Microsoft.EventGrid/topics</br>Microsoft.EventGrid/domains |	- |
 
 
 ## Limitations of network security perimeter
