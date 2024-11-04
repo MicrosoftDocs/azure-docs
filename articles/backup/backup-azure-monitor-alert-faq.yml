@@ -28,7 +28,7 @@ sections:
       - question: |
           Are there any costs for using custom alerts (log analytics/ ARG/ activity logs/metrics) for Azure Backup?
         answer: |
-          For [custom alerts](move-to-azure-monitor-alerts.md#supported-alerting-solutions), in addition to the notification costs described above, there is also a cost per alert rule. The cost of the alert rule varies in proportion to the number of dimensions selected as part of the alert rule. [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).  
+          For [custom alerts](backup-azure-monitoring-alerts.md#supported-alerting-solutions), in addition to the notification costs described above, there is also a cost per alert rule. The cost of the alert rule varies in proportion to the number of dimensions selected as part of the alert rule. [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).  
 
       - question: |
           Are there any costs for using metric alerts for Azure Backup?
