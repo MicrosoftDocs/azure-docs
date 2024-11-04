@@ -40,12 +40,16 @@ sections:
           - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
           - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+      - question: Can an organization with year founded of less than 3 years onboard as an individual developer?
+        answer: | 
+          - Yes. The certificate will be issued to you as and individual instead of your organization, if that meets your needs and unblocks you in the meantime.
+      - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
+        answer: | 
+          - If you see the error below, this is because the email address entered during the individual identity validation is different from the one being used to login in to access the link. Make sure both the email addresses match.  
+          :::image type="content" source="media/trusted-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/trusted-signing-indie-validation-email-mismatch.png":::
       - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
         answer: | 
           	Be sure to use a government issued ID with address on it, in order to successfully go through the process.
-      - question: For Individual identity validation, I see an error - "You do not have permission to access this page".
-        answer: | 
-          	Verify you are using the same email address to access the Identity Validation link, that you entered in the Identity Validation request.
       - question: What if I already have a VID?
         answer: | 
           	Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
