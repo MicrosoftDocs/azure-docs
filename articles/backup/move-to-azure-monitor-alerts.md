@@ -13,23 +13,6 @@ ms.custom: engagement-fy24
 
 Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you move to Azure Monitor alerts.
 
-
-## Supported alerting solutions
-
-Azure Backup now supports different kinds of Azure Monitor based alerting solutions. You can use a combination of any of these based on your specific requirements. 
-
-The following table lists some of these solutions:
-
-| Alert | Description |
-| --- | --- |
-| **Built-in Azure Monitor alerts** | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and so on. You can view these alerts out of the box via Backup center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
-| **Metric alerts** | You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs. |
-| **Log Alerts** | If you've scenarios where an alert needs to be generated based on custom logic, you can use Log Analytics based alerts for such scenarios, provided you've configured your vaults to send diagnostics data to a Log Analytics (LA) workspace. |
-
-Learn more about [monitoring solutions supported by Azure Backup](monitoring-and-alerts-overview.md).<br><br>
-
-> [!VIDEO https://www.youtube.com/embed/3zzWxWJGWPg]
-
 ## Migrate from classic alerts to built-in Azure Monitor alerts
 
 Among the different Azure Monitor based alert solutions, built-in Azure Monitor alerts come closest to classic alerts as per user experience and functionality. So, to quickly switch from classic alerts to Azure Monitor, you can use built-in Azure Monitor alerts.
