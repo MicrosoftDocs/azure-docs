@@ -292,7 +292,7 @@ This release can be installed with as an update on top of release 2.0.2847-158. 
 
 ### Release Highlights
 #### Cluster registry garbage collection automation
-This version expands the cluster registry garbage collection feature set to include automatic cleanup. A background job runs to regularly clean up container images. The job schedule, how frequently each day the jobs runs, and the threshold condition to trigger cleanup is configured by end-user.
+This version expands the cluster registry garbage collection feature set to include automatic cleanup. A background job runs to regularly clean up container images. The job schedule, how frequently each day the jobs runs, and the threshold condition to trigger cleanup, expressed as percent capacity available, is configured by end-user. By default, the job will run once per day at a 0% threshold.
 
 #### Cluster registry garbage collection reliability
 This version expands the cluster registry garbage collection feature set to enhance reliability. A background job runs to reconcile the health of the registry. If the job finds any imagfes required by a pod are not available in the registry, they are automatically downloaded.
