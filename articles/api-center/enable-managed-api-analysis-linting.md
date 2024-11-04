@@ -30,9 +30,9 @@ In this scenario:
 * Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
 * By default, you enable analysis with the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To learn more about the built-in rules, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
-* The following are limits for maximum number of API definitions analyzed:
-    * Free tier: 10
-    * Standard tier: 200 per 24 hours
+* The following are limits for maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
+    * Free plan: 10
+    * Standard plan: 2,000
 
 ## Prerequisites
 
