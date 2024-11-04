@@ -42,9 +42,9 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, firs
 
 ### Create an Azure Bot Service resource
 
-First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).  Communication Services Chat channel supports single-tenant bots, managed identity bots, and multi-tenant bots. 
+First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).  Communication Services Chat channel supports single-tenant bots, managed identity bots, and multitenant bots. 
 
-- For the purposes of this quickstart we will use a `multi-tenant` bot. 
+- For the purposes of this quickstart we will use a `multitenant` bot. 
 - To set up a `single-tenant` or `managed identity` bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
 - For a `managed identity` bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
@@ -119,7 +119,7 @@ The final step to create a bot is to deploy the web app. For this quickstart, us
       }
     ```
 
-   Next, use Visual Studio or VScode for C# bots to deploy the bot.
+   Next, use Visual Studio or VS Code for C# bots to deploy the bot.
 
    You also can use a Command Prompt window to [deploy an Azure bot](/azure/bot-service/provision-and-publish-a-bot?tabs=userassigned%2Ccsharp). 
 
