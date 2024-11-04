@@ -138,4 +138,4 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 [18]: https://learn.microsoft.com/azure/update-manager/periodic-assessment-at-scale
 [19]: https://learn.microsoft.com/azure/update-manager/overview
 [20]: https://learn.microsoft.com/azure/automation/policy-reference
-[21]: https://learn.microsoft.com/en-us/azure/automation/overview
+[21]: https://learn.microsoft.com/azure/automation/overview
