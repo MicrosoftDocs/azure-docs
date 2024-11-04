@@ -40,7 +40,7 @@ The following table describes the most common use cases for deploying Confidenti
 
 ## How Confidential Containers work
 
-Confidential Containers is a feature of Red Hat OpenShift sandboxed containers, which provide an isolated environment for running containerized applications. At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
+Confidential Containers is a feature of Red Hat OpenShift sandboxed containers, which provide an isolated environment for running containerized applications. The core of Confidential Containers is the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
 
 Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. Once a Confidential Containers workload is created, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, providing a secure and isolated environment for your sensitive data.
 
@@ -70,7 +70,7 @@ The Confidential Compute Attestation Operator, an integral component of the Azur
 
 ### A Unified perspective
 
-A typical Confidential Containers deployment involves Azure Red Hat OpenShift working in conjunction with the Confidential Compute Attestation Operator deployed in a separate, trusted environment. The workload is executed within a CVM operating inside a TEE, benefiting from the encrypted memory and integrity guarantees provided by the TEE. Trustee agents residing within the CVM perform attestation and acquire requisite secrets, safeguarding the security and confidentiality of your data.
+A typical Confidential Containers deployment involves Azure Red Hat OpenShift working with the Confidential Compute Attestation Operator deployed in a separate, trusted environment. The workload is executed within a CVM operating inside a TEE, benefiting from the encrypted memory and integrity guarantees provided by the TEE. Trustee agents residing within the CVM perform attestation and acquire requisite secrets, safeguarding the security and confidentiality of your data.
 
 ## Next steps
 
