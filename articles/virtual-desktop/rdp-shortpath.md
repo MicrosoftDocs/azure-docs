@@ -31,7 +31,7 @@ RDP Shortpath can be used in two ways:
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> RDP Shortpath for public networks via TURN for Azure Virtual Desktop is available in the Azure public cloud and Azure Government cloud.
+> RDP Shortpath for public networks via STUN for Azure Virtual Desktop is available in the Azure public cloud and Azure Government cloud.
 
 ## Key benefits
 
