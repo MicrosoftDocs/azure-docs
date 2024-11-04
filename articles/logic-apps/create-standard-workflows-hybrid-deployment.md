@@ -31,13 +31,12 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 - The following capabilities currently aren't available in this preview release:
 
-  - The action named **Call local function in this logic app** for running C# .NET Framework code
-  - SAP access through the SAP built-in connector
-  - XSLT 1.0 for custom code
-  - Custom code support with .NET Framework
   - Managed identity authentication
+  - SAP access through the SAP built-in connector
+  - C# custom code with .NET Framework and the built-in action named **Call local function in this logic app**
+  - XSLT 1.0 for custom code
 
-- Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
+  Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
 
 - Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
 
