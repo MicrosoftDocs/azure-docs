@@ -22,7 +22,6 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
   * An Azure IoT Operations instance
   * Arc extensions
   * Custom locations
-  * Resource sync rules
   * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
 * An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
@@ -257,7 +256,9 @@ After the deployment is complete, use [az iot ops check](/cli/azure/iot/ops#az-i
 az iot ops check
 ```
 
-You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
+The `check` command displays a warning about missing dataflows, which is normal and expected until you create a dataflow. For more information, see [Process and route data with dataflows](../connect-to-cloud/overview-dataflow.md).
+
+You can check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter to the `check` command for a verbose view.
 
 ## Next steps
 
