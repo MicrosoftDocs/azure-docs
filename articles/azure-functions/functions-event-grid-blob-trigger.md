@@ -71,86 +71,87 @@ When you create a Blob Storage trigger function using Visual Studio Code, you al
 
    Don't choose a project folder that's already part of a workspace. 
 
-1. At the prompts, provide the following information:
+   1. At the prompts, provide the following information:
 
-    ::: zone pivot="programming-language-csharp"
-    |Prompt|Action|
-    |--|--|
-    |**Select a language**| Select `C#`. |
-    |**Select a .NET runtime**| Select `.NET 8.0 Isolated LTS`. |
-    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
-    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
-    |**Provide a namespace** | Enter `My.Functions`. |
-    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
-    |**Select subscription**| Select your subscription.|
-    |**Select a storage account**| Use Azurite emulator for local storage. |
-    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
-    ::: zone pivot="programming-language-python"
-    |Prompt|Action|
-    |--|--| 
-    |**Select a language**| Select `Python`. |
-    |**Select a Python interpreter to create a virtual environment**| Select your preferred Python interpreter. If an option isn't shown, enter the full path to your Python binary. |
-    |**Select a template for your project's first function**| Select `Blob trigger`. |
-    |**Select a Python programming model**| Select `V2 Programming Model`. |**Provide a function name**| Enter `blob_trigger_event_grid`. |
-    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
-    |**Select subscription**| Select your subscription.|
-    |**Select a storage account**| Use Azurite emulator for local storage. |
-    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
-    ::: zone pivot="programming-language-java"
-    |Prompt|Action|
-    |--|--|
-    |**Select a language**| Select `Java`. |
-    |**Select a version of Java**| Select `Java 11` or `Java 8`, the Java version on which your functions run in Azure and that you've locally verified. |
-    | **Provide a group ID** | Select `com.function`. |
-    | **Provide an artifact ID** | Select `BlobTriggerEventGrid`. |
-    | **Provide a version** | Select `1.0-SNAPSHOT`. |
-    | **Provide a package name** | Select `com.function`. |
-    | **Provide an app name** | Accept the generated name starting with `BlobTriggerEventGrid`. |
-    | **Select the build tool for Java project** | Select `Maven`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
-    ::: zone pivot="programming-language-typescript"
-    |Prompt|Action|
-    |--|--|
-    |**Select a language for your function project**| Select `TypeScript`. |
-    |**Select a TypeScript programming model**| Select `Model V4`. |
-    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
-    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
-    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
-    |**Select subscription**| Select your subscription.|
-    |**Select a storage account**| Use Azurite emulator for local storage. |
-    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    |Prompt|Action|
-    |--|--|
-    |**Select a language for your function project**| Select `JavaScript`. |
-    |**Select a JavaScript programming model**| Select `Model V4`. |
-    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
-    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
-    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
-    |**Select subscription**| Select your subscription.|
-    |**Select a storage account**| Use Azurite emulator for local storage. |
-    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
-    |Prompt|Action|
-    |--|--|
-    |**Select a language for your function project**| Select `PowerShell`. |
-    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
-    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
-    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
-    |**Select subscription**| Select your subscription.|
-    |**Select a storage account**| Use Azurite emulator for local storage. |
-    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Open in current window`. |
-    ::: zone-end
+       ::: zone pivot="programming-language-csharp"
+       |Prompt|Action|
+       |--|--|
+       |**Select a language**| Select `C#`. |
+       |**Select a .NET runtime**| Select `.NET 8.0 Isolated LTS`. |
+       |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
+       |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+       |**Provide a namespace** | Enter `My.Functions`. |
+       |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+       |**Select subscription**| Select your subscription.|
+       |**Select a storage account**| Use Azurite emulator for local storage. |
+       |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
+       ::: zone pivot="programming-language-python"
+       |Prompt|Action|
+       |--|--| 
+       |**Select a language**| Select `Python`. |
+       |**Select a Python interpreter to create a virtual environment**| Select your preferred Python interpreter. If an option isn't shown, enter the full path to your Python binary. |
+       |**Select a template for your project's first function**| Select `Blob trigger`. |
+       |**Select a Python programming model**| Select `V2 Programming Model`. |
+       |**Provide a function name**| Enter `blob_trigger_event_grid`. |
+       |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+       |**Select subscription**| Select your subscription.|
+       |**Select a storage account**| Use Azurite emulator for local storage. |
+       |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
+       ::: zone pivot="programming-language-java"
+       |Prompt|Action|
+       |--|--|
+       |**Select a language**| Select `Java`. |
+       |**Select a version of Java**| Select `Java 11` or `Java 8`, the Java version on which your functions run in Azure and that you've locally verified. |
+       | **Provide a group ID** | Select `com.function`. |
+       | **Provide an artifact ID** | Select `BlobTriggerEventGrid`. |
+       | **Provide a version** | Select `1.0-SNAPSHOT`. |
+       | **Provide a package name** | Select `com.function`. |
+       | **Provide an app name** | Accept the generated name starting with `BlobTriggerEventGrid`. |
+       | **Select the build tool for Java project** | Select `Maven`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
+       ::: zone pivot="programming-language-typescript"
+       |Prompt|Action|
+       |--|--|
+       |**Select a language for your function project**| Select `TypeScript`. |
+       |**Select a TypeScript programming model**| Select `Model V4`. |
+       |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
+       |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+       |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+       |**Select subscription**| Select your subscription.|
+       |**Select a storage account**| Use Azurite emulator for local storage. |
+       |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
+       ::: zone pivot="programming-language-javascript"
+       |Prompt|Action|
+       |--|--|
+       |**Select a language for your function project**| Select `JavaScript`. |
+       |**Select a JavaScript programming model**| Select `Model V4`. |
+       |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
+       |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+       |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+       |**Select subscription**| Select your subscription.|
+       |**Select a storage account**| Use Azurite emulator for local storage. |
+       |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
+       ::: zone pivot="programming-language-powershell"
+       |Prompt|Action|
+       |--|--|
+       |**Select a language for your function project**| Select `PowerShell`. |
+       |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
+       |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+       |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+       |**Select subscription**| Select your subscription.|
+       |**Select a storage account**| Use Azurite emulator for local storage. |
+       |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+       |**Select how you would like to open your project**| Select `Open in current window`. |
+       ::: zone-end
 
 ::: zone pivot="programming-language-python"  
 ## Add EventGrid Source
