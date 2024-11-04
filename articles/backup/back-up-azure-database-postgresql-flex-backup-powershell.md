@@ -39,7 +39,7 @@ New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName Tes
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault
 $TestBKPVault | fl
 ETag                :
-Id                  : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault
+Id                  : /subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault
 Identity            : Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api20210201Preview.DppIdentityDetails
 IdentityPrincipalId :
 IdentityTenantId    :
@@ -203,7 +203,7 @@ Once the vault and policy are created, there are three critical points that you 
 Fetch the Azure Resource Manager ID (Azure Resource Manager ID) of PostgreSQL - flexible server to be protected. This ID serves as the identifier of the database server. We use an example of PostgreSQL - flexible server **testpgflex**, which is present in the resource group **ossrg** under a different subscription.
 
 ```azurepowershell
-$ossId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex
+$ossId = "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex
 
 #### Backup vault
 
