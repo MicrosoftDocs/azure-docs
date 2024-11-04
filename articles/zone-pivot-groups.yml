@@ -1019,10 +1019,10 @@ groups:
   title: CI/CD system
   prompt: Select a CI/CD system
   pivots:
-  - id: azure-pipelines
-    title: Azure Pipelines
   - id: github-actions
     title: GitHub Actions
+  - id: azure-pipelines
+    title: Azure Pipelines
 # Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
