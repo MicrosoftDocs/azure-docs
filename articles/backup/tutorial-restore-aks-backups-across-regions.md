@@ -2,19 +2,17 @@
 title: Tutorial - Enable Vault Tier protection for Azure Kubernetes Cluster (AKS) clusters and restore backups in secondary region using Azure Backup
 description: Learn how to enable Vault Tier protection for AKS clusters and restore backups in secondary region using Azure Backup.
 ms.topic: tutorial
-ms.date: 12/25/2023
+ms.date: 11/04/2023
 ms.service: azure-backup
-ms.custom:
-  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Enable Vault Tier backups for AKS and restore across regions by using Azure Backup (preview)
+# Tutorial: Enable Vault Tier backups for AKS and restore across regions by using Azure Backup
 
 This tutorial describes how to create backups for an AKS cluster stored in the Secondary Region (Azure Paired region). Then perform a Cross Region Restore to recover the AKS Cluster during regional disaster.
 
-Azure Backup allows you to store AKS cluster backups in both **Operational Tier as snapshot** and **Vault Tier as blobs** (preview). This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. Additionally, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
+Azure Backup allows you to store AKS cluster backups in both **Operational Tier as snapshot** and **Vault Tier as blobs**. This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. Additionally, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
 
 ## Consideration
 
@@ -24,7 +22,7 @@ For backups to be available in Secondary region (Azure Paired Region), [create a
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-cross-region-restore.png" alt-text="Screenshot shows how to enable the Cross Region Restore parameter.":::
 
-## Configure Vault Tier backup (preview)
+## Configure Vault Tier backup
 
 To use AKS backup for regional disaster recovery, store the backups in Vault Tier. You can enable this capability by [creating a backup policy](azure-kubernetes-service-cluster-backup.md#create-a-backup-policy) with retention policy set for Vault-standard datastore.
 
@@ -54,7 +52,7 @@ To set the retention policy in a backup policy, follow these steps:
 With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore that can be used when during regional outage.
 
 
-## Restore in secondary region (preview)
+## Restore in secondary region
 
 If there is an outage in the primary region, you can use the recovery points stored in Vault Tier in the secondary region to restore the AKS cluster.
 Follow these steps:

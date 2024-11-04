@@ -2,10 +2,8 @@
 title: "Quickstart: Configure an Azure Kubernetes Services cluster backup"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use Azure Backup to back up specific items in the cluster.
 ms.topic: quickstart
-ms.date: 10/01/2024
+ms.date: 11/04/2024
 ms.service: azure-backup
-ms.custom:
-  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -36,9 +34,6 @@ The Backup vault communicates with the cluster via the Backup extension to compl
     The Backup vault must have Trusted Access enabled for the AKS cluster that you want to back up. To enable Trusted Access, select **Grant permission**. If it's already enabled, select **Next**.
 
     :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
-
-   > [!NOTE]
-   > Before you enable Trusted Access, enable the `TrustedAccessPreview` feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
 
 1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
