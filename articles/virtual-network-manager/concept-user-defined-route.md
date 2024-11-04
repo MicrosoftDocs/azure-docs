@@ -109,17 +109,15 @@ When you add other virtual networks to a network group, the routing configuratio
 
 Newly created or deleted subnets have their route table updated with eventual consistency. The processing time may vary based on the volume of subnet creation and deletion.
 
+> [!NOTE]
+> The following are behaviors of UDR management with Azure Virtual Network Manager:r:
 
-## Limitations of UDR management
-
-The following are the limitations of UDR management with Azure Virtual Network Manager:
-
-- When conflicting routing rules exist (rules with same destination but different next hops), they aren't supported within or across rule collections that target the same virtual network or subnet.
-- When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
-- When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
-- Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
-- Azure Virtual Network Manager requires a managed resource group to store the route table. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.
-- UDR Management supports creating 1000 UDRs within a route table. This means that you can create a routing configuration with a maximum of 1,000 routing rules. 
+> - When conflicting routing rules exist (rules with same destination but different next hops), they aren't supported within or across rule collections that target the same virtual network or subnet.
+> - When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
+> - When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
+> - Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
+> - Azure Virtual Network Manager requires a managed resource group to store the route table. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.
+> - UDR Management supports creating 1000 UDRs within a route table. This means that you can create a routing configuration with a maximum of 1,000 routing rules.
 
 ## Next step
 
