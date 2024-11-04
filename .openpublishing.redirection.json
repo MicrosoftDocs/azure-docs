@@ -3599,6 +3599,16 @@
       "source_path_from_root": "/articles/third-party-notices.md",
       "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/main/ThirdPartyNotices.md",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/glossary.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md",
+      "redirect_url": "/azure/reliability/reliability-cosmos-db-nosql",
+      "redirect_document_id": false
     }
   ]
 }

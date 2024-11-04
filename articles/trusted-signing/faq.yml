@@ -3,8 +3,8 @@
 metadata:
   title: Trusted Signing FAQ
   description: Get answers to frequently asked questions about Trusted Signing.
-  author: microsoftshawarma
-  ms.author: rakiasegev
+  author: TacoTechSharma
+  ms.author: mesharm
   ms.service: trusted-signing
   ms.topic: faq
   ms.date: 03/18/2024
@@ -35,11 +35,20 @@ sections:
           
           :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png":::
 
-      - question: What if identity validation fails?
+      - question: What if Organization identity validation fails?
         answer: | 
           - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
           - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+      - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
+        answer: | 
+          	Be sure to use a government issued ID with address on it, in order to successfully go through the process.
+      - question: For Individual identity validation, I see an error - "You do not have permission to access this page".
+        answer: | 
+          	Verify you are using the same email address to access the Identity Validation link, that you entered in the Identity Validation request.
+      - question: What if I already have a VID?
+        answer: | 
+          	Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
       - question: What if I need assistance with identity validation?
         answer: | 
           For questions about identity validation in Trusted Signing, contact us by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**). Azure support doesn't resolve identity validation issues for Trusted Signing.
@@ -107,11 +116,11 @@ sections:
       - question: How do I fix pop-up credentials in an Azure virtual machine when I run the SignTool + dlib command?
         answer: |
           1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
-          1. Add the user-assigned managed identity to the VM:
+          2. Add the user-assigned managed identity to the VM:
              1. Select the VM.
-             1. On the left menu, select **Identity**, and then select **User assigned**.
-             1. Select **Add** to add the managed identity. 
-          1. In the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
+             2. On the left menu, select **Identity**, and then select **User assigned**.
+             3. Select **Add** to add the managed identity. 
+          3. In the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
       - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |
           - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
