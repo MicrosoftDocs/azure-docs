@@ -8,8 +8,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 For more information, see the [open-source Android UI Library](https://github.com/Azure/communication-ui-library-android) and the [sample application code](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
 ### Defining a theme
