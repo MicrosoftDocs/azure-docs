@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 05/05/2024
+ms.date: 11/04/2024
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---
@@ -58,7 +58,7 @@ Follow these steps to trace an API request in the test console in the portal. Th
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-trace-1.png" alt-text="Review response trace":::
 
-    * **Inbound** - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in [Tutorial: Transform and protect your API](transform-api.md), they'll appear here.
+    * **Inbound** - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in [Tutorial: Transform and protect your API](transform-api.md), they appear here.
 
     * **Backend** - Shows the requests API Management sent to the API backend and the response it received.
 
@@ -85,7 +85,7 @@ Detailed steps follow.
 > * These steps require API Management REST API version 2023-05-01-preview or later. You must be assigned the Contributor or higher role on the API Management instance to call the REST API.
 > * For information about authenticating to the REST API, see [Azure REST API reference](/rest/api/azure). 
 
-1. **Obtain a token credential** - Call the [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. Pass the gateway ID for a self-hosted gateway in the URI, or specify "managed" for the instance's managed gateway in the cloud. For example, to obtain trace credentials for the managed gateway, use a call similar to the following:
+1. **Obtain a token credential** - Call the API Management gateway's [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. In the URI, enter "managed" for the instance's managed gateway in the cloud, or the gateway ID for a self-hosted gateway. For example, to obtain trace credentials for the instance's managed gateway, use a request similar to the following:
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listDebugCredentials?api-version=2023-05-01-preview
@@ -109,17 +109,14 @@ Detailed steps follow.
     }
     ```
 
-1. **Add the token value in a request header** - To enable tracing for a request to the API Management gateway, send the token value in an `Apim-Debug-Authorization` header. For example, to trace a call to the Petstore API that you imported in a previous tutorial, you might use a call similar to the following:
+1. **Add the token value in a request header** - To enable tracing for a request to the API Management gateway, send the token value in an `Apim-Debug-Authorization` header. For example, to trace a call to the Petstore API that you imported in a previous tutorial, you might use a request similar to the following:
 
     ```bash
     curl -v  https://apim-hello-world.azure-api.net/pet/1 HTTP/1.1 -H "Ocp-Apim-Subscription-Key: <subscription-key>" -H "Apim-Debug-Authorization: aid=api-name&p=tracing&ex=......."
     ```
 
-    > [!NOTE]
-    > Information the user should notice even if skimming
-
 1. Depending on the token, the response contains different headers:
-    * If the token is valid, the response includes an `Apim-Trace-Id` header whose value is the trace ID. For example:
+    * If the token is valid, the response includes an `Apim-Trace-Id` header whose value is the trace ID, similar to the following:
 
         ```http
         [....]
@@ -130,7 +127,7 @@ Detailed steps follow.
     * If the token is expired, the response includes an `Apim-Debug-Authorization-Expired` header with information about expiration date.
     * If the token was obtained for wrong API, the response includes an `Apim-Debug-Authorization-WrongAPI` header with an error message.
 
-1. **Retrieve the trace** - Pass the trace ID obtained in the previous step to the [List trace](/rest/api/apimanagement/gateway/list-trace) API for the gateway. For example, to retrieve the trace for the managed gateway, use a call similar to the following:
+1. **Retrieve the trace** - Pass the trace ID obtained in the previous step to the gateway's [List trace](/rest/api/apimanagement/gateway/list-trace) API. For example, to retrieve the trace for the managed gateway, use a request similar to the following:
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listTrace?api-version=2023-05-01-preview
