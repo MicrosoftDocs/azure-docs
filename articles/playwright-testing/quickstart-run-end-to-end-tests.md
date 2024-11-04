@@ -4,6 +4,8 @@ description: 'This quickstart shows how to run your Playwright tests with highly
 ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview, build-2024
+zone_pivot_group_filename: playwright-testing/zone_pivot_group_filename
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
@@ -30,7 +32,10 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 
 When the workspace creation finishes, you're redirected to the setup guide.
 
+
 ## Install Microsoft Playwright Testing package 
+
+::: zone pivot="playwright-test-runner"
 
 To use the service, install Microsoft Playwright Testing package. 
 
@@ -44,6 +49,18 @@ This generates `playwright.service.config.ts` file which serves to:
 - Adds a reporter to publish test results and artifacts.
 
 If you already have this file, the package asks you to override it. 
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+To use the service, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+::: zone-end
 
 ## Configure the service region endpoint
 
