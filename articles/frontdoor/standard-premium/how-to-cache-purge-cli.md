@@ -32,7 +32,7 @@ Run [az afd endpoint purge](/cli/azure/afd/endpoint#az-afd-endpoint-purge) to pu
    * Domains/Subdomains with assets you want to purge
 
        > [!IMPORTANT]
-       > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
+       > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain, if `--domains` is omitted, only the endpoint cache will be purged. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
 
    * The path to the content to be purged.
      * These formats are supported in the lists of paths to purge:
