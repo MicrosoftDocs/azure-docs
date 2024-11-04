@@ -85,23 +85,23 @@ In special cases when `publicNetworkAccess` is set to `SecuredByPerimeter`
 
 | **publicNetworkAccess** | **SecuredByPerimeter (new value)** |
 |-----------------|-----------------|
-| **Perimeter access** | Denied |
-| **Public inbound** | Denied |
-| **Public outbound** | Denied |
-| **Trusted access** | Denied |
-| **Trusted access** | Denied |
-| **Private access** | Allowed |
+| Perimeter access | Denied |
+| Public inbound | Denied |
+| Public outbound | Denied |
+| Trusted access | Denied |
+| Trusted access | Denied |
+| Private access | Allowed |
 
 The **locked down for public access** mode exists by-design and helps prevent PaaS resources not yet associated with a perimeter from being temporarily exposed to public networks or to other PaaS resources. Administrators can apply Azure Policy to ensure publicNetworkAccess is set to SecuredByPerimeter from the moment a resource is created. 
 
-The behavior of public network access on PaaS resources according to the association's accessMode value and the resource's `publicNetworkAccess` value can be summarized as follows: 
+The behavior of public network access on PaaS resources according to the association's `accessMode` value and the resource's `publicNetworkAccess` value can be summarized as follows: 
 
-| **Association access mode** |  |  |  |
+| **Association access mode** | **Not associated** | **Learning mode** | **Enforced mode** |
 |-----------------|-------------------|-----------------|-----------------|
-| **Public network access** | **Not associated** | **Learning mode** | **Enforced mode** |
-| **Enabled** | Inbound: Resource rules</br>Outbound: Allowed | Inbound: Network security perimeter + Resource rules</br> Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
-| **Disabled** | Inbound: Denied</br>Outbound: Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules + Allowed | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
-| **SecuredByPerimeter** | Inbound: Denied</br>Outbound: Denied | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules | Inbound: Network security perimeter rules</br>Outbound: Network security perimeter rules |
+| **Public network access** |   |  |   |
+| Enabled | *Inbound:* Resource rules</br>*Outbound:* Allowed | *Inbound:* Network security perimeter + Resource rules</br>*Outbound:* Network security perimeter rules + Allowed | *Inbound:* Network security perimeter rules</br>*Outbound:* Network security perimeter rules |
+| Disabled | *Inbound:* Denied</br>*Outbound:* Allowed | *Inbound:* Network security perimeter rules</br>*Outbound:* Network security perimeter rules + Allowed | *Inbound:* Network security perimeter rules</br>*Outbound:* Network security perimeter rules |
+| SecuredByPerimeter | *Inbound:* Denied</br>*Outbound:* Denied | *Inbound:* Network security perimeter rules</br>*Outbound:* Network security perimeter rules | *Inbound:* Network security perimeter rules</br>*Outbound:* Network security perimeter rules |
 
 ## Next steps
 
