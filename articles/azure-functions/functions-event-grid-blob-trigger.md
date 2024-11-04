@@ -93,7 +93,7 @@ When you create a Blob Storage trigger function using Visual Studio Code, you al
     |**Select a language**| Select `Python`. |
     |**Select a Python interpreter to create a virtual environment**| Select your preferred Python interpreter. If an option isn't shown, enter the full path to your Python binary. |
     |**Select a template for your project's first function**| Select `Blob trigger`. |
-    |**Select a Python programming model**| Select `V2 Programming Model`. ||**Provide a function name**| Enter `blob_trigger_event_grid`. |
+    |**Select a Python programming model**| Select `V2 Programming Model`. |**Provide a function name**| Enter `blob_trigger_event_grid`. |
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select subscription**| Select your subscription.|
     |**Select a storage account**| Use Azurite emulator for local storage. |
@@ -357,7 +357,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **Subject Begins With**      | **`/blobServices/default/containers/<CONTAINER_NAME>/blobs/<BLOB_PREFIX>`** | Replace `<CONTAINER_NAME` and `<BLOB_PREFIX>` with values you choose. This sets the subscription to trigger only for blobs that start with `BLOB_PREFIX` and are in the `CONTAINER_NAME` container. |
     | **Subject Ends With**        | *.txt*                                                                      | Ensures that the function will only be triggered by blobs ending with `.txt`.                                                                                                                       |
 
-For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hub](../event-grid/includes/event-filtering.md#subject-filtering).
+For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hub](../event-grid/event-filtering.md).
 
 7. Select **Create** to create the event subscription.
 
@@ -393,6 +393,5 @@ Now that you uploaded a file to the **samples-workitems** container, the functio
 ## Next steps
 
 - [Working with blobs](storage-considerations.md#working-with-blobs)
-- [Connecting to Blob Storage using identity-based connections](../../includes/functions-storage-blob-connections.md#identity-based-connections)
 - [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)
