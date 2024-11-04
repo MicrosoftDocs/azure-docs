@@ -93,7 +93,7 @@ The following table provides a summary of the old fields available in the soluti
 | extendedCost | CostInBillingCurrency |     |
 | instanceId | ResourceId |     |
 | isRecurringCharge |     | Where applicable, use the `Frequency` and `Term fields` moving forward. |
-| location | ResourceLocationNormalized | `ResourceLocationNormalized` is present in Cost Details report, but not yet in exports. |
+| location | ResourceLocationNormalized | |
 | meterCategory | MeterCategory |     |
 | meterId | MeterId |     |
 | meterName | MeterName |     |
