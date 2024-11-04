@@ -175,9 +175,9 @@ az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --inc
 
 ## Upgrade
 
-In public preview, Azure IoT Operations supports upgrading instances from version 0.7.x to 0.8.x. 
+Azure IoT Operations supports upgrading instances to new versions as they're released.
 
-When a generally available release is made available, you'll need to deploy a new Azure IoT Operations installation. You won't be able to upgrade from a preview installation.
+You can't upgrade from a preview installation to a GA version.
 
 ### [Azure portal](#tab/portal)
 
