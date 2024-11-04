@@ -124,7 +124,7 @@ resource roleAssignmentBackupExportOperator 'Microsoft.Authorization/roleAssignm
   name: guid(backupVault.id, 'PostgreSQLFlexibleServerLongTermRetentionBackupRole')
   properties: {
     principalId: backupVault.identity.principalId
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'f0b9f1c0-42da-4a90-a0f1-6d5fe31288fe')  // Role definition ID for 'PostgreSQL Backup And Export Operator'
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e')  // Role definition ID for 'PostgreSQL Backup And Export Operator'
     scope: postgreSQLServer.id
   }
 }
@@ -138,7 +138,7 @@ resource roleAssignmentReader 'Microsoft.Authorization/roleAssignments@2022-04-0
   name: guid(backupVault.id, 'Reader')
   properties: {
     principalId: backupVault.identity.principalId
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')  // Role definition ID for 'Reader'
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e')  // Role definition ID for 'Reader'
     scope: targetResourceGroup.id
   }
 }
