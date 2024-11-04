@@ -182,11 +182,10 @@ There are many methods for securing ACR using the built-in firewall depending on
 * [Configure public IP network rules](/azure/container-registry/container-registry-access-selected-networks)
 * [Azure Container Registry mitigating data exfiltration with dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints)
 * [Restrict access to a container registry using a service endpoint in an Azure virtual network](/azure/container-registry/container-registry-vnet)
-
-<!-- * [Allow trusted services to securely access a network-restricted container registry](/azure/container-registry/allow-access-trusted-services) -->
-
 * [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules)
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
+
+<!-- * [Allow trusted services to securely access a network-restricted container registry](/azure/container-registry/allow-access-trusted-services)  This link should follow the Restric access link (currently 3rd from bottom).-->
 
 <!-- Removed from document per ADO131844, can be un-commented when service updates (similar for above link)
 > [!NOTE]
