@@ -37,7 +37,7 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, firs
 
 - [Create an Azure Bot Service resource](#create-an-azure-bot-service-resource)
 - [Get the bot's app ID and password](#get-the-bots-app-id-and-app-password)
-- [Create a web app to hold the bot logic](#create-a-web-app-to-hold-the-bot-logic)
+- [Create a web app to hold the bot app](#create-a-web-app-to-hold-the-bot-app)
 - [Create a messaging endpoint for the bot](#create-a-messaging-endpoint-for-the-bot)
 
 ### Create an Azure Bot Service resource
