@@ -162,6 +162,7 @@ To learn more about licenses you can use, including per-user access pricing, see
 >   - [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
 >   - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+>   - Arm64-based Azure VMs 
 > 
 > - Support for Windows 7 ended on January 10, 2023.
 > - Support for Windows Server 2012 R2 ended on October 10, 2023.
