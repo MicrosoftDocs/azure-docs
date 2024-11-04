@@ -33,9 +33,17 @@ No,  Barracuda CloudGen WAN is only compatible with Barracuda edge devices. To l
 
 All routing scenarios supported by Virtual WAN are supported with NVAs in the hub.
 
+### Why does SD-WAN traffic have higher latency than regular traffic?
+
+Most vendors use random ports for SD-WAN traffic.  We have configured a Scavenger filter on all WAN routers to identify any traffic running on uncommon ports as Scavenger class traffic. Scavenger traffic is routed on paths with higher latency. We suggest using a common port, like UDP 500, for tunnel creation to reduce latency.
+
+
+
 ### What regions are supported?
 
 For supported regions, see [NVA supported regions](../articles/virtual-wan/about-nva-hub.md#regions).
+
+
 
 ### How do I delete my NVA in the hub?
 
