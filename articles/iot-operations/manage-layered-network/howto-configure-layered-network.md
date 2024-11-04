@@ -1,6 +1,6 @@
 ---
-title: Create sample network environment for Layered Network Management
-description: Set up a test or sample network environment for Azure IoT Layered Network Management.
+title: Create sample network environment for Layered Network Management (preview)
+description: Set up a test or sample network environment for Azure IoT Layered Network Management (preview).
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -13,10 +13,10 @@ ms.date: 10/18/2024
 ms.service: azure-iot-operations
 ---
 
-# Create sample network environment for Azure IoT Layered Network Management
+# Create sample network environment for Azure IoT Layered Network Management (preview)
 
-To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
-- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
+To use Azure IoT Layered Network Management (preview) service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
+- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management (preview) needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet, or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.

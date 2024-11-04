@@ -1,6 +1,6 @@
 ---
-title: Configure Layered Network Management to use Azure IoT Operations in an isolated network
-description: Configure Azure IoT Layered Network Management service to enable Azure IoT Operations in an isolated network.
+title: Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
+description: Configure Azure IoT Layered Network Management (preview) service to enable Azure IoT Operations in an isolated network.
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -13,9 +13,9 @@ ms.date: 10/22/2024
 ms.service: azure-iot-operations
 ---
 
-# Configure Layered Network Management to use Azure IoT Operations in an isolated network
+# Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 
-This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management service.
+This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management (preview) service.
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following steps to get familiar with the basic concepts before you start this advanced scenario.

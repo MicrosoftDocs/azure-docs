@@ -1,6 +1,6 @@
 ---
-title: Metrics for Layered Network Management
-description: Available observability metrics for Azure IoT Layered Network Management to monitor the health and performance of your solution.
+title: Metrics for Layered Network Management (preview)
+description: Available observability metrics for Azure IoT Layered Network Management (preview) to monitor the health and performance of your solution.
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
@@ -12,9 +12,9 @@ ms.date: 10/22/2024
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT Layered Network Management
+# Metrics for Azure IoT Layered Network Management (preview)
 
-Azure IoT Layered Network Management provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article lists the available metrics, and describes the meaning and usage details of each metric. 
+Azure IoT Layered Network Management (preview) provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article lists the available metrics, and describes the meaning and usage details of each metric. 
 
 ## General metrics
 

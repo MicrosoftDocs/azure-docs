@@ -1,6 +1,6 @@
 ---
 title: "Known issues: Azure IoT Operations"
-description: Known issues for the MQTT broker, Layered Network Management, connector for OPC UA, OPC PLC simulator, dataflows, and operations experience web UI.
+description: Known issues for the MQTT broker, Layered Network Management (preview), connector for OPC UA, OPC PLC simulator, dataflows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
@@ -33,7 +33,7 @@ This article lists the known issues for Azure IoT Operations.
 
 - If you configured the MQTT broker to use disk backed message buffer with persistent volume option, the broker creates a persistent volume claim (PVC) in the same namespace as the broker. If you uninstall Azure IoT Operations, the PVC isn't deleted automatically. To delete the PVC, run the following command `kubectl delete pvc -n <namespace> <pvc-name>`.
 
-## Azure IoT Layered Network Management Preview
+## Azure IoT Layered Network Management (preview)
 
 - If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
 

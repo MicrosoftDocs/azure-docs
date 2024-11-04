@@ -50,7 +50,7 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
 
-## Azure IoT Layered Network Management Preview troubleshooting
+## Azure IoT Layered Network Management (preview) troubleshooting
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 

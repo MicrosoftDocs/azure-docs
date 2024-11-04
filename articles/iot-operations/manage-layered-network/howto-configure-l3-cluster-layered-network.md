@@ -1,6 +1,6 @@
 ---
 title: Configure level 3 cluster in an isolated network
-description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management service
+description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management (preview) service
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -12,9 +12,9 @@ ms.date: 10/22/2024
 ms.service: azure-iot-operations
 ---
 
-# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management
+# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management (preview)
 
-You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management (preview) service in the upper level. Before you start this process, the Layered Network Management (preview) service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
