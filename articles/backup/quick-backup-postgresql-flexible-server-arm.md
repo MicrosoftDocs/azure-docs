@@ -126,7 +126,7 @@ This template enables you to configure backup for an Azure PostgreSQL - Flexible
 ')]",
       "properties": {
         "principalId": "[reference(concat(resourceId(parameters('backupVaultResourceGroup'), 'Microsoft.DataProtection/backupVaults', parameters('backupVaultName')), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2020-12-01').principalId]",
-        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'f0b9f1c0-42da-4a90-a0f1-6d5fe31288fe')]",
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e')]",
         "scope": "[resourceId(parameters('postgreSQLResourceGroup'), 'Microsoft.DBforPostgreSQL/flexibleServers', parameters('postgreSQLServerName'))]"
       }
     },
@@ -136,7 +136,7 @@ This template enables you to configure backup for an Azure PostgreSQL - Flexible
       "name": "[guid(subscription().id, 'Reader')]",
       "properties": {
         "principalId": "[reference(concat(resourceId(parameters('backupVaultResourceGroup'), 'Microsoft.DataProtection/backupVaults', parameters('backupVaultName')), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2020-12-01').principalId]",
-        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e')]",
         "scope": "[resourceId(parameters('targetResourceGroupName'))]"
       }
     },
