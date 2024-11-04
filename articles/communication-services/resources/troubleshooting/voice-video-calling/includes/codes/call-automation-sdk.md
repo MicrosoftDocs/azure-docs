@@ -80,7 +80,7 @@ A 4xx Code represents a client error.
 #### 5xx codes
 A 5xx code represents a server error.
 
-| Status Code | Decscription |
+| Status Code | Description |
 | --- | --- |
 | 500 | Internal server error |
 | 501 | Not implemented |
