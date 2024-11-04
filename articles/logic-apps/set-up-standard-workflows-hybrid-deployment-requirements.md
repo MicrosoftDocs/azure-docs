@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 11/04/2024
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -19,9 +19,13 @@ ms.date: 10/14/2024
 > This capability is in preview, incurs charges for usage, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Logic Apps supports scenarios where you need to use and manage your own infrastructure to deploy and host Standard logic app workflows by offering a hybrid hosting option. This hybrid deployment model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
+Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
-The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+## How hybrid deployment works
+
+Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,000+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
+
+For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
 - Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
 - A SQL database to locally store workflow run history, inputs, and outputs for processing
@@ -40,6 +44,16 @@ For more information, see the following documentation:
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
+
+## How billing works
+
+With the hybrid option, you are responsible for the following items:
+
+- Your Azure Arc-enabled Kubernetes infrastructure
+- Your SQL Server license
+- A billing charge of $0.18 USD per vCPU/hour to support Standard logic app workloads
+
+In this billing model, you pay only for what you need and scale resources for dynamic workloads without having to buy for peak usage. For workflows that use Azure-hosted connector operations, such as Microsoft Teams or Microsoft Office 365, [existing Standard (single-tenant) pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) applies to these operation executions.
 
 ## Limitations
 
@@ -68,9 +82,9 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > [!NOTE]
 >
 > You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
-> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this how-to guide 
-> to connect your cluster to Azure Arc and set up your connected environment. For more information 
-> about Azure Stack HCI and AKS on Windows Server, see the following resources:
+> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this guide 
+> to connect your cluster to Azure Arc and set up your connected environment. For more information about 
+> Azure Stack HCI and AKS on Windows Server, see the following resources:
 >
 > - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
 > - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)

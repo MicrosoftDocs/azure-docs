@@ -82,6 +82,10 @@ In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**S
 When you create or deploy logic apps with the **Logic App (Standard)** resource type, and you select any Azure region for deployment, you'll also select a Workflow Standard hosting plan. However, if you select an existing **App Service Environment v3** resource for your deployment location, you must then select an [App Service Plan](../app-service/overview-hosting-plans.md).
 
 > [!IMPORTANT]
+>
+> The **Hybrid** hosting option is currently in preview. For information, see 
+> [Set up your own infrastructure for Standard logic apps using hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#how-billing-works).
+>
 > The following plans and resources are no longer available or supported with the public release of Standard 
 > logic app workflows in single-tenant Azure Logic Apps: Functions Premium plan, App Service Environment v1, 
 > and App Service Environment v2. The App Service Plan is available and supported only with App Service Environment v3 (ASE v3).
