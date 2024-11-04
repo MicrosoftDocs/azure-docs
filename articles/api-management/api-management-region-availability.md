@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/01/2024
+ms.date: 11/20/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -28,27 +28,27 @@ Information in the following table is updated regularly. Capacity availability i
 | Australia Central | ✅ | ✅ | | |
 | Australia East | ✅ | ✅ | ✅ | ✅ |
 | Australia Southeast | ✅ | ✅ | | |
-| Brazil South | ✅ | ✅ | ✅ |  |
+| Brazil South | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
 | Central US  | |  | ✅ |  |
-| East Asia | ✅ | ✅ | ✅ | ✅ |
+| East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ |  | ✅ |
-| France Central  | ✅ | ✅ | ✅ | ✅ |
+| France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
-| Japan East | ✅ | ✅ | ✅ | ✅ |
+| Japan East | ✅ | ✅ | | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ |  | ✅ |
 | Norway East | ✅ | ✅ | ✅ | |
-| South Africa North | ✅ | ✅ | ✅ |  |
+| South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
-| Southeast Asia | ✅ | ✅ | ✅ | ✅ |
+| Southeast Asia | ✅ | ✅ | | ✅ |
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | ✅ |  |
+| West Europe  | ✅ | ✅ | |  |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
 

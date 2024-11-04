@@ -32,11 +32,12 @@ If you want to enable *public* inbound access to an API Management instance in t
 > [!IMPORTANT]
 > * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier (preview). For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * Currently, you can inject a Premium v2 instance into a virtual network only when the instance is **created**. You can't inject an existing Premium v2 instance into a virtual network. However, you can update the subnet settings for injection after the instance is created.
+> * Currently, you can't switch between virtual network injection and virtual network integration for a Premium v2 instance.
 
 ## Prerequisites
 
 - An Azure API Management instance in the [Premium v2](v2-service-tiers-overview.md) pricing tier.
-- A virtual network with a subnet where your client apps and your API Management backend APIs are hosted. See the following sections for requirements and recommendations for the virtual network and subnet.
+- A virtual network where your client apps and your API Management backend APIs are hosted. See the following sections for requirements and recommendations for the virtual network and subnet used for the API Management instance.
 
 ### Network location
 
@@ -44,7 +45,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Subnet requirements
 
-* The subnet can't be shared with another Azure resource.
+* The subnet for the API Management instance can't be shared with another Azure resource.
 
 ### Subnet size 
 
@@ -89,7 +90,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 ## DNS settings for integration with private IP address
 
-When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to your API Management endpoints. 
+When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
 We recommend:
 
