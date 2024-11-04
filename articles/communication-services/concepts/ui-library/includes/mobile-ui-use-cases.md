@@ -98,9 +98,6 @@ Users need to manually select the language for captions by using UI Library out 
 
 :::image type="content" source="../includes/media/mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in UI Library.":::
 
-> [!NOTE]
-> Closed captions won't be billed at the beginning of its public preview. This offer is for a limited time only. Use of captions will likely be billed starting from June.
-
 For more information about closed captions, see [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. If you want to configure closed captions directly within UI Library, follow the [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
 ### Events
