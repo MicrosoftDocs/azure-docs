@@ -139,6 +139,8 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 1. Review the assessment summary. You can select  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties, or recalculate the assessment.
 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-utilization.png" alt-text="AVS Utilization summary":::
+
 ### Review Azure VMware Solution (AVS) readiness
 
 1. In **Azure readiness**, verify whether servers are ready for migration to AVS.
