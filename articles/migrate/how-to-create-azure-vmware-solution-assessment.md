@@ -70,10 +70,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-   - The **Storage type** is defaulted to The Storage type is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. When performance metrics are provided using the Azure Migrate appliance or the CSV, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. In case the assessment is being performed using a RVTools file or without providing performance metrics like throughput & IOPS, **ANF - Standard** tier is used for assessment by default. 
+    - The **Storage type** is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. When performance metrics are provided using the Azure Migrate appliance or the CSV, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using a RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default. 
    - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
-    - If you select to use a reserved instance, you can't specify '**Discount (%)**
-    - [Learn more](../azure-vmware/reserved-instance.md)
+    - If you select to use a reserved instance, you can't specify '**Discount (%)**. [Learn more](../azure-vmware/reserved-instance.md).
 1. In **VM Size**:
     - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the number of nodes needed to migrate the servers to Azure VMware Solution.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
