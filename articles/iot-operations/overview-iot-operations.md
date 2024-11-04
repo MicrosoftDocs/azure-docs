@@ -114,7 +114,7 @@ To visualize and analyze telemetry from your devices and assets, you can use clo
 
 ## Secure communication
 
-To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management component.
+To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management (preview) component.
 
 ## Validated environments
 

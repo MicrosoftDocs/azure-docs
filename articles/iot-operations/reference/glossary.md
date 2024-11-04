@@ -29,11 +29,11 @@ On first mention in an article, use _Azure IoT Operations - enabled by Azure Arc
 
 This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
 
-### Azure IoT Layered Network Management
+### Azure IoT Layered Network Management (preview)
 
 This component lets you secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture.
 
-On first mention in an article, use _Azure IoT Layered Network Management_. On subsequent mentions, you can use _Layered Network Management_. Never use an acronym.
+On first mention in an article, use _Azure IoT Layered Network Management (preview)_. On subsequent mentions, you can use _Layered Network Management_. Never use an acronym.
 
 ### MQTT broker
 
