@@ -5,17 +5,15 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/31/2024
+ms.date: 11/04/2024
 ms.author: cshoe
 ---
 
 # Azure Container Apps planned maintenance (preview)
 
-Azure Container Apps is a fully managed service where platform and infrastructure updates are regularly and automatically applied to both components and environments.
+Azure Container Apps is a fully managed service where platform and infrastructure updates are regularly and automatically applied to both components and environments. The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
 
-The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
-
-Depending on the type of update, you can choose to define a maintenance window that controls when noncritical updates are applied to your Container Apps environment.
+Defining a maintenance window allow you to decide the range of time when noncritical updates are applied to your Container Apps environment.
 
 The following table describes the difference between the timing in how *critical* and *noncritical* updates are applied to your environment.
 
@@ -26,7 +24,7 @@ The following table describes the difference between the timing in how *critical
 
 ## How maintenance windows work
 
-To control when noncritical updates are applied, you can define a weekly maintenance window for your Azure Container Apps environment. When you define a maintenance window, you specify a day of the week, a start time in the UTC format, and a duration.
+To control the timing for noncritical updates, you can define a weekly time range for when updates are applied to your environment. When you define a maintenance window, you specify a day of the week, a start time in the UTC format, and a duration.
 
 Keep in mind the following considerations:
 
@@ -65,7 +63,7 @@ az containerapp env maintenance-config add \
   --duration 8
 ```
 
-Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
+Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then the `start-hour-utc` value is `13`.
 
 ## Update a window
 
@@ -82,7 +80,7 @@ az containerapp env maintenance-config update \
   --duration 9 
 ```
 
-Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then your `start-hour-utc` value is `13`.
+Times in UTC format are expressed using the 24-hour time format. For instance, if you want your start hour to be 1:00 pm, then the `start-hour-utc` value is `13`.
 
 ## View the window configuration
 
