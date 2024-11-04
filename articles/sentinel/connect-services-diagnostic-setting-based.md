@@ -63,7 +63,7 @@ For more information, see also [Create diagnostic settings to send Azure Monitor
 
 ## Connect via a diagnostic setting-based connector managed by Azure Policy
 
-This procedure descibes how to connect to Microsoft Sentinel using data connectors that use connections that are based on diagnostic settings and are managed by Azure Policy.
+This procedure describes how to connect to Microsoft Sentinel using data connectors that use connections that are based on diagnostic settings and are managed by Azure Policy.
 
 Connectors of this type use Azure Policy to apply a single diagnostic settings configuration to a collection of resources of a single type, defined as a scope. You can see the log types ingested from a given resource type on the left side of the connector page for that resource, under **Data types**.
 
