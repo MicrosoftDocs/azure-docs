@@ -44,6 +44,9 @@ Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux 
 > [!TIP]
 > Find GitHub Copilot tips in the Visual Studio, Visual Studio Code, and Azure portal steps.
 
+> [!NOTE]
+> Building .NET 9 (STS) apps with Windows App Service using MSBuild or SCM_DO_BUILD is not yet supported. Support for these build scenarios will come after the initial GA date and by December 4th, 2024. Deployments that build outside of App Service through Visual Studio, Visual Studio Code, GitHub Actions and Azure DevOps are fully supported.
+
 ## Prerequisites
 
 :::zone target="docs" pivot="development-environment-vs"

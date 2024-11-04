@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 10/30/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
 ---
@@ -15,13 +15,45 @@ ms.date: 08/29/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
+Dataflow profiles can be used to group dataflows together so that they share the same configuration. You can create multiple dataflow profiles to manage sets of different dataflow configurations. 
 
-<!-- TODO: link to reference docs -->
+The most important setting is the instance count, which determines the number of instances that run the dataflows. For example, you might have a dataflow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a dataflow profile with low instance count for low-throughput dataflows and a profile with high instance count for high-throughput dataflows. Similarly, you can create a dataflow profile with different diagnostic settings for debugging purposes.
 
 ## Default dataflow profile
 
-By default, a dataflow profile named "default" is created when Azure IoT Operations is deployed.
+By default, a dataflow profile named "default" is created when Azure IoT Operations is deployed. This dataflow profile has a single instance count. You can use this dataflow profile to get started with Azure IoT Operations.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+// Pointer to the Azure IoT Operations instance
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+// Pointer to your custom location where AIO is deployed
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+// Pointer to the default dataflow profile
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+  parent: aioInstance
+  name: 'default'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    instanceCount: 1
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -33,38 +65,119 @@ spec:
   instanceCount: 1
 ```
 
-In most cases, you don't need to change the default settings. However, you can create additional dataflow profiles and configure them as needed.
+---
+
+Unless you need additional throughput or redundancy, you can use the default dataflow profile for your dataflows. If you need to adjust the instance count or other settings, you can create a new dataflow profile.
+
+## Create a new dataflow profile
+
+To create a new dataflow profile, specify the name of the profile and the instance count.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: <COUNT>
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowProfile
+metadata:
+  name: '<NAME>'
+  namespace: azure-iot-operations
+spec:
+  instanceCount: <COUNT>
+```
+
+---
 
 ## Scaling
 
-To manually scale the dataflow profile, specify the maximum number of instances you want to run.
+You can scale the dataflow profile to adjust the number of instances that run the dataflows. Increasing the instance count can improve the throughput of the dataflows by creating multiple clients to process the data. When using dataflows with cloud services that have rate limits per client, increasing the instance count can help you stay within the rate limits.
+
+Scaling can also improve the resiliency of the dataflows by providing redundancy in case of failures.
+
+To manually scale the dataflow profile, specify the maximum number of instances you want to run. For example, to set the instance count to 3:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: 3
+  }
+}
+```
+
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 spec:
   instanceCount: 3
 ```
 
-If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
+---
 
 > [!IMPORTANT]
-> Currently in public preview, adjusting the instance count may result in message loss. At this time, it's recommended to not adjust the instance count.
+> Currently in public preview, adjusting the instance count may result in message loss. At this time, it's recommended to not adjust the instance count for a profile with active dataflows.
 
-## Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
+## Diagnostic settings
 
-You can configure other deployment-wide settings such as log level, node tolerations, and diagnostic settings.
+You can configure other diagnostics settings for a dataflow profile such as log level and metrics interval. 
+
+In most cases, the default settings are sufficient. However, you can override the log level or other settings for debugging. 
+
+To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/rest/api/iotoperations/dataflow-profile/create-or-update?#profilediagnostics).
+
+For example, to set the log level to debug:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: <COUNT>
+    diagnostics: {
+      {
+        logs: {
+          level: 'debug'
+        }
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowProfile
+metadata:
+  name: '<NAME>'
+  namespace: azure-iot-operations
 spec:
-  logLevel: debug
-  tolerations:
-    - key: "node-role.kubernetes.io/edge"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
+  instanceCount: <COUNT>
   diagnostics:
-    # ...
+    logs:
+      level: debug
 ```
+
+---
 
 ## Next steps
 
-- [Create a dataflow](howto-create-dataflow.md)
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).

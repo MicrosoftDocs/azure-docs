@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/02/2024
+ms.date: 10/23/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -16,9 +16,17 @@ ms.date: 10/02/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+* Minimum hardware requirements:
+  * 16-GB RAM
+  * 4 vCPUs
+
+* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
+  * 32-GB RAM
+  * 8 vCPUs
+
+[!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
 ## Choose your features
 
@@ -26,21 +34,21 @@ Azure IoT Operations offers two deployment modes. You can choose to deploy with 
 
 ### Test settings deployment
 
-A deployment with only test settings enabled:
+A deployment with only test settings:
 
 * Doesn't configure secrets or user-assigned managed identity capabilities.
-* Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
+* Is meant to enable the end-to-end quickstart sample for evaluation purposes, so supports the OPC PLC simulator and connects to cloud resources using system-assigned managed identity.
 * Can be upgraded to use secure settings.
 
-To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
+The quickstart scenario, [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md), uses test settings.
 
-If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
-A deployment with secure settings enabled:
+A deployment with secure settings:
 
-* Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
+* Enables secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
@@ -49,7 +57,7 @@ To deploy Azure IoT Operations with secure settings, follow these articles:
 
 ## Required permissions
 
-The following table described Azure IoT Operations deployment and management tasks that require elevated permissions. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+The following table describes Azure IoT Operations deployment and management tasks that require elevated permissions. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
@@ -57,7 +65,7 @@ The following table described Azure IoT Operations deployment and management tas
 | Register resource providers | **Contributor** role at the subscription level. | Only required to do once per subscription. |
 | Create a schema registry. | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. |  |
 | Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
-| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled during instance creation. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. |
 
 If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
 
@@ -90,7 +98,7 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
 
-Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+Additionally, review the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
 ```text
 nw-umwatson.events.data.microsoft.com 
