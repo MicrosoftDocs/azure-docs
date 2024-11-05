@@ -182,7 +182,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/overview-iot-mq.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-broker",
             "redirect_document_id": true
         },
         {
@@ -526,7 +526,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/overview-iot-mq.md",
             "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-broker",
             "redirect_document_id": true
         }
