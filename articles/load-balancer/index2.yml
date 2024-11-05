@@ -106,7 +106,10 @@ landingContent:
           links: 
           - text: Improve application scalability and resiliency by using Azure Load Balancer
             url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
-  # Card
+        - linkListType: video
+          links:
+          - text: Deep dive into cross-region load balancing
+            url: https://aka.ms/WFH/DeepDive-CRLB
   - title: Security and compliance
     linkLists:
         - linkListType: concept
@@ -129,8 +132,11 @@ landingContent:
           - text: Testing reachability of Azure Load Balancer
             url: /azure/load-balancer/load-balancer-test-frontend-reachability
           - text: Troubleshoot Azure Load Balancer health probe status
-            url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status    
-  # Card
+            url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status
+        - linkListType: video
+          links:
+          - text: Build & monitor highly available apps w/ Azure Load Balancer
+            url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
   - title: Load balancing and content delivery
     linkLists:
       - linkListType: concept
