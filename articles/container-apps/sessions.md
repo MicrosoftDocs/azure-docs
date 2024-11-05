@@ -81,7 +81,7 @@ The identifier must be a string that is 4 to 128 characters long and can contain
 
 You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
-##### Protecting session identifiers
+#### Protecting session identifiers
 
 The session identifier is sensitive information which must be managed securely. Your application must ensure each user or tenant only has access to their own sessions.
 
@@ -195,6 +195,10 @@ The Container Apps runtime automatically manages the lifecycle for each session 
 ## Security
 
 Azure Container Apps dynamic sessions are built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session. You should only configure or upload sensitive data to a session if you trust the users of the session.
+
+By default, sessions are prevented from making outbound network requests. You can control network access by configuring network status settings on the session pool.
+
+In addition, follow the guidance in the [authentication and authorization](#authentication) section to ensure that only authorized users can access sessions and in the [protecting session identifiers](#protecting-session-identifiers) section to ensure that session identifiers are secure.
 
 ## Preview limitations
 
