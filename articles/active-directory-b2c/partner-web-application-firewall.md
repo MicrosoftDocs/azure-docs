@@ -64,7 +64,6 @@ Create a WAF policy with Azure-managed default rule set (DRS). See [Web Applicat
 1. For **Policy name**, enter a unique name for your WAF policy.
 1. For **Policy state**, select **Enabled**.
 1. For **Policy mode**, select **Detection**.
-1. Select **Review + create**.
 1. Go to the **Association** tab of the Create a WAF policy page.
 1. Select **+ Associate a Front Door profile**.
 1. For **Front Door**, select your Front Door name associated with Azure AD B2C custom domain.
