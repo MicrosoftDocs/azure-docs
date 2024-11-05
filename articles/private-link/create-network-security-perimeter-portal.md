@@ -101,6 +101,9 @@ When you no longer need a network security perimeter, you remove any resources a
 3. From the action bar,select **Settings ** and then select **Remove** in the .
 4. Navigate back to the **Overview** page of your network security perimeter.
 5. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
+6. Browse to the **resource-group** and select **Delete** to remove the resource group and all resources within it.
+
+[!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
 
 ## Next steps
 

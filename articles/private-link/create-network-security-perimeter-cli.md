@@ -209,6 +209,8 @@ To delete a network security perimeter and other resources in this quickstart, u
 
 ```
 
+[!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

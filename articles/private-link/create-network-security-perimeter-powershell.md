@@ -207,6 +207,8 @@ To delete a network security perimeter, use the following commands:
     # Remove the resource group
     Remove-AzResourceGroup -Name $rgParams.Name -Force
 ```
+
+[!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
  
 ## Next steps
 
