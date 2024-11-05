@@ -173,8 +173,6 @@ items:
         href: ./migrate-ambari-recent-version-hdinsight.md
       - name: Upgrade to Apache Ranger in Azure HDInsight
         href: ./hdinsight-ranger-5-1-migration.md
-      - name: Load balancer migration guidelines for Azure HDInsight
-        href: ./load-balancer-migration-guidelines.md     
       - name: Hadoop
         items:
         - name: Motivation and benefits
