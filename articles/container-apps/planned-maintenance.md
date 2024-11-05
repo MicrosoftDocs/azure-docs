@@ -102,6 +102,17 @@ az containerapp env maintenance-config remove \
   --environment <ENVIRONMENT_NAME>
 ```
 
+## View maintenance history
+
+If you have a maintenance window configured, you can see the results of maintenance actions against your environment within the last 30 days.
+
+Use the following steps to review the maintenance history in the Azure portal.
+
+1. Open your Container Apps environment in the Azure portal.
+1. Select **Diagnose and solve problems**.
+
+In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
+
 ## Considerations
 
 Planned maintenance is free during preview.
