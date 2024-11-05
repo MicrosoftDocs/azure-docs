@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 10/25/2024
+ms.date: 11/05/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -61,6 +61,9 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 - [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs)
 
 The following sections describe the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
+
+> [!NOTE]
+> The field names listed in each section below are valid when resource logs are sent to Azure storage or to an event hub. When the logs are sent to a Log Analytics workspace, the field names might be different.
 
 ### Fields that describe the operation
 
