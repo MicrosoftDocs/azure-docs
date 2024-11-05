@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 11/2/2024
+ms.date: 11/5/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -17,11 +17,14 @@ The following example shows you how to use a private endpoint with a Container A
 
 ::: zone pivot="azure-portal"
 
-Begin by signing in to the [Azure portal](https://portal.azure.com).
+## Prerequisites
+
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 
 ## Create a container app
 
-To create your container app, start at the Azure portal home page.
+Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results.
@@ -29,9 +32,7 @@ To create your container app, start at the Azure portal home page.
 
 ### Basics tab
 
-In the *Create Container App* page on the *Basics* tab, do the following actions.
-
-1. Enter the following values in the *Project details* section.
+In the *Create Container App* page on the *Basics* tab, enter the following values.
 
     | Setting | Action |
     |---|---|
@@ -86,7 +87,7 @@ Next, create an environment for your container app.
 
 1. In the *Create Subnet* page, set **Subnet Name** to **my-private-endpoint-vnet-subnet**. Select **OK**.
 
-1. Leave **DNS** set to **Azure Private DNS Zone**.
+1. Leave *DNS* set to **Azure Private DNS Zone**.
 
    :::image type="content" source="media/private-endpoints/private-endpoint-create-environment-4.png" alt-text="Enable private endpoints.":::
 
@@ -109,7 +110,7 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
 
@@ -127,17 +128,14 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
 
 1. Install or update the Azure Container Apps extension for the CLI.
 
-    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI, be sure you have the latest version of the Azure Container Apps extension installed.
 
     ```azurecli
-    az extension add --name containerapp --upgrade
+	az extension add --name containerapp --upgrade --allow-preview true
     ```
 
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
-    > ```azurecli
-    > az extension add --name containerapp --upgrade --allow-preview true
-    > ```
 
 1. Register the `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.ContainerService` namespaces.
 
@@ -184,7 +182,7 @@ az group create \
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
+Now create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment.
 
 > [!NOTE]
 > Network subnet address prefix requires a minimum CIDR range of `/23` for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
@@ -197,6 +195,8 @@ az network vnet create \
   --address-prefix 10.0.0.0/16
 ```
 
+Create a subnet to associate with the VNet and to contain the private endpoint.
+
 ```azurecli
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
@@ -205,7 +205,7 @@ az network vnet subnet create \
   --address-prefixes 10.0.0.0/21
 ```
 
-Retrieve the subnet ID.
+Retrieve the subnet ID. You use this to create the private endpoint.
 
 ```azurecli
 SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id"`
@@ -213,7 +213,7 @@ SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet
 
 ## Create an environment
 
-Create the Container Apps environment using the custom VNet deployed in the preceding steps.
+Create the Container Apps environment using the VNet deployed in the preceding steps.
 
 ```azurecli
 az containerapp env create \
@@ -222,7 +222,7 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-Retrieve the environment ID.
+Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
 ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
@@ -236,7 +236,7 @@ az containerapp env update --id ${ENVIRONMENT_ID} --public-network-access Disabl
 
 ## Create a private endpoint
 
-Create the private endpoint.
+Create the private endpoint in the environment and subnet you created previously.
 
 ```azurecli
 az network private-endpoint create \
@@ -251,9 +251,7 @@ az network private-endpoint create \
 
 ### Configure the private DNS zone
 
-Run the following commands.
-
-Retrieve the private endpoint IP address.
+Retrieve the private endpoint IP address. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
 PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
@@ -269,11 +267,15 @@ Retrieve the environment default domain. You use this to add a DNS record to you
 DNS_RECORD_NAME=`az containerapp env show --id ${ENVIRONMENT_ID} --query 'properties.defaultDomain' | sed 's/\..*//'`
 ```
 
+Create a private DNS zone.
+
 ```azurecli
 az network private-dns zone create \
     --resource-group $RESOURCE_GROUP \
     --name $PRIVATE_DNS_ZONE
 ```
+
+Create a link between your VNet and your private DNS zone.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -283,6 +285,8 @@ az network private-dns link vnet create \
     --virtual-network $VNET_NAME \
     --registration-enabled false
 ```
+
+Add a record for your private endpoint to your private DNS zone.
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -294,7 +298,7 @@ az network private-dns record-set a add-record \
 
 ## Deploy a container app
 
-Deploy a container app in your environment.
+Deploy a container app in your environment. This container app simply uses the quickstart image.
 
 ```azurecli
 az containerapp up \
@@ -314,11 +318,52 @@ When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSE
 
 ## Test the private endpoint connection
 
+In this section, you create a virtual machine associated to your VNet so you can access the container app you defined using your private endpoint.
+
 ::: zone pivot="azure-portal"
 
 ### Create a virtual machine (VM)
 
-TODO1
+Begin by signing in to the [Azure portal](https://portal.azure.com).
+
+1. Search for **Virtual machines** in the top search bar.
+1. Select **Virtual machines** in the search results.
+1. Select **Create**.
+
+### Basics tab
+
+In the *Create a virtual machine* page on the *Basics* tab, enter the following values.
+
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **my-container-apps**. |
+    | Virtual machine name | Enter **my-virtual-machine**. |
+    | Region | Select **Central US**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2 **. |
+    | Username | Enter **azureuser**. |
+    | Password | Enter a password. |
+    | Confirm password | Enter the password again. |
+    | Public inbound ports | Select **None**. |
+
+### Networking tab
+
+1. In the *Networking* tab, enter the following values.
+
+    | Setting | Action |
+    |---|---|
+    | Virtual network | Select **my-private-endpoint-vnet**. |
+    | Subnet | Select **my-private-endpoint-vnet-subnet (10.0.0.0/23)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
+
+### Create the VM
+
+1. Select **Review + Create**.
+
+1. Select **Create**.
 
 ::: zone-end
 
@@ -352,7 +397,7 @@ az vm create \
 
 ### Test the connection in the virtual machine
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Search for the VM you created in the top search bar and select it from the search results.
 
