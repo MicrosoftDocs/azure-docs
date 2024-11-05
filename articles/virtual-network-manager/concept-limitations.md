@@ -28,7 +28,7 @@ This article provides an overview of the current limitations when you're using [
 ## Limitations for connected groups
 
 * A connected group can have up to 250 virtual networks. Virtual networks in a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology) are in a [connected group](concept-connectivity-configuration.md#connected-group), so a mesh configuration has a limit of 250 virtual networks.
-* The following BareMetal Infrastructures are supported:
+* BareMetal Infastructures are not supported. This includes the following BareMetal Infrastructures:
   * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
   * [Nutanix Cloud Clusters on Azure](../baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md)
