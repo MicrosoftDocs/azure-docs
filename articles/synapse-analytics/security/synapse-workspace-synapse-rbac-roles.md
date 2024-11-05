@@ -7,7 +7,7 @@ ms.reviewer: whhender, wiassaf
 ms.date: 11/05/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
-ms.topic: concept
+ms.topic: concept-article
 ---
 
 # Synapse RBAC Roles
