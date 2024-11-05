@@ -23,9 +23,7 @@ You can use [private endpoints](../../private-link/private-endpoint-overview.md)
 
 Using private endpoints for your storage account enables you to:
 
-- Secure your storage account by using a private link. 
-  > [!NOTE]
-  > Creating a private endpoint does not automatically block connections on the public endpoint of the storage service. You must manually configure the storage firewall to do that.
+- Secure your storage account by using a private link. You can manually configure the storage firewall to block connections on the public endpoint of the storage service. Creating a private link does not automatically block connections on the public endpoint.
 - Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
 - Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
