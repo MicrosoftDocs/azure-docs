@@ -403,7 +403,7 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Cambodia                               | Good                |                       | ✓                 |                            |
 | Cameroon                               | Fair                |                       | ✓                 |                            |
 | Canada                                 | Good                | ✓                     | ✓                 | ✓                         |
-| Cape Verde                             |                     |                       | ✓                 |                            |
+| Cabo Verde                             |                     |                       | ✓                 |                            |
 | Cayman Islands                         | Good                |                       | ✓                 |                            |
 | Central African Republic               | Major Roads Only    |                       | ✓                 |                            |
 | Chad                                   | Major Roads Only    |                       | ✓                 |                            |
