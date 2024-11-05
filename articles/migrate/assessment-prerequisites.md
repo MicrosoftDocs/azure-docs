@@ -1,10 +1,10 @@
 ---
 title: Assessment prerequisites
 description: Lists the prerequisites to perform assessments in Azure Migrate
-author: v-sreedevank
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 10/16/2024
 ---
 
