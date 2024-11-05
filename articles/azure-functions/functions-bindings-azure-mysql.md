@@ -60,10 +60,10 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-prev
 
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
 
 
-# [Preview Bundle v4.x](#tab/extensionv4p)
+### Preview Bundle v4.x
 
 You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
 
@@ -89,10 +89,10 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
 
 
-# [Preview Bundle v4.x](#tab/extensionv4p)
+### Preview Bundle v4.x
 
 You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
 
@@ -116,9 +116,9 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
 
-# [Preview Bundle v4.x](#tab/extensionv4p)
+### Preview Bundle v4.x
 
 You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
 

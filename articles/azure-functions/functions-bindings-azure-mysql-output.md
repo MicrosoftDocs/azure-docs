@@ -636,8 +636,6 @@ def main(req: func.HttpRequest, product: func.Out[func.MySqlRow]) -> func.HttpRe
 
 ---
 
----
-
 ::: zone-end
 
 
