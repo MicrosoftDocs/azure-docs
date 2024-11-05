@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Configure encryption of broker internal traffic and internal certificates
 
+Ensuring the security of internal communications within your infrastructure is important for maintaining data integrity and confidentiality. You can configure the MQTT broker to encrypt internal traffic and data. Encryption certificates are automatically managed using credential manager.
+
 ## Encrypt internal traffic
 
 > [!IMPORTANT]

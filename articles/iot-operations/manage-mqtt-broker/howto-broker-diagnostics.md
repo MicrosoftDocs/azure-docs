@@ -25,7 +25,9 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 - Self-check periodically checks the health of MQTT broker by running a set of diagnostic tests.
 - Tracing provides detailed information about the requests and responses handled by MQTT broker.
 
-In most scenarios, the default diagnostic settings are sufficient. To override default diagnostic settings for MQTT broker, edit the `diagnostics` section in the Broker resource. Currently this is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
+## Change diagnostic settings
+
+In most scenarios, the default diagnostic settings are sufficient. To override default diagnostic settings for MQTT broker, edit the `diagnostics` section in the Broker resource. Currently, changing settings is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
 
 To override, first prepare a Broker config file following the [BrokerDiagnostics](/rest/api/iotoperations/broker/create-or-update#brokerdiagnostics) API reference. For example:
 
