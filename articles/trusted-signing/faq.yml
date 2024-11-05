@@ -42,7 +42,7 @@ sections:
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: For Individual identity validation, I see an error - "You do not have permission to access this page".
         answer: | 
-          - If you see the error below, this is because the email address entered during the individual identity validation is different from the one being used to login in to access the link. Make sure both the email addresses match.  
+          - If you see the error, it is because the email address entered during the individual identity validation is different from the one being used to sign in to access the link. Make sure both the email addresses match.  
           :::image type="content" source="media/trusted-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/trusted-signing-indie-validation-email-mismatch.png":::
       - question: For Individual identity validation, what if I don’t have an address on a bank statement or utility bill?
         answer: | 
