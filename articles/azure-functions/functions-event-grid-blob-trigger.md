@@ -184,7 +184,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 
 Visual Studio Code uses Azurite to emulate Azure Storage services when running locally. You use Azurite to emulate the Azure Blob Storage service during local development and testing. 
 
-1. If haven't already done so, install the [Azurite v3 extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite). 
+1. If you haven't already done so, install the [Azurite v3 extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite). 
 
 1. Verify that the *local.settings.json* file has `"UseDevelopmentStorage=true"` set for `AzureWebJobsStorage`, which tells Core Tools to use Azurite instead of a real storage account connection when running locally. 
 
