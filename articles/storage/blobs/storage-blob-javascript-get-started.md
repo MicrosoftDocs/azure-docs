@@ -18,7 +18,7 @@ ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js, devx-tr
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for JavaScript. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
 
-If you're looking to start with a complete example, see the client library quickstart for [JavaScript](storage-quickstart-blobs-javascript.md) or [TypeScript](storage-quickstart-blobs-typescript.md).
+If you're looking to start with a complete example, see the client library quickstart for [JavaScript](storage-quickstart-blobs-nodejs.md) or [TypeScript](storage-quickstart-blobs-nodejs-typescript.md).
 
 [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
