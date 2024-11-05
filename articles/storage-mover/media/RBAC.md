@@ -2,7 +2,7 @@
 title: Troubleshooting Azure Storage Mover for RBAC issues
 description: Learn how to troubleshoot RBAC issues for Azure Storage Mover.
 author: madhn
-ms.author: madhurinms
+ms.author: madhn
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 06/11/2024
