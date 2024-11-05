@@ -30,7 +30,7 @@ The Contoso Corporation is a multinational business with headquarters in London.
 
 Due to an acquisition several years ago, Contoso has two Microsoft Entra tenants: `contoso.onmicrosoft.com` and `wingtip.onmicrosoft.com`. Each tenant has its own Office 365 instance and multiple Azure subscriptions, as shown in the following image:
 
-:::image type="content" source="media/best-practices/contoso-tenants.svg" alt-text="Diagram of Contoso tenants, each with separate sets of subscriptions." border="false":::
+:::image type="content" source="media/best-practices/contoso-tenants.png" alt-text="Diagram of Contoso tenants, each with separate sets of subscriptions." border="false":::
 
 ### Contoso compliance and regional deployment
 
@@ -75,7 +75,7 @@ Constoso's solution includes the following considerations:
 
 The resulting workspace design for Contoso is illustrated in the following image:
 
-:::image type="content" source="media/best-practices/contoso-solution.svg" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false":::
+:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false":::
 
 The suggested solution includes:
 
@@ -147,7 +147,7 @@ Fabrikam's solution includes the following considerations:
 
 The resulting workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/fabrikam-solution.svg" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" :::
+:::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" :::
 
 The suggested solution includes:
 
@@ -209,7 +209,7 @@ The Adventure Works solution includes the following considerations:
 
 The resulting workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/adventure-works-solution.svg" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false":::
+:::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false":::
 
 The suggested solution includes:
 
