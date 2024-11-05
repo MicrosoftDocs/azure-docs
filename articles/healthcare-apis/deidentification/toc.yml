@@ -11,6 +11,9 @@ items:
     items:
       - name: Deploy the de-identification service
         href: quickstart.md
+      - name: ARM template
+        displayName: ARM, Resource Manager, Template, Bicep
+        href: quickstart-arm.md
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
   - name: How-to
