@@ -215,5 +215,5 @@ This section describes network management and monitoring services in Azure - Net
 ## Next steps
 
 - Create your first virtual network, and connect a few virtual machines to it, by completing the steps in the [Create your first virtual network](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
-- Connect your computer to a virtual network by completing the steps in the [Configure a point-to-site connection article](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Connect your computer to a virtual network by completing the steps in the [Configure a point-to-site connection article](../../vpn-gateway/point-to-site-certificate-gateway.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Load balance Internet traffic to public servers by completing the steps in the [Create an Internet-facing load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.

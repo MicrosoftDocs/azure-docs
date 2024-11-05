@@ -7,9 +7,9 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js, devx-track-js, devx-track-extended-js
+ms.custom: devx-track-js, devguide-js, devx-track-js, devx-track-extended-js, devx-track-ts, devguide-ts
 ---
 
 # Performance tuning for uploads and downloads with JavaScript
@@ -57,6 +57,8 @@ To keep data moving efficiently, the client libraries might not always reach the
 
 The following code example shows how to set values for [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) and include the options as part of an upload method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
+#### [JavaScript](#tab/javascript)
+
 ```javascript
 // Specify data transfer options
 const uploadOptions = {
@@ -71,6 +73,24 @@ const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 // Upload blob with transfer options
 await blockBlobClient.uploadFile(localFilePath, uploadOptions);
 ```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+// Specify data transfer options
+const uploadOptions: BlockBlobParallelUploadOptions = {
+  blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+  concurrency: 2, // maximum number of parallel transfer workers
+  maxSingleShotSize: 8 * 1024 * 1024, // 8 MiB initial transfer size
+};
+
+// Create blob client from container client
+const blockBlobClient: BlockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+await blockBlobClient.uploadFile(localFilePath, uploadOptions);
+```
+
+---
 
 In this example, we set the maximum number of parallel transfer workers to 2 using the `concurrency` property. We also set `maxSingleShotSize` to 8 MiB. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, which we define in the `blockSize` property.
 
@@ -104,16 +124,33 @@ During a download using `downloadToBuffer`, the Storage client libraries split a
 
 The following code example shows how to set values for [BlobDownloadToBufferOptions](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions) and include the options as part of a [downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer) method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
+#### [JavaScript](#tab/javascript)
+
 ```javascript
 // Specify data transfer options
-    const downloadToBufferOptions = {
-        blockSize: 4 * 1024 * 1024, // 4 MiB max block size
-        concurrency: 2, // maximum number of parallel transfer workers
-    }
+const downloadToBufferOptions = {
+    blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+    concurrency: 2, // maximum number of parallel transfer workers
+}
 
-    // Download data to buffer
-    const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
+// Download data to buffer
+const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
 ```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+// Specify data transfer options
+const downloadToBufferOptions: BlobDownloadToBufferOptions = {
+    blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+    concurrency: 2, // maximum number of parallel transfer workers
+}
+
+// Download data to buffer
+const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
+```
+
+---
 
 ## Related content
 
