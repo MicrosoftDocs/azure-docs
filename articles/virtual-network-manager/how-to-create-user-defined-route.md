@@ -221,7 +221,7 @@ In this step, you deploy the routing configuration to create the UDRs for the ne
 1. Select **Next** and then **Deploy** to deploy the routing configuration.
 
 > [!NOTE]
-> When you create and deploy a routing configuration, you need to be aware of the impact of existing routing rules. For more information, see [Behaviors for UDR management](./concept-user-defined-route.md#behaviors-of-udr-management).
+> When you create and deploy a routing configuration, you need to be aware of the impact of existing routing rules. For more information, see [Impacts of user-defined routes](./concept-user-defined-route.md).
 
 ## Next steps
 
