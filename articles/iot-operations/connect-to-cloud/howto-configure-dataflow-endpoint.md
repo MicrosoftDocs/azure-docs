@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -17,9 +17,7 @@ ms.date: 09/17/2024
 
 To get started with dataflows, first create dataflow endpoints. A dataflow endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
 
-## Get started
-
-To get started, use the following table to choose the endpoint type to configure:
+Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination |
 |---------------|-------------|-------------------------|------------------------------|
@@ -28,6 +26,24 @@ To get started, use the following table to choose the endpoint type to configure
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
+
+## Dataflows must use local MQTT broker endpoint
+
+When you create a dataflow, you specify the source and destination endpoints. The dataflow moves data from the source endpoint to the destination endpoint. You can use the same endpoint for multiple dataflows, and you can use the same endpoint as both the source and destination in a dataflow.
+
+However, using custom endpoints as both the source and destination in a dataflow isn't supported. This restriction means the built-in MQTT broker in Azure IoT Operations must be either the source or destination for every dataflow. To avoid dataflow deployment failures, use the [default MQTT dataflow endpoint](./howto-configure-mqtt-endpoint.md#default-endpoint) as either the source or destination for every dataflow. 
+
+The specific requirement is each dataflow must have either the source or destination configured with an MQTT endpoint that has the host `aio-broker`. So it's not strictly required to use the default endpoint, and you can create additional dataflow endpoints pointing to the local MQTT broker as long as the host is `aio-broker`. However, to avoid confusion and manageability issues, the default endpoint is the recommended approach.
+
+The following table shows the supported scenarios:
+
+| Scenario | Supported |
+|----------|-----------|
+| Default endpoint as source | Yes |
+| Default endpoint as destination | Yes |
+| Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
+| Custom endpoint as source and destination | No, unless one of them is an MQTT endpoints with host `aio-broker` |
 
 ## Reuse endpoints
 
@@ -41,35 +57,104 @@ For example, you can use the default MQTT broker dataflow endpoint. You can use 
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to MQTT.":::
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
+  parent: <DEFAULT_PROFILE_RESOURCE>
+  name: 'broker-to-broker'
+  extendedLocation: {
+    name: <CUSTOM_LOCATION_RESOURCE>.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'default'
+          dataSources: [
+            'example/topic/1'
+          ]
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: 'default'
+          dataDestination: 'example/topic/2'
+        }
+      }
+    ]
+  }
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
-  name: mq-to-mq
+  name: broker-to-broker
   namespace: azure-iot-operations
 spec:
   profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        endpointRef: default
         dataSources:
         - example/topic/1
     - operationType: Destination
       destinationSettings:
-        endpointRef: mq
+        endpointRef: default
         dataDestination: example/topic/2
 ```
 
 ---
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to a Kafka endpoint.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to an Event Hub endpoint.
 
 # [Portal](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a dataflow from MQTT to Kafka.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
+  parent: <DEFAULT_PROFILE_RESOURCE>
+  name: 'broker-to-eh'
+  extendedLocation: {
+    name: <CUSTOM_LOCATION_RESOURCE>.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'default'
+          dataSources: [
+            'example/topic/3'
+          ]
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // The endpoint needs to be created before you can reference it here
+          endpointRef: 'example-event-hub-endpoint'
+          dataDestination: 'example/topic/4'
+        }
+      }
+    ]
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -77,22 +162,33 @@ Similarly, you can create multiple dataflows that use the same MQTT endpoint for
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
-  name: mq-to-kafka
+  name: broker-to-eh
   namespace: azure-iot-operations
 spec:
   profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        endpointRef: default
         dataSources:
         - example/topic/3
     - operationType: Destination
       destinationSettings:
-        endpointRef: example-kafka-endpoint
+        # The endpoint needs to be created before you can reference it here
+        endpointRef: example-event-hub-endpoint
         dataDestination: example/topic/4
 ```
 
 ---
 
 Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
+
+## Next steps
+
+Create a dataflow endpoint: 
+
+- [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
+- [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
+- [Data Lake](howto-configure-adlsv2-endpoint.md)
+- [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
+- [Local storage](howto-configure-local-storage-endpoint.md)

@@ -87,6 +87,10 @@ items:
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
+  - name: Voice, Video and Chat
+    items:
+    - name: Calling with chat
+      href: quickstarts/ui-library/get-started-calling-with-chat.md
   - name: Voice and Video
     items:
     - name:  Connect to a call
@@ -484,6 +488,8 @@ items:
         href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
+      - name: Add Diagnostic options tag to your calling logs
+        href: tutorials/voice-video-calling/diagnostic-options-tag.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Rooms Insights
         href: concepts/analytics/insights/rooms-insights.md
