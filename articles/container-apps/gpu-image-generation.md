@@ -57,7 +57,7 @@ Once you create the container app, the app can take up to five minutes to provis
     | Name | Enter **my-gpu-demo-container**. |
     | Image source | Select **Docker Hub or other registries**.  |
     | Image type | Select **public**. |
-    | Registry login server | Enter **cappsinttestregistrypublic.azurecr.io** TODO: replace |
+    | Registry login server | Enter **mcr.microsoft.com/k8se/gpu-quickstart:latest**. |
     | Image and tag | Enter **sd-image-gen:latest**. |
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |

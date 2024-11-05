@@ -43,6 +43,30 @@ Free usage doesn't appear on your bill. You're only charged as your resource usa
 > [!NOTE]
 > If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
+### Serverless GPU
+
+The following pricing is applied to [serverless GPU usage](gpu-overview.md).
+
+# [West US 3](#tab/westus3)
+
+| Pricing type        | Meter: NC T4 v3       | NC A100 v4 |
+|---------------------|-----------------------|------------|
+| Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
+| 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
+| 3-year savings plan | $0.000061 per second  | $0.000439 per second |
+
+# [Australia East](#tab/australiaeast)
+
+TODO: update with correct pricing
+
+| Pricing type        | Meter: NC T4 v3       | NC A100 v4 |
+|---------------------|-----------------------|------------|
+| Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
+| 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
+| 3-year savings plan | $0.000061 per second  | $0.000439 per second |
+
+---
+
 ### Resource consumption charges
 
 Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure for each revision. [Azure Container Apps jobs](jobs.md) run replicas when job executions are triggered. You're charged for the amount of resources allocated to each replica while it's running.
