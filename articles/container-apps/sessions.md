@@ -97,7 +97,7 @@ Example strategies include:
 
 ### <a name="authentication"></a>Authentication and authorization
 
-When you send HTTP requests to a session, authentication is handled using Microsoft Entra (formerly Azure Active Directory) tokens. Only Microsoft Entra tokens from an identity belonging to the *Azure ContainerApps Session Executor* role on the session pool are authorized to call the pool management API.
+When you send requests to a session using the pool management API, authentication is handled using Microsoft Entra (formerly Azure Active Directory) tokens. Only Microsoft Entra tokens from an identity belonging to the *Azure ContainerApps Session Executor* role on the session pool are authorized to call the pool management API.
 
 To assign the role to an identity, use the following Azure CLI command:
 
