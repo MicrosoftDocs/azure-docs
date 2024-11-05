@@ -359,7 +359,7 @@ This template contains the following additional settings for managed identity:
 |---------|-------|-------------|
 | `customContainerTemplate.registryCredentials.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use for image pull authentication. |
 | `managedIdentitySettings.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use in the session. |
-| `managedIdentitySettings.lifecycle` | `None` | The session lifecycle where the managed identity is available.<br><br>- `None` (default): The session can't access the identity. It's only used for image pull.<br><br>- `Main`: The main session can access the identity. It can also be used for image pull. **Use with caution.** |
+| `managedIdentitySettings.lifecycle` | `None` | The session lifecycle where the managed identity is available.<br><br>- `None` (default): The session can't access the identity. It's only used for image pull.<br><br>- `Main`: In addition to image pull, the main session can also access the identity. **Use with caution.** |
 
 ---
 
