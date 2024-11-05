@@ -11,12 +11,25 @@ ms.author: cshoe
 
 # Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
 
-Once you create the container app, the app can take up to five minutes to provision.
+In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI image generation model.
+
+With serverless GPUs, you have direct access to GPU compute resources without having to do any manual server configuration. The AI model is packaged in the provided container image, and all you have to do is configure and deploy the application.
+
+In this tutorial you:
+
+> [!div class="checklist"]
+> * Create a new container app and environment 
+> * Configure the environment to use serverless GPUs
+> * Deploy your app to Azure Container Apps
+> * Use the new serverless GPU enable application
 
 ## Prerequisites
 
-- Access to Serverless GPUs is only available after you request serverless GPU quotas
-- Azure Container Registry: An existing Azure Container Registry instance or permissions to create one.
+| Resource | Description |
+|---|---|
+| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure Container Registry instance | You need an existing Azure Container Registry instance or the permissions to create one. |
+| Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
 
 ## Create your container app
 
@@ -78,6 +91,8 @@ Once you create the container app, the app can take up to five minutes to provis
 1. Select **Create**.
 
 1. Wait a few moments for the deployment to complete and then select **Go to resource**.
+
+    This process can take up to five minutes to complete.
 
 ## Use your GPU app
 
