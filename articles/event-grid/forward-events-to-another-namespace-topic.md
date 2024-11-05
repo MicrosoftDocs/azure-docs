@@ -2,7 +2,7 @@
 title: Forward events to another namespace topic
 description: This article shows how to forward events from one namespace topic to another namespace topic. 
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 11/18/2024
 author: robece
 ms.author: robece
 ---
