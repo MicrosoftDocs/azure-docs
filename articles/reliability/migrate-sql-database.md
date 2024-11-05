@@ -197,7 +197,7 @@ To create a geo-replica of the database:
 
 ## Disable zone-redundancy
 
-To disable zone-redundancy for a single database or an elastic pool, you can use the portal, ARM API, PowerShell, and CLI. 
+To disable zone-redundancy for a single database or an elastic pool, you can use the portal, ARM API, PowerShell, or CLI. 
 
 ### Disable zone-redundancy for a single database
 
