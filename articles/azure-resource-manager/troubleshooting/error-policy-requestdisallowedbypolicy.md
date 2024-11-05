@@ -24,7 +24,7 @@ During a deployment, you might receive a `RequestDisallowedByPolicy` error that 
   "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyAssignments/1111aa2222bb3333cc4444dd"}
 
 "policyDefinition":{"name":"Network interfaces should not have public IPs",
-  "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"}
+  "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114"}
 ```
 
 In the `id` string, the `{guid}` placeholder represents an Azure subscription ID. The name of a `policyAssignment` or `policyDefinition` is the last segment of the `id` string.
