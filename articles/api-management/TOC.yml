@@ -120,9 +120,9 @@
         href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Network isolation - v2 tiers
       items:
-      - name: Virtual network injection (v2 tiers) - requirements
+      - name: Virtual network injection (v2 tiers) 
         href: inject-vnet-v2.md
-      - name: Virtual network integration (v2 tiers) - requirements
+      - name: Virtual network integration (v2 tiers)
         href: integrate-vnet-outbound.md
     - name: Virtual network integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md
