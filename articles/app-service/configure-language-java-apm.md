@@ -71,7 +71,8 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ::: zone pivot="java-jboss"
 
-The latest [New Relic documentation](https://docs.newrelic.com/install/java/?deployment=appServer&framework=jboss) lists JBoss EAP support up to 7.x. JBoss EAP 8.x is not yet supported.
+> [!NOTE]
+> The latest [New Relic documentation](https://docs.newrelic.com/install/java/?deployment=appServer&framework=jboss) lists JBoss EAP support up to 7.x. JBoss EAP 8.x is not yet supported.
 
 ::: zone-end
 

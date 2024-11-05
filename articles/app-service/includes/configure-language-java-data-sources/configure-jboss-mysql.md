@@ -57,7 +57,7 @@ ms.author: cephalin
             <resource>
                 <!-- The script type uploads to /home/site/scripts by default. -->
                 <type>script</type>
-                <directory>${project.scriptSourceDirectory}</directory> <!-- scriptSourceDirectory is src/main/scripts by default. -->
+                <directory>${project.scriptSourceDirectory}</directory> <!-- Assume script is in src/main/scripts. -->
                 <includes>
                     <include>jboss_cli_commands.cli</include>
                 </includes>
@@ -65,7 +65,7 @@ ms.author: cephalin
             <resource>
                 <!-- The startup type uploads to /home/site/scripts/startup.sh by default -->
                 <type>startup</type>
-                <directory>${project.scriptSourceDirectory}</directory> <!-- scriptSourceDirectory is src/main/scripts by default. -->
+                <directory>${project.scriptSourceDirectory}</directory> <!-- Assume script is in src/main/scripts. -->
                 <includes>
                     <include>startup.sh</include>
                 </includes>
