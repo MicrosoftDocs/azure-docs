@@ -60,3 +60,11 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
+## Test the AD DS Account Password matches a Kerberos Key
+
+Now that you've set the AD DS Account Password you can test it using
+
+```powershell
+ Test-AzStorageAccountADObjectPasswordIsKerbKey -ResourceGroupName "<your-resource-group-name>" -Name "<your-storage-account-name>" -Verbose
+```
+
