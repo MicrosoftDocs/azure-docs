@@ -20,7 +20,7 @@ In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azur
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default App Service, SQL Database, and Redis cache architecture
+> * Create a secure-by-default App Service, SQL Database, and Redis cache architecture.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a sample ASP.NET Core app to App Service from a GitHub repository.
 > * Acces App Service connection strings and app settings in the application code.
