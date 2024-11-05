@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-    # Configure striping for higher backup throughput for SAP ASE databases
+# Configure striping for higher backup throughput for SAP ASE databases
     
     Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This is beneficial for large databases, where the time required to complete a backup can be significant. By distributing the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. Based on our internal testing we saw 30-40% increase in throughput performance and we highly recommend testing the striping configuration before making changes on production.
     
