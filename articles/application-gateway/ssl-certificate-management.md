@@ -92,9 +92,9 @@ To use the Bulk update option,
 1. You can't delete a certificate object if its associated listener is a redirection target for another listener. Any attempt to do so will return the following error. You can either remove the redirection or delete the dependent listener first to resolve this problem. 
 `The listener associated with this certificate is configured as the redirection target for another listener. You will need to either remove this redirection or delete the redirected listener first to allow deletion of this certificate.`
 
-1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of a HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
+1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of an HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
 
-1. If a certificate is deleted in KeyVault but the reference to the certificate in Application Gateway is not deleted, any update to the Application Gateway will cause it to appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one.
+1. If a certificate is deleted in key vault but the reference to the certificate in Application Gateway is not deleted, any update to the Application Gateway will cause it to appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one.
 
 
 ## Next steps
