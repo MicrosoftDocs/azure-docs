@@ -15,75 +15,76 @@ In this article, you learn how to use the Azure portal to request a type convers
 
 ## Prerequisites
 
-A direct peering type conversion for a peering connection can only be requested if the following prerequisites apply:
+A direct peering type conversion for a peering connection can be requested only if the following prerequisites apply:
 
 - The peering must have at least two connections.
-- The redundant connections must be of equal bandwidth
+- The redundant connections must be of equal bandwidth.
 - All connections in the peering must be fully provisioned (with the property 'ConnectionState' = 'Active') that is, none of the connections must be undergoing provisioning, decommission, or an internal device migration.
-- The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, see [Convert a legacy Direct peering to an Azure resource using the Azure portal](howto-legacy-direct-portal.md).
+- The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, see [Convert a legacy direct peering to an Azure resource by using the Azure portal](howto-legacy-direct-portal.md).
 - Bandwidth updates can't be requested to other connections in the peering during the conversion.
 - No adding or removing of connections can occur during the conversion.
-- Type conversions run during the business hours of the Pacific Time zone.
-- For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It's expected that the partners set up their configurations accordingly.
+- Type conversions run during the business hours of the Pacific time zone.
+- For voice peering conversions, the connection session addresses are provided by Microsoft and enabled with Bidirectional Forwarding Detection (BFD). It's expected that the partners set up their configurations accordingly.
 
-## Configure the new type on a Direct Peering
+## Change the type of a direct peering
 
-### Convert from PNI to Voice
+To convert a direct peering to a new type, complete the steps described in the following sections.
 
-A peering with standard PNI or PNI enabled for Azure Peering Service can be converted to Voice PNI. This conversion must be made at the peering level, which means all the connections within the peering are converted.
+### Convert from PNI to voice interconnect
+
+A peering with standard Private Network Interconnect (PNI) or PNI enabled for Azure Peering Service can be converted to voice PNI. This conversion must be made at the peering level, which means that all the connections within the peering are converted.
 
 1. Go to the **Configuration** pane of your peering.
 
-1. Select the **AS8075 (with Voice)** option and then select **Save**.
+1. Select the **AS8075 (with Voice)** option, and then select **Save**.
 
     :::image type="content" source="./media/walkthrough-direct-peering-type-conversions/conversion-selection.png" alt-text="Screenshot shows how to change Microsoft network in the Conversions pane of the peering in the Azure portal." lightbox="./media/walkthrough-direct-peering-type-conversions/conversion-selection.png":::
 
 ### Enable Peering Service on a connection
 
-A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
+A standard PNI within a peering can be enabled for Peering Service. One standard PNI can be requested per connection.
 
-You need to be a Peering Service partner to enable Peering Service on a connection. See the [partner requirements pane](prerequisites.md) and make sure you sign the agreement with Microsoft. For questions, reach out to [Azure Peering group](mailto:peeringservice@microsoft.com).
+You need to be a Peering Service partner to enable Peering Service on a connection. See the [partner requirements pane](prerequisites.md) and make sure you sign the agreement with Microsoft. For questions, contact the [Azure Peering group](mailto:peeringservice@microsoft.com).
 
 1. Go to the **Connection** pane of your peering.
 
-1. Select the ellipsis (...) next to the connection that you want to edit and select **Edit connection**.
+1. Select the ellipsis (`...`) next to the connection that you want to edit and select **Edit connection**.
 
     :::image type="content" source="./media/walkthrough-direct-peering-type-conversions/view-connection.png" alt-text="Screenshot shows how to select a connection to edit in the Connections pane of a peering in the Azure portal." lightbox="./media/walkthrough-direct-peering-type-conversions/view-connection.png":::
 
-1. In the **Direct Peering Connection** pane, select **Enabled** for **Use for Peering Service**, and then select **Save**.
+1. On the **Direct Peering Connection** pane, for **Use for Peering Service**, select **Enabled**, and then select **Save**.
 
     :::image type="content" source="./media/walkthrough-direct-peering-type-conversions/edit-connection.png" alt-text="Screenshot shows how to edit a connection." lightbox="./media/walkthrough-direct-peering-type-conversions/edit-connection.png":::
 
-Once the request is received, the **Connection State** on each of the connections changes to **TypeChangeRequested**.
+When the request is received, the connection state on each of the connections changes to **TypeChangeRequested**.
 
 ## Conversion approval
 
 Your request is reviewed and approved by someone from the internal team.
 
-Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections converted one at a time to ensure that the redundant connections are always up and carrying traffic. The **Connection State** changes to **TypeChangeInProgress**.
-You can see this state in the Connection pane.
+Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections convert one at a time to ensure that the redundant connections are always up and carrying traffic. The connection state changes to **TypeChangeInProgress**. This state is shown on the Connections pane.
 
 ## Monitor the conversion
 
-When your connection enters the conversion process, its state is labeled as **TypeChangeInProgress**.
+When your connection enters the conversion process, its state is **TypeChangeInProgress**.
 
-You're kept up to date through emails at the following steps:
+You're kept up to date through emails at the following changes in status for the connection:
 
-- Request Received
-- Request Approved
-- Session Address Changes (if any)
+- Request received
+- Request approved
+- Session address changes (if any)
 - Conversion complete
-- Peering Azure Resource removal (if any)
+- Peering Azure resource removal (if any)
 - Request rejected
 - Action required from peering partner
 
-The email notifications are sent to the peer email contact provided during the *Peer Asn* resource creation. You can either reply back to the emails or contact [Azure Peering group](mailto:peeringservice@microsoft.com) if you have questions.
+Email notifications are sent to the peer email contact that you provide during *peer autonomous system number (ASN)* resource creation. If you have questions, you can either reply to the emails or contact the [Azure Peering group](mailto:peeringservice@microsoft.com).
 
-If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
+If a conversion to voice peering is requested and the connections already have IP addresses provided by Microsoft, set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for voice peering waits for both the BGP and BFD sessions to be running before allowing any traffic on the sessions.
 
-If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic is allowed on this session and the session with the old IP addresses will be shut down. There's no downtime in this case.
+If a conversion to voice peering is requested and the connections have IP addresses provided by the peering partner, wait for the email notification that has the new Microsoft provided IP addresses. When you receive the email, configure the IP addresses and BFD on your end. When the BGP and BFD sessions with the new IP addresses are active, traffic is allowed on this session, and the session that uses the old IP addresses is shut down. In this scenario, no downtime occurs.
 
-Once the conversion is completed its state returns to **Active**.
+When the conversion is completed, its state returns to **Active**.
 
 ## FAQ
 
@@ -91,39 +92,41 @@ Once the conversion is completed its state returns to **Active**.
 
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
 
-- Guaranteeing that a redundant connection with equivalent bandwidth is up at the time of conversion.
+- Guaranteeing that a redundant connection with equivalent bandwidth is active at the time of conversion.
 - Performing any conversions one connection at a time.
-- Only bringing down old connections if it's necessary (in the case of a type conversion while the IP address stays the same).
-- Only performing conversions at times where engineers are online and capable of helping remedy any unlikely issues.  
+- Taking old connections offline only if it's necessary (in the case of a type conversion in which the IP address stays the same).
+- Completing conversions only when engineers are online and capable of helping to resolve any unlikely issues.  
 
 **Q.** Why was my request to convert the type of direct peering rejected?
 
-**A.** Verify if the peering satisfies all the requirements from the [Prerequisites](#prerequisites) section.
+**A.** Verify that the peering satisfies all the requirements that are listed in the [Prerequisites](#prerequisites) section.
 
-**Q.** Why has my request to enable Peering Service on a connection been rejected?
+**Q.** Why was my request to enable Peering Service on a connection rejected?
 
-**A.** To enable Peering Service on a connection, see [partner requirements pane](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to the [Azure Peering group](mailto:peeringservice@microsoft.com). Verify if the peering satisfies all the requirements from the [Prerequisites](#prerequisites) section.
+**A.** To enable Peering Service on a connection, see the [partner requirements](prerequisites.md). Ensure that you signed the agreement with Microsoft. For questions, contact the [Azure Peering group](mailto:peeringservice@microsoft.com). Verify that the peering satisfies all the requirements that are listed in the [Prerequisites](#prerequisites) section.
 
 **Q.** How long does it take for the conversion to complete?
 
-**A.** For conversions that don't involve any IP address changes, if the expected setup is done by the peering partner, the conversion should be completed within two business days. For conversions involving IP addresses change, there's an extra delay in reserving new addresses internally and considering the delay in peering partner finishing their end of the configuration, expect the process to take up to five business days.
+**A.** For conversions that don't involve any IP address changes, if the expected setup is done by the peering partner, the conversion can be completed within two business days. For conversions that involve IP addresses change, an extra delay might result from reserving new addresses internally. Also, considering a possible delay in the peering partner completing their end of the configuration, expect the process to take up to five business days.
 
-**Q.** Is there an impact on traffic for the whole-time conversion happens?
+**Q.** Is there an impact on traffic for the overall conversion?
 
-**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~2 hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there's almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
+**A.** The conversion process involves several stages. Not all the stages affect traffic. Tapering the traffic, configuring new policies for the type of peering, and allowing the traffic back when BGP and BFD are online is done serially. Combined these steps usually take approximately two hours if the peering partner completes their end of the configurations promptly.
 
-**Q.** How do I know which connection to configure the new Microsoft-provided IP addresses?
+For voice interconnect conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there's almost zero downtime because the traffic is seamlessly shifted to the session that has the new addresses. Then, the session that has the old IP addresses is shut down.
 
-**A.** The email notification lists the connection details with both the old peer provided IP addresses and the corresponding new Microsoft provided IP addresses.
+**Q.** How do I know on which connection to configure the new Microsoft-provided IP addresses?
 
-**Q.** Why is my peering stuck with ConnectionState as 'TypeChangeInProgress' or 'ProvisioningFailed' for a long time?
+**A.** The email notification that we send to you lists the connection details, including both the old peer-provided IP addresses and the corresponding new Microsoft-provided IP addresses.
 
-**A.** This state could be either due to a configuration or an internal error or the process could be waiting for the peering partner side of configurations. We monitor and catch these issues and give you an email notification promptly. If you have further questions, contact the [Azure Peering group](mailto:peeringservice@microsoft.com) for resolution.
+**Q.** Why is the connection state for my peering stuck at **TypeChangeInProgress** or **ProvisioningFailed**?
 
-**Q.** I have two different peerings, Peering A with standard PNI connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
+**A.** This state might be either due to a configuration error or internal error, or the process might be waiting for the peering partner side to complete configurations. We monitor and catch these issues promptly, and we send you an email notification. If you have more questions, contact the [Azure Peering group](mailto:peeringservice@microsoft.com).
 
-**A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process results in Peering B (the Voice peering) having four connections now and the Peering A resource will be removed. This is by design so that we maintain only one peering for a given peering provider and type of direct peering at a given location.
+**Q.** I have two different peerings, Peering A with standard PNI connections and peering B with voice connections. I would like to convert the standard PNI peering connections to voice. What happens to the peering resources in this case?
+
+**A.** When Peering A is converted from PNI to voice, the connections for Peering A are moved to Peering B, and then Peering A is deleted. For example: If Peering A has two PNI connections and they're converted to voice, and Peering B already has two connections, the process results with Peering B (the voice peering) now having four connections, and the Peering A resource is removed. This result is by design so that we maintain only one peering for a given peering provider and type of direct peering at a given location.
 
 **Q.** I have more questions. What is the best way to contact you?
 
-**A.** Contact the [Azure Peering Service group](mailto:peeringservice@microsoft.com).
+**A.** Contact the [Azure Peering group](mailto:peeringservice@microsoft.com).
