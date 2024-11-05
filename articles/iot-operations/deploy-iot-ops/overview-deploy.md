@@ -16,17 +16,18 @@ ms.date: 10/23/2024
 
 ## Supported environments
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
+Azure IoT Operations can run on various operating system and Kubernetes offering; however, not all of these environments are equally supported.
+The environment listed in the following is supported by Microsoft.
 
-* Minimum hardware requirements:
-  * 16-GB RAM
-  * 4 vCPUs
+* K3s on Ubuntu LTS release
 
-* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
-  * 32-GB RAM
-  * 8 vCPUs
+Following environments are currently in evaluation.
 
-[!INCLUDE [validated-environments](../includes/validated-environments.md)]
+* AKS-EE on Windows 11 IoT Enterprise
+* AKS on Azure Stack HCI
+
+> [!IMPORTANT]
+> The usage records are rated for billing on any environments where Azure IoT Operations is installed.
 
 ## Choose your features
 
