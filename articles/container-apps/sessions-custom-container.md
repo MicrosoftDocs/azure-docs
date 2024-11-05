@@ -96,6 +96,16 @@ This command creates a session pool with the following settings:
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |
 | `--location` | `"Supported Location"` | The location of the session pool. |
 
+To check on the status of the session pool, use the `az containerapp sessionpool show` command:
+
+```bash
+az containerapp sessionpool show \
+    --name <SESSION_POOL_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --query "properties.poolManagementEndpoint" \
+    --output tsv
+```
+
 To update the session pool, use the `az containerapp sessionpool update` command.
 
 # [Azure Resource Manager](#tab/arm)
@@ -204,6 +214,12 @@ This template creates a session pool with the following settings:
 > [!IMPORTANT]
 > If the session is used to run untrusted code, don't include information or data that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including its environment variables, secrets, and files. 
 
+#### Image caching
+
+When a session pool is created or updated, Azure Container Apps caches the container image in the pool. This caching helps to speed up the process of creating new sessions.
+
+Because the image is cached, any changes to the image aren't automatically reflected in the sessions. To update the image in the sessions, you must update the session pool with a new image tag. Use a unique tag for each image update to ensure that the new image is pulled.
+
 ### Working with sessions
 
 Your application interacts with a session using the session pool's management API.
@@ -211,6 +227,7 @@ Your application interacts with a session using the session pool's management AP
 A pool management endpoint for custom container sessions follows this format: `https://<SESSION_POOL>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io`.
 
 To retrieve the session pool's management endpoint, use the `az containerapp sessionpool show` command:
+
 ```bash
 az containerapp sessionpool show \
     --name <SESSION_POOL_NAME> \
