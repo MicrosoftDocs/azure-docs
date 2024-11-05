@@ -16,26 +16,6 @@ You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit p
 
 If you haven't configured backups yet for your SAP ASE databases, see Back up SAP ASE databases on Azure VMs. To learn more about the supported configurations and scenarios, see [Support matrix for backup of SAP ASE databases on Azure VMs](sap-ase-backup-support-matrix.md).
 
-## Run an on-demand backup
-
-To run on-demand backups, follow these steps:
-
-1.	On the left pane of the Recovery Services vault, select **Backup items**.
-2.	On the Backup Items blade, select the **Backup Management Type** as **SAP ASE (Sybase) in Azure VM**.
-3.	Select **view details** of Database for on-demand backup.
-
-  :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-manage/view-details.png":::
-
-4.	Select **Backup now** for taking on-demand backup.
-
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png" alt-text="Screenshot showing how to take on-demand backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png":::
-
-5. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**. The retention period of this backup is determined by the type of on-demand backup you want to run.
-- *On-demand full backups* are retained for a minimum of 45 days and a maximum of 99 years.
-- *On-demand differential* backups are retained as per the *log retention* set in the policy.
-
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png" alt-text="Screenshot showing how to choose the type of backup you want to perform." lightbox="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png":::
-
 ## Monitor backup jobs
 
 Azure Backup shows all manually triggered jobs in the Backup jobs section of Recovery Services Vault.
