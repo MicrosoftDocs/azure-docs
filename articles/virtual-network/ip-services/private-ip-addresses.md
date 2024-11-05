@@ -18,7 +18,7 @@ Resources can be:
 
 * Azure services such as:
     
-    * Virtual Machines
+    * Virtual machine network interfaces
     
     * Internal load balancers (ILBs)
     
@@ -67,15 +67,11 @@ To assign the network interface to a different subnet, you change the allocation
 > [!NOTE]
 > When requesting a private IP address, the allocation is not deterministic or sequential. There are no guarantees the next allocated IP address will utilize the next sequential IP address or use previously deallocated addresses. If a specific Private IP address is required for a resource, you should consider using a static private IP address.
     
-## Virtual machines
+## Virtual machine network interfaces
 
-One or more private IP addresses are assigned to one or more **network interfaces** of a Virtual Machine. 
+One or more private IP addresses are assigned to one or more **network interfaces** of a Virtual Machine. Network interfaces are assigned to a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and enable connectivity with other resources within and outside the Virtual Network. 
 
-### Network Interfaces
-
-Network interfaces are assigned to a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and enable connectivity with other resources within and outside the Virtual Network. 
-
-Network interfaces are configurded with private for communication within the Azure virtual network and with other Azure resources, and can optionally be configured with public IP addresses for communication outside the Azure (e.g. Internet, customer on-premises).
+Network interfaces are configurded with private IP addresses for communication within the Azure virtual network and other Azure resources, and can optionally be configured with public IP addresses for communication outside the Azure (e.g. Internet, customer on-premises).
 A network interface has one primary IP configuration associated with them and an option to attach zero or more secondary private IP configurations. For the total count of private IP configurations on a network interface allowed in your subscription, see [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). The primary IP configuration on the network interface must have a single IP address (a /32 IPv4 address or a /128 IPv6 address) attached to it, while the secondary IP configurations can have either a single IP address or a block of IP addresses (*in preview*) attached to them. The only allowed blocks are IPv4 addresses of size /28 today.
 
 You can specify the allocation method as either dynamic or static for each private IP address.
