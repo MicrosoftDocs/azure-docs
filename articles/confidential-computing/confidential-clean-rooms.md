@@ -2,8 +2,8 @@
 title: Perform secure multiparty data collaboration on Azure
 description: Learn how Azure Confidential Clean Rooms enables multiparty collaborations while keeping your data safe from other collaborators.
 author: mathapli
-ms.service: azure-confidential-clean-rooms
-ms.subservice: workloads
+ms.service: azure
+ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 10/28/2024
 ms.author: mathapli
@@ -39,7 +39,7 @@ Subsequently, ACCR can also be used for ML inferencing where partner hospitals c
 Azure Confidential Clean Rooms (ACCR) provides a secure and compliant environment for multi-party data collaboration. Built on confidential hardware, ACCR ensures that sensitive data remains protected throughout the collaboration process. Here are some key benefits of using Azure Confidential Clean Rooms:
 
 - Secure collaboration and governance:
-ACCR allows collaborators to create tamper-proof contracts. ACCR also enforces all the constraints which are part of the contract. Governance ensures validity of constraints before allowing data to be released into clean rooms and drives transparency amongst collaborators by generating tamper-proof audit trails. ACCR uses the open-sourced [confidential consortium framework](https://learn.microsoft.com/azure/managed-ccf/confidential-consortium-framework-overview) to enable these capabilities.
+ACCR allows collaborators to create tamper-proof contracts. ACCR also enforces all the constraints which are part of the contract. Governance ensures validity of constraints before allowing data to be released into clean rooms and drives transparency amongst collaborators by generating tamper-proof audit trails. ACCR uses the open-sourced [confidential consortium framework](../managed-ccf/confidential-consortium-framework-overview.md) to enable these capabilities.
 - Compliance:
 Confidential computing can address some of the regulatory and privacy concerns by providing a secure environment for data collaboration. This capability is beneficial for industries such as financial services, healthcare, and telecom, which deal with highly sensitive data and personally identifiable information (PII).
 - Enhanced data security:
