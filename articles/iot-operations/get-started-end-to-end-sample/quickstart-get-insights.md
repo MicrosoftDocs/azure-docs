@@ -260,7 +260,7 @@ Below are some more queries that you can use to add additional tiles to your das
     | where AssetId == _asset
     | project Timestamp, Temperature, FillWeight
     ```
-* Query for a line chart tile, Temperature (F) vs. Energy Use*:
+* Query for a line chart tile, *Temperature (F) vs. Energy Use*:
     ```kql
     OPCUA 
     | where Timestamp between (_startTime.._endTime)
@@ -299,4 +299,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard.

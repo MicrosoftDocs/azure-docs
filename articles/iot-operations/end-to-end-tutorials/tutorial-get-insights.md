@@ -286,4 +286,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this tutorial.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, eventhouse, and Real-Time Dashboard.
