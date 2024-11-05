@@ -20,6 +20,8 @@ Iceberg format is supported for the following connectors:
 
 - [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
+You can use Iceberg dataset in [Copy activity](copy-activity-overview.md).
+
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Iceberg format dataset.
@@ -40,7 +42,7 @@ Below is an example of Iceberg dataset on Azure Data Lake Storage Gen2:
             "referenceName": "<Azure Data Lake Storage Gen2 linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, retrievable during authoring >
+        "schema": [ < physical schema, optional, auto retrieved during authoring >
         ],
         "typeProperties": {
             "location": {

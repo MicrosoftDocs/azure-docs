@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 
@@ -40,6 +40,7 @@ The following file formats are supported. Refer to each article for format-based
 - [Common Data Model format](format-common-data-model.md)
 - [Delimited text format](format-delimited-text.md)
 - [Delta format](format-delta.md)
+- [Iceberg format](format-iceberg.md)
 - [Excel format](format-excel.md)
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
