@@ -261,10 +261,12 @@ Below are some more queries that you can use to add additional tiles to your das
     | project Timestamp, Temperature, FillWeight
     ```
 * Query for a line chart tile, Temperature (F) vs. Energy Use*:
+    ```kql
     OPCUA 
     | where Timestamp between (_startTime.._endTime)
     | where AssetId == _asset
     | project Timestamp, Temperature, EnergyUse
+    ```
 * Query for a stat tile, *Max temperature*:
     ```kql
     OPCUA
