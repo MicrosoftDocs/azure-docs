@@ -328,7 +328,7 @@
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
         - name: Connect to Azure Application Gateway
           href: how-to-enable-private-link-application-gateway.md
-        - name: Connect to Azure API management
+        - name: Connect to Azure API Management
           href: standard-premium/how-to-enable-private-link-apim.md
       - name: Monitor and reports
         items:
