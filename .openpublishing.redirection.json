@@ -1,6 +1,106 @@
 {
   "redirections": [
     {
+      "source_path": "articles/lab-services/class-type-adobe-creative-cloud.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-adobe-creative-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-arcgis.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-arcgis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-autodesk.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-autodesk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-big-data-analytics.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-big-data-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-database-management.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-database-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-deep-learning-natural-language-processing.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-deep-learning-natural-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-ethical-hacking.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-ethical-hacking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-matlab.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-matlab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-jupyter-notebook.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-jupyter-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-networking-gns3.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-networking-gns3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-pltw.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-pltw",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-react-linux.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-react-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-react-windows.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-react-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-rstudio-linux.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-rstudio-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-rstudio-windows.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-rstudio-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-shell-scripting-linux.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-shell-scripting-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-solidworks.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-solidworks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-type-sql-server.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-type-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/class-types.md",
+      "redirect_url": "/previous-versions/azure/lab-services/class-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-lab-accounts.md",
+      "redirect_url": "/previous-versions/azure/lab-services/how-to-create-lab-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/devtest-labs/devtest-lab-integrate-ci-cd.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-integrate-ci-cd",
       "redirect_document_id": false
@@ -3331,6 +3431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-gateway",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
       "redirect_document_id": false
@@ -3598,6 +3703,16 @@
     {
       "source_path_from_root": "/articles/third-party-notices.md",
       "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/main/ThirdPartyNotices.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/glossary.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md",
+      "redirect_url": "/azure/reliability/reliability-cosmos-db-nosql",
       "redirect_document_id": false
     }
   ]
