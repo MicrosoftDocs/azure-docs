@@ -312,23 +312,23 @@
         items:
         - name: Connect to an internal load balancer
           href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
-        - name: Connect to a storage account
+        - name: Connect to Azure Storage Account
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-storage-account.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-storage-account-cli.md
-        - name: Connect to a storage static website
+        - name: Connect to Azure Storage static website
           href: how-to-enable-private-link-storage-static-website.md
-        - name: Connect to an App service
+        - name: Connect to Azure App Service
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
-        - name: Connect to an application gateway
+        - name: Connect to Azure Application Gateway
           href: how-to-enable-private-link-application-gateway.md
-        - name: Connect to an API management
+        - name: Connect to Azure API management
           href: standard-premium/how-to-enable-private-link-apim.md
       - name: Monitor and reports
         items:
