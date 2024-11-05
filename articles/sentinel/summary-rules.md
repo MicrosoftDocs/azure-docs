@@ -167,36 +167,24 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 **Solution**: We recommend using summary rules to do the following:
 
-1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. [ASIM functions](normalization-functions.md) might be helpful in the summary query when interacting with your McAfee logs.
+1. **Create a summary rule**:
 
-1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. For example:
+    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from  CommonSecurityLog_CL, which is the *CommonSecurityLog* table with the Auxilairy plan.
 
-    ```kusto
-    //let timeRange = 5m;
-    //let httpstrim = "https://";
-    //let httptrim = "http://";
-    let timeRangeStart = now (-10m);
-    let timeRangeEnd = (timeRangeStart + 10m);
-    //Take visited domains from McAfee proxy
-    adx('https://adxfwlog01.northeurope.kusto.windows.net/nwlogs').MappedMcAfeeSyslog
-    | where timestamp between (timeRangeStart .. timeRangeEnd)
-    | where isnotempty(URL)
-    | extend URLDomain = parse_url(URL).Host
-    | extend URLDomain = iff(isempty(URLDomain),URL,URLDomain)
-    | extend URLDomain = extract(@"([0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,3}\.[0-9a-zA-Z-]{2,3}|[0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,10})$", 0, URLDomain)
-    | where isnotempty(URLDomain)
-    | summarize by URLDomain
-    //Match visited domains with TI DomainName list
-    | join kind=inner (ThreatIntelligenceIndicator
-        | where isnotempty(DomainName)
-        | where Active == true
-        | where ExpirationDateTime > now()
-        | summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by DomainName
-          ) on $left.URLDomain == $right.DomainName
-    | extend LogicApp = "SOC-McAfee-ADX-DstDomainAgainstThreatIntelligence"
-    | project LatestIndicatorTime, TI_Domain = DomainName, Description, ConfidenceScore, AdditionalInformation, LogicApp
-    ```
+    1. Perform an inner lookup against your active Threat Intelligence Indicators to identify any matches with the source address. This allows you to cross-reference your data with known threats.
 
+    1. Project relevant information, including the time generated, activity type, and any malicious source IPs, along with the destination details. Set the frequency you want the query to run, and the destination table for the `MaliciousIPDetection’ example. The results in this table are in the analytic tier and charged accordingly.
+
+1. **Create an alert**. Create an analytics rule in Microsoft Sentinel that alerts based on results from the `MaliciousIPDetection` table. This step is crucial for proactive threat detection and incident response.
+
+**Sample summary rule**:
+
+```kusto
+CommonSecurityLog_CL​
+| extend sourceAddress = tostring(parse_json(Message).sourceAddress), destinationAddress = tostring(parse_json(Message).destinationAddress), destinationPort = tostring(parse_json(Message).destinationPort)​
+| lookup kind=inner (ThreatIntelligenceIndicator | where Active == true ) on $left.sourceAddress == $right.NetworkIP​
+| project TimeGenerated, Activity, Message, DeviceVendor, DeviceProduct, sourceMaliciousIP =sourceAddress, destinationAddress, destinationPort
+```
 ## Use summary rules with auxiliary logs (sample process)
 
 This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
