@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 11/04/2024
 ms.author: cshoe
 ms.custom: references_regions
 ---
@@ -60,24 +60,30 @@ You can configure pools to set the maximum number of sessions that can be alloca
 
 A session is a sandboxed environment that runs your code or application. Each session is isolated from other sessions and from the host environment with a [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) sandbox. Optionally, you can enable network isolation to further enhance security.
 
-#### Session identifiers
+You interact with sessions in a session pool using an HTTP API. Each session pool has a unique pool management endpoint.
 
-When you interact with sessions in a pool, you must define a session identifier to manage each session. The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs. This identifier is a key element in determining the behavior of the session:
+For code interpreter sessions, you can also use an integration with an [LLM framework](./sessions-code-interpreter.md#llm-framework-integrations).
 
-- Reuse of existing sessions: This session is reused if there's already a running session that matches the identifier.
-- Allocation of new sessions: If no running session matches the identifier, a new session is automatically allocated from the pool.
+### Session identifiers
 
-The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
+To send an HTTP request to a session, you must provide a session identifier in the request.
+
+* If a session with the identifier already exists, the request is sent to the existing session.
+* If a session with the identifier doesn't exist, a new session is automatically allocated before the request is sent to it.
+
+#### Identifier format
+
+The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs.
+
+The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID as the session identifier. If you're building a chatbot, you can use the conversation ID.
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
 You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
-For code interpreter sessions, you can also use an integration with an [LLM framework](./sessions-code-interpreter.md#llm-framework-integrations). The framework handles the token generation and management for you. Ensure that the application is configured with a managed identity that has the necessary role assignments on the session pool.
-
 ##### Protecting session identifiers
 
-The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
+The session identifier is sensitive information which must be managed securely. Your application must ensure each user or tenant only has access to their own sessions.
 
 The specific strategies that prevent misuse of session identifiers differ depending on the design and architecture of your app. However, your app must always have complete control over the creation and use of session identifiers so that a malicious user can't access another user's session.
 
@@ -98,11 +104,6 @@ To assign the roles to an identity, use the following Azure CLI commands:
 ```bash
 az role assignment create \
     --role "Azure ContainerApps Session Executor" \
-    --assignee <PRINCIPAL_ID> \
-    --scope <SESSION_POOL_RESOURCE_ID>
-
-az role assignment create \
-    --role "Contributor" \
     --assignee <PRINCIPAL_ID> \
     --scope <SESSION_POOL_RESOURCE_ID>
 ```
