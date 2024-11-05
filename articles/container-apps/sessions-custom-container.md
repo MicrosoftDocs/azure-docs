@@ -107,7 +107,7 @@ Before you send the request, replace the placeholders between the `<>` brackets 
 ```json
 {
   "type": "Microsoft.App/sessionPools",
-  "apiVersion": "2024-02-02-preview",
+  "apiVersion": "2024-08-02-preview",
   "name": "my-session-pool",
   "location": "westus2",
   "properties": {
@@ -122,7 +122,18 @@ Before you send the request, replace the placeholders between the `<>` brackets 
       "executionType": "Timed",
       "cooldownPeriodInSeconds": 600
     },
+    "secrets": [
+      {
+        "name": "registrypassword",
+        "value": "<REGISTRY_PASSWORD>"
+      }
+    ],
     "customContainerTemplate": {
+      "registryCredentials": {
+          "server": "myregistry.azurecr.io",
+          "username": "myregistry",
+          "passwordSecretRef": "registrypassword"
+      },
       "containers": [
         {
           "image": "myregistry.azurecr.io/my-container-image:1.0",
@@ -174,6 +185,10 @@ This template creates a session pool with the following settings:
 | `scaleConfiguration.readySessionInstances` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `dynamicPoolConfiguration.executionType` | `Timed` | The type of execution for the session pool. Must be `Timed` for custom container sessions. |
 | `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `600` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
+| `secrets` | `[{ "name": "registrypassword", "value": "<REGISTRY_PASSWORD>" }]` | A list of secrets. |
+| `customContainerTemplate.registryCredentials.server` | `myregistry.azurecr.io` | The container registry server hostname. |
+| `customContainerTemplate.registryCredentials.username` | `myregistry` | The username to log in to the container registry. |
+| `customContainerTemplate.registryCredentials.passwordSecretRef` | `registrypassword` | The name of the secret that contains the password to log in to the container registry. |
 | `customContainerTemplate.containers[0].image` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
 | `customContainerTemplate.containers[0].name` | `mycontainer` | The name of the container. |
 | `customContainerTemplate.containers[0].resources.cpu` | `0.25` | The required CPU in cores. |
@@ -239,6 +254,114 @@ Authorization: Bearer <TOKEN>
 This request is forwarded to the custom container session with the identifier for the user's ID. If the session isn't already running, Azure Container Apps allocates a session from the pool before forwarding the request.
 
 In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
+
+### Using managed identity
+
+A managed identity from Microsoft Entra ID allows your custom container session pools and their sessions to access other Microsoft Entra protected resources. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+You can enable managed identities for your custom container session pools. Both system-assigned and user-assigned managed identities are supported.
+
+There are two ways to use managed identities with custom container session pools:
+
+* **Image pull authentication**: Use the managed identity to authenticate with the container registry to pull the container image.
+
+* **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. This is off by default.
+
+    > [!IMPORTANT]
+    > If you enable access to the managed identity in a session, any code or programs running in the session can access the pool's managed identity. Because sessions typically run untrusted code, it's recommended to use this feature with caution.
+
+# [Azure CLI](#tab/azure-cli)
+
+To enable managed identity for a custom container session pool, use Azure Resource Manager.
+
+# [Azure Resource Manager](#tab/arm)
+
+To enable managed identity for a custom container session pool, add an `identity` property to the session pool resource. The `identity` property must have a `type` property with the value `SystemAssigned` or `UserAssigned`. For details on how to configure this property, see [Configure managed identities](managed-identity.md?tabs=arm%2Cdotnet#configure-managed-identities).
+
+The following example shows an ARM template snippet that enables a user-assigned identity for a custom container session pool and use it for image pull authentication. Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
+
+```json
+{
+  "type": "Microsoft.App/sessionPools",
+  "apiVersion": "2024-08-02-preview",
+  "name": "my-session-pool",
+  "location": "westus2",
+  "properties": {
+    "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>",
+    "poolManagementType": "Dynamic",
+    "containerType": "CustomContainer",
+    "scaleConfiguration": {
+      "maxConcurrentSessions": 10,
+      "readySessionInstances": 5
+    },
+    "dynamicPoolConfiguration": {
+      "executionType": "Timed",
+      "cooldownPeriodInSeconds": 600
+    },
+    "customContainerTemplate": {
+      "registryCredentials": {
+          "server": "myregistry.azurecr.io",
+          "identity": "<IDENTITY_RESOURCE_ID>"
+      },
+      "containers": [
+        {
+          "image": "myregistry.azurecr.io/my-container-image:1.0",
+          "name": "mycontainer",
+          "resources": {
+            "cpu": 0.25,
+            "memory": "0.5Gi"
+          },
+          "command": [
+            "/bin/sh"
+          ],
+          "args": [
+            "-c",
+            "while true; do echo hello; sleep 10;done"
+          ],
+          "env": [
+            {
+              "name": "key1",
+              "value": "value1"
+            },
+            {
+              "name": "key2",
+              "value": "value2"
+            }
+          ]
+        }
+      ],
+      "ingress": {
+        "targetPort": 80
+      }
+    },
+    "sessionNetworkConfiguration": {
+      "status": "EgressEnabled"
+    },
+    "managedIdentitySettings": [
+      {
+        "identity": "<IDENTITY_RESOURCE_ID>",
+        "lifecycle": "None"
+      }
+    ]
+  },
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "<IDENTITY_RESOURCE_ID>": {}
+    }
+  }
+}
+```
+
+This template contains the following additional settings for managed identity:
+
+| Parameter | Value | Description |
+|---------|-------|-------------|
+| `customContainerTemplate.registryCredentials.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use for image pull authentication. |
+| `managedIdentitySettings.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use in the session. |
+| `managedIdentitySettings.lifecycle` | `None` | The session lifecycle where the managed identity is available.<br><br>- `None` (default): The session can't access the identity. It's only used for image pull.<br><br>- `Main`: The main session can access the identity. It can also be used for image pull. **Use with caution.** |
+
+---
 
 ## Billing
 
