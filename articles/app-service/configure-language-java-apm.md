@@ -69,15 +69,21 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 # [Linux](#tab/linux)
 
+::: zone pivot="java-jboss"
+
+The latest [New Relic documentation](https://docs.newrelic.com/install/java/?deployment=appServer&framework=jboss) lists JBoss EAP support up to 7.x. JBoss EAP 8.x is not yet supported.
+
+::: zone-end
+
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
-2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
+2. [Download the Java agent from NewRelic](https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip).
 3. Copy your license key, you need it to configure the agent later.
 4. [SSH into your App Service instance](configure-linux-open-ssh-session.md) and create a new directory */home/site/wwwroot/apm*.
 5. Upload the unpacked NewRelic Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/newrelic*.
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-    ::: zone pivot="java-javase"
+    ::: zone pivot="java-javase,java-jboss"
     
     Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
@@ -88,12 +94,6 @@ To enable via the Azure CLI, you need to create an Application Insights resource
     Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
     ::: zone-end
-
-    <!-- ::: zone pivot="java-jboss"
-
-    For **JBoss EAP**, `[TODO]`.
-
-    ::: zone-end -->
 
 # [Windows](#tab/windows)
 
@@ -144,11 +144,11 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     ::: zone-end
 
-    <!-- ::: zone pivot="java-jboss"
+    ::: zone pivot="java-jboss"
 
-    For **JBoss EAP**, `[TODO]`.
+    <!-- For **JBoss EAP**, `[TODO]`. -->
 
-    ::: zone-end -->
+    ::: zone-end
 
 # [Windows](#tab/windows)
 
