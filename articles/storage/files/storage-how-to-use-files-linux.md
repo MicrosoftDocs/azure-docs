@@ -5,18 +5,15 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ---
 
 # Mount SMB Azure file shares on Linux clients
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1. SMB 2.1 support was added to Linux kernel version 3.7, so if you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
 
 | Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
@@ -33,7 +30,7 @@ uname -r
 ```
 
 > [!NOTE]
-> SMB 2.1 support was added to Linux kernel version 3.7. If you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+> All mounting scripts in this article will mount SMB file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
 
 ## Applies to
 
@@ -129,7 +126,36 @@ MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 sudo mkdir -p $MNT_PATH
 ```
 
-Next, mount the file share using the `mount` command. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint and `$STORAGE_ACCOUNT_KEY` is populated with the storage account key.
+Next, initialize the credential file by running the following script.
+
+```bash
+# Create a folder to store the credentials for this storage account and
+# any other that you might set up.
+CREDENTIAL_ROOT="/etc/smbcredentials"
+sudo mkdir -p "/etc/smbcredentials"
+
+# Get the storage account key for the indicated storage account.
+# You must be logged in with az login and your user identity must have
+# permissions to list the storage account keys for this command to work.
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    --query "[0].value" --output tsv | tr -d '"')
+
+# Create the credential file for this individual storage account
+SMB_CREDENTIAL_FILE="$CREDENTIAL_ROOT/$STORAGE_ACCOUNT_NAME.cred"
+if [ ! -f $SMB_CREDENTIAL_FILE ]; then
+    echo "username=$STORAGE_ACCOUNT_NAME" | sudo tee $SMB_CREDENTIAL_FILE > /dev/null
+    echo "password=$STORAGE_ACCOUNT_KEY" | sudo tee -a $SMB_CREDENTIAL_FILE > /dev/null
+else
+    echo "The credential file $SMB_CREDENTIAL_FILE already exists, and was not modified."
+fi
+
+# Change permissions on the credential file so only root can read or modify the password file.
+sudo chmod 600 $SMB_CREDENTIAL_FILE
+```
+
+Now you can mount the file share using the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint.
 
 # [SMB 3.1.1](#tab/smb311)
 > [!NOTE]
@@ -148,7 +174,7 @@ STORAGE_ACCOUNT_KEY=$(az storage account keys list \
     --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $SMB_PATH $MNT_PATH -o username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 3.0](#tab/smb30)
@@ -165,7 +191,7 @@ STORAGE_ACCOUNT_KEY=$(az storage account keys list \
     --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=3.0,username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=3.0,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 2.1](#tab/smb21)
@@ -182,12 +208,10 @@ STORAGE_ACCOUNT_KEY=$(az storage account keys list \
     --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 ---
-
-You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
 
 You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
@@ -260,9 +284,9 @@ HTTP_ENDPOINT=$(az storage account show \
 SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
 if [ -z "$(grep $SMB_PATH\ $MNT_PATH /etc/fstab)" ]; then
-    echo "$SMB_PATH $MNT_PATH cifs _netdev,nofail,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
+    echo "$SMB_PATH $MNT_PATH cifs _netdev,nofail,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks" | sudo tee -a /etc/fstab > /dev/null
 else
-    echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
+    echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You might want to double check /etc/fstab to ensure the configuration is as desired."
 fi
 
 sudo mount -a
@@ -306,7 +330,7 @@ sudo zypper install autofs
 ```
 ---
 
-Next, update the `autofs` configuration files.
+Next, update the `autofs` configuration files. 
 
 ```bash
 FILE_SHARE_NAME="<file-share-name>"
@@ -317,7 +341,7 @@ HTTP_ENDPOINT=$(az storage account show \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
 SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-$(expr length $HTTP_ENDPOINT))$FILE_SHARE_NAME
 
-echo "$FILE_SHARE_NAME -fstype=cifs,credentials=$SMB_CREDENTIAL_FILE :$SMB_PATH" > /etc/auto.fileshares
+echo "$FILE_SHARE_NAME -fstype=cifs,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks :$SMB_PATH" > /etc/auto.fileshares
 
 echo "/fileshares /etc/auto.fileshares --timeout=60" > /etc/auto.master
 ```
@@ -327,29 +351,6 @@ The final step is to restart the `autofs` service.
 ```bash
 sudo systemctl restart autofs
 ```
-
-## Mount a file share snapshot
-
-If you want to mount a specific snapshot of an SMB Azure file share, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
-
-After you've created the file share snapshot, follow these instructions to mount it.
-
-1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
-2. Select **Data storage > File shares** and select the file share.
-3. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name will be a GMT timestamp, such as in the screenshot below.
-
-   :::image type="content" source="media/storage-how-to-use-files-linux/mount-snapshot.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
-
-4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
-5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
-
-   ```bash
-   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
-   ```
-
-6. If you're able to browse the snapshot under the path `/media/<file-share-name>/snapshot1`, then the mount succeeded.
-
-If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
 
 ## Next steps
 

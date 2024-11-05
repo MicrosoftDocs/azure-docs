@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23, devx-track-azurecli
 ms.devlang: azurecli
 

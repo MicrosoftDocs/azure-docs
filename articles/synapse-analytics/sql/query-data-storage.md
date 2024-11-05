@@ -3,12 +3,12 @@ title: Query data storage with serverless SQL pool
 description: This article describes how to query Azure storage using the serverless SQL pool resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 # Query storage files with serverless SQL pool in Azure Synapse Analytics
 
@@ -223,51 +223,6 @@ See syntax fragment below:
 ```
 
 You can find query samples for accessing elements from repeated columns in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-repeated-columns) article.
-
-## Query samples
-
-You can learn more about querying various types of data using the sample queries.
-
-### Tools
-
-The tools you need to issue queries:
-    - Azure Synapse Studio 
-    - Azure Data Studio
-    - SQL Server Management Studio
-
-### Demo setup
-
-Your first step is to **create a database** where you'll execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
-
-This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
-
-> [!NOTE]
-> Databases are only used for viewing metadata, not for actual data.  Write down the database name that you use, you will need it later on.
-
-```sql
-CREATE DATABASE mydbname;
-```
-
-### Provided demo data
-
-Demo data contains the following data sets:
-
-- NYC Taxi - Yellow Taxi Trip Records - part of public NYC data set in CSV and Parquet format
-- Population data set in CSV format
-- Sample Parquet files with nested columns
-- Books in JSON format
-
-| Folder path                                                  | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /csv/                                                        | Parent folder for data in CSV format                         |
-| /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Folders with Population data files in different CSV formats. |
-| /csv/taxi/                                                   | Folder with NYC public data files in CSV format              |
-| /parquet/                                                    | Parent folder for data in Parquet format                     |
-| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year, and month using Hive/Hadoop partitioning scheme. |
-| /parquet/nested/                                             | Sample Parquet files with nested columns                     |
-| /json/                                                       | Parent folder for data in JSON format                        |
-| /json/books/                                                 | JSON files with books data                                   |
-
 
 ## Next steps
 

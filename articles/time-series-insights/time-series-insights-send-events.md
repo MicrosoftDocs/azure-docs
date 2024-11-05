@@ -1,7 +1,7 @@
 ---
 title: 'Send events to an environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to configure an event hub, run a sample application, and send events to your Azure Time Series Insights environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
@@ -71,7 +71,7 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
     [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Navigate to the [TSI Sample Wind Farm Pusher](https://tsiclientsample.azurewebsites.net/windFarmGen.html). The site creates and runs simulated windmill devices.
+1. Navigate to the TSI Sample Wind Farm Pusher. The site creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
 
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
@@ -200,7 +200,5 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
-
-* [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
 
 * Read more about [IoT Hub device messages](../iot-hub/iot-hub-devguide-messages-construct.md)

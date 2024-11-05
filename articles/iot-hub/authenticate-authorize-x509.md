@@ -3,7 +3,7 @@ title: Authenticate with X.509 certificates
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses X.509 certificates to authenticate IoT hubs and devices. 
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.author: kgremban
 ms.topic: conceptual
@@ -101,7 +101,7 @@ A successful device connection to IoT Hub completes the authentication process a
 
 ## Revoke a device certificate
 
-IoT Hub doesn't check certificate revocation lists from the certificate authority when authenticating devices with certificate-based authentication. If you have a device that needs to be blocked from connecting to IoT Hub because of a potentially compromised certificate, you should disable the device in the identity registry. For more information, see [Disable or delete a device in an IoT hub](./iot-hub-create-through-portal.md#disable-or-delete-a-device-in-an-iot-hub).
+IoT Hub doesn't check certificate revocation lists from the certificate authority when authenticating devices with certificate-based authentication. If you have a device that needs to be blocked from connecting to IoT Hub because of a potentially compromised certificate, you should disable the device in the identity registry. For more information, see [Disable or delete a device](./create-connect-device.md#disable-or-delete-a-device).
 
 ## Example scenario
 

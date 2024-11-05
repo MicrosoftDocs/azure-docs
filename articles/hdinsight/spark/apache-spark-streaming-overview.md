@@ -1,15 +1,15 @@
 ---
 title: Spark Streaming in Azure HDInsight
 description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/25/2023
+ms.date: 06/15/2024
 ---
 
 # Overview of Apache Spark Streaming
 
-[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters. With a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs. Also: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`, raw TCP sockets, or from monitoring Apache Hadoop YARN filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows. Such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
+[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters. With a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs. Also: Azure IoT Hub, Apache Kafka, Apache Flume, X, `ZeroMQ`, raw TCP sockets, or from monitoring Apache Hadoop YARN filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows. Such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
 
 :::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Stream Processing with HDInsight and Spark Streaming." border="false":::
 
@@ -21,7 +21,7 @@ Spark Streaming represents a continuous stream of incoming data using a *discret
 
 A DStream provides a layer of abstraction on top of the raw event data.
 
-Start with a single event, say a temperature reading from a connected thermostat. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. The Spark core uses a data structure that distributes data across multiple nodes in the cluster. Where each node generally maintains its own data in-memory for best performance. This data structure is called a *resilient distributed dataset* (RDD).
+Start with a single event, say a temperature reading from a connected thermostat. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. The Spark core uses a data structure that distributes data across multiple nodes in the cluster. Where each node generally maintains its own data in-memory for best performance. This data structure is called a *resilient distributed dataset (RDD)*.
 
 Each RDD represents events collected over a user-defined timeframe called the *batch interval*. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs is collected into a DStream. For example, if the batch interval is one second long, your DStream emits a batch every second containing one RDD that contains all the data ingested during that second. When processing the DStream, the temperature event appears in one of these batches. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
@@ -90,7 +90,7 @@ ssc.start()
 ssc.awaitTermination()
 ```
 
-For details on the Spark Stream API, see [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+For details on the Spark Stream API, see [Apache Spark Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
 
 The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). This example creates a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. A  new StreamingContext object  has a batch interval of 30 seconds. Every time a batch is created, the streaming application examines the RDD produced. Then converts the RDD to a Spark DataFrame, and creates a temporary table over the DataFrame.
 
@@ -229,7 +229,7 @@ After the first minute, there are 12 entries - six entries from each of the two 
 | 11 | 1497316344339
 | 12 | 1497316349361
 
-The sliding window functions available in the Spark Streaming API include window, countByWindow, reduceByWindow, and countByValueAndWindow. For details on these functions, see [Transformations on DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
+The sliding window functions available in the Spark Streaming API include window, countByWindow, reduceByWindow, and countByValueAndWindow. For details on these functions, see [Transformations on DStreams](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
 
 ## Checkpointing
 
@@ -246,5 +246,5 @@ The status of all applications can also be checked with a GET request against a 
 ## Next steps
 
 * [Create an Apache Spark cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Apache Spark Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
 * [Overview of Apache Spark Structured Streaming](apache-spark-structured-streaming-overview.md)

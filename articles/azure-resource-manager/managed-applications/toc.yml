@@ -23,9 +23,6 @@
   - name: Deploy service catalog managed app - Bicep
     href: deploy-bicep-definition.md
     displayName: service catalog, bicep
-  - name: Deploy Azure Marketplace managed app
-    href: deploy-marketplace-app-quickstart.md
-    displayName: Marketplace, deploy
 - name: Tutorials
   items:
   - name: Create managed application with custom provider

@@ -4,7 +4,7 @@ description: This article shows you how to use Azure API Management to import a 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/27/2021
 ms.author: danlep
@@ -16,8 +16,7 @@ ms.author: danlep
 
 This article shows how to import an Azure Web App to Azure API Management and test the imported API, using the Azure portal.
 
-> [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](visual-studio-code-tutorial.md) to install and get started.
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this article, you learn how to:
 
@@ -38,15 +37,15 @@ API Management is the recommended environment to expose a Web App-hosted API, fo
 
 For more information, see [About API Management](api-management-key-concepts.md).
 
-## OpenAPI specification versus wildcard operations
+## OpenAPI definition versus wildcard operations
 
-API Management supports import of Web Apps hosted in App Service that include an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.
+API Management supports import of Web Apps hosted in App Service that include an OpenAPI definition (Swagger definition). However, an OpenAPI definition isn't required.
 
-* If the Web App has an OpenAPI specification configured in an API definition, API Management creates API operations that map directly to the definition, including required paths, parameters, and response types. 
+* If the Web App is configured with an OpenAPI definition, API Management will detect that. Alternatively, you can [manually import the definition](import-api-from-oas.md) to API Management. API Management then creates API operations that map directly to the definition, including required paths, parameters, and response types. 
 
-  Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately.
+  Having an OpenAPI definition is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately.
 
-* If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API.
+* If an OpenAPI definition isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API.
 
   With wildcard operations, you can still take advantage of the same API Management features, but operations aren't defined at the same level of detail by default. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
  

@@ -2,9 +2,9 @@
 title: Create, configure Enterprise Security Package clusters - Azure
 description: Learn how to create and configure Enterprise Security Package clusters in Azure HDInsight
 services: hdinsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 09/06/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -85,7 +85,7 @@ In this section, you'll create the users that will have access to the HDInsight 
 
         :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png" alt-text="Create a second admin user object." border="true":::
 
-1. Create a global security group.
+1. Create a security group.
 
     1. From **Active Directory Users and Computers**, right-click `HDIFabrikam.com`, and then navigate to  **New** > **Group**.
 
@@ -164,12 +164,12 @@ Create an Active Directory tenant administrator.
 
    **Groups and roles**
    1. Select **0 groups selected**.
-   1. Select **AAD DC Administrators**, and then **Select**.
+   1. Select **`AAD DC` Administrators**, and then **Select**.
 
       :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Microsoft Entra groups dialog box." border="true":::
 
    1. Select **User**.
-   1. Select **Global administrator**, and then **Select**.
+   1. Select **Administrator**, and then **Select**.
 
       :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Microsoft Entra role dialog box." border="true":::
 
@@ -191,7 +191,7 @@ Create an Active Directory tenant administrator.
 
 1. Select **Use express settings**.
 
-1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the global administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Microsoft Entra ID." border="true":::
 
@@ -266,7 +266,7 @@ Follow these steps to enable Microsoft Entra Domain Services. For more informati
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png" alt-text="Create virtual network step." border="true":::
 
-1. On the **Administrator group** page, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can modify the membership of this group if you want to, but in this case you don't need to change it. Select **OK**.
+1. On the **Administrator group** page, you should see a notification that a group named **`AAD DC` Administrators** has already been created to administer this group. You can modify the membership of this group if you want to, but in this case you don't need to change it. Select **OK**.
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png" alt-text="View the Microsoft Entra administrator group." border="true":::
 

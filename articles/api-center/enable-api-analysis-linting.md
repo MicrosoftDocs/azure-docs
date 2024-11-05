@@ -1,24 +1,27 @@
 ---
 title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/29/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to lint the API definitions in my organization's API center and analyze whether my APIs comply with my organization's API style guide.
 ---
 
-# Enable linting and analysis for API governance in your API center
+# Enable API analysis in your API center - self-managed
 
-This article shows how to enable linting to analyze API definitions in your organization's [API center](overview.md) for conformance with your organizations's API style rules. Linting generates an analysis report that you can access in your API center. Use API linting and analysis to detect common errors and inconsistencies in your API definitions.
+This article explains how to enable API analysis in [Azure API Center](overview.md) by manually setting up a linting engine and triggers. API analysis offers linting capabilities to analyze API definitions in your organization's API center. Linting ensures your API definitions adhere to organizational style rules, generating both individual and summary reports. Use API analysis to identify and correct common errors and inconsistencies in your API definitions.
+
+> [!NOTE]
+> In preview, Azure API Center can also automatically set up a linting engine and any required dependencies and triggers. [Learn more](enable-managed-api-analysis-linting.md). 
 
 > [!VIDEO https://www.youtube.com/embed/m0XATQaVhxA]
 
 ## Scenario overview
 
-In this scenario, you analyze API definitions in your API center by using the [Spectral](https://github.com/stoplightio/spectral) open source linting engine. An Azure Functions app runs the linting engine in response to events in your API center. Spectral checks that the APIs defined in a JSON or YAML specification document conform to the rules in a customizable API style guide. A report of API compliance is generated that you can view in your API center.
+In this scenario, you analyze API definitions in your API center by using the [Spectral](https://github.com/stoplightio/spectral) open source linting engine. An Azure Functions app runs the linting engine in response to events in your API center. Spectral checks that the APIs defined in a JSON or YAML specification document conform to the rules in a customizable API style guide. An analysis report is generated that you can view in your API center.
 
 The following diagram shows the steps to enable linting and analysis in your API center. 
 
@@ -59,8 +62,7 @@ This article provides two options to deploy the linting engine and event subscri
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
@@ -170,13 +172,13 @@ Now that the managed identity is enabled, assign it the Azure API Center Complia
 
     ```azurecli
     #! /bin/bash
-    apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> \
+    apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> \
         --query "id" --output tsv)
     ```
 
     ```azurecli
     # PowerShell syntax
-    $apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> `
+    $apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> `
         --query "id" --output tsv)
     ```
 
@@ -232,13 +234,13 @@ Now create an event subscription in your API center to trigger the function app 
 
     ```azurecli
     #! /bin/bash
-    apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> \
+    apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> \
         --query "id" --output tsv)
     ```
 
     ```azurecli
     # PowerShell syntax
-    $apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> `
+    $apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> `
         --query "id" --output tsv)
     ```
 1. Get the resource ID of the function in the function app. In this example, the function name is *apicenter-analyzer*. Substitute `<function-app-name>` and `<resource-group-name>` with your function app name and resource group name.
@@ -323,7 +325,7 @@ To view the analysis report for an API definition in your API center:
 
 The **API Analysis Report** opens, and it displays the API definition and errors, warnings, and information based on the configured API style guide. The following screenshot shows an example of an API analysis report.
 
-:::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal.":::
+:::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-report.png":::
 
 ### API analysis summary
 
@@ -332,12 +334,13 @@ To view a summary of analysis reports for all API definitions in your API center
 1. In the portal, navigate to your API center.
 1. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
 
-    :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal.":::
+    :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-summary.png":::
 
 ## Related content
 
 Learn more about Event Grid:
 
+* [Enable API analysis in your API center - Microsoft managed](enable-managed-api-analysis-linting.md)
 * [System topics in Azure Event Grid](../event-grid/system-topics.md)
 * [Event Grid push delivery - concepts](../event-grid/concepts.md)
 * [Event Grid schema for Azure API Center](../event-grid/event-schema-api-center.md)

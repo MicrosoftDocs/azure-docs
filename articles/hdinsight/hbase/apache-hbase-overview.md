@@ -1,7 +1,7 @@
 ---
 title: What is Apache HBase in Azure HDInsight?
 description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 12/11/2023

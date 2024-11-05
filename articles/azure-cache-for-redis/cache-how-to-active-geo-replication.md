@@ -1,13 +1,13 @@
 ---
 title: Configure active geo-replication for Enterprise Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
-author: flang-msft
 
-ms.service: cache
+
+
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 03/23/2023
-ms.author: franlanglois
+
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
@@ -31,16 +31,18 @@ The Premium tier of Azure Cache for Redis offers a version of geo-replication ca
 ## Active geo-replication prerequisites
 
 There are a few restrictions when using active geo replication:
+
 - Only the [RediSearch](cache-redis-modules.md#redisearch) and [RedisJSON](cache-redis-modules.md#redisjson) modules are supported
 - On the _Enterprise Flash_ tier, only the _No Eviction_ eviction policy can be used. All eviction policies are supported on the _Enterprise_ tier.
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
-- All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting. 
-- You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
+- All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.
+- You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush operation](#flush-operation) from the portal instead.
+- The E1 SKU does not support active geo-replication.
 
 ## Create or join an active geo-replication group
 
-1. When creating a new Azure Cache for Redis resource, select the **Advanced** tab. Complete the first part of the form including clustering policy. For more information on choosing **Clustering policy**, see [Clustering Policy](quickstart-create-redis-enterprise.md#clustering-policy).
+1. When creating a new Azure Cache for Redis resource, select the **Advanced** tab. Complete the first part of the form including clustering policy. For more information on choosing **Clustering policy**, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
 
 1. Select **Configure** to set up **Active geo-replication**.
 
@@ -134,18 +136,47 @@ New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -
 
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
 
+## Scaling instances in a geo-replication group
+It is possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and capacity. 
+
+Since it is difficult to simultaneously scale all instances in the geo-replication group, Azure Cache for Redis has a locking mechanism. If you scale one instance in a geo-replication group, the underlying VM will be scaled, but the memory available will be capped at the original size until the other instances are scaled up as well. And any other scaling operations for the remaining instances are locked until they match the same configuration as the first cache to be scaled.
+
+### Scaling example
+For example, you may have three instances in your geo-replication group, all Enterprise E10 instances:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E10 | Enterprise E10 | Enterprise E10 |
+
+Let's say you want to scale up each instance in this geo-replication group to an Enterprise E20 instance. You would first scale one of the caches up to an E20:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E20 | Enterprise E10 | Enterprise E10 |
+
+At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked. 
+>[!NOTE]
+> The `Redis00` instance is not blocked from scaling further at this point. But it will be blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
+>
+
+Once each instance has been scaled to the same tier and size, all scaling locks are removed:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E20 | Enterprise E20 | Enterprise E20 |
+
 ## Flush operation
 
-Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane. 
+Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane.
 
 :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
 
 ### Flush caches using Azure CLI or PowerShell
 
-The Azure CLI and PowerShell can also be used to trigger a flush operation. For more information on using Azure CLI, see [az redisenterprise database flush](/cli/azure/redisenterprise#az-redisenterprise-database-flush). For more information on using PowerShell, see [Invoke-AzRedisEnterpriseCacheDatabaseFlush](/powershell/module/az.redisenterprisecache/invoke-azredisenterprisecachedatabaseflush). 
+The Azure CLI and PowerShell can also be used to trigger a flush operation. For more information on using Azure CLI, see [az redisenterprise database flush](/cli/azure/redisenterprise#az-redisenterprise-database-flush). For more information on using PowerShell, see [Invoke-AzRedisEnterpriseCacheDatabaseFlush](/powershell/module/az.redisenterprisecache/invoke-azredisenterprisecachedatabaseflush).
 
 > [!IMPORTANT]
-> Be careful when using the **Flush Caches** feature. Selecting the button removes all data from the current cache and from ALL linked caches in the geo-replication group. 
+> Be careful when using the **Flush Caches** feature. Selecting the button removes all data from the current cache and from ALL linked caches in the geo-replication group.
 >
 
 Manage access to the feature using [Azure role-based access control](../role-based-access-control/overview.md). Only authorized users should be given access to flush all caches.
@@ -154,7 +185,5 @@ Manage access to the feature using [Azure role-based access control](../role-bas
 
 Learn more about Azure Cache for Redis features.
 
-* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
-* [High availability for Azure Cache for Redis](cache-high-availability.md)
-
-
+- [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
+- [High availability for Azure Cache for Redis](cache-high-availability.md)

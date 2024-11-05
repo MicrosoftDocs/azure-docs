@@ -6,11 +6,11 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-errorcodes-client-server
+zone_pivot_groups: acs-calling-codes
 ---
 
 # Understanding calling codes and subcodes errors
@@ -26,10 +26,12 @@ The Calling SDK and respective server infrastructure use a unified framework to 
 **Message** Describes the outcome, and provides hints how to mitigate the issue problem if an outcome is a failure.<br>
 **ResultCategory** - Indicates the type of the error. Depending on the context, the value can be `Success`, `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`
 
-::: zone pivot="platform-javascript"
-[!INCLUDE [Client generated codes](./includes/webjs-client-code-subcode.md)]
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
+::: zone pivot="calling"
+[!INCLUDE [Calling SDK](../includes/codes/calling-sdk.md)]
 ::: zone-end
 
-::: zone pivot="platform-server"
-[!INCLUDE [Server generated codes](./includes/server-code-subcode.md)]
+::: zone pivot="callend"
+[!INCLUDE [Call end](../includes/codes/call-end.md)]
 ::: zone-end

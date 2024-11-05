@@ -4,9 +4,9 @@ description: This tutorial explains how to configure the geographic traffic rout
 services: traffic-manager
 author: greg-lindsay
 manager: kumudD
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-tutorial
 ---

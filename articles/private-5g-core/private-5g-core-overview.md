@@ -3,7 +3,7 @@ title: What is Azure Private 5G Core?
 description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: overview 
 ms.date: 02/20/2022
 ms.custom: template-overview
@@ -39,7 +39,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   Packet core instances run on a Kubernetes cluster, which is connected to Azure Arc and deployed on an Azure Stack Edge Pro with GPU device. These platforms provide security and manageability for the entire core network stack from Azure. Additionally, Azure Arc allows Microsoft to provide support at the edge.
 
-  For more information, see [Azure Arc overview](../azure-arc/overview.md) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
+  For more information, see [Azure Arc overview](/azure/azure-arc/overview) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
 
 - **RANs and SIMs** 
 
@@ -136,13 +136,13 @@ Azure Private 5G Core supports the following authentication methods:
 - 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
 - Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.
 
-The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
+The packet core performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
 
 Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:
 
-- 5GS null encryption algorithm
-- 128-bit Snow3G
-- 128-bit Advanced Encryption System (AES) encryption
+- NEA2: 128-bit Advanced Encryption System (AES) encryption
+- NEA1: 128-bit Snow3G
+- NEA0: 5GS null encryption algorithm
 
 ### UE-to-UE traffic
 
@@ -197,7 +197,7 @@ For more information on using Azure Monitor to analyze metrics in your deploymen
 
 Azure Private 5G Core is integrated with Azure Resource Health, which reports on the health of your control plane resources and allows you to diagnose and get support for service issues.
 
-For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
 

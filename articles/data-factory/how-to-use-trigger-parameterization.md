@@ -1,56 +1,55 @@
 ---
 title: Pass trigger information to pipeline
-description: Learn how to reference trigger metadata in pipeline
-ms.service: data-factory
+description: Learn how to reference trigger metadata in pipelines.
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Reference trigger metadata in pipeline runs
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how trigger metadata, such as trigger start time, can be used in pipeline run.
+This article describes how trigger metadata, such as the trigger start time, can be used in a pipeline run.
 
-Pipeline sometimes needs to understand and reads metadata from trigger that invokes it. For instance, with Tumbling Window Trigger run, based upon window start and end time, pipeline will process different data slices or folders. In Azure Data Factory, we use Parameterization and [System Variable](control-flow-system-variables.md) to pass meta data from trigger to pipeline.
+A pipeline sometimes needs to understand and read metadata from the trigger that invokes it. For instance, with a tumbling window trigger run, based on the window start and end time, the pipeline processes different data slices or folders. In Azure Data Factory, we use parameterization and [system variables](control-flow-system-variables.md) to pass metadata from triggers to pipelines.
 
-This pattern is especially useful for [Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md), where trigger provides window start and end time, and [Custom Event Trigger](how-to-create-custom-event-trigger.md), where trigger parse and process values in [custom defined _data_ field](../event-grid/event-schema.md).
+This pattern is especially useful for [tumbling window triggers](how-to-create-tumbling-window-trigger.md), where the trigger provides the window start and end time, and [custom event triggers](how-to-create-custom-event-trigger.md), where the trigger parses and processes values in a [custom-defined *data* field](../event-grid/event-schema.md).
 
 > [!NOTE]
-> Different trigger type provides different meta data information. For more information, see [System Variable](control-flow-system-variables.md)
+> Different trigger types provide different metadata information. For more information, see [System variables](control-flow-system-variables.md).
 
 ## Data Factory UI
 
-This section shows you how to pass meta data information from trigger to pipeline, within the Azure Data Factory User Interface.
+This section shows you how to pass metadata information from triggers to pipelines, within the Data Factory user interface (UI).
 
-1. Go to the **Authoring Canvas** and edit a pipeline
+1. Go to the **Authoring Canvas** and edit a pipeline.
 
-1. Select on the blank canvas to bring up pipeline settings. Don’t select any activity. You may need to pull up the setting panel from the bottom of the canvas, as it may have been collapsed
+1. Select the blank canvas to bring up pipeline settings. Don't select any activity. You might need to pull up the setting pane from the bottom of the canvas because it might be collapsed.
 
-1. Select **Parameters** section and select **+ New** to add parameters
+1. Select the **Parameters** tab and select **+ New** to add parameters.
 
-    :::image type="content" source="media/how-to-use-trigger-parameterization/01-create-parameter.png" alt-text="Screen shot of pipeline setting showing how to define parameters in pipeline.":::
+    :::image type="content" source="media/how-to-use-trigger-parameterization/01-create-parameter.png" alt-text="Screenshot that shows a pipeline setting showing how to define parameters in a pipeline.":::
 
-1. Add triggers to pipeline, by clicking on **+ Trigger**.
+1. Add triggers to the pipeline by selecting **+ Trigger**.
 
-1. Create or attach a trigger to the pipeline, and select **OK**
+1. Create or attach a trigger to the pipeline and select **OK**.
 
-1. After selecting **OK**, another **New trigger** page is presented with a list of the parameters specified for the pipeline, as shown in the following screenshot. On that page, fill in trigger meta data for each parameter. Use format defined in [System Variable](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values. For instance, here we assign trigger run start time to *parameter_1*.
+1. After you select **OK**, another **New trigger** page appears with a list of the parameters specified for the pipeline, as shown in the following screenshot. On that page, fill in the trigger metadata for each parameter. Use the format defined in [System variables](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters. Just fill in the ones that will assume trigger metadata values. For instance, here we assign the trigger run start time to `parameter_1`.
 
-    :::image type="content" source="media/how-to-use-trigger-parameterization/02-pass-in-system-variable.png" alt-text="Screenshot of trigger definition page showing how to pass trigger information to pipeline parameters.":::
+    :::image type="content" source="media/how-to-use-trigger-parameterization/02-pass-in-system-variable.png" alt-text="Screenshot that shows the Trigger Run Parameters page showing how to pass trigger information to pipeline parameters.":::
 
-1. To use the values in pipeline, utilize parameters _@pipeline().parameters.parameterName_, __not__ system variable, in pipeline definitions. For instance, in our case, to read trigger start time, we'll reference @pipeline().parameters.parameter_1.
+1. To use the values in the pipeline, utilize parameters, like `@pipeline().parameters.parameterName`, *not* system variables, in pipeline definitions. For instance, in this case, to read the trigger start time, we reference `@pipeline().parameters.parameter_1`.
 
 ## JSON schema
 
-To pass in trigger information to pipeline runs, both the trigger and the pipeline json need to be updated with _parameters_ section.
+To pass in trigger information to pipeline runs, both the trigger and the pipeline JSON need to be updated with the `parameters` section.
 
 ### Pipeline definition
 
-Under **properties** section, add parameter definitions to **parameters** section
+Under the `properties` section, add parameter definitions to the `parameters` section.
 
 ```json
 {
@@ -104,7 +103,7 @@ Under **properties** section, add parameter definitions to **parameters** sectio
 
 ### Trigger definition
 
-Under **pipelines** section, assign parameter values in **parameters** section. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values.
+Under the `pipelines` section, assign parameter values in the `parameters` section. You don't need to fill in the information for all parameters. Just fill in the ones that will assume trigger metadata values.
 
 ```json
 {
@@ -136,10 +135,10 @@ Under **pipelines** section, assign parameter values in **parameters** section. 
 }
 ```
 
-### Use trigger information in pipeline
+### Use trigger information in a pipeline
 
-To use the values in pipeline, utilize parameters _@pipeline().parameters.parameterName_, __not__ system variable, in pipeline definitions.
+To use the values in a pipeline, utilize parameters, like `@pipeline().parameters.parameterName`, *not* system variables, in pipeline definitions.
 
 ## Related content
 
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).

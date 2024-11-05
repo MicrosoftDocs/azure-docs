@@ -3,7 +3,7 @@ title: Restore Key Vault key & secret for encrypted VM
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 02/28/2023 
+ms.date: 09/04/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -11,12 +11,12 @@ ms.author: v-abhmallick
 
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret don't exist in the key vault. These steps can also be used if you want to maintain a separate copy of the key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 * **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer to the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to back up encrypted Azure VMs.
-* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer to the article [Get Started with Azure Key Vault](../key-vault/general/overview.md) for details about key vault management.
+* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer to the article [Get Started with Azure Key Vault](/azure/key-vault/general/overview) for details about key vault management.
 * **Restore disk** - Ensure that you've triggered the restore job for restoring disks for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm). This is because this job generates a JSON file in your storage account containing keys and secrets for the encrypted VM to be restored.
 
 ## Get key and secret from Azure Backup
@@ -52,7 +52,7 @@ Once the JSON file is generated in the destination path mentioned above, generat
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
 [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+Restore-AzKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## Restore secret

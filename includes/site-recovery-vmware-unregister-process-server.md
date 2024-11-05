@@ -1,6 +1,6 @@
 ---
 author: Rajeswari-Mamilla
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill

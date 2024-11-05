@@ -2,9 +2,8 @@
 title: include file
 description: supported connectors for Lookup Activity
 author: jianleishen
-ms.service: data-factory
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 07/12/2024
 ms.author: jianleishen
 ms.custom: include file
 ---
@@ -70,7 +69,7 @@ ms.custom: include file
 | **Generic protocol** |[Generic OData](../connector-odata.md) |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |
 | &nbsp; |[SharePoint Online List](../connector-sharepoint-online-list.md) |
-| **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |
+| **Services and apps** |[Amazon Marketplace Web Service (Deprecated)](../connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |
 | &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |

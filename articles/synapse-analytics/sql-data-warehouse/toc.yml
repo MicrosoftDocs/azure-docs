@@ -101,7 +101,7 @@ items:
       - name: Data discovery & classification
         href: /azure/azure-sql/database/data-discovery-and-classification-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Vulnerability assessment
-        href: ../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md
+        href: /azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview
       - name: Advanced Threat Protection
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Auditing
@@ -404,6 +404,8 @@ items:
       href: upgrade-to-latest-generation.md
     - name: Manage Compute
       href: manage-compute-with-azure-functions.md
+    - name: Monitor Synapse Analytics
+      href: monitor-sql-pool-synapse-analytics.md
     - name: Monitor your workload - Portal 
       href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 

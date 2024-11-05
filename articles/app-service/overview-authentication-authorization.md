@@ -3,13 +3,15 @@ title: Authentication and authorization
 description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 09/27/2024
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Azure App Service provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
@@ -21,7 +23,7 @@ Implementing a secure solution for authentication (signing-in users) and authori
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
-- You can integrate with multiple login providers. For example, Microsoft Entra, Facebook, Google, Twitter.
+- You can integrate with multiple login providers. For example, Microsoft Entra, Facebook, Google, X.
 
 Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
 
@@ -31,10 +33,10 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft identity platform login](configure-authentication-provider-aad.md) |
+| [Microsoft Entra](/entra/index) | `/.auth/login/aad` | [App Service Microsoft Entra platform login](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
+| [X](https://developer.x.com/en/docs/basics/authentication) | `/.auth/login/x` | [App Service X login](configure-authentication-provider-twitter.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) | `/.auth/login/github` | [App Service GitHub login](configure-authentication-provider-github.md) |
 | [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service Sign in With Apple login (Preview)](configure-authentication-provider-apple.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [App Service OpenID Connect login](configure-authentication-provider-openid-connect.md) |
@@ -155,19 +157,30 @@ If you don't need to work with tokens in your app, you can disable the token sto
 
 If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
-### Considerations when using Azure Front Door
+### Cross-site request forgery mitigation
 
-When using Azure App Service with Easy Auth behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+App Service authentication mitigates CSRF by inspecting client requests for the following conditions:
 
-1) Disable Caching for the authentication workflow
+- It's a POST request that authenticated using a session cookie.
+- The request came from a known browser (as determined by the HTTP `User-Agent` header).
+- The HTTP `Origin` or HTTP `Referer` header is missing or is not in the configured list of approved external domains for redirection.
+- The HTTP `Origin` header is missing or is not in the configured list of CORS origins.
+
+When a request fulfills all these conditions, App Service authentication automatically rejects it. You can workaround this mitigation logic by adding your external domain to the redirect list to **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**. 
+
+## Considerations when using Azure Front Door
+
+When using Azure App Service with authentication behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+
+- Disable caching for the authentication workflow.
 
     See [Disable cache for auth workflow](../static-web-apps/front-door-manual.md#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
 
-2) Use the Front Door endpoint for redirects
+- Use the Front Door endpoint for redirects.
 
     App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented, for example, by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it is important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
 
-3) Ensure that App Service is using the right redirect URI
+- Ensure that App Service is using the right redirect URI
 
     In some configurations, the App Service is using the App Service FQDN as the redirect URI instead of the Front Door FQDN. This will lead to an issue when the client is being redirected to App Service instead of Front Door. To change that, the `forwardProxy` setting needs to be set to `Standard` to make App Service respect the `X-Forwarded-Host` header set by Azure Front Door.
     

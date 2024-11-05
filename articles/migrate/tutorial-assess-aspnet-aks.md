@@ -6,7 +6,7 @@ ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 04/01/2024
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-aks
 ---
 
@@ -14,13 +14,13 @@ zone_pivot_groups: web-apps-assessment-aks
 
 ::: zone pivot="asp-net"
 
-This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
@@ -193,4 +193,4 @@ For each node pool, you see the associated node SKU, node count and the number o
 
 - [Modernize](./tutorial-modernize-asp-net-aks.md) your ASP.NET web apps at-scale to Azure Kubernetes Service.
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context).
-- [Review and implement best practices](../aks/best-practices.md) to build and manage apps on AKS.
+- [Review and implement best practices](/azure/aks/best-practices) to build and manage apps on AKS.

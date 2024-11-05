@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI'
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, trigger an event, and view the results.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.date: 1/5/2021
 ms.topic: quickstart
-ms.service: cache
+
 ms.custom: mode-api, devx-track-azurecli
 ---
 
@@ -15,9 +15,9 @@ Azure Event Grid is an eventing service for the cloud. In this quickstart, you'l
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages. When you complete the steps described in this quickstart, you'll see that the event data has been sent to the web app.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 

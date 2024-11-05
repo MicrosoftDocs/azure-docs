@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
   items:
@@ -29,6 +32,14 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Azure role-based access control
+      displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
+      href: concept-dev-box-role-based-access-control.md
+- name: Plan
+  expanded: true
+  items:
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
 - name: Configure resources
   items:
   - name: Manage a dev center
@@ -41,6 +52,8 @@ items:
     href: how-to-manage-dev-box-definitions.md
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
+  - name: Display names for a project or pool
+    href: how-to-add-project-pool-display-name.md
   - name: Limit number of dev boxes per project
     href: tutorial-dev-box-limits.md      
   - name: Configure Visual Studio caches
@@ -58,17 +71,20 @@ items:
   items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Remote Desktop App
-    displayName: connect, access dev box, RDP, iPad 
+  - name: Connect with Windows App
+    displayName: Windows App, connect, access dev box, RDP, iPad 
+    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Connect with Remote Desktop
+    displayName: Windows App, connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Troubleshoot dev box connectivity issues
-    href: how-to-troubleshoot-repair-dev-box.md
 - name: Security
   items:
   - name: Provide access to project admins
@@ -93,8 +109,16 @@ items:
     href: how-to-hibernate-your-dev-box.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
+  - name: Configure stop on disconnect
+    href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
+- name: Troubleshooting
+  items: 
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot Task view issues
+    href: how-to-troubleshoot-dev-box-task-view.md    
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension

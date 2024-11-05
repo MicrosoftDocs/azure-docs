@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -57,7 +57,7 @@ Navigate to the *azure-iot-sdk-node/device/samples/javascript* folder.
 
 The *azure-iot-sdk-node/device/samples/javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
-The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 Open the *pnp_temperature_controller.js* file in a code editor of your choice. The sample code shows how to:
 

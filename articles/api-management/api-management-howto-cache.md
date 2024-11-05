@@ -4,7 +4,7 @@ description: Learn how to improve the latency, bandwidth consumption, and web se
 author: dlepow
 manager: erikre
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: danlep

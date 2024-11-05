@@ -63,16 +63,16 @@ ms.author: sedusch
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
 [storage-introduction]:../../storage/common/storage-introduction.md
-[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
-[virtual-machines-windows-agent-user-guide]:../../virtual-machines/extensions/agent-windows.md
-[virtual-machines-linux-agent-user-guide]:../../virtual-machines/extensions/agent-linux.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/extensions/agent-linux.md#command-line-options
-[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
-[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines/windows/quick-create-powershell.md
-[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines/windows/upload-image.md
-[virtual-machines-windows-tutorial]:../../virtual-machines/windows/quick-create-portal.md
+[storage-premium-storage-preview-portal]:/azure/virtual-machines/disks-types
+[virtual-machines-windows-agent-user-guide]:/azure/virtual-machines/extensions/agent-windows
+[virtual-machines-linux-agent-user-guide]:/azure/virtual-machines/extensions/agent-linux
+[virtual-machines-linux-agent-user-guide-command-line-options]:/azure/virtual-machines/extensions/agent-linux#command-line-options
+[virtual-machines-linux-capture-image]:/azure/virtual-machines/linux/capture-image
+[virtual-machines-linux-tutorial]:/azure/virtual-machines/linux/quick-create-cli
+[virtual-machines-linux-update-agent]:/azure/virtual-machines/linux/update-agent
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:/azure/virtual-machines/windows/quick-create-powershell
+[virtual-machines-upload-image-windows-resource-manager]:/azure/virtual-machines/windows/upload-image
+[virtual-machines-windows-tutorial]:/azure/virtual-machines/windows/quick-create-portal
 [virtual-networks-nsg]:../../virtual-network/security-overview.md
 [virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
 
@@ -311,7 +311,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 #### Create a virtual machine by using the Azure portal
 
-The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.yml)
+The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource)
 
 1. Navigate to [Images in the Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages). Or, in the Azure portal menu, select **Images**.
 1. Select the Managed Disk image you want to deploy and click on **Create VM**
@@ -625,4 +625,4 @@ When you've prepared the VM as described in [Deployment scenarios of VMs for SAP
 
 ## Next steps
 
-Learn about [RHEL for SAP in-place upgrade](../../virtual-machines/workloads/redhat/redhat-in-place-upgrade.md#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)
+Learn about [RHEL for SAP in-place upgrade](/azure/virtual-machines/workloads/redhat/redhat-in-place-upgrade#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)

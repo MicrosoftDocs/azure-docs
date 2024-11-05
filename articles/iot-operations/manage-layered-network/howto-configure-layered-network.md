@@ -7,9 +7,10 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 10/18/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Create sample network environment for Azure IoT Layered Network Management Preview
@@ -18,7 +19,7 @@ ms.date: 11/15/2023
 
 To use Azure IoT Layered Network Management Preview service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
 - *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
-- *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
+- *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet, or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
 
@@ -47,7 +48,7 @@ The multiple levels of networks in this test setup are accomplished using subnet
 
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10.
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [Configure custom DNS](#configure-custom-dns). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
-- **Level 2 subnet (10.102.0.0/16)** - Like level 3, this subnet doesn't have access to the internet. It is configured to only have access to the IP address 10.103.0.33 in level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
+- **Level 2 subnet (10.102.0.0/16)** - Like level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
 Refer to the following examples for setup this type of network environment.
 
@@ -60,7 +61,7 @@ An extra custom DNS needs to be set up in the local network to provide domain na
 ### Example of logical segmentation in Azure
 In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
-> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations Preview.
+> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](../overview-iot-operations.md#validated-environments) for Azure IoT Operations Preview.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 :::image type="content" source="./media/howto-configure-layered-network/vnet-subnet.png" alt-text="Screenshot for virtual network in Azure." lightbox="./media/howto-configure-layered-network/vnet-subnet.png":::
@@ -73,7 +74,7 @@ In this example, a test environment is created with a [virtual network](/azure/v
     - [Optional] If you create a *jumpbox* subnet, create inbound and outbound rules for allowing traffic to and from this subnet.
 :::image type="content" source="./media/howto-configure-layered-network/vnet-security-rule.png" alt-text="Screenshot for level 3 security group." lightbox="./media/howto-configure-layered-network/vnet-security-rule.png":::
 1. Create Linux VMs in level 3 and level 4. 
-    - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
+    - Refer to [validated environments](../overview-iot-operations.md#validated-environments) for specification of the VM.
     - When creating the VM, connect the machine to the subnet that is created in earlier steps.
     - Skip the security group creation for VM.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,13 +13,16 @@ ms.reviewer: jojoh
 
 # Automation for partners
 
-Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). Partners and their customers can use Cost Management APIs common tasks. For more information about non-automation scenarios, see [Cost Management for Partners](../costs/get-started-partners.md).
+Microsoft Cost Management is natively available for direct partners who onboarded their customers to a Microsoft Customer Agreement and [purchased an Azure Plan](/partner-center/purchase-azure-plan). Partners and their customers can use Cost Management APIs common tasks. For more information about nonautomation scenarios, see [Cost Management for Partners](../costs/get-started-partners.md).
 
-## Azure Cost Management APIs - Direct and indirect providers
+>[!NOTE]
+> Although specific API versions are shown in the examples in this article, we recommend that you use the latest API version available. Newer API versions might have improved functionality. Later API versions support previous versions.
+
+## Microsoft Cost Management APIs - Direct and indirect providers
 
 Partners with access to billing scopes in a partner tenant can use the following APIs to view invoiced costs.
 
-APIs at the subscription scope can be called by a partner regardless of the cost policy, as long as they have access to the subscription. Other users with access to the subscription, like the customer or reseller, can call the APIs only after the partner enables the cost policy for the customer tenant.
+Partners can call APIs at the subscription scope regardless of the cost policy, as long as they have access to the subscription. Other users with access to the subscription, like the customer or reseller, can call the APIs only after the partner enables the cost policy for the customer tenant.
 
 ### To get a list of billing accounts
 
@@ -39,7 +42,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview 
 ```
 
-### To get a list of invoices for a period of time
+### To get a list of invoices for a specific period
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate} 
@@ -50,7 +53,7 @@ The API call returns an array of invoices that has elements similar to the follo
    {      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",      "name": "{InvoiceID}",      "properties": {        "amountDue": {          "currency": "USD",          "value": x.xx        },        ...    } 
 ```
 
-Use the preceding returned ID field value and replace it in the following example as the scope to query for usage details.
+To query for usage details, use the preceding returned ID field value and replace it in the following example as the scope.
 
 ```http
 GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01 
@@ -122,6 +125,6 @@ DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/
 
 - Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).
 Automation scenarios.
-- [Get started with Azure Cost Management for partners](../costs/get-started-partners.md#cost-management-rest-apis).
+- [Get started with Cost Management for partners](../costs/get-started-partners.md#cost-management-rest-apis).
 - [Retrieve large usage datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 - [Understand usage details fields](understand-usage-details-fields.md). 

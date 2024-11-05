@@ -17,7 +17,7 @@ Generally, the workflow cleans up from the HCX on-premises side first, then clea
 - Make sure you don't have any active migrations in progress. 
 - Ensure that L2 extensions are no longer needed or the networks are `unstretched` to the destination.  
 - For workloads using MON, ensure that you removed the default gateways. Otherwise, it can result in workloads not being able to communicate or function. 
-- [Uninstall HCX deployment from Connector on-premises](https://kb.vmware.com/s/article/74869).  
+- [Uninstall HCX deployment from Connector on-premises](https://docs.vmware.com/en/VMware-HCX/4.7/hcx-user-guide/GUID-28172DB0-93C6-4A7A-B5A9-51C8325B02DC.html).  
  
 ## Uninstall HCX
  

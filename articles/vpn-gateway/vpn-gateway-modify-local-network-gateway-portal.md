@@ -3,7 +3,7 @@ title: 'Modify gateway IP address settings: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to change IP address prefixes and configure BGP Settings for your local network gateway using the Azure portal.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc

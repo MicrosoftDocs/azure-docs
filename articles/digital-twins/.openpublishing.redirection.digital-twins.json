@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-integrate-azure-signalr.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-azure-signalr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-provision-using-device-provisioning-service.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-provision-using-device-provisioning-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-integrate-time-series-insights.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-data-history-connection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
@@ -186,14 +201,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "how-to-use-postman-with-digital-twins.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "how-to-configure-postman.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-use-postman.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
-      "redirect_document_id": true
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
+      "redirect_document_id": false
     },
     {
       "source_path": "about-digital-twins.md",

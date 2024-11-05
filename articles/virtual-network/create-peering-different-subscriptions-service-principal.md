@@ -4,12 +4,11 @@ titleSuffix: Azure Virtual Network
 description: Learn how to peer virtual networks in different subscriptions using service principal names.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
+ms.custom: devx-track-azurecli
 ms.topic: how-to 
-ms.date: 04/18/2024
-
+ms.date: 11/04/2024
 #customer intent: As a network administrator, I want to connect virtual networks in different subscriptions using service principal names so that I can allow resources in different subscriptions to communicate with each other.
-
 ---
 # Connect virtual networks in different subscriptions with service principal names
 
@@ -87,10 +86,10 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
     ```output
     {
-    "appId": "baa9d5f8-c1f9-4e74-b9fa-b5bc551e6cd0",
+    "appId": "11112222-bbbb-3333-cccc-4444dddd5555",
     "displayName": "spn-1-peer-vnet",
     "password": "",
-    "tenant": "c2d26d12-71cc-4f3b-8557-1fa18d077698"    
+    "tenant": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"    
     }
     ```
 
@@ -183,10 +182,10 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
 
     ```output
     {
-    "appId": "19b439a8-614b-4c8e-9e3e-b0c901346362",
+    "appId": "22223333-cccc-4444-dddd-5555eeee6666",
     "displayName": "spn-2-peer-vnet",
     "password": "",
-    "tenant": "24baaf57-f30d-4fba-a20e-822030f7eba3"
+    "tenant": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f"
     }    
     ```
 
@@ -255,7 +254,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=19b439a8-614b-4c8e-9e3e-b0c901346362&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=22223333-cccc-4444-dddd-5555eeee6666&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
@@ -332,7 +331,7 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=baa9d5f8-c1f9-4e74-b9fa-b5bc551e6cd0&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
@@ -450,7 +449,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --service-principal \
         --username $appid1 \
         --password $password \
-        --tenant c2d26d12-71cc-4f3b-8557-1fa18d077698
+        --tenant aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     ```
 
 1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2** with **spn-2-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
@@ -460,7 +459,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --service-principal \
         --username $appid2 \
         --password $password \
-        --tenant 24baaf57-f30d-4fba-a20e-822030f7eba3
+        --tenant bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f
     ```
 
 1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-1**.

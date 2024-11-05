@@ -2,7 +2,7 @@
 title: Access the Avere vFXT control panel - Azure
 description: How to connect to the vFXT cluster and  the browser-based Avere Control Panel to configure the Avere vFXT 
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
@@ -22,7 +22,7 @@ There are two basic steps:
 > [!NOTE]
 > This article assumes that you have set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. This article describes how to use that VM as a host to access the cluster. If you are using a VPN or ExpressRoute for virtual network access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
 
-Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](../virtual-machines/linux/ssh-from-windows.md) or for [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) if you need help. If you used a password instead of a public key, you will be prompted to enter it when you connect.
+Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. If you used a password instead of a public key, you will be prompted to enter it when you connect.
 
 ## Create an SSH tunnel
 
@@ -55,8 +55,6 @@ This step uses a web browser to connect to the configuration utility on the vFXT
 Depending on your browser, you might need to click **Advanced** and verify that it is safe to proceed to the page.
 
 Enter the username `admin` and the administrative password you provided when creating the cluster.
-
-![Screenshot of the Avere sign in page populated with the username 'admin' and a password](media/avere-vfxt-gui-login.png)
 
 Click **Login** or press enter on your keyboard.
 

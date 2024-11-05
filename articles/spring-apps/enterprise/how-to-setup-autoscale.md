@@ -3,16 +3,15 @@ title: "Set up autoscale for applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Set up autoscale for applications
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -84,5 +83,5 @@ If you're on the Basic plan and constrained by one or more of these limits, you 
 
 ## Next steps
 
-* [Overview of autoscale in Microsoft Azure](../../azure-monitor/autoscale/autoscale-overview.md)
+* [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 * [Azure CLI Monitoring autoscale](/cli/azure/monitor/autoscale)

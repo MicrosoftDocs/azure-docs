@@ -4,7 +4,6 @@ description: Learn about how to copy data from Amazon S3 Compatible Storage to s
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

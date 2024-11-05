@@ -5,7 +5,6 @@ author: valindrae
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
-ms.topic: include file
 ms.date: 07/21/2023
 ms.author: kpunjabi
 ---

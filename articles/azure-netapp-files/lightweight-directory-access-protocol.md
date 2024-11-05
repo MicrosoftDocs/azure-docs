@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/05/2023
+ms.date: 06/05/2024
 ms.author: anfdocs
 ---
 
@@ -60,7 +60,7 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
 * LDAP clients initiate queries by way of an LDAP bind, which is essentially a login to the LDAP server using an account that has read access to the LDAP schema. The LDAP bind configuration on the clients is configured to use the security mechanism that is defined by the LDAP server. Sometimes, they are user name and password exchanges in plain text (simple). In other cases, binds are secured through Simple Authentication and Security Layer methods (`sasl`) such as Kerberos or LDAP over TLS. Azure NetApp Files uses the SMB machine account to bind using SASL authentication for the best possible security.
 * User and group information that is stored in LDAP is queried by clients by using standard LDAP search requests as defined in [RFC 2307](https://datatracker.ietf.org/doc/html/rfc2307). In addition, newer mechanisms, such as [RFC 2307bis](https://datatracker.ietf.org/doc/html/draft-howard-rfc2307bis-02), allow more streamlined user and group lookups. Azure NetApp Files uses a form of RFC 2307bis for its schema lookups in Windows Active Directory. 
 * LDAP servers can store user and group information and netgroup. However, Azure NetApp Files currently can't use netgroup functionality in LDAP on Windows Active Directory.
-* LDAP in Azure NetApp Files operates on port 389. This port currently cannot be modified to use a custom port, such as port 636 (LDAP over SSL) or port 3268 (Active Directory Global Catalog searches).
+* LDAP in Azure NetApp Files operates on port 389. This port currently can't be modified to use a custom port, such as port 636 (LDAP over SSL) or port 3268 (Active Directory Global Catalog searches).
 * Encrypted LDAP communications can be achieved using [LDAP over TLS](configure-ldap-over-tls.md#considerations) (which operates over port 389) or LDAP signing, both of which can be configured on the Active Directory connection.
 * Azure NetApp Files supports LDAP queries that take no longer than 3 seconds to complete. If the LDAP server has many objects, that timeout may be exceeded, and authentication requests can fail. In those cases, consider specifying an [LDAP search scope](https://ldap.com/the-ldap-search-operation/) to filter queries for better performance.
 * Azure NetApp Files also supports specifying preferred LDAP servers to help speed up requests. Use this setting if you want to ensure the LDAP server closest to your Azure NetApp Files region is being used.
@@ -113,7 +113,7 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
 * LDAP servers can also be used to perform custom name mapping for users. For more information, see [Custom name mapping using LDAP](#custom-name-mapping-using-ldap). 
 * LDAP query timeouts 
 
-    By default, LDAP queries time out if they cannot be completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup will fail and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query timeout settings.
+    By default, LDAP queries time out if they can't completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup will fail and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query timeout settings.
 
 ## Name mapping types
 
@@ -149,6 +149,29 @@ drwxrwxrwx  2 root     root   4096 Jul  3 20:09 .
 drwxr-xr-x 21 root     root   4096 Jul  3 20:12 ..
 -rwxrwxrwx  1 UNIXuser group1   19 Jul  3 20:10 asymmetric-user-file.txt
 ```
+## Allow local NFS users with LDAP
+
+When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit). As a result, Azure NetApp files will attempt to take that numeric ID and look it up in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet. Due to this behavior, if that numeric ID cannot be resolved to a user in LDAP, the lookup will fail and access will be denied – even if the requesting user has permission to access the volume or data structure. The Allow local NFS users with LDAP option in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It doesn't provide “local user creation/management” within Azure NetApp Files.
+
+When “Allow local NFS users with LDAP” option is enabled, numeric IDs are passed to Azure NetApp Files and no LDAP lookup is performed. This creates varying behavior for different scenarios, as covered below.
+
+### NFSv3 with UNIX security style volumes
+
+Numeric IDs don't need to be translated to user names. The “Allow local NFS users with LDAP” option will not impact access to the volume but may impact how user/group ownership (name translation) is displayed on the NFS client. For instance, if a numeric ID of 1001 is user1 in LDAP, but is user2 on the NFS client’s local passwd file, the client will display “user2” as the owner of the file when the numeric ID is 1001.
+
+### NFSv4.1 with UNIX security style volumes
+Numeric IDs don't need to be translated to user names. By default, NFSv4.1 uses name strings (user@CONTOSO.COM) for its authentication. However, Azure NetApp Files supports the use of numeric IDs with NFSV4.1, which means that NFSv4.1 requests will arrive to the NFS server with a numeric ID. If no numeric ID to user name translation exists in local files or name services like LDAP for the Azure NetApp Files volume, then the numeric is presented to the client. If a numeric ID translates to a user name, then the name string will be used. If the name string doesn't match, the client will squash the name to the anonymous user specified in the client’s idmapd.conf file. Enabling the “Allow local NFS users with LDAP” option will not impact NFSv4.1 access, as it will fall back to standard NFSv3 behavior unless Azure NetApp Files can resolve a numeric ID to a user name in its local NFS user database. Azure NetApp Files has a set of default UNIX users that can be problematic for some clients and squash to a “nobody” user if domain ID strings do not match.
+* Local users include: root (0), pcuser (65534), nobody (65535).
+* Local groups include: root (0), daemon (1), pcuser (65534), nobody (65535).
+  
+Most commonly, root may show incorrectly in NFSv4.1 client mounts when the NFSv4.1 domain ID is misconfigured. For more information on the NFSv4.1 ID domain, see [Configuring NFSv4.1 ID domain for Azure NetApp Files](https://www.youtube.com/watch?v=UfaJTYWSVAY). 
+
+NFSv4.1 ACLs can be configured using either a name string or a numeric ID. If numeric IDs are used, no name translation is required. If a name string is used, then name translation would be required for proper ACL resolution. When using NFSv4.1 ACLs, enabling “Allow local NFS users with LDAP” may cause incorrect NFSv4.1 ACL behavior depending on the ACL configuration.
+
+### NFS (v3 and v4.1) with NTFS security style volumes in dual protocol configurations
+UNIX security style volumes leverage UNIX style permissions (mode bits and NFSv4.1 ACLs). For those types of volumes, NFS leverages only UNIX-style authentication leveraging a numeric ID or a name string, depending on the scenarios listed above. NTFS security style volumes, however, use NTFS style permissions. These permissions are assigned using Windows users and groups. When an NFS user attempts to access a volume with an NTFS style permission, a UNIX to Windows name mapping must occur to ensure proper access controls. In this scenario, the NFS numeric ID is still passed to the Azure NetApp Files NFS volume, but there is a requirement for the numeric ID to be translated to a UNIX user name so that it can then be mapped to a Windows user name for initial authentication. For instance, if numeric ID 1001 attempts to access an NFS mount with NTFS security style permissions that allow access to Windows user “user1,” then 1001 would need to be resolved in LDAP to the “user1” user name to gain expected access. If no user with the numeric ID of “1001” exists in LDAP, or if LDAP is misconfigured, then the UNIX to Windows name mapping that is attempted will be 1001@contoso.com. In most cases, users with that name do not exist, so authentication fails and access is denied. Similarly, if the numeric ID 1001 resolves to the wrong user name (such as user2) then the NFS request will map to an unexpected Windows user and the permissions for the user will use the “user2” access controls.
+
+Enabling “Allow local NFS users with LDAP” will disable all LDAP translations of numeric IDs to user names, which will effectively break access to NTFS security style volumes. As such, use of this option with NTFS security style volumes is highly discouraged.
 
 ## LDAP schemas
 

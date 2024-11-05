@@ -3,7 +3,7 @@ title: Choose the right Azure Firewall version to meet your needs
 description: Learn about the different Azure Firewall versions and how to choose the right one for your needs.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 04/03/2024
 ms.author: victorh
@@ -22,6 +22,13 @@ Azure Firewall now supports three different versions to cater to a wide range of
 Take a closer look at the features across the three Azure Firewall versions:
 
 :::image type="content" source="media/choose-firewall-sku/azure-firewall-sku-table.png" alt-text="Table of Azure Firewall version features." lightbox="media/choose-firewall-sku/azure-firewall-sku-table-large.png":::
+
+## Flow chart
+
+You can use the following flow chart to help you choose the Azure Firewall version that best fits you needs.
+
+<!-- Art Library Source# ConceptArt-0-000-011 -->
+:::image type="content" source="media/choose-firewall-sku/firewall-sku-flow.svg" alt-text="Flow chart to help you choose a firewall version." lightbox="media/choose-firewall-sku/firewall-sku-flow.svg":::
 
 ## Next steps
 

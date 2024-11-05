@@ -5,7 +5,6 @@ description: Learn about datasets in Azure Data Factory and Azure Synapse Analyt
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

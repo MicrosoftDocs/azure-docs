@@ -7,11 +7,11 @@ brand: azure
 metadata:
   title: Azure governance documentation
   description: Get the most advanced set of governance capabilities of any major cloud provider.
-  ms.service: governance
+  ms.service: azure-policy
   ms.topic: hub-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 04/08/2024
+  ms.date: 10/03/2024
 
 highlightedContent:
   items:
@@ -96,9 +96,6 @@ tools:
     - title: Azure Resource Graph
       imageSrc: ./media/azure-resource-graph.svg
       url: ./resource-graph/samples/starter.md
-    - title: Cost Management
-      imageSrc: ./media/cost-management.svg
-      url: https://github.com/Azure-Samples/Cost-Management-Samples
 
 additionalContent:
   sections:

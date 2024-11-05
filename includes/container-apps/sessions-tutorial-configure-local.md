@@ -1,6 +1,7 @@
 ---
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-azurecli
 ms.topic:  include
 ms.date: 05/08/2024
 ms.author: antchu
@@ -48,7 +49,7 @@ ms.author: antchu
             --output tsv
         ```
 
-    1. Create a `.env` file in the root of the sample app directory (`langchain-python-webapi`). Add the following content to the file:
+    1. Create a `.env` file in the root of the sample app directory (same location as `main.py`). Add the following content to the file:
 
         ```text
         AZURE_OPENAI_ENDPOINT=<AZURE_OPENAI_ENDPOINT>
@@ -57,7 +58,7 @@ ms.author: antchu
 
         Replace `<AZURE_OPENAI_ENDPOINT>` with the Azure OpenAI account endpoint and `<SESSION_POOL_MANAGEMENT_ENDPOINT>` with the session pool management endpoint.
 
-1. The app uses `DefaultAzureCredential` to authenticate with Azure services. On your local machine, it uses your current Azure CLI login credentials. You must give yourself the *Cognitive Services OpenAI User* role on the Azure OpenAI account for the app to access the model endpoints, and the *Azure ContainerApps Session Creator* role on the session pool for the app to access the session pool.
+1. The app uses `DefaultAzureCredential` to authenticate with Azure services. On your local machine, it uses your current Azure CLI login credentials. You must give yourself the *Cognitive Services OpenAI User* role on the Azure OpenAI account for the app to access the model endpoints, and the *Azure ContainerApps Session Executor* role on the session pool for the app to access the session pool.
 
     1. Retrieve your Azure CLI user name:
 
@@ -85,11 +86,11 @@ ms.author: antchu
         az containerapp sessionpool show --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv
         ```
 
-    1. Assign the *Azure ContainerApps Session Creator* role using its ID to your Azure CLI user on the session pool:
+    1. Assign the *Azure ContainerApps Session Executor* role using its ID to your Azure CLI user on the session pool:
 
         ```bash
         az role assignment create \
-            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --role "Azure ContainerApps Session Executor" \
             --assignee <CLI_USERNAME> \
             --scope <SESSION_POOL_RESOURCE_ID>
         ```

@@ -2,12 +2,12 @@
 title: Migrate from Bing Maps to Azure Maps overview
 titleSuffix: Microsoft Azure Maps
 description: Overview for the migration guides that show how to migrate code from Bing Maps to Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: jkebeck
+ms.author: jokebeck
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Migrate from Bing Maps to Azure Maps overview
@@ -26,7 +26,7 @@ Covered in this article:
 
 Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, weather, and custom indoor maps into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
 
-- Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps].
+- Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 - Data residency compliance support. For more information, see [Azure Maps service geographic scope].
 - Azure regulatory compliance standards (GDPR, ISO, FedRAMP, HIPAA, etc.). For more information, see [Microsoft Compliance].
 - Support for programmatically creating and managing Azure Maps accounts (resources). For more information, see [Create your Azure Maps account using an ARM template].
@@ -65,7 +65,7 @@ With Bing Maps for Enterprise, the [Bing Maps Account Center] is where you manag
 
 ### Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple authentication methods, such as a [Shared Key], [Microsoft Entra ID], or [Shared access signature token authentication]. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps].
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple authentication methods, such as a [Shared Key], [Microsoft Entra ID], or [Shared access signature token authentication]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 
 ## Licensing and billing considerations
 
@@ -75,7 +75,7 @@ When migrating to Azure Maps from Bing Maps for Enterprise, the following aspect
 - Unlike Bing Maps for Enterprise, Azure Maps is a pay-as-you-go offering – you only pay for the services that you use.
 - With Azure Maps, billing (invoicing) happens monthly and doesn’t require an annual commitment.
 - Azure Maps has a free monthly allotment of transactions. For more information, see the [Azure Maps pricing].
-- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every fifteen 15 map tiles loaded.
+- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every 15 map tiles loaded.
 - The Azure Maps web control (SDK) uses 512 x 512 pixels map tiles, and typically generates one or less transactions per map load.
 
 Licensing and billing related resources for Azure Maps:
@@ -163,7 +163,7 @@ More Azure Maps resources:
 
 Developers can get migration support through the [Azure Maps Q&A] or through one of the many [Azure support options].
 
-[Authentication with Microsoft Azure Maps]: azure-maps-authentication.md
+[Authentication with Azure Maps]: azure-maps-authentication.md
 [Authentication best practices]: authentication-best-practices.md
 [Autosuggest]: /bingmaps/rest-services/autosuggest
 [Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account
@@ -225,7 +225,7 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Search: Fuzzy (typehead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy Search (typeahead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy]: /rest/api/maps/search/get-search-fuzzy
-[Search: POI]:  /rest/api/maps/search/get-search-poi
+[Search: POI]: /rest/api/maps/search/get-search-poi
 [Search: Polygon]: /rest/api/maps/search/get-polygon
 [Search: Reverse Geocoding Batch]: /rest/api/maps/search/get-reverse-geocoding-batch
 [Search: Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding

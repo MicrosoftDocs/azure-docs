@@ -3,13 +3,14 @@ title: Automatic attack disruption for SAP | Microsoft Sentinel
 description: Learn about deploying automatic attack disruption for SAP with the unified security operations platform.
 author: batamig
 ms.author: bagol
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/07/2024
 appliesto:
   - Microsoft Sentinel in the Azure portal
   - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security engineer, I want to deploy automatic attack disruption for SAP with the unified security operations platform.
+#Customer intent: As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
+
 ---
 
 # Automatic attack disruption for SAP (Preview)
@@ -18,7 +19,11 @@ Microsoft Defender XDR correlates millions of individual signals to identify act
 
 When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified security operations platform. This article describes how to ensure that your SAP system is ready to support automatic attack disruption for SAP in the Microsoft Defender portal.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+For a video demonstration of attack disruption for SAP, watch the following video:
+<br><br>
+> [!VIDEO https://www.youtube.com/embed/-ijnGxRnwks?si=MPC2uNuLD8biqMVj]
+
+Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 ## Attack disruption for SAP and the unified security operations platform
 

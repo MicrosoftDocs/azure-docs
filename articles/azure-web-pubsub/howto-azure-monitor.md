@@ -18,9 +18,9 @@ The **Overview** page in the Azure portal for each Azure Web PubSub includes a b
 
 ## What is Azure Monitor?
 
-Azure Web PubSub creates monitoring data using [Azure Monitor](../azure-monitor/overview.md). Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Azure Web PubSub creates monitoring data using [Azure Monitor](/azure/azure-monitor/overview). Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-If you're not already familiar with monitoring Azure services, start with [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
+If you're not already familiar with monitoring Azure services, start with [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -32,7 +32,7 @@ The following sections build on this article. They describe the specific data ga
 
 ## Monitoring data
 
-Azure Web PubSub collects the same kinds of monitoring data as other Azure resources that are described in [Azure Monitor data collection](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources).
+Azure Web PubSub collects the same kinds of monitoring data as other Azure resources that are described in [Azure Monitor data collection](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-azure-resources).
 
 See [Monitor Azure Web PubSub data reference](howto-monitor-data-reference.md) for detailed information on the metrics and logs metrics created by Azure Web PubSub.
 
@@ -42,23 +42,23 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Web PubSub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for Azure Web PubSub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 For a list of the platform metrics collected for Azure Web PubSub, see [Metrics](concept-metrics.md).
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 ## Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). 
 
 Azure Web PubSub collects three types of resource logs: *Connectivity*, *Messaging*, and *HTTP requests*.
 - **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and so on).
@@ -67,7 +67,7 @@ Azure Web PubSub collects three types of resource logs: *Connectivity*, *Messagi
 
 ### How to enable resource logs
 
-Currently Azure Web PubSub supports integration with [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
+Currently Azure Web PubSub supports integration with [Azure Storage](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage).
 
 1. Go to Azure portal.
 1. On **Diagnostic settings** page of your Azure Web PubSub service instance, select **+ Add diagnostic setting**.
@@ -101,7 +101,7 @@ To view the resource logs, follow these steps:
     :::image type="content" alt-text="Screenshot showing Log Analytics menu item." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
 
-1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
 
     :::image type="content" alt-text="Screenshot showing query log in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
@@ -116,7 +116,7 @@ To use a sample query for SignalR service, follow the steps below.
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
 The following table lists common and recommended alert rules for Azure Web PubSub.
 
@@ -133,4 +133,4 @@ The following table lists common and recommended alert rules for Azure Web PubSu
 For more information about monitoring Azure Functions, see the following articles:
 
 * [Monitor Azure Web PubSub data reference](howto-monitor-data-reference.md) - reference of the metrics, logs, and other important values created by your function app.
-* [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) - details monitoring Azure resources.
+* [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) - details monitoring Azure resources.

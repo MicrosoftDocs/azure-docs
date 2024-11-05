@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.date: 02/10/2022
 ms.topic: article
-ms.service: api-management
+ms.service: azure-api-management
 ---
 
 # How API Management supports monetization

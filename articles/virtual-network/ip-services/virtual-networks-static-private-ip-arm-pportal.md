@@ -4,7 +4,7 @@ description: Learn how to create a virtual machine with a static private IP addr
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
@@ -58,7 +58,7 @@ Use the following steps to create a VM, and its virtual network and subnet:
 
 1. Select **Review + create**. Review the settings, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Change private IP address to static
 

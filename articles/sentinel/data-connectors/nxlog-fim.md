@@ -81,11 +81,3 @@ NXLogFIM_CL
 
 
 Follow the step-by-step instructions in the [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) integration chapter of the *NXLog User Guide* to configure this connector.
-
-
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nxlogltd1589381969261.nxlog_fim?tab=Overview) in the Azure Marketplace.

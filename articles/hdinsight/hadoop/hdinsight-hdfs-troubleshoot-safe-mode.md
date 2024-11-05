@@ -1,9 +1,9 @@
 ---
 title: Local HDFS stuck in safe mode on Azure HDInsight cluster
 description: Troubleshoot local Apache HDFS stuck in safe mode on Apache cluster in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Scenario: Local HDFS stuck in safe mode on Azure HDInsight cluster

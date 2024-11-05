@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to configure your routers for a Highly Available (HA) Azure Private 5G Core deployment
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.custom: template-how-to 
@@ -19,7 +19,19 @@ This requires you to deploy a gateway router between the ASE cluster and:
 - the RAN equipment in the access network.
 - the data networks.
 
+The following diagram shows an overview of a highly available deployment with a single access network router and a single data network router.
+
+:::image type="content" source="media/configure-routers-high-availability/highly-available-network.png" alt-text="Diagram showing a highly available deployment with a single access network router and a single data network router.":::
+
 The routers should rapidly detect the failure of an ASE device through a BFD session going down and immediately redirect all traffic to the other ASE. With the recommended settings, BFD should be able to detect failure in about one second, ensuring that traffic should be restored in less than 2.5 seconds. User plane state is replicated across the two ASEs to ensure the backup can take over immediately.
+
+AP5GC only supports a single gateway router IP address per network. Therefore, only a network design where there is either a single gateway router per network or where the gateway routers are deployed in redundant pairs in an active / standby configuration with a floating gateway IP address is supported. The gateway routers in each redundant pair should monitor each other using VRRP (Virtual Router Redundancy Protocol) to provide detection of partner failure.
+
+By default, the packet core creates a single BFD session with the gateway router IP address. For a redundant pair of routers, you must configure the packet core with the interface IP address of each router in addition to the shared gateway address. The packet core will then create an additional BFD session with each router. If one BFD session goes down due to a router failure, service is unaffected because the gateway address is still reachable from the other router. This configuration is added later when you create the site; see [Collect the required information for a site](collect-required-information-for-a-site.md) for details. If you do not configure the interface IP addresses, it is possible for a router to forward traffic to an ASE device that cannot forward it on in the event of a port, link or top-of-rack switch failure.
+
+The following diagram shows the physical layout of the access network with a redundant pair of routers. All links are in a single virtual local area network (VLAN) for the access network. The layout for each data network is similar.
+
+:::image type="content" source="media/configure-routers-high-availability/dual-routers.png" alt-text="Diagram showing the physical layout of the access network with a redundant pair of routers.":::
 
 This how-to guide describes the configuration required on your router or routers to support an HA deployment. The gateway router for the access network and the gateway router for the data networks may be the same device or separate devices.
 

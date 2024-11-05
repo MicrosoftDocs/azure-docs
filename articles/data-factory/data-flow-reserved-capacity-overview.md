@@ -4,9 +4,8 @@ description: Learn how to buy Azure Data Factory data flow reserved capacity to 
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows
 

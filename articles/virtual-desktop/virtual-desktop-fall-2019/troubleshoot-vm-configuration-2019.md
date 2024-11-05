@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Virtual Desktop (classic) session host - Azure
 description: How to resolve issues when you're configuring Azure Virtual Desktop (classic) session host virtual machines.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 05/11/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop (classic) session host virtual machine configuration
 
@@ -353,5 +353,5 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

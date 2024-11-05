@@ -1,6 +1,6 @@
 ---
 author: msangapu-msft
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 01/05/2024
 ms.author: msangapu
@@ -25,9 +25,9 @@ Here are the three options to mount Azure storage to your app:
 
 | Mounting option | Usage |
 |--------------------------|-------------|
-|Basic|Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). In this case, the portal gets and stores the access key for you.|
-|Access Key|If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md).|
-|Key Vault|Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](../../../key-vault/general/overview.md) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service.|
+|Basic|Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). In this case, the portal gets and stores the access key for you.|
+|Access Key|If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview).|
+|Key Vault|Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](/azure/key-vault/general/overview) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service.|
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Here are the three options to mount Azure storage to your app:
 - [An existing Windows code app in App Service](../../quickstart-dotnetcore.md).
 - [Create Azure file share](../../../storage/files/storage-how-to-use-files-portal.md).
 - [Upload files to Azure File share](../../../storage/files/storage-how-to-create-file-share.md).
-- An [Azure Key Vault](../../../key-vault/general/overview.md) instance using the [vault access policy](../../../key-vault/general/assign-access-policy.md?WT.mc_id=Portal-Microsoft_Azure_KeyVault&tabs=azure-portal) and a [secret](../../../key-vault/secrets/quick-create-portal.md), which is required to configure the Key Vault with Azure Storage.
+- An [Azure Key Vault](/azure/key-vault/general/overview) instance using the [vault access policy](/azure/key-vault/general/assign-access-policy?WT.mc_id=Portal-Microsoft_Azure_KeyVault&tabs=azure-portal) and a [secret](/azure/key-vault/secrets/quick-create-portal), which is required to configure the Key Vault with Azure Storage.
 
 ---
 
@@ -97,7 +97,7 @@ Now you're ready to use Key Vault to access your storage account.
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. Spaces aren't allowed. |
-    | **Configuration options** | Select **Basic** if the storage account isn't using [private endpoints](../../../storage/common/storage-private-endpoints.md) or [Azure Key Vault](../../../key-vault/general/overview.md). Otherwise, select **Advanced**. |
+    | **Configuration options** | Select **Basic** if the storage account isn't using [private endpoints](../../../storage/common/storage-private-endpoints.md) or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Storage access** | Select **Key vault reference** for Azure Key Vault. Otherwise, select **Manual input** |
@@ -133,7 +133,7 @@ Now you're ready to use Key Vault to access your storage account.
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. Spaces aren't allowed. |
-    | **Configuration options** | Select **Basic**. if the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). Otherwise, select **Advanced**. |
+    | **Configuration options** | Select **Basic**. if the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
     | **Storage accounts** | Azure Storage account. |
     | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
     | **Storage container** or **Share name** | Files share or Blobs container to mount. |
@@ -188,7 +188,7 @@ Mounting storage with Key Vault access isn't currently supported by the Azure CL
 
 - The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the [scalability and performance targets for Files](../../../storage/files/storage-files-scale-targets.md).
 
-- If your app [scales to multiple instances](../../../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
+- If your app [scales to multiple instances](/azure/azure-monitor/autoscale/autoscale-get-started), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
 
 - It isn't recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
 

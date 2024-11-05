@@ -1,10 +1,10 @@
 ---
 title: Run Apache Sqoop jobs with Azure HDInsight (Apache Hadoop) 
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/18/2023
+ms.date: 09/06/2024
 ---
 
 # Use Apache Sqoop with Hadoop in HDInsight
@@ -48,14 +48,14 @@ HDInsight cluster comes with some sample data. You use the following two samples
   | state |string |
   | country |string |
   | querydwelltime |double |
-  | sessionid |bigint |
+  | `sessionid` |bigint |
   | sessionpagevieworder |bigint |
 
 In this article, you use these two datasets to test Sqoop import and export.
 
 ## <a name="create-cluster-and-sql-database"></a>Set up test environment
 
-The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to an SQL database. If you want to use a private container for the bacpac files, use the following values in the template:
+The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to an SQL database. If you want to use a private container for the bacpac files, use the following values in the template:
 
 ```json
 "storageKeyType": "Primary",
@@ -77,11 +77,11 @@ The cluster, SQL database, and other objects are created through the Azure porta
     |Resource group |Select your resource group from the drop-down list, or create a new one|
     |Location |Select a region from the drop-down list.|
     |Cluster Name |Enter a name for the Hadoop cluster. Use lowercase letter only.|
-    |Cluster Login User Name |Keep the pre-populated value `admin`.|
-    |Cluster Login Password |Enter a password.|
-    |Ssh User Name |Keep the pre-populated value `sshuser`.|
+    |Cluster sign-in User Name |Keep the prepopulated value `admin`.|
+    |Cluster sign in Password |Enter a password.|
+    |Ssh User Name |Keep the prepopulated value `sshuser`.|
     |Ssh Password |Enter a password.|
-    |Sql Admin Login |Keep the pre-populated value `sqluser`.|
+    |Sql Admin sign-in |Keep the prepopulated value `sqluser`.|
     |Sql Admin Password |Enter a password.|
     |_artifacts Location | Use the default value unless you want to use your own bacpac file in a different location.|
     |_artifacts Location Sas Token |Leave blank.|
@@ -100,7 +100,7 @@ HDInsight can run Sqoop jobs by using various methods. Use the following table t
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X, or Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, macOS X, or Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (for now) |
 | [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 

@@ -7,6 +7,8 @@ metadata:
   title: Service Connector documentation
   description: Connect your Azure compute service to backing services easily with Service Connector.
   ms.service: service-connector
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
@@ -26,6 +28,8 @@ landingContent:
             url: concept-availability.md
           - text: Permission requirements
             url: concept-permission.md
+          - text: Microsoft Entra roles assigned by Service Connector
+            url: concept-microsoft-entra-roles.md
           - text: Frequently asked questions
             url: faq.yml
 
@@ -77,7 +81,12 @@ landingContent:
             url: tutorial-connect-web-app-app-configuration.md
           - text: Passwordless connection to database
             url: tutorial-passwordless.md
-            
+          - text: Connect to Azure OpenAI in AKS using a connection string
+            url: tutorial-python-aks-openai-connection-string.md
+          - text: Connect to Azure OpenAI in AKS using workload identity
+            url: tutorial-python-aks-openai-workload-identity.md  
+          - text: Connect to Azure SQL Database
+            url: tutorial-python-aks-sql-database-connection-string.md
       - linkListType: how-to-guide
         links:
           - text: Manage authentication

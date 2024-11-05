@@ -40,12 +40,16 @@ You can subscribe to the '\<collection>Updated' event to receive notifications a
 In this example, we subscribe to changes in values of the Call object `LocalVideoStream`.
 
 ```javascript
- call.on('localVideoStreamsUpdated', updateEvent => {
+call.on('localVideoStreamsUpdated', updateEvent => {
     updateEvent.added.forEach(async (localVideoStream) => {
-      console.log(`e.added contains an array of LocalVideoStream that were added to the call`);
+        // Contains an array of LocalVideoStream that were added to the call
+        // Add a preview and start any processing if needed
+        handleAddedLocalVideoStream(localVideoStream )
     });
     updateEvent.removed.forEach(localVideoStream => {
-         console.log(`e.removed contains an array of LocalVideoStream that were removed from the call`);
+        // Contains an array of LocalVideoStream that were removed from the call
+        // Remove the preview and stop any processing if needed
+        handleRemovedLocalVideoStream(localVideoStream ) 
     });
 });
 ```
@@ -55,7 +59,7 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 
 ### Event Name: `incomingCall`
 
-The `incomingCall` event fires when a call is coming.
+The `incomingCall` event fires when the client is receiving an incoming call.
 
 **How should your application react to the event?**
 
@@ -78,14 +82,14 @@ callClient.on('incomingCall', (async (incomimgCallEvent) => {
 
 ### Event Name: `callsUpdated`
 
-The `callsUpdated` updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
+The `callsUpdated` updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminates a call.
 
 **How should your application react to the event?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
 
 ### Event Name: `connectionStateChanged`
 
-The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
+The `connectionStateChanged` event fired when the signaling state of the `CallAgent` is updated.
 
 **How should your application react to the event?**
 
@@ -155,7 +159,7 @@ call.on('idChanged', (async (callIdChangedEvent) => {
 
 ### Event: `isMutedChanged`
 
-The `isMutedChanged` event is fired when the call is muted or unmuted.
+The `isMutedChanged` event is fired when the local audio is muted or unmuted.
 
 **How might your application react to the event?**
 
@@ -212,7 +216,7 @@ call.on('isLocalVideoStartedChanged', () => {
 
 ### Event: `remoteParticipantsUpdated`
 
-Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
+Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participants that have left the call.
 
 **How might your application react to the event?**
 Your application should show a preview of the local video and enable or disable the camera activation button.
@@ -263,7 +267,7 @@ call.on('localVideoStreamsUpdated', (localVideoStreamUpdatedEvent) => {
 
 ### Event: `remoteAudioStreamsUpdated`
 
-The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote participants add or remove audio streams to the call.
+The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream changes. These changes happen when remote participants add or remove audio streams to the call.
 
 **How might your application react to the event?**
 
@@ -305,7 +309,7 @@ call.on('roleChanged', () => {
 
 ### Event: `mutedByOthers`
 
-The `mutedByOthers` event happens when other participants in the call muted the local participant.
+The `mutedByOthers` event happens when other participants in the call are muted by the local participant.
 
 
 **How might your application react to the event?**
@@ -416,7 +420,7 @@ remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
 
 ### Event: `effectsStarted`
 
-This event occurs when the audio effect selected is applied to the audio stream.
+This event occurs when the audio effect selected is applied to the audio stream. For example, when someone turns on Noise Suppression the `effectsStarted` will be fired.
 
 **How might your application react to the event?**
 
@@ -432,7 +436,7 @@ audioEffectsFeature.on('effectsStarted', (effects) => {
 
 ### Event: `effectsStopped`
 
-This event occurs when the audio effect selected is applied to the audio stream.
+This event occurs when the audio effect selected is applied to the audio stream. For example, when someone turns off Noise Suppression the `effectsStopped` will be fired.
 
 **How might your application react to the event?**
 

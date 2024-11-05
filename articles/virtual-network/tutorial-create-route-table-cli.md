@@ -1,14 +1,11 @@
 ---
 title: Route network traffic - Azure CLI
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
-services: virtual-network
 author: asudbring
-manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
-ms.tgt_pltfrm: virtual-network
-ms.date: 04/20/2022
+ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: devx-track-azurecli
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -26,7 +23,7 @@ Azure automatically routes traffic between all subnets within a virtual network,
 * Deploy virtual machines (VM) into different subnets
 * Route traffic from one subnet to another through an NVA
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -39,17 +36,17 @@ Before you can create a route table, create a resource group with [az group crea
 ```azurecli-interactive
 # Create a resource group.
 az group create \
-  --name myResourceGroup \
-  --location eastus
+  --name test-rg \
+  --location westus2
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*.
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *route-table-public*.
 
 ```azurecli-interactive
 # Create a route table
 az network route-table create \
-  --resource-group myResourceGroup \
-  --name myRouteTablePublic
+  --resource-group test-rg \
+  --name route-table-public
 ```
 
 ## Create a route
@@ -58,9 +55,9 @@ Create a route in the route table with [az network route-table route create](/cl
 
 ```azurecli-interactive
 az network route-table route create \
-  --name ToPrivateSubnet \
-  --resource-group myResourceGroup \
-  --route-table-name myRouteTablePublic \
+  --name to-private-subnet \
+  --resource-group test-rg \
+  --route-table-name route-table-public \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
@@ -72,113 +69,115 @@ Before you can associate a route table to a subnet, you have to create a virtual
 
 ```azurecli-interactive
 az network vnet create \
-  --name myVirtualNetwork \
-  --resource-group myResourceGroup \
+  --name vnet-1 \
+  --resource-group test-rg \
   --address-prefix 10.0.0.0/16 \
-  --subnet-name Public \
+  --subnet-name subnet-public \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
+Create two more subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
 az network vnet subnet create \
-  --vnet-name myVirtualNetwork \
-  --resource-group myResourceGroup \
-  --name Private \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-private \
   --address-prefix 10.0.1.0/24
 
 # Create a DMZ subnet.
 az network vnet subnet create \
-  --vnet-name myVirtualNetwork \
-  --resource-group myResourceGroup \
-  --name DMZ \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-dmz \
   --address-prefix 10.0.2.0/24
 ```
 
-Associate the *myRouteTablePublic* route table to the *Public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet).
+Associate the *route-table-subnet-public* route table to the *subnet-public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
-  --vnet-name myVirtualNetwork \
-  --name Public \
-  --resource-group myResourceGroup \
-  --route-table myRouteTablePublic
+  --vnet-name vnet-1 \
+  --name subnet-public \
+  --resource-group test-rg \
+  --route-table route-table-public
 ```
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.  We will create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
+An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization. We create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
 
-Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *myVmNvaVMNic* and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *vm-nvaVMNic* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+
+The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVmNva \
+  --resource-group test-rg \
+  --name vm-nva \
   --image Ubuntu2204 \
   --public-ip-address "" \
-  --subnet DMZ \
-  --vnet-name myVirtualNetwork \
+  --subnet subnet-dmz \
+  --vnet-name vnet-1 \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM.
+The VM takes a few minutes to create. Don't continue to the next step until Azure finishes creating the VM and returns output about the VM.
 
-For a network interface myVmNvaVMNic to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
+For a network interface **vm-nvaVMNic** to be able to forward network traffic sent to it, that isn't destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
-  --name myVmNvaVMNic \
-  --resource-group myResourceGroup \
+  --name vm-nvaVMNic \
+  --resource-group test-rg \
   --ip-forwarding true
 ```
 
-Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic.  We will use the `sysctl` command to enable the Linux kernel to forward packets.  To run this command without logging onto the VM, we will use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. We use the `sysctl` command to enable the Linux kernel to forward packets. To run this command without logging onto the VM, we use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVmNva \
+  --resource-group test-rg \
+  --vm-name vm-nva \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
 
-The command may take up to a minute to execute.  Note that this change will not persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
+The command might take up to a minute to execute. This change won't persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
 
 ## Create virtual machines
 
-Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step.
+Create two VMs in the virtual network so you can validate that traffic from the *subnet-public* subnet is routed to the *subnet-private* subnet through the NVA in a later step.
 
-Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
+Create a VM in the *subnet-public* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command.
+
+The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
 ```azurecli-interactive
-adminPassword="<replace-with-your-password>"
-
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVmPublic \
+  --resource-group test-rg \
+  --name vm-public \
   --image Ubuntu2204 \
-  --vnet-name myVirtualNetwork \
-  --subnet Public \
+  --vnet-name vnet-1 \
+  --subnet subnet-public \
   --admin-username azureuser \
-  --admin-password $adminPassword \
+  --generate-ssh-keys \
   --no-wait
 ```
 
-Create a VM in the *Private* subnet.
+Create a VM in the *subnet-private* subnet.
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVmPrivate \
+  --resource-group test-rg \
+  --name vm-private \
   --image Ubuntu2204 \
-  --vnet-name myVirtualNetwork \
-  --subnet Private \
+  --vnet-name vnet-1 \
+  --subnet subnet-private \
   --admin-username azureuser \
-  --admin-password $adminPassword
+  --generate-ssh-keys
 ```
 
 The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example:
@@ -186,90 +185,130 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 ```output
 {
   "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
-  "location": "eastus",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-private",
+  "location": "westus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.1.4",
-  "publicIpAddress": "13.90.242.231",
-  "resourceGroup": "myResourceGroup"
+  "publicIpAddress": "203.0.113.24",
+  "resourceGroup": "test-rg"
 }
 ```
 
-Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
+## Enable Microsoft Entra ID sign in for the virtual machines
+
+The following code example installs the extension to enable a Microsoft Entra ID sign-in for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
+
+```bash
+az vm extension set \
+    --publisher Microsoft.Azure.ActiveDirectory \
+    --name AADSSHsign-inForLinux \
+    --resource-group test-rg \
+    --vm-name vm-private
+```
+
+```bash
+az vm extension set \
+    --publisher Microsoft.Azure.ActiveDirectory \
+    --name AADSSHsign-inForLinux \
+    --resource-group test-rg \
+    --vm-name vm-public
+```
 
 ## Route traffic through an NVA
 
-Using an SSH client of your choice, connect to the VMs created above.  For example, the following command can be used from a command line interface such as [WSL](/windows/wsl/install) to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign-in to the VMs.
+
+For more information about how to SSH to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
 
 ```bash
-ssh azureuser@<publicIpAddress>
+
+### Store IP address of VM in order to SSH
+
+Run the following command to store the IP address of the VM as an environment variable:
+
+```bash
+export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-private --query publicIps --output tsv)
 ```
 
-When prompted for a password, enter the password you selected in [Create virtual machines](#create-virtual-machines).
+```bash
+ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+```
 
-Use the following command to install trace route on the *myVmPrivate* VM:
+Use the following command to install trace route on the *vm-private* VM:
 
 ```bash
 sudo apt update
 sudo apt install traceroute
 ```
 
-Use the following command to test routing for network traffic to the *myVmPublic* VM from the *myVmPrivate* VM.
+Use the following command to test routing for network traffic to the *vm-public* VM from the *vm-private* VM.
 
 ```bash
-traceroute myVmPublic
+traceroute vm-public
 ```
 
 The response is similar to the following example:
 
 ```output
-traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
-1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
+azureuser@vm-private:~$ traceroute vm-public
+traceroute to vm-public (10.0.0.4), 30 hops max, 60 byte packets
+ 1  vm-public.internal.cloudapp.net (10.0.0.4)  2.613 ms  2.592 ms  2.553 ms
 ```
 
-You can see that traffic is routed directly from the *myVmPrivate* VM to the *myVmPublic* VM. Azure's default routes, route traffic directly between subnets.
+You can see that traffic is routed directly from the *vm-private* VM to the *vm-public* VM. Azure's default routes, route traffic directly between subnets. Close the SSH session to the *vm-private* VM.
 
-Use the following command to SSH to the *myVmPublic* VM from the *myVmPrivate* VM:
+### Store IP address of VM in order to SSH
+
+Run the following command to store the IP address of the VM as an environment variable:
 
 ```bash
-ssh azureuser@myVmPublic
+export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-public --query publicIps --output tsv)
 ```
 
-Use the following command to install trace route on the *myVmPublic* VM:
-
 ```bash
-sudo apt-get install traceroute
+ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
 ```
 
-Use the following command to test routing for network traffic to the *myVmPrivate* VM from the *myVmPublic* VM.
+Use the following command to install trace route on the *vm-public* VM:
 
 ```bash
-traceroute myVmPrivate
+sudo apt update
+sudo apt install traceroute
+```
+
+Use the following command to test routing for network traffic to the *vm-private* VM from the *vm-public* VM.
+
+```bash
+traceroute vm-private
 ```
 
 The response is similar to the following example:
 
 ```output
-traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
-1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
-2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
+azureuser@vm-public:~$ traceroute vm-private
+traceroute to vm-private (10.0.1.4), 30 hops max, 60 byte packets
+ 1  vm-nva.internal.cloudapp.net (10.0.2.4)  1.010 ms  1.686 ms  1.144 ms
+ 2  vm-private.internal.cloudapp.net (10.0.1.4)  1.925 ms  1.911 ms  1.898 ms
 ```
 
-You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
+You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *vm-private* VM. The route added to the *route-table--public* route table and associated to the *subnet-public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *subnet-private* subnet.
 
-Close the SSH sessions to both the *myVmPublic* and *myVmPrivate* VMs.
+Close the SSH session to the *vm-public* VM.
 
 ## Clean up resources
 
 When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
 ```
 
 ## Next steps
 
-In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
+In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a subnet-public subnet to a private subnet. Deploy various preconfigured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md).
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services can't be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md).

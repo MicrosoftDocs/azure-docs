@@ -3,9 +3,9 @@ title: Insights for Azure Load Balancer
 description: Use the load balancer insights to achieve rapid fault localization and informed design decisions.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -13,9 +13,6 @@ ms.custom: template-concept, engagement-fy23
 # Using Insights to monitor and configure your Azure Load Balancer
 
 Through Azure Monitor for networks, you're provided functional dependency visualizations and preconfigured metrics dashboard for your Load Balancers. These visuals help empower you to make informed design decisions and rapidly localize, diagnose, and resolve any faults.
-
->[!NOTE] 
->Please note this feature is in Preview and the functional dependency view and preconfigured dashboard may change to improve this experience
 
 >[!IMPORTANT]
 >The Standard Load Balancer is required to see metrics from the Load Balancer namespace in the pre-configured metrics dashboard. You will still be able to see metrics from the VM, virtual machine scale set, and Connection Monitor namespaces however, we recommend [upgrading to Standard](./upgrade-basic-standard.md) for any production workloads to take advantage of the robust set of Load Balancer metrics.
@@ -30,9 +27,11 @@ You can access this view by visiting the Insights page of your Load Balancer res
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
+
 ## Metrics dashboard
 
-From the Insights page of your Load Balancer, you can select More Detailed Metrics to view a preconfigured [Azure Monitor Workbook](../azure-monitor/visualize/workbooks-overview.md) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard shows the Load Balancer status and links to relevant documentation at the top of the Overview tab.
+From the Insights page of your Load Balancer, you can select More Detailed Metrics to view a preconfigured [Azure Monitor Workbook](/azure/azure-monitor/visualize/workbooks-overview) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard shows the Load Balancer status and links to relevant documentation at the top of the Overview tab.
 
 You can navigate through the available tabs each of which contain visuals relevant to a specific aspect of your Load Balancer. Explicit guidance for each is available in the dashboard at the bottom of each tab.
 
@@ -45,7 +44,8 @@ The dashboard tabs currently available are:
 * Connection Monitors
 * Metric Definitions 
 
-[!NOTE] Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
+>[!NOTE]
+>Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
 
 ### Overview tab
 
@@ -82,4 +82,4 @@ The Metric Definitions tab contains all the information shown in the [Multi-dime
 * Review the dashboard and provide feedback using the below link if there's anything that can be improved
 * [Review the metrics documentation to ensure you understand how each metric is calculated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md)
-* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

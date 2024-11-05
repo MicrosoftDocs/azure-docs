@@ -4,7 +4,7 @@ description: Tips for using T-SQL user-defined schemas to develop solutions for 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

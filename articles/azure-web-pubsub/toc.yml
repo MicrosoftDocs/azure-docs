@@ -39,6 +39,8 @@
       href: tutorial-permission.md
     - name: Build a serverless chat app with Azure Functions
       href: quickstart-serverless.md
+    - name: Authenticate and authorize MQTT client
+      href: tutorial-upstream-auth-mqtt-client.md
 - name: How-to guides
   expanded: false
   items:
@@ -48,6 +50,8 @@
           href: howto-websocket-connect.md
         - name: Create reliable Websocket clients
           href: howto-develop-reliable-clients.md
+        - name: How to connect MQTT WebSocket clients
+          href: howto-connect-mqtt-websocket-client.md
         - name: Generate client access URL
           href: howto-generate-client-access-url.md
         - name: Configure event handler
@@ -76,31 +80,33 @@
           href: howto-monitor-data-reference.md
     - name: Secure
       items:
-        - name: Protect the access key
+        - name: Rotate access keys
           href: howto-secure-rotate-access-key.md
-        - name: Use Azure Service Tags
+        - name: Set up an application firewall
+          href: howto-configure-application-firewall.md
+        - name: Use service tags to control access
           href: howto-service-tags.md
-        - name: Use Azure private endpoints
+        - name: Use secure private endpoints
           href: howto-secure-private-endpoints.md
         - name: Manage network access control
           href: howto-secure-network-access-control.md
         - name: Secure outbound traffic through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
-        - name: Access Key Vault through shared private endpoints
+        - name: Access a key vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
         - name: Configure Microsoft Entra authorizations
           items:
-            - name: Authorize from Azure applications
+            - name: Authorize from an Azure application
               href: howto-authorize-from-application.md
-            - name: Authorize from managed identities
+            - name: Authorize from a managed identity
               href: howto-authorize-from-managed-identity.md
             - name: Disable local authentication
               href: howto-disable-local-auth.md
         - name: Configure client certificate authentication
           href: howto-client-certificate.md
-        - name: Custom domain
+        - name: Add a custom domain
           href: howto-custom-domain.md
     - name: Scale and geo-replicate
       items:
@@ -111,7 +117,7 @@
         - name: Geo-replication
           href: howto-enable-geo-replication.md
     - name: Integrate
-      items: 
+      items:
         - name: App Service
           href: howto-integrate-app-service.md
         - name: Azure Functions
@@ -120,12 +126,8 @@
           href: tutorial-serverless-static-web-app.md
         - name: Azure IoT Hub
           href: tutorial-serverless-iot.md
-    - name: Monitor and manage
-      items:
-        - name: Audit compliance using Azure Policy
-          href: howto-monitor-azure-policy.md
-        - name: Move resource across regions
-          href: howto-move-across-regions.md
+        - name: Azure Application Gateway
+          href: howto-integrate-app-gateway.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers
@@ -138,21 +140,58 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
+- name: MQTT (Preview)
+  expanded: false
+  items:
+    - name: Overview
+      href: overview-mqtt.md
+    - name: Quickstart for MQTT users
+      href: howto-mqtt-pubsub-among-mqtt-clients.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Authenticate and authorize MQTT client
+          href: tutorial-upstream-auth-mqtt-client.md
+    - name: How-to guides
+      items:
+        - name: Connect MQTT WebSocket clients
+          href: howto-connect-mqtt-websocket-client.md
+        - name: PubSub among MQTT clients
+          href: howto-mqtt-pubsub-among-mqtt-clients.md
+    - name: Reference
+      items:
+        - name: MQTT event handler protocol
+          href: reference-mqtt-cloud-events.md
+        - name: REST API for MQTT
+          href: reference-rest-api-mqtt.md
+        - name: Cross-protocol communication
+          href: reference-mqtt-cross-protocol-communication.md
 - name: Socket.IO
   expanded: false
-  items: 
+  items:
     - name: Overview
       href: socketio-overview.md
-    - name: Quickstart for Socket.IO users
-      href: socketio-quickstart.md
+    - name: Serverless Mode Overview
+      href: socket-io-serverless-overview.md
+    - name: Quickstart
+      expanded: true
+      items:
+      - name: Quickstart for Socket.IO users
+        href: socketio-quickstart.md
+      - name: Quickstart for Socket.IO Serverless with Azure Function
+        href: socket-io-serverless-quickstart.md
     - name: Tutorials
       expanded: true
       items:
         - name: Build real time code streaming app
           href: socketio-build-realtime-code-streaming-app.md
+        - name: Build an app to publish data to Socket.IO clients with Python in Serverless Mode
+          href: socket-io-serverless-tutorial-python.md
+        - name: Build chat app with Azure Function in Serverless Mode
+          href: socket-io-serverless-tutorial.md
     - name: How-to guides
       items:
-        - name: Easily migrate a self-hosted Socket.IO app 
+        - name: Easily migrate a self-hosted Socket.IO app
           href: socketio-migrate-from-self-hosted.md
         - name: Integrate with Azure App Service
           href: socket-io-howto-integrate-web-app.md
@@ -161,20 +200,28 @@
         - name: Authentication
           href: socketio-authentication.md
         - name: Troubleshoot
-          items: 
+          items:
             - name: Common issues
               href: socketio-troubleshoot-common-issues.md
             - name: Collect logs
               href: socketio-troubleshoot-logging.md
+            - name: Admin UI
+              href: socketio-troubleshoot-admin-ui.md
     - name: Concepts
       items:
         - name: How does Web PubSub support Socket.IO library
           href: socketio-service-internal.md
-        - name: Supported Socket.IO server APIs
+        - name: Azure Function Bindings for Socket.IO
+          href: socket-io-serverless-function-binding.md
+        - name: Unsupported Socket.IO server APIs
           href: socketio-supported-server-apis.md
+    - name: Reference
+      items:
+        - name: Socket.IO Serverless Mode Specification
+          href: socket-io-serverless-protocol.md
 - name: Samples
   expanded: false
-  items: 
+  items:
     - name: Authenticate and connect
       href: samples-authenticate-and-connect.md
     - name: App scenarios
@@ -209,7 +256,7 @@
 - name: Reference
   items:
     - name: Client-side API
-      items: 
+      items:
         - name: Client SDK - JavaScript
           href: reference-client-sdk-javascript.md
         - name: Client SDK - C#
@@ -224,6 +271,8 @@
       items:
         - name: REST API
           href: reference-rest-api-data-plane.md
+        - name: REST API for MQTT
+          href: reference-rest-api-mqtt.md
         - name: Server SDK - C#
           href: reference-server-sdk-csharp.md
         - name: Server SDK - Java
@@ -234,7 +283,7 @@
           href: reference-server-sdk-python.md
         - name: OData filter syntax reference
           href: reference-odata-filter.md
-    - name: API for resource management 
+    - name: API for resource management
       href: /rest/api/webpubsub/
     - name: Azure CLI webpubsub extension
       href: /cli/azure/webpubsub
@@ -251,6 +300,8 @@
           href: reference-protobuf-reliable-webpubsub-subprotocol.md
     - name: CloudEvents HTTP extension for event handler
       href: reference-cloud-events.md
+    - name: CloudEvents HTTP extension for MQTT event handler
+      href: reference-mqtt-cloud-events.md
     - name: CloudEvents AMQP extension for Event Hubs listener
       href: reference-cloud-events-amqp.md
     - name: Functions trigger and bindings

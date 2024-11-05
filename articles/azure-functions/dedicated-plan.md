@@ -1,7 +1,9 @@
 ---
-title: Azure Functions Dedicated hosting 
+title: Azure Functions Dedicated hosting
 description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 01/26/2023
 ---
 
@@ -12,7 +14,7 @@ This article is about hosting your function app with dedicated resources in an A
 An App Service plan defines a set of dedicated compute resources for an app to run. These dedicated compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional hosting. One or more function apps can be configured to run on the same computing resources (App Service plan) as other App Service apps, such as web apps. The dedicated App Service plans supported for function app hosting include Basic, Standard, Premium, and Isolated SKUs. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
 > [!IMPORTANT]
-> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
+> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md) or the [Flex Consumption plan](./flex-consumption-plan.md), where you are billed based on function executions.  
 
 Consider a dedicated App Service plan in the following situations:
 
@@ -31,7 +33,7 @@ Even with Always On enabled, the execution timeout for individual functions is c
 
 ## Scaling
 
-Using an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale, though autoscale will be slower than the elastic scale of the Premium plan. For more information, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/manage-scale-up.md). 
+Using an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale, though autoscale will be slower than the elastic scale of the Premium plan. For more information, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/manage-scale-up.md). 
 
 > [!NOTE] 
 > When running JavaScript (Node.js) functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
@@ -39,7 +41,7 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 
 ## App Service Environments
 
-Running in an App Service Environment (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see [Introduction to the App Service Environments](../app-service/environment/intro.md).
+Running in an App Service Environment (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see [Introduction to the App Service Environments](../app-service/environment/overview.md).
 
 If you just want to run your function app in a virtual network, you can do this using the [Premium plan](functions-premium-plan.md). To learn more, see [Establish Azure Functions private site access](functions-create-private-site-access.md). 
 

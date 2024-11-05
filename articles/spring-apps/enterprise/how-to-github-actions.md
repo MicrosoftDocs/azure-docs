@@ -3,17 +3,16 @@ title: Use Azure Spring Apps CI/CD with GitHub Actions
 description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
 # Use Azure Spring Apps CI/CD with GitHub Actions
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -78,10 +77,10 @@ To provision your Azure Spring Apps service instance, run the following commands
 az extension add --name spring
 az group create \
     --name <resource-group-name> \
-    --location eastus 
+    --location eastus
 az spring create \
     --resource-group <resource-group-name> \
-    --name <service-instance-name> 
+    --name <service-instance-name>
 az spring config-server git set \
     --name <service-instance-name> \
     --uri https://github.com/Azure-Samples/azure-spring-apps-samples \
@@ -255,7 +254,7 @@ jobs:
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
-        
+
       - name: Set up Java 11
         uses: actions/setup-java@v3
         with:

@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Migrate Bing Maps Geodata API
@@ -31,24 +31,21 @@ This article explains how to migrate the Bing Maps [Geodata] API to the Azure Ma
 
 ## Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], and [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], and [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Get Polygon documentation.
 
 ## Request parameters
 
 The following table lists the Bing Maps _Geodata_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter Name  | Azure Maps Request Parameter Name  | Required in Azure Maps  | Azure Maps Data Type  | Description |
+| Bing Maps request parameter  | Azure Maps request parameter  | Required in Azure Maps  | Azure Maps data type  | Description |
 |-----------------------------------|------------------------------------|-------------------------|-----------------------|-------------|
 | address  | Not supported   | Not supported  | Not supported  | Azure Maps Get Polygon API only supports coordinates as location input. To get the coordinates for an address, you can use the Azure Maps Get Geocoding API. |
 | culture   | Request Header:  Accept-Language   | False  | string  | In Azure Maps Get Polygon API, this is the language in which search results should be returned. This is specified in the Azure Maps [request header]. For more information, see [Supported Languages].    |
-| | | | | |
-| entityType  | resultType  | True  | string  | Here are the Bing Maps Geodata API to Azure Maps Get Polygon API `entityType` to `resultType` equivalents:<br><br>AdminDivision1: adminDistrict<br>- AdminDivision2: adminDistrict2<br>-CountryRegion: countryRegion<br>-Neighborhood: neighborhood<br>-PopulatedPlace: locality<br>- Postcode1: postalCode<br>- Postcode2: postalCode2<br>- Postcode3: postalCode3<br>- Postcode4: postalCode4  |
-| | | | | |
+| entityType  | resultType  | True  | string  | Here are the Bing Maps Geodata API to Azure Maps Get Polygon API `entityType` to `resultType` equivalents:<br><br>- AdminDivision1: adminDistrict<br>- AdminDivision2: adminDistrict2<br>-CountryRegion: countryRegion<br>-Neighborhood: neighborhood<br>-PopulatedPlace: locality<br>- Postcode1: postalCode<br>- Postcode2: postalCode2<br>- Postcode3: postalCode3<br>- Postcode4: postalCode4  |
 | getAllPolygons  | Not needed  | Not needed  | Not needed  | Azure Maps Get Polygon API by default supports returning all polygons for the specified `resultType`. For example, if you're requesting the boundary of the United States, many polygons that include Alaska, Hawaii, and various outlying islands are returned, not just a single polygon representing the main boundary of the continental United States.  |
 | getEntityMetadata  | Not supported   | Not supported  | Not supported  | |
 | latitude, longitude  | coordinates  | | string  | Bing Maps Geodata API requires coordinates in latitude/longitude format. Azure Maps Get Polygon API requires longitude/latitude, as defined by [GeoJSON].  |
-| | | | | |
-| LevelOfDetail  | resolution  | False  | string  | Here are the Bing Maps Geodata API to Azure Maps Get Polygon API LevelOfDetail to resolution equivalents: <br><br>0: small<br>- 1: medium<br>- 2: large<br>- 3: huge<br><br>In Azure Maps Get Polygon API, if `resolution` isn't specified, the default is `medium`.  |
+| LevelOfDetail  | resolution  | False  | string  | Here are the Bing Maps Geodata API to Azure Maps Get Polygon API LevelOfDetail to resolution equivalents: <br><br>- 0: small<br>- 1: medium<br>- 2: large<br>- 3: huge<br><br>In Azure Maps Get Polygon API, if `resolution` isn't specified, the default is `medium`.  |
 | preferCuratedPolygons  | Not supported   | Not supported  | Not supported  | |
 | responseFormat  | Not supported   | Not supported  | Not supported  | Azure Maps Get Polygon API only supported GeoJSON response format.  |
 | userRegion  | view  | False  | string  | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This alters geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to `Auto` even if not defined it in the request. For more information on available Views, see [Supported Views]. |
@@ -73,7 +70,7 @@ https://atlas.microsoft.com/search/polygon?api-version=2023-06-01&coordinates=-3
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps _Geodata_ request and the Azure Maps equivalent:
 
-| Bing Maps Response                | Azure Maps Response                           | Description |
+| Bing Maps response                | Azure Maps response                           | Description |
 |-----------------------------------|-----------------------------------------------|-------------|
 | Copyright - CopyrightURL          | properties: copyrightURL                      |             |
 | Copyright - Sources               | properties: geometriesCopyright               |             |
@@ -200,6 +197,7 @@ Support
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [request header]: /rest/api/maps/search/get-polygon?#request-headers
+[Security section]: /rest/api/maps/search/get-polygon#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported Languages]: supported-languages.md

@@ -4,7 +4,7 @@ description: This article shows you how to use API Management to import a Logic 
 services: api-management
 author: dlepow
 manager: cfowler
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: danlep
@@ -15,6 +15,8 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows how to import a Logic App as an API and test the imported API.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this article, you learn how to:
 

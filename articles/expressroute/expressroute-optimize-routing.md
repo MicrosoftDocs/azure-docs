@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Optimize routing'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/15/2023
 ms.author: duau
@@ -13,9 +13,9 @@ ms.author: duau
 
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing may happen - that is, your traffic may take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path, the higher the latency. Latency has direct effect on application performance and user experience. This article illustrates this problem and explain how to optimize routing using the standard routing technologies.
 
-## Path selection for Microsoft and Public peering
+## Path selection for Microsoft peering
 
-It's important to ensure that when utilizing Microsoft or Public peering that traffic flows over the desired path if you have one or more ExpressRoute circuits. You need to also ensure paths to the Internet use an Internet Exchange (IX) or Internet Service Provider (ISP). BGP utilizes a best path selection algorithm based on many factors including longest prefix match (LPM). To ensure that traffic destined for Azure through Microsoft or Public peering traverses the ExpressRoute path, you must implement the *Local Preference* attribute. This setting ensures that the path is always preferred on ExpressRoute. 
+It's important to ensure that when utilizing Microsoft that traffic flows over the desired path if you have one or more ExpressRoute circuits. You need to also ensure paths to the Internet use an Internet Exchange (IX) or Internet Service Provider (ISP). BGP utilizes a best path selection algorithm based on many factors including longest prefix match (LPM). To ensure that traffic destined for Azure through Microsoft traverses the ExpressRoute path, you must implement the *Local Preference* attribute. This setting ensures that the path is always preferred on ExpressRoute. 
 
 > [!NOTE]
 > The default local preference is typically **100**. Higher local preferences are more preferred. 
@@ -88,7 +88,7 @@ The second solution is that you continue to advertise both of the prefixes on bo
 ![ExpressRoute Case 2 solution - use AS PATH prepending](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
 > [!NOTE]
-> While the examples given here are for Microsoft and Public peerings, we do support the same capabilities for the Private peering. Also, the AS Path prepending works within one single ExpressRoute circuit, to influence the selection of the primary and secondary paths.
+> While the examples given here are for Microsoft peering, we do support the same capabilities for the Private peering. Also, the AS Path prepending works within one single ExpressRoute circuit, to influence the selection of the primary and secondary paths.
 > 
 > 
 

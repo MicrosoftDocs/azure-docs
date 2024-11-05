@@ -45,6 +45,8 @@
         href: understand-data-encryption.md
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
+      - name: Understand DNS 
+        href: domain-name-system-concept.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
@@ -65,6 +67,12 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: High file counts 
+      items: 
+        - name: Understand maxfiles 
+          href: maxfiles-concept.md
+        - name: Understand maximum directory sizes 
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -77,8 +85,10 @@
     items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
-    - name: Standard storage with cool access
+    - name: Azure NetApp Files storage with cool access
       href: cool-access-introduction.md
+    - name: Azure NetApp Files reserved capacity
+      href: reservations.md
   - name: Quotas 
     items:
     - name: Understand volume quota
@@ -89,44 +99,50 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
+    - name: Understand large volumes 
+      href: large-volumes.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
-    - name: Performance considerations for Azure NetApp Files
-      href: azure-netapp-files-performance-considerations.md    
-    - name: Performance benchmark test recommendations for Azure NetApp Files
-      href: azure-netapp-files-performance-metrics-volumes.md 
-    - name: Performance benchmarks for Linux
-      href: performance-benchmarks-linux.md
-    - name: Large volume performance benchmarks for Linux
-      href: performance-large-volumes-linux.md
-    - name: Performance impact of Kerberos on NFSv4.1
-      href: performance-impact-kerberos.md
-    - name: Oracle database performance on Azure NetApp Files single volumes
-      href: performance-oracle-single-volumes.md
-    - name: Oracle database performance on Azure NetApp Files multiple volumes
-      href: performance-oracle-multiple-volumes.md
-    - name: Azure NetApp Files datastore performance benchmarks for AVS 
-      href: performance-benchmarks-azure-vmware-solution.md
-    - name: AVS datastore performance considerations for Azure NetApp Files 
-      href: performance-azure-vmware-solution-datastore.md
-    - name: Performance reference for Azure NetApp Files
+    - name: Best practices and considerations
       items:
-      - name: Linux direct I/O best practices
-        href: performance-linux-direct-io.md
-      - name: Linux filesystem cache best practices
-        href: performance-linux-filesystem-cache.md
-      - name: Linux NFS mount options best practices
-        href: performance-linux-mount-options.md
-      - name: Linux concurrency best practices
-        href: performance-linux-concurrency-session-slots.md
-      - name: Linux NFS read-ahead best practices
-        href: performance-linux-nfs-read-ahead.md
-      - name: SMB performance best practices
-        href: azure-netapp-files-smb-performance.md
-      - name: Azure virtual machine SKUs' best practices
-        href: performance-virtual-machine-sku.md 
+        - name: General performance considerations for Azure NetApp Files
+          href: azure-netapp-files-performance-considerations.md  
+        - name: Linux direct I/O best practices
+          href: performance-linux-direct-io.md
+        - name: Linux filesystem cache best practices
+          href: performance-linux-filesystem-cache.md
+        - name: Linux NFS mount options best practices
+          href: performance-linux-mount-options.md
+        - name: Linux concurrency best practices
+          href: performance-linux-concurrency-session-slots.md
+        - name: Linux NFS read-ahead best practices
+          href: performance-linux-nfs-read-ahead.md
+        - name: SMB performance best practices
+          href: azure-netapp-files-smb-performance.md
+        - name: Azure virtual machine SKUs best practices
+          href: performance-virtual-machine-sku.md 
+        - name: Performance considerations for cool access tiering
+          href: performance-considerations-cool-access.md
+        - name: Performance impact of Kerberos on NFSv4.1
+          href: performance-impact-kerberos.md
+        - name: AVS datastore performance considerations for Azure NetApp Files 
+          href: performance-azure-vmware-solution-datastore.md
+    - name: Performance tests
+      items:
+      - name: Performance benchmark test recommendations for Azure NetApp Files
+        href: azure-netapp-files-performance-metrics-volumes.md 
+      - name: Regular volume performance benchmarks for Linux
+        href: performance-benchmarks-linux.md
+      - name: Large volume performance benchmarks for Linux
+        href: performance-large-volumes-linux.md
+      - name: Oracle database performance on Azure NetApp Files single volumes
+        href: performance-oracle-single-volumes.md
+      - name: Oracle database performance on Azure NetApp Files multiple volumes
+        href: performance-oracle-multiple-volumes.md
+      - name: Azure NetApp Files datastore performance benchmarks for AVS 
+        href: performance-benchmarks-azure-vmware-solution.md 
   - name: Application volume groups 
     items:
       - name: Understand application volume groups
@@ -172,16 +188,48 @@
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
-        href: azacsnap-introduction.md
-      - name: Release Notes for AzAcSnap
-        href: azacsnap-release-notes.md
+        items:
+        - name: Introduction to AzAcSnap
+          href: azacsnap-introduction.md
+        - name: Release Notes for AzAcSnap
+          href: azacsnap-release-notes.md
       - name: Get started with AzAcSnap
-        href: azacsnap-get-started.md
-      - name: Install AzAcSnap
-        href: azacsnap-installation.md
+        items:
+        - name: Overall workflow
+          href: azacsnap-get-started.md
+        - name: Install AzAcSnap
+          href: azacsnap-installation.md
+        - name: Configure Database
+          items:
+          - name: All databases
+            href: azacsnap-configure-database.md
+          - name: SAP HANA
+            href: azacsnap-configure-database.md?tabs=sap-hana
+          - name: Oracle Database
+            href: azacsnap-configure-database.md?tabs=oracle
+          - name: IBM Db2
+            href: azacsnap-configure-database.md?tabs=db2
+          - name: Microsoft SQL Server (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#microsoft-sql-server
+        - name: Configure Storage
+          items:
+          - name: All storage
+            href: azacsnap-configure-storage.md
+          - name: Azure NetApp Files
+            href: azacsnap-configure-storage.md?tabs=azure-netapp-files
+          - name: Azure Large Instance
+            href: azacsnap-configure-storage.md?tabs=azure-large-instance
+          - name: Azure Managed Disk (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#azure-managed-disks
+        - name: Configure AzAcSnap
+          href: azacsnap-cmd-ref-configure.md
+        - name: Test configuration of AzAcSnap
+          href: azacsnap-cmd-ref-test.md
+        - name: Backup your database with AzAcSnap
+          href: azacsnap-cmd-ref-backup.md
       - name: Disaster recovery using AzAcSnap
         href: azacsnap-disaster-recovery.md
-      - name: Tips and tricks for using AzAcSnap
+      - name: Tips for using AzAcSnap
         href: azacsnap-tips.md
       - name: Troubleshoot AzAcSnap
         href: azacsnap-troubleshoot.md
@@ -203,6 +251,10 @@
         href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: Security
     items:
+    - name: Understand data plane security 
+      href: data-plane-security.md
+    - name: Understand control plane security 
+      href: control-plane-security.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 - name: How-to guides
@@ -279,6 +331,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -287,8 +341,6 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
-      - name: Access SMB volume from Microsoft Entra joined Windows VM
-        href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume
@@ -299,7 +351,7 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-      - name: Manage standard storage with cool access 
+      - name: Manage storage with cool access 
         href: manage-cool-access.md
     - name: Update Terraform-managed volume
       href: terraform-manage-volume.md
@@ -389,6 +441,10 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+  - name: Relocate
+    items:
+    - name: Relocate volume to another region
+      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API

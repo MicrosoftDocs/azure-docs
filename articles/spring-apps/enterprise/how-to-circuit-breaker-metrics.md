@@ -3,7 +3,7 @@ title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
 description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 02/21/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -12,8 +12,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 # Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -192,7 +191,7 @@ Use the following steps to build and deploy the sample applications.
    > [!NOTE]
    > If you don't enable Application Insights, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
-1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and pre-aggregation](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) section of [Log-based and pre-aggregated metrics in Application Insights](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md).
+1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and preaggregation](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-preaggregation) section of [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
@@ -236,7 +235,7 @@ Use the following steps to build and deploy the sample applications.
    > [!NOTE]
    > If there's no default Application Insights available, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
-1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and pre-aggregation](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) section of [Log-based and pre-aggregated metrics in Application Insights](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md).
+1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and preaggregation](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-preaggregation) section of [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 

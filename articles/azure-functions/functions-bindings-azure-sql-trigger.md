@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 11/27/2023
+ms.date: 6/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -437,6 +437,29 @@ The SQL trigger binds to a variable `todoChanges`, a list of objects each with t
 
 The following example shows a Python function that is invoked when there are changes to the `ToDo` table.
 
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="ToDoTrigger")
+@app.sql_trigger(arg_name="todo",
+                        table_name="ToDo",
+                        connection_string_setting="SqlConnectionString")
+def todo_trigger(todo: str) -> None:
+    logging.info("SQL Changes: %s", json.loads(todo))
+```
+
+# [v1](#tab/python-v1)
+
+
 The following is binding data in the function.json file:
 
 ```json
@@ -461,6 +484,8 @@ import logging
 def main(changes):
     logging.info("SQL Changes: %s", json.loads(changes))
 ```
+
+---
 
 ::: zone-end
 
@@ -516,15 +541,76 @@ The following table explains the binding configuration properties that you set i
 
 ## Optional Configuration
 
-The following optional settings can be configured for the SQL trigger:
+The following optional settings can be configured for the SQL trigger for local development or for cloud deployments.
+
+### host.json
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-host-json-section-intro.md)]
 
-| Setting | Description|
-|---------|---------|
-|**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
-|**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
-|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
+| Setting | Default| Description|
+|---------|---------|---------|
+|**MaxBatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
+|**PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
+|**MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+
+#### Example host.json file
+
+Here is an example host.json file with the optional settings:
+
+```JSON
+{
+  "version": "2.0",
+  "extensions": {
+      "Sql": {
+        "MaxBatchSize": 300,
+        "PollingIntervalMs": 1000,
+        "MaxChangesPerWorker": 100
+      }
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "logLevel": {
+      "default": "Trace"
+    }
+  }
+}
+```
+
+### local.setting.json
+
+The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
+
+> [!IMPORTANT]  
+> Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Tools that support Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
+
+| Setting | Default| Description|
+|---------|---------|---------|
+|**Sql_Trigger_BatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
+|**Sql_Trigger_PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
+|**Sql_Trigger_MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+
+#### Example local.settings.json file
+
+Here is an example local.settings.json file with the optional settings:
+
+```JSON
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SqlConnectionString": "",
+    "Sql_Trigger_MaxBatchSize": 300,
+    "Sql_Trigger_PollingIntervalMs": 1000,
+    "Sql_Trigger_MaxChangesPerWorker": 100
+  }
+}
+```
 
 ## Set up change tracking (required)
 

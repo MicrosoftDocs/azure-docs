@@ -9,7 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security architect or SOC analyst, I want to understand what data connectors are in Microsoft Sentinel.
+
+
+#Customer intent: As a security eningeer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
+
 ---
 
 # Microsoft Sentinel data connectors
@@ -75,30 +78,23 @@ Integrations that use Azure Functions might have extra data ingestion costs, bec
 
 ## Agent-based integration for data connectors
 
-Microsoft Sentinel can use the Syslog protocol to connect an agent to any data source that can perform real-time log streaming. For example, most on-premises data sources connect by using agent-based integration.
+Microsoft Sentinel can use agents provided by the Azure Monitor service (on which Microsoft Sentinel is based) to collect data from any data source that can perform real-time log streaming. For example, most on-premises data sources connect by using agent-based integration.
 
 The following sections describe the different types of Microsoft Sentinel agent-based data connectors. To configure connections using agent-based mechanisms, follow the steps in each Microsoft Sentinel data connector page.
 
-### Syslog
+<a name="syslog"></a><a name="common-event-format-cef"></a>
 
-You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel by using the Azure Monitor Agent (AMA). Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The AMA receives events from the Syslog daemon over UDP. The Syslog daemon forwards events to the agent internally, communicating over UDS (Unix Domain Sockets). The AMA then transmits these events to the Microsoft Sentinel workspace.
+### Syslog and Common Event Format (CEF)
+
+You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel by using the Azure Monitor Agent (AMA). Log formats vary, but many sources support CEF-based formatting. Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The AMA receives plain Syslog or CEF event messages from the Syslog daemon over UDP. The Syslog daemon forwards events to the agent internally, communicating over TCP or UDS (Unix Domain Sockets), depending on the version. The AMA then transmits these events to the Microsoft Sentinel workspace.
 
 Here's a simple flow that shows how Microsoft Sentinel streams Syslog data.
 
 1. The device's built-in Syslog daemon collects local events of the specified types, and forwards the events locally to the agent. 
 1. The agent streams the events to your Log Analytics workspace. 
-1. After successful configuration, the data appears in the Log Analytics Syslog table.
+1. After successful configuration, Syslog messages appear in the Log Analytics *Syslog* table, and CEF messages in the *CommonSecurityLog* table.
 
-For more information, see [Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent](forward-syslog-monitor-agent.md).
-
-
-### Common Event Format (CEF)
-
-Log formats vary, but many sources support CEF-based formatting. The Microsoft Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that Log Analytics can ingest.
-
-For data sources that emit data in CEF, set up the Syslog agent and then configure the CEF data flow. After successful configuration, the data appears in the **CommonSecurityLog** table.
-
-For more information, see  [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](connect-common-event-format.md).
+For more information, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md).
 
 ### Custom logs
 
@@ -106,7 +102,7 @@ For some data sources, you can collect logs as files on Windows or Linux compute
 
 To connect using the Log Analytics custom log collection agent, follow the steps in each Microsoft Sentinel data connector page. After successful configuration, the data appears in custom tables.
 
-For more information, see [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
+For more information, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md).
 
 ## Service-to-service integration for data connectors
 
@@ -120,11 +116,11 @@ For more information, see the following articles:
 
 Both Microsoft and other organizations author Microsoft Sentinel data connectors. Each data connector has one of the following support types listed on the data connector page in Microsoft Sentinel.
 
-| Support type| Description|
-|-------------|------------|
-|**Microsoft-supported**|Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider and author.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category according to the [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support data connectors authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these data connectors. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for that data connector.<br><br>For any issues with a partner-supported data connector, contact the specified data connector support contact.|
-|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the data connector page in Microsoft Sentinel.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters).|
+| Support type | Description |
+| ------------ | ----------- |
+| **Microsoft-supported** | Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider and author.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category according to the [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support data connectors authored by any party other than Microsoft. |
+| **Partner-supported** | Applies to data connectors authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these data connectors. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for that data connector.<br><br>For any issues with a partner-supported data connector, contact the specified data connector support contact. |
+| **Community-supported** | Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the data connector page in Microsoft Sentinel.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters). |
 
 For more information, see [Find support for a data connector](configure-data-connector.md#find-support-for-a-data-connector).
 

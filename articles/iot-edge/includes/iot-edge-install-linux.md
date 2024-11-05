@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 03/11/2024
+ms.date: 06/14/2024
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
@@ -16,10 +16,25 @@ Run the following commands to add the package repository and then add the Micros
 
 > [!IMPORTANT]
 > On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 
 # [Ubuntu](#tab/ubuntu)
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
+
+::: moniker range=">=iotedge-1.5"
+
+* **24.04**:
+
+   ```bash
+   wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb
+   ```
+
+::: moniker-end
 
 * **22.04**:
 
@@ -40,6 +55,17 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 # [Debian](#tab/debian)
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+
+::: moniker range=">=iotedge-1.5"
+
+* **12 - Bookworm (arm32v7)**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
+
+::: moniker-end
 
 * **11 - Bullseye (arm32v7)**:
 
@@ -84,7 +110,7 @@ For more information about operating system versions, see [Azure IoT Edge suppor
 
 ### Install a container engine
 
-Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the only container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
+Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -132,6 +158,8 @@ sudo snap install docker
 sudo snap install azure-iot-identity
 ```
 
+The Docker snap is serviced by Canonical and supported for production scenarios.
+
 ---
 
 By default, the container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
@@ -165,7 +193,6 @@ The following steps show you how to configure your container to use [`local` log
 Currently, the local logging driver setting is not supported for the Docker snap.
 
 ---
-
 
 ### Install the IoT Edge runtime
 

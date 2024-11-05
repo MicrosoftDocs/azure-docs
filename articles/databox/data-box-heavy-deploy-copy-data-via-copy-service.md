@@ -4,8 +4,7 @@ description: In this tutorial, you learn how to copy data to your Azure Data Box
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas

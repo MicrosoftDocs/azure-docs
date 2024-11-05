@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
 # Search backups of Azure NetApp Files volumes

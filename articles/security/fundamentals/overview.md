@@ -2,13 +2,13 @@
 title: Introduction to Azure security | Microsoft Docs
 description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/22/2023
-ms.author: terrylan
+ms.date: 09/22/2024
+ms.author: mbaldwin
 
 ---
 
@@ -63,7 +63,7 @@ Azure Resource Manager template-based deployments help improve the security of s
 
 ### Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers. With Application Insights, you can monitor your live web applications and automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your apps. It monitors your application all the time it's running, both during testing and after you've published or deployed it.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers. With Application Insights, you can monitor your live web applications and automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your apps. It monitors your application all the time it's running, both during testing and after you've published or deployed it.
 
 Application Insights creates charts and tables that show you, for example, what times of day you get most users, how responsive the app is, and how well it is served by any external services that it depends on.
 
@@ -71,17 +71,17 @@ If there are crashes, failures or performance issues, you can search through the
 
 ### Azure Monitor
 
-[Azure Monitor](/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure subscription ([Activity Log](../../azure-monitor/essentials/platform-logs-overview.md)) and each individual Azure resource ([Resource Logs](../../azure-monitor/essentials/platform-logs-overview.md)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
+[Azure Monitor](/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure subscription ([Activity Log](/azure/azure-monitor/essentials/platform-logs-overview)) and each individual Azure resource ([Resource Logs](/azure/azure-monitor/essentials/platform-logs-overview)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) – Provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
+[Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) – Provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
 
-Azure Monitor logs can be a useful tool in forensic and other security analysis, as the tool enables you to quickly search through large amounts of security-related entries with a flexible query approach. In addition, on-premises [firewall and proxy logs can be exported into Azure and made available for analysis using Azure Monitor logs.](../../azure-monitor/agents/agent-windows.md)
+Azure Monitor logs can be a useful tool in forensic and other security analysis, as the tool enables you to quickly search through large amounts of security-related entries with a flexible query approach. In addition, on-premises [firewall and proxy logs can be exported into Azure and made available for analysis using Azure Monitor logs.](/azure/azure-monitor/agents/agent-windows)
 
 ### Azure Advisor
 
-[Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](../../advisor/advisor-performance-recommendations.md), [security](../../advisor/advisor-security-recommendations.md), and [reliability](../../advisor/advisor-high-availability-recommendations.md) of your resources while looking for opportunities to [reduce your overall Azure spend](../../advisor/advisor-cost-recommendations.md). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Microsoft Defender for Cloud.](../../security-center/security-center-introduction.md)
+[Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](/azure/advisor/advisor-performance-recommendations), [security](/azure/advisor/advisor-security-recommendations), and [reliability](/azure/advisor/advisor-high-availability-recommendations) of your resources while looking for opportunities to [reduce your overall Azure spend](/azure/advisor/advisor-cost-recommendations). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Microsoft Defender for Cloud.](../../security-center/security-center-introduction.md)
 
 ## Applications
 
@@ -134,7 +134,7 @@ For many organizations, data encryption at rest is a mandatory step towards data
 
 - [Client-side Encryption](../../storage/common/storage-client-side-encryption.md) also provides the feature of encryption at rest.
 
-- [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+- [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/linux/disk-encryption-overview) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
 ### Storage Analytics
 
@@ -305,7 +305,7 @@ You can enable the following diagnostic log categories for NSGs:
 The section provides additional information regarding key features in this area and summary information about these capabilities.
 
 ### Azure confidential computing
-[Azure confidential computing](../../confidential-computing/overview-azure-products.md) provides the final, missing piece, of the data protection protection puzzle. It allows you to keep your data encrypted at all times.  While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestion](../../attestation/overview.md) possible, it allows you to cryptographically verify that the VM you provision has booted securely and is configured correctly, prior to unlocking your data.
+[Azure confidential computing](../../confidential-computing/overview-azure-products.md) provides the final, missing piece, of the data protection protection puzzle. It allows you to keep your data encrypted at all times.  While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestion](/azure/attestation/overview) possible, it allows you to cryptographically verify that the VM you provision has booted securely and is configured correctly, prior to unlocking your data.
 
 The spectrum of option ranges from enabling "lift and shift" scenarios of existing applications, to a full control of security features. For Infrastructure as a Service (IaaS), you can use [confidential virtual machines powered by AMD SEV-SNP](../../confidential-computing/confidential-vm-overview.md) or confidential application enclaves for virtual machines that run [Intel Software Guard Extensions (SGX)](../../confidential-computing/application-development.md). For Platform as a Service, we have multiple [container based](../../confidential-computing/choose-confidential-containers-offerings.md) options, including integrations with [Azure Kubernetes Service (AKS)](../../confidential-computing/confidential-nodes-aks-overview.md).
 
@@ -313,7 +313,7 @@ The spectrum of option ranges from enabling "lift and shift" scenarios of existi
 With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Microsoft Defender for Cloud
 
 ### Hardware Security Module
-Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](../../active-directory/index.yml).
+Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](/azure/key-vault/general/overview). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](../../active-directory/index.yml).
 
 ### Virtual machine backup
 [Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
@@ -329,7 +329,7 @@ The Azure Key Vault (AKV) service is designed to improve the security and manage
 If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
 
 ### VM Disk Encryption
-[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) helps you encrypt your IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
+[Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/linux/disk-encryption-overview) helps you encrypt your IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
 
 ### Virtual networking
 Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.

@@ -5,7 +5,7 @@ description: This quickstart shows how to create a load balancer by using an Azu
 services: load-balancer
 author: mbender-ms
 manager: KumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 10/25/2023
 ms.author: mbender
@@ -21,7 +21,7 @@ This quickstart shows you how to deploy a standard load balancer to load balance
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -52,8 +52,7 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natgateways): for the NAT gateway.
 
 > [!IMPORTANT]
-
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).

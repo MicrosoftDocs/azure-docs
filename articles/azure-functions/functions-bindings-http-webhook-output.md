@@ -2,7 +2,7 @@
 title: Azure Functions HTTP output bindings
 description: Learn how to return HTTP responses in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -19,17 +19,15 @@ The default return value for an HTTP-triggered function is:
 ::: zone pivot="programming-language-csharp"
 ## Attribute
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-output).
-
 # [Isolated worker model](#tab/isolated-process)
 
-A return value attribute isn't required. To learn more, see [Usage](#usage).
+A return value attribute isn't required when using [HttpResponseData]. However, when using a [ASP.NET Core integration](./dotnet-isolated-process-guide.md#aspnet-core-integration) and [multi-binding output objects](./dotnet-isolated-process-guide.md#multiple-output-bindings), the `[HttpResultAttribute]` attribute should be applied to the object property. The attribute takes no parameters. To learn more, see [Usage](#usage).
 
 # [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-A return value attribute isn't required. To learn more, see [Usage](#usage).
+A return value attribute isn't required for a [class library](functions-dotnet-class-library.md). C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-output). To learn more, see [Usage](#usage).
 
 ---
 
@@ -83,11 +81,21 @@ The following table explains the binding configuration properties that you set i
 To send an HTTP response, use the language-standard response patterns. 
 
 ::: zone pivot="programming-language-csharp"
-The response type depends on the C# mode:
+
+In .NET, the response type depends on the C# mode:
 
 # [Isolated worker model](#tab/isolated-process)
 
-The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
+The HTTP triggered function returns an object of one of the following types:
+
+- [IActionResult]<sup>1</sup> (or `Task<IActionResult>`)
+- [HttpResponse]<sup>1</sup> (or `Task<HttpResponse>`)
+- [HttpResponseData] (or `Task<HttpResponseData>`)
+- JSON serializable types representing the response body for a `200 OK` response.
+
+<sup>1</sup> This type is only available when using  [ASP.NET Core integration](./dotnet-isolated-process-guide.md#aspnet-core-integration).
+
+When one of these types is used as part of [multi-binding output objects](./dotnet-isolated-process-guide.md#multiple-output-bindings), the `[HttpResult]` attribute should be applied to the object property. The attribute takes no parameters.
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
@@ -110,3 +118,5 @@ For example responses, see the [trigger examples](./functions-bindings-http-webh
 ## Next steps
 
 - [Run a function from an HTTP request](./functions-bindings-http-webhook-trigger.md)
+
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata

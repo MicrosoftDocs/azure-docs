@@ -1,5 +1,5 @@
 ---
-title: Access control model for Azure Data Lake Storage Gen2
+title: Access control model for Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
 author: normesta
@@ -11,9 +11,9 @@ ms.author: normesta
 ms.custom: engagement-fy23
 ---
 
-# Access control model in Azure Data Lake Storage Gen2
+# Access control model in Azure Data Lake Storage
 
-Data Lake Storage Gen2 supports the following authorization mechanisms:
+Data Lake Storage supports the following authorization mechanisms:
 
 - Shared Key authorization
 - Shared access signature (SAS) authorization
@@ -51,7 +51,7 @@ For more information on using Azure ABAC to control access to Azure Storage, see
 
 ## Access control lists (ACLs)
 
-ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level. To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level. To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ## How permissions are evaluated
 
@@ -131,7 +131,7 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage Gen2 also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
 In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
 
@@ -139,4 +139,4 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 
 ## Next steps
 
-To learn more about access control lists, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+To learn more about access control lists, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).

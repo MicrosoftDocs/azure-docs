@@ -3,8 +3,8 @@ title: Troubleshoot Azure SQL Edge deployments
 description: Learn about possible errors when deploying Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: troubleshooting
 keywords:
   - SQL Edge
@@ -13,14 +13,16 @@ keywords:
 ---
 # Troubleshoot Azure SQL Edge deployments
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This article provides information about possible errors seen when deploying and using Azure SQL Edge containers, and provides troubleshooting techniques to help resolve these issues.
 
 Azure SQL Edge supports two deployment models:
 
-- Connected deployment through Azure IoT Edge: Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
+- Connected deployment through Azure IoT Edge: Azure SQL Edge can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
 
 - Disconnected deployment: Azure SQL Edge container images can be pulled from Docker hub and deployed either as a standalone container or on a Kubernetes cluster. For more information, see [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
 
@@ -147,7 +149,7 @@ If the default log level for the streaming engine doesn't provide enough informa
 > [!NOTE]  
 > The Verbose Logging option should only be used for troubleshooting and not for regular production workload.
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md)
 - [Data Streaming in Azure SQL Edge](stream-data.md)

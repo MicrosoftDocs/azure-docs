@@ -1,7 +1,7 @@
 ---
 title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/22/2024
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
@@ -117,7 +117,7 @@ az deployment group create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](../../virtual-machines/linux/using-cloud-init.md).
+Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](/azure/virtual-machines/linux/using-cloud-init).
 
 The _arrayContent.json_ format is:
 

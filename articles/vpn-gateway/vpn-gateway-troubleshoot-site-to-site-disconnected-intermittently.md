@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Site-to-Site VPN disconnects intermittently'
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected regularly. 
 titleSuffix: Azure VPN Gateway
 author: chadmath
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 02/13/2023
 ms.author: genli
@@ -13,7 +13,7 @@ ms.author: genli
 
 You might experience the problem that a new or existing Microsoft Azure Site-to-Site VPN connection is not stable or disconnects regularly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Troubleshooting steps
 
@@ -46,7 +46,7 @@ Make sure that the on-premises VPN device is set to have **one VPN tunnel per su
 
 ### Step 5: Check for Security Association Limitations
 
-The virtual network gateway has limit of 100 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times by the number of local subnets is greater than 100, you might see sporadic subnets disconnecting.
+The virtual network gateway has limit of 200 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times by the number of local subnets is greater than 200, you might see sporadic subnets disconnecting.
 
 ### Step 6: Check on-premises VPN device external interface address
 

@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 07/10/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -81,25 +81,26 @@ The status of items that appear in this table might change over time as support 
 | [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
 | [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
-| Root squash|  ✔️  |
+| [Root squash](nfs-root-squash.md)|  ✔️  |
 | Access same data from Windows and Linux client|  ⛔   |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
-| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
+| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ✔️ |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
+| Azure Storage Explorer on Azure portal| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
 ## Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+NFS Azure file shares are supported in all the same regions that support premium file storage. See [Azure products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
 ## Performance
 
-NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
+NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).

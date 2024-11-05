@@ -6,12 +6,12 @@ description: Reference for Azure AD B2C display controls. Use display controls f
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C, I want to understand how to define and use display controls, so that I can create user interface elements with special functionality that interact with the back-end service and perform actions on the page.

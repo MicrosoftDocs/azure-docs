@@ -2,17 +2,16 @@
 title: Quickstart - Provision Azure Spring Apps using Bicep
 description: This quickstart shows you how to use Bicep to deploy an Azure Spring Apps cluster into an existing virtual network.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, devx-track-bicep
 ms.author: karler
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ---
 
 # Quickstart: Provision Azure Spring Apps using Bicep
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
@@ -34,7 +33,7 @@ The Enterprise deployment plan includes the following Tanzu components:
 * Two dedicated subnets for the Azure Spring Apps cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * An existing Log Analytics workspace for Azure Spring Apps diagnostics settings. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 * Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges won't be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring app CIDR ranges, or any IP ranges included within the cluster virtual network address range.
-* Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+* Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires `User Access Administrator` and `Network Contributor` permissions to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
   * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
@@ -47,13 +46,13 @@ To deploy the cluster, use the following steps.
 
 First, create an *azuredeploy.bicep* file with the following contents:
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
 
 ---
 

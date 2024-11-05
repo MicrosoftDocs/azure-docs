@@ -30,7 +30,7 @@ During the public preview, you can target only storage accounts that are in the 
 | Storage tasks per subscription | 100 |
 | Storage task assignments per storage task | 50 |
 | Storage task assignments per storage account | 50 |
-| Storage task definition versions | 50 |
+| Storage task nested grouping of clauses per condition | 10 |
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
@@ -107,7 +107,8 @@ When you apply storage task assignments to storage accounts that have IP or netw
 
 ## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
 
-If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
+
 
 ## See Also
 

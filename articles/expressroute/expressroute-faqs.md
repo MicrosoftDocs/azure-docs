@@ -3,9 +3,9 @@ title: FAQ - Azure ExpressRoute | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and other Technical Details.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: conceptual
-ms.date: 04/09/2024
+ms.service: azure-expressroute
+ms.topic: faq
+ms.date: 07/18/2024
 ms.author: duau
 
 ---
@@ -68,6 +68,18 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
 
+## How can I adjust the number of prefixes advertised to the gateway to ensure it is within the maximum limitation?
+
+ExpressRoute supports up to 11,000 routes, covering virtual network address spaces, on-premises networks, and virtual network peering connections. If the ExpressRoute gateway exceeds this limit, please update the prefixes to be within the allowed range.
+
+To make this change in the Azure Portal:
+1. Go to the Advisor resource and select the "Performance" pillar.
+2. Click on the recommendation for "Max prefix reached for ExpressRoute Gateway."
+3. Select the Gateway with this recommendation.
+4. In the Gateway resource, select the "Virtual network" that the Gateway is attached to
+5. In the Virtual Network resource, select "Address Space" blade under settings on the left menu
+6. Reduce the advertised address space to within the limit
+
 ### Can routes from the on-premises network get filtered?
 
 The only way to filter or include routes is on the on-premises edge router. User-defined routes can be added in the VNet to affect specific routing, but is only static and not part of the BGP advertisement.
@@ -109,13 +121,6 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Logic Apps
 * [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
-### Public peering
-
-Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
-
-* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
-* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
-
 ### Why does the **Advertised public prefixes** status show *Validation needed*, while configuring Microsoft peering?
 
 Microsoft verifies if the specified **Advertised public prefixes** and **Peer ASN'** or **Customer ASN** are assigned to you in the Internet Routing Registry. If you're getting public prefixes from another entity and the assignment isn't recorded with the routing registry, the automatic validation doesn't complete. You need to manually validate. If the automatic validation fails, you see the message *Validation needed*.
@@ -149,7 +154,7 @@ Supported bandwidth offers:
 
 ### What's the maximum MTU supported?
 
-ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
+ExpressRoute supports the standard internet MTU of 1500 bytes.
 See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
 
 ### Which service providers are available?
@@ -190,11 +195,11 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > - Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 > - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair are guaranteed to take the same path, even if multiple ECMP paths are available. 
 
-### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
+### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
 
-For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-and-public-peering).
+For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-peering).
 
 ### <a name="onep2plink"></a>If I'm not colocated at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -501,11 +506,11 @@ ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the e
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
-Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+Yes, you can use Express Traffic Collector with ExpressRoute circuits used in a Virtual WAN deployment. 
 
 ### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
 
-For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
+Yes. ExpressRoute Traffic Collector supports both ExpressRoute Provider and ExpressRoute Direct circuits with a bandwidth of 1Gbps or greater.
 
 ### What is the effect of maintenance on flow logging?
 
@@ -519,6 +524,14 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
+
+### Will my ExpressRoute Circuit experience any downtime while configuring ExpressRoute Traffic Collector?
+
+No. ExpressRoute Traffic Collector setup does not cause any ExpressRoute Circuit downtime.
+
+### Does ExpressRoute Traffic Collector need to be deployed to the same subscription as my ExpressRoute Circuit?
+
+No. ExpressRoute Traffic Collector can be deployed to a different subscription from your ExpressRoute Circuit. However, ExpressRoute Traffic Collector must be deployed to the same geopolitical region as the ExpressRoute Circuit peering location.
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 

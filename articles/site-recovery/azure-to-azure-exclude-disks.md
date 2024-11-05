@@ -5,7 +5,7 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 02/18/2019 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or the target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

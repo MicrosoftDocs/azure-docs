@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to configure an alias record to reference a resource record within the zone.
 author: greg-lindsay
 ms.author: greglin
-ms.service: dns
+ms.service: azure-dns
 services: dns
 ms.topic: tutorial
 ms.date: 11/30/2023
@@ -78,7 +78,7 @@ After adding the alias record, you can verify that it's working by using a tool 
 
     ```
     Server:  UnKnown
-    Address:  40.90.4.1
+    Address:  203.0.113.10
 
     Name:    test.contoso.com
     Address:  10.10.10.10
@@ -93,7 +93,7 @@ After adding the alias record, you can verify that it's working by using a tool 
 
     ```
     Server:  UnKnown
-    Address:  40.90.4.1
+    Address:  203.0.113.10
 
     Name:    test.contoso.com
     Address:  10.11.11.11

@@ -64,9 +64,9 @@ Open `main.py` file to configure the following settings
 1. - `CALLBACK_URI_HOST`: your dev tunnel endpoint
 2. - `COGNITIVE_SERVICE_ENDPOINT`: The Azure AI Services endpoint
 3. - `ACS_CONNECTION_STRING`: Azure Communication Service resource's connection string.
-4. - `AZURE_OPENAI_SERVICE_KEY`: Open AI's Service Key
-5. - `AZURE_OPENAI_SERVICE_ENDPOINT`: Open AI's Service Endpoint
-6. - `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Open AI's Model name
+4. - `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI Service Key
+5. - `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI Service Endpoint
+6. - `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI Model name
 6. - `AGENT_PHONE_NUMBER`: Agent Phone Number to transfer call
 
 

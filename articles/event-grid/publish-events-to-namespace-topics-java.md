@@ -2,9 +2,9 @@
 title: Publish events using namespace topics with Java
 description: This article provides step-by-step instructions to publish events to an Event Grid namespace topic using pull delivery.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-extended-java
-ms.author: jafernan
-author: jfggdl
+ms.custom: ignite-2023, devx-track-extended-java, build-2024
+ms.author: robece
+author: robece
 ms.date: 01/03/2024
 ---
 
@@ -31,13 +31,6 @@ The prerequisites you need to have in place before proceeding are:
 
 * Java JRE running Java 8 language level.
 
-## Sample code
-
-The sample code used in this article is found in this location:
-
-```bash
-    https://github.com/jfggdl/event-grid-pull-delivery-quickstart
-```
 
 ## Publish events to a namespace topic
 

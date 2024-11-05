@@ -5,7 +5,8 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 8/26/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update Agent Provisioning
@@ -198,9 +199,7 @@ This section describes how to start and verify the Device Update agent as a modu
 
 You can also build and modify your own customer Device Update agent. Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent from source.
 
-Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
-the agent. Now, make the changes needed to incorporate the agent into your image.  Look at how to
-[modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
+Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md) the agent. Now, make the changes needed to incorporate the agent into your image.  Look at how to [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
 
 ## Troubleshooting guide
 

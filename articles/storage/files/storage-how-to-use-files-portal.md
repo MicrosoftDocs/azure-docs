@@ -4,7 +4,7 @@ description: Learn how to create and use SMB Azure file shares with the Azure po
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: quickstart
-ms.date: 05/13/2024
+ms.date: 08/29/2024
 ms.author: kendownie
 ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you'd like to install and use PowerShell locally, you'll need the Azure PowerShell module Az version 7.0.0 or later. We recommend installing the latest available version. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multifactor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
 
@@ -139,13 +139,13 @@ az storage account create \
 To create an Azure file share:
 
 1. Select the storage account from your dashboard.
-1. On the storage account page, in the **Data storage** section, select **File shares**.
+1. In the service menu, under **Data storage**, select **File shares**.
 	
-    ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
+    :::image type="content" source="media/storage-how-to-use-files-portal/create-file-share.png" alt-text="Screenshot showing the data storage section of the storage account; select file shares." border="true":::
 
 1. On the menu at the top of the **File shares** page, select **+ File share**. The **New file share** page drops down.
 1. In **Name**, type *myshare*. File share names must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-1. Leave **Transaction optimized** selected for **Tier**.
+1. Leave **Transaction optimized** selected for **Access tier**.
 1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
    :::image type="content" source="media/storage-how-to-use-files-portal/create-file-share-backup.png" alt-text="Screenshot showing how to enable or disable file share backup." border="true":::
@@ -154,7 +154,7 @@ To create an Azure file share:
 
 # [PowerShell](#tab/azure-powershell)
 
-Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
+Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 100 TiB.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -168,7 +168,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
+Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 100 TiB.
 
 ```azurecli-interactive
 shareName="myshare"

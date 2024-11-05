@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # Diagnostic logs - Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
 - Azure Storage account
@@ -70,7 +72,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE]
-> A Log Analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
+> A Log Analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace)** for more information.
 
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -103,7 +105,7 @@ To use an event hub for the logs, follow these steps:
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Enable diagnostic logs in a storage account
 
@@ -364,7 +366,7 @@ Example properties:
 
 ## More resources
 
-- [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
+- [Azure Diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview)
 - [Core analytics via Azure Content Delivery Network supplemental portal](./cdn-analyze-usage-patterns.md)
-- [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+- [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview)
 - [Azure Log Analytics REST API](/rest/api/loganalytics)

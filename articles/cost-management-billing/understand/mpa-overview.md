@@ -5,20 +5,21 @@ author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 03/21/2024
+ms.topic: concept-article
+ms.date: 06/25/2024
 ms.author: banders
+# customer intent: As a Partner billing administrator, I want manage and use my Microsoft Partner Agreement to manage my customer's billing accounts.
 ---
 
 # Get started with your Microsoft Partner Agreement billing account
 
-A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
+A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, if you signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
 
-This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement). An [Azure plan](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) gives customers access to Azure services at pay-as-you-go rates under a Microsoft Customer Agreement.
+This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that accepted a Microsoft Customer Agreement and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement). An [Azure plan](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) gives customers access to Azure services at pay-as-you-go rates under a Microsoft Customer Agreement.
 
 ## Your billing account
 
-Your billing account for the Microsoft Partner Agreement contains a billing profile for each currency that you do business in. The billing profile lets you manage your invoices for its currency. When you establish relationships with customers, depending on their currencies, Azure subscriptions and other purchases are billed to the respective billing profiles.
+Your billing account for the Microsoft Partner Agreement contains a billing profile for each currency that you do business in. The billing profile lets you manage your invoices for its currency. When you establish relationships with customers, depending on their currencies, Azure subscriptions, and other purchases are billed to the respective billing profiles.
 
 The following diagram shows the relationship between a billing account, billing profiles, customers, and resellers.
 
@@ -38,29 +39,25 @@ You can view the invoice and download the related documents like usage file and 
 
 ## Customers
 
-You can view and manage customers who have accepted a Microsoft Customer Agreement and have an Azure Plan in the Azure portal. You can view charges and transactions as well as create and manage Azure subscriptions for these customers.
+You can view and manage customers that accepted a Microsoft Customer Agreement and have an Azure Plan in the Azure portal. You can view charges and transactions as well as create and manage Azure subscriptions for these customers.
 
 ### Enable policy to give visibility into cost
 
-Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go rates for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](../../role-based-access-control/overview.md) access on a subscription can view and analyze the cost for the subscription.
+Apply policy to control whether users in a customer's organization can view and analyze cost at pay-as-you-go rates for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](../../role-based-access-control/overview.md) access on a subscription can view and analyze the cost for the subscription.
 
 To turn on the policy:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search on **Cost Management + Billing**.
-
-   :::image type="content" border="true" source="./media/mpa-overview/search-cmb.png" alt-text="Screenshot showing Azure portal search for Cost Management + Billing.":::
-
-1. Select **Customers** from the left-hand side and then select a customer from the list.
-
-   :::image type="content" border="true" source="./media/mpa-overview/mpa-customers.png" alt-text="Screenshot that shows selecting a customer.":::
-
-1. Select **Policies** from the left-hand side.
-
-   :::image type="content" border="true" source="./media/mpa-overview/mpa-change-policy.png" alt-text="Screenshot that shows policies.":::
-
-1. Select **Yes**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your partner credentials and search for **Cost Management + Billing**.
+    :::image type="content" border="true" source="./media/mpa-overview/search-cost-management.png" alt-text="Screenshot showing Azure portal search for Cost Management + Billing." lightbox="./media/mpa-overview/search-cost-management.png":::
+1. Select the billing account that you use to manage customers.  
+   :::image type="content" border="true" source="./media/mpa-overview/select-billing-account.png" alt-text="Screenshot showing select billing account." lightbox="./media/mpa-overview/select-billing-account.png":::
+1. In the left navigation menu under Billing, select **Customers**.  
+   :::image type="content" border="true" source="./media/mpa-overview/mpa-customers.png" alt-text="Screenshot that shows selecting a customer." lightbox="./media/mpa-overview/mpa-customers.png":::
+1. In the list of Customers, select the one that you want to allow cost visibility to.  
+   :::image type="content" border="true" source="./media/mpa-overview/customer-list.png" alt-text="Screenshot that shows the customer list." lightbox="./media/mpa-overview/customer-list.png":::
+1. Select **Policies** in the left menu.  
+   :::image type="content" border="true" source="./media/mpa-overview/mpa-change-policy.png" alt-text="Screenshot that shows policies." lightbox="./media/mpa-overview/mpa-change-policy.png":::
+1. Select **Yes** and then select **Save**.
 
 ## Resellers
 

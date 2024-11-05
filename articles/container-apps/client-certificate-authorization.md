@@ -3,9 +3,9 @@ title: Configure client certificate authentication in Azure Container Apps
 description: How to configure client authentication in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 06/13/2024
 ms.author: cshoe
 ---
 
@@ -13,15 +13,15 @@ ms.author: cshoe
 
 Azure Container Apps supports client certificate authentication (also known as mutual TLS or mTLS) that allows access to your container app through two-way authentication. This article shows you how to configure client certificate authorization in Azure Container Apps.
 
-When client certificates are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and encrypt traffic.  Client certificates are often used in "zero trust" security models to authorize client access within an organization.
+When client certificates are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and encrypt traffic. Client certificates are often used in "zero trust" security models to authorize client access within an organization.
 
-For example, you may want to require a client certificate for a container app that manages sensitive data.
+For example, you might want to require a client certificate for a container app that manages sensitive data.
 
-Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA), or are self-signed.  
+Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA), or are self-signed.
 
 ## Configure client certificate authorization
 
-Set the `clientCertificateMode` property in your container app template to configure support of client certificates.
+To configure support for client certificates, set the `clientCertificateMode` property in your container app template.
 
 The property can be set to one of the following values:
 

@@ -3,9 +3,9 @@ title: Deploy Azure API Management instance to internal VNet
 description: Learn how to deploy (inject) your Azure API instance to a virtual network in internal mode and access API backends through it.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 
@@ -38,7 +38,7 @@ Use API Management in internal mode to:
 
 For configurations specific to the *external* mode, where the API Management endpoints are accessible from the public internet, and backend services are located in the network, see [Deploy your Azure API Management instance to a virtual network - external mode](api-management-using-with-vnet.md). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 
@@ -52,12 +52,12 @@ For configurations specific to the *external* mode, where the API Management end
 1. Select the **Internal** access type.
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
-    1. Select **Virtual network**, **Subnet**, and **IP address**. 
+    1. Select **Virtual network** and **Subnet**.
         * The VNet list is populated with Resource Manager VNets available in your Azure subscriptions, set up in the region you are configuring.
 1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new VNet and subnet choices.
    :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Set up internal VNet in Azure portal":::
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
-1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+1. In the top navigation bar, select **Save**.
 
     It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 
@@ -93,7 +93,7 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 
 
 > [!NOTE]
-> The API Management service does not listen to requests on its IP addresses. It only responds to requests to the host name configured on its endpoints. These endpoints include:
+> The API Management service does not listen to requests on its IP addresses. It only responds to requests to the hostname configured on its endpoints. These endpoints include:
 > * API gateway
 > * The Azure portal
 > * The developer portal

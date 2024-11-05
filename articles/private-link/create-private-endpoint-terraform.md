@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create a private endpoint usin
 ms.topic: quickstart
 ms.date: 02/22/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 
@@ -20,7 +20,7 @@ The script generates a random password for the SQL server and a random SSH key f
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png":::
 
 ## Prerequisites
 

@@ -4,12 +4,28 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/10/2024
+ms.date: 8/20/2024
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## October 2024
+
+The VMware Cloud Foundations (VCF) license portability feature on Azure VMware Solution is to modernize your VMware workload by bringing your VCF entitlements to Azure VMware Solution and take advantage of incredible cost savings.
+
+## August 2024
+
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+Azure VMware Solution was approved to be added as a service within the [DoD SRG Impact Level 4 (IL4)](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-government-services-by-audit-scope) Provisional Authorization (PA) in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure).
+
+## May 2024
+
+Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+VMware HCX 4.8.2 is now available. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## April 2024
 

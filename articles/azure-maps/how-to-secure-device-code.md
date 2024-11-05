@@ -2,12 +2,12 @@
 title: How to secure an input constrained device using  Microsoft Entra ID and Azure Maps REST API
 titleSuffix: Azure Maps
 description: How to configure a browser-less application that supports sign-in to Microsoft Entra ID and calls Azure Maps REST API.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ---
 
 # Secure an input constrained device by using Microsoft Entra ID and Azure Maps REST APIs

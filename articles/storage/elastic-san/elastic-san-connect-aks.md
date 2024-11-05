@@ -1,10 +1,10 @@
 ---
 title: Connect Azure Elastic SAN to Azure Kubernetes over iSCSI
-description: Use the Kubernetes iSCSI CSI driver to use Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
+description: Use the Kubernetes iSCSI CSI driver to configure Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ---
 
@@ -87,7 +87,7 @@ provisioner: manual
 
 ### Persistent volume
 
-After you've created the storage class, create a *pv.yml* file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a *pv.yml* file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
+After you've created the storage class, create a *pv.yml* file. This file defines your [persistent volume](/azure/aks/concepts-storage#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a *pv.yml* file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
 
 ```yml
 ---
@@ -124,7 +124,7 @@ kubectl apply -f pathtoyourfile/pv.yaml
 
 ### Persistent volume claim
 
-Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). Use the storage class we defined earlier with the persistent volume we defined. The following is an example of what your pvc.yml file might look like:
+Next, create a [persistent volume claim](/azure/aks/concepts-storage#persistent-volume-claims). Use the storage class we defined earlier with the persistent volume we defined. The following is an example of what your pvc.yml file might look like:
 
 ```yml
 apiVersion: v1
@@ -158,7 +158,7 @@ kubectl get pvc pathtoyourfile
 ```
 
 
-Finally, create a [pod manifest](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your *pod.yml* file might look like. You can use it to make your own pod manifest, replace the values for `name`, `image`, and `mountPath` with your own:
+Finally, create a [pod manifest](/azure/aks/concepts-clusters-workloads#pods). The following is an example of what your *pod.yml* file might look like. You can use it to make your own pod manifest, replace the values for `name`, `image`, and `mountPath` with your own:
 
 ```yml
 apiVersion: v1

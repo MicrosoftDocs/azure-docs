@@ -1,9 +1,9 @@
 ---
 title: Restore Azure file shares with the Azure CLI
 description: Learn how to use the Azure CLI to restore backed-up Azure file shares in the Recovery Services vault
-ms.topic: conceptual
-ms.custom: devx-track-azurecli
-ms.date: 01/16/2020
+ms.topic: how-to
+ms.custom: devx-track-azurecli, engagement-fy24
+ms.date: 03/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -1,14 +1,14 @@
 ---
 title: What are Azure availability zones?
 description: Learn about availability zones and how they work to help you achieve reliability
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 09/20/2023
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 
@@ -23,6 +23,9 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 :::image type="content" source="media/regions-availability-zones.png" alt-text="Screenshot of physically separate availability zone locations within an Azure region.":::
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+
+> [!NOTE]  
+> You need to deploy two or more Virtual Machines to different availability zones in the same region to get the highest possible [SLA connectivity percentage](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 ## Zonal and zone-redundant services
 

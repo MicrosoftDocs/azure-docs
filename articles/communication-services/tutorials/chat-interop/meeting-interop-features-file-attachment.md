@@ -8,7 +8,7 @@ ms.date: 05/15/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other, devx-track-js, devx-track-extended-java
 zone_pivot_groups: acs-interop-chat-tutorial-js-csharp
 ---
 

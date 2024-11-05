@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 ## SMS features
 
@@ -36,11 +36,11 @@ Key features of Azure Communication Services SMS SDKs include:
 
 ## Sender types supported
 
-Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Some factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using a variety of sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
+Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Some factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using various sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
 
 |Factors              | Toll-Free| Short Code | Dynamic Alphanumeric Sender ID| Preregistered Alphanumeric Sender ID| 
 |---------------------|----------|------------|-----------------------|-----------------------|-----------------------|
-|**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing |  Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Dynamic alphanumeric sender ID is supported in countries that do not require registration for use.| Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Pre-registered alphanumeric sender ID is supported in countries that require registration for use. |
+|**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing |  Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for various use cases like one-time passcodes, marketing alerts, and flight status notifications. Dynamic alphanumeric sender ID is supported in countries that do not require registration for use.| Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Pre-registered alphanumeric sender ID is supported in countries that require registration for use. |
 |**Format**|+1 (8XX) XYZ PQRS| 12345  | CONTOSO*       |CONTOSO*       |
 |**SMS support**|Two-way SMS| Two-way SMS  | One-way outbound SMS  |One-way outbound SMS  |
 |**Calling support**|Yes| No | No |No |
@@ -51,7 +51,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
 > [!IMPORTANT]
-> Effective **April 19, 2024**, All UK alpha sender IDs now require a [registration application](https://forms.office.com/r/pK8Jhyhtd4) approval.
+> Effective **April 19, 2024**, All UK alpha sender IDs now require a [registration application](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) approval.
 
 ## Next steps
 

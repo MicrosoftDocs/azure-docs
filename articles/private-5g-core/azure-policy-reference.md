@@ -3,7 +3,7 @@ title: Azure Policy definitions for Azure Private 5G Core
 description: List of Azure Policy definitions for Azure Private 5G Core.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.date: 03/20/2024

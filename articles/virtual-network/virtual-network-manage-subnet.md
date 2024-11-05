@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add, change, or delete virtual network subnets by using the Azure portal, Azure CLI, or Azure PowerShell.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.custom:
   - devx-track-azurecli

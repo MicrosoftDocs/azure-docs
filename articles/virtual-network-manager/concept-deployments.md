@@ -3,7 +3,7 @@ title: 'Configuration deployments in Azure Virtual Network Manager'
 description: Learn about how configuration deployments work in Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 03/22/2024
 ms.custom: template-concept
@@ -12,8 +12,6 @@ ms.custom: template-concept
 # Configuration deployments in Azure Virtual Network Manager
 
 In this article, you learn about how configurations are applied to your network resources. Also, you explore how updating a configuration deployment is different for each membership type. Then we go into details about *Deployment status* and *Goal state model*.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Deployment
 

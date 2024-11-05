@@ -5,7 +5,7 @@ description: Use the Azure portal, ARM templates, and service SDKs to manually m
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 04/14/2023

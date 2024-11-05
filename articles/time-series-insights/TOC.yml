@@ -83,8 +83,8 @@
       href: time-series-insights-parameterized-urls.md
 - name: How-to guides
   items:
-  - name: Migrate to Azure Data Explorer
-    href: migration-to-adx.md
+  - name: Migrate to Fabric Real-Time Intelligence
+    href: migration-to-fabric.md
   - name: Grant data access
     href: concepts-access-policies.md
   - name: Connect to Event Hubs
@@ -127,7 +127,7 @@
       items:
       - name: How to migrate to new API versions
         href: how-to-api-migration.md
-      - name: How to migrate to Azure Data Explorer
+      - name: How to migrate to Fabric Real-Time Intelligence
         href: how-to-tsi-gen2-migration.md
   - name: Azure Time Series Insights Gen1
     items:
@@ -149,7 +149,7 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-diagnose-and-solve-problems.md
-    - name: How to migrate to Azure Data Explorer
+    - name: How to migrate to Fabric Real-Time Intelligence
       href: how-to-tsi-gen1-migration.md
 - name: Reference
   items:

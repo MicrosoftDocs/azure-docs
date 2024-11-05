@@ -3,9 +3,9 @@ title: Quickstart - Restore an SAP HANA database with Azure CLI
 description: In this quickstart, learn how to restore SAP HANA System Replication database with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/20/2023
-ms.custom: mvc, devx-track-azurecli, mode-api
-ms.service: backup
+ms.date: 06/17/2024
+ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -20,7 +20,9 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 >- Original Location Recovery (OLR) is currently not supported for HSR.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
-For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
+## Prerequisites
+
+Before you restore from the HSR database backups, review the [supported configurations and scenarios, see](sap-hana-backup-support-matrix.md).
 
 ## View the restore points for a protected database
 

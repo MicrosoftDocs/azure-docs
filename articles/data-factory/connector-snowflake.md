@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/11/2024
+ms.date: 10/22/2024
+ai-usage: ai-assisted
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 04/11/2024
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, supported as-is for backward compatibility only, refer to [Snowflake connector (legacy)](connector-snowflake-legacy.md) article.
+>The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, you are recommended to [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) at your earliest convenience. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -267,6 +267,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
+| storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
@@ -279,7 +280,17 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 
 If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. The service checks the settings and fails the Copy activity run if the following criteria isn't met:
 
-- The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data to Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using [staged copy from Snowflake](#staged-copy-from-snowflake).
+- When you specify `storageIntegration` in the source:
+
+  The sink data store is the Azure Blob Storage that you referred in the external stage in Snowflake. You need to complete the following steps before copying data:
+
+    1. Create an [**Azure Blob Storage**](connector-azure-blob-storage.md) linked service for the sink Azure Blob Storage with any supported authentication types.
+    
+    2. Grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the sink Azure Blob Storage **Access Control (IAM)**.
+
+- When you don't specify `storageIntegration` in the source:
+  
+  The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data to Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob Storage linked service with SAS authentication against your Azure Data Lake Storage Gen2 account, to avoid using [staged copy from Snowflake](#staged-copy-from-snowflake).
 
 - The **sink data format** is of **Parquet**, **delimited text**, or **JSON** with the following configurations:
 
@@ -318,7 +329,7 @@ If your sink data store and format meet the criteria described in this section, 
         "typeProperties": {
             "source": {
                 "type": "SnowflakeV2Source",
-                "sqlReaderQuery": "SELECT * FROM MYTABLE",
+                "query": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -327,7 +338,8 @@ If your sink data store and format meet the criteria described in this section, 
                     },
                     "additionalFormatOptions": {
                         "DATE_FORMAT": "'MM/DD/YYYY'"
-                    }
+                    },
+                    "storageIntegration": "< Snowflake storage integration name >"
                 }
             },
             "sink": {
@@ -344,8 +356,9 @@ When your sink data store or format isn't natively compatible with the Snowflake
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-> [!NOTE]
-> The staging Azure Blob storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
+- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+
+- When you don't specify `storageIntegration` in the source, the staging Azure Blob Storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob Storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
 **Example:**
 
@@ -369,9 +382,10 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         "typeProperties": {
             "source": {
                 "type": "SnowflakeV2Source",               
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "query": "SELECT * FROM MyTable",
                 "exportSettings": {
-                    "type": "SnowflakeExportCopyCommand"
+                    "type": "SnowflakeExportCopyCommand",
+                    "storageIntegration": "< Snowflake storage integration name >"                    
                 }
             },
             "sink": {
@@ -390,6 +404,27 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
+When performing a staged copy from Snowflake, it is crucial to set the Sink Copy Behavior to **Merge Files**. This setting ensures that all partitioned files are correctly handled and merged, preventing the issue where only the last partitioned file is copied. 
+
+**Example Configuration**
+
+```json
+{
+    "type": "Copy",
+    "source": {
+        "type": "SnowflakeSource",
+        "query": "SELECT * FROM my_table"
+    },
+    "sink": {
+        "type": "AzureBlobStorage",
+        "copyBehavior": "MergeFiles"
+    }
+}
+```
+
+>[!NOTE]
+>Failing to set the Sink Copy Behavior to **Merge Files** may result in only the last partitioned file being copied.
+
 ### Snowflake as sink
 
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
@@ -405,6 +440,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 | importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
+| storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options provided to the COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
@@ -421,7 +457,17 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 
 If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. The service checks the settings and fails the Copy activity run if the following criteria isn't met:
 
-- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake).
+- When you specify `storageIntegration` in the sink:
+
+  The source data store is the Azure Blob Storage that you referred in the external stage in Snowflake. You need to complete the following steps before copying data:
+
+    1. Create an [**Azure Blob Storage**](connector-azure-blob-storage.md) linked service for the source Azure Blob Storage with any supported authentication types. 
+
+    2. Grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the source Azure Blob Storage **Access Control (IAM)**.
+
+- When you don't specify `storageIntegration` in the sink: 
+
+  The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob Storage linked service with SAS authentication against your Azure Data Lake Storage Gen2 account, to avoid using [staged copy to Snowflake](#staged-copy-to-snowflake).
 
 - The **source data format** is **Parquet**, **Delimited text**, or **JSON** with the following configurations:
 
@@ -476,7 +522,8 @@ If your source data store and format meet the criteria described in this section
                     },
                     "fileFormatOptions": {
                         "DATE_FORMAT": "YYYY-MM-DD"
-                    }
+                    },
+                    "storageIntegration": "< Snowflake storage integration name >"
                 }
             }
         }
@@ -490,8 +537,9 @@ When your source data store or format isn't natively compatible with the Snowfla
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-> [!NOTE]
-> The staging Azure Blob storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
+- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+
+- When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 
 **Example:**
 
@@ -519,7 +567,8 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
             "sink": {
                 "type": "SnowflakeV2Sink",
                 "importSettings": {
-                    "type": "SnowflakeImportCopyCommand"
+                    "type": "SnowflakeImportCopyCommand",
+                    "storageIntegration": "< Snowflake storage integration name >"
                 }
             },
             "enableStaging": true,
@@ -633,9 +682,77 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Snowflake linked service
+## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
-To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](#linked-service-properties). 
+To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-place upgrade.
+
+### Side-by-side upgrade
+
+To perform a side-by-side upgrade, complete the following steps:
+
+1. Create a new Snowflake linked service and configure it by referring to the linked service properties.  
+1. Create a dataset based on the newly created Snowflake linked service.
+1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the legacy objects. 
+
+### In-place upgrade
+
+To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
+
+1. Update the type from **Snowflake** to **SnowflakeV2**.
+1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake linked services:
+
+   **Legacy Snowflake linked service JSON payload:**
+   ```json
+     {
+        "name": "Snowflake1",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "Snowflake",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC",
+                "encryptedCredential": "<your_encrypted_credential_value>"
+            },
+            "connectVia": {
+                "referenceName": "AzureIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+   **New Snowflake linked service JSON payload:**
+   ```json
+    {
+        "name": "Snowflake2",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "parameters": {
+                "schema": {
+                    "type": "string",
+                    "defaultValue": "PUBLIC"
+                }
+            },
+            "annotations": [],
+            "type": "SnowflakeV2",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "accountIdentifier": "<FAKE_Account>",
+                "user": "FAKE_USER",
+                "database": "FAKE_DB",
+                "warehouse": "FAKE_DW",
+                "encryptedCredential": "<placeholder>"
+            },
+            "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
 
 ## Differences between Snowflake and Snowflake (legacy)
 
@@ -645,8 +762,8 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | :----------- | :------- |
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
-| Multiple SQL statements execution in Script activity is not supported currently. To execute multiple SQL statements, divide the query into several script blocks. | Support multiple SQL statements execution in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
+| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
 
 ## Related content
 

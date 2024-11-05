@@ -3,8 +3,8 @@ title: Collect your Apache Spark applications logs and metrics using Azure Event
 description: In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs and metrics to your Azure Event Hubs.
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: sngun 
-ms.service: synapse-analytics
+ms.reviewer: whhender 
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
@@ -16,12 +16,9 @@ The Synapse Apache Spark diagnostic emitter extension is a library that enables 
 
 In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs, and metrics to your Azure Event Hubs.
 
-> [!NOTE]
-> This feature is currently unavailable in the [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) runtime but will be supported post-GA.
-
 ## Collect logs and metrics to Azure Event Hubs
 
-### Step 1: Create an Azure Event Hub instance
+### Step 1: Create an Azure Event Hubs instance
 
 To collect diagnostic logs and metrics to Azure Event Hubs, you can use existing Azure Event Hubs instance.
 Or if you don't have one, you can [create an event hub](../../event-hubs/event-hubs-create.md).
@@ -38,7 +35,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 ```
 
 Fill in the following parameters in the configuration file: `<connection-string>`.
-For more description of the parameters, you can refer to [Azure EventHub configurations](#available-configurations)
+For more description of the parameters, you can refer to [Azure Event Hubs configurations](#available-configurations).
 
 ### Step 3: Upload the Apache Spark configuration file to Apache Spark pool
 
@@ -53,8 +50,8 @@ For more description of the parameters, you can refer to [Azure EventHub configu
 | `spark.synapse.diagnostic.emitters`                                         | Required. The comma-separated destination names of diagnostic emitters.                                                                                                                              |
 | `spark.synapse.diagnostic.emitter.<destination>.type`                       | Required. Built-in destination type. To enable Azure Event Hubs destination, the value should be `AzureEventHub`.                                                                                    |
 | `spark.synapse.diagnostic.emitter.<destination>.categories`                 | Optional. The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is **all** categories.              |
-| `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Optional. The Azure Eventhub instance connection string. This field should match this pattern `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>` |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](../../key-vault/general/overview.md) name where the secret (connection string) is stored.                                                                  |
+| `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Optional. The Azure Event Hubs instance connection string. This field should match this pattern `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>` |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](/azure/key-vault/general/overview) name where the secret (connection string) is stored.                                                                  |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret (connection string) is stored.                                                                         |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is necessary to obtain the secret from AKV. (Please make sure MSI has read permission on the AKV). |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |

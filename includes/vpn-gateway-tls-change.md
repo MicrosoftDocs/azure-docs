@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 05/23/2022
  ms.author: cherylmc
 ---

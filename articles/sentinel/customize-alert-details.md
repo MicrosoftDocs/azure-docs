@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to customize alert details in my analytics rules so that I can ensure alerts are more relevant and actionable based on specific query results.
+
 ---
 
 # Customize alert details in Microsoft Sentinel 
@@ -66,30 +70,36 @@ Follow the procedure detailed below to use the alert details feature. These step
 
     1. To override more default properties, select **+ Add new** and repeat the previous step. The following properties can be overridden:
 
-        |Name  |Description  |
-        |---------|---------|
-        |**AlertName**     |    String     |
-        |**Description**     | String        |
-        |**AlertSeverity**     | One of the following values: <br>- **Informational**<br>- **Low**<br>- **Medium**<br>- **High**        |
-        |**Tactics**     |    One of the following values: <br>- **Reconnaissance**<br>- **ResourceDevelopment**<br>- **InitialAccess**<br>-         **Execution**<br>        - **Persistence**<br>-        **PrivilegeEscalation**<br>-        **DefenseEvasion**<br>-        **CredentialAccess** <br>- **Discovery**<br>        - **LateralMovement**<br>-        **Collection**<br>-        **Exfiltration**<br>-        **CommandAndControl**<br>-        **Impact**<br> - **PreAttack**<br>- **ImpairProcessControl**<br>- **InhibitResponseFunction**     |
-        |**Techniques** (Preview)     | A string that matches the following regular expression: `^T(?<Digits>\d{4})$`. <br>For example: **T1234**        |
-        |**AlertLink** (Preview)     |  String       |
-        |**ConfidenceLevel** (Preview)     | One of the following values: <br>-  **Low**<br>- **High**<br>- **Unknown**      |
-        |**ConfidenceScore** (Preview)     | Integer, between **0**-**1** (inclusive)     |
-        |**ExtendedLinks** (Preview)     |  String       |
-        |**ProductComponentName** (Preview)     |   String      |
-        |**ProductName** (Preview)     |   String      |
-        |**ProviderName** (Preview)     |   String      |
-        |**RemediationSteps** (Preview)     |    String     |
+        | Name | Description |
+        | ---- | ----------- |
+        | **AlertName**                      | String |
+        | **Description**                    | String |
+        | **AlertSeverity**                  | One of the following values: <br>- **Informational**<br>- **Low**<br>- **Medium**<br>- **High** |
+        | **Tactics**                        | One of the following values: <br>- **Reconnaissance**<br>- **ResourceDevelopment**<br>- **InitialAccess**<br>- **Execution**<br>- **Persistence**<br>- **PrivilegeEscalation**<br>- **DefenseEvasion**<br>- **CredentialAccess**<br>- **Discovery**<br>- **LateralMovement**<br>- **Collection**<br>- **Exfiltration**<br>- **CommandAndControl**<br>- **Impact**<br>- **PreAttack**<br>- **ImpairProcessControl**<br>- **InhibitResponseFunction** |
+        | **Techniques** (Preview)           | A string that matches the following regular expression: `^T(?<Digits>\d{4})$`. <br>For example: **T1234** |
+        | **AlertLink** (Preview)            | String |
+        | **ConfidenceLevel** (Preview)      | One of the following values: <br>- **Low**<br>- **High**<br>- **Unknown** |
+        | **ConfidenceScore** (Preview)      | Integer, between **0**-**1** (inclusive) |
+        | **ExtendedLinks** (Preview)        | String |
+        | **ProductComponentName** (Preview) | String |
+        | **ProductName** (Preview)<br>\* See note following this table          | String |
+        | **ProviderName** (Preview)         | String |
+        | **RemediationSteps** (Preview)     | String |
     
+       > [!NOTE]
+       > 
+       > If you onboarded Microsoft Sentinel to the unified security operations platform, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
 1. When you have finished customizing your alert details, if you're now creating the rule, continue to the next tab in the wizard. If you're editing an existing rule, select the **Review and create** tab. Once the rule validation is successful, select **Save**.
 
-   > [!NOTE]
-   > 
-   > **Service limits**
-   > - The combined size limit for all alert details and [custom details](surface-custom-details-in-alerts.md), collectively, is **64 KB**.
+## Service limits
+
+- You can override a field with **up to 50 values** in a single query. When your query exceeds 50 customized values, **all** customized values are dropped, and in all query results the field reverts to its default value. Tune your query to yield no more than 50 values to ensure no customized values are dropped.
+- The size limit for the `AlertName` field, and any other non-collection properties, is **256 bytes**.
+- The size limit for the `Description` field, and any other collection properties, is **5 KB**.
+- Values exceeding the size limits are dropped.
 
 ## Next steps
 

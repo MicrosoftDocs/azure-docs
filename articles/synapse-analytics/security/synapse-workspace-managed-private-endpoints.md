@@ -2,12 +2,12 @@
 title: Managed private endpoints
 description: An article that explains Managed private endpoints in Azure Synapse Analytics
 author: ashinMSFT
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 01/12/2020
 ms.author: seshin
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Synapse Managed private endpoints
@@ -44,6 +44,42 @@ The Managed private endpoint that targets SQL pool is called *synapse-ws-sql--\<
 ![Managed private endpoints for dedicated SQL pool and serverless SQL pool](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 These two Managed private endpoints are automatically created for you when you create your Azure Synapse workspace. You aren't charged for these two Managed private endpoints.
+
+
+## Supported data sources
+
+Azure Synapse Spark supports over 25 data sources to connect to using managed private endpoints. Users need to specify the resource identifier, which can be found in the **Properties** settings page of their data source in the Azure portal.
+
+| Service| Resource ID Format|
+|:-----------|:--------------|
+| Cognitive Services | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.CognitiveServices/accounts/{resource-name}|
+| Azure Databricks | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Databricks/workspaces/{workspace-name}|
+| Azure Database for MariaDB | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DBforMariaDB/servers/{server-name}|
+| Azure Database for MySQL | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DBforMySQL/servers/{server-name}|
+| Azure Database for PostgreSQL | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DBforPostgreSQL/servers/{server-name}|
+| Azure Cosmos DB for MongoDB | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DocumentDB/databaseAccounts/{account-name}|
+| Azure Cosmos DB for NoSQL | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DocumentDB/databaseAccounts/{account-name}
+| Azure Monitor Private Link Scopes | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Insights/privateLinkScopes/{scope-name}|
+| Azure Key Vault | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}|
+| Azure Data Explorer (Kusto) | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Kusto/clusters/{cluster-name}|
+| Azure Machine Learning | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}|
+| Microsoft Purview | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Purview/accounts/{account-name}|
+| Azure Search | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Search/searchServices/{service-name}|
+| Azure SQL Database | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}|
+| Azure SQL Database (Azure SQL Managed Instance) | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/managedInstances/{instance-name}|
+| Azure Blob Storage | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}|
+| Azure Data Lake Storage Gen2 | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}|
+| Azure File Storage | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}|
+| Azure Queue Storage | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}|
+| Azure Table Storage | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}|
+| Azure Synapse Analytics | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}|
+| Azure Synapse Analytics (Artifacts) | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}|
+| Azure Functions | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{function-app-name}|
+| Azure Event Hubs | /subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.EventHub/namespaces/{namespace-name}
+| Azure IoT Hub | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Devices/IotHubs/{iothub-name}
+| Azure IoT Hub | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Devices/IotHubs/{iothub-name}
+| Azure App Services | /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{app-service-name}
+
 
 ## Next steps
 

@@ -22,7 +22,9 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
 
-- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+- A supported app on a local device to access a remote session:
+   - Remote Desktop app on any platform. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+   - Windows App on macOS or iOS/iPadOS.
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -32,26 +34,13 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each subscription you want to use Private Link with Azure Virtual Desktop.
 
-> [!IMPORTANT]
-> For Azure for US Government and Azure operated by 21Vianet, you also need to register the feature for each subscription.
+Select the relevant tab for your scenario.
 
-### Register Private Link with Azure Virtual Desktop (Azure for US Government and Azure operated by 21Vianet only)
+# [Azure](#tab/azure)
 
-To register the *Azure Virtual Desktop Private Link* feature:
+### Re-register the Azure Virtual Desktop resource provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, enter **Subscriptions** and select the matching service entry.
-
-1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
-
-1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
-
-1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
-
-### Re-register the resource provider
-
-To re-register the *Microsoft.DesktopVirtualization* resource provider:
+Before you can use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider. You need to do this for each subscription you want to use for Private Link with Azure Virtual Desktop:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -63,26 +52,43 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
 
+# [Azure US Gov and 21Vianet](#tab/us-gov-21vianet)
+
+### Register Private Link with Azure Virtual Desktop (Azure for US Government and Azure operated by 21Vianet only)
+
+For Azure for US Government and Azure operated by 21Vianet, first you need to register your Azure subscription for Private Link with Azure Virtual Desktop:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
+
+1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
+
+1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
+
+1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
+
+### Re-register the Azure Virtual Desktop resource provider
+
+Once you've registered your subscription, you need to re-register the *Microsoft.DesktopVirtualization* resource provider. You need to do this for each subscription you want to use for Private Link with Azure Virtual Desktop:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
+
+1. Select the name of your subscription, then in the section **Settings**, select **Resource providers**.
+
+1. Search for and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
+
+1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
+
+---
+
 ## Create private endpoints
 
-During the setup process, you create private endpoints to the following resources, depending on your scenario.
+During the setup process, you need to create private endpoints to the following resources, depending on your scenario.
 
-1. Both clients and session host VMs use private routes. You need the following private endpoints:
-   
-   | Purpose | Resource type | Target sub-resource | Endpoint quantity | IP address quantity |
-   |--|--|--|--|--|
-   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
-   | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | Two per endpoint |
-   | Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | One per endpoint |
-
-1. Clients use public routes while session host VMs use private routes. You need the following private endpoints. Endpoints to workspaces aren't required.
-
-   | Purpose | Resource type | Target sub-resource | Endpoint quantity | IP address quantity |
-   |--|--|--|--|--|
-   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
-
-> [!IMPORTANT]
-> IP address allocations are subject to change as the demand for IP addresses increases. During capacity expansions, additional addresses are needed for private endpoints. It's important you consider potential address space exhaustion and ensure sufficient headroom for growth. For more information on determining the appropriate network configuration for private endpoints in either a hub or a spoke topology, see [Decision tree for Private Link deployment](/azure/architecture/networking/guide/private-link-hub-spoke-network#decision-tree-for-private-link-deployment).
+[!INCLUDE [include-private-link-supported-scenarios](includes/include-private-link-supported-scenarios.md)]
 
 ### Connections to host pools
 
@@ -138,10 +144,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -560,7 +563,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of a workspace you want to use for the global sub-resource.
 
-   1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=portal#create-a-workspace).
+   1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=portal#create-a-workspace).
 
 1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -603,7 +606,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 # [Azure PowerShell](#tab/powershell)
 
-1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=powershell#create-a-workspace).
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=powershell#create-a-workspace).
 
 1. In the same PowerShell session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands. In these examples, the same virtual network and subnet are used.
 
@@ -681,7 +684,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 # [Azure CLI](#tab/cli)
 
-1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=cli#create-a-workspace).
 
 1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
 
@@ -755,7 +758,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 ## Closing public routes
 
-Once you've created private endpoints, you can also control if traffic is allowed to come from public routes. You can control this at a granular level using Azure Virtual Desktop, or more broadly using a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) or [Azure Firewall](../firewall/protect-azure-virtual-desktop.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json).
+Once you've created private endpoints, you can also control if traffic is allowed to come from public routes. You can control this at a granular level using Azure Virtual Desktop, or more broadly using a [network security group (NSG)](../virtual-network/network-security-groups-overview.md) or [Azure Firewall](../firewall/protect-azure-virtual-desktop.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json).
 
 ### Control routes with Azure Virtual Desktop
 
@@ -1008,6 +1011,6 @@ To test that your users can connect to their remote resources:
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md).
+- Understand how connectivity for the Azure Virtual Desktop service works at [Azure Virtual Desktop network connectivity](network-connectivity.md).
 
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

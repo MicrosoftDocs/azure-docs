@@ -1,5 +1,5 @@
 ---
-title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+title: Use Azure Storage Explorer with Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
@@ -10,7 +10,7 @@ ms.date: 03/09/2023
 ms.author: normesta
 ---
 
-# Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2
+# Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage
 
 This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories and files in storage accounts that have hierarchical namespace (HNS) enabled.
 
@@ -23,7 +23,7 @@ This article shows you how to use [Azure Storage Explorer](https://azure.microso
 - Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 > [!NOTE]
-> Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
+> Storage Explorer makes use of both the Blob (blob) & Data Lake Storage (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage. If access to Azure Data Lake Storage is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
 
 ## Sign in to Storage Explorer
 
@@ -90,4 +90,4 @@ To download files by using **Azure Storage Explorer**, with a file selected, sel
 Learn how to manage file and directory permission by setting access control lists (ACLs)
 
 > [!div class="nextstepaction"]
-> [Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage Gen2](./data-lake-storage-explorer-acl.md)
+> [Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage](./data-lake-storage-explorer-acl.md)

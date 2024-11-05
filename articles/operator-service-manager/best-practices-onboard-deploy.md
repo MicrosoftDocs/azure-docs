@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+author: msftadam
+ms.author: adamdor
+ms.date: 08/12/2024
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -28,7 +28,7 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - After the desired set of Azure Operator Service Manager publisher resources and artifacts is tested and approved for production use, we recommend marking the entire set as immutable to prevent accidental changes and ensure a consistent deployment experience. Consider relying on immutability capabilities to distinguish between resources and artifacts used in production versus the ones used for testing and development purposes. You can query the state of the publisher resources and the artifact manifests to determine which ones are marked as immutable. For more information, see [Publisher tenants, subscriptions, regions, and preview management](publisher-resource-preview-management.md).
 
    Keep in mind the following logic:
-    - If Network Service Design Function (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
+    - If Network Service Design Version (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
     - If Network Function Design Version (NFDV) is marked as immutable, the artifact manifest must be marked as immutable too. Otherwise, the deployment call fails.
     - If only artifact manifest or CGS is marked immutable, the deployment call succeeds regardless of whether NFDV and NSDV are marked as immutable.
     - Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest (typically, charts, images, and Azure Resource Manager templates [ARM templates]) are marked immutable too by enforcing necessary permissions on the artifact store.
@@ -243,7 +243,7 @@ Consider the following high-availability and disaster recovery requirements:
 
 ## Troubleshooting considerations
 
-During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During onboarding, we recommend that you set the atomic flag to `false` to prevent the Helm rollback upon failure. The optimal way to accomplish that is in the ARM template of the NF.
+During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During initial onboarding, only while you are still debugging and developing artifacts, we recommend that you set the atomic flag to `false.` This prevents a helm rollback upon failure and retains any logs or errors which may otherwise be lost. The optimal way to accomplish that is in the ARM template of the NF.
 
 In the ARM template, add the following section:
 
@@ -269,6 +269,9 @@ The component name is defined in the NFDV:
             }
 </pre>
 
+> [!IMPORTANT]
+> Make sure atomic and wait are set back to `true` after initial onboarding is complete.
+
 ## Cleanup considerations
 
 Delete operator resources in the following order to make sure no orphaned resources are left behind:
@@ -291,7 +294,99 @@ Delete publisher resources in the following order to make sure no orphaned resou
 - Artifact Store
 - Publisher
 
-## Next steps
+## Considerations if your NF runs cert-manager
 
-- [Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager](quickstart-containerized-network-function-prerequisites.md)
-- [Quickstart: Complete the prerequisites to deploy a Virtualized Network Function in Azure Operator Service Manager](quickstart-virtualized-network-function-prerequisites.md)
+> [!IMPORTANT]
+> This guidance applies only to certain releases. Check your version for proper behavior.
+
+From release 1.0.2728-50 to release Version 2.0.2777-132, AOSM uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
+
+Any user trying to install cert-manager on the cluster, as part of a workload deployment, will get a deployment failure with an error that the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
+
+### Other Configuration Changes to Consider
+
+In addition to disabling the NfApp associated with the old user cert-manager, we have found other changes may be needed;
+1.	If one NfApp contains both cert-manager and the CA installation, these must broken into two NfApps, so that the partner can disable cert-manager but enable CA installation.
+2.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
+3.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
+
+### Cert-Manager Version Compatibility & Management
+
+For the cert-manager operator, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Future cert-manager operator upgrades will be supported via the NFO extension upgrade process. 
+
+For the CRD resources, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Since management of a common cluster CRD is something typically handled by a cluster administrator, we are working to enable CRD resource upgrades via standard Nexus Add-on process. 
+
+## NfApp Sequential Ordering Behavior
+
+### Overview
+
+By default, containerized network function applications (NfApps) are installed or updated based on the sequential order in which they appear in the network function design version (NFDV). For delete, the NfApps are deleted in the reverse order sepcified. Where a publisher needs to define specific ordering of NfApps, different from the default, a dependsOnProfile is used to define a unique sequence for install, update and delete operations.
+
+### How to use dependsOnProfile
+
+A publisher can use the dependsOnProfile in the NFDV to control the sequence of helm executions for NfApps. Given the following example, on install operation the NfApps will be deployed in the following order: dummyApplication1, dummyApplication2, then dummyApplication. On update operation, the NfApps will be updated in the following order: dummyApplication2, dummyApplication1, then dummyApplication. On delete operation, the NfApps will be deleted in the following order: dummyApplication2, dummyApplication1, then dummyApplication.
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "networkFunctionTemplate": {
+            "networkFunctionApplications": [
+                {
+                  "dependsOnProfile": {
+                        "installDependsOn": [
+                            "dummyApplication1",
+                            "dummyApplication2"
+                        ],
+                        "uninstallDependsOn": [
+                            "dummyApplication1"
+                        ],
+                        "updateDependsOn": [
+                            "dummyApplication1"
+                        ]
+                    },
+                    "name": "dummyApplication"
+                },
+                {
+                  "dependsOnProfile": {
+                        "installDependsOn": [
+                        ],
+                        "uninstallDependsOn": [
+                            "dummyApplication2"
+                        ],
+                        "updateDependsOn": [
+                            "dummyApplication2"
+                        ]
+                    },
+                    "name": "dummyApplication1"
+                },
+                {
+                    "dependsOnProfile": null,
+                    "name": "dummyApplication2"
+                }
+            ],
+            "nfviType": "AzureArcKubernetes"
+        },
+        "networkFunctionType": "ContainerizedNetworkFunction"
+    }
+}
+```
+
+### Common Errors
+
+As of today, if dependsOnProfile provided in the NFDV is invalid, the NF operation will fail with a validation error. The validation error message is shown in the operation status resource and looks similar to the following example.
+
+```json
+ {
+  "id": "/providers/Microsoft.HybridNetwork/locations/EASTUS2EUAP/operationStatuses/ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
+  "name": "ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
+  "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/xinrui-publisher/providers/Microsoft.HybridNetwork/networkfunctions/testnfDependsOn02",
+  "status": "Failed",
+  "startTime": "2023-07-17T20:48:01.4792943Z",
+  "endTime": "2023-07-17T20:48:10.0191285Z",
+  "error": {
+    "code": "DependenciesValidationFailed",
+    "message": "CyclicDependencies: Circular dependencies detected at hellotest."
+  }
+}
+```

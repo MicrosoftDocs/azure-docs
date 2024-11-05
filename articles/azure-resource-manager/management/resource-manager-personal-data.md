@@ -3,14 +3,14 @@ title: Personal data
 description: Learn how to manage personal data associated with Azure Resource Manager operations.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Manage personal data associated with Azure Resource Manager
 
 To avoid exposing sensitive information, delete any personal information you may have provided in deployments, resource groups, or tags. Azure Resource Manager provides operations that let you manage personal data you may have provided in deployments, resource groups, or tags.
 
-[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Delete personal data in deployment history
 
@@ -61,4 +61,5 @@ To delete **tags**, use:
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## Next steps
+
 * For an overview of Azure Resource Manager, see the [What is Resource Manager?](overview.md)

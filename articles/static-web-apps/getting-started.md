@@ -3,7 +3,7 @@ title: "Quickstart: Building your first static site with the Azure Static Web Ap
 description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 04/02/2024
 ms.author: cshoe
@@ -124,6 +124,10 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
 In the Visual Studio Code Azure window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Front Door and CDN documentation
-summary: Azure Front Door is a scalable and secure entry point for fast delivery of your global web applications.
+summary: Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications.
 
 metadata:
   title: Azure Front Door and CDN Documentation
-  description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
-  ms.service: frontdoor
+  description: Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  ms.service: azure-frontdoor
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 07/26/2023
+  ms.date: 08/12/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

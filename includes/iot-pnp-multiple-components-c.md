@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -51,7 +51,7 @@ gcc --version
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 * [CMake](https://cmake.org/download/).
 
 ## Download the code
@@ -157,7 +157,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 ### IoT Plug and Play helper functions
 

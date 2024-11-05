@@ -3,9 +3,10 @@ title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage certificates in Azure Automation

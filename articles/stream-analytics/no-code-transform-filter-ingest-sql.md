@@ -3,7 +3,7 @@ title: Use Azure Stream Analytics no code editor to transform and store data in 
 description: Learn how to use the Azure Stream Analytics no-code editor to transform data flowing in from Event Hubs and store the result data in an Azure SQL database.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/13/2023
 ---
@@ -100,6 +100,8 @@ In this section, you create an Azure Stream Analytics job using the no-code edit
 1. You should see records inserted in the Azure SQL database.
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/sql-output.png" alt-text="Screenshot that shows contents of the stocks table in the database." lightbox="./media/no-code-transform-filter-ingest-sql/sql-output.png":::
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

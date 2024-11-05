@@ -4,14 +4,16 @@ description: Learn how to deploy Azure SQL Edge using the Azure portal
 author: rwestMSFT
 ms.author: randolphwest
 ms.reviewer: kendalv
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords: deploy SQL Edge
 ---
 # Deploy Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Edge module through Azure IoT Edge using the Azure portal.
@@ -26,45 +28,26 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 > [!NOTE]  
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
 
-## Deploy SQL Edge Module from Azure Marketplace
+## Deploy Azure SQL Edge Module using IoT Hub
 
-Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure SQL Edge can be deployed to an edge device through the marketplace.
+Azure SQL Edge can be deployed using instructions from [Deploy modules from Azure portal](/azure/iot-edge/how-to-deploy-modules-portal). The image URI for Azure SQL Edge is `mcr.microsoft.com/azure-sql-edge:latest`.
 
-1. Find the Azure SQL Edge module on the Azure Marketplace.
+1. On the **Add IoT Edge Module** page, specify the desired values for the *IoT Edge Module Name*, *Image URI*, *Restart Policy* and *Desired Status*.
 
-   :::image type="content" source="media/deploy-portal/find-offer-marketplace.png" alt-text="Screenshot of SQL Edge in the Azure Marketplace.":::
+   Use the following image URI depending on the edition you want to deploy:
+   - *Developer edition* - `mcr.microsoft.com/azure-sql-edge/developer`
+   - *Premium edition* - `mcr.microsoft.com/azure-sql-edge/premium`
 
-1. Pick the software plan that best matches your requirements and select **Create**.
-
-   :::image type="content" source="media/deploy-portal/pick-correct-plan.png" alt-text="Screenshot showing how to pick the correct software plan.":::
-
-1. On the Target Devices for IoT Edge Module page, specify the following details and then select **Create**.
-
-   | Field | Description |
-   | --- | --- |
-   | **Subscription** | The Azure subscription under which the IoT Hub was created |
-   | **IoT Hub** | Name of the IoT Hub where the IoT Edge device is registered and then select "Deploy to a device" option |
-   | **IoT Edge Device Name** | Name of the IoT Edge device where SQL Edge would be deployed |
-
-1. On the **Set Modules on device:** page, select the Azure SQL Edge module under **IoT Edge Modules**. The default module name is set to *AzureSQLEdge*.
-
-1. On the *Module Settings* section of the **Update IoT Edge Module** pane, specify the desired values for the *IoT Edge Module Name*, *Restart Policy* and *Desired Status*.
-
-   > [!IMPORTANT]  
-   > Don't change or update the **Image URI** settings on the module.
-
-1. On the *Environment Variables* section of the **Update IoT Edge Module** pane, specify the desired values for the environment variables. For a complete list of Azure SQL Edge environment variables, see [Configure using environment variables](configure.md#configure-by-using-environment-variables). The following default environment variables are defined for the module.
+1. On the *Environment Variables* section of the **Add IoT Edge Module** page, specify the desired values for the environment variables. For a complete list of Azure SQL Edge environment variables, see [Configure using environment variables](configure.md#configure-by-using-environment-variables).
 
    | Parameter | Description |
    | --- | --- |
-   | MSSQL_SA_PASSWORD | Change the default value to specify a strong password for the SQL Edge admin account. |
-   | MSSQL_LCID | Change the default value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
-   | MSSQL_COLLATION | Change the default value to set the default collation for SQL Edge. This setting overrides the default mapping of language ID (LCID) to collation. |
+   | ACCEPT_EULA | Set this value to `Y` to accept the [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2139274) |
+   | MSSQL_SA_PASSWORD | Set the value to specify a strong password for the SQL Edge admin account. |
+   | MSSQL_LCID | Set the value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
+   | MSSQL_COLLATION | Set the value to set the default collation for SQL Edge. This setting overrides the default mapping of language ID (LCID) to collation. |
 
-   > [!IMPORTANT]  
-   > Don't change or update the `ACCEPT_EULA` environment variable for the module.
-
-1. On the *Container Create Options* section of the **Update IoT Edge Module** pane, update the following options as per requirement.
+1. On the *Container Create Options* section of the **Add IoT Edge Module** page, set the options as per requirement.
 
    - **Host Port**
 
@@ -107,12 +90,16 @@ Azure Marketplace is an online applications and services marketplace where you c
    ```
 
    > [!IMPORTANT]  
-   > Don't change the `PlanId` environment variable defined in the create config setting. If this value is changed, the Azure SQL Edge container will fail to start.
+   > Set the `PlanId` environment variable based on the edition installed.
+   > - *Developer edition* - `asde-developer-on-iot-edge`
+   > - *Premium edition* - `asde-premium-on-iot-edge`
+   >
+   > If this value is set incorrectly, the Azure SQL Edge container fails to start.
 
    > [!WARNING]  
    > If you reinstall the module, remember to remove any existing bindings first, otherwise your environment variables will not be updated.
 
-1. On the **Update IoT Edge Module** pane, select **Update**.
+1. On the **Add IoT Edge Module** page, select **Add**.
 1. On the **Set modules on device** page, select **Next: Routes >** if you need to define routes for your deployment. Otherwise select **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
 1. On the **Set modules on device** page, select **Create**.
 
@@ -226,7 +213,7 @@ You can connect and run SQL queries against your Azure SQL Edge instance from an
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md)
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md)
