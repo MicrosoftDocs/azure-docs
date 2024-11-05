@@ -1,7 +1,7 @@
 ---
 title: Estimating consumption-based costs in Azure Functions
 description: Learn how to better estimate the costs that you might incur when running your function app in either the Consumption plan or the Flex Consumption plan in Azure Functions.
-ms.date: 5/05/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom:
   - build-2024
@@ -56,16 +56,6 @@ In addition to execution time, when using one or more always ready instances, yo
 
 >[!IMPORTANT]
 >In this article, prices are only provided to help understand example calculations. Always check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumtion plan. 
-
-For the examples in this section, consider the discounted preview pricing in this table for pay-as-you-go in East US.
-
-| Mode        | Meter             | Free monthly grants        | Consumption rates        |
-| ------------| ----------------- | -------------------------- | ------------------------ | 
-| On-demand | Execution time (GB-s)   | `100,000`              | `$0.000016` per GB-s         |
-| On-demand | Executions (count)  | `250,000` | `$0.20` per million executions              |
-| Always ready | Baseline (idle) time (GB-s)  | \-         | `$0.000004` per GB-s               |
-| Always ready | Execution time (GB-s)        | \-         | `$0.000009` per GB-s               |
-| Always ready | Executions (count)           | \-         | `$0.20` per million executions |
 
 Consider a function app that is comprised only of HTTP triggers with and these basic facts:
 
