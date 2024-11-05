@@ -113,9 +113,9 @@ When you add other virtual networks to a network group, the routing configuratio
 
 Newly created or deleted subnets have their route table updated with eventual consistency. The processing time can vary based on the volume of subnet creation and deletion.
 
-## Behaviors of UDR management
+## Impact of UDR Management on routes and route tables
 
-The following are behaviors of UDR management with Azure Virtual Network Manager:
+The following are impacts of UDR management with Azure Virtual Network Manager on routes and route tables:
 
 - When conflicting routing rules exist (rules with same destination but different next hops), they aren't supported within or across rule collections that target the same virtual network or subnet.
 - When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
