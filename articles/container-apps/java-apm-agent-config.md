@@ -6,7 +6,7 @@ author: croffz
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 10/29/2024
+ms.date: 11/4/2024
 ms.author: kuzhong
 ---
 
@@ -32,42 +32,13 @@ In this tutorial, you learn how to:
 
 The following commands help you define variables and ensure your Container Apps extension is up to date.
 
-1. Sign in to the Azure CLI.
-
-    # [Bash](#tab/bash)
-
-    ```azurecli
-    az login
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```azurecli
-    az login
-    ```
-
-1. Ensure you have the latest version of Azure CLI extensions for Container Apps and Application Insights.
-
-    # [Bash](#tab/bash)
-
-    ```azurecli
-    az extension add -n containerapp --upgrade
-    az extension add -n application-insights --upgrade
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```azurecli
-    az extension add -n containerapp --upgrade
-    az extension add -n application-insights --upgrade
-    ```
-
-1. Set up environment variables used in various commands to follow.
+1. Set up environment variables used in following commands.
 
     # [Bash](#tab/bash)
 
     ```bash
-    APP_INSIGHTS_RESOURCE_ID="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
+    SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000" # Replace with your own Azure subscription ID
+    APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
     CONTAINER_REGISTRY_NAME="myacr"
     RESOURCE_GROUP="my-resource-group"
     ENVIRONMENT_NAME="my-environment"
@@ -78,7 +49,8 @@ The following commands help you define variables and ensure your Container Apps 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    $APP_INSIGHTS_RESOURCE_ID="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
+    $SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000" # Replace with your own Azure subscription ID
+    $APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
     $CONTAINER_REGISTRY_NAME="myacr"
     $RESOURCE_GROUP="my-resource-group"
     $ENVIRONMENT_NAME="my-environment"
@@ -86,11 +58,43 @@ The following commands help you define variables and ensure your Container Apps 
     $LOCATION="eastus"
     ```
 
+1. Sign in to the Azure CLI.
+
+    # [Bash](#tab/bash)
+
+    ```bash
+    az login
+    az account set --subscription $SUBSCRIPTION_ID
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az login
+    az account set --subscription $SUBSCRIPTION_ID
+    ```
+
+1. Ensure you have the latest version of Azure CLI extensions for Container Apps and Application Insights.
+
+    # [Bash](#tab/bash)
+
+    ```bash
+    az extension add -n containerapp --upgrade
+    az extension add -n application-insights --upgrade
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az extension add -n containerapp --upgrade
+    az extension add -n application-insights --upgrade
+    ```
+
 1. Retrieve the connection string of Application Insights.
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     CONNECTION_STRING=$(az monitor app-insights component show \
       --ids $APP_INSIGHTS_RESOURCE_ID \
       --query connectionString)
@@ -98,7 +102,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     $CONNECTION_STRING=(az monitor app-insights component show `
       --ids $APP_INSIGHTS_RESOURCE_ID `
       --query connectionString)
@@ -142,7 +146,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
@@ -156,7 +160,7 @@ The following commands help you define variables and ensure your Container Apps 
     
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
@@ -177,7 +181,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     az containerapp env create \
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
@@ -187,7 +191,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -201,7 +205,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     az containerapp create \
       --name $CONTAINER_APP_NAME \
       --environment $ENVIRONMENT_NAME \
@@ -211,7 +215,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --environment $ENVIRONMENT_NAME `
@@ -221,13 +225,13 @@ The following commands help you define variables and ensure your Container Apps 
 
   Once created, the command returns a "Succeeded" message.
 
-## Configure init-container, environment variables, and volumes to set up Application Insights integration
+## Configure init-container, secrets, environment variables, and volumes to set up Application Insights integration
 
 1. Get current configurations of the running Container App.
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     az containerapp show \
       --name $CONTAINER_APP_NAME \
       --resource-group $RESOURCE_GROUP \
@@ -236,7 +240,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp show `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -313,7 +317,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [Bash](#tab/bash)
 
-    ```azurecli
+    ```bash
     az containerapp update \
       --name $CONTAINER_APP_NAME \
       --resource-group $RESOURCE_GROUP \ 
@@ -323,7 +327,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp update `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -338,11 +342,11 @@ The following commands help you define variables and ensure your Container Apps 
 The resources created in this tutorial contribute to your Azure bill. If you aren't going to keep them in the long term, run the following commands to clean them up.
 
 # [Bash](#tab/bash)
-```azurecli
+```bash
 az group delete --resource-group $RESOURCE_GROUP
 ```
 # [PowerShell](#tab/powershell)
-```azurecli
+```powershell
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
