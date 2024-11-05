@@ -249,11 +249,11 @@
           href: workload-profiles-manage-portal.md
 - name: GPUs
   items:
-    - name: Overview
+    - name: Serverless GPUs
       href: gpu-serverless-overview.md
     - name: Tutorials
       items:
-      - name: Generate images
+      - name: Generate images with serverless GPUs
         href: gpu-image-generation.md
 - name: Microservices
   items:
