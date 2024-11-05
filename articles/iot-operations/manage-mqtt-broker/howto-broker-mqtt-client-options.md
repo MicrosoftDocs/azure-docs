@@ -18,13 +18,13 @@ ms.service: azure-iot-operations
 > [!IMPORTANT]
 > This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-The broker advanced client options include settings that control the behavior of the broker when interacting with MQTT clients. Most are common MQTT protocol settings that are negotiated between the broker and the client during the connection process, like session expiry, message expiry, receive maximum, and keep alive seconds. The only setting specific to Azure IoT Operations is the [subscriber queue limit](#subscriber-queue-limit).
+The broker advanced client options control how the broker interacts with MQTT clients. These settings, negotiated between the broker and the client during connection, include session expiry, message expiry, receive maximum, and keep alive. The only setting specific to Azure IoT Operations is the [subscriber queue limit](#subscriber-queue-limit).
 
-The complete list of of available settings is found at [ClientConfig](/rest/api/iotoperations/broker/create-or-update#clientconfig) API reference.
+The complete list of available settings is found at [ClientConfig](/rest/api/iotoperations/broker/create-or-update#clientconfig) API reference.
 
-In many scenarios, the default client settings are sufficient. To override the default client settings for the broker, edit the `advanced.clients` section in the Broker resource. Currently, this is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command.
+In many scenarios, the default client settings are sufficient. To override the default client settings for the broker, edit the `advanced.clients` section in the Broker resource. Currently, this override is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command.
 
-For example, to set the MQTT max session expiry seconds to 282277, max message expiry seconds to 1622, subscriber queue limit to 1000, max receive maximum to 15000, and max keep alive seconds to 300, prepare a Broker config file  in JSON format:
+To get started, prepare a Broker config file in JSON format, like the following example:
 
 
 ```json
@@ -56,7 +56,9 @@ To learn more, see [Azure CLI support for advanced MQTT broker configuration](ht
 
 ## Subscriber queue limit
 
-The MQTT broker maintains a queue for each subscriber that contains the QoS 1 messages to be delivered to that subscriber. messages are added to this queue when they're received from the publisher, and removed when they are delivered to the subscriber and the subscriber sends a `PUBACK`. If the messages come in faster than the subscriber acknowledges them, or if the subscriber has a persistent session and is currently offline, then it's possible for this queue to become large. The MQTT broker can [buffer these messages of overlong queues to disk to release most of the memory they require](./howto-disk-backed-message-buffer.md), but this is not sufficient by itself. The disk-backed message buffer might not be configured and, even if it's enabled, it's possible for it to be full due to other subscribers. Thus, the subscriber queue limit is a way to prevent the MQTT broker from using too much memory for a single subscriber.
+The MQTT broker keeps a queue for each subscriber with QoS 1 messages waiting to be delivered. Messages are added to this queue when received from the publisher and removed once delivered and acknowledged by the subscriber with a `PUBACK`. If messages arrive faster than the subscriber can acknowledge them, or if the subscriber is offline with a persistent session, the queue can grow large.
+
+The broker can [buffer these messages to disk](./howto-disk-backed-message-buffer.md) to save memory, but this might not always be enough. The disk buffer might not be set up, or it could be full due to other subscribers. Therefore, the subscriber queue limit helps prevent the broker from using too much memory for a single subscriber.
 
 The subscriber queue limit has two settings:
 
@@ -65,21 +67,21 @@ The subscriber queue limit has two settings:
 - **Strategy**: The strategy to use when the queue is full. The two strategies are:
 
   <!-- TODO: check for accuracy -->
-  - **None**: Messages are not dropped [unless they expire](#message-expiry), and the queue can grow indefinitely. This is the default behavior.
+  - **None**: Messages aren't dropped [unless they expire](#message-expiry), and the queue can grow indefinitely. This is the default behavior.
 
   - **DropOldest**: The oldest message in the queue is dropped.
 
-The limit only applies to the subscriber's outgoing queue. This is the queue of messages that haven't yet been assigned packet IDs, since the subscriber's in-flight queue is currently full. The limit is not applied to the in-flight queue.
+The limit only applies to the subscriber's outgoing queue, which holds messages that haven't been assigned packet IDs because the in-flight queue is full. This limit doesn't apply to the in-flight queue.
 
-Because the limit is applied per [backend chain](./howto-configure-availability-scale.md#backend-chain), the broker can't guarantee total number of outgoing messages for a subscriber in the cluster as a whole. For example, setting length to 10000 doesn't means the subscriber receives at most 10000 messages. Rather, it could receive up to `10000 * number of chains * number of backend workers` messages.
+Since the limit is applied per [backend chain](./howto-configure-availability-scale.md#backend-chain), the broker can't guarantee the total number of outgoing messages for a subscriber across the entire cluster. For example, setting the length to 10,000 doesn't mean the subscriber will receive at most 10,000 messages. Instead, it could receive up to `10,000 * number of chains * number of backend workers` messages.
 
 ### Slow subscribers
 
-A slow subscriber is a subscriber that can't keep up with the rate of messages being sent to it. This can happen for a variety of reasons, such as the subscriber being slow to process messages, the subscriber being disconnected, or the subscriber being offline. The subscriber queue limit is a way to prevent a slow subscriber from using too much memory.
+A slow subscriber is one that can't keep up with the incoming message rate. This can occur if the subscriber processes messages slowly, is disconnected, or is offline. The subscriber queue limit helps prevent a slow subscriber from consuming too much memory.
 
 ### Message expiry
 
-The subscriber queue limit can be used with the max message expiry setting `maxSessionExpirySeconds` to ensure that messages are not kept in the queue indefinitely. If a message is in the queue for longer than the max message expiry, it's dropped. This can also be useful to prevent a slow subscriber from using too much memory.
+The subscriber queue limit works with the `maxSessionExpirySeconds` setting to ensure messages aren't kept in the queue indefinitely. If a message stays in the queue longer than the maximum expiry time, it's dropped. This helps prevent slow subscribers from using too much memory.
 
 ## Next steps
 
