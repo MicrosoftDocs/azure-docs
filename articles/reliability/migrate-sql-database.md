@@ -201,17 +201,32 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 
 ### Disable zone-redundancy for a single database
 
+
 # [Portal](#tab/portal)
+
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
+
+1. Select **Settings**, and then select **Configure**. 
+
+1. Select **No** for **Would you like to make this database zone redundant?**
+
+1. Select **Save**.
 
 # [PowerShell](#tab/powershell)
 
+```powershell
+set-azsqlDatabase -ResourceGroupName "RSETLEM-AzureSQLDB" -DatabaseName "TestDB1" -ServerName "rs-az-testserver1" -ZoneRedundant:$false 
+```
+
 # [CLI](#tab/cli)
 
+```azurecli
+az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "TestDB1" --zone-redundant false
+```
 
 # [ARM](#tab/arm)
 
-
-
+See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 ### Disable zone-redundancy for an elastic pool
 
 # [Portal](#tab/portal)
@@ -244,34 +259,6 @@ See [Databases - Create Or Update in ARM](/rest/api/sql/elastic-pools/create-or-
 
 
 
-# [Single database](#tab/single)
-
-
-# [Portal](#tab/portal)
-
-1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
-
-1. Select **Settings**, and then select **Configure**. 
-
-1. Select **No** for **Would you like to make this database zone redundant?**
-
-1. Select **Save**.
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-set-azsqlDatabase -ResourceGroupName "RSETLEM-AzureSQLDB" -DatabaseName "TestDB1" -ServerName "rs-az-testserver1" -ZoneRedundant:$false 
-```
-
-# [CLI](#tab/cli)
-
-```azurecli
-az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "TestDB1" --zone-redundant false
-```
-
-# [ARM](#tab/arm)
-
-See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
  
 ---
 
