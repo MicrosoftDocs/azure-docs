@@ -166,10 +166,12 @@
           href: tutorial-python-postgresql-app.md
         - name: Python with Postgres (FastAPI)
           href: tutorial-python-postgresql-app-fastapi.md
-        - name: Tomcat with MySQL
-          href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: JBoss with MySQL
+          href: tutorial-java-jboss-mysql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings

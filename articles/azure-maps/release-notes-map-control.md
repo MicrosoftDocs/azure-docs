@@ -16,6 +16,14 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.5.0] (CDN: November 4, 2024, npm: TBA)
+
+#### New features
+- Add support for fullscreen control.
+
+#### Bug fixes
+- Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
+
 ### [3.4.0] (CDN: September 30, 2024, npm: October 2)
 
 #### New features
