@@ -466,5 +466,5 @@ abc<CR><LF>
 
 ## Related content
 
-- [MQTT broker overview](../manage-mqtt-broker/overview-iot-mq.md)
+- [MQTT broker overview](../manage-mqtt-broker/overview-broker.md)
 - [Develop with MQTT broker](edge-apps-overview.md)

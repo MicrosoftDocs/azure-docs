@@ -84,7 +84,7 @@ If you're using a previous version of Azure IoT Operations, you can find the Akr
 
 ## Publish and subscribe with MQTT
 
-The [MQTT broker](manage-mqtt-broker/overview-iot-mq.md) runs on the edge. It lets you publish and subscribe to MQTT topics. You can use the MQTT broker to build event-driven architectures that connect your devices and assets to the cloud.
+The [MQTT broker](manage-mqtt-broker/overview-broker.md) runs on the edge. It lets you publish and subscribe to MQTT topics. You can use the MQTT broker to build event-driven architectures that connect your devices and assets to the cloud.
 
 Examples of how components in Azure IoT Operations use the MQTT broker include:
 

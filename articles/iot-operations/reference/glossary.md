@@ -57,4 +57,4 @@ On first mention in an article, use _Azure Device Registry_. On subsequent menti
 
 - [What is Azure IoT Operations?](../overview-iot-operations.md)
 - [Connect industrial assets using the connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md)
-- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md)
