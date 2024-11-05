@@ -3,7 +3,7 @@ title: Add controls to a map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/18/2024
+ms.date: 11/05/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
