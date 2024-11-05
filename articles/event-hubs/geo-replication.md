@@ -21,11 +21,23 @@ These features shouldn't be confused with Availability Zones. Both geographic re
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The following regions are currently supported in the public preview.
 >
-> | US               | Europe        | APAC          |
-> |------------------|---------------|---------------| 
-> | Central US EUAP  | Italy North   | Australia Central |
-> | Canada Central   | Spain Central | Australia East |
-> | Canada East      | Norway East   ||
+> | Region              | Region               | Region             |
+> |--------------------|--------------------|------------------|
+> | AustraliaCentral   | GermanyNorth       | NorwayWest       |
+> | AustraliaCentral2  | GermanyWestCentral | PolandCentral    |
+> | AustraliaEast      | IsraelCentral      | SouthAfricaNorth |
+> | AustraliaSoutheast | ItalyNorth         | SouthAfricaWest  |
+> | BrazilSoutheast    | JapanEast          | SoutheastAsia    |
+> | CanadaCentral      | JapanWest          | SouthIndia       |
+> | CanadaEast         | JioIndiaCentral    | SpainCentral     |
+> | CentralIndia       | JioIndiaWest       | SwedenCentral    |
+> | CentralUS          | KoreaCentral       | SwitzerlandNorth |
+> | CentralUSEUAP      | KoreaSouth         | SwitzerlandWest  |
+> | EastAsia           | MexicoCentral      | UAECentral       |
+> | EastUS2            | NorthCentralUS     | UAENorth         |
+> | FranceCentral      | NorthEurope        | UKSouth          |
+> | FranceSouth        | NorwayEast         | UKWest           |
+>
 
 
 ## Metadata disaster recovery vs. Geo-replication of metadata and data

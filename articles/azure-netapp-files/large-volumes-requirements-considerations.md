@@ -118,6 +118,7 @@ If this is your first time using large volumes, register the feature with the [l
 
 ## Next steps
 
+* [Understand large volumes](large-volumes.md)
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)
