@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender
-  ms.date: 10/18/2024
+  ms.date: 11/05/2024
   ms.custom: engagement-fy23, seo-FY24Q2
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -27,12 +27,18 @@ landingContent:
             url: /azure/load-balancer/overview
           - text: Choose a load balancer
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Azure Load Balancer SKUs
+            url: /azure/load-balancer/skus
+          - text: Reliability in Load Balancer
+            url: /azure/reliability/reliability-load-balancer
+
       - linkListType: learn
         links:
           - text: Introduction to Azure Load Balancer
             url: /training/modules/intro-to-azure-load-balancer/
-          - text: Improve application scalability and resiliency by using Azure Load Balancer
-            url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
+          - text: Set up load balancing
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%203
+
   # Card (optional)
   - title: Concepts and Architecture
     linkLists:
@@ -40,12 +46,18 @@ landingContent:
         links:
           - text: Load-balancing options
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
-          - text: Windows n-tier applications on Azure
-            url: /azure/architecture/aws-professional/networking
+          - text: Azure Load Balancer algorithm
+            url: /azure/load-balancing/concepts
           - text: Gateway load balancer overview
-            url: /azure/load-balancer/overview
+            url: /azure/load-balancer/gateway-overview
+          - text: Azure Load Balancer components
+            url: /azure/load-balancer/components
+      - linkListType: architecture
+        links:
+          - text: Deploy highly available NVAs
+            url: /azure/architecture/networking/guide/nva-ha
   # Card
-  - title: Plan and design
+  - title: Plan and deploy
     linkLists:
       - linkListType: concept
         links:
@@ -53,9 +65,6 @@ landingContent:
             url: /azure/load-balancer/overview
           - text: Outbound connections in Azure
             url: /azure/load-balancer/overview
-
-  - title: Deployment
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Create a public load balancer to load balance VMs
@@ -69,50 +78,58 @@ landingContent:
   # Card
   - title: Manage and monitor
     linkLists:
-        - linkListType: quickstart
+        - linkListType: concept
           links:
-          - text: TBD
-            url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview
-
+          - text: Monitor Azure Load Balancer
+            url: /azure/load-balancer/monitor-load-balancer
+          - text: Standard load balancer diagnostics
+            url: /azure/load-balancer/load-balancer-standard-diagnostics
+        - linkListType: how-to-guide
+          links:
+          - text: Manage health probes for Azure Load Balancer
+            url: /azure/load-balancer/manage-probes-how-to
+          - text: Upgrade from Basic to Standard Load Balancer
+            url: /azure/load-balancer/upgrade-basic-standard-with-powershell
 
   # Card
   - title: Reliability and availability
     linkLists:
-        - linkListType: quickstart
+        - linkListType: concept
           links:
-          - text: TBD
-            url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview
+          - text: Reliability in Load Balancer
+            url: /azure/reliability/reliability-load-balancer
+          - text: Cross-region load balancing
+            url: /azure/load-balancer/cross-region-overview
+          - text: Reliability and Azure Load Balancer - Well-Architected Framework
+            url: /azure/well-architected/service-guides/azure-load-balancer/reliability
+        - linkListType: learn
+          links: 
+          - text: Improve application scalability and resiliency by using Azure Load Balancer
+            url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
   # Card
   - title: Security and compliance
     linkLists:
-        - linkListType: quickstart
+        - linkListType: concept
           links:
+          - text: Azure security baseline for Azure Load Balancer
+            url: /azure/load-balancer/azure-load-balancer-security-baseline
           - text: TBD
             url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview  
+        - linkListType: how-to-guide
+          links:
+          - text: Integrate Azure Firewall with Azure Standard Load Balancer
+            url: /azure/firewall/integrate-lb
   # Card
   - title: Troubleshoot
     linkLists:
-        - linkListType: quickstart
+        - linkListType: how-to-guide
           links:
-          - text: TBD
-            url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview     
-  # Card
-  - title: How-to guidance
-    linkLists:
-        - linkListType: quickstart
-          links:
-          - text: TBD
-            url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview
+          - text: Troubleshoot Azure Load Balancer
+            url: /azure/load-balancer/load-balancer-troubleshoot
+          - text: Testing reachability of Azure Load Balancer
+            url: /azure/load-balancer/load-balancer-test-frontend-reachability
+          - text: Troubleshoot Azure Load Balancer health probe status
+            url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status    
   # Card
   - title: Load balancing and content delivery
     linkLists:
@@ -122,13 +139,3 @@ landingContent:
             url: /azure/frontdoor/front-door-overview
           - text: Azure Application Gateway overview
             url: /azure/application-gateway/overview
-            
-  # Card
-  - title: Training
-    linkLists:
-        - linkListType: quickstart
-          links:
-          - text: TBD
-            url: /azure/load-balancer/overview
-          - text: TBD
-            url: /azure/load-balancer/overview
