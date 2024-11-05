@@ -18,7 +18,7 @@ Automation is needed in three broad areas of cloud operations:
 
 Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
-:::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram of Automation capabilities" border="true":::
+:::image type="content" source="./media/overview/automation-overview.png" alt-text="Screenshot shows the Automation capabilities." lightbox="./media/overview/automation-overview.png"::: 
 
 There are several Azure services that can deliver the above requirements, where each service includes a set of capabilities and serves a role as a programmable platform to build cloud solutions. For example, Azure Bicep and Resource Manager provide a language to develop repeatable and consistent deployment templates for Azure resources. Azure Automation can process that template to deploy an Azure resource and then process a set of post-deployment configuration tasks.
 
@@ -77,7 +77,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 
 * **Schedule tasks** - stop VMs or services at night and turn on during the day, weekly or monthly recurring maintenance workflows.
 * **Build and deploy resources** - Deploy virtual machines across a hybrid environment using runbooks and Azure Resource Manager templates. Integrate into development tools, such as Jenkins and Azure DevOps.
-* **Periodic maintenance** - to execute tasks that need to be performed at set timed intervals like purging stale or old data, or reindex a SQL database.
+* **Periodic maintenance** - to execute tasks that need to be performed at set timed intervals like purging stale or old data, or reindexing a SQL database.
 * **Respond to alerts** - Orchestrate a response when cost-based, system-based, service-based, and/or resource utilization alerts are generated.
 * **Hybrid automation** - Manage or automate on-premises servers and services like SQL Server, Active Directory, SharePoint Server, etc.
 * **Azure resource lifecycle management** - for IaaS and PaaS services.
