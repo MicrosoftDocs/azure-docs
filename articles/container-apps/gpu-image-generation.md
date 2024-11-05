@@ -1,21 +1,21 @@
 ---
-title: Generate images using serverless GPUs in Azure Container Apps (preview)
+title: "Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)"
 description: Learn to run to generate images powered by serverless GPUs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
-# Generate images using serverless GPUs in Azure Container Apps (preview)
+# Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
 
 Once you create the container app, the app can take up to five minutes to provision.
 
 ## Prerequisites
 
-- Request access to GPUs is only available after you request GPU quotas
+- Access to Serverless GPUs is only available after you request serverless GPU quotas
 - Azure Container Registry: An existing Azure Container Registry instance or permissions to create one.
 
 ## Create your container app
@@ -57,8 +57,8 @@ Once you create the container app, the app can take up to five minutes to provis
     | Name | Enter **my-gpu-demo-container**. |
     | Image source | Select **Docker Hub or other registries**.  |
     | Image type | Select **public**. |
-    | Registry login server | Enter **mcr.microsoft.com/k8se/gpu-quickstart:latest**. |
-    | Image and tag | Enter **sd-image-gen:latest**. |
+    | Registry login server | Enter **mcr.microsoft.com/k8se**. |
+    | Image and tag | Enter **gpu-quickstart:latest**. |
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
     | GPU Type | Select **Conumption-GPU-NC24-A100** and select the link to add the profile to your environment. |
@@ -79,7 +79,7 @@ Once you create the container app, the app can take up to five minutes to provis
 
 1. Wait a few moments for the deployment to complete and then select **Go to resource**.
 
-## Generate an image
+## Use your GPU app
 
 From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and generate an image.
 

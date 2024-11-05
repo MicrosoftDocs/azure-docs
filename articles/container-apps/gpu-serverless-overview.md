@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
@@ -55,7 +55,7 @@ When you use serverless GPUs in Container Apps, your apps get:
 
 ## Considerations
 
-The following items are required for you to use serverless GPUs in your workload profile.
+Keep in mind the following items as you use serverless GPUs:
 
 - **CUDA version**: Your application must run the latest CUDA version.
 

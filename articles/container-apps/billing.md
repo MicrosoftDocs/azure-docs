@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/02/2024
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
