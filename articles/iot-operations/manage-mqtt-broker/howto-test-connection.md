@@ -638,12 +638,12 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: nodeport
+  name: <LISTENER_NAME>
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: <SERVICE_TYPE> # LoadBalancer or NodePort
-  serviceName: <NAME>
+  serviceName: <SERVICE_NAME>
   ports:
     - port: 1883
       nodePort: 31883 # If using NodePort
