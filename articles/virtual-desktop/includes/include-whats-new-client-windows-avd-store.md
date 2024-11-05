@@ -31,6 +31,7 @@ The following table lists the current versions available for the public and Insi
 *Date published: October 8, 2024*
 
 - Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
+- Multimedia redirection call redirection is now generally available
 
 ## Updates for version 1.2.5704 
 
