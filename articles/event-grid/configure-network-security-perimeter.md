@@ -2,7 +2,7 @@
 title: Network security perimeter in Azure Event Grid
 description: This article shows how to configure network security perimeter in Azure Event Grid. This feature is currently in preview.
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 11/18/2024
 # Customer intent: I want to know how to configure network security perimeter in Azure Event Grid. 
 ---
 

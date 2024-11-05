@@ -2,7 +2,7 @@
 title: Transport Layer Security support in Azure Event Grid
 description: Describes the vulnerabilities of TLS 1.0 and 1.1 and benefits of upgrading to a later version, especially 1.3. 
 ms.topic: concept-article
-ms.date: 11/15/2024
+ms.date: 11/18/2024
 ms.author: robece
 # Customer intent: I want to know which version of TLS is supported and recommended by Azure Event Grid. 
 ---

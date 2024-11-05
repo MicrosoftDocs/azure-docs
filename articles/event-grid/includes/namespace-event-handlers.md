@@ -4,7 +4,7 @@
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 11/15/2024
+ ms.date: 11/18/2024
  ms.author: robece
 ms.custom:
   - include file
