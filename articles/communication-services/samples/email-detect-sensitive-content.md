@@ -106,8 +106,6 @@ namespace SendEmail
 
 Create a new function to analyze the email subject and body for sensitive data such as social security numbers and credit card numbers.
 
-**??? Where does this go?  After *Pre-check sensitive data and inappropriate content* ???**
-
 ```csharp
 private static async Task<bool> AnalyzeSensitiveData(List<string> documents)
 {
@@ -121,7 +119,7 @@ private static async Task<bool> AnalyzeSensitiveData(List<string> documents)
 
 ### Create the Text Analytics client with authentication
 
-Create a new function with a Text Analytics client that also retrieves your connection information. Add the following code into the `AnalyzeSensitiveData` function to retrieve the connection key and endpoint for the resource from environment variables named `LANGUAGE_KEY` and `LANGUAGE_ENDPOINT`. It also creates the new `TextAnalyticsClient` **??? function or variable or ???** . For more information about managing your Text Analytics connection information, see [Quickstart: Detect Personally Identifiable Information \(PII\) > Get your key and endpoint](/azure/ai-services/language-service/personally-identifiable-information/quickstart#get-your-key-and-endpoint).
+Create a new function with a Text Analytics client that also retrieves your connection information. Add the following code into the `AnalyzeSensitiveData` function to retrieve the connection key and endpoint for the resource from environment variables named `LANGUAGE_KEY` and `LANGUAGE_ENDPOINT`. It also creates the new `TextAnalyticsClient` and `AzureKeyCredential` variables. For more information about managing your Text Analytics connection information, see [Quickstart: Detect Personally Identifiable Information \(PII\) > Get your key and endpoint](/azure/ai-services/language-service/personally-identifiable-information/quickstart#get-your-key-and-endpoint).
 
 ```csharp
 // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
@@ -135,7 +133,7 @@ var client = new TextAnalyticsClient(new Uri(languageEndpoint), new AzureKeyCred
 
 Loop through the content to check for any sensitive data. Start the sensitivity check with a baseline of `false`. If sensitive data is found, return `true`.
 
-Add the following code into the `AnalyzeSensitiveData` function following the line that creates the `TextAnalyticsClient` **???variable???** . 
+Add the following code into the `AnalyzeSensitiveData` function following the line that creates the `TextAnalyticsClient` variable. 
 
 ```csharp
 bool senstiveDataDetected = false;  // we start with a baseline that of no sensitive data
@@ -191,7 +189,7 @@ static async Task<bool> AnalyzeInappropriateContent(List<string> documents)
 
 ### Create the Content Safety client with authentication
 
-Create a new function with a Content Safety client that also retrieves your connection information. Add the following code into the `AnalyzeInappropriateContent` function to retrieve the connection key and endpoint for the resource from environment variables named `CONTENT_LANGUAGE_KEY` and `CONTENT_LANGUAGE_ENDPOINT`. It also creates a new `ContentSafetyClient` **???variable???** . If you're using the same Azure AI instance for Text Analytics, these values remain the same. For more information about managing your Content Safety connection information, see [Quickstart: Detect Personally Identifiable Information (PII) > Create environment variables](/azure/ai-services/language-service/personally-identifiable-information/quickstart#create-environment-variables). 
+Create a new function with a Content Safety client that also retrieves your connection information. Add the following code into the `AnalyzeInappropriateContent` function to retrieve the connection key and endpoint for the resource from environment variables named `CONTENT_LANGUAGE_KEY` and `CONTENT_LANGUAGE_ENDPOINT`. It also creates a new `ContentSafetyClient` variable. If you're using the same Azure AI instance for Text Analytics, these values remain the same. For more information about managing your Content Safety connection information, see [Quickstart: Detect Personally Identifiable Information (PII) > Create environment variables](/azure/ai-services/language-service/personally-identifiable-information/quickstart#create-environment-variables). 
 
 ```csharp
 // This example requires environment variables named "CONTENT_LANGUAGE_KEY" and "CONTENT_LANGUAGE_ENDPOINT"
@@ -204,7 +202,7 @@ var client = new ContentSafetyClient(new Uri(contentSafetyEndpoint), new AzureKe
 
 Loop through the content to check for inappropriate content. Start the inappropriate content detection with a baseline of `false`. If inappropriate content is found, return `true`.
 
-Add the following code into the `AnalyzeInappropriateContent` function after the line that creates the `ContentSafetyClient` **???variable???** .
+Add the following code into the `AnalyzeInappropriateContent` function after the line that creates the `ContentSafetyClient` variable.
 
 ```csharp
 bool inappropriateTextDetected = false;
@@ -254,7 +252,7 @@ Add the sample email content into the Main function, following the lines that cr
 
 You need to get the sender email address. For more information about Azure Communication Services email domains, see [Quickstart: How to add Azure Managed Domains to Email Communication Service](../quickstarts/email/add-custom-verified-domains.md). 
 
-Modify the recipient email address. **??? Is this enough information ???**
+Modify the recipient email address variable.
 
 Put both the subject and the message body into a `List<string>` which can be used by the two content checking functions.
 
@@ -327,8 +325,5 @@ else
 
 ## Next steps
 
-**???Any???**
-
-## Related articles
-
-**???Any???**
+- Learn more about [Azure Communication Services](../overview.md).
+- Learn more about [Azure AI Studio](/azure/ai-studio/).
