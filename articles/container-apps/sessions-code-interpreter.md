@@ -257,6 +257,10 @@ Authorization: Bearer <TOKEN>
 }
 ```
 
+## Billing
+
+Code interpreter sessions are billed based on the duration of each session. See [Billing](billing.md#dynamic-sessions) for more information.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
