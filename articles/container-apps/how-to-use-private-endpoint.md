@@ -34,12 +34,12 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 In the *Create Container App* page on the *Basics* tab, enter the following values.
 
-    | Setting | Action |
-    |---|---|
-    | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new** and enter **my-container-apps**. |
-    | Container app name |  Enter **my-container-app**. |
-    | Deployment source | Select **Container image**. |
+| Setting | Action |
+|---|---|
+| Subscription | Select your Azure subscription. |
+| Resource group | Select **Create new** and enter **my-container-apps**. |
+| Container app name |  Enter **my-container-app**. |
+| Deployment source | Select **Container image**. |
 
 #### Create an environment
 
@@ -334,30 +334,30 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 In the *Create a virtual machine* page on the *Basics* tab, enter the following values.
 
-    | Setting | Action |
-    |---|---|
-    | Subscription | Select your Azure subscription. |
-    | Resource group | Select **my-container-apps**. |
-    | Virtual machine name | Enter **my-virtual-machine**. |
-    | Region | Select **Central US**. |
-    | Availability options | Select **No infrastructure redundancy required**. |
-    | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2 **. |
-    | Username | Enter **azureuser**. |
-    | Password | Enter a password. |
-    | Confirm password | Enter the password again. |
-    | Public inbound ports | Select **None**. |
+| Setting | Action |
+|---|---|
+| Subscription | Select your Azure subscription. |
+| Resource group | Select **my-container-apps**. |
+| Virtual machine name | Enter **my-virtual-machine**. |
+| Region | Select **Central US**. |
+| Availability options | Select **No infrastructure redundancy required**. |
+| Security type | Select **Standard**. |
+| Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2 **. |
+| Username | Enter **azureuser**. |
+| Password | Enter a password. |
+| Confirm password | Enter the password again. |
+| Public inbound ports | Select **None**. |
 
 ### Networking tab
 
-1. In the *Networking* tab, enter the following values.
+In the *Networking* tab, enter the following values.
 
-    | Setting | Action |
-    |---|---|
-    | Virtual network | Select **my-private-endpoint-vnet**. |
-    | Subnet | Select **my-private-endpoint-vnet-subnet (10.0.0.0/23)**. |
-    | Public IP | Select **None**. |
-    | NIC network security group | Select **Advanced**. |
+| Setting | Action |
+|---|---|
+| Virtual network | Select **my-private-endpoint-vnet**. |
+| Subnet | Select **my-private-endpoint-vnet-subnet (10.0.0.0/23)**. |
+| Public IP | Select **None**. |
+| NIC network security group | Select **Advanced**. |
 
 ### Create the VM
 
@@ -409,7 +409,7 @@ az vm create \
 
 1. After you connect, run PowerShell in the VM.
 
-1. In PowerShell, run the following command. Replace the <\PLACEHOLDERS\> with your values.
+1. In PowerShell, run the following command. Replace the \<PLACEHOLDERS\> with your values.
 
 ```powershell
 nslookup <CONTAINER_APP_ENDPOINT>
