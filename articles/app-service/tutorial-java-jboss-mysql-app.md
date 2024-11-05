@@ -71,8 +71,8 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         **Step 1:** In a new browser window:
         1. Sign in to your GitHub account.
         1. Navigate to [https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app/fork](https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app/fork).
-        <!-- 1. Unselect **Copy the main branch only**. You want all the branches. -->
         1. Select **Create fork**.
+        <!-- 1. Unselect **Copy the main branch only**. You want all the branches. -->
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-run-sample-application-1.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-run-sample-application-1.png":::
