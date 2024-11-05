@@ -81,11 +81,7 @@ Once you create the container app, the app can take up to five minutes to provis
 
 ## Generate an image
 
-1. From the *Overview* window, select the **Application Url** link to open the web app front end in your browser.
-
-1. In the *Prompt* box, enter an image prompt.
-
-1. Select **Generate**.
+From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and generate an image.
 
 ## Clean up resources
 
