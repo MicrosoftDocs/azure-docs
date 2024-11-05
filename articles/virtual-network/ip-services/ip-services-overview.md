@@ -3,7 +3,7 @@ title: What is Azure Virtual Network IP Services?
 description: Overview of Azure Virtual Network IP Services. Learn how IP services work and how to use IP resources in Azure.
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 11/05/2024
 ms.service: azure-virtual-network
 ms.subService: ip-services
 ms.topic: overview
@@ -76,7 +76,13 @@ Private IPs allow communication between resources in Azure. Azure assigns privat
 
 Some of the resources that you can associate a private IP address with are:
 
-* Virtual machines
+* Network Interface (for Virtual machines, Virtual Machine Scale Sets, container pods ...)
+    
+    * Network Interfaces can contain one primary and multiple secondary IP configurations. 
+
+    * Each primary IP configuration must be a single IP address (a /32 IPv4 address or a /128 IPv6 address).
+
+    * Secondary IP configurations can be a single IP address OR a block of IP addresses (*in preview*). Only IPv4 addresses of block size of /28 are available today for associating with a secondary IP configuration.
 
 * Internal load balancers
 
