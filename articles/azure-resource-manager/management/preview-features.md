@@ -64,7 +64,7 @@ az feature list
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -185,7 +185,7 @@ az feature register --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -267,7 +267,7 @@ az feature unregister --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {

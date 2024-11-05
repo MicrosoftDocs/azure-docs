@@ -255,12 +255,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-reference-other-repo",
-            "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-sdk-for-go-samples",
             "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
             "branch": "main",

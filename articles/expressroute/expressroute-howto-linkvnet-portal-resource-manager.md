@@ -69,12 +69,16 @@ This article helps you create a connection to link a virtual network (virtual ne
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of a virtual network gateway connected to two different ExpressRoute circuits.":::
 
+    **High resiliency** - This option provides a single redundant connection from the virtual network gateway to a Metro ExpressRoute circuit. Metro circuits provide redundancy across ExpressRoute peering locations. Whereas, unlike maximum resiliency, there is no redundancy within the peering locations.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/high-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit via two peering locations.":::
+
     **Standard resiliency** - This option provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit. 
 
     > [!NOTE]
-    > Standard Resiliency does not provide protection against location wide outages. This option is suitable for non-critical and non-production workloads.
+    > Standard resiliency does not provide protection against location wide outages. This option is suitable for non-critical and non-production workloads.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit.":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit via one peering location.":::
     
 6. Enter the following information for the respective resiliency type and then select **Review + create**. Then select **Create** after validation completes.
 
@@ -98,9 +102,9 @@ This article helps you create a connection to link a virtual network (virtual ne
     >
     > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Screenshot of warning in the Azure portal when selecting two ExpressRoute circuits in the same peering location.":::
 
-    **Standard resiliency**
+    **High/Standard resiliency**
 
-    For standard resiliency, you only need to enter information for one connection.
+    For high or standard resiliency, you only need to enter information for one connection. For high resiliency the connection you need to attach a metro circuit.  For standard resiliency the connection you need to attach a regular (non-metro) circuit.  
 
 7. After your connection has been successfully configured, your connection object will show the information for the connection.
 
@@ -182,7 +186,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 1. In the **Settings** page, select **High Resiliency** or **Standard Resiliency**, and then select the *Virtual network gateway*. Check the **Redeem authorization** check box. Enter the *Authorization key* and the *Peer circuit URI* and give the connection a name.
  
     > [!NOTE]
-    > - Connecting to circuits in a different subscription isn't supported for Maximum Resiliency.
+    > - Connecting to circuits in a different subscription isn't supported under Maximum Resiliency.
     > - You can connect a virtual network to a Metro circuit in a different subscription when choosing High Resiliency.
     > - You can connect a virtual network to a regular (non-metro) circuit in a different subscription when choosing Standard Resiliency.
     > - The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
@@ -197,7 +201,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 ## Configure ExpressRoute FastPath
 
-[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance or ErGw3AZ.
 
 ### Configure FastPath on a new connection
 
@@ -218,16 +222,6 @@ When adding a new connection for your ExpressRoute gateway, select the checkbox 
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
-
-## Enroll in ExpressRoute FastPath features (preview)
-
-FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. For instructions on how to enroll, see [FastPath preview features](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections). 
-
-> [!NOTE] 
-> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
-> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command.
-> 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 

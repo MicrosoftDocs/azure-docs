@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 08/01/2024
+ms.date: 10/04/2024
 
 ---
 
@@ -19,13 +19,13 @@ This tutorial helps you create and manage a virtual network gateway (VPN gateway
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md).
+If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md). These steps create an [active-active mode](about-active-active-gateways.md) [zone-redundant](about-zone-redundant-vnet-gateways.md) gateway. If you want to create a Basic SKU gateway instead, see [Create a Basic SKU VPN gateway](create-gateway-basic-sku-powershell.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network.
-> * Create a VPN gateway.
+> * Create an active-active mode VPN gateway.
 > * View the gateway public IP address.
 > * Resize a VPN gateway (resize SKU).
 > * Reset a VPN gateway.
@@ -124,4 +124,4 @@ After you create a VPN gateway, you can configure more gateway settings and conn
 > [Site-to-site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)

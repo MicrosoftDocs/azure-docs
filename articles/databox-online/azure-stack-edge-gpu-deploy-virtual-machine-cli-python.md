@@ -4,8 +4,7 @@ description: Describes how to create and manage virtual machines (VMs) on an Azu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli

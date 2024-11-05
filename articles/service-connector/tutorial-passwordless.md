@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 10/22/2024
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
@@ -66,7 +66,7 @@ Then you can check the log or call the application to see if it can connect to t
 
 #### Permission
 
-If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you log in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
+If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you sign in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
 
 ::: zone pivot="postgresql"
 

@@ -243,7 +243,7 @@ Consider the following high-availability and disaster recovery requirements:
 
 ## Troubleshooting considerations
 
-During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During onboarding, we recommend that you set the atomic flag to `false` to prevent the Helm rollback upon failure. The optimal way to accomplish that is in the ARM template of the NF.
+During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During initial onboarding, only while you are still debugging and developing artifacts, we recommend that you set the atomic flag to `false.` This prevents a helm rollback upon failure and retains any logs or errors which may otherwise be lost. The optimal way to accomplish that is in the ARM template of the NF.
 
 In the ARM template, add the following section:
 
@@ -268,6 +268,9 @@ The component name is defined in the NFDV:
               id: acrArtifactStore.id
             }
 </pre>
+
+> [!IMPORTANT]
+> Make sure atomic and wait are set back to `true` after initial onboarding is complete.
 
 ## Cleanup considerations
 
@@ -377,7 +380,7 @@ As of today, if dependsOnProfile provided in the NFDV is invalid, the NF operati
  {
   "id": "/providers/Microsoft.HybridNetwork/locations/EASTUS2EUAP/operationStatuses/ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
   "name": "ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
-  "resourceId": "/subscriptions/4a0479c0-b795-4d0f-96fd-c7edd2a2928f/resourceGroups/xinrui-publisher/providers/Microsoft.HybridNetwork/networkfunctions/testnfDependsOn02",
+  "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/xinrui-publisher/providers/Microsoft.HybridNetwork/networkfunctions/testnfDependsOn02",
   "status": "Failed",
   "startTime": "2023-07-17T20:48:01.4792943Z",
   "endTime": "2023-07-17T20:48:10.0191285Z",

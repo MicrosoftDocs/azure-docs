@@ -4,7 +4,7 @@ description: This article provides a description of the IoT Hub identity registr
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/29/2021
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]

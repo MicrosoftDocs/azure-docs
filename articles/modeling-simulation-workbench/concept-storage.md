@@ -3,7 +3,7 @@ title: "Storage: Azure Modeling and Simulation Workbench"
 description: Types of storage offered in Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: concept-article
 ms.date: 08/22/2024
 

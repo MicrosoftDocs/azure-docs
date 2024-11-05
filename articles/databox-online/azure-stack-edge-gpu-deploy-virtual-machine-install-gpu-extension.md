@@ -4,8 +4,7 @@ description: Describes how to install GPU extensions on GPU virtual machines (VM
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: alkohli

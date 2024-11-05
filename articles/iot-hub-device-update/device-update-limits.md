@@ -5,7 +5,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 9/23/2022
 ms.topic: conceptual
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub limits

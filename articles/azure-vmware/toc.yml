@@ -53,6 +53,8 @@ items:
     href: reserved-instance.md
   - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
     href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
   items:
   - name: Private clouds and clusters
@@ -285,6 +287,8 @@ items:
     href: configure-vmware-syslogs.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
+  - name: Configure Newest Metrics for Azure VMware Solution
+    href: configure-azure-vmware-solution-metrics.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud

@@ -4,8 +4,7 @@ description: Describes steps to move workloads from Azure Stack Edge to a self-s
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 01/27/2023

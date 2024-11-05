@@ -4,7 +4,7 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 09/15/2024
+ms.date: 10/18/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -12,7 +12,7 @@ ms.service: azure-automation
 # Update Management overview
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that has reached the End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 

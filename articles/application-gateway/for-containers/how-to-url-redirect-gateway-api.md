@@ -3,8 +3,7 @@ title: URL Redirect for Azure Application Gateway for Containers - Gateway API
 description: Learn how to redirect URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
 ms.date: 5/9/2024
 ms.author: greglin
