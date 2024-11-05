@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/01/2024
+ms.date: 11/04/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -71,7 +71,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/tutorial-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](quickstart-configure#verify-data-is-flowing-to-event-hubs). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 

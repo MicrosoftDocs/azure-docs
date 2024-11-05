@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 10/30/2024
+ms.date: 11/04/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -52,7 +52,7 @@ Next, add your event hub from the previous quickstart as a data source for the e
 Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=standard-capabilities#add-an-azure-event-hub-as-a-source) to add the event source. Keep the following notes in mind:
 
 - You'll be creating a new cloud connection with Shared Access Key authentication.
-    - Make sure local authentication is enabled on your event hub. You can set this from its Overview page in the Azure portal.
+    - Make sure local authentication is enabled on your Event Hubs namespace. You can set this from its Overview page in the Azure portal.
 - For **Consumer group**, use the default selection (*$Default*).
 - For **Data format**, choose *Json* (it might be selected already by default).
 
@@ -71,7 +71,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](quickstart-configure?tabs=bash#verify-data-is-flowing-to-event-hubs). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
@@ -84,7 +84,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Column name | Data type |
     | --- | --- |
     | AssetId | string |
-    | Spike | boolean |
+    | Spike | bool |
     | Temperature | decimal |
     | FillWeight | decimal |
     | EnergyUse | decimal |
@@ -161,7 +161,7 @@ Next, configure some parameters for your dashboard so that the visuals can be fi
             OPCUA
             | summarize by AssetId
             ```
-    * **Value column**: *AssetId*
+    * **Value column**: *AssetId (string)*
     * **Default value**: *Select first value of query*
 
 1. Select **Done** to save your parameter.
@@ -179,6 +179,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
     ```kql
     OPCUA 
     | where Timestamp between (_startTime .. _endTime)
+    | where AssetId == _asset
     | project Timestamp, Temperature, Spike
     | extend SpikeMarker = iff(Spike == true, Temperature, decimal(null))
     ```
@@ -196,7 +197,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
         - **X columns**: *Timestamp (datetime)* (already inferred by default)
         - **Series columns**: Leave the default inferred value.
     - **Y Axis**:
-        - **Label**: *Units*
+        - **Label**: *Temperature (°F)*
     - **X Axis**:
         - **Label**: *Timestamp*
 
@@ -205,6 +206,8 @@ Next, add a tile to your dashboard to show a line chart of temperature and its s
     :::image type="content" source="media/quickstart-get-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
 
 View the finished tile on your dashboard.
+
+:::image type="content" source="media/quickstart-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with the line chart tile.":::
 
 ### Create max value tile
 
@@ -221,7 +224,7 @@ Next, create a tile to display a real-time spike indicator for temperature.
     | project Timestamp, Temperature, Spike
     ```
 
-    **Run** the query to verify that a maximum temperature can be found.
+    **Run** the query to verify that data can be found.
 
 1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
     - **Tile name**: *Spike indicator*
@@ -238,7 +241,9 @@ Next, create a tile to display a real-time spike indicator for temperature.
 
     Select **Apply changes** to create the tile.
 
-1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible).
+1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible). If the most recently-collected temperature is not a spike, the tile won't trigger the conditional formatting.
+
+    :::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with the stat tile.":::
 
 1. **Save** your completed dashboard.
 
@@ -255,6 +260,11 @@ Below are some more queries that you can use to add additional tiles to your das
     | where AssetId == _asset
     | project Timestamp, Temperature, FillWeight
     ```
+* Query for a line chart tile, Temperature (F) vs. Energy Use*:
+    OPCUA 
+    | where Timestamp between (_startTime.._endTime)
+    | where AssetId == _asset
+    | project Timestamp, Temperature, EnergyUse
 * Query for a stat tile, *Max temperature*:
     ```kql
     OPCUA
