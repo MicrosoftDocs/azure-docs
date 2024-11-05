@@ -137,7 +137,7 @@ AzureDiagnostics
 
 #### Switching modes
 
-To see WAF take action on request traffic, select **Switch to prevention mode** from the Overview page, which changes the mode from Detection to Prevention. Requests that match the rules in the DRS are blocked and logged in the WAF logs. The WAF takes the prescribed action when a request matches one, or more, rules in the DRS and log the results. By default, the DRS is set to anomaly scoring mode; this means that the WAF doesn't take any action on a request unless the anomaly score threshold is met.
+To see WAF take action on request traffic, select **Switch to prevention mode** from the Overview page, which changes the mode from Detection to Prevention. Requests that match the rules in the DRS are blocked and logged in the WAF logs. The WAF takes the prescribed action when a request matches one, or more, rules in the DRS and logs the results. By default, the DRS is set to anomaly scoring mode; this means that the WAF doesn't take any action on a request unless the anomaly score threshold is met.
 
 Learn more: Anomaly scoring [Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md#anomaly-scoring-mode)
 
