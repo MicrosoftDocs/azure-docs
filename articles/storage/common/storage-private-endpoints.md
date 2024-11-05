@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 11/05/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
@@ -23,7 +23,9 @@ You can use [private endpoints](../../private-link/private-endpoint-overview.md)
 
 Using private endpoints for your storage account enables you to:
 
-- Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.
+- Secure your storage account by using a private link. 
+  > [!NOTE]
+  > Creating a private endpoint does not automatically block connections on the public endpoint of the storage service. You must manually configure the storage firewall to do that.
 - Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
 - Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
