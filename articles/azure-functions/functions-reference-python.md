@@ -46,7 +46,7 @@ As a Python developer, you might also be interested in these topics:
 
 ## [Hosting options](#tab/hosting)
 
-+ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. This plan is currently in preview.
++ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
 + [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
 + [Compare hosting options...](functions-scale.md) 
 

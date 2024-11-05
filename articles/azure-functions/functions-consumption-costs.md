@@ -1,7 +1,7 @@
 ---
 title: Estimating consumption-based costs in Azure Functions
 description: Learn how to better estimate the costs that you might incur when running your function app in either the Consumption plan or the Flex Consumption plan in Azure Functions.
-ms.date: 5/05/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom:
   - build-2024
@@ -54,18 +54,8 @@ This diagram represents how on-demand costs are determined in this plan:
 
 In addition to execution time, when using one or more always ready instances, you're also billed at a lower, baseline rate for the number of always ready instances you maintain. Execution time for always ready instances might be cheaper than execution time on instances with on demand execution.   
 
->[!IMPORTANT]
->In this article, prices are only provided to help understand example calculations. Always check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumtion plan. 
-
-For the examples in this section, consider the discounted preview pricing in this table for pay-as-you-go in East US.
-
-| Mode        | Meter             | Free monthly grants        | Consumption rates        |
-| ------------| ----------------- | -------------------------- | ------------------------ | 
-| On-demand | Execution time (GB-s)   | `100,000`              | `$0.000016` per GB-s         |
-| On-demand | Executions (count)  | `250,000` | `$0.20` per million executions              |
-| Always ready | Baseline (idle) time (GB-s)  | \-         | `$0.000004` per GB-s               |
-| Always ready | Execution time (GB-s)        | \-         | `$0.000009` per GB-s               |
-| Always ready | Executions (count)           | \-         | `$0.20` per million executions |
+> [!IMPORTANT]
+> In this article, on-demand pricing is used to help understand example calculations. Always check the current costs in the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumption plan. 
 
 Consider a function app that is comprised only of HTTP triggers with and these basic facts:
 
@@ -73,7 +63,7 @@ Consider a function app that is comprised only of HTTP triggers with and these b
 + HTTP triggers handle 10 concurrent requests.
 + The instance memory size setting is `2048 MB`. 
 + There are _no always ready instances configured_, which means the app can scale to zero.
-
+<!--- Update these example calculations after 12/1 based on GA pricing -->
 In a situation like this, the pricing depends more on the kind of work being done during code execution. Let's look at two workload scenarios:
 
 + **CPU-bound workload:** In a CPU-bound workload, there's no advantage to processing multiple requests in parallel in the same instance. This means that you're better off distributing each request to its own instance so requests complete as a quickly as possible without contention. In this scenario, you should set a low [HTTP trigger concurrency](./functions-concurrency.md#http-trigger-concurrency) of `1`. With 10 concurrent requests, the app scales to a steady state of roughly 10 instances, and each instance is continuously active processing one request at a time. 
@@ -88,7 +78,7 @@ In a situation like this, the pricing depends more on the kind of work being don
 
     Because consumption charges are based only on the memory of each active instance, the consumption charge calculation is simply `2 GB * 3600 s = 7200 GB-s`, which at the assumed on-demand execution rate (without any free grants applied) is `$0.1152 USD` per hour for the single instance.
 
-    As in the CPU-bound scenario, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or 0.144 million executions per hour. This makes the total (grant-free) hourly cost of executions `0.144 * $0.20`, which is `$0.0288` per hour.
+    As in the CPU-bound scenario, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or 0.144 million executions per hour. In this case, the total (grant-free) hourly cost of executions `0.144 * $0.20`, which is `$0.0288` per hour.
 
     In this scenario, the total hourly cost of running on-demand on a single instance is `$0.1152 + $0.0288 = $0.144 USD`. 
 
@@ -114,7 +104,7 @@ The following behaviors of your functions can affect the execution time:
 
 + **Triggers and bindings**: The time taken to read input from and write output to your [function bindings](functions-triggers-bindings.md) is counted as execution time. For example, when your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue, which is included in the calculation of the function cost. 
 
-+ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity isn't factored into the calculation. You may be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You're not billed for time spent at awaits in orchestrator functions.
++ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity isn't factored into the calculation. You might be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You're not billed for time spent at awaits in orchestrator functions.
 
 ## Viewing cost-related data
 
@@ -122,7 +112,7 @@ In [your invoice](../cost-management-billing/understand/download-azure-invoice.m
 
 ### Function app-level metrics
 
-To better understand the cost impact of your functions, you can use Azure Monitor to view cost-related metrics currently being generated by your function apps. 
+To better understand the costs of your functions, you can use Azure Monitor to view cost-related metrics currently being generated by your function apps. 
 
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]
 
