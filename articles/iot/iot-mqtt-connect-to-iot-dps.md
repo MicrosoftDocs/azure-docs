@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Device Provisioning Service
 description: Support for devices that use MQTT to connect to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint.
 author: rajeevmv
 ms.author: ravokkar
-ms.service: iot
+ms.service: azure-iot
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.custom:  [amqp, mqtt]

@@ -96,6 +96,12 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
 
+<a name='cognitive-services-azure-openai'></a>
+
+### [Azure AI services: Azure OpenAI](/azure/ai-services/openai/azure-government/)
+
+- Configure encryption at rest of content in Azure OpenAI [using customer-managed keys in Azure Key Vault](/azure/ai-services/openai/encrypt-data-at-rest#use-customer-managed-keys-with-azure-key-vault).
+
 <a name='cognitive-services-personalizer'></a>
 
 ### [Azure AI services: Personalizer](/azure/ai-services/personalizer/)
@@ -221,9 +227,9 @@ For Containers services availability in Azure Government, see [Products availabl
 
 - Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). 
 
-### [Container Registry](../container-registry/index.yml) 
+### [Container Registry](/azure/container-registry/) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](/azure/container-registry/tutorial-enable-customer-managed-keys).
 
 ## Databases
 
@@ -292,15 +298,15 @@ For Management and governance services availability in Azure Government, see [Pr
 
 - You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
-### [Azure Monitor](../azure-monitor/index.yml)
+### [Azure Monitor](/azure/azure-monitor/)
 
-- By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
+- By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](/azure/azure-monitor/logs/customer-managed-keys).
 
-#### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
+#### [Log Analytics](/azure/azure-monitor/logs/data-platform-logs)
 
-Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](/azure/azure-monitor/logs/data-security#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
+Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](/azure/azure-monitor/logs/customer-managed-keys).
 
 ### [Azure Site Recovery](../site-recovery/index.yml)
 

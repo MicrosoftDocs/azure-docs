@@ -15,7 +15,7 @@ ms.reviewer: jojoh
 
 This article discusses migration away from the [Consumption Usage Details API](/rest/api/consumption/usage-details/list), which is planned for deprecation. The exact date of deprecation is still being determined. We recommend that you don't build your reporting pipelines using this API and migrate away from it as soon as possible.
 
-Work is underway to retire Enterprise Agreement (EA) reporting APIs. We recommend that EA customers migrate to the Cost Management [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. The older EA reporting APIs are only available to customers with an Enterprise Agreement.
+The Enterprise Agreement (EA) reporting APIs, that use an API key for authentication and are accessed through the consumption.azure.com URI endpoint, are retired. EA customers using these APIs should migrate to the Cost Management [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. These older EA reporting APIs are only available to customers with an Enterprise Agreement.
 
 If you use the [Consumption Usage Details API](/rest/api/consumption/usage-details/list) we *recommend*, but don't require that you migrate to the Cost Management [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
 

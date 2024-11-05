@@ -4,7 +4,7 @@ description: Learn about round-trip latency statistics between Azure regions.
 services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/20/2024
 ms.author: mbender
 ms.custom: references_regions,updatedFY24S2

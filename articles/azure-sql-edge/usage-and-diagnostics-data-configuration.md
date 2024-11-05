@@ -3,13 +3,15 @@ title: Azure SQL Edge usage and diagnostics data configuration
 description: Learn how to configure usage and diagnostics data in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Azure SQL Edge usage and diagnostics data configuration
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 By default, Azure SQL Edge collects information about how its customers are using the application. Specifically, Azure SQL Edge collects information about the deployment experience, usage, and performance. This information helps Microsoft improve the product to better meet customer needs. For example, Microsoft collects information about what kinds of error codes customers encounter so that we can fix related bugs, improve our documentation about how to use Azure SQL Edge, and determine whether features should be added to the product to better serve customers.
@@ -117,7 +119,7 @@ To enable Local Audit usage and diagnostics data on Azure SQL Edge:
        userrequestedlocalauditdirectory  = <host mount path>/audit
        ```
 
-## Next steps
+## Related content
 
 - [Connect to Azure SQL Edge](connect.md)
 - [Build an end-to-end IoT solution with SQL Edge](tutorial-deploy-azure-resources.md)

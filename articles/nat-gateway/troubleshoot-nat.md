@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Get started using this article to learn how to troubleshoot issues and errors with Azure NAT Gateway.
 services: virtual-network
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/14/2024
 ms.author: allensu
@@ -36,7 +36,9 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. Ping isn't supported and is expected to fail. 
+[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
+> [!NOTE]
+> ICMP protocol is not supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 
@@ -61,7 +63,7 @@ To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow lo
 
 * For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-* It is recommended to access the log data on [Log Analytics workspaces](../azure-monitor/logs/log-analytics-overview.md) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+* It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
@@ -174,6 +176,10 @@ The following IP prefix sizes can be used with NAT gateway:
 ### Can't use basic public IPs with NAT gateway 
 
 NAT gateway is a standard resource and can't be used with basic resources, including basic public IP addresses. You can upgrade your basic public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address.](../virtual-network/ip-services/public-ip-upgrade-portal.md) 
+
+### Can't use public IPs with internet routing preference together with NAT gateway
+
+When NAT gateway is configured with a public IP address, traffic is routed via the [Microsoft network](/azure/virtual-network/ip-services/routing-preference-overview#routing-via-microsoft-global-network). NAT gateway can't be associated with public IPs with routing preference choice **Internet**. NAT gateway can only be associated with public IPs with routing preference choice **Microsoft Global Network**. See [supported services](/azure/virtual-network/ip-services/routing-preference-overview#supported-services) for a list of all Azure services that do support public IPs with the Internet routing preference.
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 

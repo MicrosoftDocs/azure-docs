@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 08/27/2024
+ms.date: 10/19/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -26,7 +26,9 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
@@ -247,19 +249,26 @@ py -m venv .venv
 
 1. Run this command from your app folder in a terminal or command prompt:
 
-    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     func start
     ``` 
     ::: zone-end  
-    ::: zone pivot="programming-language-java"
+    ::: zone pivot="programming-language-java"  
     ```console
     mvn clean package
     mvn azure-functions:run
     ```
     ::: zone-end  
-    ::: zone pivot="programming-language-typescript"
+    ::: zone pivot="programming-language-javascript"  
     ```console
+    npm install
+    func start  
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
+    ```console
+    npm install
     npm start  
     ```
     ::: zone-end  
@@ -271,16 +280,21 @@ py -m venv .venv
     <http://localhost:7071/api/httpget>
 
 1. From a new terminal or command prompt window, run this `curl` command to send a POST request with a JSON payload to the `httppost` endpoint: 
-
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
     ```console
     curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d @testdata.json
     ```
-
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript,programming-language-typescript" 
+    ```console
+    curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d "@src/functions/testdata.json"
+    ```
+    ::: zone-end  
     This command reads JSON payload data from the `testdata.json` project file. You can find examples of both HTTP requests in the `test.http` project file. 
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 ::: zone pivot="programming-language-python"
-5.  Run `deactivate` to shut down the virtual environment.
+5. Run `deactivate` to shut down the virtual environment.
 ::: zone-end
 
 ## Review the code (optional)
@@ -336,6 +350,24 @@ This `run.ps1` file implements the function code:
 
 ---
 
+::: zone pivot="programming-language-csharp"  
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd).
+::: zone-end  
+::: zone pivot="programming-language-java" 
+You can review the complete template project [here](https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd).
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd).
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd).
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd).
+::: zone-end  
+::: zone pivot="programming-language-python" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-http-azd).
+::: zone-end  
 After you verify your functions locally, it's time to publish them to Azure. 
 ::: zone pivot="programming-language-java" 
 ## Create Azure resources
@@ -451,7 +483,7 @@ You can now invoke your function endpoints in Azure by making HTTP requests to t
 You can use the Core Tools to obtain the URL endpoints of your functions running in Azure.
 
 1. In your local terminal or command prompt, run these commands to get the URL endpoint values:
- 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python" 
     ### [bash](#tab/bash)
 
     ```bash
@@ -464,12 +496,27 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
     for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
     func azure functionapp list-functions %APP_NAME% --show-keys 
     ``` 
+    ---
+    
+    ::: zone-end  
+    ::: zone pivot="programming-language-powershell"  
+    ### [PowerShell](#tab/powershell)
+    ```powershell
+    $APP_NAME = azd env get-value AZURE_FUNCTION_NAME
+    func azure functionapp list-functions $APP_NAME --show-keys
+    ```
 
+    ### [Cmd](#tab/cmd2)
+    ```cmd
+    for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
+    func azure functionapp list-functions %APP_NAME% --show-keys 
+    ``` 
     ---
 
+    ::: zone-end  
     The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option with `func azure functionapp list-functions` means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
 
-1. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
+2. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Redeploy your code
 

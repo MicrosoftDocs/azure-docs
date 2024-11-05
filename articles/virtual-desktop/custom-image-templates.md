@@ -21,7 +21,7 @@ There are two parts to creating a custom image:
 
 A custom image template is a JSON file that contains your choices of source image, distribution targets, build properties, and customizations. Azure Image Builder uses this template to create a custom image, which you can use as the source image for your session hosts when creating or updating a host pool. When creating the image, Azure Image Builder also takes care of generalizing the image with sysprep.
 
-Custom images can be stored in [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) or as a [managed image](../virtual-machines/windows/capture-image-resource.yml or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](/azure/virtual-machines/capture-image-resource) to review limitations for managed images.
+Custom images can be stored in [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) or as a [managed image](/azure/virtual-machines/capture-image-resource) or both. Azure Compute Gallery allows you to manage region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](/azure/virtual-machines/capture-image-resource) to review limitations for managed images.
 
 The source image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and can be from:
 
@@ -42,7 +42,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 - Enable FSLogix with Kerberos.
 - Enable [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks).
 - Enable [screen capture protection](screen-capture-protection.md).
-- Configure [Teams optimizations](teams-on-avd.md).
+- Configure [Teams optimizations](teams-on-avd.md). Optimizations include WebRTC redirector service and Visual C++ Redistributable.
 - Configure session timeouts.
 - Disable automatic updates for [MSIX applications](app-attach-setup.md#disable-automatic-updates).
 - Add or remove Microsoft Office applications.

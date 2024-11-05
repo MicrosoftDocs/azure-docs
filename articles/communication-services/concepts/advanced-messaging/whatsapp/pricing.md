@@ -9,6 +9,7 @@ ms.author: darmour
 ms.date: 02/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Advanced Messaging pricing in Azure Communication Services

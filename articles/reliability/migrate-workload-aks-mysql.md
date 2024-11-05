@@ -80,7 +80,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 #### Azure Container Registry (ACR) 
 
-*Zone-redundant*: We recommend that you create a zone-redundant registry in the Premium service tier. You can also create a zone-redundant registry replica by setting the `zoneRedundancy` property for the replica. To learn how to enable zone redundancy for your ACR, see [Enable zone redundancy in Azure Container Registry for resiliency and high availability](../container-registry/zone-redundancy.md).
+*Zone-redundant*: We recommend that you create a zone-redundant registry in the Premium service tier. You can also create a zone-redundant registry replica by setting the `zoneRedundancy` property for the replica. To learn how to enable zone redundancy for your ACR, see [Enable zone redundancy in Azure Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy).
 
 #### Azure Cache for Redis 
 

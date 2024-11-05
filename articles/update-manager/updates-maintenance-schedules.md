@@ -2,8 +2,8 @@
 title: Updates and maintenance in Azure Update Manager
 description: This article describes the updates and maintenance options available in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 06/19/2024
-ms.topic: conceptual
+ms.date: 10/28/2024
+ms.topic: overview
 author: snehasudhirG
 ms.author: sudhirsneha
 ---
@@ -14,7 +14,6 @@ ms.author: sudhirsneha
 
 > [!IMPORTANT]
 > - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules fail to patch the VMs. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
-> - For Azure Arc-enabled servers, the updates and maintenance options such as automatic VM guest patching in Azure, Windows automatic updates, and hot patching aren't supported.
 
 
 This article provides an overview of the various update options and orchestration in Azure Update Manager.

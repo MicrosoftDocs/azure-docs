@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/28/2024
+ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -43,6 +43,8 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
+> [!NOTE]
+> With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
 
 ### Azure burst functionality for premium storage
 For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
@@ -74,7 +76,7 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 
 
 > [!NOTE]
-> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified&sort=Latest%20Certification&sortDesc=true).
 
 **Recommendation: The recommended configurations with Azure premium storage for production scenarios look like:**
 
@@ -98,11 +100,17 @@ Configuration for SAP **/hana/data** volume:
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000| no bursting | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
+| M416(d)s_6_v3 | 5,696 GiB | 4,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
-| M416s_8_v2 | 7,600 | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
+| M416(d)s_8_v2 | 7,600 | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
+| M416(d)s_8_v3 | 7,600 | 4,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
-| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
-| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 6 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
@@ -127,12 +135,19 @@ For the **/hana/log** volume. the configuration would look like:
 | M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
-| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M416(d)s_6_v3 | 5,696 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
@@ -157,11 +172,17 @@ For the other volumes, the configuration would look like:
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2,850 GiB | 1,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M416(d)s_6_v3 | 5,696 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |  
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 

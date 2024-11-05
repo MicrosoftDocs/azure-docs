@@ -55,6 +55,8 @@
       href: side-by-side-migrate.md
     - name: Manually migrate to App Service Environment v3
       href: migration-alternatives.md
+    - name: Auto-migration overview
+      href: auto-migration.md
 - name: Reference
   items:
   - name: Management addresses

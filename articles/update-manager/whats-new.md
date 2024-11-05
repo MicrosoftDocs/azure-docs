@@ -5,14 +5,26 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/24/2024
+ms.date: 11/01/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## November 2024
+
+### Hotpatching (preview) on Arc-enabled machines
+
+Public preview: Azure Update Manager now supports Hotpatching on Arc enabled servers.  [Learn more](manage-hot-patching-arc-machines.md).
+
+
 ## August 2024
+
+### Support for 35 CIS images added along with 59 other images
+
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix.md#supported-operating-systems).
+
 
 ### Pre and Post events
 
@@ -20,9 +32,9 @@ General Availability: Azure Update Manager now supports creating and managing pr
 
 ## July 2024
 
-### Support for Windows IoT Enterprise on Arc enabled IaaS VMs
+### Support for Windows IoT Enterprise on Arc enabled servers
 
-Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled IaaS VMs. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled servers. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 

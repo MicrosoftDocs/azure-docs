@@ -22,7 +22,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 - An active Log Analytics Workspace, also known as Azure Monitor Logs. See [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
-- To conduct a survey with custom questions using free form text, you need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
+- To conduct a survey with custom questions using free form text, you need an [App Insight resource](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource).
 
 ::: zone pivot="platform-web"
 [!INCLUDE [End of Call Survey for Web](./includes/end-of-call-survey-web.md)]
@@ -49,7 +49,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Service, see: [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
 
-- You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md).
+- You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](/azure/azure-monitor/logs/log-powerbi).
 
 ## Best practices
 Here are our recommended survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
@@ -79,6 +79,6 @@ If a survey participant responded to Question 1 with a score at or below the cut
 
 - Learn more about the End of Call Survey, see: [End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
-- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
 
-- Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)
+- Create your own queries in Log Analytics, see: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries)

@@ -282,6 +282,8 @@
         href: backup-during-vm-creation.md
       - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
+      - name: Back up an Azure VM in Azure extended zones (preview)
+        href: backup-azure-vms-extended-zones.md
       - name: Back up Azure VM with agentless multi-disk crash-consistent backup
         href: backup-azure-vms-agentless-multi-disk-crash-consistent.md
       - name: Back up an Azure VM from VM settings
@@ -698,6 +700,10 @@
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
         href: azure-policy-configure-diagnostics.md
+      - name: Audit and Enforce backup for Managed Disks using Azure policy
+        href: backup-managed-disks-policy.md
+      - name: Audit and Enforce backup operations for Azure Kubernetes Service clusters using Azure policy
+        href: azure-kubernetes-service-cluster-backup-policy.md  
     - name: Use PowerShell
       items:
       - name: Azure VMs

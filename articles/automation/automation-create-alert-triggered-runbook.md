@@ -3,7 +3,7 @@ title: Use an alert to trigger an Azure Automation runbook
 description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/28/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to trigger a runbook so that VMs can be stopped under certain conditions.
@@ -12,7 +12,7 @@ ms.service: azure-automation
 
 # Use an alert to trigger an Azure Automation runbook
 
-You can use [Azure Monitor](../azure-monitor/overview.md) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../azure-monitor/alerts/action-groups.md) to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
+You can use [Azure Monitor](/azure/azure-monitor/overview) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](/azure/azure-monitor/alerts/action-groups) to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
 
 
 ## Prerequisites
@@ -32,15 +32,15 @@ You can use automation runbooks with three alert types:
 * Near-real-time metric alerts
 
 > [!NOTE]
-> The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, the three alert types in Azure (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](../azure-monitor/alerts/alerts-common-schema.md).
+> The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, the three alert types in Azure (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](/azure/azure-monitor/alerts/alerts-common-schema).
 
 When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|
-|[Common alert](../azure-monitor/alerts/alerts-common-schema.md)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|Common alert payload schema.|
-|[Activity log alert](../azure-monitor/alerts/activity-log-alerts.md) |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an Active status appears.| [Activity log alert payload schema](../azure-monitor/alerts/activity-log-alerts-webhook.md)     |
-|[Near real-time metric alert](../azure-monitor/alerts/alerts-metric-near-real-time.md) | Sends a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than 90, and the value for **Network In** is greater than 500 MB for the past 5 minutes.| [Near real-time metric alert payload schema](../azure-monitor/alerts/alerts-webhooks.md#payload-schema)          |
+|[Common alert](/azure/azure-monitor/alerts/alerts-common-schema)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|Common alert payload schema.|
+|[Activity log alert](/azure/azure-monitor/alerts/activity-log-alerts) |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an Active status appears.| [Activity log alert payload schema](/azure/azure-monitor/alerts/activity-log-alerts-webhook)     |
+|[Near real-time metric alert](/azure/azure-monitor/alerts/alerts-metric-near-real-time) | Sends a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than 90, and the value for **Network In** is greater than 500 MB for the past 5 minutes.| [Near real-time metric alert payload schema](/azure/azure-monitor/alerts/alerts-webhooks#payload-schema)          |
 
 Because the data that's provided by each type of alert is different, each alert type is handled differently. In the next section, you learn how to create a runbook to handle different types of alerts.
 
@@ -279,7 +279,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 1. Under **Alert rule details**, for the **Alert rule name** text box.
 
-1. Select **Create alert rule**.  You can use the action group in the [activity log alerts](../azure-monitor/alerts/activity-log-alerts.md) and [near real-time alerts](../azure-monitor/alerts/alerts-overview.md) that you create.
+1. Select **Create alert rule**.  You can use the action group in the [activity log alerts](/azure/azure-monitor/alerts/activity-log-alerts) and [near real-time alerts](/azure/azure-monitor/alerts/alerts-overview) that you create.
 
 ## Verification
 
@@ -302,7 +302,8 @@ Azure Automation provides scripts for common Azure VM management operations like
 
 ## Next steps
 
+* Learn more on how to [create budget and associate it with Automation runbook](../cost-management-billing/manage/cost-management-budget-scenario.md).
 * Discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
-* Create an activity log alert, see [Create activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).
-* Learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Create an activity log alert, see [Create activity log alerts](/azure/azure-monitor/alerts/activity-log-alerts).
+* Learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](/azure/azure-monitor/alerts/alerts-metric?toc=/azure/azure-monitor/toc.json).
 

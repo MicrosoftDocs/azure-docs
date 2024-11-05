@@ -19,7 +19,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
 
-```bash
+```java
   @RequestMapping("/")
 	String sayHello() {
 
@@ -66,7 +66,7 @@ For OpenAI, use the following settings:
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `OPENAI_MODEL_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
-Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following code in the *Application.java `http://Application.java`* file:
+Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following code in the `Application.java` file:
 
 For Azure OpenAI:
 
@@ -132,7 +132,7 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once added, you see the following imports are added to the Application.java `http://Application.java` file:
+Once added, you see the following imports are added to the `Application.java` file:
 
 ```java
 import com.azure.ai.openai.OpenAIClient;

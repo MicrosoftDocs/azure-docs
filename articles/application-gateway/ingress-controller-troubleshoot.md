@@ -223,6 +223,7 @@ The following conditions must be in place for AGIC to function as expected:
     ```
 
 
+
 * Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) annotated with: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC only watches for Kubernetes Ingress resources that have this annotation.
 
     ```bash

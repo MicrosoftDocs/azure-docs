@@ -3,8 +3,8 @@ title: Remove machines from Azure Automation Change Tracking and Inventory
 description: This article tells how to remove Azure and non-Azure machines from Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
-ms.topic: conceptual
-ms.date: 08/30/2024
+ms.topic: how-to
+ms.date: 09/09/2024
 ms.service: azure-automation
 ---
 

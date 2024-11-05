@@ -6,7 +6,7 @@ ms.author: sairamyeturi
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 09/15/2023
+ms.date: 09/06/2024
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 

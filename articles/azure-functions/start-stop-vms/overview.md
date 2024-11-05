@@ -10,18 +10,18 @@ ms.date: 09/23/2022
 
 # Start/Stop VMs v2 overview
 
-The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
+The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), and send optional notifications by using [action groups](/azure/azure-monitor/alerts/action-groups). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
 
-This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the service that are deployed and consumed.
+This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the services that are deployed and consumed.
 
 ## Important Start/Stop VMs v2 Updates
 
-> + We've updated our Start/Stop VMs v2 function app resource to use [Azure Functions version 4.x](../functions-versions.md), and you'll get this version by default when you install Start/Stop VMs v2 from the marketplace. Existing customers should migrate from Functions version 3.x to version 4.x using our auto-update functionality. This functionality gets the latest version either by running the TriggerAutoUpdate timer function once manually or waiting for the schedule to run, if you've enabled it. 
+> + No further development, enhancements, or updates will be available for Start/Stop v2 except when required to remain on supported versions of components and Azure services.
 >
-> + We've added a plan (**AZ - Availability Zone**) to our Start/Stop VMs v2 solution to enable a more reliable offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
->
-> + Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation.  
->   If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
+> + The TriggerAutoUpdate and UpdateStartStopV2 functions are now deprecated and will be removed in the future. To update Start/Stop v2, we recommend that you stop the site, install to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments), and then start the site. To disable the automatic update functionality, set the Function App's **AzureClientOptions:EnableAutoUpdate** [application setting](../functions-how-to-use-azure-function-app-settings.md?tabs=azure-portal%2Cto-premium#get-started-in-the-azure-portal) to **false**. No built-in notification system is available for updates. After an update to Start/Stop v2 becomes available, we will update the [readme.md](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) in the GitHub repository. Third-party GitHub file watchers might be available to notify you of changes.
+> 
+> + As of August 19, 2024, Start/Stop v2 has been updated to the [.NET 8 isolated worker model](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).  
+
     
 ## Overview
 
@@ -43,8 +43,8 @@ An HTTP trigger function endpoint is created to support the schedule and sequenc
 |CostAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate cost of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |SavingsAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate savings of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
-|TriggerAutoUpdate |Timer |This function starts the auto update process based on the application setting "**EnableAutoUpdate=true**".|
-|UpdateStartStopV2 |Queue |This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
+|TriggerAutoUpdate |Timer |Deprecated. This function starts the auto update process based on the application setting "**AzureClientOptions:EnableAutoUpdate=true**".|
+|UpdateStartStopV2 |Queue |Deprecated. This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
 
 For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 
@@ -75,9 +75,7 @@ An Azure Storage account, which is required by Functions, is also used by Start/
 
    - Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
-All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
-
-:::image type="content" source="media/overview/shared-dashboard-sml.png" alt-text="Start/Stop VMs shared status dashboard":::
+All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
 
 Email notifications are also sent as a result of the actions performed on the VMs.
 

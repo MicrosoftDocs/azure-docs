@@ -3,7 +3,7 @@ title: Lumenisity University of Southampton Patents
 description: List of Lumenisity UoS Patents as of April 19, 2023.
 ms.service: azure
 author: duongau
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: duau
 ---

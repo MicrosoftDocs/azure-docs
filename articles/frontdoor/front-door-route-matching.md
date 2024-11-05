@@ -50,7 +50,7 @@ The decision of how to process the request depends on whether caching is enabled
 
 ## Route matching
 
-This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first match based on protocol, then domain, and last the path.
+This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first matches based on protocol, then domain, and last the path.
 
 ### Frontend host matching
 
@@ -135,7 +135,7 @@ The following table shows which routing rule the incoming request gets matched t
 | www\.contoso.com/path/zzz | B |
 
 >[!WARNING]
-> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
+> If there are no routing rules for an exact-match frontend host without a catch-all route path (/*), then no routing rule will be matched.
 >
 > Example configuration:
 >

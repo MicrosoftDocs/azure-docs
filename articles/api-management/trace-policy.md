@@ -16,7 +16,7 @@ ms.author: danlep
 The `trace` policy adds a custom trace into the request tracing output in the test console, Application Insights telemetries, and/or resource logs.
 
 -   The policy adds a custom trace to the [request tracing](./api-management-howto-api-inspector.md) output in the test console when tracing is triggered.
--   The policy creates a [Trace](../azure-monitor/app/data-model-complete.md#trace) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the [diagnostic setting](./diagnostic-logs-reference.md).
+-   The policy creates a [Trace](/azure/azure-monitor/app/data-model-complete#trace) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the [diagnostic setting](./diagnostic-logs-reference.md).
 -   The policy adds a property in the log entry when [resource logs](./api-management-howto-use-azure-monitor.md#resource-logs) are enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the [diagnostic setting](./diagnostic-logs-reference.md).
 -   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
@@ -45,7 +45,7 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | message  | A string or expression to be logged. Policy expressions are allowed.                                                                                                                 | Yes      |
-| metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-complete.md#trace) telemetry. | No       |
+| metadata | Adds a custom property to the Application Insights [Trace](/azure/azure-monitor/app/data-model-complete#trace) telemetry. | No       |
 
 ### metadata attributes
 

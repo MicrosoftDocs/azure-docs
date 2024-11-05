@@ -49,9 +49,9 @@ with policy assignments or Azure role assignments that are more suited to a new 
 
 1. Use the search bar to search for and select **Management groups**.
 
-1. On the root management group, select **details** next to the name of the management group.
+1. Select the root management group.
 
-1. Under **Settings**, select **Hierarchy settings**.
+1. Select **Settings** on the left side of the page.
 
 1. Select the **Change default management group** button.
 
@@ -103,13 +103,13 @@ management group hierarchy. To create child management groups, a user requires t
 
 1. Use the search bar to search for and select **Management groups**.
 
-1. On the root management group, select **details** next to the name of the management group.
+1. Select the root management group.
 
-1. Under **Settings**, select **Hierarchy settings**.
+1. Select **Settings** on the left side of the page.
 
-1. Turn on the **Require permissions for creating new management groups** toggle.
+1. Turn on the **Permissions for creating new management groups** toggle.
 
-   If the **Require permissions for creating new management groups** toggle is unavailable, the cause is one of these conditions:
+   If the **Require write permissions for creating new management groups** toggle is unavailable, the cause is one of these conditions:
 
    - The management group that you're viewing isn't the root management group.
    - Your security principal doesn't have the necessary permissions to alter the hierarchy settings.

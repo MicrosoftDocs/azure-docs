@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/01/2024
 ms.author: normesta
 ---
@@ -55,7 +55,7 @@ A time-based retention policy stores blob data in a WORM format for a specified 
 
 A time-based retention policy can be configured at the following scopes:
 
-- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container.
+- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container. If there is a legal hold on a container, Version-level WORM cannot be created for the same container. This is because the versions can't generated due to the legal hold.
 - Container-level WORM policy: A time-based retention policy configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
 ### Retention interval for a time-based policy

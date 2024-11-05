@@ -312,7 +312,7 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - To list the 10 most common errors over the last three days.
 

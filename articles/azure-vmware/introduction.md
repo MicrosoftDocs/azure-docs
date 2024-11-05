@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 6/3/2024
+ms.date: 9/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -43,19 +43,21 @@ See the following prerequisites for AV64 cluster deployment.
 When a customer has a deployed Azure VMware Solution private cloud, they can scale the private cloud by adding a separate AV64 vCenter node cluster to that private cloud. In this scenario, customers should use the following steps: 
 
 1. Get an AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with the minimum of three nodes. Add other details on the Azure VMware Solution private cloud that you plan to extend using AV64.
-2. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
 3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
 **Customer plans to create a new Azure VMware Solution private cloud**: When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
 
 1. Get AV36, AV36P, or AV52, and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each.
-2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU.
-3. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
+1. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU.
 4. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand.
 
 **Azure VMware Solution stretched clusters private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched clusters private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched clusters private cloud. 
 
-### AV64 Cluster vSAN fault domain (FD) design and recommendations 
+[!NOTE]
+
+All traffic from an AV64 host towards a customer network will utilize the IP address of the VMKernel Network Interface 1.
+
+### AV64 Cluster vSAN fault domain (FD) design and recommendations
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan.doc/GUID-8491C4B0-6F94-4023-8C7A-FD7B40D0368D.html). 
 
@@ -132,17 +134,17 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 
 ## Monitoring your private cloud
 
-Once you deployed Azure VMware Solution into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically.
+Once you deployed Azure VMware Solution into your subscription, [Azure Monitor logs](/azure/azure-monitor/overview) are generated automatically.
 
 In your private cloud, you can:
 
 - Collect logs on each of your VMs.
-- [Download and install the MMA agent](../azure-monitor/agents/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
-- Enable the [Azure diagnostics extension](../azure-monitor/agents/diagnostics-extension-overview.md).
-- [Create and run new queries](../azure-monitor/logs/data-platform-logs.md#kusto-query-language-kql-and-log-analytics).
+- [Download and install the MMA agent](/azure/azure-monitor/agents/log-analytics-agent#installation-options) on Linux and Windows VMs.
+- Enable the [Azure diagnostics extension](/azure/azure-monitor/agents/diagnostics-extension-overview).
+- [Create and run new queries](/azure/azure-monitor/logs/data-platform-logs#kusto-query-language-kql-and-log-analytics).
 - Run the same queries you usually run on your VMs.
 
-Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
+Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](/azure/azure-monitor/vm/monitor-vm-azure).
 
 ## Customer communication
 
@@ -154,7 +156,7 @@ Azure VMware Solution implements a shared responsibility model that defines dist
 
 The shared responsibility matrix table outlines the main tasks that customers and Microsoft each handle in deploying and managing both the private cloud and customer application workloads.
 
-:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." border="false" lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
+:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Diagram of the high-level shared responsibility matrix for Azure VMware Solution." border="false" lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft, which encompasses the most frequent tasks and definitions. For further questions, contact Microsoft.
 

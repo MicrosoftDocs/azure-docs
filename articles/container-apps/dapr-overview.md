@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 10/04/2024
 ---
 
 # Microservice APIs powered by Dapr
@@ -45,6 +45,22 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Observability**](./observability.md)               | GA | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
+
+### Compatible SDKs
+
+Dapr's latest client SDK packages are compatible with Azure Container Apps. You can use any of the [supported, GA Dapr APIs](#managed-apis) with the following Dapr client SDK versions:
+
+| Language | SDK version |
+| -------- | ------- |
+| Java | 1.12.0 | 
+| Go | 1.11.0 | 
+| Python | 1.14.0 |
+| .NET | 1.14.0 | 
+| JavaScript | 3.3.1 | 
+| Rust | 0.15.1 | 
+
+> [!NOTE] 
+> Currently, the Dapr server extensions, actor, and workflow SDK packages are not compatible with Azure Container Apps. [Learn more about all of the Dapr SDK packages.](https://docs.dapr.io/developing-applications/sdks/)
 
 [!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 

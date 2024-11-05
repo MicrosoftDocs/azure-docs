@@ -88,7 +88,7 @@ The availability or liveness of an application is determined using the Spring Bo
 
 A dashboard is a cognitive awareness and communication tool designed to help you visually identify trends, patterns, and anomalies, reason about what you see, and make effective decisions. It can aggregate various metric charts, quick links, and other important information.
 
-Use the following steps to create a custom dashboard and pin various quickstart panes and metrics charts to the dashboard. If you choose to use the built-in dashboard for Application Insights created by Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../../azure-monitor/app/overview-dashboard.md).
+Use the following steps to create a custom dashboard and pin various quickstart panes and metrics charts to the dashboard. If you choose to use the built-in dashboard for Application Insights created by Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](/azure/azure-monitor/app/overview-dashboard).
 
 > [!NOTE]
 > You can also choose a wizard based on Application Insights to quickly create a default dashboard.
@@ -102,7 +102,7 @@ Use the following steps to create a custom dashboard and pin various quickstart 
    This action opens the **Tile Gallery** page, from which you can select the tiles, and an empty grid where you can arrange the tiles.
 
 > [!NOTE]
-> You can allow other users to view your dashboard using a shared dashboard. For more information, see [Share an Azure dashboard](../../../../azure-portal/azure-portal-dashboard-share-access.md).
+> You can allow other users to view your dashboard using a shared dashboard. For more information, see [Share an Azure dashboard](/azure/azure-portal/azure-portal-dashboard-share-access).
 
 #### Basic monitoring
 

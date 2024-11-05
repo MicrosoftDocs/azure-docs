@@ -11,7 +11,7 @@ ms.author: buchvarun
 
 # Enable audit and diagnostic logging in the DICOM service
 
-In this article, you'll learn how to enable diagnostic logging in DICOM&reg; service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is required. The feature in DICOM service that enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you'll learn how to enable diagnostic logging in DICOM&reg; service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is required. The feature in DICOM service that enables diagnostic logs is the [Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in the Azure portal. 
 
 ## Enable logs
 
@@ -30,19 +30,19 @@ In this article, you'll learn how to enable diagnostic logging in DICOM&reg; ser
 
 5. Select the **Category** and **Destination** details for accessing the diagnostic logs:
 
-   * **Send to Log Analytics workspace** in the Azure Monitor. You need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+   * **Send to Log Analytics workspace** in the Azure Monitor. You need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview).
    * **Archive to a storage account** for auditing or manual inspection. The storage account you want to use needs to already be created.
    * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this step.
    * **Send to partner solution** that you're working with as a partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
 
-     For information about supported metrics, see [Supported metrics with Azure Monitor](.././../azure-monitor/essentials/metrics-supported.md).
+     For information about supported metrics, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 6. Select **Save**.
 
    > [!Note] 
    > It might take up to 15 minutes for the first Logs to appear in Log Analytics. Also, if the DICOM service is moved from one resource group or subscription to another, update the settings once the move is complete. 
  
-   For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
+   For information on how to work with diagnostic logs, see [Azure Resource Log documentation](/azure/azure-monitor/essentials/platform-logs-overview)
 
 ## Log details
 The log schema used differs based on the destination. Log Analytics has a schema that differs from other destinations. Each log type has a different schema.
@@ -146,6 +146,6 @@ MicrosoftHealthcareApisAuditLogs
 
 ## Next steps
 
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

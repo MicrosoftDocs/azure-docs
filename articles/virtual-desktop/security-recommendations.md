@@ -110,19 +110,15 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 
 Enabling audit log collection lets you view user and admin activity related to Azure Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+-   [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
 -   [Microsoft Entra Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/agents/agent-windows.md)
+-   [Session hosts](/azure/azure-monitor/agents/agent-windows)
 -   [Key Vault logs](/azure/key-vault/general/logging)
-
-### Use RemoteApp
-
-When choosing a deployment model, you can either provide remote users access to entire desktops, or only select applications when published as a RemoteApp. RemoteApp provides a seamless experience as the user works with apps from their virtual desktop. RemoteApp reduces risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ### Encrypt your session hosts
 
@@ -134,9 +130,9 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. For more information, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus#configure-antivirus-file-and-folder-exclusions).
 
-For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions.
+For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions. For more information, see 
 
 ### Install an endpoint detection and response product
 

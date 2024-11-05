@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+#Customer intent: As a security engineer, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel
@@ -21,7 +21,7 @@ Many applications log data to text files instead of standard logging services li
 
 For more information about the applications for which Microsoft Sentinel has solutions to support log collection, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md).
 
-For more general information about ingesting custom logs from text files, see [Collect logs from a text file with Azure Monitor Agent](../azure-monitor/agents/data-collection-log-text.md).
+For more general information about ingesting custom logs from text files, see [Collect logs from a text file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-text).
 
 > [!IMPORTANT]
 > - The **Custom Logs via AMA** data connector is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -54,15 +54,15 @@ Certain custom applications are hosted on closed appliances that necessitate sen
 
 - You must have a designated Linux VM as a log forwarder to collect logs.
     - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
-    - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
+    - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
 
-- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
+- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/overview) installed on it.
 
 - The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check. If you're using Python 3, make sure it's set as the default command on the machine, or run scripts with the 'python3' command instead of 'python'.
 
 - The log forwarder must have either the `syslog-ng` or `rsyslog` daemon enabled.
 
-- For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
+- For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](/azure/azure-monitor/agents/azure-monitor-agent-performance). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
 
 - Your log sources, security devices, and appliances must be configured to send their log messages to the log forwarder's syslog daemon instead of to their local syslog daemon.
 
@@ -170,11 +170,11 @@ After you complete all the tabs, review what you entered and create the data col
 ### Install the Azure Monitor Agent
 
 Follow the appropriate instructions from the Azure Monitor documentation to install the Azure Monitor Agent on the machine hosting your application, or on your log forwarder. Use the instructions for Windows or for Linux, as appropriate.
-- [Install the AMA using PowerShell](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-powershell)
-- [Install the AMA using the Azure CLI](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-cli)
-- [Install the AMA using an Azure Resource Manager template](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-resource-manager)
+- [Install the AMA using PowerShell](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-powershell)
+- [Install the AMA using the Azure CLI](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-cli)
+- [Install the AMA using an Azure Resource Manager template](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-resource-manager)
 
-Create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingestion API](/rest/api/monitor/data-collection-rules). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md).
+Create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingestion API](/rest/api/monitor/data-collection-rules). For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 ### Create the data collection rule
 
@@ -284,7 +284,7 @@ If you're collecting logs from an appliance using a log forwarder, configure the
     If you're using Python 3, and it's not set as the default command on the machine, substitute `python3` for `python` in the pasted command. See [Log forwarder prerequisites](#log-forwarder-prerequisites).
 
     > [!NOTE] 
-    > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
+    > To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
     > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://syslog-ng.github.io/).
 
 ## Configure the security device or appliance
@@ -295,5 +295,5 @@ Contact the solution provider for more information or where information is unava
 
 ## Related content
 
-- [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-- [Collect logs from a text file with Azure Monitor Agent](../azure-monitor/agents/data-collection-log-text.md)
+- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+- [Collect logs from a text file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-text)

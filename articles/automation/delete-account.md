@@ -4,8 +4,8 @@ description: This article tells how to delete and your Automation account across
 services: automation
 ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 06/04/2021
-ms.topic: conceptual 
+ms.date: 10/10/2024
+ms.topic: how-to 
 ---
 
 # Manage your Azure Automation account
@@ -103,11 +103,11 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
-2. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
+1. Navigate to your Automation account, and select **Linked workspace**.
 
-3. Select **Go to workspace**.
+1. Under **Related resources**, select **Linked workspace** and then select **Go to workspace**.
 
-4. Select **Solutions** under **General**.
+4. Under **Classic**, select **Legacy solutions**.
 
 5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 

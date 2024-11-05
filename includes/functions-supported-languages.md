@@ -48,6 +48,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| .NET 9 | Preview | [See policy][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
@@ -84,12 +85,9 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 22](https://endoflife.date/nodejs) | Preview | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
-| [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
-| [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until June 30, 2024.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
@@ -98,6 +96,7 @@ The following table shows the language version supported for PowerShell function
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 | [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).

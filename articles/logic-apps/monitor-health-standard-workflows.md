@@ -35,7 +35,7 @@ After you enable Health Check, the App Service platform pings the specified work
 
 If a workflow running on an instance doesn't respond to the ping after 10 requests, the App Service platform determines that the instance is unhealthy and removes the instance for that specific logic app from the load balancer in Azure. With a two-request minimum, you can specify the required number of failed requests to determine that an instance is unhealthy. For more information about overriding default behavior, see [Configuration: Monitor App Service instances using Health Check](../app-service/monitor-instances-health-check.md#configuration).
 
-After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#what-app-service-does-with-health-checks).
+After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#how-health-check-works).
 
 ## Prerequisites
 

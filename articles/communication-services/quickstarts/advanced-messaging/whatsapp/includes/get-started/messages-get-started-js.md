@@ -4,6 +4,7 @@ description: Include file
 services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
@@ -334,28 +335,123 @@ if (textMessageResult.status === "202") {
 
 ### Send a media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the Image
+- URL of the Image, Video, Document or Audio media
 
 > [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send a media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-To send a media message, provide a URL to an image. As an example,
+> [!IMPORTANT]
+> As of SDK version 2.0.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
+
+#### Sending image content
+
+To send an image message, provide a URL to an image. As an example,
 ```javascript
-const url = "https://aka.ms/acsicon1";
+const url = "https://example.com/image.jpg";
 ```
 
 Assemble and send the media message:
 ```javascript
-// Send media message
+// Send image message
 const mediaMessageResult = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
         channelRegistrationId: channelRegistrationId,
         to: recipientList,
         kind: "image",
+        mediaUri: url
+    }
+});
+
+// Process result
+if (mediaMessageResult.status === "202") {
+    mediaMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
+```
+
+#### Sending video content
+
+To send a video message, provide a URL to a video. As an example,
+```javascript
+const url = "https://example.com/video.mp4";
+```
+
+Assemble and send the video message:
+```javascript
+// Send video message
+const mediaMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "video",
+        mediaUri: url
+    }
+});
+
+// Process result
+if (mediaMessageResult.status === "202") {
+    mediaMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
+```
+
+#### Sending audio content
+
+To send an audio message, provide a URL to an audio file. As an example,
+```javascript
+const url = "https://example.com/audio.mp3";
+```
+
+Assemble and send the audio message:
+```javascript
+// Send audio message
+const mediaMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "audio",
+        mediaUri: url
+    }
+});
+
+// Process result
+if (mediaMessageResult.status === "202") {
+    mediaMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
+```
+
+#### Sending document content
+
+To send a document message, provide a URL to a document. As an example,
+```javascript
+const url = "https://example.com/document.pdf";
+```
+
+Assemble and send the document message:
+```javascript
+// Send document message
+const mediaMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "document",
         mediaUri: url
     }
 });

@@ -6,12 +6,12 @@ description: Region availability, data residency, high availability, SLA, and in
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: references_regions
 
 
@@ -32,6 +32,8 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country/region.
 
+> [!NOTE]
+> Azure AD B2C is generally available in the Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet. Azure AD B2C is not available in Microsoft Azure Government.
 
 ## Region availability
 

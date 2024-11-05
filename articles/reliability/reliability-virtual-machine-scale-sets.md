@@ -2,185 +2,20 @@
 title: Reliability in Azure Virtual Machine Scale Sets
 description: Learn about reliability in Azure Virtual Machine Scale Sets. 
 author: anaharris-ms
-ms.author: csudrisforresiliency
+ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: azure-virtual-machine-scale-sets
-ms.date: 06/12/2023
+ms.date: 10/31/2024
 ---
 
 # Reliability in Virtual Machine Scale Sets
 
-This article contains [specific reliability recommendations](#reliability-recommendations) and information on [availability zones support](#availability-zone-support) for Virtual Machine Scale Sets.  
+This article contains information on [availability zones support](#availability-zone-support) for Virtual Machine Scale Sets.  
 
 >[!NOTE]
 >Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines-Disaster recovery: cross-region failover](./reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity).
 
-
-For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
-
-
-## Reliability recommendations
-
-
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
-
-### Reliability recommendations summary
-
-| Category | Priority |Recommendation |  
-|---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Enable automatic repair policy](#-enable-automatic-repair-policy) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Deploy Virtual Machine Scale Sets across availability zones with Virtual Machine Scale Sets Flex](#-deploy-virtual-machine-scale-sets-across-availability-zones-with-virtual-machine-scale-sets-flex) |
-| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-deploy-vms-with-flexible-orchestration-mode) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Configure Virtual Machine Scale Sets Autoscale to Automatic](#-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Set Virtual Machine Scale Sets custom scale-in policies to default](#-set-virtual-machine-scale-sets-custom-scale-in-policies-to-default) |
-| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Enable Protection Policy for all Virtual Machine Scale Set VMs](#-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
-| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [Enable Virtual Machine Scale Sets application health monitoring](#-enable-virtual-machine-scale-sets-application-health-monitoring) |
-| [**System Efficiency**](#system-efficiency) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [Configure Allocation Policy Spreading algorithm to max spreading](#-configure-allocation-policy-spreading-algorithm-to-max-spreading) |
-| [**Automation**](#automation) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Set patch orchestration options to Azure-orchestrated](#-set-patch-orchestration-options-to-azure-orchestrated) |
-
-
-### High availability
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Enable automatic repair policy** 
-
-To achieve high availability for applications, [enable automatic instance repairs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repair deletes the unhealthy instance and creates a new one to replace it.
-
-A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
-
-
-# [Azure Resource Graph](#tab/graph-4)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-4/vmss-4.kql":::
-
-----
-
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Deploy Virtual Machine Scale Sets across availability zones with Virtual Machine Scale Sets Flex** 
-
-When you create your Virtual Machine Scale Sets, use availability zones to protect your applications and data against unlikely datacenter failure. For more information, see [Availability zone support](#availability-zone-support).
-
-# [Azure Resource Graph](#tab/graph-4)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-8/vmss-8.kql":::
-
-----
-
-### Scalability
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **Deploy VMs with flexible orchestration mode** 
-
-All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
-
-For more information on how to use scale sets appropriately, see [When to use Virtual Machine Scale Sets instead of VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#when-to-use-scale-sets-instead-of-virtual-machines)
-
-# [Azure Resource Graph](#tab/graph-1)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-1/vmss-1.kql":::
-
-----
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Configure Virtual Machine Scale Sets Autoscale to Automatic** 
-
-[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale set VMs based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
-
-To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
-
-# [Azure Resource Graph](#tab/graph-2)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-5/vmss-5.kql":::
-
-----
-
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **Set Virtual Machine Scale Sets custom scale-in policies to default** 
-
-
-The [Virtual Machine Scale Sets custom scale-in policy feature](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale-in policy configurations:
-
-- [Default](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#default-scale-in-policy)
-- [NewestVM](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#newestvm-scale-in-policy)
-- [OldestVM](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#oldestvm-scale-in-policy)
-
-A Virtual Machine Scale Set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves.
-
-It's not necessary that you specify a scale-in policy if you only want the default ordering to be followed, as the default custom scale-in policy provides the best algorithm and flexibility for most of the scenarios. The default ordering is as follows:
-
-1. Balance virtual machines across availability zones (if the scale set is deployed with availability zone support).
-1. Balance virtual machines across fault domains (best effort).
-1. Delete virtual machine with the highest instance ID.
-
-Only use the *Newest* and *Oldest* policies when your workload requires that the oldest or newest VMs should be deleted after balancing across availability zones.
-
->[!NOTE]
->Balancing across availability zones or fault domains doesn't move VMs across availability zones or fault domains. The balancing is achieved through the deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
-
-
-# [Azure Resource Graph](#tab/graph-3)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-6/vmss-6.kql":::
-
-----
-
-
-
-
-### Disaster recovery
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **Enable Protection Policy for all Virtual Machine Scale Set VMs** 
-
-Use [Virtual Machine Scale Sets Protection Policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection) if you want specific VMs to be treated differently from the rest of the scale set instance.
-
-As your application processes traffic, there can be situations where you want specific VMs to be treated differently from the rest of the scale set instance. For example, certain VMs in the scale set could be performing long-running operations, and you don’t want these VMs to be scaled-in until the operations complete. You might also have specialized a few VMs in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other VMs in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
-
-# [Azure Resource Graph](#tab/graph-5)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-2/vmss-2.kql":::
-
-----
-### Monitoring
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **Enable Virtual Machine Scale Sets application health monitoring** 
-
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provides support for rolling upgrades, including:
-
-- [Automatic OS-Image Upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
-- [Automatic VM Guest Patching](/azure/virtual-machines/automatic-vm-guest-patching), which relies on health monitoring of individual VMs to upgrade your deployment. 
-- [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) *or* [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
-
-
-# [Azure Resource Graph](#tab/graph-6)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-3/vmss-3.kql":::
-
-----
-
-
-### System Efficiency
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **Configure Allocation Policy Spreading algorithm to max spreading** 
-
-With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set can't find five distinct fault domains per zone to satisfy the allocation request, the request fails.
-
-For more information, see [Spreading options](#spreading-options).
-
-# [Azure Resource Graph](#tab/graph-6)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-7/vmss-7.kql":::
-
-----
-
-### Automation
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **Set patch orchestration options to Azure-orchestrated** 
-
-Enable automatic VM guest patching for your Azure VMs. Automatic VM guest patching helps ease update management by safely and automatically patching VMs to maintain security compliance, while limiting the blast radius of VMs.
-
-# [Azure Resource Graph](#tab/graph-6)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-9/vmss-9.kql":::
-
-----
 
 ## Availability zone support
 
@@ -349,8 +184,6 @@ The following example creates a Linux single-zone scale set named *myScaleSet* i
 }
 ```
 
-For a complete example of a single-zone scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json).
-
 ### Zone-redundant scale set
 
 To create a zone-redundant scale set, specify multiple values in the `zones` property for the *Microsoft.Compute/virtualMachineScaleSets* resource type. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1,2,3*:
@@ -369,8 +202,6 @@ To create a zone-redundant scale set, specify multiple values in the `zones` pro
 }
 ```
 If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
-
-For a complete example of a zone-redundant scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json).
 
 
 ----
@@ -397,7 +228,7 @@ It's also recommended that you use the max spreading deployment option for your 
 
 When you deploy a scale set into one or more availability zones, you have the following spreading options (as of API version *2017-12-01*):
 
-- **Max spreading (platformFaultDomainCount = 1)**. Max spreading is the recommended deployment option, as it provides the best spreading in most cases. If you to spread replicas across distinct hardware isolation units, it's recommended that you spread across availability zones and utilize max spreading within each zone.
+- **Max spreading (platformFaultDomainCount = 1)**. Max spreading is the recommended deployment option, as it provides the best spreading in most cases. If you spread replicas across distinct hardware isolation units, it's recommended that you spread across availability zones and utilize max spreading within each zone.
     
   With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. 
   

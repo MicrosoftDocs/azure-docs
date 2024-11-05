@@ -20,6 +20,9 @@ Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipel
 
 This article highlights migration process of your ETL workloads from on-premises SSIS to SSIS in ADF. The migration process consists of two phases: **Assessment** and **Migration**.
 
+> [!IMPORTANT]
+Data Migration Assistant (DMA) is deprecated. For more information, see the [DMA product documentation](/sql/dma/dma-overview). 
+
 ## Assessment
 
 To establish a complete migration plan, a thorough assessment will help identify issues with the source SSIS packages that would prevent a successful migration.

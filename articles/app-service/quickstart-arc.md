@@ -97,7 +97,7 @@ The application logs for all the apps hosted in your Kubernetes cluster are logg
 
 **Log_s** contains application logs for a given App Service and **AppName_s** contains the App Service app name. In addition to logs you write via your application code, the Log_s column also contains logs on container startup, shutdown, and Function Apps.
 
-You can learn more about log queries in [getting started with Kusto](../azure-monitor/logs/get-started-queries.md).
+You can learn more about log queries in [getting started with Kusto](/azure/azure-monitor/logs/get-started-queries).
 
 ## (Optional) Deploy a custom container
 

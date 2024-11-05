@@ -163,6 +163,8 @@
       href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
+    - name: Configure Mobility Service Proxy Settings
+      href: configure-mobility-service-proxy-settings.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery

@@ -10,14 +10,15 @@ ms.service: azure-communication-services
 
 ## Remove buttons
 
-`CallCompositeCallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the visibility to `false` to hide, the default behavior is  for `CallCompositeButtonOptions` object.
+`CallCompositeCallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the `visible` or `enabled` to `false` for the `CallCompositeButtonViewData` to hide or disable button.
+
+:::image type="content" source="../../media/remove-button-experience.png" alt-text="Screenshot that shows the experience removing buttons in the UI Library.":::
 
 #### [Kotlin](#tab/kotlin)
-
 ```kotlin
 val controlBarOptions = CallCompositeCallScreenControlBarOptions()
 
-val cameraButton = CallCompositeButtonOptions()
+val cameraButton = CallCompositeButtonViewData()
     .setVisible(false)
 
 controlBarOptions.setCameraButton(cameraButton)
@@ -38,7 +39,7 @@ callComposite.launch(context, locator, localOptions)
 ```java
 CallCompositeCallScreenControlBarOptions controlBarOptions = new CallCompositeCallScreenControlBarOptions();
 
-CallCompositeButtonOptions cameraButton = new CallCompositeButtonOptions()
+CallCompositeButtonOptions cameraButton = new CallCompositeButtonViewData()
         .setVisible(false);
 
 controlBarOptions.setCameraButton(cameraButton);
@@ -54,6 +55,18 @@ CallComposite callComposite = new CallCompositeBuilder()
 
 callComposite.launch(context, locator, localOptions);
 ```
+-----
+Button can be updated after launching call composite.
+
+#### [Kotlin](#tab/kotlin)
+```kotlin
+cameraButton.setVisible(true)
+```
+
+#### [Java](#tab/java)
+```java
+cameraButton.setVisible(true);
+```
 
 -----
 
@@ -61,14 +74,16 @@ callComposite.launch(context, locator, localOptions);
 
 `Call composite` is using Fluent UI icons. You can download the icons directly from [the Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/) and incorporate them into your project as needed. This approach guarantees visual consistency across all user interface elements, enhancing the overall user experience.
 
-#### [Kotlin](#tab/kotlin)
+:::image type="content" source="../../media/add-button-experience.png" alt-text="Screenshot that shows the experienc when you add a new button the UI Library.":::
 
+#### [Kotlin](#tab/kotlin)
 ```kotlin
 val controlBarOptions = CallCompositeCallScreenControlBarOptions()
 
 controlBarOptions.setCustomButtons(
     listOf(
-        CallCompositeCustomButtonOptions(
+        CallCompositeCustomButtonViewData(
+            "customButtonId",
             R.drawable.my_button_image,
             "My button",
             fun(it: CallCompositeCustomButtonClickEvent) {
@@ -96,7 +111,8 @@ CallCompositeCallScreenControlBarOptions controlBarOptions = new CallCompositeCa
 
 List<CallCompositeCustomButtonOptions> customButtons = new ArrayList<>();
 customButtons.add(
-        new CallCompositeCustomButtonOptions(
+        new CallCompositeCustomButtonViewData(
+                "customButtonId",
                 R.drawable.my_button_image,
                 "My button",
                 eventArgs -> {
@@ -120,3 +136,18 @@ callComposite.launch(context, locator, localOptions);
 ```
 
 -----
+
+Similar to `Call composite` provided buttons, custom buttons are updatable after the launch.
+
+
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+customButton.setVisible(true)
+```
+
+#### [Java](#tab/java)
+```java
+customButton.setVisible(true);
+```

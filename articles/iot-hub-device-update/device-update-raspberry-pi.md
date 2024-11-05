@@ -5,7 +5,8 @@ author: eshashah
 ms.author: eshashah
 ms.date: 3/8/2023
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ reference image

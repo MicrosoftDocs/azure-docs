@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Configure VMware Spring Cloud Gateway
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
@@ -617,7 +616,7 @@ To monitor VMware Spring Cloud Gateway, you can configure APM. The following tab
 
 For other supported environment variables, see the following sources:
 
-- [Application Insights overview](../../azure-monitor/app/app-insights-overview.md?tabs=net)
+- [Application Insights overview](/azure/azure-monitor/app/app-insights-overview?tabs=net)
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 - [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)

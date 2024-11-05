@@ -3,7 +3,7 @@ title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 09/26/2024
 ---
 
 # Syntax and expressions in ARM templates
@@ -35,7 +35,7 @@ To pass a string value as a parameter to a function, use single quotes.
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Most functions work the same whether they are deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
+Most functions work the same whether they're deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
 
 * [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.

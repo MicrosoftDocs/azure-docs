@@ -242,8 +242,12 @@
       href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
       href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
+    - name: Microsoft CDN (classic) retirement FAQ
+      href: ../cdn/classic-cdn-retirement-faq.md
     - name: Akamai retirement FAQ
       href: ../cdn/akamai-retirement-faq.md?toc=/azure/frontdoor/TOC.json
+    - name: Edgio retirement FAQ
+      href: ../cdn/edgio-retirement-faq.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
@@ -322,6 +326,10 @@
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
+        - name: Connect to an application gateway
+          href: how-to-enable-private-link-application-gateway.md
+        - name: Connect to an API management
+          href: standard-premium/how-to-enable-private-link-apim.md
       - name: Monitor and reports
         items:
         - name: Configure diagnostic logs
@@ -378,6 +386,8 @@
         href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
     - name: Troubleshoot
       items:
+      - name: Troubleshooting with RefString
+        href: refstring.md
       - name: Troubleshooting Front Door issues
         href: troubleshoot-issues.md
       - name: Troubleshooting Front Door performance issues
@@ -446,6 +456,8 @@
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
     - name: Edgio
       items:
+      - name: Migrate to Azure Front Door
+        href: migrate-cdn-to-front-door.md
       - name: Standard
         items:
         - name: Optimize content

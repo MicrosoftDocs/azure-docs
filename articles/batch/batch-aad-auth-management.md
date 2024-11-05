@@ -2,7 +2,7 @@
 title: Use Microsoft Entra ID to authenticate Batch Management solutions
 description: Explore using Microsoft Entra ID to authenticate from applications that use the Batch Management .NET library.
 ms.topic: how-to
-ms.date: 04/27/2017
+ms.date: 06/24/2024
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template, devx-track-dotnet
 ---
 

@@ -2,18 +2,18 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 07/24/2024
+ms.date: 09/24/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
-#Customer intent: As an IT admin, I want  create pre and post events using a webhook with Automation runbooks.
+#Customer intent: As an IT admin, I want create pre and post events using a webhook with Automation runbooks.
 ---
 
 # Tutorial: Create pre and post events using a webhook with Automation
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
-Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a VM. With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shut down the VM.
+Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a Virtual Machine (VM). With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shut down the VM.
 
 This tutorial explains how to create pre and post events to start and stop a VM in a schedule patch workflow using a webhook.
 
@@ -43,17 +43,15 @@ In this tutorial, you learn how to:
     
         ```powershell
         param 
-    
         (  
           [Parameter(Mandatory=$false)]  
-      
           [object] $WebhookData  
       
         )  
         $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody  
         $eventType = $notificationPayload[0].eventType  
       
-        if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent” -or $eventType –ne “Microsoft.Maintenance.PostMaintenanceEvent” ) {  
+        if ($eventType -ne "Microsoft.Maintenance.PreMaintenanceEvent" -and $eventType –ne "Microsoft.Maintenance.PostMaintenanceEvent" ) {  
           Write-Output "Webhook not triggered as part of pre or post patching for maintenance run"  
         return  
         } 
@@ -71,7 +69,6 @@ In this tutorial, you learn how to:
         ```powershell
         param   
         (   
-
             [Parameter(Mandatory=$false)]   
             [object] $WebhookData   
         )   
@@ -94,7 +91,7 @@ In this tutorial, you learn how to:
             | where id has '/providers/microsoft.compute/virtualmachines/'    
             | project id, resourceId = tostring(properties.resourceId)    
             | order by id asc 
-            "@  
+        "@  
           
         Write-Output "Arg Query Used: $argQuery"    
         $allMachines = [System.Collections.ArrayList]@()    
@@ -111,7 +108,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-   1. To customize you can use either your existing scripts with the above modifications done or use the following scripts.
+   1. To customize, you can use either your existing scripts with the above modifications done or use the following scripts.
 
  
 ### Sample scripts
@@ -124,7 +121,6 @@ param
     [Parameter(Mandatory=$false)] 
     [object] $WebhookData 
 ) 
-
 Connect-AzAccount -Identity 
 
 # Install the Resource Graph module from PowerShell Gallery 
@@ -133,9 +129,8 @@ Connect-AzAccount -Identity
 $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody 
 $eventType = $notificationPayload[0].eventType 
 
-if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent”) { 
-    Write-Output "Webhook not triggered as part of pre-patching for 		 
- maintenance run" 
+if ($eventType -ne "Microsoft.Maintenance.PreMaintenanceEvent") { 
+    Write-Output "Webhook not triggered as part of pre-patching for maintenance run" 
     return 
 } 
 
@@ -219,11 +214,9 @@ foreach($id in $jobsList)
 ```powershell
 param 
 ( 
-
     [Parameter(Mandatory=$false)] 
     [object] $WebhookData 
 ) 
- 
 Connect-AzAccount -Identity 
 
 # Install the Resource Graph module from PowerShell Gallery 
@@ -231,8 +224,8 @@ Connect-AzAccount -Identity
 $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody 
 $eventType = $notificationPayload[0].eventType 
 
-if ($eventType -ne “Microsoft.Maintenance.PostMaintenanceEvent”) { 
-    Write-Output "Webhook not triggered as part of post-patching for 		  maintenance run" 
+if ($eventType -ne "Microsoft.Maintenance.PostMaintenanceEvent") { 
+    Write-Output "Webhook not triggered as part of post-patching for maintenance run" 
     return 
 } 
 
@@ -247,17 +240,11 @@ if ($resourceSubscriptionIds.Count -eq 0) {
 Start-Sleep -Seconds 30 
 Write-Output "Querying ARG to get machine details [MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]" 
 $argQuery = @" 
-
     maintenanceresources  
-
     | where type =~ 'microsoft.maintenance/applyupdates' 
-
     | where properties.correlationId =~ '$($maintenanceRunId)' 
-
     | where id has '/providers/microsoft.compute/virtualmachines/' 
-
     | project id, resourceId = tostring(properties.resourceId) 
-
     | order by id asc 
 "@ 
 
@@ -321,8 +308,20 @@ foreach($id in $jobsList)
 
 #### [Cancel a schedule](#tab/script-cancel)
 ```powershell
+param 
+( 
+    [Parameter(Mandatory=$false)] 
+    [object] $WebhookData 
+)
+Connect-AzAccount -Identity 
+
+# Install the Resource Graph module from PowerShell Gallery 
+# Install-Module -Name Az.ResourceGraph
+$notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody
+$maintenanceRunId = $notificationPayload[0].data.CorrelationId
+
 Invoke-AzRestMethod ` 
--Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" ` 
+-Path "$maintenanceRunId`?api-version=2023-09-01-preview" ` 
 -Payload  
 '{ 
     "properties": { 

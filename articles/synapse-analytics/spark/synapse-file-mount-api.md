@@ -52,7 +52,7 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
 
     ![Screenshot of selections for creating a linked service by using an account key.](./media/synapse-file-mount-api/synapse-link-service-using-account-key.png)
 
-+ **Create a linked service by using a managed identity**
++ **Create a linked service using a system-assigned managed identity**
 
     ![Screenshot of selections for creating a linked service by using a managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 

@@ -6,10 +6,10 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 09/06/2024
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
-  This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
+  This article provides answers to the most frequently asked questions asked about Azure Network Watcher.
   
 
 sections:
@@ -18,27 +18,27 @@ sections:
       - question: |
           What is Network Watcher?
         answer: |
-          [Network Watcher](./network-watcher-monitoring-overview.md) provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for IaaS (Infrastructure-as-a-Service) resources, which include virtual machines, virtual networks, application gateways, load balancers, and other resources in an Azure virtual network. It isn't a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
+          [Network Watcher](network-watcher-overview.md) provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for IaaS (Infrastructure-as-a-Service) resources, which include virtual machines, virtual networks, application gateways, load balancers, and other resources in an Azure virtual network. It isn't a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
 
       - question: |
           What tools does Network Watcher provide?
         answer: |
           Network Watcher provides three major sets of capabilities:
           * Monitoring
-            * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
-            * [Connection monitor](./connection-monitor-overview.md) allows you to monitor connectivity and latency between endpoints inside and outside Azure.
+            * [Topology view](view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
+            * [Connection monitor](connection-monitor-overview.md) allows you to monitor connectivity and latency between endpoints inside and outside Azure.
           * Network diagnostic tools
-            * [IP flow verify](./network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a virtual machine level.
-            * [NSG diagnostics](./network-watcher-network-configuration-diagnostics-overview.md) allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level.
-            * [Next hop](./network-watcher-next-hop-overview.md) helps you verify traffic routes and detect routing issues.
-            * [Connection troubleshoot](./network-watcher-connectivity-portal.md) enables a one-time connectivity and latency check between a virtual machine and Bastion host, application gateway, or another virtual machine.
-            * [Packet capture](./network-watcher-packet-capture-overview.md) enables you to capture your virtual machine traffic.
-            * [VPN troubleshoot](./network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
+            * [IP flow verify](network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a virtual machine level.
+            * [NSG diagnostics](nsg-diagnostics-overview.md) allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level.
+            * [Next hop](network-watcher-next-hop-overview.md) helps you verify traffic routes and detect routing issues.
+            * [Connection troubleshoot](network-watcher-connectivity-portal.md) enables a one-time connectivity and latency check between a virtual machine and Bastion host, application gateway, or another virtual machine.
+            * [Packet capture](network-watcher-packet-capture-overview.md) enables you to capture your virtual machine traffic.
+            * [VPN troubleshoot](network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
           * Traffic
-            * [Network security group flow logs](./network-watcher-nsg-flow-logging-overview.md) and [virtual network flow logs](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
-            * [Traffic analytics](./traffic-analytics.md) processes your network security group flow log data enabling you to visualize, query, analyze, and understand your network traffic.
+            * [Network security group flow logs](network-watcher-nsg-flow-logging-overview.md) and [virtual network flow logs](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
+            * [Traffic analytics](traffic-analytics.md) processes your network security group flow log data enabling you to visualize, query, analyze, and understand your network traffic.
           
-          For more detailed information, see [Network Watcher overview](./network-watcher-overview.md).
+          For more detailed information, see [Network Watcher overview](network-watcher-overview.md).
           
       - question: |
           How does Network Watcher pricing work?
@@ -53,12 +53,12 @@ sections:
       - question: |
           What permissions are required to use Network Watcher?
         answer: |
-          See [Azure RBAC permissions required to use Network Watcher](./required-rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
+          See [Azure RBAC permissions required to use Network Watcher](required-rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
           
       - question: |
           How do I enable Network Watcher?
         answer: |
-          The Network Watcher service is automatically enabled for every subscription. You must manually enable Network Watcher if you opted out Network Watcher automatic enablement. For more information, see [Enable or disable Azure Network Watcher](./network-watcher-create.md).
+          The Network Watcher service is automatically enabled for every subscription. You must manually enable Network Watcher if you opted out Network Watcher automatic enablement. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
           
       - question: |
           What is the Network Watcher deployment model?
@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
+          [!INCLUDE [Network Watcher agent version](../../includes/network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
       - question: |
           What ports does the Network Watcher Agent use?
@@ -171,7 +171,7 @@ sections:
       - question: |
           Are there any limitations to using Azure Monitor and Arc Agents with connection monitor?
         answer: |
-          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
+          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
   - name: Flow logs
     questions:
@@ -245,7 +245,7 @@ sections:
       - question: |
           What is the difference between flow logs versions 1 and 2?
         answer: |
-          Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [Network security group flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
+          Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [Network security group flow log format](network-watcher-nsg-flow-logging-overview.md#log-format).
 
       - question: |
           Can I create a flow log for a network security group that has a read-only lock?

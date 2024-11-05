@@ -3,7 +3,7 @@ title: DATE_BUCKET (Transact-SQL) - Azure SQL Edge
 description: Learn about using DATE_BUCKET in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: reference
 keywords:
@@ -12,7 +12,9 @@ keywords:
 ---
 # DATE_BUCKET (Transact-SQL)
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This function returns the datetime value corresponding to the start of each datetime bucket, from the timestamp defined by the `origin` parameter or the default origin value of `1900-01-01 00:00:00.000` if the origin parameter isn't specified.
@@ -319,6 +321,6 @@ DECLARE @origin DATETIME2 = '2019-01-01 00:00:00';
 SELECT DATE_BUCKET(HOUR, 2, @date, @origin);
 ```
 
-## See also
+## Related content
 
 - [CAST and CONVERT (Transact-SQL)](/sql/t-sql/functions/cast-and-convert-transact-sql/)

@@ -5,10 +5,8 @@ author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 10/09/2024
 ms.author: banders
 ---
 
@@ -18,19 +16,19 @@ Azure Reservations help you save money by committing to one-year or three-years 
 
 ## Who can buy a reservation
 
-To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. 
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-as-you-go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. 
 
-Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations. CSP partners can buy reservations for them in Partner Center when authorized by their customers. For more information, see [Buy Microsoft Azure reservations on behalf of your customers](/partner-center/azure-reservations-buying). Or, once the partner has given permission to the end customer and they have the reservation purchaser role, they can purchase reservations in the Azure portal.
+Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations. CSP partners can buy reservations for them in Partner Center when authorized by their customers. For more information, see [Buy Microsoft Azure reservations on behalf of your customers](/partner-center/azure-reservations-buying). Or, once the partner gives permission to the end customer and they have the reservation purchaser role, they can purchase reservations in the Azure portal.
 
 You can't buy a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in Owner or built-in Reservation Purchaser role.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the Policies menu under Billing Profile to change settings.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu under **Billing Profile**.
 
 EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
-A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement and individual plans with pay-as-you-go rates.
+A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement, and individual plans with pay-as-you-go rates.
 
 ## Scope reservations
 
@@ -72,6 +70,8 @@ Resources that run in a subscription with other offer types don't receive the re
 
 ## Purchase reservations
 
+When you buy a reservation, the current UTC date and time are used to record the transaction.
+
 You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
 
 - [App Service](prepay-app-service.md)
@@ -93,6 +93,8 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Disk Storage](/azure/virtual-machines/disks-reserved-capacity)
 - [Microsoft Fabric](fabric-capacity.md)
+- [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Nutanix on Azure BareMetal](nutanix-bare-metal.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
@@ -107,7 +109,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
+Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans, and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 
@@ -121,9 +123,9 @@ Cost analysis shows monthly purchases in the default view. Apply the **purchase*
 
 Like other reservations, you can refund or exchange reservations purchased with monthly billing. 
 
-When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
+When you exchange a reservation with monthly payments, the total cost of the new reservation must be higher than the remaining payments of the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that gets paid for up front to purchase a new reservation that gets billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
 
-If you cancel a reservation that's paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
+If you cancel a reservation that gets paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
 
 For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
