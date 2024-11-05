@@ -65,7 +65,7 @@ $aksBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG
 
 Once the policy JSON has all the required values, proceed to create a new policy from the policy object.
 
-```azurecli
+```azurepowershell
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
 ```
 
