@@ -7,8 +7,10 @@ ms.custom: playwright-testing-preview
 zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
+
+# Use options available in service package with Microsoft Playwright Testing preview
+
 ::: zone pivot="playwright-test-runner"
-# Use options available in configuration file with Microsoft Playwright Testing preview
 
 This article shows you how to use the options available in the `playwright.service.config.ts` file that was generated for you. 
 If you don't have this file in your code, follow the QuickStart guide, see [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
@@ -16,8 +18,6 @@ If you don't have this file in your code, follow the QuickStart guide, see [Quic
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-
-# Use options available in configuration file with Microsoft Playwright Testing preview
 
 This article shows you how to use the options available in the `.runsettings` file. 
 If you don't have this file in your code, follow the QuickStart guide, see [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
@@ -262,7 +262,7 @@ Here's version of the `.runsettings` file with all the available options:
     - **Default Value**: true
     - **Example**:
       ```xml
-     <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+      <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
       ```
 * **`enableGitHubSummary`**:
     - **Description**: This setting allows you to configure the Microsoft Playwright Testing service reporter. You can choose whether to include the test run summary in the GitHub summary when running in GitHub Actions.

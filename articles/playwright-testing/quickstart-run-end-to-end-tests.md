@@ -307,7 +307,7 @@ To run your Playwright test suite in Visual Studio Code with Microsoft Playwrigh
 Run Playwright tests against browsers managed by the service and see the results in the unified portal using the configuration you created above. 
 
 ```bash
-dotnet test --logger "microsoft-playwright-testing"
+dotnet test --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
 ```
 After the test run completes, you can view the test status in the terminal.
 
