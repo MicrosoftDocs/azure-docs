@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
@@ -92,19 +92,19 @@ az containerapp env maintenance-config show \
   --environment <ENVIRONMENT_NAME>
 ```
 
-## Delete a window
+## Remove a window
 
-To delete an environment's maintenance window, use the `maintenance-config delete` command.
+To remove an environment's maintenance window, use the `maintenance-config remove` command.
 
 ```azurecli
-az containerapp env maintenance-config delete \
+az containerapp env maintenance-config remove \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME>
 ```
 
 ## Considerations
 
-Maintenance windows are free during preview.
+Planned maintenance is free during preview.
 
 ## Next steps
 
