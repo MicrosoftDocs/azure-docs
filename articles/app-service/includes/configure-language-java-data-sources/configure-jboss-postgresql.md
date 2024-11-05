@@ -32,10 +32,10 @@ ms.author: cephalin
     export RESOURCE_GROUP_NAME=<resource-group-name>
     export APP_NAME=<app-name>
 
-    # The lib type uploads to /home/site/libs by default
+    # The lib type uploads to /home/site/libs by default.
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path postgresql-42.7.1.jar --target-path postgresql-42.7.1.jar --type lib
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path jboss_cli_commands.cli --target-path /home/site/scripts/jboss_cli_commands.cli --type static
-    # The startup type uploads to /home/site/scripts by default and sets it up to run on startup
+    # The startup type uploads to /home/site/scripts/startup.sh by default.
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path startup.sh --type startup
     ```
 
