@@ -716,7 +716,7 @@ The following table explains the binding configuration properties that you set i
 > [!NOTE]
 >The output binding supports all special characters including ($, `, -, _) . It is same as mentioned in mysql community [documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html)
 >
->It is on different programming language if special character is supported to define members attributes containing special characters. For example, C# have few limitations to define [variables]('https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/identifier-names)
+>It is on different programming language if special character is supported to define members attributes containing special characters. For example, C# have few limitations to define [variables](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/identifier-names)
 >
 >Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [Github link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
 >

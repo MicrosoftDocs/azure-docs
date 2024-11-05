@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 30/09/2024
+ms.date: 10/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
