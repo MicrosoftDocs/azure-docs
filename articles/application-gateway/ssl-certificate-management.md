@@ -68,8 +68,11 @@ There are two primary scenarios when deleting a certificate from portal:
 
 ### Deletion of a listener with an SSL certificate
 
-When a listener with an associated SSL certificate is deleted, the SSL certificate itself is not deleted. The certificate will remain in the Application Gateway configuration and can be assigned to another listener. 
+When a listener with an associated SSL certificate is deleted, the SSL certificate itself is not deleted. The certificate will remain in the application gateway configuration and can be assigned to another listener. 
 
+### Deletion of a key vault certificate
+
+When deleting a certificate from key vault that is associated to an application gateway, the certificate must be deleted first on application gateway, then on key vault. 
 
 ### Bulk update
 The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option also allows you to change the type from "Uploaded" to "Key Vault" or vice-versa (if required). This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
@@ -91,7 +94,7 @@ To use the Bulk update option,
 
 1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of a HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
 
-1. If a certificate is deleted in KeyVault but the reference to the certificate in Application Gateway is not deleted, the Application Gateway will appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one. To prevent this isssue, certificates must be deleted first on Application Gateway, then on KeyVault. 
+1. If a certificate is deleted in KeyVault but the reference to the certificate in Application Gateway is not deleted, any update to the Application Gateway will cause it to appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one.
 
 
 ## Next steps
