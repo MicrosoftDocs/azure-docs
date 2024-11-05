@@ -166,6 +166,8 @@ VNET_NAME="my-custom-vnet"
 SUBNET_NAME="my-custom-subnet"
 PRIVATE_ENDPOINT="my-private-endpoint"
 PRIVATE_ENDPOINT_CONNECTION="my-private-endpoint-connection"
+PRIVATE_DNS_ZONE="privatelink.${LOCATION}.azurecontainerapps.io"
+DNS_LINK="my-dns-link"
 ```
 
 ## Create an Azure resource group
@@ -236,13 +238,6 @@ az containerapp env update --id ${ENVIRONMENT_ID} --public-network-access Disabl
 
 Create the private endpoint.
 
-TODO1 Should this include the following to set static IP?
-```
-    --ip-config name=ipconfig-1 group-id=sites member-name=sites private-ip-address=10.0.0.1 \
-```
-
-TODO1 Should the private-connection-resource-id be the ID of the container app rather than the env?
-
 ```azurecli
 az network private-endpoint create \
     --resource-group $RESOURCE_GROUP \
@@ -252,6 +247,49 @@ az network private-endpoint create \
     --private-connection-resource-id $ENVIRONMENT_ID \
     --connection-name $PRIVATE_ENDPOINT_CONNECTION \
     --group-id managedEnvironments
+```
+
+### Configure the private DNS zone
+
+Run the following commands.
+
+Retrieve the private endpoint IP address.
+
+```azurecli
+PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
+    --name $PRIVATE_ENDPOINT \
+    --resource-group $RESOURCE_GROUP \
+    --query 'customDnsConfigs[0].ipAddresses[0]' \
+    --output tsv`
+```
+
+Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
+
+```azurecli
+DNS_RECORD_NAME=`az containerapp env show --id ${ENVIRONMENT_ID} --query 'properties.defaultDomain' | sed 's/\..*//'`
+```
+
+```azurecli
+az network private-dns zone create \
+    --resource-group $RESOURCE_GROUP \
+    --name $PRIVATE_DNS_ZONE
+```
+
+```azurecli
+az network private-dns link vnet create \
+    --resource-group $RESOURCE_GROUP \
+    --zone-name $PRIVATE_DNS_ZONE \
+    --name $DNS_LINK \
+    --virtual-network $VNET_NAME \
+    --registration-enabled false
+```
+
+```azurecli
+az network private-dns record-set a add-record \
+    --resource-group $RESOURCE_GROUP \
+    --zone-name $PRIVATE_DNS_ZONE \
+    --record-set-name $RECORD_NAME \
+    --ipv4-address $PRIVATE_ENDPOINT_IP_ADDRESS
 ```
 
 ## Deploy a container app
@@ -278,44 +316,9 @@ When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSE
 
 ::: zone pivot="azure-portal"
 
-### Configure the private DNS zone
-
-TODO1
-
 ### Create a virtual machine (VM)
 
 TODO1
-
-### Test the connection
-
-1. In the *Overview* page for the VM you created, select **Connect**, then select **Connect via Bastion**.
-
-1. Set **Username** and **VM Password** to the username and password you used when you created the VM.
-
-1. Select **Connect**.
-
-1. After you connect, run PowerShell in the VM.
-
-1. In PowerShell, run the following command.
-
-```powershell
-nslookup containerapp.io
-```
-
-The output is similar to the following example.
-
-```
-Server:  UnKnown
-Address:  168.63.129.16
-
-Non-authoritative answer:
-Name:    privatelink.containerapp.io
-Addresses:  20.76.201.171
-
-TODO1
-```
-
-TODO1 Connect to app in browser?
 
 ::: zone-end
 
@@ -325,50 +328,14 @@ TODO1 Connect to app in browser?
 
 Set the following environment variables.
 
-TODO1 Should private dns zone name just be privatelink.containerapp.io? That's the pattern for other private DNS zone names we've seen.
-
 ```azurecli
 VM_NAME="my-virtual-machine"
 VM_ADMIN_USERNAME="azureuser"
-PRIVATE_DNS_ZONE_NAME="app.privatelink.containerapp.io"
-DNS_ZONE_GROUP="my-dns-zone-group"
-DNS_LINK="my-dns-link"
-DNS_ZONE="my-dns-zone"
 ```
 
-### Configure the private DNS zone
-
-Run the following commands.
-
-```azurecli
-az network private-dns zone create \
-    --resource-group $RESOURCE_GROUP \
-    --name $PRIVATE_DNS_ZONE_NAME
-```
-
-```azurecli
-az network private-dns link vnet create \
-    --resource-group $RESOURCE_GROUP \
-    --zone-name $PRIVATE_DNS_ZONE_NAME \
-    --name $DNS_LINK \
-    --virtual-network $VNET_NAME \
-    --registration-enabled false
-```
-
-```azurecli
-az network private-endpoint dns-zone-group create \
-    --resource-group $RESOURCE_GROUP \
-    --endpoint-name $PRIVATE_ENDPOINT \
-    --name $DNS_ZONE_GROUP \
-    --private-dns-zone $PRIVATE_DNS_ZONE_NAME \
-    --zone-name $DNS_ZONE
-```
-
-### Create a virtual machine
+### Create a virtual machine (VM)
 
 Run the following command.
-
-TODO1 Use Linux VM instead? Then just wget container app URL.
 
 ```azurecli
 az vm create \
@@ -381,29 +348,43 @@ az vm create \
     --admin-username $VM_ADMIN_USERNAME
 ```
 
-### Test the connection
-
-TODO1 Log in via SSH.
-
 ::: zone-end
 
-TODO1 Remove?
+### Test the connection in the virtual machine
 
-### Check data flow
+1. Open the [Azure portal](https://portal.azure.com).
 
-1. Open [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
+1. Search for the VM you created in the top search bar and select it from the search results.
 
-1. Select **Private endpoints**.
+1. In the *Overview* page for the VM, select **Connect**, then select **Connect via Bastion**.
 
-1. Select your private endpoint.
+1. Set **Username** and **VM Password** to the username and password you used when you created the VM.
 
-1. Expand **Monitoring** and select **Metrics**.
+1. Select **Connect**.
 
-1. Set **Metric** to **Bytes in**.
+1. After you connect, run PowerShell in the VM.
 
-1. Verify the graph shows data flowing. Expect a delay of approximately 10 minutes.
+1. In PowerShell, run the following command. Replace the <\PLACEHOLDERS\> with your values.
 
-For more information, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#test-connectivity-to-the-private-endpoint) and [Troubleshoot Azure Private Link Service connectivity problems](/azure/private-link/troubleshoot-private-link-connectivity).
+```powershell
+nslookup <CONTAINER_APP_ENDPOINT>
+```
+
+The output is similar to the following example, with your values replacing the \<PLACEHOLDERS\>.
+
+```
+Server:  UnKnown
+Address:  168.63.129.16
+
+Non-authoritative answer:
+Name:    <ENVIRONMENT_DEFAULT_DOMAIN>.privatelink.<LOCATION>.azurecontainerapps.io
+Address:  10.0.0.4
+Aliases:  <CONTAINER_APP_ENDPOINT>
+```
+
+1. Open a browser in the VM.
+
+1. Browse to the container app endpoint. You see the output for the quickstart container app image.
 
 ## Clean up resources
 
