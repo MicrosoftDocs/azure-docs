@@ -142,36 +142,137 @@ To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
 
 ## Connect clients from outside the cluster
 
-Since the [default broker listener](howto-configure-brokerlistener.md#default-brokerlistener) is set to *ClusterIp* service type, you can't connect to the broker from outside the cluster directly. To prevent unintentional disruption to communication between internal AIO components, we recommend keeping the default listener unmodified and dedicated for AIO internal communication. While it's possible to create a separate Kubernetes *LoadBalancer* service to expose the cluster IP service, it's better to create a separate listener with different settings, like more common MQTT port 1883 and 8883, to avoid confusion and potential security risks.
+Since the [default broker listener](howto-configure-brokerlistener.md#default-brokerlistener) is set to *ClusterIp* service type, you can't connect to the broker from outside the cluster directly. To prevent unintentional disruption to communication between internal Azure IoT Operations components, we recommend keeping the default listener unmodified and dedicated for AIO internal communication. While it's possible to create a separate Kubernetes *LoadBalancer* service to expose the cluster IP service, it's better to create a separate listener with different settings, like more common MQTT port 1883 and 8883, to avoid confusion and potential security risks.
 
 <!-- TODO: consider moving to the main listener article and just link from here? -->
 ### Node port
 
 The easiest way to test connectivity is to use the *NodePort* service type in the listener. With that, you can use `<nodeExternalIP>:<NodePort>` to connect like in [Kubernetes documentation](https://kubernetes.io/docs/tutorials/services/connect-applications-service/#exposing-the-service).
 
-For example, to create a new BrokerListener with *NodePort* service type and port 1883, create a file named `broker-nodeport.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
+For example, create a new broker listener with node port service type listening on port 1883: 
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+
+    > [!CAUTION]
+    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+    Enter the following settings:
+
+    | Setting        | Value                                            |
+    | -------------- | ------------------------------------------------ |
+    | Name           | nodeport                                         |
+    | Service name   | aio-broker-nodeport                              |
+    | Port           | 1883                                             |
+    | Authentication | Choose **default** or **None**                   |
+    | Authorization  | Choose **default**                               |
+    | Protocol       | Choose **MQTT**                                  |
+    | Node port      | 31883                                            |
+
+1. Add TLS settings to the listener by selecting **TLS** on the port.
+
+    | Setting        | Description                                                                                   |
+    | -------------- | --------------------------------------------------------------------------------------------- |
+    | TLS            | Select the *Add* button.                                                                      |
+    | TLS mode       | Choose **Manual** or **Automatic**.                                                           |
+    | Issuer name    | Name of the cert-manager issuer. Required.                                                    |
+    | Issuer kind    | Kind of the cert-manager issuer. Required.                                                    |
+    | Issuer group   | Group of the cert-manager issuer. Required.                                                   |
+    | Private key algorithm | Algorithm for the private key.                                                         |
+    | Private key rotation policy | Policy for rotating the private key.                                             |
+    | DNS names      | DNS subject alternate names for the certificate.                                              |
+    | IP addresses   | IP addresses of the subject alternate names for the certificate.                              |
+    | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
+    | Duration       | Total lifetime of the TLS server certificate Defaults to 90 days.                             |
+    | Renew before   | When to begin renewing the certificate.                                                       |
+
+1. Select **Apply** to save the TLS settings.
+1. Select **Create** to create the listener.
+
+# [Bicep](#tab/bicep)
 
 > [!CAUTION]
-> Removing `authenticationRef` and `tls` settings from the configuration [will turn off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+> Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
 
-<!-- TODO: Bicep and portal -->
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = 'aio-broker-nodeport'
+param listenerName string = 'nodeport'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+
+  properties: {
+    serviceName: listenerServiceName
+    serviceType: 'NodePort'
+    ports: [
+      {
+        authenticationRef: 'default'
+        port: 1883
+        nodePort: 31883
+        tls: {
+          mode: 'Manual'
+          manual: {
+            secretRef: 'server-cert-secret'
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create a file named `broker-nodeport.yaml` with the following configuration. Replace placeholders with your own values, including your own authentication and TLS settings.
+
+> [!CAUTION]
+> Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: broker-nodeport
+  name: nodeport
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: NodePort
-  serviceName: broker-nodeport
+  serviceName: aio-broker-nodeport
   ports:
     - port: 1883
       nodePort: 31883 # Must be in the range 30000-32767
-      authenticationRef: # Add BrokerAuthentication reference
-      tls:
-        # Add TLS settings
+      authenticationRef: default # Add BrokerAuthentication reference
+      tls:  # Add TLS settings
 ```
 
 Then, use `kubectl` to deploy the configuration:
@@ -180,7 +281,9 @@ Then, use `kubectl` to deploy the configuration:
 kubectl apply -f broker-nodeport.yaml
 ```
 
-Next, get the node's external IP address:
+---
+
+Get the node's external IP address:
 
 ```bash
 kubectl get nodes -o yaml | grep ExternalIP -C 1
@@ -223,45 +326,150 @@ Then, use the internal IP address and the node port to connect to the broker fro
 
 ### Load balancer
 
-Another way to expose the broker to the internet is to use the *LoadBalancer* service type. This method is more complex and might require additional configuration, like setting up port forwarding. For example, to create a new BrokerListener with *LoadBalancer* service type and port 1883, create a file named `broker-loadbalancer.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
+Another way to expose the broker to the internet is to use the *LoadBalancer* service type. This method is more complex and might require additional configuration, like setting up port forwarding. 
+
+For example, to create a new broker listener with load balancer service type listening on port 1883:
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+
+    > [!CAUTION]
+    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+    Enter the following settings:
+
+    | Setting        | Value                                            |
+    | -------------- | ------------------------------------------------ |
+    | Name           | loadbalancer                                     |
+    | Service name   | aio-broker-loadbalancer                          |
+    | Port           | 1883                                             |
+    | Authentication | Choose **default**                               |
+    | Authorization  | Choose **default** or **None**                   |
+    | Protocol       | Choose **MQTT**                                  |
+
+1. You can add TLS settings to the listener by selecting **TLS** on the port.
+
+    | Setting        | Description                                                                                   |
+    | -------------- | --------------------------------------------------------------------------------------------- |
+    | TLS            | Select the *Add* button.                                                                      |
+    | TLS mode       | Choose **Manual** or **Automatic**.                                                           |
+    | Issuer name    | Name of the cert-manager issuer. Required.                                                    |
+    | Issuer kind    | Kind of the cert-manager issuer. Required.                                                    |
+    | Issuer group   | Group of the cert-manager issuer. Required.                                                   |
+    | Private key algorithm | Algorithm for the private key.                                                         |
+    | Private key rotation policy | Policy for rotating the private key.                                             |
+    | DNS names      | DNS subject alternate names for the certificate.                                              |
+    | IP addresses   | IP addresses of the subject alternate names for the certificate.                              |
+    | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
+    | Duration       | Total lifetime of the TLS server certificate Defaults to 90 days.                             |
+    | Renew before   | When to begin renewing the certificate.                                                       |
+
+1. Select **Apply** to save the TLS settings.
+1. Select **Create** to create the listener.
+
+# [Bicep](#tab/bicep)
 
 > [!CAUTION]
-> Removing `authenticationRef` and `tls` settings from the configuration [will turn off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+> Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = 'aio-broker-loadbalancer'
+param listenerName string = 'loadbalancer'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+
+  properties: {
+    serviceName: listenerServiceName
+    serviceType: 'LoadBalancer'
+    ports: [
+      {
+        authenticationRef: 'default'
+        port: 1883
+        tls: {
+          mode: 'Manual'
+          manual: {
+            secretRef: 'server-cert-secret'
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+> [!CAUTION]
+> Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+Create a file named `broker-loadbalancer.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: broker-loadbalancer
+  name: loadbalancer
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: LoadBalancer
-  serviceName: broker-loadbalancer
+  serviceName: aio-broker-loadbalancer
   ports:
     - port: 1883
-      authenticationRef: # Add BrokerAuthentication reference
-      tls:
-        # Add TLS settings
+      authenticationRef: default # Add BrokerAuthentication reference
+      tls:  # Add TLS settings
 ```
 
-Then, use `kubectl` to deploy the configuration:
+Use `kubectl` to deploy the configuration:
 
 ```bash
 kubectl apply -f broker-loadbalancer.yaml
 ```
 
-Next, get the external IP address for the broker's service:
+---
+
+Get the external IP address for the broker's service:
 
 ```bash
-kubectl get service broker-loadbalancer --namespace azure-iot-operations
+kubectl get service aio-broker-loadbalancer --namespace azure-iot-operations
 ```
 
 If the output looks similar to the following:
 
 ```output
-NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-broker-loadbalancer   LoadBalancer   10.43.213.246   172.19.0.2    1883:30382/TCP   83s
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+aio-broker-loadbalancer   LoadBalancer   10.x.x.x        x.x.x.x       1883:30382/TCP   83s
 ```
 
 This means that an external IP has been assigned to the load balancer service, and you can use the external IP address and the port to connect to the broker. For example, to publish a message to the broker:
@@ -300,7 +508,7 @@ For Azure Kubernetes Services Edge Essentials, you need to perform a few additio
     
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    broker-loadbalancer     LoadBalancer   10.43.107.11   192.168.0.4   1883:30366/TCP   14h
+    broker-loadbalancer     LoadBalancer   10.x.x.x       192.168.0.4   1883:30366/TCP   14h
     ```
     
 1. Set up port forwarding to the `broker-loadbalancer` service on the external IP address `192.168.0.4` and port `1883`:
@@ -345,13 +553,92 @@ mosquitto_pub --host localhost --port 1883 --message "hello" --topic "world" --d
 
 The reason that MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production. Exposing MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
 
-If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes by removing the `tls` and `authenticationRef` settings from the listener configuration.
+> [!WARNING]
+> If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes by removing the `tls` and `authenticationRef` settings from the listener configuration.
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+
+    > [!CAUTION]
+    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+    Enter the following settings:
+
+    | Setting        | Value                                            |
+    | -------------- | ------------------------------------------------ |
+    | Name           | Enter a name for the listener                    |
+    | Service name   | Enter a service name                             |
+    | Port           | 1883                                             |
+    | Authentication | Choose **None**                                  |
+    | Authorization  | Choose **None**                                  |
+    | Protocol       | Choose **MQTT**                                  |
+    | Node port      | 31883 if using node port                         |
+
+1. Select **Create** to create the listener.
+
+# [Bicep](#tab/bicep)
+
+> [!CAUTION]
+> Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param listenerServiceName string = '<SERVICE_NAME>'
+param listenerName string = '<LISTENER_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: listenerName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+
+  properties: {
+    serviceName: listenerServiceName
+    serviceType: <SERVICE_TYPE> // 'LoadBalancer' or 'NodePort'
+    ports: [
+      {
+        port: 1883
+        nodePort: 31883 //If using NodePort
+        // Omitting authenticationRef and tls for testing only
+      }
+    ]
+  }
+}
+
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: <NAME>
+  name: nodeport
   namespace: azure-iot-operations
 spec:
   brokerRef: default
