@@ -386,97 +386,17 @@ There are three core steps when [registering a data source with JBoss EAP](https
 1. Add the JDBC driver as a module.
 1. Add a data source with the module. 
 
-App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL as an example:
+App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL and MySQL as an examples:
 
-1. Create an XML module definition file for the JDBC driver. The following example shows a module definition for PostgreSQL called *postgresql-module.xml*.
+# [PostgreSQL](#tab/jboss_postgresql)
 
-    ```xml
-    <?xml version="1.0" ?>
-    <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
-      <resources>
-        <resource-root path="postgresql-42.7.1.jar" />
-      </resources>
-      <dependencies>
-        <module name="javax.api" />
-        <module name="javax.transaction.api" />
-      </dependencies>
-    </module>
-    ```
+[!INCLUDE [configure-jboss-postgresql](includes/configure-language-java-data-sources/configure-jboss-postgresql.md)]
 
-1. Put your JBoss CLI commands into a file named *jboss-cli-commands.cli*. The JBoss commands must add the module and register it as a data source. The following example shows the JBoss CLI commands for creating a PostgreSQL data source with the JNDI name `java:jboss/datasources/postgresDS`.
+# [MySQL](#tab/jboss_mysql)
 
-    ```bash
-    #!/bin/bash
-    # These commands are executed by the JBoss CLI.
-    module add --name=org.postgresql --resources=/home/site/libs/postgresql-42.7.1.jar --module-xml=/home/site/scripts/postgresql-module.xml
-    /subsystem=datasources/jdbc-driver=postgresql:add(driver-name="postgresql",driver-module-name="org.postgresql",driver-class-name="org.postgresql.Driver",driver-xa-datasource-class-name="org.postgresql.xa.PGXADataSource")
-    data-source add --name="PostgresqlDS" --driver-name="postgresql" --jndi-name="java:jboss/datasources/postgresDS" --connection-url="jdbc:postgresql://${env.DB_HOST}:5432/postgres" --user-name="${env.DB_USERNAME}" --password="${env.DB_PASSWORD}" --enabled=true --use-java-context=true
-    ```
-
-    Note that the `module add` command uses three environment variables (`DB_HOST`, `DB_USERNAME`, and `DB_PASSWORD`), which you must add in App Service as app settings.
-
-1. Create a startup script, *startup.sh*, that calls the JBoss CLI commands. The following example shows how to call your `jboss-cli-commands.cli`. Later, you'll configure App Service to run this script when the container starts.
-
-    ```bash
-    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/scripts/jboss_cli_commands.cli --resolve-parameter-values
-    ```
-
-1. Using a deployment option of your choice, upload your JDBC driver, *postgresql-module.xml*, *jboss-cli-commands.cli*, and *startup.sh* to the paths specified in the respective scripts. Especially, upload *startup.sh* as a startup file. For example:
-
-# [Azure CLI](#tab/cli)
-
-    ```azurecli-interactive
-    export RESOURCE_GROUP_NAME=<resource-group-name>
-    export APP_NAME=<app-name>
-
-    # The lib type uploads to /home/site/libs by default
-    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path postgresql-42.7.1.jar --target-path postgresql-42.7.1.jar --type lib
-    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path postgresql-module.xml --target-path /home/site/scripts/postgresql-module.xml --type static
-    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path jboss_cli_commands.cli --target-path /home/site/scripts/jboss_cli_commands.cli --type static
-    # The startup type uploads to /home/site/scripts by default and sets it up to run on startup
-    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path startup.sh --type startup
-    ```
-
-For more information, see [Deploy files to App Service](deploy-zip.md).
-
-# [Azure Maven Plugin](#tab/maven)
-
-    ```xml
-    <deployment>
-        <resources>
-            <resource>
-                <!-- The lib type uploads to /home/site/libs by default -->
-                <type>lib</type>
-                <directory>${project.basedir}/src/main/jboss/config</directory>
-                <includes>
-                    <include>postgresql-42.7.1.jar</include>
-                </includes>
-            </resource>
-            <resource>
-                <!-- The script type uploads to /home/site/scripts by default -->
-                <type>script</type>
-                <directory>${project.basedir}/src/main/jboss/config</directory>
-                <includes>
-                    <include>postgresql-module.xml</include>
-                    <include>jboss_cli_commands.cli</include>
-                </includes>
-            </resource>
-            <resource>
-                <!-- The startup type uploads to /home/site/scripts by default and sets it up to run on startup -->
-                <type>startup</type>
-                <directory>${project.basedir}/src/main/jboss/config</directory>
-                <includes>
-                    <include>startup.sh</include>
-                </includes>
-            </resource>
-            ...
-        </resources>
-    </deployment>
-    ```
+[!INCLUDE [configure-jboss-mysql](includes/configure-language-java-data-sources/configure-jboss-mysql.md)]
 
 ---
-
-To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
 
 ::: zone-end
 
