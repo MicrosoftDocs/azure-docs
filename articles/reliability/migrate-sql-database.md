@@ -227,6 +227,9 @@ az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserve
 # [ARM](#tab/arm)
 
 See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+
+---
+
 ### Disable zone-redundancy for an elastic pool
 
 # [Portal](#tab/portal)
