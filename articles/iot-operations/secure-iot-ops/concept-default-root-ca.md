@@ -87,6 +87,7 @@ To help you get started, Azure IoT Operations is deployed with a default self-si
 ## Bring your own issuer
 
 For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates for internal communication.
+
 To set up Azure IoT Operations with your own issuer, use the following steps before deploying an instance to your cluster:
 
 1. Follow the steps in [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up your cluster.
@@ -116,7 +117,7 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
 1. Set up trust bundle in the Azure IoT Operations namespace.
 
    1. To set up trust bundle, create a ConfigMap in the Azure IoT Operations namespace. Place the public key portion of your CA certificate into the config map with a key name of your choice.
-   1. Get the public key portion of your CA certificate. The steps to acquire the public key depend on the issuer you have chosen.
+   1. Get the public key portion of your CA certificate. The steps to acquire the public key depend on the issuer you choose.
    1. Create the ConfigMap. For example:
 
       ```bash
@@ -133,5 +134,5 @@ To set up Azure IoT Operations with your own issuer, use the following steps bef
    2.  Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
 
       ```bash
-      az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOME_LOCATION> -n <iNSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+      az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
       ```
