@@ -627,13 +627,7 @@
     - name: Restore
       href: sap-ase-database-restore.md
     - name: Manage
-      items:
-      - name: Manage SAP ASE database
-        href: sap-ase-database-manage.md
-      - name: Striping
-        href: configure-striping.md
-      - name: Compression
-        href: enable-native-compression.md
+      href: sap-ase-database-manage.md
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
