@@ -17,11 +17,11 @@ This article describes how to configure backup for SAP Adaptive Server Enterpris
 
 ## Prerequisites
 
-Before you set up the SAP ASE database for backup, ensure that:
+Before you set up the SAP ASE database for backup, review the following prerequisites:
 - Identify or create a Recovery Services vault in the same region and subscription as the VM running SAP ASE.
 - Allow connectivity from the VM to the internet, so that it can reach Azure.
-- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM_ VMs (and 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
-- VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Please validate by running python3 and ‘sudo python3’ in your system and check which python version it runs by default. It should run the required version, you can change it by linking python3 to python 3.6.15 or higher.
+- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM_ VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
+- VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Please validate by running python3 and ‘sudo python3’ in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
 - Run the SAP ASE backup configuration script (pre-registration script) in the virtual machine where ASE is installed, as the root user. This script gets the ASE system ready for backup. Learn more [about the pre-registration script  workflow](#preregistration-script-workflow).
 - Run the pre-registration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the pre-registration script](#run-the-pre-registration-script).
 - Assign the following privileges and settings for the backup operation:
@@ -31,9 +31,9 @@ Before you set up the SAP ASE database for backup, ensure that:
   | Operator role | Enable this **ASE database role** for the database user to create a custom database user for the backup and restore operations and pass it in the pre-registration script. |
   | **Map external file** privilege | Enable this role to allow database file access. |
   | **Own any database** privilege |Enables  the differential backup  feature for the SAP ASE database. |
-  | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. This allows you to back up the database log to recovery services vault.  |
+  | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault.  |
 
-- Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role that allows you to run the **Configure Protection** operation on the database VM.
+- Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role allows you to run the **Configure Protection** operation on the database VM.
 
   | Resource (Access control) | Role | User, group, or service principal |
   | --- | --- | --- |
@@ -43,7 +43,7 @@ Before you set up the SAP ASE database for backup, ensure that:
 
 The preregistration script is a Python script that you run on the VM where the SAP ASE database is installed. The script performs the following tasks:
 
-1. Creates the necessary group where the **plugin users** will be added.
+1. Creates the necessary group where the **plugin users** is added.
 2. Installs and updates required packages such as waagent, Python, curl, unzip, Libicu, and PythonXML.
 3. Verifies the status of waagent, checks `wireserver` and `IMDS connectivity`, and tests **TCP connectivity** to  Microsoft Entra ID.
 4. Confirms if the geographic region is supported.
@@ -225,7 +225,7 @@ To create a custom role for Azure Backup, run the following bash commands:
     ```
 
 >[!Note]
->After each of these commands, ensure that you run the command `go to execute the statements`.
+>After each of these commands, ensure that you run the command *`go`* to execute the statement.
 
 ## Establish network connectivity
 
