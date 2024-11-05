@@ -61,11 +61,11 @@ Enabling **bi-directional sync** will automatically sync the status of original 
 
 1. In the **Microsoft Defender plans** column of the list, you can see if Microsoft Defender plans are enabled on your subscription (a prerequisite for enabling the connector).
 
-    The value for each subscription in this column are either blank (meaning no Defender plans are enabled), **All enabled**, or **Some enabled**. Those that say **Some enabled** also have an **Enable all** link you can select, that will take you to your Microsoft Defender for Cloud configuration dashboard for that subscription, where you can choose Defender plans to enable.
+    The value for each subscription in this column is either blank (meaning no Defender plans are enabled), **All enabled**, or **Some enabled**. Those that say **Some enabled** also have an **Enable all** link you can select, that will take you to your Microsoft Defender for Cloud configuration dashboard for that subscription, where you can choose Defender plans to enable.
 
     The **Enable Microsoft Defender for all subscriptions** link button on the bar above the list will take you to your Microsoft Defender for Cloud Getting Started page, where you can choose on which subscriptions to enable Microsoft Defender for Cloud altogether. For example:
 
-    :::image type="content" source="./media/connect-defender-for-cloud/azure-defender-config.png" alt-text="Screenshot of Microsoft Defender for Cloud connector configuration"::: 
+    :::image type="content" source="./media/connect-defender-for-cloud/azure-defender-config.png" alt-text="Screenshot of Microsoft Defender for Cloud connector configuration."::: 
 
 1. You can select whether you want the alerts from Microsoft Defender for Cloud to automatically generate incidents in Microsoft Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically [creates incidents from alerts](create-incidents-from-alerts.md). You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 

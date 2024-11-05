@@ -53,7 +53,7 @@ For more information, see the [OSSEM reference documentation](https://ossemproje
 
 The following image shows how non-normalized data can be translated into normalized content and used in Microsoft Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
 
-:::image type="content" source="media/normalization/asim-architecture.png" alt-text="Non-normalized to normalized data conversion flow and usage in Microsoft Sentinel":::
+:::image type="content" source="media/normalization/asim-architecture.png" alt-text="Diagram showing non-normalized to normalized data conversion flow and usage in Microsoft Sentinel.":::
 
 ASIM includes the following components:
 
