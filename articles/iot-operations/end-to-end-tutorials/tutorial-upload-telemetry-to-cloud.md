@@ -137,6 +137,12 @@ To create the dataflow:
     |-----------|--------------------|
     | Tag 10.Value    | ThermostatHumidity          |
     | temperature.Value | ThermostatTemperature       |
+
+1. To copy the asset ID from the message metadata, add the following rename transform:
+
+    | Datapoint | New datapoint name |
+    |-----------|--------------------|
+    | $metadata.externalAssetId | AssetId |
   
     The rename transformation looks like the following screenshot:
   
@@ -144,11 +150,9 @@ To create the dataflow:
 
     Select **Apply**.
 
-1. To add an asset ID field to the message, select the **Transforms** box in the editor and then select **+ Add** in the **New property** tile.
+1. The dataflow editor now looks like the following screenshot:
 
-1. In the **New property** editor, enter *AssetId* as the property key, *thermostat-01* as the property value, and select **Apply**. The dataflow editor now looks like the following screenshot:
-
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the dataflow.":::
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the completed dataflow.":::
 
 1. To start the dataflow running, enter *tutorial-dataflow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The dataflow is now running in your cluster.
 

@@ -115,6 +115,7 @@ To create an asset, select **Create asset**. Then enter the following asset info
 | Asset Endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
+| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
