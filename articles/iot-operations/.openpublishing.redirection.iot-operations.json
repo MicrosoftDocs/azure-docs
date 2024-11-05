@@ -524,6 +524,11 @@
             "source_path_from_root": "/articles/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md",
             "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-broker",
+            "redirect_document_id": true
         }
     ]
 }

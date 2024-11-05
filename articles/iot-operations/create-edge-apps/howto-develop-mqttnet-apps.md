@@ -125,5 +125,5 @@ To run the sample, follow the instructions in its [README](https://github.com/Az
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md)
 - [Develop highly available distributed applications](edge-apps-overview.md)
