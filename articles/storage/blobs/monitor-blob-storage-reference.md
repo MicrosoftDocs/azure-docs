@@ -20,13 +20,11 @@ See [Monitor Azure Blob Storage](monitor-blob-storage.md) for details on the dat
 
 ### Supported metrics for Microsoft.Storage/storageAccounts
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
-
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts/blobServices resource type.
-
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
 
@@ -34,6 +32,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 > The Blob Capacity and Blob Count metric are emitted hourly. A background process computes these metrics and updates them multiple times a day.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 ### Dimensions available to all storage services
