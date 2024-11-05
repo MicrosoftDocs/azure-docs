@@ -449,7 +449,7 @@ $JBOSS_HOME/bin/jboss-cli.sh --connect
 
 Depending on where JBoss is in the server lifecycle, you may not be able to connect. Wait a few minutes and try again. Note also that changes you make to the server with JBoss CLI doesn't persist after the app restarts. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
 
-The most reliable way to run JBoss CLI and persist your server changes is running it inside a startup script or a startup command. To do this, upload a file directly as a startup script. For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md&pivots=java-jboss).
+The most reliable way to run JBoss CLI and persist your server changes is running it inside a startup script or a startup command. To do this, upload a file directly as a startup script. For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
 
 Alternatively, you can manually configure App Service to run any file on startup. For example:
 
