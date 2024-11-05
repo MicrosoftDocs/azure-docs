@@ -34,7 +34,7 @@ This article creates a C# app that runs in isolated worker mode, which supports 
 
 > [!TIP]  
 > This tutorial shows you how to create an app that runs on the [Flex Consumption plan](flex-consumption-plan.md). This dynamic scale plan supports only the event-based version of the Blob Storage trigger.
-> You can also complete this tutorial using any other [hosting plan](functions-scale.md) for your function app by choosing a different hosting plan when you create your function app.
+> You can also complete this tutorial using any other [hosting plan](functions-scale.md) by choosing a different plan when you create your function app.
 
 ## Prerequisites
 
