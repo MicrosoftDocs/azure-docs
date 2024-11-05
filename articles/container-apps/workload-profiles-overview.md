@@ -50,7 +50,7 @@ There are different types and sizes of workload profiles available by region. By
 |---|---|---|---|---|---|
 | Consumption | Consumption | 4 | 8 | - | Consumption | per replica |
 | Consumption-GPU-NC24-A100 (preview) | Consumption | 24 | 220 | 1 | Consumption | per replica |
-| Consumption-GPU-NC8as-T4 | Consumption | 8 | 56 | 1 | Consumption | per replica |
+| Consumption-GPU-NC8as-T4 (preview) | Consumption | 8 | 56 | 1 | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |

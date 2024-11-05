@@ -49,7 +49,7 @@ The following pricing is applied to [serverless GPU usage](gpu-serverless-overvi
 
 # [West US 3](#tab/westus3)
 
-| Pricing type        | Meter: NC T4 v3       | NC A100 v4 |
+| Pricing type        | Meter: NC T4 v3       | Meter: NC A100 v4 |
 |---------------------|-----------------------|------------|
 | Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
 | 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
@@ -59,7 +59,7 @@ The following pricing is applied to [serverless GPU usage](gpu-serverless-overvi
 
 TODO: update with correct pricing
 
-| Pricing type        | Meter: NC T4 v3       | NC A100 v4 |
+| Pricing type        | Meter: NC T4 v3       | Meter: NC A100 v4 |
 |---------------------|-----------------------|------------|
 | Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
 | 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
