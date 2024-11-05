@@ -106,6 +106,30 @@ Unregister an SAP ASE instance after you disable protection but before you delet
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-instance.png":::
 
-## Next steps
+## Configure striping for higher backup throughput for SAP ASE databases
 
-- Troubleshoot common issues with SAP ASE database backups.
+Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This is beneficial for large databases, where the time required to complete a backup can be significant. By distributing the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. Based on our internal testing we saw 30-40% increase in throughput performance and we highly recommend testing the striping configuration before making changes on production.
+
+### Enable striping for SAP ASE databases
+
+During the execution of the preregistration script, you can control the enable-striping parameter by setting it to true or false depending on your need. Additionally, a new configuration parameter, stripesCount, is introduced, which defaults to 4 but can be modified to suit your requirements.
+
+### Recommended configuration
+
+For databases smaller than 4 TB, we suggest using a stripe count of 4. This configuration provides an optimal balance between performance and resource utilization, ensuring a smooth and efficient backup process.
+
+### Change the database stripe count
+
+You have two ways to modify the stripe count:
+
+- **Pre-registration script**: Run the preregistration script and specify your preferred value using the stripes-count parameter.
+
+   >[!Note]
+   >This parameter is optional.
+
+- **Configuration file**: Manually update the stripesCount value in the configuration file at the following path: */opt/msawb/etc/config/SAPAse/config.json*
+
+For more information, refer to the [official documentation](/azure/sap/workloads/dbms-guide-sapase).
+
+>[!Note]
+>Setting the above ASE parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization, as overutilization can  impact the backup and other ASE operations negatively.
