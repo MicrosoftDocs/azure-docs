@@ -23,7 +23,7 @@ Before you start creating assessments, ensure you have discovered the inventory 
 
 You can discover your on-premises servers using wither of the following: 
 
-- [Discover servers using the Azure Migrate appliance](tutorial-discover-hyper-v)
+- [Discover servers using the Azure Migrate appliance](tutorial-discover-hyper-v.md)
 - [Discover the servers using an import](tutorial-discover-import.md) 
 
 Once you have discovered your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  
@@ -34,7 +34,7 @@ Once you have discovered your servers, identify if you want to create an As-is o
 1. You can apply column based or custom tags-based filters to identify and add VMs to the scope of your assessment. 
 1. After you have selected all the servers, select **Create assessment**.  
 1. Provide a friendly name for the assessment. You see a query that you used to select the servers on the previous screen. Review the number of servers added and the query used before moving ahead. If you want to add more servers to the assessment, select **Add workloads**. Once you have added all the servers to the assessment scope, select **Next**. 
-1. You can customize the assessment properties to fit your requirements. Specify the general properties for **Target region**, **Default environment**, **Pricing options**, **Saving options**, and **Sizing criteria**. [Learn more](assessment-report). 
+1. You can customize the assessment properties to fit your requirements. Specify the general properties for **Target region**, **Default environment**, **Pricing options**, **Saving options**, and **Sizing criteria**. [Learn more](assessment-report.md). 
 1. Select **Next** to navigate to the Azure VM specific assessment properties.  
 1. Select **Edit defaults** to review and customize server-specific settings.  
 1. Select **Edit defaults** for Azure VM to review the settings for Azure VM assessment. [Learn more](assessment-properties.md).
