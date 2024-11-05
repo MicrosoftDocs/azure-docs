@@ -30,14 +30,14 @@ The metrics listed in the following table are recorded and stored free of charge
 |--|--|--|--|
 | Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint | Avg, Min |
 | Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group | Avg |
-| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin | Avg, Max |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. WebSocket is excluded from Origin latency.| Endpoint, Origin | Avg, Max |
 | Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group | Avg, Sum |
 | Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region | Avg, Max |
 | Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region | Avg, Max |
 | Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Sum |
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
-| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. For WebSocket, this metrics refer to the time it takes to establish the WebSocket connection| Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name | Avg, Sum |
 
 > [!NOTE]
@@ -65,18 +65,18 @@ Information about every request is logged into the access log. Each access log e
 | Property | Description |
 |----------|-------------| 
 | TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The tracking reference is sent to the client and to the origin by using the `X-Azure-Ref` headers. Use the tracking reference when searching for a specific request in the access or WAF logs. |
-| Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). |
+| Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). For WebSocket connections, this is the time when the connection is closed.|
 | HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT. |
 | HttpVersion | The HTTP version that the client specified in the request. |
 | RequestUri | The URI of the received request. This field contains the full scheme, port, domain, path, and query string. |
 | HostName | The host name in the request from client. If you enable custom domains and have wildcard domain (`*.contoso.com`), the HostName log field's value is `subdomain-from-client-request.contoso.com`. If you use the Azure Front Door domain (`contoso-123.z01.azurefd.net`), the HostName log field's value is `contoso-123.z01.azurefd.net`. |
-| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. |
-| ResponseBytes | The size of the HTTP response message in bytes. |
+| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. For WebSocket connections, this is the total number of bytes sent from the client to the server on the connection.|
+| ResponseBytes | The size of the HTTP response message in bytes. For WebSocket connections, this is the total number of bytes sent from the server to the client through the connection.|
 | UserAgent | The user agent that the client used. Typically, the user agent identifies the browser type. |
 | ClientIp | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is taken from the header. |
 | SocketIp | The IP address of the direct connection to the Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in seconds. This field doesn't take into account network latency and TCP buffering. |
-| RequestProtocol | The protocol that the client specified in the request. Possible values include: **HTTP**, **HTTPS**. |
+| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in seconds. This field doesn't take into account network latency and TCP buffering. For WebSocket, this is the connection duration- the connection time from establishment to closing of the connection.|
+| RequestProtocol | The protocol that the client specified in the request. Possible values include: **HTTP**, **HTTPS**.For WebSocket, the protocols are : **WS**, **WSS**. Only requests with successfully upgrades to WebSocket will have WS/WSS. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request, or null if the request didn't use encryption. Possible values include: **SSLv3**, **TLSv1**, **TLSv1.1**, **TLSv1.2**. |
 | SecurityCipher | When the value for the request protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and Azure Front Door. |
 | Endpoint | The domain name of the Azure Front Door endpoint, such as `contoso-123.z01.azurefd.net`. |
