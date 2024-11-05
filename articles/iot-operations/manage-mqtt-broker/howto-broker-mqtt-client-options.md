@@ -40,9 +40,7 @@ To get started, prepare a Broker config file in JSON format, like the following 
       "maxReceiveMaximum": 15000,
       "maxKeepAliveSeconds": 300
     }
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 

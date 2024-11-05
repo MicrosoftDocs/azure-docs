@@ -53,7 +53,21 @@ To get a better disk-backed message buffer configuration, specify a ephemeral vo
 {
   "diskBackedMessageBuffer": {
     "maxSize": "<SIZE>",
-    "ephemeralVolumeClaimSpec": { // or "persistentVolumeClaimSpec"
+    "ephemeralVolumeClaimSpec": {
+      "storageClassName": "<NAME>",
+      "accessModes": [
+        "<MODE>"
+      ]
+    }
+  }
+}
+```
+
+```json
+{
+  "persistentVolumeClaimSpec": {
+    "maxSize": "<SIZE>",
+    "ephemeralVolumeClaimSpec": {
       "storageClassName": "<NAME>",
       "accessModes": [
         "<MODE>"

@@ -36,16 +36,14 @@ To automatically determine the initial cardinality during deployment, omit the c
 
 Automatic cardinality isn't yet supported when deploying the Azure IoT Operations through the Azure portal. However, you can manually specify the cluster deployment mode as either **Single node** or **Multi-node**. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
-<!-- TODO: screenshot -->
+:::image type="content" source="media/howto-configure-availability-scale/single-or-multi-node.png" alt-text="Screenshot showing in Azure portal where to select single or multi-node setup.":::
 
 # [Azure CLI](#tab/azure-cli)
 
-Prepare a Broker configuration file in JSON format which includes the desired properties of the [ARM `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and make sure to omit the `cardinality` field. For example:
+Prepare a Broker configuration file in JSON format which includes the desired properties of the [ARM `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and make sure to omit the `cardinality` field. For example, set only the memory profile:
 
 ```json
 {
-  // The cardinality field is omitted
-  // Follow with other settings like the memory profile, for example
   "memoryProfile": "<MEMORY_PROFILE>"
 }
 ```
@@ -72,7 +70,7 @@ To configure the cardinality settings directly, directly specify the each of the
 
 When following guide to [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can specify the number of frontend replicas, backend partitions, and backend workers.
 
-<!-- TODO: screenshot -->
+:::image type="content" source="media/howto-configure-availability-scale/cardinality-portal.png" alt-text="Screenshot showing in Azure portal where to configure broker cardinality directly.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -98,9 +96,7 @@ Alternatively, use the `--broker-config-file` flag to specify a JSON file that i
       "redundancyFactor": 2,
       "workers": 1
     }
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 
@@ -151,7 +147,7 @@ To configure the memory profile settings MQTT broker, specify the memory profile
 
 When following guide to [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration** and find the **Memory profile** setting. Here, you can select from the available memory profiles from a dropdown list.
 
-<!-- TODO: screenshot -->
+:::image type="content" source="media/howto-configure-availability-scale/portal-memory-profile.png" alt-text="Screenshot showing in Azure portal where to configure memory profile.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -223,9 +219,7 @@ Prepare a Broker configuration file in JSON format which includes the desired pr
 {
   "generateResourceLimits": {
     "cpu": "Disabled"
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 

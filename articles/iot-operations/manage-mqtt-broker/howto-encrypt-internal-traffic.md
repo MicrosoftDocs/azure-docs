@@ -44,9 +44,7 @@ To disable the encryption, change the `advanced.encryptInternalTraffic` setting 
 {
   "advanced": {
     "encryptInternalTraffic": "Disabled"
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 
@@ -65,7 +63,6 @@ For example, to set the certificate duration to 240 hours, renew before 45 minut
 ```json
 {
   "advanced": {
-    // Enabling encryption is required to for internal certificates configuration to take effect
     "encryptInternalTraffic": "Enabled", 
     "internalCerts": {
       "duration": "240h",
@@ -75,9 +72,7 @@ For example, to set the certificate duration to 240 hours, renew before 45 minut
         "rotationPolicy": "Always"
       }
     }
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 

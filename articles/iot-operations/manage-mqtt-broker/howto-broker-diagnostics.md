@@ -52,9 +52,7 @@ To override, first prepare a Broker config file following the [BrokerDiagnostics
       },
       "spanChannelCapacity": 1000
     }
-  },
-  // And other settings like the memory profile, for example
-  // "memoryProfile": "<MEMORY_PROFILE>"
+  }
 }
 ```
 
