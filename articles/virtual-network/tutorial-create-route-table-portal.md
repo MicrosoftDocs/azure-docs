@@ -60,8 +60,6 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 1. In **Virtual networks**, select **vnet-1**.
