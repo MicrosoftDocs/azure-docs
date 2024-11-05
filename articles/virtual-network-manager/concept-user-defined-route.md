@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 10/23/2024
+ms.date: 11/05/2024
 ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
@@ -88,6 +88,10 @@ The following are common destination patterns:
 You can also easily choose an Azure Firewall as the next hop by selecting **Import Azure firewall private IP address** when creating your routing rule. The IP address of the Azure Firewall is then used as the next hop.
 
 :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-azure-firewall.png" alt-text="Screenshot of routing rule with Azure Firewall option.":::
+
+### Use more user-defined routes in a single route table
+
+In Azure Virtual Network Manager UDR management, users can now create up to 1,000 user-defined routes (UDRs) in a single route table, compared to the traditional 400-route limit. This higher limit enables more complex routing configurations, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology. This expanded capacity is especially useful for managing traffic inspection and security across large-scale network architectures with numerous spokes.
 
 ## Common routing scenarios
 
