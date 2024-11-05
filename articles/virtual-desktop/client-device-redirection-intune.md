@@ -254,7 +254,7 @@ To create and apply a Conditional Access policy, follow the steps in [Set up app
 
    - For **Assignments**, include the security group containing the users to apply the policy to. You must apply the policy to a group of users to have the policy take effect.
 
-   - For **Target resources**, select to apply the policy to **Cloud apps**, then for **Include**, select **Select apps**. Search for and select **Azure Virtual Desktop** and **Windows 365**. You only have Azure Virtual Desktop in the list if you [registered the `Microsoft.DesktopVirtualization` resource provider on a subscription](prerequisites.md#azure-account-with-an-active-subscription) in your Microsoft Entra tenant. If single sign-on on a managed device is use, additional apps are required.  
+   - For **Target resources**, select to apply the policy to **Cloud apps**, then for **Include**, select **Select apps**. Search for and select **Azure Virtual Desktop** and **Windows 365**. You only have Azure Virtual Desktop in the list if you [registered the `Microsoft.DesktopVirtualization` resource provider on a subscription](prerequisites.md#azure-account-with-an-active-subscription) in your Microsoft Entra tenant.
 
    - For **Conditions**:
       - Select **Device platforms**, then include **iOS** and **Android**.
