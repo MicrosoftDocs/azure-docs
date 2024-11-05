@@ -59,7 +59,7 @@ In addition to execution time, when using one or more always ready instances, yo
 >[!IMPORTANT]
 >In this article, prices are only provided to help understand example calculations. Always check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumtion plan. 
 
-For the examples in this section, consider the example prices in this table for pay-as-you-go in East US.
+For the examples in this section, consider the discounted preview pricing in this table for pay-as-you-go in East US.
 
 | Mode        | Meter             | Free monthly grants        | Consumption rates        |
 | ------------| ----------------- | -------------------------- | ------------------------ | 

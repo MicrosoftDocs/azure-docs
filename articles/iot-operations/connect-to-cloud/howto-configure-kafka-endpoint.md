@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 11/04/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
@@ -23,21 +23,26 @@ To set up bi-directional communication between Azure IoT Operations Preview and 
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-## Create a Kafka dataflow endpoint
-
-To create a dataflow endpoint for Kafka, you need to specify the Kafka broker host, authentication method, TLS settings, and other settings. You can use the endpoint as a source or destination in a dataflow. When used with Azure Event Hubs, you can use managed identity for authentication that eliminates the need to manage secrets.
-
-### Azure Event Hubs
+## Azure Event Hubs
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
-If you're using Azure Event Hubs, create an Azure Event Hubs namespace and a Kafka-enabled event hub for each Kafka topic. 
+### Create an Azure Event Hubs namespace and event hub in it
 
-To configure a dataflow endpoint for a Kafka endpoint, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md)
 
-First, in Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
+Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.md#create-an-event-hub). Each individual event hub corresponds to a Kafka topic. You can create multiple event hubs in the same namespace to represent multiple Kafka topics. 
 
-Then, assign the managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role using the name of the extension.
+### Assign the managed identity to the Event Hubs namespace
+
+To configure a dataflow endpoint for a Kafka endpoint, we recommend using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
+1. Assign the Azure IoT Operations Arc extension managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
+
+### Create dataflow endpoint
 
 Finally, create the *DataflowEndpoint* resource. Use your own values to replace the placeholder values like `<ENDPOINT_NAME>`.
 
@@ -54,12 +59,54 @@ Finally, create the *DataflowEndpoint* resource. Use your own values to replace 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *SASL*. |
-    | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
-    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
-    | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
+    | Authentication method| The method used for authentication. Choose *System assigned managed identity* |
 
 1. Select **Apply** to provision the endpoint.
+
+# [Bicep](#tab/bicep)
+
+Create a Bicep `.bicep` file with the following content.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param hostName string = '<NAMESPACE>.servicebus.windows.net:9093'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Kafka'
+    kafkaSettings: {
+      host: hostName
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      tls: {
+        mode: 'Enabled'
+      }
+    }
+  }
+}
+```
+
+Then, deploy via Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -88,57 +135,12 @@ Then apply the manifest file to the Kubernetes cluster.
 kubectl apply -f <FILE>.yaml
 ```
 
-# [Bicep](#tab/bicep)
-
-Create a Bicep `.bicep` file with the following content.
-
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
-param hostName string = '<HOST>.servicebus.windows.net:9093'
-
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
-  name: aioInstanceName
-}
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-  name: customLocationName
-}
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'Kafka'
-    kafkaSettings: {
-      host: hostName
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-    }
-  }
-}
-```
-
-Then, deploy via Azure CLI.
-
-```azurecli
-az stack group create --name <DEPLOYMENT_NAME> --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
-```
-
 ---
 
 > [!NOTE]
 > The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
-#### Use connection string for authentication to Event Hubs
-
-To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
+### Use connection string for authentication to Event Hubs
 
 # [Portal](#tab/portal)
 
@@ -153,7 +155,36 @@ Enter the following settings for the endpoint:
 | Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
 | Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
 
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Sasl'
+    saslSettings: {
+      saslType: 'Plain'
+      secretRef: '<SECRET_NAME>'
+    }
+  }
+  tls: {
+    mode: 'Enabled'
+  }
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
+
+To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
+
+First, create a Kubernetes secret that contains the connection string. The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have both the username and password as key-value pairs. For example:
+
+```bash
+kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+  --from-literal=username='$ConnectionString' \
+  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>'
+```
+> [!TIP]
+> Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
 
 ```yaml
 kafkaSettings:
@@ -166,41 +197,13 @@ kafkaSettings:
     mode: Enabled
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'Sasl'
-    SaslSettings: {
-        saslType: 'Plain'
-        secretRef: '<SECRET_NAME>'
-    }
-  }
-  tls: {
-    mode: 'Enabled'
-  }
-  ...
-}
-```
-
 ---
 
-Here, the secret reference points to secret that contains the connection string. The secret must be in the same namespace as the Kafka dataflow resource. The secret must have both the username and password as key-value pairs. For example:
-
-```bash
-kubectl create secret generic cs-secret -n azure-iot-operations \
-  --from-literal=username='$ConnectionString' \
-  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>'
-```
-> [!TIP]
-> Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
-
-#### Limitations
+### Limitations
 
 Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
 
-### Other Kafka brokers
+## Custom Kafka brokers
 
 To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed.
 
@@ -230,32 +233,10 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 > [!NOTE]
 > Currently, the operations experience doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using Kubernetes or Bicep.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: kafka
-  namespace: azure-iot-operations
-spec:
-  endpointType: Kafka
-  kafkaSettings:
-    host: <KAFKA-HOST>:<PORT>
-    authentication:
-      method: Sasl
-      saslSettings:
-        saslType: ScramSha256
-        secretRef: <SECRET_NAME>
-    tls:
-      mode: Enabled
-    consumerGroupId: mqConnector
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {
@@ -268,32 +249,52 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
     kafkaSettings: {
       authentication: {
         method: 'Sasl'
-        SaslSettings: {
-            saslType: 'Plain'
+        saslSettings: {
+            saslType: '<TYPE>'
             secretRef: '<SECRET_NAME>'
         }
       }
       tls: {
         mode: 'Enabled'
       }
-      consumerGroupId: mqConnector
     }
   }
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: Kafka
+  kafkaSettings:
+    host: <KAFKA-HOST>:<PORT>
+    authentication:
+      method: Sasl
+      saslSettings:
+        saslType: <TYPE>
+        secretRef: <SECRET_NAME>
+    tls:
+      mode: Enabled
+```
+
 ---
 
-To customize the endpoint settings, see the following sections for more information.
+To customize the endpoint settings, use the following sections for more information.
 
 
-### Available authentication methods
+## Available authentication methods
 
 The following authentication methods are available for Kafka broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-#### SASL
+### SASL
 
-To use SASL for authentication, specify the SASL authentication method and configure SASL type as well as a secret reference with the name of the secret that contains the SASL token.
+To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
 
 # [Portal](#tab/portal)
 
@@ -308,7 +309,26 @@ Enter the following settings for the endpoint:
 | Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
 | Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
 
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Sasl' // Or ScramSha256, ScramSha512
+    saslSettings: {
+      saslType: 'Plain' // Or ScramSha256, ScramSha512
+      secretRef: '<SECRET_NAME>'
+    }
+  }
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
+
+```bash
+kubectl create secret generic sasl-secret -n azure-iot-operations \
+  --from-literal=token='<YOUR_SASL_TOKEN>'
+```
 
 ```yaml
 kafkaSettings:
@@ -319,20 +339,6 @@ kafkaSettings:
       secretRef: <SECRET_NAME>
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
-    SaslSettings: {
-        saslType: 'Plain'
-        secretRef: '<SECRET_NAME>'
-    }
-  }
-}
-```
-
 ---
 
 The supported SASL types are:
@@ -341,16 +347,12 @@ The supported SASL types are:
 - `ScramSha256`
 - `ScramSha512`
 
-The secret must be in the same namespace as the Kafka dataflow resource. The secret must have the SASL token as a key-value pair. For example:
+The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have the SASL token as a key-value pair. For example:
 
-```bash
-kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='your-sasl-token'
-```
 
 <!-- TODO: double check! -->
 
-#### X.509
+### X.509
 
 To use X.509 for authentication, update the authentication section of the Kafka settings to use the X509Certificate method and specify reference to the secret that holds the X.509 certificate.
 
@@ -367,16 +369,6 @@ Enter the following settings for the endpoint:
 | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
 | X509 client key       | The private key corresponding to the X.509 client certificate. |
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <SECRET_NAME>
-```
-
 # [Bicep](#tab/bicep)
 
 
@@ -391,9 +383,9 @@ kafkaSettings: {
 }
 ```
 
----
+# [Kubernetes](#tab/kubernetes)
 
-The secret must be in the same namespace as the Kafka dataflow resource. Use Kubernetes TLS secret containing the public certificate and private key. For example:
+The secret must be in the same namespace as the Kafka dataflow endpoint. Use Kubernetes TLS secret containing the public certificate and private key. For example:
 
 ```bash
 kubectl create secret tls my-tls-secret -n azure-iot-operations \
@@ -401,15 +393,41 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
   --key=path/to/key/file
 ```
 
-#### System-assigned managed identity
+```yaml
+kafkaSettings:
+  authentication:
+    method: X509Certificate
+    x509CertificateSettings:
+      secretRef: <SECRET_NAME>
+```
 
-To use system-assigned managed identity for authentication, first assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+---
 
-Then, specify the managed identity authentication method in the Kafka settings. In most cases, you don't need to specify other settings. 
+
+### System-assigned managed identity
+
+To use system-assigned managed identity for authentication, assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs.
+
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
+1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to send and receive messages such as *Azure Event Hubs Data Owner*, *Azure Event Hubs Data Sender*, or *Azure Event Hubs Data Receiver*. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+1. Specify the managed identity authentication method in the Kafka settings. In most cases, you don't need to specify other settings. 
 
 # [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -421,24 +439,6 @@ kafkaSettings:
       {}
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
- ...
-  properties: {
-    ...
-    kafkaSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-      ...
-    }
-  }
-}
-```
-
 ---
 
 This configuration creates a managed identity with the default audience, which is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the `audience` field to the desired value.
@@ -446,16 +446,6 @@ This configuration creates a managed identity with the default audience, which i
 # [Portal](#tab/portal)
 
 Not supported in the operations experience.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: <YOUR_AUDIENCE_OVERRIDE_VALUE>
-```
 
 # [Bicep](#tab/bicep)
 
@@ -470,31 +460,27 @@ kafkaSettings: {
 }
 ```
 
----
-
-#### User-assigned managed identity
-
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-Then, specify the user-assigned managed identity authentication method in the Kafka settings along with the client ID, tenant ID, and scope of the managed identity.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
-
-Enter the user assigned managed identity client ID, tenant ID, and scope in the appropriate fields.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
   authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <CLIENT_ID>
-      tenantId: <TENANT_ID>
-      scope: <SCOPE>
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: <YOUR_AUDIENCE_OVERRIDE_VALUE>
 ```
+
+---
+
+### User-assigned managed identity
+
+To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+Then, specify the user-assigned managed identity authentication method in the Kafka settings along with the client ID and tenant ID of the managed identity.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 # [Bicep](#tab/bicep)
 
@@ -505,22 +491,44 @@ kafkaSettings: {
     UserAssignedManagedIdentitySettings: {
       clientId: '<CLIENT_ID>'
       tenantId: '<TENANT_ID>'
-      scope: '<SCOPE>'
+      // Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
+      // Matching the Event Hub namespace you configured as host
+      // scope: 'https://<SCOPE_URL>'
     }
   }
   ...
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <CLIENT_ID>
+      tenantId: <TENANT_ID>
+      # Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
+      # Matching the Event Hub namespace you configured as host
+      # scope: https://<SCOPE_URL>
+```
+
 ---
 
-#### Anonymous
+Here, the scope is the audience of the managed identity. The default value is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the scope field to the desired value using Bicep or Kubernetes.
+
+### Anonymous
 
 To use anonymous authentication, update the authentication section of the Kafka settings to use the Anonymous method.
 
 # [Portal](#tab/portal)
 
 Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
+
+# [Bicep](#tab/bicep)
+
+Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -531,10 +539,6 @@ kafkaSettings:
     anonymousSettings:
       {}
 ```
-
-# [Bicep](#tab/bicep)
-
-Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
 
 ---
 
@@ -548,49 +552,51 @@ In the operations experience, select the **Advanced** tab for the dataflow endpo
 
 :::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka dataflow endpoint advanced settings.":::
 
-# [Kubernetes](#tab/kubernetes)
-
-Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
-
-```yaml
-kafkaSettings:
-  consumerGroupId: <ID>
-  compression: Gzip
-  copyMqttProperties: true
-  kafkaAcknowledgement: All
-  partitionHandlingStrategy: Default
-  tls:
-    mode: Enabled
-  trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
-  batching:
-    enabled: true
-    latencyMs: 1000
-    maxMessages: 100
-    maxBytes: 1024
-```
-
 # [Bicep](#tab/bicep)
 
 Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
 
 ```bicep
+// See sections below for more details
 kafkaSettings: {
   consumerGroupId: '<ID>'
   compression: 'Gzip'
-  copyMqttProperties: true
-  kafkaAcknowledgement: 'All'
-  partitionHandlingStrategy: 'Default'
+  copyMqttProperties: 'Disabled'
+  kafkaAcks: 'All'
+  partitionStrategy: 'Default'
   tls: {
     mode: 'Enabled'
+    trustedCaCertificateConfigMapRef: '<YOUR_CA_CERTIFICATE>'
   }
-  trustedCaCertificateConfigMapRef: '<YOUR_CA_CERTIFICATE>'
   batching: {
-    enabled: true
+    mode: 'Enabled'
     latencyMs: 1000
     maxMessages: 100
     maxBytes: 1024
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
+
+```yaml
+# See sections below for more details
+kafkaSettings:
+  consumerGroupId: <ID>
+  compression: Gzip
+  copyMqttProperties: Disabled
+  kafkaAcks: All
+  partitionStrategy: Default
+  tls:
+    mode: Enabled
+    trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
+  batching:
+    mode: Enabled
+    latencyMs: 1000
+    maxMessages: 100
+    maxBytes: 1024
 ```
 
 ---
@@ -605,14 +611,6 @@ To enable or disable TLS for the Kafka endpoint, update the `mode` setting in th
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the checkbox next to **TLS mode enabled**.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  tls:
-    mode: Enabled # Or Disabled
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -621,6 +619,14 @@ kafkaSettings: {
     mode: 'Enabled' // Or Disabled
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  tls:
+    mode: Enabled # Or Disabled
 ```
 
 ---
@@ -635,14 +641,6 @@ Configure the trusted CA certificate for the Kafka endpoint to establish a secur
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  tls:
-    trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -651,6 +649,14 @@ kafkaSettings: {
     trustedCaCertificateConfigMapRef: '<YOUR_CA_CERTIFICATE>'
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  tls:
+    trustedCaCertificateConfigMapRef: <YOUR_CA_CERTIFICATE>
 ```
 
 ---
@@ -666,19 +672,14 @@ kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-io
 
 ### Consumer group ID
 
-The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker.
+The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker. 
+
+> [!IMPORTANT]
+> When the Kafka endpoint is used as [source](howto-create-dataflow.md#source), the consumer group ID is required. Otherwise, the dataflow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
 
 # [Portal](#tab/portal)
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Consumer group ID** field to specify the consumer group ID.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-spec:
-  kafkaSettings:
-    consumerGroupId: <ID>
-```
 
 # [Bicep](#tab/bicep)
 
@@ -688,9 +689,15 @@ kafkaSettings: {
 }
 ```
 
----
+# [Kubernetes](#tab/kubernetes)
 
-<!-- TODO: check for accuracy -->
+```yaml
+spec:
+  kafkaSettings:
+    consumerGroupId: <ID>
+```
+
+---
 
 This setting takes effect only if the endpoint is used as a source (that is, the dataflow is a consumer).
 
@@ -702,8 +709,8 @@ The compression field enables compression for the messages sent to Kafka topics.
 | ----- | ----------- |
 | `None` | No compression or batching is applied. None is the default value if no compression is specified. |
 | `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-kafka-overview.md#compression) currently. |
-| `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+| `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. This compression mode isn't supported by Azure Event Hubs. |
+| `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. This compression mode isn't supported by Azure Event Hubs. |
 
 To configure compression:
 
@@ -711,19 +718,19 @@ To configure compression:
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Compression** field to specify the compression type.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  compression: Gzip # Or Snappy, Lz4
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
   compression: 'Gzip' // Or Snappy, Lz4
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  compression: Gzip # Or Snappy, Lz4
 ```
 
 --- 
@@ -736,10 +743,10 @@ Aside from compression, you can also configure batching for messages before send
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| `mode` | Enable batching or not. If not set, the default value is Enabled because Kafka doesn't have a notion of *unbatched* messaging. If set to Disabled, the batching is minimized to create a batch with a single message each time. | No |
+| `mode` | Can be `Enabled` or `Disabled`. The default value is `Enabled` because Kafka doesn't have a notion of *unbatched* messaging. If set to `Disabled`, the batching is minimized to create a batch with a single message each time. | No |
 | `latencyMs` | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
-| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered. If not set, the default value is 100000.  | No |
-| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered. The default value is 1000000 (1 MB). | No |
+| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large or how long they're buffered. If not set, the default value is 100000.  | No |
+| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many or how long they're buffered. The default value is 1000000 (1 MB). | No |
 
 For example, if you set latencyMs to 1000, maxMessages to 100, and maxBytes to 1024, messages are sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds elapse since the last send, whichever comes first.
 
@@ -749,28 +756,28 @@ To configure batching:
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Batching enabled** field to enable batching. Use the **Batching latency**, **Maximum bytes**, and **Message count** fields to specify the batching settings.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  batching:
-    enabled: true
-    latencyMs: 1000
-    maxMessages: 100
-    maxBytes: 1024
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
   batching: {
-    enabled: true
+    mode: 'Enabled' // Or Disabled
     latencyMs: 1000
     maxMessages: 100
     maxBytes: 1024
   }
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  batching:
+    mode: Enabled # Or Disabled
+    latencyMs: 1000
+    maxMessages: 100
+    maxBytes: 1024
 ```
 
 ---
@@ -782,8 +789,6 @@ This setting takes effect only if the endpoint is used as a destination where th
 The partition handling strategy controls how messages are assigned to Kafka partitions when sending them to Kafka topics. Kafka partitions are logical segments of a Kafka topic that enable parallel processing and fault tolerance. Each message in a Kafka topic has a partition and an offset, which are used to identify and order the messages.
 
 This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer.
-
-<!-- TODO: double check for accuracy -->
 
 By default, a dataflow assigns messages to random partitions, using a round-robin algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
 
@@ -802,21 +807,21 @@ To configure the partition handling strategy:
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Partition handling strategy** field to specify the partition handling strategy. Use the **Partition key property** field to specify the property used for partitioning if the strategy is set to `Property`.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  partitionHandlingStrategy: Default # Or Static, Topic, Property
-  partitionKeyProperty: <PROPERTY_NAME>
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
-  partitionHandlingStrategy: 'Default' // Or Static, Topic, Property
+  partitionStrategy: 'Default' // Or Static, Topic, Property
   partitionKeyProperty: '<PROPERTY_NAME>'
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  partitionStrategy: Default # Or Static, Topic, Property
+  partitionKeyProperty: <PROPERTY_NAME>
 ```
 
 ---
@@ -829,37 +834,37 @@ This setting takes effect only if the endpoint is used as a destination (that is
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The dataflow doesn't wait for any acknowledgments from the Kafka broker. This is the fastest but least durable option. |
-| `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This is the slowest but most durable option. This is also the default option|
+| `None` | The dataflow doesn't wait for any acknowledgments from the Kafka broker. This setting is the fastest but least durable option. |
+| `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This setting is the slowest but most durable option. This setting is also the default option|
 | `One` | The dataflow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
 
-<!-- TODO: double check for accuracy -->
-
-For example, if you set the Kafka acknowledgement to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
+For example, if you set the Kafka acknowledgment to `All`, the dataflow waits for the message to be written to the leader partition and all follower partitions before sending the next message.
 
 To configure the Kafka acknowledgments:
 
 # [Portal](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Kafka acknowledgement** field to specify the Kafka acknowledgement level.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  kafkaAcknowledgement: All # Or None, One, Zero
-```
+In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Kafka acknowledgment** field to specify the Kafka acknowledgment level.
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
-  kafkaAcknowledgement: 'All' // Or None, One, Zero
+  kafkaAcks: 'All' // Or None, One, Zero
 }
 ```
 
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  kafkaAcks: All # Or None, One, Zero
+```
+
 ---
+
+This setting only takes effect if the endpoint is used as a destination where the dataflow is a producer.
 
 ### Copy MQTT properties
 
@@ -869,19 +874,19 @@ By default, the copy MQTT properties setting is enabled. These user properties i
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use checkbox next to **Copy MQTT properties** field to enable or disable copying MQTT properties.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  copyMqttProperties: Enabled # Or Disabled
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
   copyMqttProperties: 'Enabled' // Or Disabled
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  copyMqttProperties: Enabled # Or Disabled
 ```
 
 ---
@@ -915,7 +920,7 @@ When a dataflow receives an MQTT message with the Message Expiry Interval specif
 
 * Records the time the message was received.
 * Before the message is emitted to the destination, time is subtracted from the message has been queued from the original expiry interval time.
- * If the message has not yet expired (the operation above is > 0), then the message is emitted to the destination and contains the updated Message Expiry Time.
+ * If the message hasn't expired (the operation above is > 0), then the message is emitted to the destination and contains the updated Message Expiry Time.
  * If the message has expired (the operation above is <= 0), then the message isn't emitted by the Target.
 
 Examples:
@@ -1003,7 +1008,7 @@ Properties =
 
 The dataflow endpoint discards packets that contain the `"float-value"` field.
 
-Not all event data properties including propertyEventData.correlationId are not forwarded. For more information, see [Event User Properties](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
+Not all event data properties including propertyEventData.correlationId are forwarded. For more information, see [Event User Properties](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
 
 ### CloudEvents
 
@@ -1015,19 +1020,19 @@ The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`.
 
 In the operations experience dataflow endpoint settings page, select the **Advanced** tab then use the **Cloud event attributes** field to specify the CloudEvents setting.
 
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  cloudEventAttributes: Propagate # Or CreateOrRemap
-```
-
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
   cloudEventAttributes: 'Propagate' // Or CreateOrRemap
 }
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  cloudEventAttributes: Propagate # Or CreateOrRemap
 ```
 
 ---
@@ -1063,3 +1068,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |
+
+## Next steps
+
+To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
