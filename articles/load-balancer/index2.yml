@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Load Balancer?
-            url: /azure/load-balancer/overview
+            url: /azure/load-balancer/load-balancer-overview
           - text: Choose a load balancer
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
           - text: Azure Load Balancer SKUs
@@ -47,7 +47,7 @@ landingContent:
           - text: Load-balancing options
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
           - text: Azure Load Balancer algorithm
-            url: /azure/load-balancing/concepts
+            url: /azure/load-balancer/concepts
           - text: Gateway load balancer overview
             url: /azure/load-balancer/gateway-overview
           - text: Azure Load Balancer components
@@ -61,10 +61,10 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Plan your implementation
-            url: /azure/load-balancer/overview
-          - text: Outbound connections in Azure
-            url: /azure/load-balancer/overview
+          - text: Azure Load Balancer distribution modes
+            url: /azure/load-balancer/distribution-mode-concepts
+          - text: Outbound connections in Azure Load Balancer
+            url: /azure/load-balancer/load-balancer-outbound-connections
       - linkListType: quickstart
         links:
           - text: Create a public load balancer to load balance VMs
@@ -116,8 +116,8 @@ landingContent:
           links:
           - text: Azure security baseline for Azure Load Balancer
             url: /azure/load-balancer/azure-load-balancer-security-baseline
-          - text: TBD
-            url: /azure/load-balancer/overview
+          - text: Implement a secure hybrid network
+            url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
         - linkListType: how-to-guide
           links:
           - text: Integrate Azure Firewall with Azure Standard Load Balancer
