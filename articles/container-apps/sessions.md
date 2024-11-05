@@ -66,7 +66,7 @@ For code interpreter sessions, you can also use an integration with an [LLM fram
 
 ### Session identifiers
 
-To send an HTTP request to a session, you must provide a session identifier in the request.
+To send an HTTP request to a session, you must provide a session identifier in the request. You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
 * If a session with the identifier already exists, the request is sent to the existing session.
 * If a session with the identifier doesn't exist, a new session is automatically allocated before the request is sent to it.
@@ -80,8 +80,6 @@ The session identifier is a free-form string, meaning you can define it in any w
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID as the session identifier. If you're building a chatbot, you can use the conversation ID.
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
-
-You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
 #### Protecting session identifiers
 
