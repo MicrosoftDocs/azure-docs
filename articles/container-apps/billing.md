@@ -45,27 +45,7 @@ Free usage doesn't appear on your bill. You're only charged as your resource usa
 
 ### Serverless GPU
 
-The following pricing is applied to [serverless GPU usage](gpu-serverless-overview.md).
-
-# [West US 3](#tab/westus3)
-
-| Pricing type        | Meter: NC T4 v3       | Meter: NC A100 v4 |
-|---------------------|-----------------------|------------|
-| Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
-| 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
-| 3-year savings plan | $0.000061 per second  | $0.000439 per second |
-
-# [Australia East](#tab/australiaeast)
-
-TODO: update with correct pricing
-
-| Pricing type        | Meter: NC T4 v3       | Meter: NC A100 v4 |
-|---------------------|-----------------------|------------|
-| Pay-as-you-go       | $0.000073 per second  | $0.000529 per second |
-| 1-year savings plan | $0.0000621 per second | $0.00045 per second  |
-| 3-year savings plan | $0.000061 per second  | $0.000439 per second |
-
----
+Serverless GPU compute is calculated on a per-second billing rate.
 
 ### Resource consumption charges
 
