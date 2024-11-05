@@ -71,7 +71,7 @@ To send an HTTP request to a session, you must provide a session identifier in t
 * If a session with the identifier already exists, the request is sent to the existing session.
 * If a session with the identifier doesn't exist, a new session is automatically allocated before the request is sent to it.
 
-:::image type="content" source="media/sessions-overview.png" alt-text="Session pool and sessions usage":::
+:::image type="content" source="media/sessions/sessions-overview.png" alt-text="Session pool and sessions usage":::
 
 #### Identifier format
 
