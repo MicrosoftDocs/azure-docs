@@ -15,13 +15,12 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Database for MySQL bindings for Azure Functions overview
+# Azure Database for MySQL bindings for Azure Functions overview (Preview)
 
-This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. Azure Functions supports input bindings, output bindings, and a function trigger for the Azure Database for MySQL.
+This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. For preview, Azure Functions supports input bindings and output bindings for Azure Database for MySQL.
 
 | Action | Type |
 |---------|---------|
-| Trigger a function when a change is detected on a MySQL table | [MYSQL trigger](./functions-bindings-azure-mysql-trigger.md) |
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
 
@@ -151,7 +150,7 @@ You can use the preview extension bundle with an update to the `pom.xml` file in
 
 ## MySQL connection string
 
-Azure Database for MySQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the MySql.Data.MySqlClient library and supports the connection string as defined in the [MySqlClient ConnectionString documentation](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html).  Notable keywords include:
+Azure Database for MySQL bindings for Azure Functions have a required property for the connection string on all bindings. These pass the connection string to the MySql.Data.MySqlClient library and supports the connection string as defined in the [MySqlClient ConnectionString documentation](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html).  Notable keywords include:
 
 - `server` the host on which the server instance is running. The value can be a host name, IPv4 address, or IPv6 address. 
 - `uid` the MySQL user account to provide for the authentication process
@@ -174,5 +173,4 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-- [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 

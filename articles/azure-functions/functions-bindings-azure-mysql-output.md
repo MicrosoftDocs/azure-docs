@@ -10,7 +10,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Database for MySQL output binding for Azure Functions
+# Azure Database for MySQL output binding for Azure Functions (Preview)
 
 The Azure Databasase for MySQL output binding lets you write to a database.
 
@@ -730,5 +730,4 @@ If an exception occurs when a MySQL output binding is executed then the function
 ## Next steps
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
-- [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 

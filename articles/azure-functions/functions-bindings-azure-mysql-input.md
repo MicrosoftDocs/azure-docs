@@ -10,7 +10,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Database for MySQL input binding for Azure Functions
+# Azure Database for MySQL input binding for Azure Functions (Preview)
 
 When a function runs, the Azure Database for MySQL input binding retrieves data from a database and passes it to the input parameter of the function. 
 
@@ -1508,6 +1508,5 @@ If an exception occurs when a MySQL input binding is executed then the function 
 ## Next steps
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-- [Run a function when data is changed in a MySQL table (Trigger)](./functions-bindings-azure-mysql-trigger.md)
 - [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
  
