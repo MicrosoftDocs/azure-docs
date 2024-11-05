@@ -28,7 +28,7 @@ By using the Azure Backup service to back up and restore SAP ASE (Sybase) databa
 * **Recovery Services Vault**: All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Auth. The vaulted backup data is stored in Microsoft-managed Azure subscription and is isolated from customer’s environment. These features ensure that the SAP ASE backup data is always secure and tamper-proof. You can also recover the data safely even when the source machines are compromised. 
 * **Multiple Database Restore options**: Support of Alternate Location Restore (System refresh), Original Location Restore, and Restore as Files. 
 
-To learn about the backup and restore scenarios that we support today, see the [SAP ASE scenario support matrix](./sap-ase-backup-support-matrix.md#scenario-support).
+To learn about the backup and restore scenarios that we support today, see the [SAP ASE scenario support matrix](sap-ase-backup-support-matrix.md).
 
 ## Backup architecture for SAP ASE (Sybase) databases (preview)
 
@@ -61,7 +61,7 @@ You can back up SAP ASE (Sybase) databases that are running inside an Azure VM a
 
 In addition to using SAP ASE backup in Azure, which provides database-level backup and recovery, you can use the Azure VM backup solution to back up the operating system and nondatabase disks.
 
-You can use the [Backint certified Azure SAP ASE backup solution](#backup-architecture) for database backup and recovery.
+You can use the [Backint certified Azure SAP ASE backup solution](#backup-architecture-for-sap-ase-sybase-databases-preview) for database backup and recovery.
 
 You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other nondatabase disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and ultra disks. Because you're backing up the database by using the Azure SAP ASE backup solution, you can take a file-consistent backup of only the operating system and nondatabase disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
