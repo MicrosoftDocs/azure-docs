@@ -500,4 +500,4 @@ Machine configuration built-in policy samples are available in the following loc
 [43]: ./how-to/create-policy-definition.md
 [44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
 [45]: ../policy/overview.md
-[46]: https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
+[46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
