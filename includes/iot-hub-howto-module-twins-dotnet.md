@@ -151,16 +151,19 @@ using Microsoft.Azure.Devices;
 using Microsoft.Azure.Devices.Shared;
 ```
 
-### Connect to IoT hub
+### Connect to IoT Hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+* X.509 certificate
+
+#### Connect using a shared access policy
 
 Connect a backend application to IoT hub using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring).
 
-The SDK methods in this section require these shared access policy permissions:
-
-* **Registry Write** - required to add a module (or device) to the IoT Hub registry
-* **Service Connect** - required to add desired properties to a module
-
-As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+The `UpdateModuleAsync` method used in this section requires the **Service Connect** shared access policy permission to add desired properties to a module. As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes **Service Connect** permission. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
@@ -170,11 +173,40 @@ static string connectionString = "{IoT hub shared access policy connection strin
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
 
+#### Connect using Microsoft Entra
+
+Use [DefaultAzureCredential](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/iot-hub/authenticate-authorize-azure-ad).
+
+To supply parameters to `DefaultAzureCredential`, first create an Entra app registration that contains the Azure client secret, client ID, and tenant ID. An Entra profile requires [IoT Hub Twin Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) to enable read and write access to all IoT Hub device and module twins.
+
+In this example, the Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application.
+
+```csharp
+string clientSecretValue = "xxxxxxxxxxxxxxx";
+string clientID = "xxxxxxxxxxxxxx";
+string tenantID = "xxxxxxxxxxxxx";
+
+Environment.SetEnvironmentVariable("AZURE_CLIENT_SECRET", clientSecretValue);
+Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", clientID);
+Environment.SetEnvironmentVariable("AZURE_TENANT_ID", tenantID);
+
+TokenCredential tokenCredential = new DefaultAzureCredential();
+```
+
+The [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to [ServiceClient.Create](https://review.learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.serviceclient.create?#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions)) to create a [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) connection object.
+
+For example:
+
+```csharp
+string hostname = "xxxxxxxxxx.azure-devices.net";
+using var serviceClient = ServiceClient.Create(hostname, tokenCredential, TransportType.Amqp);
+```
+
 ### Read and update module identity fields
 
  Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module identity twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
-The `Module` class includes `properties` that correspond to sections of a  module identity twin. Use the Module class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
+The `Module` class includes `properties` that correspond to sections of a module identity twin. Use the Module class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
 After making module identity twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
 
