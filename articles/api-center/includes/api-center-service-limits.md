@@ -31,4 +31,4 @@ ms.custom: Include file
 <sup>3</sup> In the Free plan, use of full service features including API analysis and access through the data plane API is limited to 5 APIs.<br/>
 <sup>4</sup> Custom metadata properties assigned to APIs, deployments, and environments.<br/>
 <sup>5</sup> Analysis can take a few minutes to up to 24 hours to complete.<br/> 
-<sup>6</sup> Sources such as linked API Management instances. In the Free plan, synchronization from a linked API source is limited to 200 APIs and 5 API definitions.
+<sup>6</sup> Sources such as linked API Management instances. In the Free plan, synchronization from a linked API source is limited to 200 APIs and 5 API definitions. Synchronization can take a few minutes to up to 24 hours to complete.
