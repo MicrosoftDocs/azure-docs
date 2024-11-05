@@ -4,13 +4,11 @@ description: Learn how to configure the disk-backed message buffer feature for t
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.custom:
-  - ignite-2023
 ms.date: 11/04/2024
 
-#CustomerIntent: 
-ms.service: azure-iot-operations
+#CustomerIntent: As an operator, I want to configure MQTT broker so that I can modify the message queue behavior.
 ---
 
 # Configure disk-backed message buffer behavior
@@ -47,7 +45,7 @@ For example, the simplest configuration involves only specifying the max size. I
 }
 ```
 
-To get a better disk-backed message buffer configuration, specify a ephemeral volume or persistent volume claim to mount a dedicated storage volume for your message buffer. For example:
+To get a better disk-backed message buffer configuration, specify an ephemeral volume or persistent volume claim to mount a dedicated storage volume for your message buffer. For example:
 
 ```json
 {
@@ -93,7 +91,7 @@ Use the following sections to understand the different volume modes:
 
 Both persistent volume and ephemeral volume are generally provided by the same storage classes. If you have both options, choose ephemeral. However, ephemeral requires Kubernetes 1.23 or higher.
 
-Finally, deploy the Azure IoT Operations using the `az iot ops create` command with the `--broker-config-file` flag, see the following command (other parameters omitted for brevity):
+Finally, deploy the Azure IoT Operations using the `az iot ops create` command with the `--broker-config-file` flag. See the following command (other parameters omitted for brevity):
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json

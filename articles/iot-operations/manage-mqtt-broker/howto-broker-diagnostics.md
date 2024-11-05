@@ -4,13 +4,11 @@ description: Learn how to configure diagnostic settings for the Azure IoT Operat
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.custom:
-  - ignite-2023
 ms.date: 11/04/2024
 
-#CustomerIntent: 
-ms.service: azure-iot-operations
+#CustomerIntent: As an operator, I want to configure diagnostics so that I can monitor MQTT broker communications.
 ---
 
 # Configure MQTT broker diagnostic settings

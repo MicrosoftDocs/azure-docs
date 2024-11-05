@@ -40,7 +40,7 @@ Automatic cardinality isn't yet supported when deploying the Azure IoT Operation
 
 # [Azure CLI](#tab/azure-cli)
 
-Prepare a Broker configuration file in JSON format which includes the desired properties of the [ARM `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and make sure to omit the `cardinality` field. For example, set only the memory profile:
+Prepare a Broker configuration file in JSON format which includes the desired properties of the [Azure Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and make sure to omit the `cardinality` field. For example, set only the memory profile:
 
 ```json
 {
@@ -60,11 +60,11 @@ To learn more, see [Azure CLI support for advanced MQTT broker configuration](ht
 
 The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This is useful for non-production scenarios where you don't need high-availability or scale.
 
-However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
+However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted previously, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
 
 ### Configure cardinality directly
 
-To configure the cardinality settings directly, directly specify the each of the cardinality fields.
+To configure the cardinality settings directly, specify each of the cardinality fields.
 
 # [Portal](#tab/portal)
 
@@ -76,13 +76,13 @@ When following guide to [deploy Azure IoT Operations](../deploy-iot-ops/howto-de
 
 When you deploy the Azure IoT Operations using the `az iot ops create` command, use the `--broker-frontend-replicas`, `--broker-frontend-workers`, `--broker-backend-part`, `--broker-backend-rf`, and `--broker-backend-workers` parameters to specify the cardinality settings.
 
-For example, to specify 1 frontend replica, 1 frontend worker, 1 backend partition, 2 backend replicas per partition, and 1 backend worker per replica, see the following command (other parameters omitted for brevity):
+For example, to specify one frontend replica, one frontend worker, one backend partition, two backend replicas per partition, and one backend worker per replica, see the following command (other parameters omitted for brevity):
 
 ```azurecli
 az iot ops create ... --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2
 ```
 
-Alternatively, use the `--broker-config-file` flag to specify a JSON file that includes the cardinality settings. An example JSON file for the same settings as above:
+Alternatively, use the `--broker-config-file` flag to specify a JSON file that includes the cardinality settings. An example JSON file for the same settings:
 
 ```json
 {
@@ -110,7 +110,7 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 ### Understand cardinality
 
-Cardinality means the number of instances of a particular entity in a set. In the context of the MQTT broker, cardinality refers to the number of frontend replicas, backend partitions, and backend workers to deploy. The cardinality settings are used to scale the broker horizontally and improve high availability in case of pod or node failures.
+Cardinality means the number of instances of a particular entity in a set. In the context of the MQTT broker, cardinality refers to the number of frontend replicas, backend partitions, and backend workers to deploy. The cardinality settings are used to scale the broker horizontally and improve high availability if there are pod or node failures.
 
 The cardinality field is a nested field, with subfields for frontend, backendChain, and backendChain.workers. Each of these subfields has its own settings.
 
@@ -120,7 +120,7 @@ The frontend subfield defines the settings for the frontend pods. The two main s
 
 - **Replicas**: The number of frontend replicas (pods) to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
 
-- **Workers**: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has 3 nodes, each with 8 CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to 8 per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
+- **Workers**: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has three nodes, each with eight CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to eight per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
 
 #### Backend chain
 
@@ -130,11 +130,11 @@ The backend chain subfield defines the settings for the backend chains. The thre
 
 - **Redundancy Factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 
-- **Workers**: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to 2 CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
+- **Workers**: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
 #### Considerations
 
-When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability in case of pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
+When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
 
 ## Configure memory profile
 
@@ -213,7 +213,7 @@ Changing the `generateResourceLimits` field isn't supported in the Azure portal.
 
 # [Azure CLI](#tab/azure-cli)
 
-Prepare a Broker configuration file in JSON format which includes the desired properties of the [ARM `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and set the `generateResourceLimits.cpu` field to `Disabled`. For example:
+Prepare a Broker configuration file in JSON format which includes the desired properties of the [Azure Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update) and set the `generateResourceLimits.cpu` field to `Disabled`. For example:
 
 ```json
 {

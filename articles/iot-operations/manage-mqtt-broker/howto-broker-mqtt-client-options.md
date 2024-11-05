@@ -4,13 +4,11 @@ description: Learn how to configure advanced client options for the Azure IoT Op
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.custom:
-  - ignite-2023
 ms.date: 11/04/2024
 
-#CustomerIntent: 
-ms.service: azure-iot-operations
+#CustomerIntent: As an operator, I want to configure MQTT broker so that I can control MQTT client interactions.
 ---
 
 # Configure broker MQTT client options

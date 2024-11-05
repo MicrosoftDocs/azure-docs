@@ -4,13 +4,11 @@ description: Learn how to configure encryption of broker internal traffic and in
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.custom:
-  - ignite-2023
 ms.date: 11/04/2024
 
-#CustomerIntent: 
-ms.service: azure-iot-operations
+#CustomerIntent: As an operator, I want to configure MQTT broker so that I can encrypt internal communication and data.
 ---
 
 # Configure encryption of broker internal traffic and internal certificates
@@ -38,9 +36,9 @@ The benefits include:
 
 - **Secure data in the message buffer on disk**: All data in the [message buffer on disk](./howto-disk-backed-message-buffer.md) is encrypted.
 
-By default, encrypting internal traffic enabled. To mitigate security threats, we recommend that you keep the encryption enabled. However, disabling the encryption can improve the performance of the MQTT broker, which can be useful in IoT deployments with very high throughput requirements. 
+By default, encrypting internal traffic enabled. To mitigate security threats, we recommend that you keep the encryption enabled. However, disabling the encryption can improve the performance of the MQTT broker, which can be useful in IoT deployments with high throughput requirements. 
 
-To disable the encryption, change the `advanced.encryptInternalTraffic` setting in the Broker resource. Currently this is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
+To disable the encryption, change the `advanced.encryptInternalTraffic` setting in the Broker resource. Currently, disabling encryption is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
 
 ```json
 {
@@ -58,7 +56,7 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 ## Internal certificates
 
-When encryption is enabled, the broker uses cert-manager to generate and manage the certificates used for encrypting the internal traffic. The certificates are automatically renewed by cert-manager when they expire. You can configure the certificate settings, like duration, when to renew, and private key algorithm in the Broker resource. Currently this is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command.
+When encryption is enabled, the broker uses cert-manager to generate and manage the certificates used for encrypting the internal traffic. Cert-manager automatically renews certificates when they expire. You can configure the certificate settings, like duration, when to renew, and private key algorithm in the Broker resource. Currently, changing the certificate settings are only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command.
 
 For example, to set the certificate duration to 240 hours, renew before 45 minutes, and private key algorithm to RSA 2048, prepare a Broker config file in JSON format:
 

@@ -15,7 +15,7 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations built-in local MQTT broker
 
-Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available, and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
 
@@ -62,7 +62,7 @@ erDiagram
 
 :::image type="content" source="media/overview-broker/broker-resources.svg" alt-text="Diagram showing the broker resource model.":::
 
-By default, Azure IoT Operations deploys a [default Broker](#default-broker-resource), a [default BrokerListener](howto-configure-brokerlistener.md#default-brokerlistener), and a [default BrokerAuthentication](howto-configure-authentication.md#default-brokerauthentication-resource). All of these resources are named "default". Together, these resources provide a basic MQTT broker setup required for Azure IoT Operations to function. The default setup is as follows:
+By default, Azure IoT Operations deploys a [default Broker](#default-broker-resource), a [default BrokerListener](howto-configure-brokerlistener.md#default-brokerlistener), and a [default BrokerAuthentication](howto-configure-authentication.md#default-brokerauthentication-resource). All of these resources are named *default*. Together, these resources provide a basic MQTT broker setup required for Azure IoT Operations to function. The default setup is as follows:
 
 <!-- ```mermaid
 erDiagram
@@ -98,10 +98,10 @@ In a full deployment, you could have multiple BrokerListeners, each with multipl
 
 For example, starting from the default setup, you add:
 
-- A LoadBalancer BrokerListener named "example-lb-listener" with two ports 1883 and 8883
-- A NodePort BrokerListener named "example-nodeport-listener" with a single port 1884 (nodePort 31884)
-- A BrokerAuthentication resource named "example-authn", with a custom authentication method
-- A BrokerAuthorization resource named "example-authz", with your custom authorization settings
+- A LoadBalancer BrokerListener named *example-lb-listener* with two ports 1883 and 8883
+- A NodePort BrokerListener named *example-nodeport-listener* with a single port 1884 (nodePort 31884)
+- A BrokerAuthentication resource named *example-authn*, with a custom authentication method
+- A BrokerAuthorization resource named *example-authz*, with your custom authorization settings
 
 Then, if you configure all the new ports use the same BrokerAuthentication and BrokerAuthorization resources, the setup would look like:
 
@@ -168,22 +168,22 @@ This way, you keep the default setup intact and add new resources to customize t
 
 ## Default Broker resource
 
-Each Azure IoT Operations deployment can only have one Broker, and it must be named "default". The default Broker resource is required for Azure IoT Operations to function. It's immutable and can't be modified after deployment.
+Each Azure IoT Operations deployment can only have one Broker, and it must be named *default*. The default Broker resource is required for Azure IoT Operations to function. It's immutable and can't be modified after deployment.
 
 > [!CAUTION]
 > Don't delete the default Broker resource. Doing so will disrupt communication between Azure IoT Operations internal components, and the deployment will stop functioning.
 
 ### Customize default Broker
 
-Customizing the default Broker resource is not required for most setups. The settings that require customization include:
+Customizing the default Broker resource isn't required for most setups. The settings that require customization include:
 
-- [**Cardinality**](./howto-configure-availability-scale.md#configure-scaling-settings): Determines the broker's capacity to handle more connections and messages, and it enhances high availability in case of pod or node failures.
+- [**Cardinality**](./howto-configure-availability-scale.md#configure-scaling-settings): Determines the broker's capacity to handle more connections and messages, and it enhances high availability if there are pod or node failures.
 - [**Memory profile**](./howto-configure-availability-scale.md#configure-memory-profile): Sets the maximum memory usage of the broker and how to handle memory usage as the broker scales up.
 - [**Disk-backed message buffer**](./howto-disk-backed-message-buffer.md): Configuration for buffering messages to disk as RAM fills up.
 - [**Encryption of internal traffic**](./howto-encrypt-internal-traffic.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
 - [**Advanced MQTT client options**](./howto-broker-mqtt-client-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
 
-Customizing the default broker must be done during initial deployment time using Azure CLI or Azure Portal. A new deployment is required if different Broker configuration settings are needed.
+Customizing the default broker must be done during initial deployment time using Azure CLI or Azure portal. A new deployment is required if different Broker configuration settings are needed.
 
 To customize the default Broker during deployment:
 
@@ -211,9 +211,9 @@ To view the settings for the default Broker:
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your Azure IoT Operations instance.
 1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
-1. On right right, under **Broker details**, select **JSON view**.
+1. Under **Broker details**, select **JSON view**.
 
 # [Azure CLI](#tab/azure-cli)
 
