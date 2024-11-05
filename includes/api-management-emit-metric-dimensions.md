@@ -17,4 +17,4 @@ ms.author: danlep
 * Subscription ID
 * Location
 * Gateway ID
-* Backend ID
+* Backend ID (use only in outbound policy)

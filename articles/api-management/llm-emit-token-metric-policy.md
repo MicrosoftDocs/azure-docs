@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 10/31/2024
+ms.date: 11/05/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -72,7 +72,7 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -85,7 +85,7 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 
 ## Example
 
-The following example sends LLM token count metrics to Application Insights along with API ID as a custom dimension.
+The following example sends LLM token count metrics to Application Insights along with API ID as a default dimension.
 
 ```xml
 <policies>

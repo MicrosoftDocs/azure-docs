@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 10/31/2024
+ms.date: 11/05/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -73,7 +73,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ## Example
 
-The following example sends a custom metric to count the number of API requests along with API ID as a custom dimension.
+The following example sends a custom metric to count the number of API requests along with API ID as a default dimension.
 
 ```xml
 <policies>
