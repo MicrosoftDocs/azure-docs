@@ -309,7 +309,7 @@ Run Playwright tests against browsers managed by the service and see the results
 ```bash
 dotnet test --logger "microsoft-playwright-testing"
 ```
-After the test run completes, you can view the test status in the terminal.. 
+After the test run completes, you can view the test status in the terminal.
 
 ```output
 Starting test execution, please wait...
