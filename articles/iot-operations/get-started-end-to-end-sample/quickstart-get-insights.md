@@ -241,7 +241,7 @@ Next, create a tile to display a real-time spike indicator for temperature.
 
     Select **Apply changes** to create the tile.
 
-1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible). If the most recently-collected temperature is not a spike, the tile won't trigger the conditional formatting.
+1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible). The tile will always display the most recent temperature value, but the conditional formatting will only be triggered if that value is a spike.
 
     :::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with the stat tile.":::
 
