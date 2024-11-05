@@ -9,7 +9,9 @@
   - name: About App Service Environments
     href: environment/overview.md
   - name: Compare web hosting options
-    href: /azure/architecture/guide/technology-choices/compute-decision-tree
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Compare JBoss EAP options
+    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
