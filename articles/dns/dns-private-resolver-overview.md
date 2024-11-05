@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/20/2024
+ms.date: 12/05/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -91,10 +91,6 @@ A DNS forwarding rule includes one or more target DNS servers that are used for 
 - A domain name
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
-
-## Requirements
-
-Inbound endpoints must be accessible on UDP and TCP port 53 for the clients that it serves. The DNS service uses UDP port 53 for most communications, but relies on TCP port 53 for transmission of large DNS packets. If UDP or TCP port 53 is blocked, this can cause DNS resolution issues.
 
 ## Restrictions
 
