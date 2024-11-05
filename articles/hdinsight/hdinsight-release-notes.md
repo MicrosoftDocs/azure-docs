@@ -57,11 +57,12 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-* HDInsight service is transitioning to use standard load balancers for all its cluster configurations because of [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer. For more information see, [Basic Load balancer deprecation: Guidelines for Azure HDInsight](./load-balancer-migration-guidelines.md).
+* HDInsight service is transitioning to use standard load balancers for all its cluster configurations because of [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
   * This change will be rolled out in a phased manner for different regions between November 07, 2024 and November 21, 2024.
 
 > [!NOTE]
-> When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the migration guide to recreate the cluster. For any assistance, kindly contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+For any assistance, kindly contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
