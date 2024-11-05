@@ -99,7 +99,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Back up SAP ASE (Sybase) database (preview)
 
-Azure Backup now offers backup support for SAP Adaptive Server Enterprise (ASE) (Sybase) database (preview).
+Azure Backup now allows you backing up SAP Adaptive Server Enterprise (ASE) (Sybase) databases running on Azure VMs. All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Authorization. The vaulted backup data is stored in Microsoft-managed Azure subscription, thus isolating the backups from user's environment. These features ensure that the SAP ASE backup data is always secure and can be recovered safely even if the source machines are compromised.
+
+For stream-based backup, Azure Backup can stream log backups in every **15 minutes**. You can enable this feature in addition to the database backup, which provides **Point-In-Time recovery** capability. Azure Backup also offers **Multiple Database Restore** capabilities such as **Alternate Location Restore** (System refresh), **Original Location Restore**, and **Restore as Files**.
+ 
+Azure Backup also offers cost-effective Backup policies (Weekly full + daily differential backups), which result in lower storage cost.
+For more information, see [Back up SAP ASE (Sybase) database (preview)](sap-ase-database-about.md).
 
 ## Azure Backup for Azure Database for PostgreSQL-Flexible server is now generally available 
 
