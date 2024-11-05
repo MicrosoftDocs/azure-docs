@@ -54,6 +54,8 @@ az k8s-extension create --cluster-name
                         [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
                         [--config global.networkfunctionextension.clusterRegistry.storageSize=]
                         [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
                         [--version]
 ```
 When the cluster registry feature is enabled in the Network Function Operator Arc K8s extension, any container images deployed from AOSM artifact store are accessible locally in the Nexus K8s cluster. The user can choose the persistent storage size for the cluster registry. 
