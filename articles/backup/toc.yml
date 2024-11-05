@@ -231,9 +231,7 @@
   - name: Azure Database for PostgreSQL -Flexible server backup
     href: backup-azure-database-postgresql-flex-overview.md
   - name: SAP ASE database on Azure VM backup
-    items:
-    - name: Overview
-      href: sap-ase-database-about.md
+    href: sap-ase-database-about.md
   - name: Azure Kubernetes Service backup
     items:
     - name: Overview
@@ -622,7 +620,7 @@
         href: enable-native-compression.md
   - name: SAP ASE database on Azure VM backup
     items:
-    - name: configure backup
+    - name: Backup
       href: sap-ase-database-backup.md
     - name: Restore
       href: sap-ase-database-restore.md
