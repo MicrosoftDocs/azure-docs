@@ -23,10 +23,11 @@ Serverless GPUs work exclusively with both dedicated and consumption workload pr
 The following scenarios, while not comprehensive, describe common use cases for serverless GPUs.
 
 - **Artificial Intelligence**: Applications that involve deep learning, neural networks, or large-scale data analysis can use GPUs to significantly accelerate computation speed. Including applications that support:
+
   - Real-time inferencing with open-source models such as Llama3
-  -Batch-inferencing for periodic workloads with automatic scale-to-zero
-  -Custom fine-tuning of generative AI models
-  -Machine learning scenarios
+  - Batch-inferencing for periodic workloads with automatic scale-to-zero
+  - Custom fine-tuning of generative AI models
+  - Machine learning scenarios
 
 - **High-Performance Computing (HPC)**: Applications that require complex calculations and simulations, such as scientific computing, financial modeling, or weather forecasting use GPUs as resources for high computational demands.
 
@@ -36,7 +37,7 @@ The following scenarios, while not comprehensive, describe common use cases for 
 
 ## Benefits
 
-Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. They provide an excellent middle layer option between Azure AI model catalog’s Serverless APIs and hosting models on managed compute such as Azure Kubernetes Service or Virtual Machines.
+Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature can provide a middle layer option between the Azure AI model catalog's serverless APIs and hosting models on managed compute.
 
 The Container Apps serverless GPU support provides full data governance as your data never leaves the boundaries of your container while still providing a managed, serverless platform from which to build your applications.
 
@@ -46,7 +47,7 @@ When you use serverless GPUs in Container Apps, your apps get:
 
 - **Per-second billing**: Fine-grained cost calculations reduced down to the second.
 
-- **Built-in aata governance**: Your data never leave the container boundary.
+- **Built-in data governance**: Your data never leave the container boundary.
 
 - **Flexible compute options**: You can choose between the NVIDIA A100 or T4 compute profiles.
 
@@ -64,6 +65,9 @@ The following items are required for you to use serverless GPUs in your workload
 
 Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
+> [!NOTE]
+> Customer with enterprise agreements have a single T4 GPU quota enabled by default.
+
 ## Supported regions
 
 Serverless GPUs are available in preview in the *West US 3* and *Australia East* regions.
@@ -80,7 +84,7 @@ In the *Container* tab of the create process, set the following settings:
 
 ## Reduce cold start
 
-You can reduce cold start on your GPU-enabled containers by enabling artifact streaming. With artifact streaming, image layers are sent directly to you container app in sections instead of all at once. Splitting up the image layer into smaller pieces allows your app to bring up the image after than having to process a single large payload.
+You can reduce cold start on your GPU-enabled containers by enabling artifact streaming. With artifact streaming, image layers are sent directly to your container app in sections instead of all at once. Splitting up the image layer into smaller pieces allows your app to bring up the image after than having to process a single large payload.
 
 > [!NOTE]
 > To use artifact streaming, your container images must be hosted in Azure Container Registry.
